@@ -16,6 +16,7 @@
                                 <subviews>
                                     <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" alwaysBounceVertical="YES" minimumZoomScale="0.0" maximumZoomScale="0.0" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="NoU-2f-HS3">
                                         <constraints>
+                                            <constraint firstAttribute="height" constant="504" id="KZa-Ia-ZHR"/>
                                             <constraint firstAttribute="width" constant="320" id="NgB-zb-bxb"/>
                                         </constraints>
                                         <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="sQ4-wF-cWC">
@@ -63,11 +64,10 @@
                                     </collectionView>
                                 </subviews>
                                 <constraints>
-                                    <constraint firstItem="NoU-2f-HS3" firstAttribute="bottom" secondItem="idD-fk-d6Y" secondAttribute="bottom" type="default" id="25h-Bh-5uE"/>
-                                    <constraint firstItem="NoU-2f-HS3" firstAttribute="top" secondItem="idD-fk-d6Y" secondAttribute="top" type="default" id="2cr-9c-zUR"/>
-                                    <constraint firstItem="NoU-2f-HS3" firstAttribute="centerY" secondItem="idD-fk-d6Y" secondAttribute="centerY" type="default" id="6xz-VZ-SzM"/>
-                                    <constraint firstAttribute="trailing" secondItem="NoU-2f-HS3" secondAttribute="trailing" constant="4" id="QTX-rJ-zyL"/>
-                                    <constraint firstItem="NoU-2f-HS3" firstAttribute="centerX" secondItem="idD-fk-d6Y" secondAttribute="centerX" type="default" id="T9b-aX-Crn"/>
+                                    <constraint firstItem="NoU-2f-HS3" firstAttribute="top" secondItem="idD-fk-d6Y" secondAttribute="top" constant="20" symbolic="YES" type="default" id="cFK-zs-1dw"/>
+                                    <constraint firstItem="NoU-2f-HS3" firstAttribute="bottom" secondItem="idD-fk-d6Y" secondAttribute="bottom" type="default" id="p9h-iK-sg6"/>
+                                    <constraint firstItem="NoU-2f-HS3" firstAttribute="leading" secondItem="idD-fk-d6Y" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="q1F-ic-O6N"/>
+                                    <constraint firstAttribute="trailing" secondItem="NoU-2f-HS3" secondAttribute="trailing" constant="4" id="yod-9X-n54"/>
                                 </constraints>
                             </scrollView>
                             <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9nP-Jx-Tyr">
@@ -83,11 +83,11 @@
                         <constraints>
                             <constraint firstItem="9nP-Jx-Tyr" firstAttribute="top" secondItem="3" secondAttribute="top" type="default" id="5C6-1o-tnG"/>
                             <constraint firstItem="9nP-Jx-Tyr" firstAttribute="trailing" secondItem="3" secondAttribute="trailing" type="default" id="6qS-x6-Q4i"/>
-                            <constraint firstItem="idD-fk-d6Y" firstAttribute="bottom" secondItem="3" secondAttribute="bottom" type="default" id="fGa-wA-10Y"/>
-                            <constraint firstItem="idD-fk-d6Y" firstAttribute="leading" secondItem="3" secondAttribute="leading" constant="-7" id="hLJ-qh-UOH"/>
-                            <constraint firstItem="idD-fk-d6Y" firstAttribute="trailing" secondItem="3" secondAttribute="trailing" type="default" id="mf4-JW-UEb"/>
+                            <constraint firstItem="idD-fk-d6Y" firstAttribute="leading" secondItem="3" secondAttribute="leading" constant="-24" id="FYv-ab-Sbr"/>
+                            <constraint firstItem="idD-fk-d6Y" firstAttribute="trailing" secondItem="3" secondAttribute="trailing" type="default" id="emT-xe-IaK"/>
+                            <constraint firstItem="idD-fk-d6Y" firstAttribute="top" secondItem="3" secondAttribute="top" constant="24" id="fSN-bV-gxn"/>
                             <constraint firstItem="9nP-Jx-Tyr" firstAttribute="leading" secondItem="3" secondAttribute="leading" type="default" id="nzb-1p-jbu"/>
-                            <constraint firstItem="idD-fk-d6Y" firstAttribute="top" secondItem="9nP-Jx-Tyr" secondAttribute="bottom" type="default" id="zjf-Jf-ghE"/>
+                            <constraint firstItem="idD-fk-d6Y" firstAttribute="bottom" secondItem="3" secondAttribute="bottom" type="default" id="ywP-FP-gsA"/>
                         </constraints>
                     </view>
                     <connections>
