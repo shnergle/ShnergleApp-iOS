@@ -13,6 +13,7 @@
 {
     NSArray *venueNames;
     NSArray *images;
+    NSInteger selectedVenue;
 }
 @end
 
@@ -52,6 +53,18 @@
 
 
 
+}
+
+-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    if ([segue.identifier isEqualToString:@"ToVenueSite"]) {
+        [segue.destinationViewController setTitle:[venueNames objectAtIndex:selectedVenue]];
+    }
+}
+
+- (void)collectionView:(UICollectionView *)collectionView
+didHighlightItemAtIndexPath:(NSIndexPath *)indexPath {
+    selectedVenue = indexPath.row;
 }
 
 - (void)didReceiveMemoryWarning

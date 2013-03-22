@@ -72,7 +72,7 @@
                                                 <connections>
                                                     <outlet property="crowdImage" destination="qu8-4s-JU3" id="VDk-Bh-mfX"/>
                                                     <outlet property="venueName" destination="4Wx-Ws-wdn" id="VWS-IG-eV7"/>
-                                                    <segue destination="rpF-0H-Qzy" kind="push" id="TI1-Sy-Ylq"/>
+                                                    <segue destination="rpF-0H-Qzy" kind="push" identifier="ToVenueSite" id="Zho-BK-kL6"/>
                                                 </connections>
                                             </collectionViewCell>
                                         </cells>
@@ -115,10 +115,10 @@
             </objects>
             <point key="canvasLocation" x="-1255" y="-37"/>
         </scene>
-        <!--View Controller-->
+        <!--Venue View Controller-->
         <scene sceneID="MVj-zz-jE1">
             <objects>
-                <viewController id="rpF-0H-Qzy" sceneMemberID="viewController">
+                <viewController id="rpF-0H-Qzy" customClass="VenueViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="IVE-af-RYQ">
                         <rect key="frame" x="0.0" y="64" width="320" height="504"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -135,7 +135,12 @@
                             <constraint firstItem="tNv-Uz-8l1" firstAttribute="top" secondItem="IVE-af-RYQ" secondAttribute="top" constant="105" id="Z8f-Ak-htU"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="fS0-pY-YIw"/>
+                    <navigationItem key="navigationItem" id="fS0-pY-YIw">
+                        <barButtonItem key="rightBarButtonItem" image="07-map-marker.png" id="j8H-eV-cm2"/>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="navBar" destination="fS0-pY-YIw" id="iKh-6h-RfQ"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5J8-5c-1wg" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -279,6 +284,15 @@
         </class>
         <class className="UICollectionViewFlowLayout" superclassName="UICollectionViewLayout">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/UICollectionViewFlowLayout.h"/>
+        </class>
+        <class className="UICollectionViewLayout" superclassName="NSObject">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/UICollectionViewLayout.h"/>
+        </class>
+        <class className="VenueViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/VenueViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="navBar" candidateClass="UINavigationItem"/>
+            </relationships>
         </class>
         <class className="ViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/ViewController.h"/>

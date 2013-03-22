@@ -8,7 +8,11 @@
 
 #import <UIKit/UIKit.h>
 
+NSInteger selectedVenueIndex;
+
+
 @interface ViewController : UIViewController<UICollectionViewDataSource, UICollectionViewDelegate>
+
 @property (weak, nonatomic) IBOutlet UICollectionView *crowdCollection;
 
 @end
