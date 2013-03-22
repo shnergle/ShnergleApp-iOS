@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		805B609616FCA22600B8BE25 /* GoogleMaps.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 805B609516FCA22600B8BE25 /* GoogleMaps.framework */; };
 		805B609816FCA24E00B8BE25 /* Resources in Resources */ = {isa = PBXBuildFile; fileRef = 805B609716FCA24E00B8BE25 /* Resources */; };
+		805B609A16FCAADA00B8BE25 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 805B609916FCAADA00B8BE25 /* README.md */; };
 		808F13C916FB6A5C00B66E6D /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 808F13C816FB6A5C00B66E6D /* UIKit.framework */; };
 		808F13CB16FB6A5C00B66E6D /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 808F13CA16FB6A5C00B66E6D /* Foundation.framework */; };
 		808F13CD16FB6A5C00B66E6D /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 808F13CC16FB6A5C00B66E6D /* CoreGraphics.framework */; };
@@ -51,6 +52,7 @@
 /* Begin PBXFileReference section */
 		805B609516FCA22600B8BE25 /* GoogleMaps.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = GoogleMaps.framework; sourceTree = "<group>"; };
 		805B609716FCA24E00B8BE25 /* Resources */ = {isa = PBXFileReference; lastKnownFileType = folder; name = Resources; path = "../../../Downloads/GoogleMaps-iOS-1.1.1/GoogleMaps.framework/Resources"; sourceTree = "<group>"; };
+		805B609916FCAADA00B8BE25 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.md; sourceTree = "<group>"; };
 		808F13C516FB6A5C00B66E6D /* Consumer App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Consumer App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		808F13C816FB6A5C00B66E6D /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		808F13CA16FB6A5C00B66E6D /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -117,6 +119,7 @@
 		808F13BC16FB6A5C00B66E6D = {
 			isa = PBXGroup;
 			children = (
+				805B609916FCAADA00B8BE25 /* README.md */,
 				80B957D216FBC5E50044A505 /* .gitignore */,
 				80B957C716FB846C0044A505 /* icon114.png */,
 				80B957CB16FB86DD0044A505 /* 07-map-marker.png */,
@@ -291,6 +294,7 @@
 				80B957CE16FB86E90044A505 /* 19-gear.png in Resources */,
 				80B957D316FBC5E50044A505 /* .gitignore in Resources */,
 				805B609816FCA24E00B8BE25 /* Resources in Resources */,
+				805B609A16FCAADA00B8BE25 /* README.md in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
