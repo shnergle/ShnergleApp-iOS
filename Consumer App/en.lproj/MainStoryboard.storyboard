@@ -136,7 +136,11 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="fS0-pY-YIw">
-                        <barButtonItem key="rightBarButtonItem" image="07-map-marker.png" id="j8H-eV-cm2"/>
+                        <barButtonItem key="rightBarButtonItem" image="07-map-marker.png" id="j8H-eV-cm2">
+                            <connections>
+                                <segue destination="CuC-E9-ArH" kind="push" id="lI3-hS-KdK"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="navBar" destination="fS0-pY-YIw" id="iKh-6h-RfQ"/>
@@ -235,7 +239,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Dpl-bY-Po8" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-844" y="303"/>
+            <point key="canvasLocation" x="-710" y="317"/>
         </scene>
         <!--View Controller - Profile-->
         <scene sceneID="aFZ-SR-USp">
@@ -250,7 +254,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="S6M-cZ-UVf" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-844" y="-684"/>
+            <point key="canvasLocation" x="-710" y="-678"/>
         </scene>
     </scenes>
     <resources>
@@ -306,4 +310,7 @@
         <simulatedOrientationMetrics key="orientation"/>
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
+    <inferredMetricsTieBreakers>
+        <segue reference="lI3-hS-KdK"/>
+    </inferredMetricsTieBreakers>
 </document>
