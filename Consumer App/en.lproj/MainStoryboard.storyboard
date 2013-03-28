@@ -125,19 +125,19 @@
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tc0-Zu-nUW">
                                 <subviews>
-                                    <collectionView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" minimumZoomScale="0.0" maximumZoomScale="0.0" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="p6Q-Ks-hgi">
+                                    <collectionView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="top" indicatorStyle="white" minimumZoomScale="0.0" maximumZoomScale="0.0" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="p6Q-Ks-hgi">
                                         <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="6jD-sx-Beu">
-                                            <size key="itemSize" width="155" height="152"/>
+                                            <size key="itemSize" width="97" height="96"/>
                                             <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                             <size key="footerReferenceSize" width="0.0" height="0.0"/>
                                             <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                         </collectionViewFlowLayout>
                                         <cells>
                                             <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="Cell" id="U0i-V3-hQz" customClass="CrowdItem">
-                                                <rect key="frame" x="0.0" y="0.0" width="155" height="152"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="97" height="96"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                                    <rect key="frame" x="0.0" y="0.0" width="155" height="152"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="97" height="96"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <subviews>
                                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hoB-5l-wEl"/>
@@ -151,12 +151,12 @@
                                                 </view>
                                                 <color key="backgroundColor" red="0.77110224179999998" green="0.77110224179999998" blue="0.77110224179999998" alpha="1" colorSpace="calibratedRGB"/>
                                                 <constraints>
+                                                    <constraint firstItem="uvc-qp-utE" firstAttribute="leading" secondItem="U0i-V3-hQz" secondAttribute="leading" constant="20" type="default" id="28D-6j-JFa"/>
                                                     <constraint firstItem="hoB-5l-wEl" firstAttribute="leading" secondItem="U0i-V3-hQz" secondAttribute="leading" type="default" id="4oi-rg-9me"/>
                                                     <constraint firstItem="hoB-5l-wEl" firstAttribute="bottom" secondItem="U0i-V3-hQz" secondAttribute="bottom" type="default" id="9nj-Uu-vHO"/>
                                                     <constraint firstItem="hoB-5l-wEl" firstAttribute="trailing" secondItem="U0i-V3-hQz" secondAttribute="trailing" type="default" id="9qA-e7-fRc"/>
-                                                    <constraint firstItem="uvc-qp-utE" firstAttribute="top" secondItem="U0i-V3-hQz" secondAttribute="top" constant="121" id="JNL-Hb-Gmg"/>
-                                                    <constraint firstItem="uvc-qp-utE" firstAttribute="leading" secondItem="U0i-V3-hQz" secondAttribute="leading" constant="20" type="default" id="UT2-y6-NdU"/>
                                                     <constraint firstItem="hoB-5l-wEl" firstAttribute="top" secondItem="U0i-V3-hQz" secondAttribute="top" type="default" id="axE-tD-R8a"/>
+                                                    <constraint firstItem="uvc-qp-utE" firstAttribute="top" secondItem="U0i-V3-hQz" secondAttribute="top" constant="550" id="wWs-MK-Ice"/>
                                                 </constraints>
                                                 <connections>
                                                     <outlet property="crowdImage" destination="hoB-5l-wEl" id="QFP-70-BOB"/>
@@ -166,21 +166,25 @@
                                         </cells>
                                     </collectionView>
                                 </subviews>
+                                <gestureRecognizers/>
                                 <constraints>
                                     <constraint firstItem="p6Q-Ks-hgi" firstAttribute="bottom" secondItem="tc0-Zu-nUW" secondAttribute="bottom" type="default" id="2NT-ut-jfx"/>
-                                    <constraint firstItem="p6Q-Ks-hgi" firstAttribute="centerX" secondItem="tc0-Zu-nUW" secondAttribute="centerX" type="default" id="Ely-JY-tVu"/>
                                     <constraint firstItem="p6Q-Ks-hgi" firstAttribute="trailing" secondItem="tc0-Zu-nUW" secondAttribute="trailing" type="default" id="Kjd-aU-ldw"/>
                                     <constraint firstItem="p6Q-Ks-hgi" firstAttribute="leading" secondItem="tc0-Zu-nUW" secondAttribute="leading" type="default" id="L4W-Pf-xdp"/>
-                                    <constraint firstItem="p6Q-Ks-hgi" firstAttribute="centerY" secondItem="tc0-Zu-nUW" secondAttribute="centerY" type="default" id="XQO-Dc-rtU"/>
                                     <constraint firstItem="p6Q-Ks-hgi" firstAttribute="top" secondItem="tc0-Zu-nUW" secondAttribute="top" type="default" id="d5X-6Q-iey"/>
+                                    <constraint firstItem="p6Q-Ks-hgi" firstAttribute="centerY" secondItem="tc0-Zu-nUW" secondAttribute="centerY" type="default" id="puB-bU-hfS"/>
+                                    <constraint firstItem="p6Q-Ks-hgi" firstAttribute="centerX" secondItem="tc0-Zu-nUW" secondAttribute="centerX" type="default" id="qBl-Qb-ACg"/>
                                 </constraints>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="L7M-sX-lEl" appends="YES" id="mWU-fh-vIt"/>
+                                </connections>
                             </scrollView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="tc0-Zu-nUW" firstAttribute="leading" secondItem="IVE-af-RYQ" secondAttribute="leading" type="default" id="ATj-2V-EdZ"/>
-                            <constraint firstItem="tc0-Zu-nUW" firstAttribute="bottom" secondItem="IVE-af-RYQ" secondAttribute="bottom" type="default" id="SkU-2m-8ZH"/>
-                            <constraint firstItem="tc0-Zu-nUW" firstAttribute="trailing" secondItem="IVE-af-RYQ" secondAttribute="trailing" type="default" id="aaO-oo-yUn"/>
+                            <constraint firstItem="tc0-Zu-nUW" firstAttribute="bottom" secondItem="IVE-af-RYQ" secondAttribute="bottom" type="default" id="Hdy-kb-zwk"/>
+                            <constraint firstItem="tc0-Zu-nUW" firstAttribute="trailing" secondItem="IVE-af-RYQ" secondAttribute="trailing" type="default" id="m9Q-Z4-mg8"/>
                             <constraint firstItem="tc0-Zu-nUW" firstAttribute="top" secondItem="IVE-af-RYQ" secondAttribute="top" type="default" id="oo4-f9-c9t"/>
                         </constraints>
                     </view>
@@ -197,6 +201,11 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5J8-5c-1wg" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <pongPressGestureRecognizer allowableMovement="10" minimumPressDuration="0.5" id="L7M-sX-lEl">
+                    <connections>
+                        <action selector="displayTextView:" destination="rpF-0H-Qzy" id="aeq-ke-WwP"/>
+                    </connections>
+                </pongPressGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="-1255" y="871"/>
         </scene>
@@ -559,12 +568,10 @@
         <class className="UICollectionViewFlowLayout" superclassName="UICollectionViewLayout">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/UICollectionViewFlowLayout.h"/>
         </class>
-        <class className="UICollectionViewLayout" superclassName="NSObject">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/UICollectionViewLayout.h"/>
-        </class>
         <class className="VenueViewController" superclassName="ViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/VenueViewController.h"/>
             <relationships>
+                <relationship kind="action" name="displayTextView:"/>
                 <relationship kind="outlet" name="crowdCollectionV" candidateClass="UICollectionView"/>
                 <relationship kind="outlet" name="navBar" candidateClass="UINavigationItem"/>
             </relationships>

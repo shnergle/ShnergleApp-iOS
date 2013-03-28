@@ -14,5 +14,6 @@
 -(void)setTitle:(NSString *)title;
 
 @property (weak, nonatomic) IBOutlet UICollectionView *crowdCollectionV;
+- (IBAction)displayTextView:(id)sender;
 
 @end

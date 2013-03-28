@@ -14,6 +14,7 @@
     NSArray *venueNames;
     NSArray *images;
     NSInteger selectedVenue;
+    BOOL textViewOpen;
 }
 
 @end
@@ -39,11 +40,12 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    textViewOpen = false;
     [[self crowdCollectionV]setDataSource:self];
     [[self crowdCollectionV]setDelegate:self];
     
-    images = [[NSArray alloc] initWithObjects:@"liverpool.JPG", @"liverpool2.jpg", @"mahiki.jpg",@"liverpool.JPG", @"liverpool2.jpg", @"mahiki.jpg",@"liverpool.JPG", @"liverpool2.jpg", @"mahiki.jpg",nil];
-    venueNames = [[NSArray alloc] initWithObjects:@"liverpool street station",@"liverpool street station",@"mahiki",@"liverpool street station",@"liverpool street station",@"mahiki",@"liverpool street station",@"liverpool street station",@"mahiki", nil];
+    images = [[NSArray alloc] initWithObjects:@"liverpool.JPG", @"liverpool2.jpg", @"mahiki.jpg",@"liverpool.JPG", @"liverpool2.jpg", @"mahiki.jpg",@"liverpool.JPG", @"liverpool2.jpg", @"mahiki.jpg",@"liverpool2.jpg", @"mahiki.jpg",@"liverpool2.jpg", @"mahiki.jpg",@"liverpool2.jpg", @"mahiki.jpg",nil];
+    venueNames = [[NSArray alloc] initWithObjects:@"liverpool street station",@"liverpool street station",@"mahiki",@"liverpool street station",@"liverpool street station",@"mahiki",@"liverpool street station",@"liverpool street station",@"mahiki",@"liverpool street station",@"mahiki",@"liverpool street station",@"mahiki",@"liverpool street station",@"mahiki", nil];
 
 }
 
@@ -79,4 +81,18 @@
     // Dispose of any resources that can be recreated.
 }
 
+- (IBAction)displayTextView:(id)sender {
+    if(!textViewOpen){
+    UIView *overlayView = [[[NSBundle mainBundle] loadNibNamed:@"overlayText" owner:self options:nil] objectAtIndex:0];
+    overlayView.backgroundColor = [UIColor whiteColor];
+    //[overlayView addSubview:label]; // label declared elsewhere
+    //[overlayView addSubview:backgroundImage]; // backgroundImage declared elsewhere
+    //... Add a bunch of other controls
+    
+    //... Release a bunch of other controls
+    
+    [self.view addSubview:overlayView];
+        textViewOpen = true;
+    }
+}
 @end
