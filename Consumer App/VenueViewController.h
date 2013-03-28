@@ -7,10 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "ViewController.h"
 
-@interface VenueViewController : UIViewController
+@interface VenueViewController : ViewController
 @property (weak, nonatomic) IBOutlet UINavigationItem *navBar;
 -(void)setTitle:(NSString *)title;
 
+@property (weak, nonatomic) IBOutlet UICollectionView *crowdCollectionV;
 
 @end
