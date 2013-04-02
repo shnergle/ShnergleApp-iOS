@@ -9,6 +9,11 @@
 /* Begin PBXBuildFile section */
 		8045AFC6170493D3002012D5 /* overlayText.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8045AFC5170493D3002012D5 /* overlayText.xib */; };
 		8045AFC9170495CE002012D5 /* overlayText.m in Sources */ = {isa = PBXBuildFile; fileRef = 8045AFC8170495CE002012D5 /* overlayText.m */; };
+		8045AFD4170B0159002012D5 /* TMAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 8045AFCC170B0159002012D5 /* TMAppDelegate.m */; };
+		8045AFD5170B0159002012D5 /* TMPostDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8045AFCE170B0159002012D5 /* TMPostDetailViewController.m */; };
+		8045AFD6170B0159002012D5 /* TMPostDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8045AFCF170B0159002012D5 /* TMPostDetailViewController.xib */; };
+		8045AFD7170B0159002012D5 /* TMTestTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8045AFD1170B0159002012D5 /* TMTestTableViewController.m */; };
+		8045AFD8170B0159002012D5 /* UITabBarController+hidable.m in Sources */ = {isa = PBXBuildFile; fileRef = 8045AFD3170B0159002012D5 /* UITabBarController+hidable.m */; };
 		805CE6CD16FCB985002445C3 /* mapSample.png in Resources */ = {isa = PBXBuildFile; fileRef = 805CE6CC16FCB985002445C3 /* mapSample.png */; };
 		805CE6D016FCBDC9002445C3 /* PhotoLocationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 805CE6CF16FCBDC9002445C3 /* PhotoLocationViewController.m */; };
 		805CE6D216FCC092002445C3 /* plusone.png in Resources */ = {isa = PBXBuildFile; fileRef = 805CE6D116FCC092002445C3 /* plusone.png */; };
@@ -57,6 +62,15 @@
 		8045AFC5170493D3002012D5 /* overlayText.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = overlayText.xib; sourceTree = "<group>"; };
 		8045AFC7170495CD002012D5 /* overlayText.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = overlayText.h; sourceTree = "<group>"; };
 		8045AFC8170495CE002012D5 /* overlayText.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = overlayText.m; sourceTree = "<group>"; };
+		8045AFCB170B0159002012D5 /* TMAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TMAppDelegate.h; sourceTree = "<group>"; };
+		8045AFCC170B0159002012D5 /* TMAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TMAppDelegate.m; sourceTree = "<group>"; };
+		8045AFCD170B0159002012D5 /* TMPostDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TMPostDetailViewController.h; sourceTree = "<group>"; };
+		8045AFCE170B0159002012D5 /* TMPostDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TMPostDetailViewController.m; sourceTree = "<group>"; };
+		8045AFCF170B0159002012D5 /* TMPostDetailViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TMPostDetailViewController.xib; sourceTree = "<group>"; };
+		8045AFD0170B0159002012D5 /* TMTestTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TMTestTableViewController.h; sourceTree = "<group>"; };
+		8045AFD1170B0159002012D5 /* TMTestTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TMTestTableViewController.m; sourceTree = "<group>"; };
+		8045AFD2170B0159002012D5 /* UITabBarController+hidable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITabBarController+hidable.h"; sourceTree = "<group>"; };
+		8045AFD3170B0159002012D5 /* UITabBarController+hidable.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITabBarController+hidable.m"; sourceTree = "<group>"; };
 		805CE6CC16FCB985002445C3 /* mapSample.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = mapSample.png; sourceTree = "<group>"; };
 		805CE6CE16FCBDC9002445C3 /* PhotoLocationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PhotoLocationViewController.h; sourceTree = "<group>"; };
 		805CE6CF16FCBDC9002445C3 /* PhotoLocationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PhotoLocationViewController.m; sourceTree = "<group>"; };
@@ -125,6 +139,23 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		8045AFCA170B0112002012D5 /* TMExpandable - demo code */ = {
+			isa = PBXGroup;
+			children = (
+				8045AFCB170B0159002012D5 /* TMAppDelegate.h */,
+				8045AFCC170B0159002012D5 /* TMAppDelegate.m */,
+				8045AFCD170B0159002012D5 /* TMPostDetailViewController.h */,
+				8045AFCE170B0159002012D5 /* TMPostDetailViewController.m */,
+				8045AFCF170B0159002012D5 /* TMPostDetailViewController.xib */,
+				8045AFD0170B0159002012D5 /* TMTestTableViewController.h */,
+				8045AFD1170B0159002012D5 /* TMTestTableViewController.m */,
+				8045AFD2170B0159002012D5 /* UITabBarController+hidable.h */,
+				8045AFD3170B0159002012D5 /* UITabBarController+hidable.m */,
+			);
+			name = "TMExpandable - demo code";
+			path = "Consumer AppTests";
+			sourceTree = "<group>";
+		};
 		808F13BC16FB6A5C00B66E6D = {
 			isa = PBXGroup;
 			children = (
@@ -135,6 +166,7 @@
 				80B957C716FB846C0044A505 /* icon114.png */,
 				80B957CB16FB86DD0044A505 /* 07-map-marker.png */,
 				805CE6D116FCC092002445C3 /* plusone.png */,
+				8045AFCA170B0112002012D5 /* TMExpandable - demo code */,
 				80B957C816FB846C0044A505 /* icon57.png */,
 				80B957C116FB7D840044A505 /* liverpool2.jpg */,
 				80B957CD16FB86E90044A505 /* 19-gear.png */,
@@ -313,6 +345,7 @@
 				805CE6D516FCC1A2002445C3 /* twitter.jpg in Resources */,
 				805CE6D616FCC1A2002445C3 /* facebook.png in Resources */,
 				8045AFC6170493D3002012D5 /* overlayText.xib in Resources */,
+				8045AFD6170B0159002012D5 /* TMPostDetailViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -355,6 +388,10 @@
 				80B957D616FC65F90044A505 /* VenueViewController.m in Sources */,
 				805CE6D016FCBDC9002445C3 /* PhotoLocationViewController.m in Sources */,
 				8045AFC9170495CE002012D5 /* overlayText.m in Sources */,
+				8045AFD4170B0159002012D5 /* TMAppDelegate.m in Sources */,
+				8045AFD5170B0159002012D5 /* TMPostDetailViewController.m in Sources */,
+				8045AFD7170B0159002012D5 /* TMTestTableViewController.m in Sources */,
+				8045AFD8170B0159002012D5 /* UITabBarController+hidable.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
