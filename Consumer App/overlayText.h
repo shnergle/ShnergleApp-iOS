@@ -12,5 +12,6 @@
 
 - (IBAction)swipeDown:(id)sender;
 - (IBAction)swipeUp:(id)sender;
+- (void)setTabBarHidden:(BOOL)hidden animated:(BOOL)animated;
 
 @end
