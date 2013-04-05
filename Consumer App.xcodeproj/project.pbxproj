@@ -34,6 +34,7 @@
 		80B957BA16FB7A910044A505 /* CrowdItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 80B957B916FB7A910044A505 /* CrowdItem.m */; };
 		80B957D116FBB74F0044A505 /* CheckInViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 80B957D016FBB74F0044A505 /* CheckInViewController.m */; };
 		80B957D616FC65F90044A505 /* VenueViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 80B957D516FC65F90044A505 /* VenueViewController.m */; };
+		EE3AFF8D170F11BF009BE96C /* MapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EE3AFF8C170F11BF009BE96C /* MapViewController.m */; };
 		EE7EC3E117045ED400EF152E /* GoogleMaps.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EE7EC3E017045ED400EF152E /* GoogleMaps.framework */; };
 		EE7EC3E317045F8500EF152E /* GoogleMaps.bundle in Resources */ = {isa = PBXBuildFile; fileRef = EE7EC3E217045F8500EF152E /* GoogleMaps.bundle */; };
 		EE7EC3E51704677B00EF152E /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EE7EC3E41704677B00EF152E /* AVFoundation.framework */; };
@@ -115,6 +116,8 @@
 		80B957D216FBC5E50044A505 /* .gitignore */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = .gitignore; path = /Users/stian/Documents/Shnergle/.gitignore; sourceTree = "<absolute>"; };
 		80B957D416FC65F90044A505 /* VenueViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VenueViewController.h; sourceTree = "<group>"; };
 		80B957D516FC65F90044A505 /* VenueViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VenueViewController.m; sourceTree = "<group>"; };
+		EE3AFF8B170F11BF009BE96C /* MapViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapViewController.h; sourceTree = "<group>"; };
+		EE3AFF8C170F11BF009BE96C /* MapViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MapViewController.m; sourceTree = "<group>"; };
 		EE7EC3E017045ED400EF152E /* GoogleMaps.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = GoogleMaps.framework; sourceTree = "<group>"; };
 		EE7EC3E217045F8500EF152E /* GoogleMaps.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = GoogleMaps.bundle; path = GoogleMaps.framework/Versions/A/Resources/GoogleMaps.bundle; sourceTree = "<group>"; };
 		EE7EC3E41704677B00EF152E /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
@@ -236,6 +239,8 @@
 				808F13D716FB6A5C00B66E6D /* AppDelegate.h */,
 				808F13D816FB6A5C00B66E6D /* AppDelegate.m */,
 				808F13E016FB6A5C00B66E6D /* MainStoryboard.storyboard */,
+				EE3AFF8B170F11BF009BE96C /* MapViewController.h */,
+				EE3AFF8C170F11BF009BE96C /* MapViewController.m */,
 				805CE6CE16FCBDC9002445C3 /* PhotoLocationViewController.h */,
 				805CE6CF16FCBDC9002445C3 /* PhotoLocationViewController.m */,
 				80B957D416FC65F90044A505 /* VenueViewController.h */,
@@ -424,6 +429,7 @@
 				8045AFD5170B0159002012D5 /* TMPostDetailViewController.m in Sources */,
 				8045AFD7170B0159002012D5 /* TMTestTableViewController.m in Sources */,
 				8045AFD8170B0159002012D5 /* UITabBarController+hidable.m in Sources */,
+				EE3AFF8D170F11BF009BE96C /* MapViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
