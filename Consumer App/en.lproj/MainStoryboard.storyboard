@@ -17,7 +17,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="h9g-Nd-nT0" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1925" y="-20"/>
+            <point key="canvasLocation" x="-1933" y="-37"/>
         </scene>
         <!--View Controller - Around me-->
         <scene sceneID="5">
@@ -34,17 +34,17 @@
                                             <constraint firstAttribute="width" constant="320" id="NgB-zb-bxb"/>
                                         </constraints>
                                         <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="sQ4-wF-cWC">
-                                            <size key="itemSize" width="154" height="151"/>
+                                            <size key="itemSize" width="155" height="152"/>
                                             <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                             <size key="footerReferenceSize" width="0.0" height="0.0"/>
                                             <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                         </collectionViewFlowLayout>
                                         <cells>
                                             <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="Cell" id="UwI-q0-33t" customClass="CrowdItem">
-                                                <rect key="frame" x="0.0" y="0.0" width="154" height="151"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="155" height="152"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                                    <rect key="frame" x="0.0" y="0.0" width="154" height="151"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="155" height="152"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <subviews>
                                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qu8-4s-JU3"/>
@@ -123,30 +123,89 @@
                         <rect key="frame" x="0.0" y="64" width="320" height="504"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="The Venue site" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tNv-Uz-8l1">
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tc0-Zu-nUW">
+                                <subviews>
+                                    <collectionView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="top" indicatorStyle="white" minimumZoomScale="0.0" maximumZoomScale="0.0" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="p6Q-Ks-hgi">
+                                        <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="6jD-sx-Beu">
+                                            <size key="itemSize" width="97" height="96"/>
+                                            <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                            <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                            <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                        </collectionViewFlowLayout>
+                                        <cells>
+                                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="Cell" id="U0i-V3-hQz" customClass="CrowdItem">
+                                                <rect key="frame" x="0.0" y="0.0" width="97" height="96"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                                    <rect key="frame" x="0.0" y="0.0" width="97" height="96"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <subviews>
+                                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hoB-5l-wEl"/>
+                                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uvc-qp-utE">
+                                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                    </subviews>
+                                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                </view>
+                                                <color key="backgroundColor" red="0.77110224179999998" green="0.77110224179999998" blue="0.77110224179999998" alpha="1" colorSpace="calibratedRGB"/>
+                                                <constraints>
+                                                    <constraint firstItem="uvc-qp-utE" firstAttribute="leading" secondItem="U0i-V3-hQz" secondAttribute="leading" constant="20" type="default" id="28D-6j-JFa"/>
+                                                    <constraint firstItem="hoB-5l-wEl" firstAttribute="leading" secondItem="U0i-V3-hQz" secondAttribute="leading" type="default" id="4oi-rg-9me"/>
+                                                    <constraint firstItem="hoB-5l-wEl" firstAttribute="bottom" secondItem="U0i-V3-hQz" secondAttribute="bottom" type="default" id="9nj-Uu-vHO"/>
+                                                    <constraint firstItem="hoB-5l-wEl" firstAttribute="trailing" secondItem="U0i-V3-hQz" secondAttribute="trailing" type="default" id="9qA-e7-fRc"/>
+                                                    <constraint firstItem="hoB-5l-wEl" firstAttribute="top" secondItem="U0i-V3-hQz" secondAttribute="top" type="default" id="axE-tD-R8a"/>
+                                                    <constraint firstItem="uvc-qp-utE" firstAttribute="top" secondItem="U0i-V3-hQz" secondAttribute="top" constant="550" id="wWs-MK-Ice"/>
+                                                </constraints>
+                                                <connections>
+                                                    <outlet property="crowdImage" destination="hoB-5l-wEl" id="QFP-70-BOB"/>
+                                                    <outlet property="venueName" destination="uvc-qp-utE" id="Cja-rz-XfN"/>
+                                                </connections>
+                                            </collectionViewCell>
+                                        </cells>
+                                    </collectionView>
+                                </subviews>
+                                <gestureRecognizers/>
+                                <constraints>
+                                    <constraint firstItem="p6Q-Ks-hgi" firstAttribute="bottom" secondItem="tc0-Zu-nUW" secondAttribute="bottom" type="default" id="2NT-ut-jfx"/>
+                                    <constraint firstItem="p6Q-Ks-hgi" firstAttribute="trailing" secondItem="tc0-Zu-nUW" secondAttribute="trailing" type="default" id="Kjd-aU-ldw"/>
+                                    <constraint firstItem="p6Q-Ks-hgi" firstAttribute="leading" secondItem="tc0-Zu-nUW" secondAttribute="leading" type="default" id="L4W-Pf-xdp"/>
+                                    <constraint firstItem="p6Q-Ks-hgi" firstAttribute="top" secondItem="tc0-Zu-nUW" secondAttribute="top" type="default" id="d5X-6Q-iey"/>
+                                    <constraint firstItem="p6Q-Ks-hgi" firstAttribute="centerY" secondItem="tc0-Zu-nUW" secondAttribute="centerY" type="default" id="puB-bU-hfS"/>
+                                    <constraint firstItem="p6Q-Ks-hgi" firstAttribute="centerX" secondItem="tc0-Zu-nUW" secondAttribute="centerX" type="default" id="qBl-Qb-ACg"/>
+                                </constraints>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="L7M-sX-lEl" appends="YES" id="mWU-fh-vIt"/>
+                                </connections>
+                            </scrollView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="tNv-Uz-8l1" firstAttribute="centerX" secondItem="IVE-af-RYQ" secondAttribute="centerX" type="default" id="KD5-42-f1F"/>
-                            <constraint firstItem="tNv-Uz-8l1" firstAttribute="top" secondItem="IVE-af-RYQ" secondAttribute="top" constant="105" id="Z8f-Ak-htU"/>
+                            <constraint firstItem="tc0-Zu-nUW" firstAttribute="leading" secondItem="IVE-af-RYQ" secondAttribute="leading" type="default" id="ATj-2V-EdZ"/>
+                            <constraint firstItem="tc0-Zu-nUW" firstAttribute="bottom" secondItem="IVE-af-RYQ" secondAttribute="bottom" type="default" id="Hdy-kb-zwk"/>
+                            <constraint firstItem="tc0-Zu-nUW" firstAttribute="trailing" secondItem="IVE-af-RYQ" secondAttribute="trailing" type="default" id="m9Q-Z4-mg8"/>
+                            <constraint firstItem="tc0-Zu-nUW" firstAttribute="top" secondItem="IVE-af-RYQ" secondAttribute="top" type="default" id="oo4-f9-c9t"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="fS0-pY-YIw">
-                        <barButtonItem key="rightBarButtonItem" image="07-map-marker.png" id="j8H-eV-cm2">
+                        <barButtonItem key="rightBarButtonItem" title="Check In" id="j8H-eV-cm2">
                             <connections>
                                 <segue destination="CuC-E9-ArH" kind="push" id="lI3-hS-KdK"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="crowdCollection" destination="p6Q-Ks-hgi" id="FHm-1m-aj3"/>
                         <outlet property="navBar" destination="fS0-pY-YIw" id="iKh-6h-RfQ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5J8-5c-1wg" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <pongPressGestureRecognizer allowableMovement="10" minimumPressDuration="0.5" id="L7M-sX-lEl">
+                    <connections>
+                        <action selector="displayTextView:" destination="rpF-0H-Qzy" id="aeq-ke-WwP"/>
+                    </connections>
+                </pongPressGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="-1255" y="871"/>
         </scene>
@@ -523,9 +582,15 @@
         <class className="UICollectionViewFlowLayout" superclassName="UICollectionViewLayout">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/UICollectionViewFlowLayout.h"/>
         </class>
+<<<<<<< HEAD
         <class className="VenueViewController" superclassName="UIViewController">
+=======
+        <class className="VenueViewController" superclassName="ViewController">
+>>>>>>> origin/master
             <source key="sourceIdentifier" type="project" relativePath="./Classes/VenueViewController.h"/>
             <relationships>
+                <relationship kind="action" name="displayTextView:"/>
+                <relationship kind="outlet" name="crowdCollectionV" candidateClass="UICollectionView"/>
                 <relationship kind="outlet" name="navBar" candidateClass="UINavigationItem"/>
             </relationships>
         </class>
