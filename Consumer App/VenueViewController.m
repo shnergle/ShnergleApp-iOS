@@ -104,7 +104,7 @@
 
 
 // SCROLLHIDE
--(void)expand
+-(void)hideOverlay
 {
     if(hidden)
         return;
@@ -118,7 +118,7 @@
                                              animated:YES];
 }
 
--(void)contract
+-(void)showOverlay
 {
     if(!hidden)
         return;
@@ -151,11 +151,11 @@
     {
         // scroll up
         if(scrollView.isTracking && (abs(differenceFromLast)>1))
-            [self expand];
+            [self hideOverlay];
     }
     else {
         if(scrollView.isTracking && (abs(differenceFromLast)>1))
-            [self contract];
+            [self showOverlay];
     }
     
 }
@@ -170,7 +170,7 @@
 
 - (BOOL)scrollViewShouldScrollToTop:(UIScrollView *)scrollView
 {
-    [self contract];
+    [self showOverlay];
     return YES;
 }
 
