@@ -8,12 +8,10 @@
 
 #import "overlayText.h"
 
-#define TABBAR_HEIGHT (149)
 
 
 @implementation overlayText
 {
-    NSInteger minimisedHeight;
 }
 
 
@@ -31,14 +29,14 @@
 
 // Only override drawRect: if you perform custom drawing.
 // An empty implementation adversely affects performance during animation.
-- (void)drawRect:(CGRect)rect
-{
-    self.frame = CGRectMake(self.frame.origin.x, 200, self.frame.size.width, self.frame.size.height);
-}
+//- (void)drawRect:(CGRect)rect
+//{
+    //self.frame = CGRectMake(self.frame.origin.x, 100, self.frame.size.width, self.frame.size.height);
+//}
 
 
 - (IBAction)swipeDown:(id)sender {
-    [self setTabBarHidden:true animated:true];
+    //[self setTabBarHidden:false animated:true];
     NSLog(@"SwipeDown");
     /*if the box is already swiped down, ignore
     if(self.frame.origin.y > 200){
@@ -53,7 +51,7 @@
 
 - (IBAction)swipeUp:(id)sender {
     
-    [self setTabBarHidden:false animated:true];
+    //[self setTabBarHidden:true animated:true];
     NSLog(@"SwipeUP");
     /*if(self.frame.origin.y > 200){
         self.frame = CGRectMake(self.frame.origin.x, 200, self.frame.size.width, self.frame.size.height);
@@ -72,10 +70,8 @@
 	
 	UIView *contentView;
     
-	if ( [[self.subviews objectAtIndex:0] isKindOfClass:[UITabBar class]] )
-		contentView = [self.subviews objectAtIndex:1];
-	else
-		contentView = [self.subviews objectAtIndex:0];
+	
+		contentView = self;
 	
     
     if(hidden)
@@ -88,60 +84,38 @@
                                  contentView.frame = self.bounds;
                                  
                                  self.frame = CGRectMake(self.bounds.origin.x,
-                                                         self.bounds.size.height,
+                                                         self.bounds.origin.y,
                                                          self.bounds.size.width,
-                                                         TABBAR_HEIGHT);
+                                                         self.bounds.size.height /*TABBAR_HEIGHT*/);
                              }
                              completion:^(BOOL finished) {
                                  self.frame = CGRectMake(self.bounds.origin.x,
-                                                         self.bounds.size.height,
+                                                         350,
                                                          self.bounds.size.width,
-                                                         TABBAR_HEIGHT);
+                                                         self.bounds.size.height/*TABBAR_HEIGHT*/);
                              }];
-        }
-        else
-        {
-            
-            contentView.frame = self.bounds;
-            
-            self.frame = CGRectMake(self.bounds.origin.x,
-                                    self.bounds.size.height,
-                                    self.bounds.size.width,
-                                    TABBAR_HEIGHT);
         }
     }
     else
     {
         self.frame = CGRectMake(self.bounds.origin.x,
-                                self.bounds.size.height,
+                                350,
                                 self.bounds.size.width,
-                                0);
+                                self.bounds.size.height);
         if(animated)
         {
             [UIView animateWithDuration:0.2
                              animations:^{
                                  self.frame = CGRectMake(self.bounds.origin.x,
-                                                         self.bounds.size.height - TABBAR_HEIGHT,
+                                                         self.bounds.origin.y,
                                                          self.bounds.size.width,
-                                                         TABBAR_HEIGHT);
+                                                         self.bounds.size.height);
                              }   completion:^(BOOL finished) {
                                  contentView.frame = CGRectMake(self.bounds.origin.x,
-                                                                self.bounds.origin.y,
+                                                                100,
                                                                 self.bounds.size.width,
-                                                                self.bounds.size.height - TABBAR_HEIGHT);
+                                                                self.bounds.size.height);
                              }];
-        }
-        else
-        {
-            contentView.frame = CGRectMake(self.bounds.origin.x,
-                                           self.bounds.origin.y,
-                                           self.bounds.size.width,
-                                           self.bounds.size.height - TABBAR_HEIGHT);
-            
-            self.frame = CGRectMake(self.bounds.origin.x,
-                                    self.bounds.size.height - TABBAR_HEIGHT,
-                                    self.bounds.size.width,
-                                    TABBAR_HEIGHT);
         }
     }
 }

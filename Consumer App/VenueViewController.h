@@ -13,9 +13,9 @@
 @interface VenueViewController : ViewController
 @property (weak, nonatomic) IBOutlet UINavigationItem *navBar;
 -(void)setTitle:(NSString *)title;
-
+-(void)viewDidAppear:(BOOL)animated;
+-(void)viewWillAppear:(BOOL)animated;
 @property (weak, nonatomic) IBOutlet UICollectionView *crowdCollectionV;
-- (IBAction)displayTextView:(id)sender;
 
 @property (weak, nonatomic) IBOutlet overlayText *overlayView;
 

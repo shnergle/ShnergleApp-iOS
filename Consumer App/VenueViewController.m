@@ -50,9 +50,10 @@
     [[self crowdCollectionV]setDataSource:self];
     [[self crowdCollectionV]setDelegate:self];
     
-    images = [[NSArray alloc] initWithObjects:@"liverpool.JPG", @"liverpool2.jpg", @"mahiki.jpg",@"liverpool.JPG", @"liverpool2.jpg", @"mahiki.jpg",@"liverpool.JPG", @"liverpool2.jpg", @"mahiki.jpg",@"liverpool2.jpg", @"mahiki.jpg",@"liverpool2.jpg", @"mahiki.jpg",@"liverpool2.jpg", @"mahiki.jpg",nil];
-    venueNames = [[NSArray alloc] initWithObjects:@"liverpool street station",@"liverpool street station",@"mahiki",@"liverpool street station",@"liverpool street station",@"mahiki",@"liverpool street station",@"liverpool street station",@"mahiki",@"liverpool street station",@"mahiki",@"liverpool street station",@"mahiki",@"liverpool street station",@"mahiki", nil];
+    images = [[NSArray alloc] initWithObjects:@"liverpool.JPG", @"liverpool2.jpg", @"mahiki.jpg",@"liverpool.JPG", @"liverpool2.jpg", @"mahiki.jpg",@"liverpool.JPG", @"liverpool2.jpg", @"mahiki.jpg",@"liverpool2.jpg", @"mahiki.jpg",@"liverpool2.jpg", @"mahiki.jpg",@"liverpool2.jpg", @"mahiki.jpg",@"liverpool.JPG", @"liverpool2.jpg", @"mahiki.jpg",@"liverpool.JPG", @"liverpool2.jpg", @"mahiki.jpg",@"liverpool.JPG", @"liverpool2.jpg", @"mahiki.jpg",@"liverpool2.jpg", @"mahiki.jpg",@"liverpool2.jpg", @"mahiki.jpg",@"liverpool2.jpg", @"mahiki.jpg",nil];
+    venueNames = [[NSArray alloc] initWithObjects:@"liverpool street station",@"liverpool street station",@"mahiki",@"liverpool street station",@"liverpool street station",@"mahiki",@"liverpool street station",@"liverpool street station",@"mahiki",@"liverpool street station",@"mahiki",@"liverpool street station",@"mahiki",@"liverpool street station",@"mahiki",@"liverpool street station",@"liverpool street station",@"mahiki",@"liverpool street station",@"liverpool street station",@"mahiki",@"liverpool street station",@"liverpool street station",@"mahiki",@"liverpool street station",@"mahiki",@"liverpool street station",@"mahiki",@"liverpool street station",@"mahiki", nil];
 
+    [self displayTextView];
 }
 
 -(NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView
@@ -87,17 +88,17 @@
     // Dispose of any resources that can be recreated.
 }
 
-- (IBAction)displayTextView:(id)sender {
+- (void)displayTextView {
     if(!textViewOpen){
-    overlayView = [[[NSBundle mainBundle] loadNibNamed:@"overlayText" owner:self options:nil] objectAtIndex:0];
-    overlayView.backgroundColor = [UIColor whiteColor];
-    //[overlayView addSubview:label]; // label declared elsewhere
-    //[overlayView addSubview:backgroundImage]; // backgroundImage declared elsewhere
-    //... Add a bunch of other controls
-    
-    //... Release a bunch of other controls
-    
-    [self.view addSubview:overlayView];
+        overlayView = [[[NSBundle mainBundle] loadNibNamed:@"overlayText" owner:self options:nil] objectAtIndex:0];
+        overlayView.backgroundColor = [UIColor whiteColor];
+        //[overlayView addSubview:label]; // label declared elsewhere
+        //[overlayView addSubview:backgroundImage]; // backgroundImage declared elsewhere
+        //... Add a bunch of other controls
+        
+        //... Release a bunch of other controls
+        
+        [self.view addSubview:overlayView];
         textViewOpen = true;
     }
 }
@@ -172,6 +173,22 @@
 {
     [self showOverlay];
     return YES;
+}
+
+-(void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    
+    [self.navigationController setNavigationBarHidden:hidden
+                                             animated:YES];
+    
+}
+
+-(void)viewDidAppear:(BOOL)animated
+{
+    [super viewDidAppear:animated];
+    [self.overlayView setTabBarHidden:hidden
+                                  animated:NO];
 }
 
 @end
