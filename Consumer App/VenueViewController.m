@@ -112,8 +112,8 @@
     
     hidden = YES;
     
-    [self.overlayView setTabBarHidden:YES
-                                  animated:YES];
+    /*[self.overlayView setTabBarHidden:YES
+                                  animated:YES];*/
     
     [self.navigationController setNavigationBarHidden:YES
                                              animated:YES];
@@ -126,8 +126,8 @@
     
     hidden = NO;
     
-    [self.overlayView setTabBarHidden:NO
-                                  animated:YES];
+    /*[self.overlayView setTabBarHidden:NO
+                                  animated:YES];*/
     
     [self.navigationController setNavigationBarHidden:NO
                                              animated:YES];

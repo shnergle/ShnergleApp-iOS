@@ -172,32 +172,27 @@
                                 </subviews>
                                 <gestureRecognizers/>
                                 <constraints>
-                                    <constraint firstItem="p6Q-Ks-hgi" firstAttribute="bottom" secondItem="tc0-Zu-nUW" secondAttribute="bottom" type="default" id="2NT-ut-jfx"/>
+                                    <constraint firstItem="p6Q-Ks-hgi" firstAttribute="bottom" secondItem="tc0-Zu-nUW" secondAttribute="bottom" type="default" id="4d4-0a-6VM"/>
                                     <constraint firstItem="p6Q-Ks-hgi" firstAttribute="trailing" secondItem="tc0-Zu-nUW" secondAttribute="trailing" type="default" id="Kjd-aU-ldw"/>
                                     <constraint firstItem="p6Q-Ks-hgi" firstAttribute="leading" secondItem="tc0-Zu-nUW" secondAttribute="leading" type="default" id="L4W-Pf-xdp"/>
-                                    <constraint firstItem="p6Q-Ks-hgi" firstAttribute="top" secondItem="tc0-Zu-nUW" secondAttribute="top" constant="-44" id="an1-JE-6Vc"/>
                                     <constraint firstItem="p6Q-Ks-hgi" firstAttribute="centerX" secondItem="tc0-Zu-nUW" secondAttribute="centerX" type="default" id="qBl-Qb-ACg"/>
+                                    <constraint firstItem="p6Q-Ks-hgi" firstAttribute="top" secondItem="tc0-Zu-nUW" secondAttribute="top" constant="1" id="qop-nk-r3L"/>
                                 </constraints>
                             </scrollView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="tc0-Zu-nUW" firstAttribute="leading" secondItem="IVE-af-RYQ" secondAttribute="leading" type="default" id="ATj-2V-EdZ"/>
+                            <constraint firstItem="tc0-Zu-nUW" firstAttribute="top" secondItem="IVE-af-RYQ" secondAttribute="top" constant="-45" id="F6c-w8-eun"/>
                             <constraint firstItem="tc0-Zu-nUW" firstAttribute="bottom" secondItem="IVE-af-RYQ" secondAttribute="bottom" type="default" id="Hdy-kb-zwk"/>
                             <constraint firstItem="tc0-Zu-nUW" firstAttribute="trailing" secondItem="IVE-af-RYQ" secondAttribute="trailing" type="default" id="m9Q-Z4-mg8"/>
-                            <constraint firstItem="tc0-Zu-nUW" firstAttribute="top" secondItem="IVE-af-RYQ" secondAttribute="top" type="default" id="oo4-f9-c9t"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="fS0-pY-YIw">
-                        <barButtonItem key="rightBarButtonItem" title="Check In" id="j8H-eV-cm2">
-                            <connections>
-                                <segue destination="CuC-E9-ArH" kind="push" id="lI3-hS-KdK"/>
-                            </connections>
-                        </barButtonItem>
+                    <navigationItem key="navigationItem" id="QyL-ed-Vw6">
+                        <barButtonItem key="rightBarButtonItem" title="Check In" id="fte-sy-KdI"/>
                     </navigationItem>
                     <connections>
                         <outlet property="crowdCollection" destination="p6Q-Ks-hgi" id="FHm-1m-aj3"/>
-                        <outlet property="navBar" destination="fS0-pY-YIw" id="iKh-6h-RfQ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5J8-5c-1wg" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -607,7 +602,4 @@
         <simulatedOrientationMetrics key="orientation"/>
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
-    <inferredMetricsTieBreakers>
-        <segue reference="lI3-hS-KdK"/>
-    </inferredMetricsTieBreakers>
 </document>

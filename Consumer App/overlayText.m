@@ -8,7 +8,7 @@
 
 #import "overlayText.h"
 
-
+#define TABBAR_HEIGHT (45)
 
 @implementation overlayText
 {
@@ -17,6 +17,7 @@
 
 - (id)initWithFrame:(CGRect)frame
 {
+    frame = CGRectMake(0,250, self.frame.size.width,self.frame.size.height);
     self = [super initWithFrame:frame];
     if (self) {
         
@@ -27,12 +28,14 @@
 
 
 
-// Only override drawRect: if you perform custom drawing.
+
+
+/* Only override drawRect: if you perform custom drawing.
 // An empty implementation adversely affects performance during animation.
-//- (void)drawRect:(CGRect)rect
-//{
-    //self.frame = CGRectMake(self.frame.origin.x, 100, self.frame.size.width, self.frame.size.height);
-//}
+- (void)drawRect:(CGRect)rect
+{
+  //self.frame = CGRectMake(self.frame.origin.x, 250, self.frame.size.width, self.frame.size.height);
+}*/
 
 
 - (IBAction)swipeDown:(id)sender {
@@ -74,17 +77,17 @@
 		contentView = self;
 	
     
-    if(hidden)
+    if(hidden) //IF hidden, then show:
     {
         if(animated)
         {
             
-            [UIView animateWithDuration:0.2
+            [UIView animateWithDuration:2.0 delay:0.2 options: UIViewAnimationCurveEaseOut
                              animations:^{
-                                 contentView.frame = self.bounds;
+                                 //contentView.frame = self.bounds;
                                  
                                  self.frame = CGRectMake(self.bounds.origin.x,
-                                                         self.bounds.origin.y,
+                                                         350,
                                                          self.bounds.size.width,
                                                          self.bounds.size.height /*TABBAR_HEIGHT*/);
                              }
@@ -96,7 +99,7 @@
                              }];
         }
     }
-    else
+    else //else hide:
     {
         self.frame = CGRectMake(self.bounds.origin.x,
                                 350,
@@ -104,15 +107,15 @@
                                 self.bounds.size.height);
         if(animated)
         {
-            [UIView animateWithDuration:0.2
+            [UIView animateWithDuration:2.0
                              animations:^{
                                  self.frame = CGRectMake(self.bounds.origin.x,
-                                                         self.bounds.origin.y,
+                                                         250,
                                                          self.bounds.size.width,
                                                          self.bounds.size.height);
                              }   completion:^(BOOL finished) {
                                  contentView.frame = CGRectMake(self.bounds.origin.x,
-                                                                100,
+                                                                250,
                                                                 self.bounds.size.width,
                                                                 self.bounds.size.height);
                              }];
