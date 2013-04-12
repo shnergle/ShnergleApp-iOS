@@ -12,13 +12,14 @@
 
 @implementation overlayText
 {
-}
 
+}
 
 - (id)initWithFrame:(CGRect)frame
 {
-    frame = CGRectMake(0,250, self.frame.size.width,self.frame.size.height);
+    frame = CGRectMake(0,350, self.frame.size.width,self.frame.size.height);
     self = [super initWithFrame:frame];
+    
     if (self) {
         
     }
@@ -50,19 +51,60 @@
         self.frame = CGRectMake(self.frame.origin.x, 390, self.frame.size.width, self.frame.size.height);
     }
      */
+    
+[self hideAnimated:self.frame.origin.y targetSize:450 contentView:self];
+
 }
 
 - (IBAction)swipeUp:(id)sender {
     
     //[self setTabBarHidden:true animated:true];
     NSLog(@"SwipeUP");
-    /*if(self.frame.origin.y > 200){
-        self.frame = CGRectMake(self.frame.origin.x, 200, self.frame.size.width, self.frame.size.height);
-    }else if(self.frame.origin.y <= 200){
-        self.frame = CGRectMake(self.frame.origin.x, 50, self.frame.size.width, self.frame.size.height);
-    }*/
+    
+    [self showAnimated:50 animationDelay:0.2 animationDuration:0.5];
+
 }
 
+
+- (void)hideAnimated:(NSInteger)originalSize targetSize:(NSInteger)targetSize contentView:(UIView *)contentView
+{
+    self.frame = CGRectMake(self.bounds.origin.x,
+                            originalSize,
+                            self.bounds.size.width,
+                            self.bounds.size.height);
+    
+    [UIView animateWithDuration:2.0
+                     animations:^{
+                         self.frame = CGRectMake(self.bounds.origin.x,
+                                                 targetSize,
+                                                 self.bounds.size.width,
+                                                 self.bounds.size.height);
+                     }   completion:^(BOOL finished) {
+                         contentView.frame = CGRectMake(self.bounds.origin.x,
+                                                        targetSize,
+                                                        self.bounds.size.width,
+                                                        self.bounds.size.height);
+                     }];
+}
+
+- (void)showAnimated:(NSInteger)targetSize animationDelay:(double)animationDelay animationDuration:(double)animationDuration
+{
+    [UIView animateWithDuration:animationDuration delay:animationDelay options: UIViewAnimationCurveEaseOut
+                     animations:^{
+                         //contentView.frame = self.bounds;
+                         
+                         self.frame = CGRectMake(self.bounds.origin.x,
+                                                 targetSize,
+                                                 self.bounds.size.width,
+                                                 self.bounds.size.height /*TABBAR_HEIGHT*/);
+                     }
+                     completion:^(BOOL finished) {
+                         self.frame = CGRectMake(self.bounds.origin.x,
+                                                 targetSize,
+                                                 self.bounds.size.width,
+                                                 self.bounds.size.height/*TABBAR_HEIGHT*/);
+                     }];
+}
 
 - (void)setTabBarHidden:(BOOL)hidden animated:(BOOL)animated
 {
@@ -79,47 +121,20 @@
     
     if(hidden) //IF hidden, then show:
     {
-        if(animated)
-        {
+        NSInteger targetSize = 450;
+        double animationDuration = 0.5;
+        double animationDelay = 0.2;
             
-            [UIView animateWithDuration:2.0 delay:0.2 options: UIViewAnimationCurveEaseOut
-                             animations:^{
-                                 //contentView.frame = self.bounds;
-                                 
-                                 self.frame = CGRectMake(self.bounds.origin.x,
-                                                         350,
-                                                         self.bounds.size.width,
-                                                         self.bounds.size.height /*TABBAR_HEIGHT*/);
-                             }
-                             completion:^(BOOL finished) {
-                                 self.frame = CGRectMake(self.bounds.origin.x,
-                                                         350,
-                                                         self.bounds.size.width,
-                                                         self.bounds.size.height/*TABBAR_HEIGHT*/);
-                             }];
-        }
+        [self showAnimated:targetSize animationDelay:animationDelay animationDuration:animationDuration];
+        
     }
     else //else hide:
     {
-        self.frame = CGRectMake(self.bounds.origin.x,
-                                350,
-                                self.bounds.size.width,
-                                self.bounds.size.height);
-        if(animated)
-        {
-            [UIView animateWithDuration:2.0
-                             animations:^{
-                                 self.frame = CGRectMake(self.bounds.origin.x,
-                                                         250,
-                                                         self.bounds.size.width,
-                                                         self.bounds.size.height);
-                             }   completion:^(BOOL finished) {
-                                 contentView.frame = CGRectMake(self.bounds.origin.x,
-                                                                250,
-                                                                self.bounds.size.width,
-                                                                self.bounds.size.height);
-                             }];
-        }
+        NSInteger targetSize = 250;
+        NSInteger originalSize = 450;
+                
+        [self hideAnimated:originalSize targetSize:targetSize contentView:contentView];
+        
     }
 }
 

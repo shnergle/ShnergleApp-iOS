@@ -91,6 +91,7 @@
 - (void)displayTextView {
     if(!textViewOpen){
         overlayView = [[[NSBundle mainBundle] loadNibNamed:@"overlayText" owner:self options:nil] objectAtIndex:0];
+        overlayView.clipsToBounds = NO;
         overlayView.backgroundColor = [UIColor whiteColor];
         //[overlayView addSubview:label]; // label declared elsewhere
         //[overlayView addSubview:backgroundImage]; // backgroundImage declared elsewhere
@@ -112,11 +113,11 @@
     
     hidden = YES;
     
-    /*[self.overlayView setTabBarHidden:YES
-                                  animated:YES];*/
+    [self.overlayView setTabBarHidden:YES
+                                  animated:YES];
     
-    [self.navigationController setNavigationBarHidden:YES
-                                             animated:YES];
+    /*[self.navigationController setNavigationBarHidden:YES
+                                             animated:YES];*/
 }
 
 -(void)showOverlay
@@ -126,11 +127,11 @@
     
     hidden = NO;
     
-    /*[self.overlayView setTabBarHidden:NO
-                                  animated:YES];*/
+    [self.overlayView setTabBarHidden:NO
+                                  animated:YES];
     
-    [self.navigationController setNavigationBarHidden:NO
-                                             animated:YES];
+    /*[self.navigationController setNavigationBarHidden:NO
+                                             animated:YES];*/
 }
 
 - (void)scrollViewWillBeginDragging:(UIScrollView *)scrollView

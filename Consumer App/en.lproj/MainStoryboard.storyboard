@@ -188,8 +188,12 @@
                             <constraint firstItem="tc0-Zu-nUW" firstAttribute="trailing" secondItem="IVE-af-RYQ" secondAttribute="trailing" type="default" id="m9Q-Z4-mg8"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="QyL-ed-Vw6">
-                        <barButtonItem key="rightBarButtonItem" title="Check In" id="fte-sy-KdI"/>
+                    <navigationItem key="navigationItem" id="fS0-pY-YIw">
+                        <barButtonItem key="rightBarButtonItem" title="Check In" id="j8H-eV-cm2">
+                            <connections>
+                                <segue destination="CuC-E9-ArH" kind="push" id="lI3-hS-KdK"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="crowdCollection" destination="p6Q-Ks-hgi" id="FHm-1m-aj3"/>
