@@ -16,7 +16,10 @@
 
 @implementation MapViewController {
     GMSMapView *mapView_;
+
 }
+@synthesize locationManager;
+//@synthesize mapView_;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -28,10 +31,40 @@
     return self;
 }
 
-- (void)viewDidLoad
+
+/*- (NSString *)deviceLocation {
+    NSString *theLocation = [NSString stringWithFormat:@"latitude: %f longitude: %f", locationManager.location.coordinate.latitude, locationManager.location.coordinate.longitude];
+    return theLocation;
+}*/
+
+
+- (void)loadView
 {
-    [super viewDidLoad];
-    GMSCameraPosition *camera = [GMSCameraPosition cameraWithLatitude:-33.8683
+    [super loadView];
+    self.locationManager = [[CLLocationManager alloc] init];
+    locationManager.delegate = self;
+    locationManager.distanceFilter = kCLDistanceFilterNone;
+    locationManager.desiredAccuracy = kCLLocationAccuracyBest;
+    [locationManager startUpdatingLocation];
+    
+    //NSLog(@"%@", [self deviceLocation]);
+    
+    
+    GMSCameraPosition *camera = [GMSCameraPosition cameraWithLatitude: locationManager.location.coordinate.latitude
+                                                            longitude: locationManager.location.coordinate.longitude
+                                                                 zoom:6];
+    mapView_ = [GMSMapView mapWithFrame:CGRectZero camera:camera];
+    mapView_.myLocationEnabled = YES;
+    self.view = mapView_;
+    
+    GMSMarkerOptions *options = [[GMSMarkerOptions alloc] init];
+    options.position = CLLocationCoordinate2DMake(locationManager.location.coordinate.latitude, locationManager.location.coordinate.longitude);
+    //options.title = @"Sydney";
+    //options.snippet = @"Australia";
+    [mapView_ addMarkerWithOptions:options];
+	// Do any additional setup after loading the view.
+    
+    /*GMSCameraPosition *camera = [GMSCameraPosition cameraWithLatitude:-33.8683
                                                             longitude:151.2086
                                                                  zoom:6];
     mapView_ = [GMSMapView mapWithFrame:CGRectZero camera:camera];
@@ -42,9 +75,19 @@
     options.position = CLLocationCoordinate2DMake(-33.8683, 151.2086);
     options.title = @"Sydney";
     options.snippet = @"Australia";
-    [mapView_ addMarkerWithOptions:options];
-	// Do any additional setup after loading the view.
+    [mapView_ addMarkerWithOptions:options];*/
 }
+
+
+
+
+
+/*- (void)locationManager:(CLLocationManager *)manager didUpdateToLocation:(CLLocation *)newLocation fromLocation:(CLLocation *)oldLocation
+{
+    
+    
+}*/
+
 
 - (void)didReceiveMemoryWarning
 {

@@ -8,10 +8,12 @@
 
 #import <UIKit/UIKit.h>
 #import "CoreLocation/CoreLocation.h"
+#import "GoogleMaps/GoogleMaps.h"
 
 @interface MapViewController : UIViewController <CLLocationManagerDelegate> {
 }
 
-@property (strong, nonatomic) CLLocationManager *location;
+@property (strong, nonatomic) CLLocationManager *locationManager;
+//@property (weak, nonatomic) IBOutlet GMSMapView *mapView_;
 
 @end
