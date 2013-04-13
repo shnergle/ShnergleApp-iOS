@@ -26,6 +26,8 @@
 
 @implementation ViewController
 
+@synthesize titleView;
+@synthesize mapView;
 
 
 // You don't need to modify the default initWithNibName:bundle: method.
@@ -46,7 +48,7 @@
     
     [[self crowdCollection]setDataSource:self];
     [[self crowdCollection]setDelegate:self];
-
+    [self createTitleButton];
     images = [[NSArray alloc] initWithObjects:@"liverpool.JPG", @"liverpool2.jpg", @"mahiki.jpg",@"liverpool.JPG", @"liverpool2.jpg", @"mahiki.jpg",@"liverpool.JPG", @"liverpool2.jpg", @"mahiki.jpg",nil];
     venueNames = [[NSArray alloc] initWithObjects:@"liverpool street station",@"liverpool street station",@"mahiki",@"liverpool street station",@"liverpool street station",@"mahiki",@"liverpool street station",@"liverpool street station",@"mahiki", nil];
     
@@ -90,5 +92,19 @@ didHighlightItemAtIndexPath:(NSIndexPath *)indexPath {
     selectedVenue = indexPath.row;
 }
 
+- (void)createTitleButton{
+    /*
+    //Setup the custom middle buttons
+    UIView *container = [[UIView alloc] init];
+    container.frame = CGRectMake(0, 0, 80, 44);
+    // create a button and add it to the container
+    UIButton *notificationButton = [UIButton buttonWithType:UIButtonTypeCustom];
+    notificationButton.frame = CGRectMake(0, 0, 35, 44);
+    notificationButton.backgroundColor = [UIColor redColor];
+    [container addSubview:notificationButton];
+    // Set the titleView to the container view
+    [self.navigationItem setTitleView:container];
+    */
+}
 
 @end
