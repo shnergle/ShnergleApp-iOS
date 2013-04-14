@@ -52,7 +52,7 @@
     }
      */
     
-[self hideAnimated:self.frame.origin.y targetSize:450 contentView:self];
+    [self hideAnimated:self.frame.origin.y animationDuration:0.5 targetSize:450 contentView:self];
 
 }
 
@@ -66,14 +66,14 @@
 }
 
 
-- (void)hideAnimated:(NSInteger)originalSize targetSize:(NSInteger)targetSize contentView:(UIView *)contentView
+- (void)hideAnimated:(NSInteger)originalSize animationDuration:(double)animationDuration targetSize:(NSInteger)targetSize contentView:(UIView *)contentView
 {
     self.frame = CGRectMake(self.bounds.origin.x,
                             originalSize,
                             self.bounds.size.width,
                             self.bounds.size.height);
     
-    [UIView animateWithDuration:2.0
+    [UIView animateWithDuration:animationDuration
                      animations:^{
                          self.frame = CGRectMake(self.bounds.origin.x,
                                                  targetSize,
@@ -130,10 +130,10 @@
     }
     else //else hide:
     {
-        NSInteger targetSize = 250;
+        NSInteger targetSize = 340;
         NSInteger originalSize = 450;
                 
-        [self hideAnimated:originalSize targetSize:targetSize contentView:contentView];
+        [self hideAnimated:originalSize animationDuration:0.5 targetSize:targetSize contentView:contentView];
         
     }
 }

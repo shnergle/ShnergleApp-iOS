@@ -52,7 +52,6 @@
     images = [[NSArray alloc] initWithObjects:@"liverpool.JPG", @"liverpool2.jpg", @"mahiki.jpg",@"liverpool.JPG", @"liverpool2.jpg", @"mahiki.jpg",@"liverpool.JPG", @"liverpool2.jpg", @"mahiki.jpg",nil];
     venueNames = [[NSArray alloc] initWithObjects:@"liverpool street station",@"liverpool street station",@"mahiki",@"liverpool street station",@"liverpool street station",@"mahiki",@"liverpool street station",@"liverpool street station",@"mahiki", nil];
     
-    
 }
 
 -(NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView
@@ -94,7 +93,10 @@ didHighlightItemAtIndexPath:(NSIndexPath *)indexPath {
 
 - (void)createTitleButton{
     /*
-    //Setup the custom middle buttons
+    //Setup the custom middle buttons 
+    //------------------------------ 
+    // Euurgh this changes every headline in this navigation!
+    //------------------------------
     UIView *container = [[UIView alloc] init];
     container.frame = CGRectMake(0, 0, 80, 44);
     // create a button and add it to the container
