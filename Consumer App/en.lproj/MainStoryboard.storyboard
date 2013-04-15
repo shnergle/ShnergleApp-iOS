@@ -103,12 +103,12 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Around me" id="JUN-q6-pYB">
-                        <barButtonItem key="leftBarButtonItem" image="19-gear.png" id="0Os-lb-kjn">
+                        <barButtonItem key="leftBarButtonItem" systemItem="bookmarks" id="0Os-lb-kjn">
                             <connections>
                                 <segue destination="dxS-Dm-562" kind="push" id="Y8s-Tc-sU7"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" image="07-map-marker.png" id="ihW-Hr-nEn">
+                        <barButtonItem key="rightBarButtonItem" systemItem="camera" id="ihW-Hr-nEn">
                             <connections>
                                 <segue destination="CuC-E9-ArH" kind="push" id="BhZ-uk-GaA"/>
                             </connections>
@@ -541,8 +541,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="07-map-marker.png" width="16" height="26"/>
-        <image name="19-gear.png" width="26" height="26"/>
         <image name="facebook.png" width="1250" height="1250"/>
         <image name="mahiki.jpg" width="420" height="308"/>
         <image name="plusone.png" width="26" height="22"/>
