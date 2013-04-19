@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "ViewController.h"
 #import "overlayText.h"
+#import "TransitionViewController.h"
 
 @interface VenueViewController : ViewController
 @property (weak, nonatomic) IBOutlet UINavigationItem *navBar;

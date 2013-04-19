@@ -7,6 +7,9 @@
 //
 
 #import "overlayText.h"
+#import "StoryboardLayersNavigation.h" //for getting the viewcontroller from this view.
+#import "PromotionViewController.h"
+
 
 #define TABBAR_HEIGHT (45)
 
@@ -64,6 +67,8 @@
     [self showAnimated:50 animationDelay:0.2 animationDuration:0.5];
 
 }
+
+
 
 
 - (void)hideAnimated:(NSInteger)originalSize animationDuration:(double)animationDuration targetSize:(NSInteger)targetSize contentView:(UIView *)contentView
@@ -137,5 +142,24 @@
         
     }
 }
+
+- (IBAction)tapPromotion:(id)sender {
+    
+    UIViewController *parentVC = [self firstAvailableUIViewController];
+    
+    UIViewController *promotionVC = [[UIViewController alloc] init];
+    
+    // do any setup you need for myNewVC
+    
+    [parentVC presentViewController:[promotionVC initWithNibName:@"PromotionViewController" bundle:nil] animated:YES completion:nil];
+    
+    
+    
+    NSLog(@"Promoviewcontroller loaded.");
+    
+}
+
+
+
 
 @end

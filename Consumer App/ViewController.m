@@ -72,6 +72,8 @@
     /* Here we can set the elements of the crowdItem (the cell) in the cellview */
     [[item crowdImage]setImage:[UIImage imageNamed:[images objectAtIndex:indexPath.item]]];
     [[item venueName]setText:[venueNames objectAtIndex:indexPath.item]];
+    
+    
 
     return item;
 

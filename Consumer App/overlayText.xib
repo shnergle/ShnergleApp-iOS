@@ -15,6 +15,7 @@
 			<string>IBProxyObject</string>
 			<string>IBUILabel</string>
 			<string>IBUISwipeGestureRecognizer</string>
+			<string>IBUITapGestureRecognizer</string>
 			<string>IBUIView</string>
 		</array>
 		<array key="IBDocument.PluginDependencies">
@@ -125,6 +126,7 @@
 							<int key="NSColorSpace">1</int>
 							<bytes key="NSRGB">MSAwLjcyMzUxNDQ4MDcgMC44MDIyNzQ2NDIxAA</bytes>
 						</object>
+						<array key="IBUIGestureRecognizers" id="0"/>
 						<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
 					</object>
 					<object class="IBUILabel" id="314513072">
@@ -201,7 +203,7 @@
 				<float key="IBUIAlpha">0.89999997615814209</float>
 				<int key="IBUIContentMode">6</int>
 				<int key="IBUITag">5</int>
-				<array key="IBUIGestureRecognizers" id="0"/>
+				<reference key="IBUIGestureRecognizers" ref="0"/>
 				<object class="IBUIScreenMetrics" key="IBUISimulatedDestinationMetrics">
 					<string key="IBUISimulatedSizeMetricsClass">IBUIScreenMetrics</string>
 					<object class="NSMutableDictionary" key="IBUINormalizedOrientationToSizeMap">
@@ -227,6 +229,7 @@
 			<object class="IBUISwipeGestureRecognizer" id="906107723">
 				<int key="IBUIDirection">4</int>
 			</object>
+			<object class="IBUITapGestureRecognizer" id="174816437"/>
 		</array>
 		<object class="IBObjectContainer" key="IBDocument.Objects">
 			<array class="NSMutableArray" key="connectionRecords">
@@ -265,6 +268,24 @@
 						<reference key="destination" ref="191373211"/>
 					</object>
 					<int key="connectionID">16</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBCocoaTouchOutletCollectionConnection" key="connection">
+						<string key="label">gestureRecognizers</string>
+						<reference key="source" ref="982617573"/>
+						<reference key="destination" ref="174816437"/>
+						<string key="cachedDesigntimeCollectionClassName">NSArray</string>
+						<bool key="addsContentToExistingCollection">YES</bool>
+					</object>
+					<int key="connectionID">213</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBCocoaTouchEventConnection" key="connection">
+						<string key="label">tapPromotion:</string>
+						<reference key="source" ref="174816437"/>
+						<reference key="destination" ref="191373211"/>
+					</object>
+					<int key="connectionID">214</int>
 				</object>
 			</array>
 			<object class="IBMutableOrderedSet" key="objectRecords">
@@ -724,6 +745,11 @@
 						<reference key="object" ref="407427297"/>
 						<reference key="parent" ref="191373211"/>
 					</object>
+					<object class="IBObjectRecord">
+						<int key="objectID">212</int>
+						<reference key="object" ref="174816437"/>
+						<reference key="parent" ref="0"/>
+					</object>
 				</array>
 			</object>
 			<dictionary class="NSMutableDictionary" key="flattenedProperties">
@@ -790,12 +816,13 @@
 				<string key="205.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 				<string key="206.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 				<string key="207.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
+				<string key="212.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 			</dictionary>
 			<dictionary class="NSMutableDictionary" key="unlocalizedProperties"/>
 			<nil key="activeLocalization"/>
 			<dictionary class="NSMutableDictionary" key="localizations"/>
 			<nil key="sourceID"/>
-			<int key="maxID">207</int>
+			<int key="maxID">214</int>
 		</object>
 		<object class="IBClassDescriber" key="IBDocument.Classes">
 			<array class="NSMutableArray" key="referencedPartialClassDescriptions">
@@ -813,6 +840,7 @@
 					<dictionary class="NSMutableDictionary" key="actions">
 						<string key="swipeDown:">id</string>
 						<string key="swipeUp:">id</string>
+						<string key="tapPromotion:">id</string>
 					</dictionary>
 					<dictionary class="NSMutableDictionary" key="actionInfosByName">
 						<object class="IBActionInfo" key="swipeDown:">
@@ -821,6 +849,10 @@
 						</object>
 						<object class="IBActionInfo" key="swipeUp:">
 							<string key="name">swipeUp:</string>
+							<string key="candidateClassName">id</string>
+						</object>
+						<object class="IBActionInfo" key="tapPromotion:">
+							<string key="name">tapPromotion:</string>
 							<string key="candidateClassName">id</string>
 						</object>
 					</dictionary>
