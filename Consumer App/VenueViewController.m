@@ -94,6 +94,7 @@
     if(!textViewOpen){
         overlayView = [[[NSBundle mainBundle] loadNibNamed:@"overlayText" owner:self options:nil] objectAtIndex:0];
         // TODO: SET DEFAULT POSITION FOR overlayView HERE:! Bom.
+        overlayView.frame = CGRectMake(overlayView.bounds.origin.x, 450, overlayView.bounds.size.width, overlayView.bounds.size.height);
         overlayView.clipsToBounds = NO;
         overlayView.backgroundColor = [UIColor whiteColor];
         //[overlayView addSubview:label]; // label declared elsewhere
