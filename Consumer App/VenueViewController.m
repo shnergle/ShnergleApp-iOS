@@ -8,6 +8,8 @@
 
 #import "VenueViewController.h"
 #import "CrowdItem.h"
+#import "PromotionView.h"
+#import "PromotionDetailView.h"
 
 @interface VenueViewController ()
 {
@@ -91,6 +93,7 @@
 - (void)displayTextView {
     if(!textViewOpen){
         overlayView = [[[NSBundle mainBundle] loadNibNamed:@"overlayText" owner:self options:nil] objectAtIndex:0];
+        // TODO: SET DEFAULT POSITION FOR overlayView HERE:! Bom.
         overlayView.clipsToBounds = NO;
         overlayView.backgroundColor = [UIColor whiteColor];
         //[overlayView addSubview:label]; // label declared elsewhere
@@ -190,6 +193,19 @@
     [super viewDidAppear:animated];
     [self.overlayView setTabBarHidden:hidden
                                   animated:NO];
+}
+
+-(void)goToPromotionView{
+    
+    PromotionView *promotionView = [[[NSBundle mainBundle] loadNibNamed:@"PromotionView" owner:self options:nil] objectAtIndex:0];
+    
+    [self.view addSubview:promotionView];
+}
+
+-(void)goToPromotionDetailView{
+    PromotionDetailView *promotionDetailView = [[[NSBundle mainBundle] loadNibNamed:@"PromotionDetailView" owner:self options:nil] objectAtIndex:0];
+    
+    [self.view addSubview:promotionDetailView];
 }
 
 

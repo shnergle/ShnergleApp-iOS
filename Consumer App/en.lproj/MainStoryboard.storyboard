@@ -83,7 +83,7 @@
                                     <constraint firstItem="NoU-2f-HS3" firstAttribute="top" secondItem="idD-fk-d6Y" secondAttribute="top" type="default" id="lzZ-Xa-XSy"/>
                                     <constraint firstItem="NoU-2f-HS3" firstAttribute="bottom" secondItem="idD-fk-d6Y" secondAttribute="bottom" type="default" id="n2p-yY-ana"/>
                                     <constraint firstItem="NoU-2f-HS3" firstAttribute="trailing" secondItem="idD-fk-d6Y" secondAttribute="trailing" type="default" id="vHQ-2Q-DKy"/>
-                                    <constraint firstItem="NoU-2f-HS3" firstAttribute="leading" secondItem="idD-fk-d6Y" secondAttribute="leading" constant="24" id="xyT-rK-hFm"/>
+                                    <constraint firstItem="NoU-2f-HS3" firstAttribute="leading" secondItem="idD-fk-d6Y" secondAttribute="leading" constant="24" id="y2b-ck-gLY"/>
                                 </constraints>
                             </scrollView>
                             <view multipleTouchEnabled="YES" contentMode="scaleAspectFill" translatesAutoresizingMaskIntoConstraints="NO" id="jEV-Fr-dKK" customClass="GMSMapView">
@@ -107,11 +107,7 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Around me" id="JUN-q6-pYB">
-                        <barButtonItem key="leftBarButtonItem" systemItem="bookmarks" id="0Os-lb-kjn">
-                            <connections>
-                                <segue destination="dxS-Dm-562" kind="push" id="Y8s-Tc-sU7"/>
-                            </connections>
-                        </barButtonItem>
+                        <barButtonItem key="leftBarButtonItem" systemItem="bookmarks" id="0Os-lb-kjn"/>
                         <barButtonItem key="rightBarButtonItem" systemItem="camera" id="ihW-Hr-nEn">
                             <connections>
                                 <segue destination="CuC-E9-ArH" kind="push" id="BhZ-uk-GaA"/>
@@ -629,21 +625,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="S6M-cZ-UVf" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-1274" y="-694"/>
-        </scene>
-        <!--Map View Controller-->
-        <scene sceneID="ztF-OY-cBG">
-            <objects>
-                <viewController id="dxS-Dm-562" customClass="MapViewController" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="xUV-TE-Umc">
-                        <rect key="frame" x="0.0" y="64" width="320" height="504"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                    </view>
-                    <navigationItem key="navigationItem" id="fLK-sb-kRH"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="6ta-rW-dRs" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-757" y="-637"/>
         </scene>
     </scenes>
     <resources>

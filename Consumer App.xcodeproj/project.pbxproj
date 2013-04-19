@@ -65,6 +65,10 @@
 		80D6FF5D17215C18008A3AFD /* PromotionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 80D6FF5C17215C18008A3AFD /* PromotionViewController.m */; };
 		80D6FF5F17216140008A3AFD /* PromotionViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 80D6FF5E17216140008A3AFD /* PromotionViewController.xib */; };
 		80D6FF621721774E008A3AFD /* TransitionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 80D6FF611721774E008A3AFD /* TransitionViewController.m */; };
+		80D6FF64172191A4008A3AFD /* PromotionView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 80D6FF63172191A4008A3AFD /* PromotionView.xib */; };
+		80D6FF6717219537008A3AFD /* PromotionView.m in Sources */ = {isa = PBXBuildFile; fileRef = 80D6FF6617219536008A3AFD /* PromotionView.m */; };
+		80D6FF6B17219DA8008A3AFD /* PromotionDetailView.m in Sources */ = {isa = PBXBuildFile; fileRef = 80D6FF6A17219DA8008A3AFD /* PromotionDetailView.m */; };
+		80D6FF6D17219E4F008A3AFD /* PromotionDetailView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 80D6FF6C17219E4F008A3AFD /* PromotionDetailView.xib */; };
 		EE3AFF8D170F11BF009BE96C /* MapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EE3AFF8C170F11BF009BE96C /* MapViewController.m */; };
 		EE7EC3E117045ED400EF152E /* GoogleMaps.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EE7EC3E017045ED400EF152E /* GoogleMaps.framework */; };
 		EE7EC3E317045F8500EF152E /* GoogleMaps.bundle in Resources */ = {isa = PBXBuildFile; fileRef = EE7EC3E217045F8500EF152E /* GoogleMaps.bundle */; };
@@ -187,6 +191,12 @@
 		80D6FF5E17216140008A3AFD /* PromotionViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PromotionViewController.xib; sourceTree = "<group>"; };
 		80D6FF601721774E008A3AFD /* TransitionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TransitionViewController.h; sourceTree = "<group>"; };
 		80D6FF611721774E008A3AFD /* TransitionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TransitionViewController.m; sourceTree = "<group>"; };
+		80D6FF63172191A4008A3AFD /* PromotionView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PromotionView.xib; sourceTree = "<group>"; };
+		80D6FF6517219536008A3AFD /* PromotionView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PromotionView.h; sourceTree = "<group>"; };
+		80D6FF6617219536008A3AFD /* PromotionView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PromotionView.m; sourceTree = "<group>"; };
+		80D6FF6917219DA8008A3AFD /* PromotionDetailView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PromotionDetailView.h; sourceTree = "<group>"; };
+		80D6FF6A17219DA8008A3AFD /* PromotionDetailView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PromotionDetailView.m; sourceTree = "<group>"; };
+		80D6FF6C17219E4F008A3AFD /* PromotionDetailView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PromotionDetailView.xib; sourceTree = "<group>"; };
 		EE3AFF8B170F11BF009BE96C /* MapViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapViewController.h; sourceTree = "<group>"; };
 		EE3AFF8C170F11BF009BE96C /* MapViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MapViewController.m; sourceTree = "<group>"; };
 		EE7EC3E017045ED400EF152E /* GoogleMaps.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = GoogleMaps.framework; sourceTree = "<group>"; };
@@ -348,12 +358,11 @@
 		808F13CE16FB6A5C00B66E6D /* Consumer App */ = {
 			isa = PBXGroup;
 			children = (
+				80D6FF6817219B4E008A3AFD /* Venue and Promotions */,
 				80B957C216FB7D840044A505 /* liverpool.JPG */,
 				808F13D716FB6A5C00B66E6D /* AppDelegate.h */,
 				808F13D816FB6A5C00B66E6D /* AppDelegate.m */,
 				808F13E016FB6A5C00B66E6D /* MainStoryboard.storyboard */,
-				80D6FF5B17215C18008A3AFD /* PromotionViewController.h */,
-				80D6FF5C17215C18008A3AFD /* PromotionViewController.m */,
 				80D6FF58172159D3008A3AFD /* StoryboardLayersNavigation.h */,
 				80D6FF59172159D3008A3AFD /* StoryboardLayersNavigation.m */,
 				80D6FF4C172029DA008A3AFD /* VenueGalleryViewController.h */,
@@ -362,12 +371,6 @@
 				EE3AFF8C170F11BF009BE96C /* MapViewController.m */,
 				805CE6CE16FCBDC9002445C3 /* PhotoLocationViewController.h */,
 				805CE6CF16FCBDC9002445C3 /* PhotoLocationViewController.m */,
-				80B957D416FC65F90044A505 /* VenueViewController.h */,
-				80B957D516FC65F90044A505 /* VenueViewController.m */,
-				8045AFC5170493D3002012D5 /* overlayText.xib */,
-				8045AFC7170495CD002012D5 /* overlayText.h */,
-				8045AFC8170495CE002012D5 /* overlayText.m */,
-				80D6FF5E17216140008A3AFD /* PromotionViewController.xib */,
 				80B957CF16FBB74F0044A505 /* CheckInViewController.h */,
 				80B957D016FBB74F0044A505 /* CheckInViewController.m */,
 				80B957B816FB7A910044A505 /* CrowdItem.h */,
@@ -423,6 +426,27 @@
 				808F13F516FB6A5C00B66E6D /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		80D6FF6817219B4E008A3AFD /* Venue and Promotions */ = {
+			isa = PBXGroup;
+			children = (
+				80D6FF5B17215C18008A3AFD /* PromotionViewController.h */,
+				80D6FF5C17215C18008A3AFD /* PromotionViewController.m */,
+				80B957D416FC65F90044A505 /* VenueViewController.h */,
+				80B957D516FC65F90044A505 /* VenueViewController.m */,
+				80D6FF6517219536008A3AFD /* PromotionView.h */,
+				80D6FF6617219536008A3AFD /* PromotionView.m */,
+				80D6FF6917219DA8008A3AFD /* PromotionDetailView.h */,
+				80D6FF6A17219DA8008A3AFD /* PromotionDetailView.m */,
+				80D6FF6C17219E4F008A3AFD /* PromotionDetailView.xib */,
+				8045AFC5170493D3002012D5 /* overlayText.xib */,
+				8045AFC7170495CD002012D5 /* overlayText.h */,
+				8045AFC8170495CE002012D5 /* overlayText.m */,
+				80D6FF5E17216140008A3AFD /* PromotionViewController.xib */,
+				80D6FF63172191A4008A3AFD /* PromotionView.xib */,
+			);
+			name = "Venue and Promotions";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -523,6 +547,8 @@
 				80D6FF56172144D8008A3AFD /* icon114.png in Resources */,
 				80D6FF57172144D8008A3AFD /* icon57.png in Resources */,
 				80D6FF5F17216140008A3AFD /* PromotionViewController.xib in Resources */,
+				80D6FF64172191A4008A3AFD /* PromotionView.xib in Resources */,
+				80D6FF6D17219E4F008A3AFD /* PromotionDetailView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -597,6 +623,8 @@
 				80D6FF5A172159D3008A3AFD /* StoryboardLayersNavigation.m in Sources */,
 				80D6FF5D17215C18008A3AFD /* PromotionViewController.m in Sources */,
 				80D6FF621721774E008A3AFD /* TransitionViewController.m in Sources */,
+				80D6FF6717219537008A3AFD /* PromotionView.m in Sources */,
+				80D6FF6B17219DA8008A3AFD /* PromotionDetailView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

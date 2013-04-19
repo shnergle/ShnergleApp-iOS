@@ -9,7 +9,7 @@
 #import "overlayText.h"
 #import "StoryboardLayersNavigation.h" //for getting the viewcontroller from this view.
 #import "PromotionViewController.h"
-
+#import "VenueViewController.h"
 
 #define TABBAR_HEIGHT (45)
 
@@ -145,13 +145,12 @@
 
 - (IBAction)tapPromotion:(id)sender {
     
-    UIViewController *parentVC = [self firstAvailableUIViewController];
+    VenueViewController *parentVC = (VenueViewController *)[self firstAvailableUIViewController];
     
-    UIViewController *promotionVC = [[UIViewController alloc] init];
     
     // do any setup you need for myNewVC
     
-    [parentVC presentViewController:[promotionVC initWithNibName:@"PromotionViewController" bundle:nil] animated:YES completion:nil];
+    [parentVC goToPromotionView];
     
     
     

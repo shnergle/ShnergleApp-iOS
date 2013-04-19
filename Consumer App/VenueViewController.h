@@ -16,6 +16,8 @@
 -(void)setTitle:(NSString *)title;
 -(void)viewDidAppear:(BOOL)animated;
 -(void)viewWillAppear:(BOOL)animated;
+-(void)goToPromotionView;
+-(void)goToPromotionDetailView;
 @property (weak, nonatomic) IBOutlet UICollectionView *crowdCollectionV;
 
 @property (weak, nonatomic) IBOutlet overlayText *overlayView;
