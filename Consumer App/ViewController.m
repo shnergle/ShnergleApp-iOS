@@ -111,4 +111,10 @@ didHighlightItemAtIndexPath:(NSIndexPath *)indexPath {
     */
 }
 
+- (BOOL)scrollViewShouldScrollToTop:(UIScrollView *)scrollView
+{
+    NSLog(@"Scrolled to top");
+    return YES;
+}
+
 @end

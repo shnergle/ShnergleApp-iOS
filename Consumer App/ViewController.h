@@ -20,5 +20,6 @@ NSInteger selectedVenueIndex;
 @property (weak, nonatomic) IBOutlet GMSMapView *mapView;
 @property (weak, nonatomic) IBOutlet UICollectionView *crowdCollection;
 @property(nonatomic, retain) UIView *titleView;
+-(BOOL)scrollViewShouldScrollToTop:(UIScrollView *)scrollView;
 -(void)createTitleButton;
 @end
