@@ -9,11 +9,18 @@
 
 #import <UIKit/UIKit.h>
 #import <GoogleMaps/GoogleMaps.h>
+#import <FacebookSDK/FacebookSDK.h>
 
+@class LoginScreenController;
 
 
 @interface AppDelegate : UIResponder <UIApplicationDelegate>
 
+@property (strong, nonatomic) UIViewController *viewcont;
 @property (strong, nonatomic) UIWindow *window;
+@property (strong, nonatomic) LoginScreenController *viewController;
+
+
+@property (strong, nonatomic) FBSession *session;
 
 @end
