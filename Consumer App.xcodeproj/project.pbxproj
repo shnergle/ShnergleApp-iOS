@@ -37,8 +37,6 @@
 		8045AFD7170B0159002012D5 /* TMTestTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8045AFD1170B0159002012D5 /* TMTestTableViewController.m */; };
 		8045AFD8170B0159002012D5 /* UITabBarController+hidable.m in Sources */ = {isa = PBXBuildFile; fileRef = 8045AFD3170B0159002012D5 /* UITabBarController+hidable.m */; };
 		805AB9E1172A9AFA0056DCFB /* VenueGalleryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 805AB9E0172A9AFA0056DCFB /* VenueGalleryViewController.m */; };
-		805AB9E3172AC2FF0056DCFB /* mahiki.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 80B957C316FB7D840044A505 /* mahiki.jpg */; };
-		805AB9E4172AC3040056DCFB /* liverpool2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 80B957C116FB7D840044A505 /* liverpool2.jpg */; };
 		805AB9E6172AC46F0056DCFB /* liverpool.JPG in Resources */ = {isa = PBXBuildFile; fileRef = 805AB9E5172AC46F0056DCFB /* liverpool.JPG */; };
 		805CE6D016FCBDC9002445C3 /* PhotoLocationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 805CE6CF16FCBDC9002445C3 /* PhotoLocationViewController.m */; };
 		808F13C916FB6A5C00B66E6D /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 808F13C816FB6A5C00B66E6D /* UIKit.framework */; };
@@ -76,6 +74,8 @@
 		80D6FF6717219537008A3AFD /* PromotionView.m in Sources */ = {isa = PBXBuildFile; fileRef = 80D6FF6617219536008A3AFD /* PromotionView.m */; };
 		80D6FF6B17219DA8008A3AFD /* PromotionDetailView.m in Sources */ = {isa = PBXBuildFile; fileRef = 80D6FF6A17219DA8008A3AFD /* PromotionDetailView.m */; };
 		80D6FF6D17219E4F008A3AFD /* PromotionDetailView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 80D6FF6C17219E4F008A3AFD /* PromotionDetailView.xib */; };
+		80ED0A13172ADACA00E3C749 /* liverpool2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 80ED0A12172ADACA00E3C749 /* liverpool2.jpg */; };
+		80ED0A15172ADAD600E3C749 /* mahiki.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 80ED0A14172ADAD600E3C749 /* mahiki.jpg */; };
 		EE3AFF8D170F11BF009BE96C /* MapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EE3AFF8C170F11BF009BE96C /* MapViewController.m */; };
 		EE7EC3E117045ED400EF152E /* GoogleMaps.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EE7EC3E017045ED400EF152E /* GoogleMaps.framework */; };
 		EE7EC3E317045F8500EF152E /* GoogleMaps.bundle in Resources */ = {isa = PBXBuildFile; fileRef = EE7EC3E217045F8500EF152E /* GoogleMaps.bundle */; };
@@ -189,9 +189,7 @@
 		808F13F916FB6A5C00B66E6D /* Consumer_AppTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Consumer_AppTests.m; sourceTree = "<group>"; };
 		80B957B816FB7A910044A505 /* CrowdItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CrowdItem.h; sourceTree = "<group>"; };
 		80B957B916FB7A910044A505 /* CrowdItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CrowdItem.m; sourceTree = "<group>"; };
-		80B957C116FB7D840044A505 /* liverpool2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = liverpool2.jpg; path = /Users/stian/Documents/Shnergle/liverpool2.jpg; sourceTree = "<absolute>"; };
 		80B957C216FB7D840044A505 /* liverpool.JPG */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = liverpool.JPG; path = /Users/stian/Documents/Shnergle/liverpool.JPG; sourceTree = "<absolute>"; };
-		80B957C316FB7D840044A505 /* mahiki.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = mahiki.jpg; path = /Users/stian/Documents/Shnergle/mahiki.jpg; sourceTree = "<absolute>"; };
 		80B957C716FB846C0044A505 /* icon114.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = icon114.png; path = /Users/stian/Documents/Shnergle/icon114.png; sourceTree = "<absolute>"; };
 		80B957C816FB846C0044A505 /* icon57.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = icon57.png; path = /Users/stian/Documents/Shnergle/icon57.png; sourceTree = "<absolute>"; };
 		80B957CF16FBB74F0044A505 /* CheckInViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CheckInViewController.h; sourceTree = "<group>"; };
@@ -223,6 +221,8 @@
 		80D6FF6917219DA8008A3AFD /* PromotionDetailView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PromotionDetailView.h; sourceTree = "<group>"; };
 		80D6FF6A17219DA8008A3AFD /* PromotionDetailView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PromotionDetailView.m; sourceTree = "<group>"; };
 		80D6FF6C17219E4F008A3AFD /* PromotionDetailView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PromotionDetailView.xib; sourceTree = "<group>"; };
+		80ED0A12172ADACA00E3C749 /* liverpool2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = liverpool2.jpg; sourceTree = "<group>"; };
+		80ED0A14172ADAD600E3C749 /* mahiki.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = mahiki.jpg; sourceTree = "<group>"; };
 		EE3AFF8B170F11BF009BE96C /* MapViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapViewController.h; sourceTree = "<group>"; };
 		EE3AFF8C170F11BF009BE96C /* MapViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MapViewController.m; sourceTree = "<group>"; };
 		EE7EC3E017045ED400EF152E /* GoogleMaps.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = GoogleMaps.framework; sourceTree = "<group>"; };
@@ -452,8 +452,6 @@
 				80D6FF501720303D008A3AFD /* photoScroll_dummy.png */,
 				80D6FF511720303D008A3AFD /* photoScroll_dummy.psd */,
 				80B957C816FB846C0044A505 /* icon57.png */,
-				80B957C116FB7D840044A505 /* liverpool2.jpg */,
-				80B957C316FB7D840044A505 /* mahiki.jpg */,
 				808F13D016FB6A5C00B66E6D /* Consumer App-Info.plist */,
 				808F13D116FB6A5C00B66E6D /* InfoPlist.strings */,
 				808F13D416FB6A5C00B66E6D /* main.m */,
@@ -624,8 +622,6 @@
 				80D6FF6D17219E4F008A3AFD /* PromotionDetailView.xib in Resources */,
 				80D26B5F172A813300B0581D /* MainWindow.xib in Resources */,
 				80D26B61172A814E00B0581D /* PageControllerExample.xib in Resources */,
-				805AB9E3172AC2FF0056DCFB /* mahiki.jpg in Resources */,
-				805AB9E4172AC3040056DCFB /* liverpool2.jpg in Resources */,
 				805AB9E6172AC46F0056DCFB /* liverpool.JPG in Resources */,
 				EE8FF80B172A98450003A8E1 /* Screen Shot 2013-04-19 at 09.52.50.png in Resources */,
 				EE8FF80F172A9BED0003A8E1 /* fb-login-button.png in Resources */,
