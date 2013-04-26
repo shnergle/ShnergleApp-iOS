@@ -50,7 +50,6 @@
     UIImageView *imageView3 = [[UIImageView alloc] initWithImage:image];
     NSArray *imageViews = [NSArray arrayWithObjects:imageView1, imageView2, imageView3, nil];
     //UIScrollView *imageScrollView = [[UIScrollView alloc] initWithFrame:self.view.bounds];
-    imageScrollView.bounds = CGRectMake(0, 0, 300, 300);
     imageScrollView.backgroundColor = [UIColor redColor];
     //[self.view addSubview: imageScrollView]; //This code assumes it's in a UIViewController
     CGRect cRect = imageScrollView.bounds;
