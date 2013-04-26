@@ -36,6 +36,9 @@
 		8045AFD6170B0159002012D5 /* TMPostDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8045AFCF170B0159002012D5 /* TMPostDetailViewController.xib */; };
 		8045AFD7170B0159002012D5 /* TMTestTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8045AFD1170B0159002012D5 /* TMTestTableViewController.m */; };
 		8045AFD8170B0159002012D5 /* UITabBarController+hidable.m in Sources */ = {isa = PBXBuildFile; fileRef = 8045AFD3170B0159002012D5 /* UITabBarController+hidable.m */; };
+		805AB9E1172A9AFA0056DCFB /* VenueGalleryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 805AB9E0172A9AFA0056DCFB /* VenueGalleryViewController.m */; };
+		805AB9E3172AC2FF0056DCFB /* mahiki.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 80B957C316FB7D840044A505 /* mahiki.jpg */; };
+		805AB9E4172AC3040056DCFB /* liverpool2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 80B957C116FB7D840044A505 /* liverpool2.jpg */; };
 		805CE6D016FCBDC9002445C3 /* PhotoLocationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 805CE6CF16FCBDC9002445C3 /* PhotoLocationViewController.m */; };
 		808F13C916FB6A5C00B66E6D /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 808F13C816FB6A5C00B66E6D /* UIKit.framework */; };
 		808F13CB16FB6A5C00B66E6D /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 808F13CA16FB6A5C00B66E6D /* Foundation.framework */; };
@@ -143,6 +146,8 @@
 		8045AFD1170B0159002012D5 /* TMTestTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TMTestTableViewController.m; sourceTree = "<group>"; };
 		8045AFD2170B0159002012D5 /* UITabBarController+hidable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITabBarController+hidable.h"; sourceTree = "<group>"; };
 		8045AFD3170B0159002012D5 /* UITabBarController+hidable.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITabBarController+hidable.m"; sourceTree = "<group>"; };
+		805AB9DF172A9AFA0056DCFB /* VenueGalleryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VenueGalleryViewController.h; sourceTree = "<group>"; };
+		805AB9E0172A9AFA0056DCFB /* VenueGalleryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VenueGalleryViewController.m; sourceTree = "<group>"; };
 		805CE6CE16FCBDC9002445C3 /* PhotoLocationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PhotoLocationViewController.h; sourceTree = "<group>"; };
 		805CE6CF16FCBDC9002445C3 /* PhotoLocationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PhotoLocationViewController.m; sourceTree = "<group>"; };
 		805CE6D316FCC1A2002445C3 /* twitter.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = twitter.jpg; path = /Users/stian/Documents/Shnergle/twitter.jpg; sourceTree = "<absolute>"; };
@@ -466,6 +471,8 @@
 				8045AFC8170495CE002012D5 /* overlayText.m */,
 				80D6FF5E17216140008A3AFD /* PromotionViewController.xib */,
 				80D6FF63172191A4008A3AFD /* PromotionView.xib */,
+				805AB9DF172A9AFA0056DCFB /* VenueGalleryViewController.h */,
+				805AB9E0172A9AFA0056DCFB /* VenueGalleryViewController.m */,
 			);
 			name = "Venue and Promotions";
 			sourceTree = "<group>";
@@ -572,6 +579,8 @@
 				80D6FF6D17219E4F008A3AFD /* PromotionDetailView.xib in Resources */,
 				80D26B5F172A813300B0581D /* MainWindow.xib in Resources */,
 				80D26B61172A814E00B0581D /* PageControllerExample.xib in Resources */,
+				805AB9E3172AC2FF0056DCFB /* mahiki.jpg in Resources */,
+				805AB9E4172AC3040056DCFB /* liverpool2.jpg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -647,6 +656,7 @@
 				80D6FF621721774E008A3AFD /* TransitionViewController.m in Sources */,
 				80D6FF6717219537008A3AFD /* PromotionView.m in Sources */,
 				80D6FF6B17219DA8008A3AFD /* PromotionDetailView.m in Sources */,
+				805AB9E1172A9AFA0056DCFB /* VenueGalleryViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

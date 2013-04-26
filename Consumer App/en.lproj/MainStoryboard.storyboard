@@ -231,27 +231,16 @@
             </objects>
             <point key="canvasLocation" x="-1533" y="877"/>
         </scene>
-        <!--Page Control Example View Control-->
+        <!--Venue Gallery View Controller-->
         <scene sceneID="SP1-bN-fzb">
             <objects>
-                <viewController storyboardIdentifier="VenueGallery" id="PQb-UE-tQ8" customClass="PageControlExampleViewControl" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="VenueGallery" id="PQb-UE-tQ8" customClass="VenueGalleryViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="0ht-SK-gFa">
                         <rect key="frame" x="0.0" y="64" width="320" height="504"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFit" bounces="NO" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6u6-Wc-2Ey">
-                                <subviews>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" image="photoScroll_dummy.png" translatesAutoresizingMaskIntoConstraints="NO" id="U15-XF-x7z"/>
-                                </subviews>
                                 <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <constraints>
-                                    <constraint firstItem="U15-XF-x7z" firstAttribute="trailing" secondItem="6u6-Wc-2Ey" secondAttribute="trailing" type="default" id="JL9-4Q-Qu4"/>
-                                    <constraint firstItem="U15-XF-x7z" firstAttribute="leading" secondItem="6u6-Wc-2Ey" secondAttribute="leading" type="default" id="SEc-gR-jUH"/>
-                                    <constraint firstItem="U15-XF-x7z" firstAttribute="centerX" secondItem="6u6-Wc-2Ey" secondAttribute="centerX" type="default" id="UNd-mU-XrO"/>
-                                    <constraint firstItem="U15-XF-x7z" firstAttribute="bottom" secondItem="6u6-Wc-2Ey" secondAttribute="bottom" type="default" id="wzP-cs-saw"/>
-                                    <constraint firstItem="U15-XF-x7z" firstAttribute="top" secondItem="6u6-Wc-2Ey" secondAttribute="top" type="default" id="yiW-P9-SvF"/>
-                                    <constraint firstItem="U15-XF-x7z" firstAttribute="centerY" secondItem="6u6-Wc-2Ey" secondAttribute="centerY" type="default" id="yqO-p6-Uad"/>
-                                </constraints>
                             </scrollView>
                             <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="U9y-Ur-W9n"/>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4Bj-Xy-ePL">
@@ -328,6 +317,10 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="be1-hQ-8nR"/>
+                    <connections>
+                        <outlet property="imagePageControl" destination="U9y-Ur-W9n" id="c8B-qp-Nrh"/>
+                        <outlet property="imageScrollView" destination="6u6-Wc-2Ey" id="Okq-KM-OAZ"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8vH-m4-YOc" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -642,7 +635,6 @@
     <resources>
         <image name="facebook.png" width="1250" height="1250"/>
         <image name="mahiki.jpg" width="420" height="308"/>
-        <image name="photoScroll_dummy.png" width="1260" height="308"/>
         <image name="plusone.png" width="26" height="22"/>
         <image name="twitter.jpg" width="945" height="651"/>
     </resources>
@@ -668,12 +660,6 @@
         <class className="NSLayoutConstraint" superclassName="NSObject">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/NSLayoutConstraint.h"/>
         </class>
-        <class className="PageControlExampleViewControl" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/PageControlExampleViewControl.h"/>
-            <relationships>
-                <relationship kind="outlet" name="pageNumberLabel" candidateClass="UILabel"/>
-            </relationships>
-        </class>
         <class className="PhotoLocationViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/PhotoLocationViewController.h"/>
             <relationships>
@@ -690,6 +676,13 @@
         </class>
         <class className="UICollectionViewFlowLayout" superclassName="UICollectionViewLayout">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/UICollectionViewFlowLayout.h"/>
+        </class>
+        <class className="VenueGalleryViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/VenueGalleryViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="imagePageControl" candidateClass="UIPageControl"/>
+                <relationship kind="outlet" name="imageScrollView" candidateClass="UIScrollView"/>
+            </relationships>
         </class>
         <class className="VenueViewController" superclassName="ViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/VenueViewController.h"/>
