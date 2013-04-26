@@ -53,8 +53,8 @@
     imageScrollView.backgroundColor = [UIColor redColor];
     
     
-    //[self.view addSubview: imageScrollView]; //This code assumes it's in a UIViewController
-    CGRect cRect = imageScrollView.bounds;
+    [self.view addSubview: imageScrollView]; //This code assumes it's in a UIViewController
+    CGRect cRect = CGRectMake(0, 0, 300, 300);/*imageScrollView.bounds;*/
     UIImageView *cView;
     for (int i = 0; i < imageViews.count; i++){
         cView = [imageViews objectAtIndex:i];
@@ -62,10 +62,12 @@
         cView.backgroundColor = [UIColor blueColor];
         [imageScrollView addSubview:cView];
         cRect.origin.x += cRect.size.width;
+        NSLog(@"image added at %f,%f",cRect.origin.x,cRect.origin.y);
     }
     NSLog(@"subviews of scrollview:%d",imageScrollView.subviews.count);
     imageScrollView.contentSize = CGSizeMake(cRect.origin.x, imageScrollView.bounds.size.height);
     imageScrollView.contentOffset = CGPointMake(imageScrollView.bounds.size.width, 0); //should be the center page in a 3 page setup
+    [self.imageScrollView updateConstraints];
     imageScrollView.pagingEnabled = YES;
 }
 
