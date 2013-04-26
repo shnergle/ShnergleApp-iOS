@@ -8,6 +8,7 @@
 
 #import "LoginScreenController.h"
 #import "AppDelegate.h"
+#import "ViewController.h"
 
 @interface LoginScreenController ()
 
@@ -70,6 +71,11 @@
     if (appDelegate.session.isOpen) {
         // valid account UI is shown whenever the session is open
         [self.buttonLoginLogout setTitle:@"Log out" forState:UIControlStateNormal];
+        
+        UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"MainStoryboard" bundle:nil];
+        ViewController *vc = [storyboard instantiateViewControllerWithIdentifier:@"AroundMe"];
+        
+        [self.navigationController pushViewController:vc animated:YES];
         
         /*[self.textNoteOrLink setText:[NSString stringWithFormat:@"https://graph.facebook.com/me/friends?access_token=%@",
          appDelegate.session.accessTokenData.accessToken]];*/
