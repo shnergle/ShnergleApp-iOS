@@ -67,15 +67,18 @@
 - (void)updateView {
     // get the app delegate, so that we can reference the session property
     AppDelegate *appDelegate = [[UIApplication sharedApplication]delegate];
+    UIImage *image = [UIImage imageNamed: @"fb-login-button.png"];
+    UIImage *image2 = [UIImage imageNamed: @"fbloginview_logout.png"];
     if (appDelegate.session.isOpen) {
         // valid account UI is shown whenever the session is open
-        [self.buttonLoginLogout setTitle:@"Log out" forState:UIControlStateNormal];
+        
+        [self.buttonLoginLogout setImage:image forState:UIControlStateNormal];
         
         /*[self.textNoteOrLink setText:[NSString stringWithFormat:@"https://graph.facebook.com/me/friends?access_token=%@",
          appDelegate.session.accessTokenData.accessToken]];*/
     } else {
         // login-needed account UI is shown whenever the session is closed
-        [self.buttonLoginLogout setTitle:@"Log in" forState:UIControlStateNormal];
+        [self.buttonLoginLogout setImage:image2 forState:UIControlStateNormal];
         //[self.textNoteOrLink setText:@"Login to create a link to fetch account data"];
     }
 }
