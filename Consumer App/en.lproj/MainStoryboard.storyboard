@@ -7,7 +7,7 @@
         <!--Navigation Controller-->
         <scene sceneID="2qm-ww-IWT">
             <objects>
-                <navigationController definesPresentationContext="YES" id="Yrf-wA-f9e" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="RootNavController" definesPresentationContext="YES" id="Yrf-wA-f9e" sceneMemberID="viewController">
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="JGm-IP-4yi">
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -22,7 +22,7 @@
         <!--View Controller - Around me-->
         <scene sceneID="5">
             <objects>
-                <viewController id="2" customClass="ViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="AroundMe" id="2" customClass="ViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="3">
                         <rect key="frame" x="0.0" y="64" width="320" height="504"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -137,7 +137,7 @@
         <!--Venue View Controller-->
         <scene sceneID="MVj-zz-jE1">
             <objects>
-                <viewController id="rpF-0H-Qzy" customClass="VenueViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="Venue" id="rpF-0H-Qzy" customClass="VenueViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="IVE-af-RYQ">
                         <rect key="frame" x="0.0" y="64" width="320" height="504"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -234,24 +234,14 @@
         <!--Venue Gallery View Controller-->
         <scene sceneID="SP1-bN-fzb">
             <objects>
-                <viewController id="PQb-UE-tQ8" customClass="VenueGalleryViewController" sceneMemberID="viewController">
+                <placeholder placeholderIdentifier="IBFirstResponder" id="8vH-m4-YOc" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <viewController storyboardIdentifier="VenueGallery" id="PQb-UE-tQ8" customClass="VenueGalleryViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="0ht-SK-gFa">
                         <rect key="frame" x="0.0" y="64" width="320" height="504"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFit" bounces="NO" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6u6-Wc-2Ey">
-                                <subviews>
-                                    <imageView userInteractionEnabled="NO" contentMode="left" image="photoScroll_dummy.png" translatesAutoresizingMaskIntoConstraints="NO" id="gwb-oW-Rat"/>
-                                </subviews>
                                 <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <constraints>
-                                    <constraint firstItem="gwb-oW-Rat" firstAttribute="centerX" secondItem="6u6-Wc-2Ey" secondAttribute="centerX" type="default" id="9Ee-yl-USZ"/>
-                                    <constraint firstItem="gwb-oW-Rat" firstAttribute="trailing" secondItem="6u6-Wc-2Ey" secondAttribute="trailing" type="default" id="Iyg-US-Xcx"/>
-                                    <constraint firstItem="gwb-oW-Rat" firstAttribute="top" secondItem="6u6-Wc-2Ey" secondAttribute="top" type="default" id="Uni-YF-A5D"/>
-                                    <constraint firstItem="gwb-oW-Rat" firstAttribute="centerY" secondItem="6u6-Wc-2Ey" secondAttribute="centerY" type="default" id="Va3-Qz-TWK"/>
-                                    <constraint firstItem="gwb-oW-Rat" firstAttribute="bottom" secondItem="6u6-Wc-2Ey" secondAttribute="bottom" type="default" id="cuw-yn-IEp"/>
-                                    <constraint firstItem="gwb-oW-Rat" firstAttribute="leading" secondItem="6u6-Wc-2Ey" secondAttribute="leading" type="default" id="th2-PB-mYg"/>
-                                </constraints>
                             </scrollView>
                             <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="U9y-Ur-W9n"/>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4Bj-Xy-ePL">
@@ -329,7 +319,6 @@
                     </view>
                     <navigationItem key="navigationItem" id="be1-hQ-8nR"/>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="8vH-m4-YOc" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-707" y="972"/>
         </scene>
@@ -626,7 +615,7 @@
         <!--View Controller - Profile-->
         <scene sceneID="aFZ-SR-USp">
             <objects>
-                <viewController id="qgb-Kw-YNh" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="Profile" id="qgb-Kw-YNh" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="T3d-vY-Mf8">
                         <rect key="frame" x="0.0" y="20" width="320" height="548"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -642,7 +631,6 @@
     <resources>
         <image name="facebook.png" width="1250" height="1250"/>
         <image name="mahiki.jpg" width="420" height="308"/>
-        <image name="photoScroll_dummy.png" width="1260" height="308"/>
         <image name="plusone.png" width="26" height="22"/>
         <image name="twitter.jpg" width="945" height="651"/>
     </resources>
@@ -685,6 +673,9 @@
         <class className="UICollectionViewFlowLayout" superclassName="UICollectionViewLayout">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/UICollectionViewFlowLayout.h"/>
         </class>
+        <class className="UICollectionViewLayout" superclassName="NSObject">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/UICollectionViewLayout.h"/>
+        </class>
         <class className="VenueGalleryViewController" superclassName="UITableViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/VenueGalleryViewController.h"/>
         </class>
@@ -718,6 +709,6 @@
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="lI3-hS-KdK"/>
+        <segue reference="BhZ-uk-GaA"/>
     </inferredMetricsTieBreakers>
 </document>
