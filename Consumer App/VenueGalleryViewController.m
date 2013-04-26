@@ -42,19 +42,18 @@
 }
 
 -(void)imageScrollerSetup{
-    
-    //UIImage *image = [UIImage imageNamed:@"mahiki.jpg"];
+    CGRect windowBounds = [[UIScreen mainScreen]bounds];
+    imageScrollView.bounds = CGRectMake(0, 0, windowBounds.size.width, windowBounds.size.height / 2);
     UIImage *image = [UIImage imageNamed:@"mahiki.jpg"];
     UIImageView *imageView1 = [[UIImageView alloc] initWithImage:image];
     UIImageView *imageView2 = [[UIImageView alloc] initWithImage:image];
     UIImageView *imageView3 = [[UIImageView alloc] initWithImage:image];
     NSArray *imageViews = [NSArray arrayWithObjects:imageView1, imageView2, imageView3, nil];
     //UIScrollView *imageScrollView = [[UIScrollView alloc] initWithFrame:self.view.bounds];
-    imageScrollView.backgroundColor = [UIColor redColor];
     
     
     [self.view addSubview: imageScrollView]; //This code assumes it's in a UIViewController
-    CGRect cRect = CGRectMake(0, 0, 300, 300);/*imageScrollView.bounds;*/
+    CGRect cRect = imageScrollView.bounds;
     UIImageView *cView;
     for (int i = 0; i < imageViews.count; i++){
         cView = [imageViews objectAtIndex:i];
