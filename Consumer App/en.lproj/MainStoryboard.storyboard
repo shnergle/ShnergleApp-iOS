@@ -231,17 +231,17 @@
             </objects>
             <point key="canvasLocation" x="-1533" y="877"/>
         </scene>
-        <!--View Controller-->
+        <!--Page Control Example View Control-->
         <scene sceneID="SP1-bN-fzb">
             <objects>
-                <viewController storyboardIdentifier="VenueGallery" id="PQb-UE-tQ8" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="VenueGallery" id="PQb-UE-tQ8" customClass="PageControlExampleViewControl" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="0ht-SK-gFa">
                         <rect key="frame" x="0.0" y="64" width="320" height="504"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFit" bounces="NO" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6u6-Wc-2Ey">
                                 <subviews>
-                                    <imageView multipleTouchEnabled="YES" contentMode="scaleAspectFill" image="photoScroll_dummy.png" translatesAutoresizingMaskIntoConstraints="NO" id="U15-XF-x7z"/>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" image="photoScroll_dummy.png" translatesAutoresizingMaskIntoConstraints="NO" id="U15-XF-x7z"/>
                                 </subviews>
                                 <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
@@ -667,6 +667,12 @@
         </class>
         <class className="NSLayoutConstraint" superclassName="NSObject">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/NSLayoutConstraint.h"/>
+        </class>
+        <class className="PageControlExampleViewControl" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/PageControlExampleViewControl.h"/>
+            <relationships>
+                <relationship kind="outlet" name="pageNumberLabel" candidateClass="UILabel"/>
+            </relationships>
         </class>
         <class className="PhotoLocationViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/PhotoLocationViewController.h"/>
