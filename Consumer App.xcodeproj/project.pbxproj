@@ -91,6 +91,16 @@
 		EE7EC3F71704689100EF152E /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EE7EC3F61704689100EF152E /* OpenGLES.framework */; };
 		EE7EC3F9170468AB00EF152E /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EE7EC3F8170468AB00EF152E /* QuartzCore.framework */; };
 		EE7EC3FB170468B600EF152E /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EE7EC3FA170468B600EF152E /* SystemConfiguration.framework */; };
+		EE8FF80B172A98450003A8E1 /* Screen Shot 2013-04-19 at 09.52.50.png in Resources */ = {isa = PBXBuildFile; fileRef = EE8FF80A172A98450003A8E1 /* Screen Shot 2013-04-19 at 09.52.50.png */; };
+		EE8FF80F172A9BED0003A8E1 /* fb-login-button.png in Resources */ = {isa = PBXBuildFile; fileRef = EE8FF80E172A9BED0003A8E1 /* fb-login-button.png */; };
+		EE8FF815172A9CFD0003A8E1 /* LoginScreenController.m in Sources */ = {isa = PBXBuildFile; fileRef = EE8FF814172A9CFD0003A8E1 /* LoginScreenController.m */; };
+		EE8FF817172AA1C30003A8E1 /* FacebookSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EE8FF816172AA1C30003A8E1 /* FacebookSDK.framework */; };
+		EE8FF819172AA23C0003A8E1 /* FacebookSDKResources.bundle in Resources */ = {isa = PBXBuildFile; fileRef = EE8FF818172AA23C0003A8E1 /* FacebookSDKResources.bundle */; };
+		EE8FF81B172AA3960003A8E1 /* Accounts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EE8FF81A172AA3960003A8E1 /* Accounts.framework */; };
+		EE8FF81D172AA3B60003A8E1 /* AdSupport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EE8FF81C172AA3B60003A8E1 /* AdSupport.framework */; };
+		EE8FF81F172AA3CC0003A8E1 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EE8FF81E172AA3CC0003A8E1 /* Security.framework */; };
+		EE8FF821172AA3D60003A8E1 /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EE8FF820172AA3D60003A8E1 /* Social.framework */; };
+		EE8FF823172AA3F90003A8E1 /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = EE8FF822172AA3F90003A8E1 /* libsqlite3.dylib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -228,6 +238,17 @@
 		EE7EC3F61704689100EF152E /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
 		EE7EC3F8170468AB00EF152E /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		EE7EC3FA170468B600EF152E /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		EE8FF80A172A98450003A8E1 /* Screen Shot 2013-04-19 at 09.52.50.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Screen Shot 2013-04-19 at 09.52.50.png"; sourceTree = "<group>"; };
+		EE8FF80E172A9BED0003A8E1 /* fb-login-button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "fb-login-button.png"; sourceTree = SOURCE_ROOT; };
+		EE8FF813172A9CFD0003A8E1 /* LoginScreenController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginScreenController.h; sourceTree = "<group>"; };
+		EE8FF814172A9CFD0003A8E1 /* LoginScreenController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginScreenController.m; sourceTree = "<group>"; };
+		EE8FF816172AA1C30003A8E1 /* FacebookSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FacebookSDK.framework; path = ../FacebookSDK/FacebookSDK.framework; sourceTree = "<group>"; };
+		EE8FF818172AA23C0003A8E1 /* FacebookSDKResources.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = FacebookSDKResources.bundle; sourceTree = "<group>"; };
+		EE8FF81A172AA3960003A8E1 /* Accounts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accounts.framework; path = System/Library/Frameworks/Accounts.framework; sourceTree = SDKROOT; };
+		EE8FF81C172AA3B60003A8E1 /* AdSupport.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AdSupport.framework; path = System/Library/Frameworks/AdSupport.framework; sourceTree = SDKROOT; };
+		EE8FF81E172AA3CC0003A8E1 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
+		EE8FF820172AA3D60003A8E1 /* Social.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Social.framework; path = System/Library/Frameworks/Social.framework; sourceTree = SDKROOT; };
+		EE8FF822172AA3F90003A8E1 /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -235,6 +256,11 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EE8FF823172AA3F90003A8E1 /* libsqlite3.dylib in Frameworks */,
+				EE8FF821172AA3D60003A8E1 /* Social.framework in Frameworks */,
+				EE8FF81F172AA3CC0003A8E1 /* Security.framework in Frameworks */,
+				EE8FF81D172AA3B60003A8E1 /* AdSupport.framework in Frameworks */,
+				EE8FF81B172AA3960003A8E1 /* Accounts.framework in Frameworks */,
 				EE7EC3FB170468B600EF152E /* SystemConfiguration.framework in Frameworks */,
 				EE7EC3F9170468AB00EF152E /* QuartzCore.framework in Frameworks */,
 				EE7EC3F71704689100EF152E /* OpenGLES.framework in Frameworks */,
@@ -251,6 +277,7 @@
 				808F13CB16FB6A5C00B66E6D /* Foundation.framework in Frameworks */,
 				808F13CD16FB6A5C00B66E6D /* CoreGraphics.framework in Frameworks */,
 				EE7EC3E117045ED400EF152E /* GoogleMaps.framework in Frameworks */,
+				EE8FF817172AA1C30003A8E1 /* FacebookSDK.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -348,9 +375,16 @@
 		808F13C716FB6A5C00B66E6D /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				EE8FF822172AA3F90003A8E1 /* libsqlite3.dylib */,
 				EE7EC3F41704685A00EF152E /* libz.dylib */,
+				EE8FF818172AA23C0003A8E1 /* FacebookSDKResources.bundle */,
 				EE7EC3F21704682700EF152E /* libicucore.dylib */,
 				EE7EC3F01704680B00EF152E /* libc++.dylib */,
+				EE8FF820172AA3D60003A8E1 /* Social.framework */,
+				EE8FF81E172AA3CC0003A8E1 /* Security.framework */,
+				EE8FF81C172AA3B60003A8E1 /* AdSupport.framework */,
+				EE8FF81A172AA3960003A8E1 /* Accounts.framework */,
+				EE8FF816172AA1C30003A8E1 /* FacebookSDK.framework */,
 				EE7EC3FA170468B600EF152E /* SystemConfiguration.framework */,
 				EE7EC3F8170468AB00EF152E /* QuartzCore.framework */,
 				EE7EC3F61704689100EF152E /* OpenGLES.framework */,
@@ -391,9 +425,11 @@
 				80B957B916FB7A910044A505 /* CrowdItem.m */,
 				808F13E316FB6A5C00B66E6D /* ViewController.h */,
 				808F13E416FB6A5C00B66E6D /* ViewController.m */,
-				808F13CF16FB6A5C00B66E6D /* Supporting Files */,
 				80D6FF601721774E008A3AFD /* TransitionViewController.h */,
 				80D6FF611721774E008A3AFD /* TransitionViewController.m */,
+				EE8FF813172A9CFD0003A8E1 /* LoginScreenController.h */,
+				EE8FF814172A9CFD0003A8E1 /* LoginScreenController.m */,
+				808F13CF16FB6A5C00B66E6D /* Supporting Files */,
 			);
 			path = "Consumer App";
 			sourceTree = "<group>";
@@ -401,6 +437,8 @@
 		808F13CF16FB6A5C00B66E6D /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				EE8FF80A172A98450003A8E1 /* Screen Shot 2013-04-19 at 09.52.50.png */,
+				EE8FF80E172A9BED0003A8E1 /* fb-login-button.png */,
 				805CE6D316FCC1A2002445C3 /* twitter.jpg */,
 				805CE6D416FCC1A2002445C3 /* facebook.png */,
 				80B957D216FBC5E50044A505 /* .gitignore */,
@@ -786,6 +824,7 @@
 					"$(inherited)",
 					"\"$(SRCROOT)/../../Downloads/GoogleMaps-iOS-1.1.2\"",
 					"\"$(SRCROOT)\"",
+					"\"$(SRCROOT)/../FacebookSDK\"",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Consumer App/Consumer App-Prefix.pch";
@@ -803,6 +842,7 @@
 					"$(inherited)",
 					"\"$(SRCROOT)/../../Downloads/GoogleMaps-iOS-1.1.2\"",
 					"\"$(SRCROOT)\"",
+					"\"$(SRCROOT)/../FacebookSDK\"",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Consumer App/Consumer App-Prefix.pch";
