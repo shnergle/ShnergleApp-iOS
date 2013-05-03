@@ -84,7 +84,7 @@
     item.layer.borderWidth = 1.0f;
     item.layer.contentsScale = [UIScreen mainScreen].scale;
     item.layer.shadowOpacity = 0.6f;
-    item.layer.shadowRadius = 3.0f;
+    item.layer.shadowRadius = 2.0f;
     item.layer.shadowOffset = CGSizeZero;
     item.layer.shadowPath = [UIBezierPath bezierPathWithRect:item.bounds].CGPath;
     item.layer.shouldRasterize = YES;

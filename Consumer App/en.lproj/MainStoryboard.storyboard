@@ -42,10 +42,7 @@
                                     <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="top" translatesAutoresizingMaskIntoConstraints="NO" id="idD-fk-d6Y">
                                         <subviews>
                                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="top" bounces="NO" alwaysBounceVertical="YES" minimumZoomScale="0.0" maximumZoomScale="0.0" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="NoU-2f-HS3">
-                                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="width" constant="320" id="7DE-us-FAp"/>
-                                                </constraints>
+                                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.0" colorSpace="calibratedRGB"/>
                                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="5" minimumInteritemSpacing="5" id="sQ4-wF-cWC">
                                                     <size key="itemSize" width="152" height="152"/>
                                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
@@ -92,8 +89,9 @@
                                         </subviews>
                                         <constraints>
                                             <constraint firstItem="NoU-2f-HS3" firstAttribute="centerY" secondItem="idD-fk-d6Y" secondAttribute="centerY" type="default" id="15r-HA-FyS"/>
-                                            <constraint firstItem="NoU-2f-HS3" firstAttribute="leading" secondItem="idD-fk-d6Y" secondAttribute="leading" constant="11" id="B3T-dR-dp2"/>
-                                            <constraint firstAttribute="trailing" secondItem="NoU-2f-HS3" secondAttribute="trailing" constant="13" id="Jm5-YU-pwo"/>
+                                            <constraint firstItem="NoU-2f-HS3" firstAttribute="trailing" secondItem="idD-fk-d6Y" secondAttribute="trailing" type="default" id="TlD-h0-d5K"/>
+                                            <constraint firstItem="NoU-2f-HS3" firstAttribute="centerX" secondItem="idD-fk-d6Y" secondAttribute="centerX" type="default" id="TmZ-L2-mNd"/>
+                                            <constraint firstItem="NoU-2f-HS3" firstAttribute="leading" secondItem="idD-fk-d6Y" secondAttribute="leading" type="default" id="fMu-oS-pL4"/>
                                             <constraint firstItem="NoU-2f-HS3" firstAttribute="top" secondItem="idD-fk-d6Y" secondAttribute="top" type="default" id="lzZ-Xa-XSy"/>
                                             <constraint firstItem="NoU-2f-HS3" firstAttribute="bottom" secondItem="idD-fk-d6Y" secondAttribute="bottom" type="default" id="n2p-yY-ana"/>
                                         </constraints>
@@ -120,14 +118,14 @@
                                         </items>
                                     </toolbar>
                                 </subviews>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="0.51000000000000001" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstItem="idD-fk-d6Y" firstAttribute="top" secondItem="LIP-CL-Z0j" secondAttribute="top" type="default" id="2RB-I3-0n3"/>
                                     <constraint firstAttribute="bottom" secondItem="idD-fk-d6Y" secondAttribute="bottom" constant="38" id="Clc-MW-1Q0"/>
                                     <constraint firstItem="SB9-Re-UcF" firstAttribute="leading" secondItem="LIP-CL-Z0j" secondAttribute="leading" type="default" id="Lh0-jl-Qac"/>
-                                    <constraint firstItem="idD-fk-d6Y" firstAttribute="leading" secondItem="LIP-CL-Z0j" secondAttribute="leading" constant="-12" id="R4d-Rk-D0G"/>
+                                    <constraint firstItem="idD-fk-d6Y" firstAttribute="trailing" secondItem="LIP-CL-Z0j" secondAttribute="trailing" type="default" id="PSr-Oe-cLa"/>
+                                    <constraint firstItem="idD-fk-d6Y" firstAttribute="leading" secondItem="LIP-CL-Z0j" secondAttribute="leading" type="default" id="lRa-Ml-5Fn"/>
                                     <constraint firstItem="SB9-Re-UcF" firstAttribute="trailing" secondItem="LIP-CL-Z0j" secondAttribute="trailing" type="default" id="rxP-mR-69P"/>
-                                    <constraint firstItem="SB9-Re-UcF" firstAttribute="centerX" secondItem="idD-fk-d6Y" secondAttribute="centerX" type="default" id="v6w-lr-0gn"/>
                                     <constraint firstItem="SB9-Re-UcF" firstAttribute="bottom" secondItem="LIP-CL-Z0j" secondAttribute="bottom" type="default" id="y7o-9I-oDf"/>
                                 </constraints>
                             </view>
@@ -931,7 +929,7 @@
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="lI3-hS-KdK"/>
+        <segue reference="x3u-oM-q8A"/>
         <segue reference="t49-el-RAM"/>
         <segue reference="whM-dl-4Ng"/>
     </inferredMetricsTieBreakers>

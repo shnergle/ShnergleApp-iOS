@@ -59,21 +59,22 @@
     dropDownHidden = YES;
     
 }
+
 -(void)viewWillAppear:(BOOL)animated{
     self.navigationItem.hidesBackButton = YES;
     //Make it hidden whenever we navigate back to the view as well.
     dropDownHidden = YES;
     
     //SETUP BORDERS FOR OVERLAY
-    /* Or.. Nevermind
+    /* Or.. Nevermind */
     CALayer *topBorder = [CALayer layer];
     topBorder.borderColor = [UIColor darkGrayColor].CGColor;
-    topBorder.borderWidth = 2;
-    topBorder.frame = CGRectMake(-2, -2, self.overlay.frame.size.width, self.overlay.frame.size.height+4);
+    topBorder.borderWidth = 1;
+    topBorder.frame = CGRectMake(-1, -1, self.overlay.frame.size.width+2, self.overlay.frame.size.height+2);
     
-    self.overlay.layer.shouldRasterize = YES;
     [self.overlay.layer addSublayer:topBorder];
-     */
+    //self.overlay.layer.shouldRasterize = YES;
+    
 }
 
 -(NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView
@@ -95,13 +96,13 @@
     /*SHADOW AROUND OBJECTS*/
     item.layer.masksToBounds = NO;
     item.layer.borderColor = [UIColor grayColor].CGColor;
-    item.layer.borderWidth = 1.0f;
+    item.layer.borderWidth = 1.5f;
     item.layer.contentsScale = [UIScreen mainScreen].scale;
     item.layer.shadowOpacity = 0.5f;
-    item.layer.shadowRadius = 4.5f;
+    item.layer.shadowRadius = 3.0f;
     item.layer.shadowOffset = CGSizeZero;
     item.layer.shadowPath = [UIBezierPath bezierPathWithRect:item.bounds].CGPath;
-    item.layer.shouldRasterize = YES;
+    //item.layer.shouldRasterize = YES;
     
     /* Here we can set the elements of the crowdItem (the cell) in the cellview */
     
