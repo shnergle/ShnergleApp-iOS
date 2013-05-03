@@ -28,7 +28,7 @@
 
 @synthesize titleView;
 @synthesize mapView;
-
+@synthesize overlay;
 
 // You don't need to modify the default initWithNibName:bundle: method.
 
@@ -109,6 +109,14 @@ didHighlightItemAtIndexPath:(NSIndexPath *)indexPath {
     // Set the titleView to the container view
     [self.navigationItem setTitleView:container];
     */
+}
+
+- (IBAction)tapMap:(id)sender {
+    [self hideOverlay];
+}
+
+-(void)hideOverlay {
+    [[self overlay] hideAnimated:100 animationDuration:2.5 targetSize:300 contentView:[self overlay]];
 }
 
 - (BOOL)scrollViewShouldScrollToTop:(UIScrollView *)scrollView

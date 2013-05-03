@@ -15,4 +15,7 @@
 - (void)setTabBarHidden:(BOOL)hidden animated:(BOOL)animated;
 - (IBAction)tapPromotion:(id)sender;
 
+- (void)hideAnimated:(NSInteger)originalSize animationDuration:(double)animationDuration targetSize:(NSInteger)targetSize contentView:(UIView *)contentView;
+- (void)showAnimated:(NSInteger)targetSize animationDelay:(double)animationDelay animationDuration:(double)animationDuration;
+
 @end
