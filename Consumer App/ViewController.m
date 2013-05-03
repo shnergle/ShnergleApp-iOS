@@ -28,6 +28,7 @@
 @implementation ViewController
 
 @synthesize titleView;
+@synthesize dropDownIndicator;
 @synthesize mapView;
 @synthesize overlay;
 @synthesize dropDownMenu;
@@ -48,6 +49,7 @@
 {
     [super viewDidLoad];
     
+    
     [[self crowdCollection]setDataSource:self];
     [[self crowdCollection]setDelegate:self];
     [self createTitleButton];
@@ -56,7 +58,11 @@
     
     crowdImagesHidden = NO;
     dropDownHidden = YES;
-    
+}
+-(void)viewWillAppear:(BOOL)animated{
+    self.navigationItem.hidesBackButton = YES;
+    //Make it hidden whenever we navigate back to the view as well.
+    dropDownHidden = YES;
 }
 
 -(NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView
@@ -127,9 +133,11 @@ didHighlightItemAtIndexPath:(NSIndexPath *)indexPath {
 - (IBAction)tapTitle:(id)sender {
     if(dropDownHidden){
     [[self dropDownMenu] showAnimated:0 animationDelay:0 animationDuration:0.5];
+        dropDownIndicator.highlighted = YES;
         dropDownHidden = NO;
     }else {
         [[self dropDownMenu] hideAnimated:0 animationDuration:0.5 targetSize:-280 contentView:[self dropDownMenu]];
+        dropDownIndicator.highlighted = NO;
         dropDownHidden = YES;
     }
 }

@@ -17,6 +17,7 @@ NSInteger selectedVenueIndex;
 @interface ViewController : UIViewController<UICollectionViewDataSource, UICollectionViewDelegate> {
     
 }
+@property (weak, nonatomic) IBOutlet UIImageView *dropDownIndicator;
 @property (weak, nonatomic) IBOutlet GMSMapView *mapView;
 @property (weak, nonatomic) IBOutlet UICollectionView *crowdCollection;
 @property (weak, nonatomic) IBOutlet overlayText *overlay;

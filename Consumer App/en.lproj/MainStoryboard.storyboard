@@ -125,13 +125,16 @@
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GF0-tP-6QZ">
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                                        <state key="normal" title="Button">
+                                        <state key="normal" title="Favourites">
                                             <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
                                         <state key="highlighted">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
+                                        <connections>
+                                            <segue destination="O8X-O7-5VA" kind="push" id="whM-dl-4Ng"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SNc-I1-cfD">
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
@@ -149,11 +152,11 @@
                                     <accessibilityTraits key="traits" none="YES" notEnabled="YES"/>
                                 </accessibility>
                                 <constraints>
-                                    <constraint firstItem="SNc-I1-cfD" firstAttribute="leading" secondItem="GF0-tP-6QZ" secondAttribute="leading" type="default" id="1F4-vQ-opi"/>
                                     <constraint firstItem="SNc-I1-cfD" firstAttribute="top" secondItem="GF0-tP-6QZ" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="8h7-SL-Hfg"/>
                                     <constraint firstItem="GF0-tP-6QZ" firstAttribute="top" secondItem="O0B-cF-5tY" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="8xl-Ac-Mgu"/>
-                                    <constraint firstItem="GF0-tP-6QZ" firstAttribute="centerX" secondItem="huV-Fu-SSt" secondAttribute="centerX" type="default" id="B4U-wg-dcL"/>
-                                    <constraint firstItem="GF0-tP-6QZ" firstAttribute="leading" secondItem="O0B-cF-5tY" secondAttribute="leading" type="default" id="Bjy-Ws-dLH"/>
+                                    <constraint firstItem="O0B-cF-5tY" firstAttribute="leading" secondItem="SNc-I1-cfD" secondAttribute="leading" type="default" id="J1o-Z7-waH"/>
+                                    <constraint firstItem="O0B-cF-5tY" firstAttribute="centerX" secondItem="GF0-tP-6QZ" secondAttribute="centerX" type="default" id="Ty3-uf-hh8"/>
+                                    <constraint firstItem="GF0-tP-6QZ" firstAttribute="leading" secondItem="huV-Fu-SSt" secondAttribute="leading" constant="95" id="bJ2-Po-Uaz"/>
                                     <constraint firstItem="O0B-cF-5tY" firstAttribute="top" secondItem="huV-Fu-SSt" secondAttribute="top" constant="29" id="eVz-Mj-Kht"/>
                                 </constraints>
                             </view>
@@ -162,13 +165,13 @@
                         <constraints>
                             <constraint firstItem="jEV-Fr-dKK" firstAttribute="bottom" secondItem="3" secondAttribute="bottom" type="default" id="6IF-dP-TUP"/>
                             <constraint firstItem="LIP-CL-Z0j" firstAttribute="leading" secondItem="3" secondAttribute="leading" type="default" id="8aQ-rw-Za9"/>
+                            <constraint firstItem="huV-Fu-SSt" firstAttribute="top" secondItem="3" secondAttribute="top" constant="-280" id="9e1-Fe-fOU"/>
+                            <constraint firstAttribute="bottom" secondItem="huV-Fu-SSt" secondAttribute="bottom" constant="504" id="CQN-pU-U27"/>
                             <constraint firstItem="huV-Fu-SSt" firstAttribute="leading" secondItem="3" secondAttribute="leading" type="default" id="D3A-p7-Cxr"/>
                             <constraint firstItem="jEV-Fr-dKK" firstAttribute="leading" secondItem="3" secondAttribute="leading" type="default" id="Hde-AL-Ogp"/>
                             <constraint firstItem="Quz-i3-ynP" firstAttribute="top" secondItem="3" secondAttribute="top" constant="-1" id="Ibk-Qd-5tf"/>
                             <constraint firstItem="huV-Fu-SSt" firstAttribute="trailing" secondItem="3" secondAttribute="trailing" type="default" id="M4q-nK-9rn"/>
-                            <constraint firstAttribute="bottom" secondItem="huV-Fu-SSt" secondAttribute="bottom" constant="504" id="OKs-6R-YKs"/>
                             <constraint firstItem="LIP-CL-Z0j" firstAttribute="bottom" secondItem="3" secondAttribute="bottom" type="default" id="P3A-rn-1MW"/>
-                            <constraint firstItem="huV-Fu-SSt" firstAttribute="top" secondItem="3" secondAttribute="top" constant="-280" id="UDR-8I-nZo"/>
                             <constraint firstItem="LIP-CL-Z0j" firstAttribute="trailing" secondItem="3" secondAttribute="trailing" type="default" id="dbX-Yq-VTx"/>
                             <constraint firstItem="jEV-Fr-dKK" firstAttribute="top" secondItem="3" secondAttribute="top" type="default" id="pAf-G3-NWL"/>
                             <constraint firstItem="jEV-Fr-dKK" firstAttribute="trailing" secondItem="3" secondAttribute="trailing" type="default" id="pfi-CY-9zH"/>
@@ -179,7 +182,6 @@
                     </view>
                     <navigationItem key="navigationItem" id="JUN-q6-pYB">
                         <nil key="title"/>
-                        <barButtonItem key="leftBarButtonItem" systemItem="bookmarks" id="0Os-lb-kjn"/>
                         <view key="titleView" opaque="NO" contentMode="scaleToFill" id="OJc-vh-CIN">
                             <rect key="frame" x="96" y="6" width="128" height="33"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -193,25 +195,29 @@
                                     <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                     <nil key="highlightedColor"/>
                                 </label>
+                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" image="downArrow.png" highlightedImage="downArrow_highlighted.png" translatesAutoresizingMaskIntoConstraints="NO" id="weG-6D-YRv">
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="17" id="2oN-jb-X15"/>
+                                        <constraint firstAttribute="width" constant="16" id="I4P-Jo-Na4"/>
+                                    </constraints>
+                                </imageView>
                             </subviews>
                             <color key="backgroundColor" white="1" alpha="0.0" colorSpace="calibratedWhite"/>
                             <gestureRecognizers/>
                             <constraints>
                                 <constraint firstItem="Ub4-AM-AAT" firstAttribute="trailing" secondItem="OJc-vh-CIN" secondAttribute="trailing" type="default" id="6uQ-0S-KvM"/>
-                                <constraint firstItem="Ub4-AM-AAT" firstAttribute="centerY" secondItem="OJc-vh-CIN" secondAttribute="centerY" type="default" id="Zza-m9-sH3"/>
+                                <constraint firstItem="Ub4-AM-AAT" firstAttribute="centerY" secondItem="OJc-vh-CIN" secondAttribute="centerY" type="default" id="UsI-CB-Tpj"/>
+                                <constraint firstItem="weG-6D-YRv" firstAttribute="bottom" secondItem="Ub4-AM-AAT" secondAttribute="bottom" type="default" id="k3P-dz-2r9"/>
+                                <constraint firstItem="weG-6D-YRv" firstAttribute="trailing" secondItem="OJc-vh-CIN" secondAttribute="trailing" type="default" id="r0g-F6-6Re"/>
                             </constraints>
                             <connections>
                                 <outletCollection property="gestureRecognizers" destination="p7e-wW-i99" appends="YES" id="tuq-9s-TPU"/>
                             </connections>
                         </view>
-                        <barButtonItem key="rightBarButtonItem" systemItem="camera" id="ihW-Hr-nEn">
-                            <connections>
-                                <segue destination="CuC-E9-ArH" kind="push" id="BhZ-uk-GaA"/>
-                            </connections>
-                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="crowdCollection" destination="NoU-2f-HS3" id="gIQ-gS-rMU"/>
+                        <outlet property="dropDownIndicator" destination="weG-6D-YRv" id="Lpn-CW-o4A"/>
                         <outlet property="dropDownMenu" destination="huV-Fu-SSt" id="A75-Wx-m1C"/>
                         <outlet property="mapView" destination="jEV-Fr-dKK" id="GvI-xX-n96"/>
                         <outlet property="overlay" destination="LIP-CL-Z0j" id="hAE-fj-YQb"/>
@@ -725,6 +731,21 @@
             </objects>
             <point key="canvasLocation" x="-1274" y="-694"/>
         </scene>
+        <!--View Controller-->
+        <scene sceneID="2ce-1L-Y1h">
+            <objects>
+                <viewController id="O8X-O7-5VA" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="3zF-Rl-p2R">
+                        <rect key="frame" x="0.0" y="64" width="320" height="504"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="lN2-Tl-fnG"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="aFD-8m-6Bn" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-732" y="-455"/>
+        </scene>
         <!--Login Screen Controller - Shnergle-->
         <scene sceneID="ddY-3I-oVq">
             <objects>
@@ -778,6 +799,8 @@
     </scenes>
     <resources>
         <image name="Screen Shot 2013-04-19 at 09.52.50.png" width="196" height="53"/>
+        <image name="downArrow.png" width="55" height="31"/>
+        <image name="downArrow_highlighted.png" width="55" height="31"/>
         <image name="facebook.png" width="1250" height="1250"/>
         <image name="mahiki.jpg" width="420" height="308"/>
         <image name="plusone.png" width="26" height="22"/>
@@ -853,6 +876,7 @@
                 <relationship kind="action" name="tapMap:"/>
                 <relationship kind="action" name="tapTitle:"/>
                 <relationship kind="outlet" name="crowdCollection" candidateClass="UICollectionView"/>
+                <relationship kind="outlet" name="dropDownIndicator" candidateClass="UIImageView"/>
                 <relationship kind="outlet" name="dropDownMenu" candidateClass="DropDownMenu"/>
                 <relationship kind="outlet" name="mapView" candidateClass="GMSMapView"/>
                 <relationship kind="outlet" name="overlay" candidateClass="overlayText"/>
@@ -872,7 +896,4 @@
         <simulatedOrientationMetrics key="orientation"/>
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
-    <inferredMetricsTieBreakers>
-        <segue reference="BhZ-uk-GaA"/>
-    </inferredMetricsTieBreakers>
 </document>
