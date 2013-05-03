@@ -57,11 +57,23 @@
 
     crowdImagesHidden = NO;
     dropDownHidden = YES;
+    
 }
 -(void)viewWillAppear:(BOOL)animated{
     self.navigationItem.hidesBackButton = YES;
     //Make it hidden whenever we navigate back to the view as well.
     dropDownHidden = YES;
+    
+    //SETUP BORDERS FOR OVERLAY
+    /* Or.. Nevermind
+    CALayer *topBorder = [CALayer layer];
+    topBorder.borderColor = [UIColor darkGrayColor].CGColor;
+    topBorder.borderWidth = 2;
+    topBorder.frame = CGRectMake(-2, -2, self.overlay.frame.size.width, self.overlay.frame.size.height+4);
+    
+    self.overlay.layer.shouldRasterize = YES;
+    [self.overlay.layer addSublayer:topBorder];
+     */
 }
 
 -(NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView
@@ -156,7 +168,9 @@ didHighlightItemAtIndexPath:(NSIndexPath *)indexPath {
 }
 
 -(void)showOverlay {
+
     [[self overlay] showAnimated:126 animationDelay:0.2 animationDuration:0.5];
+
     crowdImagesHidden = NO;
 }
 
