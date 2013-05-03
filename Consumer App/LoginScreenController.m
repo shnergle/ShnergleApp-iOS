@@ -88,6 +88,7 @@
         [self.buttonLoginLogout setImage:image forState:UIControlStateNormal];
         //[self.textNoteOrLink setText:@"Login to create a link to fetch account data"];
     }
+    
 }
 
 // FBSample logic
@@ -146,5 +147,8 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+
+
+
 
 @end
