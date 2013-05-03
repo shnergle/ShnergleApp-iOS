@@ -719,7 +719,9 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Profile" id="BQj-l0-Dcj"/>
+                    <navigationItem key="navigationItem" title="Profile" id="zZz-2u-Qxt">
+                        <barButtonItem key="rightBarButtonItem" title="Settings" id="wa2-7h-tR6"/>
+                    </navigationItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="S6M-cZ-UVf" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -778,7 +780,7 @@
     </scenes>
     <resources>
         <image name="Screen Shot 2013-04-19 at 09.52.50.png" width="196" height="53"/>
-        <image name="facebook.png" width="1250" height="1250"/>
+        <image name="facebook.png" width="196" height="40"/>
         <image name="mahiki.jpg" width="420" height="308"/>
         <image name="plusone.png" width="26" height="22"/>
         <image name="twitter.jpg" width="945" height="651"/>
@@ -798,6 +800,9 @@
                 <relationship kind="outlet" name="crowdImage" candidateClass="UIImageView"/>
                 <relationship kind="outlet" name="venueName" candidateClass="UILabel"/>
             </relationships>
+        </class>
+        <class className="DropDownMenu" superclassName="UIView">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/DropDownMenu.h"/>
         </class>
         <class className="GMSMapView" superclassName="UIView">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/GMSMapView.h"/>
@@ -848,7 +853,9 @@
             <source key="sourceIdentifier" type="project" relativePath="./Classes/ViewController.h"/>
             <relationships>
                 <relationship kind="action" name="tapMap:"/>
+                <relationship kind="action" name="tapTitle:"/>
                 <relationship kind="outlet" name="crowdCollection" candidateClass="UICollectionView"/>
+                <relationship kind="outlet" name="dropDownMenu" candidateClass="DropDownMenu"/>
                 <relationship kind="outlet" name="mapView" candidateClass="GMSMapView"/>
                 <relationship kind="outlet" name="overlay" candidateClass="overlayText"/>
             </relationships>
