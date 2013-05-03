@@ -25,4 +25,5 @@ NSInteger selectedVenueIndex;
 -(void)createTitleButton;
 - (IBAction)tapMap:(id)sender;
 -(void)hideOverlay;
+-(void)showOverlay;
 @end

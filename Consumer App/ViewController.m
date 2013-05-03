@@ -17,7 +17,7 @@
     NSArray *venueNames;
     NSArray *images;
     NSInteger selectedVenue;
-    
+    Boolean crowdImagesHidden;
     
 }
 
@@ -51,6 +51,8 @@
     [self createTitleButton];
     images = [[NSArray alloc] initWithObjects:@"liverpool.JPG", @"liverpool2.jpg", @"mahiki.jpg",@"liverpool.JPG", @"liverpool2.jpg", @"mahiki.jpg",@"liverpool.JPG", @"liverpool2.jpg", @"mahiki.jpg",nil];
     venueNames = [[NSArray alloc] initWithObjects:@"liverpool street station",@"liverpool street station",@"mahiki",@"liverpool street station",@"liverpool street station",@"mahiki",@"liverpool street station",@"liverpool street station",@"mahiki", nil];
+    
+    crowdImagesHidden = NO;
     
 }
 
@@ -112,11 +114,21 @@ didHighlightItemAtIndexPath:(NSIndexPath *)indexPath {
 }
 
 - (IBAction)tapMap:(id)sender {
-    [self hideOverlay];
+    if(crowdImagesHidden){
+        [self showOverlay];
+    }else{
+        [self hideOverlay];
+    }
+}
+
+-(void)showOverlay {
+    [[self overlay] showAnimated:126 animationDelay:0.2 animationDuration:0.5];
+    crowdImagesHidden = NO;
 }
 
 -(void)hideOverlay {
-    [[self overlay] hideAnimated:100 animationDuration:2.5 targetSize:300 contentView:[self overlay]];
+    [[self overlay] hideAnimated:126 animationDuration:0.5 targetSize:300 contentView:[self overlay]];
+    crowdImagesHidden = YES;
 }
 
 - (BOOL)scrollViewShouldScrollToTop:(UIScrollView *)scrollView
