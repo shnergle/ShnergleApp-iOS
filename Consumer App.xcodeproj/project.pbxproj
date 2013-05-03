@@ -39,6 +39,7 @@
 		805AB9E1172A9AFA0056DCFB /* VenueGalleryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 805AB9E0172A9AFA0056DCFB /* VenueGalleryViewController.m */; };
 		805AB9E6172AC46F0056DCFB /* liverpool.JPG in Resources */ = {isa = PBXBuildFile; fileRef = 805AB9E5172AC46F0056DCFB /* liverpool.JPG */; };
 		805CE6D016FCBDC9002445C3 /* PhotoLocationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 805CE6CF16FCBDC9002445C3 /* PhotoLocationViewController.m */; };
+		808CA2FC1733C92C00932A27 /* DropDownMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = 808CA2FB1733C92C00932A27 /* DropDownMenu.m */; };
 		808F13C916FB6A5C00B66E6D /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 808F13C816FB6A5C00B66E6D /* UIKit.framework */; };
 		808F13CB16FB6A5C00B66E6D /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 808F13CA16FB6A5C00B66E6D /* Foundation.framework */; };
 		808F13CD16FB6A5C00B66E6D /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 808F13CC16FB6A5C00B66E6D /* CoreGraphics.framework */; };
@@ -165,6 +166,8 @@
 		805CE6CF16FCBDC9002445C3 /* PhotoLocationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PhotoLocationViewController.m; sourceTree = "<group>"; };
 		805CE6D316FCC1A2002445C3 /* twitter.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = twitter.jpg; path = /Users/stian/Documents/Shnergle/twitter.jpg; sourceTree = "<absolute>"; };
 		805CE6D416FCC1A2002445C3 /* facebook.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = facebook.png; path = /Users/stian/Documents/Shnergle/facebook.png; sourceTree = "<absolute>"; };
+		808CA2FA1733C92C00932A27 /* DropDownMenu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DropDownMenu.h; sourceTree = "<group>"; };
+		808CA2FB1733C92C00932A27 /* DropDownMenu.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DropDownMenu.m; sourceTree = "<group>"; };
 		808F13C516FB6A5C00B66E6D /* Consumer App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Consumer App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		808F13C816FB6A5C00B66E6D /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		808F13CA16FB6A5C00B66E6D /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -517,6 +520,8 @@
 				80D6FF63172191A4008A3AFD /* PromotionView.xib */,
 				805AB9DF172A9AFA0056DCFB /* VenueGalleryViewController.h */,
 				805AB9E0172A9AFA0056DCFB /* VenueGalleryViewController.m */,
+				808CA2FA1733C92C00932A27 /* DropDownMenu.h */,
+				808CA2FB1733C92C00932A27 /* DropDownMenu.m */,
 			);
 			name = "Venue and Promotions";
 			sourceTree = "<group>";
@@ -708,6 +713,7 @@
 				80D6FF6B17219DA8008A3AFD /* PromotionDetailView.m in Sources */,
 				805AB9E1172A9AFA0056DCFB /* VenueGalleryViewController.m in Sources */,
 				EE8FF815172A9CFD0003A8E1 /* LoginScreenController.m in Sources */,
+				808CA2FC1733C92C00932A27 /* DropDownMenu.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

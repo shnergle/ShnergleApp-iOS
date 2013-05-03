@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "GoogleMaps/GoogleMaps.h"
 #import "overlayText.h"
-
+#import "DropDownMenu.h"
 
 NSInteger selectedVenueIndex;
 
@@ -21,8 +21,11 @@ NSInteger selectedVenueIndex;
 @property (weak, nonatomic) IBOutlet UICollectionView *crowdCollection;
 @property (weak, nonatomic) IBOutlet overlayText *overlay;
 @property(nonatomic, retain) UIView *titleView;
+@property (weak, nonatomic) IBOutlet DropDownMenu *dropDownMenu;
 -(BOOL)scrollViewShouldScrollToTop:(UIScrollView *)scrollView;
 -(void)createTitleButton;
 - (IBAction)tapMap:(id)sender;
+- (IBAction)tapTitle:(id)sender;
 -(void)hideOverlay;
+-(void)showOverlay;
 @end

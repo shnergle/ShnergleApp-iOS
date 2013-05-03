@@ -17,7 +17,8 @@
     NSArray *venueNames;
     NSArray *images;
     NSInteger selectedVenue;
-    
+    Boolean crowdImagesHidden;
+    Boolean dropDownHidden;
     
 }
 
@@ -29,6 +30,7 @@
 @synthesize titleView;
 @synthesize mapView;
 @synthesize overlay;
+@synthesize dropDownMenu;
 
 // You don't need to modify the default initWithNibName:bundle: method.
 
@@ -51,6 +53,9 @@
     [self createTitleButton];
     images = [[NSArray alloc] initWithObjects:@"liverpool.JPG", @"liverpool2.jpg", @"mahiki.jpg",@"liverpool.JPG", @"liverpool2.jpg", @"mahiki.jpg",@"liverpool.JPG", @"liverpool2.jpg", @"mahiki.jpg",nil];
     venueNames = [[NSArray alloc] initWithObjects:@"liverpool street station",@"liverpool street station",@"mahiki",@"liverpool street station",@"liverpool street station",@"mahiki",@"liverpool street station",@"liverpool street station",@"mahiki", nil];
+    
+    crowdImagesHidden = NO;
+    dropDownHidden = YES;
     
 }
 
@@ -112,11 +117,31 @@ didHighlightItemAtIndexPath:(NSIndexPath *)indexPath {
 }
 
 - (IBAction)tapMap:(id)sender {
-    [self hideOverlay];
+    if(crowdImagesHidden){
+        [self showOverlay];
+    }else{
+        [self hideOverlay];
+    }
+}
+
+- (IBAction)tapTitle:(id)sender {
+    if(dropDownHidden){
+    [[self dropDownMenu] showAnimated:0 animationDelay:0 animationDuration:0.5];
+        dropDownHidden = NO;
+    }else {
+        [[self dropDownMenu] hideAnimated:0 animationDuration:0.5 targetSize:-280 contentView:[self dropDownMenu]];
+        dropDownHidden = YES;
+    }
+}
+
+-(void)showOverlay {
+    [[self overlay] showAnimated:126 animationDelay:0.2 animationDuration:0.5];
+    crowdImagesHidden = NO;
 }
 
 -(void)hideOverlay {
-    [[self overlay] hideAnimated:100 animationDuration:2.5 targetSize:300 contentView:[self overlay]];
+    [[self overlay] hideAnimated:126 animationDuration:0.5 targetSize:300 contentView:[self overlay]];
+    crowdImagesHidden = YES;
 }
 
 - (BOOL)scrollViewShouldScrollToTop:(UIScrollView *)scrollView
