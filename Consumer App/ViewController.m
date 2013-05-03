@@ -33,14 +33,13 @@
 @synthesize overlay;
 @synthesize dropDownMenu;
 
-// You don't need to modify the default initWithNibName:bundle: method.
+// Don't need to modify the default initWithNibName:bundle: method.
 
 
 
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
 
 
@@ -55,7 +54,7 @@
     [self createTitleButton];
     images = [[NSArray alloc] initWithObjects:@"liverpool.JPG", @"liverpool2.jpg", @"mahiki.jpg",@"liverpool.JPG", @"liverpool2.jpg", @"mahiki.jpg",@"liverpool.JPG", @"liverpool2.jpg", @"mahiki.jpg",nil];
     venueNames = [[NSArray alloc] initWithObjects:@"liverpool street station",@"liverpool street station",@"mahiki",@"liverpool street station",@"liverpool street station",@"mahiki",@"liverpool street station",@"liverpool street station",@"mahiki", nil];
-    
+
     crowdImagesHidden = NO;
     dropDownHidden = YES;
 }
@@ -80,7 +79,20 @@
 {
     static NSString *cellIdentifier = @"Cell";
     CrowdItem *item = [collectionView dequeueReusableCellWithReuseIdentifier:cellIdentifier forIndexPath:indexPath];
+    
+    /*SHADOW AROUND OBJECTS*/
+    item.layer.masksToBounds = NO;
+    item.layer.borderColor = [UIColor grayColor].CGColor;
+    item.layer.borderWidth = 1.0f;
+    item.layer.contentsScale = [UIScreen mainScreen].scale;
+    item.layer.shadowOpacity = 0.5f;
+    item.layer.shadowRadius = 4.5f;
+    item.layer.shadowOffset = CGSizeZero;
+    item.layer.shadowPath = [UIBezierPath bezierPathWithRect:item.bounds].CGPath;
+    item.layer.shouldRasterize = YES;
+    
     /* Here we can set the elements of the crowdItem (the cell) in the cellview */
+    
     [[item crowdImage]setImage:[UIImage imageNamed:[images objectAtIndex:indexPath.item]]];
     [[item venueName]setText:[venueNames objectAtIndex:indexPath.item]];
     
@@ -91,6 +103,7 @@
 
 
 }
+
 
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {

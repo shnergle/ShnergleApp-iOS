@@ -39,27 +39,31 @@
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LIP-CL-Z0j" customClass="overlayText">
                                 <subviews>
-                                    <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="idD-fk-d6Y">
+                                    <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="top" translatesAutoresizingMaskIntoConstraints="NO" id="idD-fk-d6Y">
                                         <subviews>
-                                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" alwaysBounceVertical="YES" minimumZoomScale="0.0" maximumZoomScale="0.0" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="NoU-2f-HS3">
+                                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="top" bounces="NO" alwaysBounceVertical="YES" minimumZoomScale="0.0" maximumZoomScale="0.0" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="NoU-2f-HS3">
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="320" id="7DE-us-FAp"/>
                                                 </constraints>
-                                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="sQ4-wF-cWC">
-                                                    <size key="itemSize" width="155" height="152"/>
+                                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="5" minimumInteritemSpacing="5" id="sQ4-wF-cWC">
+                                                    <size key="itemSize" width="152" height="152"/>
                                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                                    <inset key="sectionInset" minX="5" minY="5" maxX="5" maxY="0.0"/>
                                                 </collectionViewFlowLayout>
                                                 <cells>
                                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="Cell" id="UwI-q0-33t" customClass="CrowdItem">
-                                                        <rect key="frame" x="0.0" y="0.0" width="155" height="152"/>
+                                                        <rect key="frame" x="5" y="5" width="152" height="152"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                                            <rect key="frame" x="0.0" y="0.0" width="155" height="152"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="152" height="152"/>
                                                             <autoresizingMask key="autoresizingMask"/>
                                                             <subviews>
-                                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qu8-4s-JU3"/>
+                                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qu8-4s-JU3">
+                                                                    <constraints>
+                                                                        <constraint firstAttribute="height" constant="152" id="Gx8-EK-Mxz"/>
+                                                                    </constraints>
+                                                                </imageView>
                                                                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Venue Name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4Wx-Ws-wdn">
                                                                     <constraints>
                                                                         <constraint firstAttribute="width" constant="143" id="HPk-cq-nIT"/>
@@ -72,14 +76,12 @@
                                                             </subviews>
                                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                         </view>
-                                                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                                         <constraints>
-                                                            <constraint firstItem="qu8-4s-JU3" firstAttribute="top" secondItem="UwI-q0-33t" secondAttribute="top" type="default" id="7d8-9q-Bgn"/>
-                                                            <constraint firstItem="qu8-4s-JU3" firstAttribute="bottom" secondItem="UwI-q0-33t" secondAttribute="bottom" type="default" id="RR2-J4-7AF"/>
-                                                            <constraint firstItem="qu8-4s-JU3" firstAttribute="trailing" secondItem="UwI-q0-33t" secondAttribute="trailing" type="default" id="Wjc-mq-lhZ"/>
-                                                            <constraint firstItem="qu8-4s-JU3" firstAttribute="trailing" secondItem="4Wx-Ws-wdn" secondAttribute="trailing" type="default" id="g1l-FO-Fyo"/>
+                                                            <constraint firstItem="qu8-4s-JU3" firstAttribute="top" secondItem="UwI-q0-33t" secondAttribute="top" constant="1" id="472-0Z-xjj"/>
+                                                            <constraint firstItem="4Wx-Ws-wdn" firstAttribute="top" secondItem="UwI-q0-33t" secondAttribute="top" constant="119" id="5Z9-xW-7tt"/>
+                                                            <constraint firstItem="qu8-4s-JU3" firstAttribute="trailing" secondItem="UwI-q0-33t" secondAttribute="trailing" type="default" id="N6u-cD-Qfu"/>
+                                                            <constraint firstItem="4Wx-Ws-wdn" firstAttribute="leading" secondItem="UwI-q0-33t" secondAttribute="leading" constant="12" id="eZU-Fu-8xl"/>
                                                             <constraint firstItem="qu8-4s-JU3" firstAttribute="leading" secondItem="UwI-q0-33t" secondAttribute="leading" type="default" id="ivr-DL-QIB"/>
-                                                            <constraint firstAttribute="bottom" secondItem="4Wx-Ws-wdn" secondAttribute="bottom" constant="12" id="u5h-hC-gZR"/>
                                                         </constraints>
                                                         <connections>
                                                             <outlet property="crowdImage" destination="qu8-4s-JU3" id="VDk-Bh-mfX"/>
@@ -106,7 +108,11 @@
                                                 </connections>
                                             </barButtonItem>
                                             <barButtonItem style="plain" systemItem="flexibleSpace" id="gmM-cw-5lQ"/>
-                                            <barButtonItem title="Check In" id="ABF-cY-9jJ"/>
+                                            <barButtonItem title="Check In" id="ABF-cY-9jJ">
+                                                <connections>
+                                                    <segue destination="CuC-E9-ArH" kind="push" id="x3u-oM-q8A"/>
+                                                </connections>
+                                            </barButtonItem>
                                             <barButtonItem style="plain" systemItem="flexibleSpace" id="SMc-Kk-blx"/>
                                             <barButtonItem title="Profile" id="C89-dn-UIh">
                                                 <connections>
@@ -119,9 +125,9 @@
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstItem="idD-fk-d6Y" firstAttribute="top" secondItem="LIP-CL-Z0j" secondAttribute="top" type="default" id="2RB-I3-0n3"/>
+                                    <constraint firstAttribute="bottom" secondItem="idD-fk-d6Y" secondAttribute="bottom" constant="38" id="Clc-MW-1Q0"/>
                                     <constraint firstItem="SB9-Re-UcF" firstAttribute="leading" secondItem="LIP-CL-Z0j" secondAttribute="leading" type="default" id="Lh0-jl-Qac"/>
                                     <constraint firstItem="idD-fk-d6Y" firstAttribute="leading" secondItem="LIP-CL-Z0j" secondAttribute="leading" constant="-12" id="R4d-Rk-D0G"/>
-                                    <constraint firstItem="idD-fk-d6Y" firstAttribute="bottom" secondItem="LIP-CL-Z0j" secondAttribute="bottom" type="default" id="a8J-TQ-Otg"/>
                                     <constraint firstItem="SB9-Re-UcF" firstAttribute="trailing" secondItem="LIP-CL-Z0j" secondAttribute="trailing" type="default" id="rxP-mR-69P"/>
                                     <constraint firstItem="SB9-Re-UcF" firstAttribute="centerX" secondItem="idD-fk-d6Y" secondAttribute="centerX" type="default" id="v6w-lr-0gn"/>
                                     <constraint firstItem="SB9-Re-UcF" firstAttribute="bottom" secondItem="LIP-CL-Z0j" secondAttribute="bottom" type="default" id="y7o-9I-oDf"/>
@@ -280,18 +286,18 @@
                                         <constraints>
                                             <constraint firstAttribute="height" constant="548" id="ScX-IH-x5g"/>
                                         </constraints>
-                                        <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="6jD-sx-Beu">
-                                            <size key="itemSize" width="97" height="96"/>
+                                        <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="5" minimumInteritemSpacing="5" id="6jD-sx-Beu">
+                                            <size key="itemSize" width="100" height="100"/>
                                             <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                             <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                                            <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                            <inset key="sectionInset" minX="5" minY="0.0" maxX="5" maxY="0.0"/>
                                         </collectionViewFlowLayout>
                                         <cells>
                                             <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="Cell" id="U0i-V3-hQz" customClass="CrowdItem">
-                                                <rect key="frame" x="0.0" y="0.0" width="97" height="96"/>
+                                                <rect key="frame" x="5" y="0.0" width="100" height="100"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                                    <rect key="frame" x="0.0" y="0.0" width="97" height="96"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="100" height="100"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <subviews>
                                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hoB-5l-wEl"/>
@@ -305,13 +311,14 @@
                                                 </view>
                                                 <color key="backgroundColor" red="0.77110224179999998" green="0.77110224179999998" blue="0.77110224179999998" alpha="1" colorSpace="calibratedRGB"/>
                                                 <constraints>
-                                                    <constraint firstItem="uvc-qp-utE" firstAttribute="leading" secondItem="U0i-V3-hQz" secondAttribute="leading" constant="20" type="default" id="28D-6j-JFa"/>
-                                                    <constraint firstItem="hoB-5l-wEl" firstAttribute="leading" secondItem="U0i-V3-hQz" secondAttribute="leading" type="default" id="4oi-rg-9me"/>
-                                                    <constraint firstItem="hoB-5l-wEl" firstAttribute="bottom" secondItem="U0i-V3-hQz" secondAttribute="bottom" type="default" id="9nj-Uu-vHO"/>
-                                                    <constraint firstItem="hoB-5l-wEl" firstAttribute="trailing" secondItem="U0i-V3-hQz" secondAttribute="trailing" type="default" id="9qA-e7-fRc"/>
-                                                    <constraint firstItem="hoB-5l-wEl" firstAttribute="top" secondItem="U0i-V3-hQz" secondAttribute="top" type="default" id="axE-tD-R8a"/>
-                                                    <constraint firstItem="uvc-qp-utE" firstAttribute="top" secondItem="U0i-V3-hQz" secondAttribute="top" constant="550" id="wWs-MK-Ice"/>
+                                                    <constraint firstItem="hoB-5l-wEl" firstAttribute="trailing" secondItem="U0i-V3-hQz" secondAttribute="trailing" type="default" id="ILK-6p-rif"/>
+                                                    <constraint firstItem="hoB-5l-wEl" firstAttribute="top" secondItem="U0i-V3-hQz" secondAttribute="top" type="default" id="WOJ-Ml-x4S"/>
+                                                    <constraint firstItem="hoB-5l-wEl" firstAttribute="leading" secondItem="U0i-V3-hQz" secondAttribute="leading" type="default" id="c9O-wg-4TP"/>
+                                                    <constraint firstItem="uvc-qp-utE" firstAttribute="top" secondItem="U0i-V3-hQz" secondAttribute="top" constant="579" id="hnS-O5-ChO"/>
+                                                    <constraint firstItem="hoB-5l-wEl" firstAttribute="bottom" secondItem="U0i-V3-hQz" secondAttribute="bottom" type="default" id="hs7-1x-uX4"/>
+                                                    <constraint firstItem="uvc-qp-utE" firstAttribute="leading" secondItem="U0i-V3-hQz" secondAttribute="leading" constant="20" type="default" id="ztj-dW-yUH"/>
                                                 </constraints>
+                                                <size key="customSize" width="100" height="100"/>
                                                 <connections>
                                                     <outlet property="crowdImage" destination="hoB-5l-wEl" id="QFP-70-BOB"/>
                                                     <outlet property="venueName" destination="uvc-qp-utE" id="Cja-rz-XfN"/>
@@ -926,6 +933,7 @@
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
+        <segue reference="x3u-oM-q8A"/>
         <segue reference="t49-el-RAM"/>
         <segue reference="whM-dl-4Ng"/>
     </inferredMetricsTieBreakers>

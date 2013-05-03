@@ -77,6 +77,20 @@
     [[item crowdImage]setImage:[UIImage imageNamed:[images objectAtIndex:indexPath.item]]];
     [[item venueName]setText:[venueNames objectAtIndex:indexPath.item]];
     
+    
+    /*SHADOW AROUND OBJECTS*/
+    item.layer.masksToBounds = NO;
+    item.layer.borderColor = [UIColor grayColor].CGColor;
+    item.layer.borderWidth = 1.0f;
+    item.layer.contentsScale = [UIScreen mainScreen].scale;
+    item.layer.shadowOpacity = 0.8f;
+    item.layer.shadowRadius = 5.0f;
+    item.layer.shadowOffset = CGSizeZero;
+    item.layer.shadowPath = [UIBezierPath bezierPathWithRect:item.bounds].CGPath;
+    item.layer.shouldRasterize = YES;
+
+    
+    
     return item;
     
     
@@ -183,7 +197,7 @@
 -(void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
-    
+    self.navigationItem.hidesBackButton = NO;
     [self.navigationController setNavigationBarHidden:hidden
                                              animated:YES];
     
