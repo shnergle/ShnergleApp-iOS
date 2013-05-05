@@ -45,6 +45,7 @@
 		808CA3031733D39000932A27 /* downArrow.psd in Resources */ = {isa = PBXBuildFile; fileRef = 808CA3011733D39000932A27 /* downArrow.psd */; };
 		808CA3061733DCB400932A27 /* upArrow.png in Resources */ = {isa = PBXBuildFile; fileRef = 808CA3041733DCB400932A27 /* upArrow.png */; };
 		808CA3071733DCB400932A27 /* upArrow.psd in Resources */ = {isa = PBXBuildFile; fileRef = 808CA3051733DCB400932A27 /* upArrow.psd */; };
+		808CA30A1736856900932A27 /* FavouritesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 808CA3091736856900932A27 /* FavouritesViewController.m */; };
 		808F13C916FB6A5C00B66E6D /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 808F13C816FB6A5C00B66E6D /* UIKit.framework */; };
 		808F13CB16FB6A5C00B66E6D /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 808F13CA16FB6A5C00B66E6D /* Foundation.framework */; };
 		808F13CD16FB6A5C00B66E6D /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 808F13CC16FB6A5C00B66E6D /* CoreGraphics.framework */; };
@@ -178,6 +179,8 @@
 		808CA3011733D39000932A27 /* downArrow.psd */ = {isa = PBXFileReference; lastKnownFileType = file; path = downArrow.psd; sourceTree = "<group>"; };
 		808CA3041733DCB400932A27 /* upArrow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = upArrow.png; sourceTree = "<group>"; };
 		808CA3051733DCB400932A27 /* upArrow.psd */ = {isa = PBXFileReference; lastKnownFileType = file; path = upArrow.psd; sourceTree = "<group>"; };
+		808CA3081736856900932A27 /* FavouritesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FavouritesViewController.h; sourceTree = "<group>"; };
+		808CA3091736856900932A27 /* FavouritesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FavouritesViewController.m; sourceTree = "<group>"; };
 		808F13C516FB6A5C00B66E6D /* Consumer App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Consumer App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		808F13C816FB6A5C00B66E6D /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		808F13CA16FB6A5C00B66E6D /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -428,6 +431,8 @@
 				808F13D816FB6A5C00B66E6D /* AppDelegate.m */,
 				80D26B5D172A812100B0581D /* GalleryScroll */,
 				808F13E016FB6A5C00B66E6D /* MainStoryboard.storyboard */,
+				808CA3081736856900932A27 /* FavouritesViewController.h */,
+				808CA3091736856900932A27 /* FavouritesViewController.m */,
 				80D6FF58172159D3008A3AFD /* StoryboardLayersNavigation.h */,
 				80D6FF59172159D3008A3AFD /* StoryboardLayersNavigation.m */,
 				EE3AFF8B170F11BF009BE96C /* MapViewController.h */,
@@ -734,6 +739,7 @@
 				805AB9E1172A9AFA0056DCFB /* VenueGalleryViewController.m in Sources */,
 				EE8FF815172A9CFD0003A8E1 /* LoginScreenController.m in Sources */,
 				808CA2FC1733C92C00932A27 /* DropDownMenu.m in Sources */,
+				808CA30A1736856900932A27 /* FavouritesViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

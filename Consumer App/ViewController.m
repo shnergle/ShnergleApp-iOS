@@ -157,6 +157,7 @@ didHighlightItemAtIndexPath:(NSIndexPath *)indexPath {
 }
 
 - (IBAction)tapTitle:(id)sender {
+    NSLog(@"tapTitle run from ViewController");
     if(dropDownHidden){
     [[self dropDownMenu] showAnimated:0 animationDelay:0 animationDuration:0.5];
         dropDownIndicator.highlighted = YES;
