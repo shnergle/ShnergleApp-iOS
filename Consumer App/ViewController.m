@@ -48,7 +48,13 @@
 {
     [super viewDidLoad];
     
+    //TOOLBAR Additions (colour)
+    [self.navigationController.navigationBar setTintColor:[UIColor whiteColor]];
+    self.navigationController.navigationBar.titleTextAttributes = [NSDictionary dictionaryWithObject:[UIColor blackColor] forKey:UITextAttributeTextColor];
+    [[UIBarButtonItem appearanceWhenContainedIn:[UINavigationBar class], nil] setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:[UIColor blackColor], UITextAttributeTextColor,nil]
+                                                                                            forState:UIControlStateNormal];
     
+    //CROWD stuff
     [[self crowdCollection]setDataSource:self];
     [[self crowdCollection]setDelegate:self];
     [self createTitleButton];
@@ -74,6 +80,8 @@
     
     [self.overlay.layer addSublayer:topBorder];
     //self.overlay.layer.shouldRasterize = YES;
+    
+    
     
 }
 

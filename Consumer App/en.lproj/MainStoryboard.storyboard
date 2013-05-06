@@ -222,7 +222,7 @@
                                         <constraint firstAttribute="height" constant="21" id="ihj-Pc-5N7"/>
                                     </constraints>
                                     <fontDescription key="fontDescription" type="boldSystem" pointSize="19"/>
-                                    <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                     <nil key="highlightedColor"/>
                                 </label>
                                 <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" image="downArrow.png" highlightedImage="downArrow_highlighted.png" translatesAutoresizingMaskIntoConstraints="NO" id="weG-6D-YRv">
@@ -352,6 +352,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="fS0-pY-YIw">
                         <barButtonItem key="rightBarButtonItem" title="Check In" id="j8H-eV-cm2">
+                            <color key="tintColor" red="0.099761158282450718" green="0.91506029211956519" blue="0.064945007828737022" alpha="1" colorSpace="calibratedRGB"/>
                             <connections>
                                 <segue destination="CuC-E9-ArH" kind="push" id="lI3-hS-KdK"/>
                             </connections>
@@ -839,7 +840,7 @@
                                         <constraint firstAttribute="width" constant="114" id="mdY-xL-j7F"/>
                                     </constraints>
                                     <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
-                                    <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                     <nil key="highlightedColor"/>
                                     <connections>
                                         <outletCollection property="gestureRecognizers" destination="hgV-lR-nv3" appends="YES" id="uFy-7E-uav"/>
@@ -991,6 +992,9 @@
         <class className="UICollectionViewFlowLayout" superclassName="UICollectionViewLayout">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/UICollectionViewFlowLayout.h"/>
         </class>
+        <class className="UICollectionViewLayout" superclassName="NSObject">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/UICollectionViewLayout.h"/>
+        </class>
         <class className="VenueGalleryViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/VenueGalleryViewController.h"/>
             <relationships>
@@ -1033,8 +1037,8 @@
         <simulatedScreenMetrics key="destination"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="x3u-oM-q8A"/>
         <segue reference="t49-el-RAM"/>
         <segue reference="whM-dl-4Ng"/>
+        <segue reference="lI3-hS-KdK"/>
     </inferredMetricsTieBreakers>
 </document>
