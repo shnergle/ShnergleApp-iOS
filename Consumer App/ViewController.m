@@ -51,9 +51,15 @@
     //TOOLBAR Additions (colour)
     [self.navigationController.navigationBar setTintColor:[UIColor whiteColor]];
     self.navigationController.navigationBar.titleTextAttributes = [NSDictionary dictionaryWithObject:[UIColor blackColor] forKey:UITextAttributeTextColor];
-    [[UIBarButtonItem appearanceWhenContainedIn:[UINavigationBar class], nil] setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:[UIColor blackColor], UITextAttributeTextColor,nil]
+    /*[[UIBarButtonItem appearanceWhenContainedIn:[UINavigationBar class], nil] setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:[UIColor blackColor], UITextAttributeTextColor,nil]
                                                                                             forState:UIControlStateNormal];
-    
+    */
+    UIBarButtonItem *backButton = [UIBarButtonItem new];
+    [backButton setTitle:@"Back"];
+    [backButton setTintColor:[UIColor whiteColor]];
+    [backButton setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:[UIColor blackColor],UITextAttributeTextColor,nil] forState:UIControlStateNormal];
+    [[self navigationItem] setBackBarButtonItem:backButton];
+     
     //CROWD stuff
     [[self crowdCollection]setDataSource:self];
     [[self crowdCollection]setDelegate:self];
