@@ -32,7 +32,7 @@
 @synthesize mapView;
 @synthesize overlay;
 @synthesize dropDownMenu;
-
+@synthesize titleLabel;
 // Don't need to modify the default initWithNibName:bundle: method.
 
 
@@ -48,16 +48,18 @@
 {
     [super viewDidLoad];
     
-    //TOOLBAR Additions (colour)
-    [self.navigationController.navigationBar setTintColor:[UIColor whiteColor]];
-    self.navigationController.navigationBar.titleTextAttributes = [NSDictionary dictionaryWithObject:[UIColor blackColor] forKey:UITextAttributeTextColor];
-    /*[[UIBarButtonItem appearanceWhenContainedIn:[UINavigationBar class], nil] setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:[UIColor blackColor], UITextAttributeTextColor,nil]
-                                                                                            forState:UIControlStateNormal];
-    */
+    //TOOLBAR Additions
     UIBarButtonItem *backButton = [UIBarButtonItem new];
     [backButton setTitle:@"Back"];
     [backButton setTintColor:[UIColor whiteColor]];
-    [backButton setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:[UIColor blackColor],UITextAttributeTextColor,nil] forState:UIControlStateNormal];
+    [backButton setTitleTextAttributes:
+     [NSDictionary dictionaryWithObjectsAndKeys:
+      [UIColor blackColor],
+      UITextAttributeTextColor,
+      [NSValue valueWithUIOffset:UIOffsetMake(0, 0)],
+      UITextAttributeTextShadowOffset,
+      nil] forState:UIControlStateNormal];
+    
     [[self navigationItem] setBackBarButtonItem:backButton];
      
     //CROWD stuff
@@ -70,6 +72,8 @@
     crowdImagesHidden = NO;
     dropDownHidden = YES;
     
+    
+    
 }
 
 -(void)viewWillAppear:(BOOL)animated{
@@ -77,14 +81,17 @@
     //Make it hidden whenever we navigate back to the view as well.
     dropDownHidden = YES;
     
+        
     //SETUP BORDERS FOR OVERLAY
     /* Or.. Nevermind */
+    /*
     CALayer *topBorder = [CALayer layer];
     topBorder.borderColor = [UIColor darkGrayColor].CGColor;
     topBorder.borderWidth = 1;
     topBorder.frame = CGRectMake(-1, -1, self.overlay.frame.size.width+2, self.overlay.frame.size.height+2);
     
     [self.overlay.layer addSublayer:topBorder];
+     */
     //self.overlay.layer.shouldRasterize = YES;
     
     
@@ -108,6 +115,7 @@
     CrowdItem *item = [collectionView dequeueReusableCellWithReuseIdentifier:cellIdentifier forIndexPath:indexPath];
     
     /*SHADOW AROUND OBJECTS*/
+    /*
     item.layer.masksToBounds = NO;
     item.layer.borderColor = [UIColor grayColor].CGColor;
     item.layer.borderWidth = 1.5f;
@@ -117,13 +125,16 @@
     item.layer.shadowOffset = CGSizeZero;
     item.layer.shadowPath = [UIBezierPath bezierPathWithRect:item.bounds].CGPath;
     //item.layer.shouldRasterize = YES;
-    
+    */
     /* Here we can set the elements of the crowdItem (the cell) in the cellview */
     
     [[item crowdImage]setImage:[UIImage imageNamed:[images objectAtIndex:indexPath.item]]];
+    
     [[item venueName]setText:[venueNames objectAtIndex:indexPath.item]];
     
+    item.venueName.font= [UIFont fontWithName:@"Robota-Regular" size:6];
     
+    item.venueName.textColor = [UIColor whiteColor];
 
     return item;
 

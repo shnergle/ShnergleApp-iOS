@@ -10,7 +10,7 @@
 #import "GoogleMaps/GoogleMaps.h"
 #import "overlayText.h"
 #import "DropDownMenu.h"
-#import <QuartzCore/QuartzCore.h>
+//#import <QuartzCore/QuartzCore.h> // shadow and border
 
 NSInteger selectedVenueIndex;
 
@@ -23,6 +23,7 @@ NSInteger selectedVenueIndex;
 @property (weak, nonatomic) IBOutlet UICollectionView *crowdCollection;
 @property (weak, nonatomic) IBOutlet overlayText *overlay;
 @property(nonatomic, retain) UIView *titleView;
+@property (weak, nonatomic) IBOutlet UILabel *titleLabel;
 @property (weak, nonatomic) IBOutlet DropDownMenu *dropDownMenu;
 -(BOOL)scrollViewShouldScrollToTop:(UIScrollView *)scrollView;
 -(void)createTitleButton;
