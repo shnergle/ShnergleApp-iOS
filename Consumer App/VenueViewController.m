@@ -56,6 +56,20 @@
     venueNames = [[NSArray alloc] initWithObjects:@"liverpool street station",@"liverpool street station",@"mahiki",@"liverpool street station",@"liverpool street station",@"mahiki",@"liverpool street station",@"liverpool street station",@"mahiki",@"liverpool street station",@"mahiki",@"liverpool street station",@"mahiki",@"liverpool street station",@"mahiki",@"liverpool street station",@"liverpool street station",@"mahiki",@"liverpool street station",@"liverpool street station",@"mahiki",@"liverpool street station",@"liverpool street station",@"mahiki",@"liverpool street station",@"mahiki",@"liverpool street station",@"mahiki",@"liverpool street station",@"mahiki", nil];
 
     [self displayTextView];
+    
+    //THIS DOESNT DO ANYTHING
+    NSDictionary *attributes = [NSDictionary dictionaryWithObjectsAndKeys:
+                                [UIColor whiteColor],
+                                UITextAttributeTextColor,
+                                [UIColor clearColor],
+                                UITextAttributeTextShadowColor,
+                                UIOffsetMake(0, 0),
+                                UITextAttributeTextShadowOffset,nil];
+    
+    [[UIBarButtonItem appearance] setTitleTextAttributes:attributes forState:UIControlStateNormal];
+
+    [[UIBarButtonItem appearance] setTitleShadowColor:[UIColor clearColor] forState:UIControlStateNormal];
+    // THAT DIDNT DO ANYTHING
 }
 
 -(NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView
