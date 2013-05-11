@@ -202,6 +202,9 @@
     /*[self.navigationController setNavigationBarHidden:hidden
                                              animated:YES];*/
     
+    self.navigationItem.hidesBackButton = NO;
+    self.navigationController.navigationBarHidden = NO;
+    
 }
 
 -(void)viewDidAppear:(BOOL)animated
@@ -209,6 +212,11 @@
     [super viewDidAppear:animated];
     [self.overlayView setTabBarHidden:hidden
                                   animated:NO];
+}
+
+-(void)viewDidDisappear:(BOOL)animated
+{
+    self.navigationController.navigationBarHidden = NO;
 }
 
 -(void)goToPromotionView{

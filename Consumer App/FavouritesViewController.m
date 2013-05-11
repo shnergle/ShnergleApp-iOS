@@ -41,6 +41,7 @@ Boolean dropDownHidden;
 
 -(void)viewWillAppear:(BOOL)animated{
     self.navigationItem.hidesBackButton = NO;
+    self.navigationController.navigationBarHidden = NO;
 }
 
 - (void)didReceiveMemoryWarning

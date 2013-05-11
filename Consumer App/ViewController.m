@@ -31,6 +31,8 @@
 //@synthesize dropDownIndicator;
 @synthesize mapView;
 @synthesize overlay;
+@synthesize navBar;
+@synthesize navBarMenuItem;
 //@synthesize dropDownMenu;
 //@synthesize titleLabel;
 // Don't need to modify the default initWithNibName:bundle: method.
@@ -73,6 +75,14 @@
     dropDownHidden = YES;
     
     
+    //menuButton
+    UIBarButtonItem *menuButton = [[UIBarButtonItem alloc]
+                                   initWithTitle:@"M"
+                                   style:UIBarButtonItemStyleBordered
+                                   target:self
+                                   action:@selector(tapMenu)];
+    self.navBarMenuItem.leftBarButtonItem = menuButton;
+    
     
 }
 
@@ -87,7 +97,6 @@
         self.slidingViewController.underLeftViewController  = [self.storyboard instantiateViewControllerWithIdentifier:@"AroundMeMenu"];
     }
     
-    [self.view addGestureRecognizer:self.slidingViewController.panGesture];
     [self.slidingViewController setAnchorRightRevealAmount:230.0f];
     
     // Shadow for sandwich system
@@ -97,6 +106,8 @@
     
     //Remove shadows for navbar
     self.navigationController.navigationBar.clipsToBounds = YES;
+    self.navBar.clipsToBounds = YES;
+    
     
     //SETUP BORDERS FOR OVERLAY
     /* Or.. Nevermind */
@@ -227,6 +238,13 @@ didHighlightItemAtIndexPath:(NSIndexPath *)indexPath {
 {
     NSLog(@"Scrolled to top");
     return YES;
+}
+
+-(void)tapMenu
+{
+    [self.slidingViewController anchorTopViewTo:ECRight];
+    NSLog(@"menu triggered from ViewController class");
+
 }
 
 @end

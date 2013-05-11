@@ -9,5 +9,4 @@
 #import "ECSlidingViewController.h"
 
 @interface AroundMeSlidingViewController : ECSlidingViewController
-
 @end

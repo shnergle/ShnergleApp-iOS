@@ -22,6 +22,8 @@ NSInteger selectedVenueIndex;
 //@property (weak, nonatomic) IBOutlet UIImageView *dropDownIndicator;
 @property (weak, nonatomic) IBOutlet GMSMapView *mapView;
 @property (weak, nonatomic) IBOutlet UICollectionView *crowdCollection;
+@property (weak, nonatomic) IBOutlet UINavigationBar *navBar;
+@property (weak, nonatomic) IBOutlet UINavigationItem *navBarMenuItem;
 @property (weak, nonatomic) IBOutlet overlayText *overlay;
 //@property(nonatomic, retain) UIView *titleView;
 //@property (weak, nonatomic) IBOutlet UILabel *titleLabel;
@@ -29,7 +31,7 @@ NSInteger selectedVenueIndex;
 -(BOOL)scrollViewShouldScrollToTop:(UIScrollView *)scrollView;
 //-(void)createTitleButton;
 - (IBAction)tapMap:(id)sender;
-//- (IBAction)tapTitle:(id)sender;
+- (void)tapMenu;
 -(void)hideOverlay;
 -(void)showOverlay;
 @end
