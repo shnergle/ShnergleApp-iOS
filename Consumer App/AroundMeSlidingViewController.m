@@ -27,6 +27,7 @@
     [super viewDidLoad];
     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"MainStoryboard" bundle:nil];
     self.topViewController = [storyboard instantiateViewControllerWithIdentifier:@"AroundMe"];
+    self.navigationItem.hidesBackButton = YES;
 
 }
 

@@ -79,8 +79,7 @@
     [[UIBarButtonItem appearance] setTitleTextAttributes: attributes
                                                 forState: UIControlStateNormal];
     
-    //Kill that shadow
-    [[UINavigationBar appearance]setShadowImage:[[UIImage alloc] init]];
+    
 }
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions

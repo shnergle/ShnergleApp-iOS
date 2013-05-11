@@ -27,12 +27,12 @@
 
 @implementation ViewController
 
-@synthesize titleView;
-@synthesize dropDownIndicator;
+//@synthesize titleView;
+//@synthesize dropDownIndicator;
 @synthesize mapView;
 @synthesize overlay;
-@synthesize dropDownMenu;
-@synthesize titleLabel;
+//@synthesize dropDownMenu;
+//@synthesize titleLabel;
 // Don't need to modify the default initWithNibName:bundle: method.
 
 
@@ -50,7 +50,7 @@
     
     //TOOLBAR Additions
     UIBarButtonItem *backButton = [UIBarButtonItem new];
-    [backButton setTitle:@"Back"];
+    [backButton setTitle:@"Back-"];
     [backButton setTintColor:[UIColor whiteColor]];
     [backButton setTitleTextAttributes:
      [NSDictionary dictionaryWithObjectsAndKeys:
@@ -65,7 +65,7 @@
     //CROWD stuff
     [[self crowdCollection]setDataSource:self];
     [[self crowdCollection]setDelegate:self];
-    [self createTitleButton];
+    //[self createTitleButton];
     images = [[NSArray alloc] initWithObjects:@"liverpool.JPG", @"liverpool2.jpg", @"mahiki.jpg",@"liverpool.JPG", @"liverpool2.jpg", @"mahiki.jpg",@"liverpool.JPG", @"liverpool2.jpg", @"mahiki.jpg",nil];
     venueNames = [[NSArray alloc] initWithObjects:@"liverpool street station",@"liverpool street station",@"mahiki",@"liverpool street station",@"liverpool street station",@"mahiki",@"liverpool street station",@"liverpool street station",@"mahiki", nil];
 
@@ -88,13 +88,15 @@
     }
     
     [self.view addGestureRecognizer:self.slidingViewController.panGesture];
-    [self.slidingViewController setAnchorRightRevealAmount:280.0f];
+    [self.slidingViewController setAnchorRightRevealAmount:230.0f];
     
     // Shadow for sandwich system
     self.view.layer.shadowOpacity = 0.75f;
     self.view.layer.shadowRadius = 10.0f;
     self.view.layer.shadowColor = [UIColor blackColor].CGColor;
     
+    //Remove shadows for navbar
+    self.navigationController.navigationBar.clipsToBounds = YES;
     
     //SETUP BORDERS FOR OVERLAY
     /* Or.. Nevermind */
@@ -160,7 +162,7 @@
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
     if ([segue.identifier isEqualToString:@"ToVenueSite"]) {
-        [segue.destinationViewController setTitle:[venueNames objectAtIndex:selectedVenue]];
+        //[segue.destinationViewController setTitle:[venueNames objectAtIndex:selectedVenue]];
     }
 }
 
@@ -194,7 +196,7 @@ didHighlightItemAtIndexPath:(NSIndexPath *)indexPath {
         [self hideOverlay];
     }
 }
-
+/*
 - (IBAction)tapTitle:(id)sender {
     NSLog(@"tapTitle run from ViewController");
     if(dropDownHidden){
@@ -207,6 +209,7 @@ didHighlightItemAtIndexPath:(NSIndexPath *)indexPath {
         dropDownHidden = YES;
     }
 }
+*/
 
 -(void)showOverlay {
 

@@ -19,17 +19,17 @@ NSInteger selectedVenueIndex;
 @interface ViewController : UIViewController<UICollectionViewDataSource, UICollectionViewDelegate> {
     
 }
-@property (weak, nonatomic) IBOutlet UIImageView *dropDownIndicator;
+//@property (weak, nonatomic) IBOutlet UIImageView *dropDownIndicator;
 @property (weak, nonatomic) IBOutlet GMSMapView *mapView;
 @property (weak, nonatomic) IBOutlet UICollectionView *crowdCollection;
 @property (weak, nonatomic) IBOutlet overlayText *overlay;
-@property(nonatomic, retain) UIView *titleView;
-@property (weak, nonatomic) IBOutlet UILabel *titleLabel;
-@property (weak, nonatomic) IBOutlet DropDownMenu *dropDownMenu;
+//@property(nonatomic, retain) UIView *titleView;
+//@property (weak, nonatomic) IBOutlet UILabel *titleLabel;
+//@property (weak, nonatomic) IBOutlet DropDownMenu *dropDownMenu;
 -(BOOL)scrollViewShouldScrollToTop:(UIScrollView *)scrollView;
--(void)createTitleButton;
+//-(void)createTitleButton;
 - (IBAction)tapMap:(id)sender;
-- (IBAction)tapTitle:(id)sender;
+//- (IBAction)tapTitle:(id)sender;
 -(void)hideOverlay;
 -(void)showOverlay;
 @end
