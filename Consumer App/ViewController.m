@@ -10,7 +10,7 @@
 #import "CrowdItem.h"
 #import "GoogleMaps/GoogleMaps.h"
 #import "CoreLocation/CoreLocation.h"
-
+#import "MenuViewController.h"
 
 @interface ViewController ()
 {
@@ -77,11 +77,25 @@
 }
 
 -(void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
     self.navigationItem.hidesBackButton = YES;
     //Make it hidden whenever we navigate back to the view as well.
     dropDownHidden = YES;
     
-        
+    //THE SANDWICH MENU SYSTEM (ECSlidingViewController)
+    if (![self.slidingViewController.underLeftViewController isKindOfClass:[MenuViewController class]]) {
+        self.slidingViewController.underLeftViewController  = [self.storyboard instantiateViewControllerWithIdentifier:@"AroundMeMenu"];
+    }
+    
+    [self.view addGestureRecognizer:self.slidingViewController.panGesture];
+    [self.slidingViewController setAnchorRightRevealAmount:280.0f];
+    
+    // Shadow for sandwich system
+    self.view.layer.shadowOpacity = 0.75f;
+    self.view.layer.shadowRadius = 10.0f;
+    self.view.layer.shadowColor = [UIColor blackColor].CGColor;
+    
+    
     //SETUP BORDERS FOR OVERLAY
     /* Or.. Nevermind */
     /*

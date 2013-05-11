@@ -27,7 +27,7 @@
             <objects>
                 <viewController storyboardIdentifier="AroundMe" id="2" customClass="ViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="3">
-                        <rect key="frame" x="0.0" y="64" width="320" height="416"/>
+                        <rect key="frame" x="0.0" y="20" width="320" height="460"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <view multipleTouchEnabled="YES" contentMode="scaleAspectFill" translatesAutoresizingMaskIntoConstraints="NO" id="jEV-Fr-dKK" customClass="GMSMapView">
@@ -288,7 +288,7 @@
             <objects>
                 <viewController storyboardIdentifier="Venue" id="rpF-0H-Qzy" customClass="VenueViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="IVE-af-RYQ">
-                        <rect key="frame" x="0.0" y="64" width="320" height="416"/>
+                        <rect key="frame" x="0.0" y="20" width="320" height="460"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tc0-Zu-nUW">
@@ -407,7 +407,7 @@
             <objects>
                 <viewController storyboardIdentifier="VenueGallery" id="PQb-UE-tQ8" customClass="VenueGalleryViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="0ht-SK-gFa">
-                        <rect key="frame" x="0.0" y="64" width="320" height="416"/>
+                        <rect key="frame" x="0.0" y="20" width="320" height="460"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFill" bounces="NO" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6u6-Wc-2Ey">
@@ -711,7 +711,7 @@
             <objects>
                 <viewController id="CuC-E9-ArH" customClass="CheckInViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Nqi-Sb-gtQ">
-                        <rect key="frame" x="0.0" y="64" width="320" height="416"/>
+                        <rect key="frame" x="0.0" y="20" width="320" height="460"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Zci-JD-6UE">
@@ -805,7 +805,7 @@
             <objects>
                 <viewController storyboardIdentifier="Profile" id="qgb-Kw-YNh" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="T3d-vY-Mf8">
-                        <rect key="frame" x="0.0" y="64" width="320" height="416"/>
+                        <rect key="frame" x="0.0" y="20" width="320" height="460"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
@@ -820,7 +820,7 @@
             <objects>
                 <viewController id="O8X-O7-5VA" customClass="FavouritesViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="3zF-Rl-p2R">
-                        <rect key="frame" x="0.0" y="64" width="320" height="416"/>
+                        <rect key="frame" x="0.0" y="20" width="320" height="460"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jzh-IN-mtV" customClass="DropDownMenu">
@@ -932,6 +932,34 @@
             </objects>
             <point key="canvasLocation" x="-732" y="-455"/>
         </scene>
+        <!--Menu View Controller-->
+        <scene sceneID="o38-We-2n8">
+            <objects>
+                <viewController storyboardIdentifier="AroundMeMenu" id="nGm-Na-jzU" customClass="MenuViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="2oN-RZ-QoM">
+                        <rect key="frame" x="0.0" y="20" width="320" height="460"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ap6-cl-UHS" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-2276" y="-630"/>
+        </scene>
+        <!--Around Me Sliding View Controller-->
+        <scene sceneID="kOd-FU-g3w">
+            <objects>
+                <viewController storyboardIdentifier="AroundMeSlidingViewController" id="agu-Bk-UBN" customClass="AroundMeSlidingViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Km9-Iy-bjO">
+                        <rect key="frame" x="0.0" y="20" width="320" height="460"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="X09-Ib-GEu" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1797" y="-586"/>
+        </scene>
         <!--Login Screen Controller - Shnergle-->
         <scene sceneID="ddY-3I-oVq">
             <objects>
@@ -975,7 +1003,6 @@
                     <navigationItem key="navigationItem" title="Shnergle" id="JMg-dQ-Qmk"/>
                     <connections>
                         <outlet property="buttonLoginLogout" destination="0Fe-ga-82h" id="M41-kj-X9M"/>
-                        <segue destination="2" kind="push" id="KAt-ec-tTC"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="DxJ-Q3-ATN" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -987,13 +1014,16 @@
         <image name="Screen Shot 2013-04-19 at 09.52.50.png" width="196" height="53"/>
         <image name="downArrow.png" width="55" height="31"/>
         <image name="downArrow_highlighted.png" width="55" height="31"/>
-        <image name="facebook.png" width="196" height="40"/>
+        <image name="facebook.png" width="1250" height="1250"/>
         <image name="mahiki.jpg" width="420" height="308"/>
         <image name="plusone.png" width="26" height="22"/>
         <image name="twitter.jpg" width="945" height="651"/>
         <image name="upArrow.png" width="43" height="31"/>
     </resources>
     <classes>
+        <class className="AroundMeSlidingViewController" superclassName="ECSlidingViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/AroundMeSlidingViewController.h"/>
+        </class>
         <class className="CheckInViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/CheckInViewController.h"/>
             <relationships>
@@ -1011,6 +1041,9 @@
         </class>
         <class className="DropDownMenu" superclassName="UIView">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/DropDownMenu.h"/>
+        </class>
+        <class className="ECSlidingViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/ECSlidingViewController.h"/>
         </class>
         <class className="FavouritesViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/FavouritesViewController.h"/>
@@ -1030,6 +1063,9 @@
                 <relationship kind="action" name="buttonClickHandler:"/>
                 <relationship kind="outlet" name="buttonLoginLogout" candidateClass="UIButton"/>
             </relationships>
+        </class>
+        <class className="MenuViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/MenuViewController.h"/>
         </class>
         <class className="NSLayoutConstraint" superclassName="NSObject">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/NSLayoutConstraint.h"/>

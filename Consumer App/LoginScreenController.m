@@ -83,7 +83,7 @@
        [self.buttonLoginLogout setImage:image2 forState:UIControlStateNormal];
         
         UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"MainStoryboard" bundle:nil];
-        ViewController *vc = [storyboard instantiateViewControllerWithIdentifier:@"AroundMe"];
+        ViewController *vc = [storyboard instantiateViewControllerWithIdentifier:@"AroundMeSlidingViewController"];
         
         [self.navigationController pushViewController:vc animated:YES];
         
