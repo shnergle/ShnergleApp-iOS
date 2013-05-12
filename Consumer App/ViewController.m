@@ -201,11 +201,12 @@ didHighlightItemAtIndexPath:(NSIndexPath *)indexPath {
 }
 
 - (IBAction)tapMap:(id)sender {
-    if(crowdImagesHidden){
+    /*if(crowdImagesHidden){
         [self showOverlay];
     }else{
         [self hideOverlay];
     }
+     */
 }
 /*
 - (IBAction)tapTitle:(id)sender {
@@ -247,4 +248,12 @@ didHighlightItemAtIndexPath:(NSIndexPath *)indexPath {
 
 }
 
+- (IBAction)tapArrow:(id)sender {
+    if(crowdImagesHidden){
+        [self showOverlay];
+    }else{
+        [self hideOverlay];
+    }
+
+}
 @end

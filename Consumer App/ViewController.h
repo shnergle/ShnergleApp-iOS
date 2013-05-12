@@ -24,6 +24,7 @@ NSInteger selectedVenueIndex;
 @property (weak, nonatomic) IBOutlet UICollectionView *crowdCollection;
 @property (weak, nonatomic) IBOutlet UINavigationBar *navBar;
 @property (weak, nonatomic) IBOutlet UINavigationItem *navBarMenuItem;
+- (IBAction)tapArrow:(id)sender;
 @property (weak, nonatomic) IBOutlet overlayText *overlay;
 //@property(nonatomic, retain) UIView *titleView;
 //@property (weak, nonatomic) IBOutlet UILabel *titleLabel;
