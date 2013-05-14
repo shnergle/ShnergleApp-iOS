@@ -62,9 +62,8 @@
                                                                         <constraint firstAttribute="height" constant="112" id="UlD-Lp-hcj"/>
                                                                     </constraints>
                                                                 </imageView>
-                                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="2" minimumFontSize="5" preferredMaxLayoutWidth="151" translatesAutoresizingMaskIntoConstraints="NO" id="4Wx-Ws-wdn">
+                                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="2" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="151" translatesAutoresizingMaskIntoConstraints="NO" id="4Wx-Ws-wdn">
                                                                     <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.5" colorSpace="calibratedRGB"/>
-                                                                    <rect key="contentStretch" x="1.3877787807814457e-17" y="0.0" width="1" height="1"/>
                                                                     <constraints>
                                                                         <constraint firstAttribute="width" constant="151" id="Y5g-ub-Ya5"/>
                                                                         <constraint firstAttribute="height" constant="56" id="eQ9-Sr-mxg"/>
@@ -74,8 +73,8 @@
                                                                         <fragment content="Venue Name   0.2km">
                                                                             <attributes>
                                                                                 <color key="NSColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                                                <font key="NSFont" size="6" name="Roboto-Regular"/>
-                                                                                <font key="NSOriginalFont" size="14" name="Roboto-Regular"/>
+                                                                                <font key="NSFont" size="6" name="Roboto-Light"/>
+                                                                                <font key="NSOriginalFont" size="6" name="Roboto-Light"/>
                                                                                 <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="truncatingTail" baseWritingDirection="natural" headIndent="5"/>
                                                                             </attributes>
                                                                         </fragment>
@@ -1008,6 +1007,9 @@
         </class>
         <class className="UICollectionViewFlowLayout" superclassName="UICollectionViewLayout">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/UICollectionViewFlowLayout.h"/>
+        </class>
+        <class className="UICollectionViewLayout" superclassName="NSObject">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/UICollectionViewLayout.h"/>
         </class>
         <class className="VenueGalleryViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/VenueGalleryViewController.h"/>
