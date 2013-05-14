@@ -159,7 +159,7 @@
     
     [[item venueName]setText:[venueNames objectAtIndex:indexPath.item]];
     
-    item.venueName.font= [UIFont fontWithName:@"Robota-Regular" size:6.0];
+    item.venueName.font= [UIFont fontWithName:@"Roboto" size:11.0f];
     
     item.venueName.textColor = [UIColor whiteColor];
 
