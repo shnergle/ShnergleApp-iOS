@@ -116,11 +116,18 @@
 -(void)viewDidAppear:(BOOL)animated
 {
     [self addShadowToDistanceSlider];
+    
+    CALayer *topBorder = [CALayer layer];
+    
+    topBorder.frame = CGRectMake(0.0f, self.overlay.bounds.origin.y +20, self.overlay.frame.size.width, 1.0f);
+    
+    topBorder.backgroundColor = [UIColor lightGrayColor].CGColor;
+    
+    [self.overlay.layer addSublayer:topBorder];
 
 }
 
 - (void)addShadowToDistanceSlider {
-    /* Or.. Nevermind */
     CALayer *bottomBorder = [CALayer layer];
     
     bottomBorder.frame = CGRectMake(0.0f, 70.0f, self.distanceScrollerView.frame.size.width, 1.0f);

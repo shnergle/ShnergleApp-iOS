@@ -47,11 +47,11 @@
                                                     <size key="itemSize" width="152" height="112"/>
                                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                                                    <inset key="sectionInset" minX="5" minY="0.0" maxX="5" maxY="0.0"/>
+                                                    <inset key="sectionInset" minX="5" minY="10" maxX="5" maxY="0.0"/>
                                                 </collectionViewFlowLayout>
                                                 <cells>
                                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="Cell" id="UwI-q0-33t" customClass="CrowdItem">
-                                                        <rect key="frame" x="5" y="0.0" width="152" height="112"/>
+                                                        <rect key="frame" x="5" y="10" width="152" height="112"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                                             <rect key="frame" x="0.0" y="0.0" width="152" height="112"/>
@@ -169,6 +169,9 @@
                                     <navigationItem title="Around Me" id="nJg-Cb-NLe">
                                         <barButtonItem key="rightBarButtonItem" title="Check In" style="plain" id="lQP-pY-6Jo">
                                             <color key="tintColor" red="0.40000000000000002" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                            <connections>
+                                                <segue destination="CuC-E9-ArH" kind="push" id="Mue-vM-7Kn"/>
+                                            </connections>
                                         </barButtonItem>
                                     </navigationItem>
                                 </items>
@@ -1091,4 +1094,7 @@
         <simulatedOrientationMetrics key="orientation"/>
         <simulatedScreenMetrics key="destination"/>
     </simulatedMetricsContainer>
+    <inferredMetricsTieBreakers>
+        <segue reference="Mue-vM-7Kn"/>
+    </inferredMetricsTieBreakers>
 </document>
