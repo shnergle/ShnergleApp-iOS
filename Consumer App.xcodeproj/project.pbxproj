@@ -80,6 +80,7 @@
 		808F13EF16FB6A5C00B66E6D /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 808F13CA16FB6A5C00B66E6D /* Foundation.framework */; };
 		808F13F716FB6A5C00B66E6D /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 808F13F516FB6A5C00B66E6D /* InfoPlist.strings */; };
 		808F13FA16FB6A5C00B66E6D /* Consumer_AppTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 808F13F916FB6A5C00B66E6D /* Consumer_AppTests.m */; };
+		80B400BC174F6A3100A377D9 /* AppIcon_114.png in Resources */ = {isa = PBXBuildFile; fileRef = 80B400BB174F6A3100A377D9 /* AppIcon_114.png */; };
 		80B77D23173E8FCB00085A71 /* AroundMeSlidingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 80B77D22173E8FCB00085A71 /* AroundMeSlidingViewController.m */; };
 		80B77D28173E938E00085A71 /* MenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 80B77D26173E938E00085A71 /* MenuViewController.m */; };
 		80B957BA16FB7A910044A505 /* CrowdItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 80B957B916FB7A910044A505 /* CrowdItem.m */; };
@@ -241,6 +242,7 @@
 		808F13F616FB6A5C00B66E6D /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		808F13F816FB6A5C00B66E6D /* Consumer_AppTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Consumer_AppTests.h; sourceTree = "<group>"; };
 		808F13F916FB6A5C00B66E6D /* Consumer_AppTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Consumer_AppTests.m; sourceTree = "<group>"; };
+		80B400BB174F6A3100A377D9 /* AppIcon_114.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = AppIcon_114.png; sourceTree = "<group>"; };
 		80B77D21173E8FCB00085A71 /* AroundMeSlidingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AroundMeSlidingViewController.h; sourceTree = "<group>"; };
 		80B77D22173E8FCB00085A71 /* AroundMeSlidingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AroundMeSlidingViewController.m; sourceTree = "<group>"; };
 		80B77D25173E938E00085A71 /* MenuViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MenuViewController.h; sourceTree = "<group>"; };
@@ -440,6 +442,7 @@
 		808F13BC16FB6A5C00B66E6D = {
 			isa = PBXGroup;
 			children = (
+				80B400BB174F6A3100A377D9 /* AppIcon_114.png */,
 				804303E81719B95E0048DCF0 /* WEPopover */,
 				8045AFCA170B0112002012D5 /* TMExpandable - demo code */,
 				808F13CE16FB6A5C00B66E6D /* Consumer App */,
@@ -755,6 +758,7 @@
 				808CA33D1739AFA900932A27 /* Roboto-MediumItalic.ttf in Resources */,
 				808CA33E1739AFA900932A27 /* Roboto-Thin.ttf in Resources */,
 				808CA33F1739AFA900932A27 /* Roboto-ThinItalic.ttf in Resources */,
+				80B400BC174F6A3100A377D9 /* AppIcon_114.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -988,16 +992,14 @@
 			buildSettings = {
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
-					"\"$(SRCROOT)/../../Downloads/GoogleMaps-iOS-1.1.2\"",
 					"\"$(SRCROOT)\"",
-					"\"$(SRCROOT)/../FacebookSDK\"",
-					"\"$(SRCROOT)/FacebookSDK\"",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Consumer App/Consumer App-Prefix.pch";
 				INFOPLIST_FILE = "Consumer App/Consumer App-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -1008,16 +1010,14 @@
 			buildSettings = {
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
-					"\"$(SRCROOT)/../../Downloads/GoogleMaps-iOS-1.1.2\"",
 					"\"$(SRCROOT)\"",
-					"\"$(SRCROOT)/../FacebookSDK\"",
-					"\"$(SRCROOT)/FacebookSDK\"",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Consumer App/Consumer App-Prefix.pch";
 				INFOPLIST_FILE = "Consumer App/Consumer App-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
