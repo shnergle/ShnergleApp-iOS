@@ -92,7 +92,6 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    
     [self decorateCheckInButton];
     
     [self toolbarDecorations];
@@ -109,10 +108,15 @@
     
     
     [self menuButtonDecorations];
-    [self addShadowToDistanceSlider];
 
     
     
+}
+
+-(void)viewDidAppear:(BOOL)animated
+{
+    [self addShadowToDistanceSlider];
+
 }
 
 - (void)addShadowToDistanceSlider {

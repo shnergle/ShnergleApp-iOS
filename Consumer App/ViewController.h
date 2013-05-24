@@ -11,7 +11,7 @@
 #import "overlayText.h"
 #import "DropDownMenu.h"
 #import <ECSlidingViewController.h>
-//#import <QuartzCore/QuartzCore.h> // shadow and border
+#import <QuartzCore/QuartzCore.h> // shadow and border
 
 NSInteger selectedVenueIndex;
 
