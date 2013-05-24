@@ -30,6 +30,7 @@
 
 @synthesize navBar;
 @synthesize overlayView;
+@synthesize checkInButton;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -48,6 +49,15 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    [[self checkInButton] setTitleTextAttributes:
+     [NSDictionary dictionaryWithObjectsAndKeys:
+      [UIColor whiteColor], UITextAttributeTextColor,
+      [UIColor clearColor], UITextAttributeTextShadowColor,
+      [NSValue valueWithUIOffset:UIOffsetMake(0, 0)], UITextAttributeTextShadowOffset,
+      [UIFont fontWithName:@"Roboto" size:14.0], UITextAttributeFont,
+      nil]
+                                          forState:UIControlStateNormal];
+    
     textViewOpen = false;
     [[self crowdCollectionV]setDataSource:self];
     [[self crowdCollectionV]setDelegate:self];

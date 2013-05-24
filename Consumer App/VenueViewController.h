@@ -19,6 +19,7 @@
 -(void)goToPromotionView;
 -(void)goToPromotionDetailView;
 @property (weak, nonatomic) IBOutlet UICollectionView *crowdCollectionV;
+@property (weak, nonatomic) IBOutlet UIBarButtonItem *checkInButton;
 
 @property (weak, nonatomic) IBOutlet overlayText *overlayView;
 

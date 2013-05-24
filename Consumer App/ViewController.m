@@ -33,6 +33,8 @@
 @synthesize overlay;
 @synthesize navBar;
 @synthesize navBarMenuItem;
+@synthesize checkInButton;
+@synthesize distanceScrollerView;
 //@synthesize dropDownMenu;
 //@synthesize titleLabel;
 // Don't need to modify the default initWithNibName:bundle: method.
@@ -46,10 +48,21 @@
 
 
 
-- (void)viewDidLoad
+- (void)decorateCheckInButton
 {
-    [super viewDidLoad];
-    
+    //check in button
+    [[self checkInButton] setTitleTextAttributes:
+     [NSDictionary dictionaryWithObjectsAndKeys:
+      [UIColor whiteColor], UITextAttributeTextColor,
+      [UIColor clearColor], UITextAttributeTextShadowColor,
+      [NSValue valueWithUIOffset:UIOffsetMake(0, 0)], UITextAttributeTextShadowOffset,
+      [UIFont fontWithName:@"Roboto" size:14.0], UITextAttributeFont,
+      nil]
+                                        forState:UIControlStateNormal];
+}
+
+- (void)toolbarDecorations
+{
     //TOOLBAR Additions
     UIBarButtonItem *backButton = [UIBarButtonItem new];
     [backButton setTitle:@"Back-"];
@@ -63,6 +76,26 @@
       nil] forState:UIControlStateNormal];
     
     [[self navigationItem] setBackBarButtonItem:backButton];
+}
+
+- (void)menuButtonDecorations
+{
+    //menuButton
+    UIBarButtonItem *menuButton = [[UIBarButtonItem alloc]
+                                   initWithTitle:@"M"
+                                   style:UIBarButtonItemStyleBordered
+                                   target:self
+                                   action:@selector(tapMenu)];
+    self.navBarMenuItem.leftBarButtonItem = menuButton;
+}
+
+- (void)viewDidLoad
+{
+    [super viewDidLoad];
+    
+    [self decorateCheckInButton];
+    
+    [self toolbarDecorations];
      
     //CROWD stuff
     [[self crowdCollection]setDataSource:self];
@@ -75,13 +108,7 @@
     dropDownHidden = YES;
     
     
-    //menuButton
-    UIBarButtonItem *menuButton = [[UIBarButtonItem alloc]
-                                   initWithTitle:@"M"
-                                   style:UIBarButtonItemStyleBordered
-                                   target:self
-                                   action:@selector(tapMenu)];
-    self.navBarMenuItem.leftBarButtonItem = menuButton;
+    [self menuButtonDecorations];
     
     
 }
@@ -231,8 +258,16 @@ didHighlightItemAtIndexPath:(NSIndexPath *)indexPath {
 }
 
 -(void)hideOverlay {
-    [[self overlay] hideAnimated:126 animationDuration:0.5 targetSize:300 contentView:[self overlay]];
+    [[self overlay] hideAnimated:126 animationDuration:0.5 targetSize:350 contentView:[self overlay]];
     crowdImagesHidden = YES;
+}
+
+-(void)showDistanceScroller{
+    [[self distanceScrollerView] showAnimated:44 animationDelay:0.0 animationDuration:0.5];
+}
+
+-(void)hideDistanceScroller{
+    [[self distanceScrollerView]hideAnimated:44 animationDuration:0.8 targetSize:-64 contentView:[self distanceScrollerView]];
 }
 
 - (BOOL)scrollViewShouldScrollToTop:(UIScrollView *)scrollView
@@ -251,8 +286,10 @@ didHighlightItemAtIndexPath:(NSIndexPath *)indexPath {
 - (IBAction)tapArrow:(id)sender {
     if(crowdImagesHidden){
         [self showOverlay];
+        [self hideDistanceScroller];
     }else{
         [self hideOverlay];
+        [self showDistanceScroller];
     }
 
 }

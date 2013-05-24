@@ -20,6 +20,7 @@ NSInteger selectedVenueIndex;
     
 }
 //@property (weak, nonatomic) IBOutlet UIImageView *dropDownIndicator;
+@property (weak, nonatomic) IBOutlet overlayText *distanceScrollerView;
 @property (weak, nonatomic) IBOutlet GMSMapView *mapView;
 @property (weak, nonatomic) IBOutlet UICollectionView *crowdCollection;
 @property (weak, nonatomic) IBOutlet UINavigationBar *navBar;
@@ -30,9 +31,12 @@ NSInteger selectedVenueIndex;
 //@property (weak, nonatomic) IBOutlet UILabel *titleLabel;
 //@property (weak, nonatomic) IBOutlet DropDownMenu *dropDownMenu;
 -(BOOL)scrollViewShouldScrollToTop:(UIScrollView *)scrollView;
+@property (weak, nonatomic) IBOutlet UIBarButtonItem *checkInButton;
 //-(void)createTitleButton;
 - (IBAction)tapMap:(id)sender;
 - (void)tapMenu;
 -(void)hideOverlay;
 -(void)showOverlay;
+-(void)showDistanceScroller;
+-(void)hideDistanceScroller;
 @end

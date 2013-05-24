@@ -130,14 +130,50 @@
                                     <constraint firstItem="idD-fk-d6Y" firstAttribute="bottom" secondItem="LIP-CL-Z0j" secondAttribute="bottom" type="default" id="1db-Vu-xq4"/>
                                     <constraint firstItem="idD-fk-d6Y" firstAttribute="top" secondItem="LIP-CL-Z0j" secondAttribute="top" constant="20" symbolic="YES" type="default" id="4bX-ve-q3m"/>
                                     <constraint firstItem="idD-fk-d6Y" firstAttribute="trailing" secondItem="LIP-CL-Z0j" secondAttribute="trailing" type="default" id="PSr-Oe-cLa"/>
-                                    <constraint firstItem="3ru-jW-uGF" firstAttribute="top" secondItem="LIP-CL-Z0j" secondAttribute="top" constant="1" id="hB5-Jh-1sa"/>
+                                    <constraint firstItem="3ru-jW-uGF" firstAttribute="top" secondItem="LIP-CL-Z0j" secondAttribute="top" type="default" id="Xkd-o6-Keb"/>
                                     <constraint firstItem="idD-fk-d6Y" firstAttribute="leading" secondItem="LIP-CL-Z0j" secondAttribute="leading" type="default" id="lRa-Ml-5Fn"/>
                                     <constraint firstItem="3ru-jW-uGF" firstAttribute="centerX" secondItem="idD-fk-d6Y" secondAttribute="centerX" type="default" id="y6f-8d-pNd"/>
                                 </constraints>
                             </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Yep-ys-8YG" customClass="overlayText">
+                                <subviews>
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mRC-GB-AsM">
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="21" id="1bH-Yw-Rsj"/>
+                                            <constraint firstAttribute="width" constant="67" id="a9k-Kv-jbm"/>
+                                        </constraints>
+                                        <attributedString key="attributedText">
+                                            <fragment content="Distance">
+                                                <attributes>
+                                                    <color key="NSColor" name="disabledControlTextColor" catalog="System" colorSpace="catalog"/>
+                                                    <font key="NSFont" size="11" name="Roboto-Regular"/>
+                                                    <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
+                                                </attributes>
+                                            </fragment>
+                                        </attributedString>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="KE8-Yl-GlD">
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="302" id="tc0-O5-bJc"/>
+                                        </constraints>
+                                    </slider>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstItem="mRC-GB-AsM" firstAttribute="top" secondItem="Yep-ys-8YG" secondAttribute="top" constant="7" id="2l3-sF-Mr7"/>
+                                    <constraint firstItem="KE8-Yl-GlD" firstAttribute="centerX" secondItem="Yep-ys-8YG" secondAttribute="centerX" type="default" id="EGd-2M-Pfz"/>
+                                    <constraint firstItem="KE8-Yl-GlD" firstAttribute="top" secondItem="Yep-ys-8YG" secondAttribute="top" constant="31" id="Jbo-qH-lAM"/>
+                                    <constraint firstItem="mRC-GB-AsM" firstAttribute="leading" secondItem="KE8-Yl-GlD" secondAttribute="leading" type="default" id="jg7-YR-qOt"/>
+                                </constraints>
+                            </view>
                             <navigationBar contentMode="scaleToFill" barStyle="blackOpaque" translatesAutoresizingMaskIntoConstraints="NO" id="5nO-C1-XZo">
                                 <items>
-                                    <navigationItem title="Around Me" id="nJg-Cb-NLe"/>
+                                    <navigationItem title="Around Me" id="nJg-Cb-NLe">
+                                        <barButtonItem key="rightBarButtonItem" title="Check In" id="lQP-pY-6Jo">
+                                            <color key="tintColor" red="0.0" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        </barButtonItem>
+                                    </navigationItem>
                                 </items>
                             </navigationBar>
                         </subviews>
@@ -146,18 +182,24 @@
                             <constraint firstItem="jEV-Fr-dKK" firstAttribute="bottom" secondItem="3" secondAttribute="bottom" type="default" id="6IF-dP-TUP"/>
                             <constraint firstItem="LIP-CL-Z0j" firstAttribute="leading" secondItem="3" secondAttribute="leading" type="default" id="8aQ-rw-Za9"/>
                             <constraint firstItem="5nO-C1-XZo" firstAttribute="leading" secondItem="3" secondAttribute="leading" type="default" id="GNW-8o-GCv"/>
+                            <constraint firstItem="Yep-ys-8YG" firstAttribute="leading" secondItem="3" secondAttribute="leading" type="default" id="GqB-D3-JGa"/>
                             <constraint firstItem="jEV-Fr-dKK" firstAttribute="leading" secondItem="3" secondAttribute="leading" type="default" id="Hde-AL-Ogp"/>
                             <constraint firstItem="LIP-CL-Z0j" firstAttribute="bottom" secondItem="3" secondAttribute="bottom" type="default" id="P3A-rn-1MW"/>
                             <constraint firstItem="5nO-C1-XZo" firstAttribute="trailing" secondItem="3" secondAttribute="trailing" type="default" id="V5j-Oi-H31"/>
                             <constraint firstItem="LIP-CL-Z0j" firstAttribute="trailing" secondItem="3" secondAttribute="trailing" type="default" id="dbX-Yq-VTx"/>
                             <constraint firstItem="LIP-CL-Z0j" firstAttribute="top" secondItem="3" secondAttribute="top" constant="126" id="fqJ-MI-gdQ"/>
+                            <constraint firstItem="Yep-ys-8YG" firstAttribute="bottom" secondItem="5nO-C1-XZo" secondAttribute="top" type="default" id="hYg-dK-12I"/>
+                            <constraint firstItem="Yep-ys-8YG" firstAttribute="trailing" secondItem="3" secondAttribute="trailing" type="default" id="jXD-JI-rAV"/>
                             <constraint firstItem="5nO-C1-XZo" firstAttribute="top" secondItem="3" secondAttribute="top" type="default" id="lBl-Yw-d1N"/>
+                            <constraint firstItem="Yep-ys-8YG" firstAttribute="top" secondItem="3" secondAttribute="top" constant="-64" id="mv3-5n-q4I"/>
                             <constraint firstItem="jEV-Fr-dKK" firstAttribute="top" secondItem="3" secondAttribute="top" type="default" id="pAf-G3-NWL"/>
                             <constraint firstItem="jEV-Fr-dKK" firstAttribute="trailing" secondItem="3" secondAttribute="trailing" type="default" id="pfi-CY-9zH"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="checkInButton" destination="lQP-pY-6Jo" id="nBg-wx-ByB"/>
                         <outlet property="crowdCollection" destination="NoU-2f-HS3" id="gIQ-gS-rMU"/>
+                        <outlet property="distanceScrollerView" destination="Yep-ys-8YG" id="QWb-NX-1Xt"/>
                         <outlet property="mapView" destination="jEV-Fr-dKK" id="GvI-xX-n96"/>
                         <outlet property="navBar" destination="5nO-C1-XZo" id="urY-Ys-s6F"/>
                         <outlet property="navBarMenuItem" destination="nJg-Cb-NLe" id="V9h-H5-9cv"/>
@@ -277,14 +319,15 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="fS0-pY-YIw">
-                        <barButtonItem key="rightBarButtonItem" title="Check In" style="plain" id="j8H-eV-cm2">
-                            <color key="tintColor" red="0.099761158282450718" green="0.91506029211956519" blue="0.064945007828737022" alpha="1" colorSpace="calibratedRGB"/>
+                        <barButtonItem key="rightBarButtonItem" title="Check In" id="j8H-eV-cm2">
+                            <color key="tintColor" red="0.0" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                             <connections>
                                 <segue destination="CuC-E9-ArH" kind="push" id="lI3-hS-KdK"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="checkInButton" destination="j8H-eV-cm2" id="XKX-Mi-ND9"/>
                         <outlet property="crowdCollection" destination="p6Q-Ks-hgi" id="FHm-1m-aj3"/>
                     </connections>
                 </viewController>
@@ -935,7 +978,7 @@
     </scenes>
     <resources>
         <image name="Screen Shot 2013-04-19 at 09.52.50.png" width="196" height="53"/>
-        <image name="facebook.png" width="1250" height="1250"/>
+        <image name="facebook.png" width="196" height="40"/>
         <image name="mahiki.jpg" width="420" height="308"/>
         <image name="plusone.png" width="26" height="22"/>
         <image name="twitter.jpg" width="945" height="651"/>
@@ -1017,6 +1060,7 @@
         <class className="VenueViewController" superclassName="ViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/VenueViewController.h"/>
             <relationships>
+                <relationship kind="outlet" name="checkInButton" candidateClass="UIBarButtonItem"/>
                 <relationship kind="outlet" name="crowdCollectionV" candidateClass="UICollectionView"/>
                 <relationship kind="outlet" name="navBar" candidateClass="UINavigationItem"/>
                 <relationship kind="outlet" name="overlayView" candidateClass="overlayText"/>
@@ -1027,7 +1071,9 @@
             <relationships>
                 <relationship kind="action" name="tapArrow:"/>
                 <relationship kind="action" name="tapMap:"/>
+                <relationship kind="outlet" name="checkInButton" candidateClass="UIBarButtonItem"/>
                 <relationship kind="outlet" name="crowdCollection" candidateClass="UICollectionView"/>
+                <relationship kind="outlet" name="distanceScrollerView" candidateClass="overlayText"/>
                 <relationship kind="outlet" name="mapView" candidateClass="GMSMapView"/>
                 <relationship kind="outlet" name="navBar" candidateClass="UINavigationBar"/>
                 <relationship kind="outlet" name="navBarMenuItem" candidateClass="UINavigationItem"/>
