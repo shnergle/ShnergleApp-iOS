@@ -109,8 +109,21 @@
     
     
     [self menuButtonDecorations];
+    [self addShadowToDistanceSlider];
+
     
     
+}
+
+- (void)addShadowToDistanceSlider {
+    /* Or.. Nevermind */
+    CALayer *bottomBorder = [CALayer layer];
+    
+    bottomBorder.frame = CGRectMake(0.0f, 70.0f, self.distanceScrollerView.frame.size.width, 1.0f);
+    
+    bottomBorder.backgroundColor = [UIColor lightGrayColor].CGColor;
+    
+    [self.distanceScrollerView.layer addSublayer:bottomBorder];
 }
 
 -(void)viewWillAppear:(BOOL)animated{
@@ -135,17 +148,11 @@
     self.navigationController.navigationBar.clipsToBounds = YES;
     self.navBar.clipsToBounds = YES;
     
+    crowdImagesHidden = false;
     
-    //SETUP BORDERS FOR OVERLAY
-    /* Or.. Nevermind */
-    /*
-    CALayer *topBorder = [CALayer layer];
-    topBorder.borderColor = [UIColor darkGrayColor].CGColor;
-    topBorder.borderWidth = 1;
-    topBorder.frame = CGRectMake(-1, -1, self.overlay.frame.size.width+2, self.overlay.frame.size.height+2);
+    [self addShadowToDistanceSlider];
+
     
-    [self.overlay.layer addSublayer:topBorder];
-     */
     //self.overlay.layer.shouldRasterize = YES;
     
     
@@ -283,7 +290,10 @@ didHighlightItemAtIndexPath:(NSIndexPath *)indexPath {
 
 }
 
+
 - (IBAction)tapArrow:(id)sender {
+    
+    
     if(crowdImagesHidden){
         [self showOverlay];
         [self hideDistanceScroller];

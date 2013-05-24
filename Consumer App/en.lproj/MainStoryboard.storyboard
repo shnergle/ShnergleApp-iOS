@@ -57,11 +57,7 @@
                                                             <rect key="frame" x="0.0" y="0.0" width="152" height="112"/>
                                                             <autoresizingMask key="autoresizingMask"/>
                                                             <subviews>
-                                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qu8-4s-JU3">
-                                                                    <constraints>
-                                                                        <constraint firstAttribute="height" constant="112" id="UlD-Lp-hcj"/>
-                                                                    </constraints>
-                                                                </imageView>
+                                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qu8-4s-JU3"/>
                                                                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="2" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="151" translatesAutoresizingMaskIntoConstraints="NO" id="4Wx-Ws-wdn">
                                                                     <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.5" colorSpace="calibratedRGB"/>
                                                                     <constraints>
@@ -74,7 +70,7 @@
                                                                                 <color key="NSColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                                                 <font key="NSFont" size="6" name="Roboto-Light"/>
                                                                                 <font key="NSOriginalFont" size="6" name="Roboto-Light"/>
-                                                                                <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="truncatingTail" baseWritingDirection="natural" headIndent="5"/>
+                                                                                <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="truncatingTail" baseWritingDirection="natural" firstLineHeadIndent="5" headIndent="5"/>
                                                                             </attributes>
                                                                         </fragment>
                                                                     </attributedString>
@@ -85,11 +81,12 @@
                                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                         </view>
                                                         <constraints>
-                                                            <constraint firstItem="qu8-4s-JU3" firstAttribute="top" secondItem="UwI-q0-33t" secondAttribute="top" constant="5" id="ABp-hU-zCc"/>
-                                                            <constraint firstItem="qu8-4s-JU3" firstAttribute="leading" secondItem="UwI-q0-33t" secondAttribute="leading" type="default" id="G91-dA-623"/>
-                                                            <constraint firstItem="4Wx-Ws-wdn" firstAttribute="bottom" secondItem="UwI-q0-33t" secondAttribute="bottom" type="default" id="ai5-dY-6Wg"/>
-                                                            <constraint firstItem="4Wx-Ws-wdn" firstAttribute="leading" secondItem="UwI-q0-33t" secondAttribute="leading" type="default" id="or4-sf-cWE"/>
-                                                            <constraint firstItem="qu8-4s-JU3" firstAttribute="trailing" secondItem="UwI-q0-33t" secondAttribute="trailing" type="default" id="pBL-dM-WIU"/>
+                                                            <constraint firstItem="qu8-4s-JU3" firstAttribute="trailing" secondItem="UwI-q0-33t" secondAttribute="trailing" type="default" id="8l3-t3-xEp"/>
+                                                            <constraint firstItem="qu8-4s-JU3" firstAttribute="leading" secondItem="4Wx-Ws-wdn" secondAttribute="leading" type="default" id="BDn-S5-a6R"/>
+                                                            <constraint firstItem="qu8-4s-JU3" firstAttribute="bottom" secondItem="UwI-q0-33t" secondAttribute="bottom" type="default" id="HEB-3y-Gr2"/>
+                                                            <constraint firstItem="qu8-4s-JU3" firstAttribute="bottom" secondItem="4Wx-Ws-wdn" secondAttribute="bottom" type="default" id="nLH-jP-dKw"/>
+                                                            <constraint firstItem="qu8-4s-JU3" firstAttribute="leading" secondItem="UwI-q0-33t" secondAttribute="leading" type="default" id="nSa-aX-PVa"/>
+                                                            <constraint firstItem="qu8-4s-JU3" firstAttribute="top" secondItem="UwI-q0-33t" secondAttribute="top" type="default" id="vs8-VX-CQq"/>
                                                         </constraints>
                                                         <size key="customSize" width="152" height="112"/>
                                                         <connections>
@@ -101,7 +98,7 @@
                                                 </cells>
                                             </collectionView>
                                         </subviews>
-                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <color key="backgroundColor" red="0.9137254901960784" green="0.92156862745098034" blue="0.94117647058823528" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
                                             <constraint firstItem="NoU-2f-HS3" firstAttribute="centerY" secondItem="idD-fk-d6Y" secondAttribute="centerY" type="default" id="15r-HA-FyS"/>
                                             <constraint firstItem="NoU-2f-HS3" firstAttribute="trailing" secondItem="idD-fk-d6Y" secondAttribute="trailing" type="default" id="TlD-h0-d5K"/>
@@ -159,19 +156,19 @@
                                         </constraints>
                                     </slider>
                                 </subviews>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                                <color key="backgroundColor" red="0.9137254901960784" green="0.92156862745098034" blue="0.94117647058823528" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
-                                    <constraint firstItem="mRC-GB-AsM" firstAttribute="top" secondItem="Yep-ys-8YG" secondAttribute="top" constant="7" id="2l3-sF-Mr7"/>
                                     <constraint firstItem="KE8-Yl-GlD" firstAttribute="centerX" secondItem="Yep-ys-8YG" secondAttribute="centerX" type="default" id="EGd-2M-Pfz"/>
-                                    <constraint firstItem="KE8-Yl-GlD" firstAttribute="top" secondItem="Yep-ys-8YG" secondAttribute="top" constant="31" id="Jbo-qH-lAM"/>
+                                    <constraint firstItem="KE8-Yl-GlD" firstAttribute="top" secondItem="Yep-ys-8YG" secondAttribute="top" constant="31" id="ONp-dS-zI2"/>
                                     <constraint firstItem="mRC-GB-AsM" firstAttribute="leading" secondItem="KE8-Yl-GlD" secondAttribute="leading" type="default" id="jg7-YR-qOt"/>
+                                    <constraint firstItem="mRC-GB-AsM" firstAttribute="top" secondItem="Yep-ys-8YG" secondAttribute="top" constant="5" id="vFC-SM-5HP"/>
                                 </constraints>
                             </view>
                             <navigationBar contentMode="scaleToFill" barStyle="blackOpaque" translatesAutoresizingMaskIntoConstraints="NO" id="5nO-C1-XZo">
                                 <items>
                                     <navigationItem title="Around Me" id="nJg-Cb-NLe">
                                         <barButtonItem key="rightBarButtonItem" title="Check In" id="lQP-pY-6Jo">
-                                            <color key="tintColor" red="0.0" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="tintColor" red="0.40000000000000002" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         </barButtonItem>
                                     </navigationItem>
                                 </items>
@@ -180,18 +177,18 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="jEV-Fr-dKK" firstAttribute="bottom" secondItem="3" secondAttribute="bottom" type="default" id="6IF-dP-TUP"/>
+                            <constraint firstItem="Yep-ys-8YG" firstAttribute="top" secondItem="3" secondAttribute="top" constant="-70" id="6Kw-3W-SKy"/>
                             <constraint firstItem="LIP-CL-Z0j" firstAttribute="leading" secondItem="3" secondAttribute="leading" type="default" id="8aQ-rw-Za9"/>
                             <constraint firstItem="5nO-C1-XZo" firstAttribute="leading" secondItem="3" secondAttribute="leading" type="default" id="GNW-8o-GCv"/>
                             <constraint firstItem="Yep-ys-8YG" firstAttribute="leading" secondItem="3" secondAttribute="leading" type="default" id="GqB-D3-JGa"/>
                             <constraint firstItem="jEV-Fr-dKK" firstAttribute="leading" secondItem="3" secondAttribute="leading" type="default" id="Hde-AL-Ogp"/>
                             <constraint firstItem="LIP-CL-Z0j" firstAttribute="bottom" secondItem="3" secondAttribute="bottom" type="default" id="P3A-rn-1MW"/>
                             <constraint firstItem="5nO-C1-XZo" firstAttribute="trailing" secondItem="3" secondAttribute="trailing" type="default" id="V5j-Oi-H31"/>
+                            <constraint firstItem="Yep-ys-8YG" firstAttribute="bottom" secondItem="5nO-C1-XZo" secondAttribute="top" type="default" id="Vzy-bW-Qkf"/>
                             <constraint firstItem="LIP-CL-Z0j" firstAttribute="trailing" secondItem="3" secondAttribute="trailing" type="default" id="dbX-Yq-VTx"/>
                             <constraint firstItem="LIP-CL-Z0j" firstAttribute="top" secondItem="3" secondAttribute="top" constant="126" id="fqJ-MI-gdQ"/>
-                            <constraint firstItem="Yep-ys-8YG" firstAttribute="bottom" secondItem="5nO-C1-XZo" secondAttribute="top" type="default" id="hYg-dK-12I"/>
                             <constraint firstItem="Yep-ys-8YG" firstAttribute="trailing" secondItem="3" secondAttribute="trailing" type="default" id="jXD-JI-rAV"/>
                             <constraint firstItem="5nO-C1-XZo" firstAttribute="top" secondItem="3" secondAttribute="top" type="default" id="lBl-Yw-d1N"/>
-                            <constraint firstItem="Yep-ys-8YG" firstAttribute="top" secondItem="3" secondAttribute="top" constant="-64" id="mv3-5n-q4I"/>
                             <constraint firstItem="jEV-Fr-dKK" firstAttribute="top" secondItem="3" secondAttribute="top" type="default" id="pAf-G3-NWL"/>
                             <constraint firstItem="jEV-Fr-dKK" firstAttribute="trailing" secondItem="3" secondAttribute="trailing" type="default" id="pfi-CY-9zH"/>
                         </constraints>
@@ -226,7 +223,7 @@
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tc0-Zu-nUW">
                                 <subviews>
                                     <collectionView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="top" indicatorStyle="white" minimumZoomScale="0.0" maximumZoomScale="0.0" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="p6Q-Ks-hgi">
-                                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        <color key="backgroundColor" red="0.9137254901960784" green="0.92156862745098034" blue="0.94117647058823528" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="420" id="Fxh-Am-dvg"/>
                                         </constraints>
@@ -320,7 +317,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="fS0-pY-YIw">
                         <barButtonItem key="rightBarButtonItem" title="Check In" id="j8H-eV-cm2">
-                            <color key="tintColor" red="0.0" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                            <color key="tintColor" red="0.40000000000000002" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                             <connections>
                                 <segue destination="CuC-E9-ArH" kind="push" id="lI3-hS-KdK"/>
                             </connections>

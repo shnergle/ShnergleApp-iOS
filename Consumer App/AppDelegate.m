@@ -66,7 +66,7 @@
       [UIFont fontWithName:@"Roboto-Regular" size:20.0],
       UITextAttributeFont, nil]];
     
-    [[UINavigationBar appearance] setTintColor:[UIColor whiteColor]];
+    [[UINavigationBar appearance] setTintColor:[UIColor colorWithRed:233.0/255 green:235.0/255 blue:240.0/255 alpha:1.0]];
     
     [[UIBarButtonItem appearanceWhenContainedIn:[UINavigationBar class], nil] setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:[UIColor blackColor], UITextAttributeTextColor,nil]forState:UIControlStateNormal];
     

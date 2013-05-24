@@ -121,7 +121,7 @@
         // TODO: SET DEFAULT POSITION FOR overlayView HERE:! Bom.
         overlayView.frame = CGRectMake(overlayView.bounds.origin.x, 450, overlayView.bounds.size.width, overlayView.bounds.size.height);
         overlayView.clipsToBounds = NO;
-        overlayView.backgroundColor = [UIColor whiteColor];
+        overlayView.backgroundColor = [UIColor colorWithRed:233 green:235 blue:240 alpha:1];
         //[overlayView addSubview:label]; // label declared elsewhere
         //[overlayView addSubview:backgroundImage]; // backgroundImage declared elsewhere
         //... Add a bunch of other controls
