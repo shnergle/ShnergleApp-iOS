@@ -888,9 +888,9 @@
                                 </attributedString>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="detailDisclosure" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cBd-5h-rzk">
+                            <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cBd-5h-rzk">
                                 <fontDescription key="fontDescription" type="boldSystem" size="button"/>
-                                <state key="normal">
+                                <state key="normal" image="profileicon.png">
                                     <color key="titleColor" red="0.19607843137254902" green="0.30980392156862746" blue="0.52156862745098043" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -902,8 +902,8 @@
                         <color key="backgroundColor" red="0.34963060461956519" green="0.34963060461956519" blue="0.34963060461956519" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="jdx-Jc-tIj" firstAttribute="top" secondItem="2oN-RZ-QoM" secondAttribute="top" constant="-3" id="Lxt-Mq-DfR"/>
+                            <constraint firstItem="jdx-Jc-tIj" firstAttribute="bottom" secondItem="cBd-5h-rzk" secondAttribute="bottom" type="default" id="QHe-eC-WNp"/>
                             <constraint firstItem="jdx-Jc-tIj" firstAttribute="leading" secondItem="2oN-RZ-QoM" secondAttribute="leading" type="default" id="W4k-NP-JWE"/>
-                            <constraint firstItem="cBd-5h-rzk" firstAttribute="centerY" secondItem="jdx-Jc-tIj" secondAttribute="centerY" type="default" id="jgc-pD-xB6"/>
                             <constraint firstItem="cBd-5h-rzk" firstAttribute="leading" secondItem="jdx-Jc-tIj" secondAttribute="trailing" constant="8" symbolic="YES" type="default" id="wNZ-2I-B2X"/>
                         </constraints>
                     </view>
@@ -981,6 +981,7 @@
         <image name="facebook.png" width="196" height="40"/>
         <image name="mahiki.jpg" width="420" height="308"/>
         <image name="plusone.png" width="26" height="22"/>
+        <image name="profileicon.png" width="54" height="38"/>
         <image name="twitter.jpg" width="945" height="651"/>
     </resources>
     <classes>
