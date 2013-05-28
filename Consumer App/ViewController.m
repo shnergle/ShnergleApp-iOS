@@ -19,7 +19,7 @@
     NSInteger selectedVenue;
     Boolean crowdImagesHidden;
     Boolean dropDownHidden;
-    
+    Boolean hasPositionLocked;
 }
 
 
@@ -330,6 +330,7 @@ didHighlightItemAtIndexPath:(NSIndexPath *)indexPath {
 
 -(void)initMap
 {
+    hasPositionLocked = FALSE;
     self.mapView.myLocationEnabled = YES;
     [self.mapView addObserver:self forKeyPath:@"myLocation" options:NSKeyValueObservingOptionNew context: nil];
 }
@@ -340,22 +341,33 @@ didHighlightItemAtIndexPath:(NSIndexPath *)indexPath {
     // TODO: CHANGE THE ZOOM
     // How it works:
     // Whenever position changes, this method is run. It then changes the camera to point to the current position, minus a small latitude (to make the map position center in the top part of our Around Me view). The zoom level is an average level of detail for a few blocks.
+    
+    //SIDE EFFECT:
+    //-- always bounces back to current position. makes better sense to do this once.
+    
+    //Make sure it is only run once:
+    if(!hasPositionLocked){
     NSLog(@"the location observer is being run");
     if ([keyPath isEqualToString:@"myLocation"] && [object isKindOfClass:[GMSMapView class]])
     {
         [self.mapView animateToCameraPosition:[GMSCameraPosition cameraWithLatitude:self.mapView.myLocation.coordinate.latitude -0.012
                                                                                  longitude:self.mapView.myLocation.coordinate.longitude
                                                                     zoom:13]];
+        hasPositionLocked = TRUE;
     }
+        
+    }
+    
 }
 
-// MAP FUNCTIONS
+// MAP FUNCTIONS -- DOES NOT WORK.
 - (void)mapView:(GMSMapView *)mapView
 didTapAtCoordinate:(CLLocationCoordinate2D)coordinate {
     
+    NSLog(@"tapped at coords %f, %f",coordinate.latitude,coordinate.longitude);
     GMSMarker *marker = [GMSMarker markerWithPosition:coordinate];
     marker.title = @"Hello World";
-    marker.map = mapView;
+    marker.map = self.mapView;
 
 }
 

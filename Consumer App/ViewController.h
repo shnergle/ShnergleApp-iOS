@@ -27,6 +27,8 @@ NSInteger selectedVenueIndex;
 @property (weak, nonatomic) IBOutlet UINavigationBar *navBar;
 @property (weak, nonatomic) IBOutlet UINavigationItem *navBarMenuItem;
 - (IBAction)tapArrow:(id)sender;
+- (void)mapView:(GMSMapView *)mapView
+didTapAtCoordinate:(CLLocationCoordinate2D)coordinate;
 @property (weak, nonatomic) IBOutlet overlayText *overlay;
 //@property(nonatomic, retain) UIView *titleView;
 //@property (weak, nonatomic) IBOutlet UILabel *titleLabel;
