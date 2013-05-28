@@ -81,11 +81,24 @@
 - (void)menuButtonDecorations
 {
     //menuButton
-    UIBarButtonItem *menuButton = [[UIBarButtonItem alloc]
-                                   initWithTitle:@"M"
-                                   style:UIBarButtonItemStyleBordered
+    /*UIBarButtonItem *menuButton = [[UIBarButtonItem alloc]
+                                   initWithImage:[UIImage imageNamed:@"mainmenu_button.png"]
+                                   style:UIBarButtonItemStylePlain
                                    target:self
                                    action:@selector(tapMenu)];
+    
+     */
+    
+    UIImage *menuButtonImg = [UIImage imageNamed:@"mainmenu_button.png"];
+    
+    UIButton *menuButtonTmp = [UIButton buttonWithType:UIButtonTypeCustom];
+    menuButtonTmp.frame = CGRectMake(280.0, 10.0, 29.0, 29.0);
+    [menuButtonTmp setBackgroundImage:menuButtonImg forState:UIControlStateNormal];
+    [menuButtonTmp addTarget:self action:@selector(tapMenu) forControlEvents:UIControlEventTouchUpInside];
+    
+    UIBarButtonItem *menuButton = [[UIBarButtonItem alloc]initWithCustomView:menuButtonTmp];
+    
+    
     self.navBarMenuItem.leftBarButtonItem = menuButton;
 }
 
