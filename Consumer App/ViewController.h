@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "GoogleMaps/GoogleMaps.h"
+#import <GoogleMaps/GoogleMaps.h>
 #import "overlayText.h"
 #import "DropDownMenu.h"
 #import <ECSlidingViewController.h>
@@ -16,10 +16,11 @@
 NSInteger selectedVenueIndex;
 
 
-@interface ViewController : UIViewController<UICollectionViewDataSource, UICollectionViewDelegate> {
+@interface ViewController : UIViewController<UICollectionViewDataSource, UICollectionViewDelegate,GMSMapViewDelegate> {
     
 }
 //@property (weak, nonatomic) IBOutlet UIImageView *dropDownIndicator;
+@property (weak, nonatomic) IBOutlet UIButton *drawerCloseButton;
 @property (weak, nonatomic) IBOutlet overlayText *distanceScrollerView;
 @property (weak, nonatomic) IBOutlet GMSMapView *mapView;
 @property (weak, nonatomic) IBOutlet UICollectionView *crowdCollection;
@@ -34,6 +35,7 @@ NSInteger selectedVenueIndex;
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *checkInButton;
 //-(void)createTitleButton;
 - (IBAction)tapMap:(id)sender;
+-(void)initMap;
 - (void)tapMenu;
 -(void)hideOverlay;
 -(void)showOverlay;

@@ -8,7 +8,7 @@
 
 #import "ViewController.h"
 #import "CrowdItem.h"
-#import "GoogleMaps/GoogleMaps.h"
+#import <GoogleMaps/GoogleMaps.h>
 #import "CoreLocation/CoreLocation.h"
 #import "MenuViewController.h"
 
@@ -35,6 +35,7 @@
 @synthesize navBarMenuItem;
 @synthesize checkInButton;
 @synthesize distanceScrollerView;
+@synthesize drawerCloseButton;
 //@synthesize dropDownMenu;
 //@synthesize titleLabel;
 // Don't need to modify the default initWithNibName:bundle: method.
@@ -80,14 +81,6 @@
 
 - (void)menuButtonDecorations
 {
-    //menuButton
-    /*UIBarButtonItem *menuButton = [[UIBarButtonItem alloc]
-                                   initWithImage:[UIImage imageNamed:@"mainmenu_button.png"]
-                                   style:UIBarButtonItemStylePlain
-                                   target:self
-                                   action:@selector(tapMenu)];
-    
-     */
     
     UIImage *menuButtonImg = [UIImage imageNamed:@"mainmenu_button.png"];
     
@@ -121,6 +114,8 @@
     
     
     [self menuButtonDecorations];
+    
+    [self initMap];
 
     
     
@@ -132,7 +127,7 @@
     
     CALayer *topBorder = [CALayer layer];
     
-    topBorder.frame = CGRectMake(0.0f, self.overlay.bounds.origin.y +20, self.overlay.frame.size.width, 1.0f);
+    topBorder.frame = CGRectMake(0.0f, self.overlay.bounds.origin.y +35, self.overlay.frame.size.width, 1.0f);
     
     topBorder.backgroundColor = [UIColor lightGrayColor].CGColor;
     
@@ -321,10 +316,48 @@ didHighlightItemAtIndexPath:(NSIndexPath *)indexPath {
     if(crowdImagesHidden){
         [self showOverlay];
         [self hideDistanceScroller];
+        [self.drawerCloseButton setImage:[UIImage imageNamed:@"arrowDown.png"] forState:UIControlStateNormal];
     }else{
         [self hideOverlay];
         [self showDistanceScroller];
+        [self.drawerCloseButton
+          setImage:
+          [UIImage imageNamed:@"arrowUp.png"] forState:UIControlStateNormal];
     }
+    
 
 }
+
+-(void)initMap
+{
+    self.mapView.myLocationEnabled = YES;
+    [self.mapView addObserver:self forKeyPath:@"myLocation" options:NSKeyValueObservingOptionNew context: nil];
+}
+
+
+- (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context
+{
+    // TODO: CHANGE THE ZOOM
+    // How it works:
+    // Whenever position changes, this method is run. It then changes the camera to point to the current position, minus a small latitude (to make the map position center in the top part of our Around Me view). The zoom level is an average level of detail for a few blocks.
+    NSLog(@"the location observer is being run");
+    if ([keyPath isEqualToString:@"myLocation"] && [object isKindOfClass:[GMSMapView class]])
+    {
+        [self.mapView animateToCameraPosition:[GMSCameraPosition cameraWithLatitude:self.mapView.myLocation.coordinate.latitude -0.012
+                                                                                 longitude:self.mapView.myLocation.coordinate.longitude
+                                                                    zoom:13]];
+    }
+}
+
+// MAP FUNCTIONS
+- (void)mapView:(GMSMapView *)mapView
+didTapAtCoordinate:(CLLocationCoordinate2D)coordinate {
+    
+    GMSMarker *marker = [GMSMarker markerWithPosition:coordinate];
+    marker.title = @"Hello World";
+    marker.map = mapView;
+
+}
+
+
 @end
