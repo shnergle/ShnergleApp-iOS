@@ -153,10 +153,8 @@
     [parentVC goToPromotionView];
     
     
-    
-    NSLog(@"Promoviewcontroller loaded.");
-    
 }
+
 
 
 
