@@ -65,7 +65,7 @@
     CGRect screenRect = [[UIScreen mainScreen] bounds];
     CGFloat screenHeight = screenRect.size.height;
     
-    [self hideAnimated:self.frame.origin.y animationDuration:0.5 targetSize:screenHeight-90 contentView:self];
+    [self hideAnimated:self.frame.origin.y animationDuration:0.5 targetSize:screenHeight-160 contentView:self];
 
 }
 
