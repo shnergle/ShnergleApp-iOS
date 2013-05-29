@@ -8,6 +8,7 @@
 
 #import "MenuViewController.h"
 #import "AppDelegate.h"
+#import "SearchBarView.h"
 
 @interface MenuViewController ()
 
@@ -16,6 +17,7 @@
 @implementation MenuViewController
 
 @synthesize nameLabel;
+@synthesize searchBar;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -30,18 +32,17 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
-    AppDelegate *appDelegate = [[UIApplication sharedApplication]delegate];
-    if(appDelegate.session.state == FBSessionStateOpen){
-        NSLog(@"open");
-        [[FBRequest requestForMe] startWithCompletionHandler:
-         ^(FBRequestConnection *connection, NSDictionary<FBGraphUser> *user, NSError *error) {
-             if (!error) {
-                 
-                NSLog(@"%@",[user objectForKey:@"id"]);
-                 
-             }
-         }];
+    
+    //load search bar
+    NSArray *bundle = [[NSBundle mainBundle] loadNibNamed:@"SearchBar" owner:self options:nil];
+    SearchBarView *blah;
+    for (id object in bundle) {
+        if ([object isKindOfClass:[SearchBarView class]])
+            blah = (SearchBarView *)object;
     }
+    assert(blah != nil && "searchBarView can't be nil");
+    [self.view addSubview: blah];
+    
 }
 
 - (void)didReceiveMemoryWarning
@@ -50,16 +51,7 @@
     // Dispose of any resources that can be recreated.
 }
 
--(void)loginViewFetchedUserInfo:(FBLoginView *)loginView user:(id<FBGraphUser>)user{
-    NSLog(@"loginViewFetchedUserInfo run");
-    NSLog(@"usr_id::%@",user.id);
-    NSLog(@"usr_first_name::%@",user.first_name);
-    NSLog(@"usr_middle_name::%@",user.middle_name);
-    NSLog(@"usr_last_nmae::%@",user.last_name);
-    NSLog(@"usr_Username::%@",user.username);
-    NSLog(@"usr_b_day::%@",user.birthday);
-    
-}
+
 
 - (IBAction)tapProfile:(id)sender {
     NSLog(@"Profle tapped");

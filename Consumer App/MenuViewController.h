@@ -8,9 +8,11 @@
 
 #import <UIKit/UIKit.h>
 #import<FacebookSDK/FacebookSDK.h>
+#import "SearchBarView.h"
 
 @interface MenuViewController : UIViewController
 @property (weak, nonatomic) IBOutlet UILabel *nameLabel;
+@property (weak,nonatomic) IBOutlet SearchBarView *searchBar;
 - (IBAction)tapProfile:(id)sender;
 
 @end
