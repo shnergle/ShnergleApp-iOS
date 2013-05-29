@@ -9,6 +9,7 @@
 #import "LoginScreenController.h"
 #import "AppDelegate.h"
 #import "ViewController.h"
+//#import "AppDelegate.m"
 
 @interface LoginScreenController ()
 
@@ -61,7 +62,12 @@
                                                              NSError *error) {
                 // we recurse here, in order to update buttons and labels
                 [self updateView];
+                
+                
+                
             }];
+            
+        
         }
     }
     
@@ -95,6 +101,7 @@
         [self.buttonLoginLogout setImage:image forState:UIControlStateNormal];
         //[self.textNoteOrLink setText:@"Login to create a link to fetch account data"];
     }
+    
 }
 
 // FBSample logic
@@ -153,5 +160,7 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+
+
 
 @end

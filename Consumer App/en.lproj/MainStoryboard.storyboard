@@ -65,7 +65,8 @@
                                                                         <constraint firstAttribute="height" constant="34" id="x4h-Qt-e8Q"/>
                                                                     </constraints>
                                                                     <attributedString key="attributedText">
-                                                                        <fragment content="Venue Name   0.2km">
+                                                                        <fragment content="Venue Name
+  0.2km">
                                                                             <attributes>
                                                                                 <color key="NSColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                                                 <font key="NSFont" size="6" name="Roboto-Light"/>
@@ -383,7 +384,9 @@
                                     <constraint firstAttribute="height" constant="63" id="3u1-6v-X4R"/>
                                 </constraints>
                                 <attributedString key="attributedText">
-                                    <fragment content="King Edward, Charles Misterton,  Elise Isatwat ">
+                                    <fragment content="King Edward, Charles Misterton, 
+Elise Isatwat
+">
                                         <attributes>
                                             <color key="NSColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                             <font key="NSFont" size="14" name="Roboto-Regular"/>
@@ -738,16 +741,36 @@
             </objects>
             <point key="canvasLocation" x="-710" y="317"/>
         </scene>
-        <!--View Controller - Profile-->
+        <!--Profile View Controller - Profile Page-->
         <scene sceneID="aFZ-SR-USp">
             <objects>
-                <viewController storyboardIdentifier="Profile" id="qgb-Kw-YNh" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="Profile" title="Profile Page" id="qgb-Kw-YNh" customClass="ProfileViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="T3d-vY-Mf8">
                         <rect key="frame" x="0.0" y="20" width="320" height="548"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="n0U-XD-sPR">
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="120" id="dh8-uo-8ck"/>
+                                    <constraint firstAttribute="height" constant="137" id="jYB-Ke-kqO"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="n0U-XD-sPR" secondAttribute="trailing" constant="8" id="fWt-NY-Hia"/>
+                            <constraint firstItem="n0U-XD-sPR" firstAttribute="top" secondItem="T3d-vY-Mf8" secondAttribute="top" constant="29" id="ghh-GV-gjX"/>
+                        </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Profile" id="BQj-l0-Dcj"/>
+                    <navigationItem key="navigationItem" title="Profile" id="zZz-2u-Qxt">
+                        <barButtonItem key="rightBarButtonItem" title="Settings" id="wa2-7h-tR6"/>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="names" destination="n0U-XD-sPR" id="MNQ-cg-8GO"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="S6M-cZ-UVf" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

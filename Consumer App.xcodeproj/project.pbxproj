@@ -148,6 +148,8 @@
 		80D6FF6D17219E4F008A3AFD /* PromotionDetailView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 80D6FF6C17219E4F008A3AFD /* PromotionDetailView.xib */; };
 		80ED0A13172ADACA00E3C749 /* liverpool2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 80ED0A12172ADACA00E3C749 /* liverpool2.jpg */; };
 		80ED0A15172ADAD600E3C749 /* mahiki.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 80ED0A14172ADAD600E3C749 /* mahiki.jpg */; };
+		EE0A80711733D97300792AE4 /* ProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EE0A806F1733D97300792AE4 /* ProfileViewController.m */; };
+		EE0A80721733D97300792AE4 /* ProfileViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = EE0A80701733D97300792AE4 /* ProfileViewController.xib */; };
 		EE3AFF8D170F11BF009BE96C /* MapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EE3AFF8C170F11BF009BE96C /* MapViewController.m */; };
 		EE7EC3E51704677B00EF152E /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EE7EC3E41704677B00EF152E /* AVFoundation.framework */; };
 		EE7EC3E71704678C00EF152E /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EE7EC3E61704678C00EF152E /* CoreData.framework */; };
@@ -370,6 +372,9 @@
 		80ED0A12172ADACA00E3C749 /* liverpool2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = liverpool2.jpg; sourceTree = "<group>"; };
 		80ED0A14172ADAD600E3C749 /* mahiki.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = mahiki.jpg; sourceTree = "<group>"; };
 		92FD2BD9498A41EEBBD26F82 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		EE0A806E1733D97300792AE4 /* ProfileViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProfileViewController.h; sourceTree = "<group>"; };
+		EE0A806F1733D97300792AE4 /* ProfileViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProfileViewController.m; sourceTree = "<group>"; };
+		EE0A80701733D97300792AE4 /* ProfileViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ProfileViewController.xib; sourceTree = "<group>"; };
 		EE3AFF8B170F11BF009BE96C /* MapViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapViewController.h; sourceTree = "<group>"; };
 		EE3AFF8C170F11BF009BE96C /* MapViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MapViewController.m; sourceTree = "<group>"; };
 		EE7EC3E41704677B00EF152E /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
@@ -594,6 +599,9 @@
 				80B77D22173E8FCB00085A71 /* AroundMeSlidingViewController.m */,
 				808CA3081736856900932A27 /* FavouritesViewController.h */,
 				808CA3091736856900932A27 /* FavouritesViewController.m */,
+				EE0A806E1733D97300792AE4 /* ProfileViewController.h */,
+				EE0A806F1733D97300792AE4 /* ProfileViewController.m */,
+				EE0A80701733D97300792AE4 /* ProfileViewController.xib */,
 				80D6FF58172159D3008A3AFD /* StoryboardLayersNavigation.h */,
 				80D6FF59172159D3008A3AFD /* StoryboardLayersNavigation.m */,
 				EE3AFF8B170F11BF009BE96C /* MapViewController.h */,
@@ -943,6 +951,7 @@
 				80B401151754CA2D00A377D9 /* share.png in Resources */,
 				80B401161754CA2D00A377D9 /* share.psd in Resources */,
 				80B401181754F2D700A377D9 /* comment.png in Resources */,
+				EE0A80721733D97300792AE4 /* ProfileViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1052,6 +1061,7 @@
 				808CA30A1736856900932A27 /* FavouritesViewController.m in Sources */,
 				80B77D23173E8FCB00085A71 /* AroundMeSlidingViewController.m in Sources */,
 				80B77D28173E938E00085A71 /* MenuViewController.m in Sources */,
+				EE0A80711733D97300792AE4 /* ProfileViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
