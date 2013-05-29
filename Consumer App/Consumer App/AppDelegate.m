@@ -56,6 +56,25 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     
+    //self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+    // Override point for customization after application launch.
+    /*if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPhone) {
+     self.viewController = [[LoginScreenController alloc] initWithNibName:@"viewcont" bundle:nil];
+     } else {
+     self.viewController = [[LoginScreenController alloc] initWithNibName:@"viewcont" bundle:nil];
+     }*/
+    //self.window.rootViewController = self.viewController;
+    //[self.window makeKeyAndVisible];
+    
+    // Override point for customization after application launch.
+    /*UIViewController *rootViewController = [[UIViewController alloc] init];
+     self.window.rootViewController = rootViewController;
+     
+     LoginScreenController *loginViewController = [[LoginScreenController alloc] init];
+     [rootViewController presentViewController:loginViewController animated:NO completion:nil];*/
+    //[self.window addSubview: [Controller view]];
+    //[self.window makeKeyAndVisible];
+    
     [GMSServices provideAPIKey:@"AIzaSyBep8BSlPxrxQwXqVUqsSSqpWGewZjOoy0"];
     
     return YES;
@@ -75,7 +94,6 @@
     // FBSample logic
     // We need to properly handle activation of the application with regards to SSO
     //  (e.g., returning from iOS 6.0 authorization dialog or from fast app switching).
-    
     [FBAppCall handleDidBecomeActiveWithSession:self.session];
     
 }

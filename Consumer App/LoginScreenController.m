@@ -9,6 +9,7 @@
 #import "LoginScreenController.h"
 #import "AppDelegate.h"
 #import "ViewController.h"
+//#import "AppDelegate.m"
 
 @interface LoginScreenController ()
 
@@ -35,6 +36,7 @@
     return self;
 }
 
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
@@ -57,7 +59,12 @@
                                                              NSError *error) {
                 // we recurse here, in order to update buttons and labels
                 [self updateView];
+                
+                
+                
             }];
+            
+        
         }
     }
     
@@ -147,7 +154,6 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
-
 
 
 
