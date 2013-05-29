@@ -934,14 +934,15 @@
                         </subviews>
                         <color key="backgroundColor" red="0.34963060461956519" green="0.34963060461956519" blue="0.34963060461956519" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
-                            <constraint firstItem="jdx-Jc-tIj" firstAttribute="top" secondItem="2oN-RZ-QoM" secondAttribute="top" constant="20" symbolic="YES" type="default" id="hzL-vh-bB6"/>
+                            <constraint firstItem="jdx-Jc-tIj" firstAttribute="top" secondItem="2oN-RZ-QoM" secondAttribute="top" constant="45" id="61h-NF-66H"/>
+                            <constraint firstItem="cBd-5h-rzk" firstAttribute="top" secondItem="2oN-RZ-QoM" secondAttribute="top" constant="60" id="SRw-XT-lc7"/>
+                            <constraint firstItem="jdx-Jc-tIj" firstAttribute="leading" secondItem="2oN-RZ-QoM" secondAttribute="leading" constant="11" id="eZa-KY-b0O"/>
                             <constraint firstItem="cBd-5h-rzk" firstAttribute="leading" secondItem="jdx-Jc-tIj" secondAttribute="trailing" constant="8" symbolic="YES" type="default" id="mOG-Bm-lMM"/>
-                            <constraint firstItem="jdx-Jc-tIj" firstAttribute="leading" secondItem="2oN-RZ-QoM" secondAttribute="leading" constant="11" id="rOy-r9-hLh"/>
-                            <constraint firstItem="cBd-5h-rzk" firstAttribute="top" secondItem="2oN-RZ-QoM" secondAttribute="top" constant="35" id="zJf-1C-44x"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="nameLabel" destination="jdx-Jc-tIj" id="QCs-NH-zCM"/>
+                        <outlet property="searchDisplayController" destination="iDj-fI-abU" id="4wQ-lq-1AL"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ap6-cl-UHS" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -950,6 +951,14 @@
                         <segue destination="qgb-Kw-YNh" kind="push" id="YMm-xr-6w3"/>
                     </connections>
                 </tapGestureRecognizer>
+                <searchDisplayController id="iDj-fI-abU">
+                    <connections>
+                        <outlet property="delegate" destination="nGm-Na-jzU" id="Vmw-Gi-DC3"/>
+                        <outlet property="searchContentsController" destination="nGm-Na-jzU" id="Ugb-tb-PhO"/>
+                        <outlet property="searchResultsDataSource" destination="nGm-Na-jzU" id="Q0o-4k-BFQ"/>
+                        <outlet property="searchResultsDelegate" destination="nGm-Na-jzU" id="XXu-ar-LoQ"/>
+                    </connections>
+                </searchDisplayController>
             </objects>
             <point key="canvasLocation" x="-2277" y="-720"/>
         </scene>
@@ -1075,6 +1084,8 @@
             <relationships>
                 <relationship kind="action" name="tapProfile:"/>
                 <relationship kind="outlet" name="nameLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="searchBar" candidateClass="UISearchBar"/>
+                <relationship kind="outlet" name="searchResults" candidateClass="UITableView"/>
             </relationships>
         </class>
         <class className="NSLayoutConstraint" superclassName="NSObject">
