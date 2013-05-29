@@ -11,5 +11,6 @@
 
 @interface MenuViewController : UIViewController
 @property (weak, nonatomic) IBOutlet UILabel *nameLabel;
+- (IBAction)tapProfile:(id)sender;
 
 @end
