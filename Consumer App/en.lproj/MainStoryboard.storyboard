@@ -20,7 +20,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="h9g-Nd-nT0" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-2321" y="-37"/>
+            <point key="canvasLocation" x="-2315" y="85"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="5">
@@ -174,7 +174,7 @@
                                         <barButtonItem key="rightBarButtonItem" title="Check In" style="plain" id="lQP-pY-6Jo">
                                             <color key="tintColor" red="0.40000000000000002" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <connections>
-                                                <segue destination="CuC-E9-ArH" kind="push" id="Mue-vM-7Kn"/>
+                                                <segue destination="qgb-Kw-YNh" kind="push" id="CSo-XF-E6R"/>
                                             </connections>
                                         </barButtonItem>
                                     </navigationItem>
@@ -898,42 +898,72 @@
                         <rect key="frame" x="0.0" y="20" width="320" height="548"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jdx-Jc-tIj">
+                            <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mag-Vw-urX">
+                                <subviews>
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jdx-Jc-tIj">
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="45" id="4C8-t3-VQ6"/>
+                                        </constraints>
+                                        <attributedString key="attributedText">
+                                            <fragment content="Ivan Schneiderhose">
+                                                <attributes>
+                                                    <color key="NSColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <font key="NSFont" size="20" name="Roboto-Light"/>
+                                                    <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
+                                                </attributes>
+                                            </fragment>
+                                        </attributedString>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cBd-5h-rzk">
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="16" id="Me8-ix-kz0"/>
+                                            <constraint firstAttribute="width" constant="22" id="coj-NS-CS6"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="boldSystem" size="button"/>
+                                        <state key="normal" image="profileicon.png">
+                                            <color key="titleColor" red="0.19607843137254902" green="0.30980392156862746" blue="0.52156862745098043" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <state key="highlighted">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZaT-oa-Hde">
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="184" id="WIb-8U-4ev"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                        <state key="normal" title="profile">
+                                            <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <state key="highlighted">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <segue destination="qgb-Kw-YNh" kind="push" id="tqr-a5-URU"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                                <gestureRecognizers/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="45" id="dGa-up-xpj"/>
+                                    <constraint firstItem="ZaT-oa-Hde" firstAttribute="centerY" secondItem="jdx-Jc-tIj" secondAttribute="centerY" type="default" id="1FA-Wp-vHY"/>
+                                    <constraint firstAttribute="trailing" secondItem="cBd-5h-rzk" secondAttribute="trailing" constant="114" id="7kC-9u-9rH"/>
+                                    <constraint firstItem="jdx-Jc-tIj" firstAttribute="leading" secondItem="mag-Vw-urX" secondAttribute="leading" constant="1" id="TVJ-OQ-HlQ"/>
+                                    <constraint firstItem="ZaT-oa-Hde" firstAttribute="bottom" secondItem="mag-Vw-urX" secondAttribute="bottom" type="default" id="dfO-on-nSd"/>
+                                    <constraint firstItem="cBd-5h-rzk" firstAttribute="centerY" secondItem="mag-Vw-urX" secondAttribute="centerY" type="default" id="fxe-ie-k5l"/>
+                                    <constraint firstItem="ZaT-oa-Hde" firstAttribute="leading" secondItem="mag-Vw-urX" secondAttribute="leading" constant="13" id="pPs-DK-Uhv"/>
                                 </constraints>
-                                <attributedString key="attributedText">
-                                    <fragment content="Ivan Schneiderhose">
-                                        <attributes>
-                                            <color key="NSColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                            <font key="NSFont" size="20" name="Roboto-Light"/>
-                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
-                                        </attributes>
-                                    </fragment>
-                                </attributedString>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cBd-5h-rzk">
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="16" id="Me8-ix-kz0"/>
-                                    <constraint firstAttribute="width" constant="22" id="coj-NS-CS6"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="boldSystem" size="button"/>
-                                <state key="normal" image="profileicon.png">
-                                    <color key="titleColor" red="0.19607843137254902" green="0.30980392156862746" blue="0.52156862745098043" alpha="1" colorSpace="calibratedRGB"/>
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <state key="highlighted">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                            </button>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" red="0.34963060461956519" green="0.34963060461956519" blue="0.34963060461956519" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
-                            <constraint firstItem="jdx-Jc-tIj" firstAttribute="top" secondItem="2oN-RZ-QoM" secondAttribute="top" constant="-3" id="Lxt-Mq-DfR"/>
-                            <constraint firstItem="cBd-5h-rzk" firstAttribute="top" secondItem="2oN-RZ-QoM" secondAttribute="top" constant="12" id="Qcq-mJ-fZx"/>
-                            <constraint firstItem="jdx-Jc-tIj" firstAttribute="leading" secondItem="2oN-RZ-QoM" secondAttribute="leading" type="default" id="W4k-NP-JWE"/>
-                            <constraint firstItem="cBd-5h-rzk" firstAttribute="leading" secondItem="jdx-Jc-tIj" secondAttribute="trailing" constant="8" symbolic="YES" type="default" id="wNZ-2I-B2X"/>
+                            <constraint firstItem="mag-Vw-urX" firstAttribute="trailing" secondItem="2oN-RZ-QoM" secondAttribute="trailing" type="default" id="0TR-FS-wUf"/>
+                            <constraint firstItem="mag-Vw-urX" firstAttribute="leading" secondItem="2oN-RZ-QoM" secondAttribute="leading" type="default" id="3dY-BR-3IJ"/>
+                            <constraint firstAttribute="bottom" secondItem="mag-Vw-urX" secondAttribute="bottom" constant="481" id="Bdu-qq-Wm7"/>
+                            <constraint firstItem="mag-Vw-urX" firstAttribute="top" secondItem="2oN-RZ-QoM" secondAttribute="top" constant="25" id="dR6-cB-alf"/>
                         </constraints>
                     </view>
                     <connections>
@@ -1005,13 +1035,13 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="DxJ-Q3-ATN" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1797" y="-31"/>
+            <point key="canvasLocation" x="-1797" y="57"/>
         </scene>
     </scenes>
     <resources>
         <image name="Screen Shot 2013-04-19 at 09.52.50.png" width="196" height="53"/>
         <image name="arrowDown.png" width="42" height="42"/>
-        <image name="facebook.png" width="1250" height="1250"/>
+        <image name="facebook.png" width="196" height="40"/>
         <image name="mahiki.jpg" width="420" height="308"/>
         <image name="plusone.png" width="26" height="22"/>
         <image name="profileicon.png" width="54" height="38"/>
@@ -1143,6 +1173,6 @@
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="lI3-hS-KdK"/>
+        <segue reference="CSo-XF-E6R"/>
     </inferredMetricsTieBreakers>
 </document>

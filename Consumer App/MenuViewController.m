@@ -61,4 +61,7 @@
     
 }
 
+- (IBAction)tapProfile:(id)sender {
+    NSLog(@"Profle tapped");
+}
 @end
