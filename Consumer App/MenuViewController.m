@@ -8,6 +8,7 @@
 
 #import "MenuViewController.h"
 #import "AppDelegate.h"
+#import "SearchBarView.h"
 
 @interface MenuViewController ()
 
@@ -16,6 +17,7 @@
 @implementation MenuViewController
 
 @synthesize nameLabel;
+@synthesize searchBar;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -30,6 +32,17 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
+    
+    //load search bar
+    NSArray *bundle = [[NSBundle mainBundle] loadNibNamed:@"SearchBar" owner:self options:nil];
+    SearchBarView *blah;
+    for (id object in bundle) {
+        if ([object isKindOfClass:[SearchBarView class]])
+            blah = (SearchBarView *)object;
+    }
+    assert(blah != nil && "searchBarView can't be nil");
+    [self.view addSubview: blah];
+    
 }
 
 - (void)didReceiveMemoryWarning

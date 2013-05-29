@@ -931,7 +931,7 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                             </button>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Eyr-d6-rQB">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Eyr-d6-rQB" customClass="SearchBarView">
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                             </view>
                         </subviews>
@@ -940,8 +940,8 @@
                             <constraint firstItem="Eyr-d6-rQB" firstAttribute="top" secondItem="2oN-RZ-QoM" secondAttribute="top" type="default" id="3Eh-s7-Oco"/>
                             <constraint firstItem="jdx-Jc-tIj" firstAttribute="top" secondItem="2oN-RZ-QoM" secondAttribute="top" constant="45" id="61h-NF-66H"/>
                             <constraint firstAttribute="trailing" secondItem="Eyr-d6-rQB" secondAttribute="trailing" constant="80" id="GYX-70-h9H"/>
-                            <constraint firstAttribute="bottom" secondItem="Eyr-d6-rQB" secondAttribute="bottom" constant="508" id="OxJ-7G-iq6"/>
                             <constraint firstItem="cBd-5h-rzk" firstAttribute="top" secondItem="2oN-RZ-QoM" secondAttribute="top" constant="60" id="SRw-XT-lc7"/>
+                            <constraint firstAttribute="bottom" secondItem="Eyr-d6-rQB" secondAttribute="bottom" constant="498" id="al4-6s-esh"/>
                             <constraint firstItem="Eyr-d6-rQB" firstAttribute="leading" secondItem="2oN-RZ-QoM" secondAttribute="leading" type="default" id="ck2-YF-Wmg"/>
                             <constraint firstItem="jdx-Jc-tIj" firstAttribute="leading" secondItem="2oN-RZ-QoM" secondAttribute="leading" constant="11" id="eZa-KY-b0O"/>
                             <constraint firstItem="cBd-5h-rzk" firstAttribute="leading" secondItem="jdx-Jc-tIj" secondAttribute="trailing" constant="8" symbolic="YES" type="default" id="mOG-Bm-lMM"/>
@@ -949,7 +949,7 @@
                     </view>
                     <connections>
                         <outlet property="nameLabel" destination="jdx-Jc-tIj" id="QCs-NH-zCM"/>
-                        <outlet property="searchDisplayController" destination="iDj-fI-abU" id="4wQ-lq-1AL"/>
+                        <outlet property="searchBar" destination="Eyr-d6-rQB" id="JEf-Et-bw2"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ap6-cl-UHS" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -958,14 +958,6 @@
                         <segue destination="qgb-Kw-YNh" kind="push" id="YMm-xr-6w3"/>
                     </connections>
                 </tapGestureRecognizer>
-                <searchDisplayController id="iDj-fI-abU">
-                    <connections>
-                        <outlet property="delegate" destination="nGm-Na-jzU" id="Vmw-Gi-DC3"/>
-                        <outlet property="searchContentsController" destination="nGm-Na-jzU" id="Ugb-tb-PhO"/>
-                        <outlet property="searchResultsDataSource" destination="nGm-Na-jzU" id="Q0o-4k-BFQ"/>
-                        <outlet property="searchResultsDelegate" destination="nGm-Na-jzU" id="XXu-ar-LoQ"/>
-                    </connections>
-                </searchDisplayController>
             </objects>
             <point key="canvasLocation" x="-2277" y="-720"/>
         </scene>
@@ -1091,6 +1083,7 @@
             <relationships>
                 <relationship kind="action" name="tapProfile:"/>
                 <relationship kind="outlet" name="nameLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="searchBar" candidateClass="SearchBarView"/>
             </relationships>
         </class>
         <class className="NSLayoutConstraint" superclassName="NSObject">
@@ -1110,6 +1103,9 @@
                 <relationship kind="outlet" name="names" candidateClass="UILabel"/>
             </relationships>
         </class>
+        <class className="SearchBarView" superclassName="UIView">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/SearchBarView.h"/>
+        </class>
         <class className="UICollectionReusableView" superclassName="UIView">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/UICollectionReusableView.h"/>
         </class>
@@ -1118,9 +1114,6 @@
         </class>
         <class className="UICollectionViewFlowLayout" superclassName="UICollectionViewLayout">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/UICollectionViewFlowLayout.h"/>
-        </class>
-        <class className="UICollectionViewLayout" superclassName="NSObject">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/UICollectionViewLayout.h"/>
         </class>
         <class className="VenueGalleryViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/VenueGalleryViewController.h"/>
