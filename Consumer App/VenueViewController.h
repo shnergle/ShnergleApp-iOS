@@ -22,5 +22,5 @@
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *checkInButton;
 
 @property (weak, nonatomic) IBOutlet overlayText *overlayView;
-
+-(void)configureMapWithLat:(CLLocationDegrees )lat longitude:(CLLocationDegrees )lon;
 @end

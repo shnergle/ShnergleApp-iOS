@@ -43,7 +43,7 @@
 
 - (void)setTitle:(NSString *)title
 {
-    self.navBar.title = title;
+    self.navigationItem.title = title;
 }
 
 - (void)viewDidLoad
@@ -121,19 +121,30 @@
         // TODO: SET DEFAULT POSITION FOR overlayView HERE:! Bom.
         overlayView.frame = CGRectMake(overlayView.bounds.origin.x, 450, overlayView.bounds.size.width, overlayView.bounds.size.height);
         overlayView.clipsToBounds = NO;
-        overlayView.backgroundColor = [UIColor colorWithRed:233 green:235 blue:240 alpha:1];
-        //[overlayView addSubview:label]; // label declared elsewhere
-        //[overlayView addSubview:backgroundImage]; // backgroundImage declared elsewhere
-        //... Add a bunch of other controls
-        
-        //... Release a bunch of other controls
-        
+        [self configureMapWithLat:-33.86 longitude:151.20];
         [self.view addSubview:overlayView];
         textViewOpen = true;
     }
 }
 
+-(void)configureMapWithLat:(CLLocationDegrees )lat longitude:(CLLocationDegrees )lon
+{
+    GMSCameraPosition *camera = [GMSCameraPosition cameraWithLatitude:lat
+                                                            longitude:lon
+                                                                 zoom:13];
+    self.overlayView.venueMap.camera = camera;
+    
+    // Creates a marker in the center of the map.
+    GMSMarker *marker = [[GMSMarker alloc] init];
+    marker.position = CLLocationCoordinate2DMake(lat, lon);
+    marker.title = @"Verb Bar";
+    marker.snippet = @"Old men and alcohol";
+    marker.map = self.overlayView.venueMap;
+    self.overlayView.venueMap.userInteractionEnabled = FALSE;
 
+
+    
+}
 // SCROLLHIDE
 -(void)hideOverlay
 {

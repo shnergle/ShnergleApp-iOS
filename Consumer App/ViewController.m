@@ -99,7 +99,6 @@
 {
     [super viewDidLoad];
     [self decorateCheckInButton];
-    
     [self toolbarDecorations];
      
     //CROWD stuff
@@ -116,6 +115,7 @@
     [self menuButtonDecorations];
     
     [self initMap];
+    
 
     
     
@@ -226,7 +226,7 @@
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
     if ([segue.identifier isEqualToString:@"ToVenueSite"]) {
-        //[segue.destinationViewController setTitle:[venueNames objectAtIndex:selectedVenue]];
+        [segue.destinationViewController setTitle:[venueNames objectAtIndex:selectedVenue]];
     }
 }
 

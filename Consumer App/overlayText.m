@@ -29,6 +29,10 @@
     return self;
 }
 
+@synthesize offerContents;
+@synthesize offerCount;
+@synthesize offerHeadline;
+@synthesize venueMap;
 
 
 
