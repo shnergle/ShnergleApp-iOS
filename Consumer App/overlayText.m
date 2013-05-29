@@ -29,6 +29,10 @@
     return self;
 }
 
+@synthesize offerContents;
+@synthesize offerCount;
+@synthesize offerHeadline;
+@synthesize venueMap;
 
 
 
@@ -153,10 +157,8 @@
     [parentVC goToPromotionView];
     
     
-    
-    NSLog(@"Promoviewcontroller loaded.");
-    
 }
+
 
 
 

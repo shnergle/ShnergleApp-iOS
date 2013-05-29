@@ -30,6 +30,7 @@
 
 @synthesize navBar;
 @synthesize overlayView;
+@synthesize checkInButton;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -42,12 +43,21 @@
 
 - (void)setTitle:(NSString *)title
 {
-    self.navBar.title = title;
+    self.navigationItem.title = title;
 }
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    [[self checkInButton] setTitleTextAttributes:
+     [NSDictionary dictionaryWithObjectsAndKeys:
+      [UIColor whiteColor], UITextAttributeTextColor,
+      [UIColor clearColor], UITextAttributeTextShadowColor,
+      [NSValue valueWithUIOffset:UIOffsetMake(0, 0)], UITextAttributeTextShadowOffset,
+      [UIFont fontWithName:@"Roboto" size:14.0], UITextAttributeFont,
+      nil]
+                                          forState:UIControlStateNormal];
+    
     textViewOpen = false;
     [[self crowdCollectionV]setDataSource:self];
     [[self crowdCollectionV]setDelegate:self];
@@ -56,6 +66,7 @@
     venueNames = [[NSArray alloc] initWithObjects:@"liverpool street station",@"liverpool street station",@"mahiki",@"liverpool street station",@"liverpool street station",@"mahiki",@"liverpool street station",@"liverpool street station",@"mahiki",@"liverpool street station",@"mahiki",@"liverpool street station",@"mahiki",@"liverpool street station",@"mahiki",@"liverpool street station",@"liverpool street station",@"mahiki",@"liverpool street station",@"liverpool street station",@"mahiki",@"liverpool street station",@"liverpool street station",@"mahiki",@"liverpool street station",@"mahiki",@"liverpool street station",@"mahiki",@"liverpool street station",@"mahiki", nil];
 
     [self displayTextView];
+    
 }
 
 -(NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView
@@ -77,6 +88,20 @@
     [[item crowdImage]setImage:[UIImage imageNamed:[images objectAtIndex:indexPath.item]]];
     [[item venueName]setText:[venueNames objectAtIndex:indexPath.item]];
     
+    
+    /*SHADOW AROUND OBJECTS
+    item.layer.masksToBounds = NO;
+    item.layer.borderColor = [UIColor grayColor].CGColor;
+    item.layer.borderWidth = 1.0f;
+    item.layer.contentsScale = [UIScreen mainScreen].scale;
+    item.layer.shadowOpacity = 0.6f;
+    item.layer.shadowRadius = 2.0f;
+    item.layer.shadowOffset = CGSizeZero;
+    item.layer.shadowPath = [UIBezierPath bezierPathWithRect:item.bounds].CGPath;
+    item.layer.shouldRasterize = YES;
+     */
+    
+    
     return item;
     
     
@@ -96,19 +121,30 @@
         // TODO: SET DEFAULT POSITION FOR overlayView HERE:! Bom.
         overlayView.frame = CGRectMake(overlayView.bounds.origin.x, 450, overlayView.bounds.size.width, overlayView.bounds.size.height);
         overlayView.clipsToBounds = NO;
-        overlayView.backgroundColor = [UIColor whiteColor];
-        //[overlayView addSubview:label]; // label declared elsewhere
-        //[overlayView addSubview:backgroundImage]; // backgroundImage declared elsewhere
-        //... Add a bunch of other controls
-        
-        //... Release a bunch of other controls
-        
+        [self configureMapWithLat:-33.86 longitude:151.20];
         [self.view addSubview:overlayView];
         textViewOpen = true;
     }
 }
 
+-(void)configureMapWithLat:(CLLocationDegrees )lat longitude:(CLLocationDegrees )lon
+{
+    GMSCameraPosition *camera = [GMSCameraPosition cameraWithLatitude:lat
+                                                            longitude:lon
+                                                                 zoom:13];
+    self.overlayView.venueMap.camera = camera;
+    
+    // Creates a marker in the center of the map.
+    GMSMarker *marker = [[GMSMarker alloc] init];
+    marker.position = CLLocationCoordinate2DMake(lat, lon);
+    marker.title = @"Verb Bar";
+    marker.snippet = @"Old men and alcohol";
+    marker.map = self.overlayView.venueMap;
+    self.overlayView.venueMap.userInteractionEnabled = FALSE;
 
+
+    
+}
 // SCROLLHIDE
 -(void)hideOverlay
 {
@@ -182,10 +218,13 @@
 
 -(void)viewWillAppear:(BOOL)animated
 {
-    [super viewWillAppear:animated];
+    //[super viewWillAppear:animated];
+    //self.navigationItem.hidesBackButton = NO;
+    /*[self.navigationController setNavigationBarHidden:hidden
+                                             animated:YES];*/
     
-    [self.navigationController setNavigationBarHidden:hidden
-                                             animated:YES];
+    self.navigationItem.hidesBackButton = NO;
+    self.navigationController.navigationBarHidden = NO;
     
 }
 
@@ -194,6 +233,11 @@
     [super viewDidAppear:animated];
     [self.overlayView setTabBarHidden:hidden
                                   animated:NO];
+}
+
+-(void)viewDidDisappear:(BOOL)animated
+{
+    self.navigationController.navigationBarHidden = NO;
 }
 
 -(void)goToPromotionView{

@@ -7,13 +7,19 @@
 //
 
 #import <UIKit/UIKit.h>
-
+#import <GoogleMaps/GoogleMaps.h>
 @interface overlayText : UIView
 
 - (IBAction)swipeDown:(id)sender;
 - (IBAction)swipeUp:(id)sender;
 - (void)setTabBarHidden:(BOOL)hidden animated:(BOOL)animated;
 - (IBAction)tapPromotion:(id)sender;
+
+@property (weak, nonatomic) IBOutlet UILabel *offerHeadline;
+@property (weak, nonatomic) IBOutlet UILabel *offerContents;
+@property (weak, nonatomic) IBOutlet UILabel *offerCount;
+@property (weak, nonatomic) IBOutlet GMSMapView *venueMap;
+
 
 - (void)hideAnimated:(NSInteger)originalSize animationDuration:(double)animationDuration targetSize:(NSInteger)targetSize contentView:(UIView *)contentView;
 - (void)showAnimated:(NSInteger)targetSize animationDelay:(double)animationDelay animationDuration:(double)animationDuration;

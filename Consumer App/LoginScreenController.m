@@ -31,7 +31,9 @@
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
-        // Custom initialization
+        
+        
+        
     }
     return self;
 }
@@ -41,9 +43,10 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
-    
+
     [self updateView];
     
+    //[self colouriseNavBar];
     AppDelegate *appDelegate = [[UIApplication sharedApplication]delegate];
     if (!appDelegate.session.isOpen) {
         // create a fresh session object
@@ -68,6 +71,9 @@
         }
     }
     
+    
+    
+    
 }
 
 // FBSample logic
@@ -83,7 +89,7 @@
        [self.buttonLoginLogout setImage:image2 forState:UIControlStateNormal];
         
         UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"MainStoryboard" bundle:nil];
-        ViewController *vc = [storyboard instantiateViewControllerWithIdentifier:@"AroundMe"];
+        ViewController *vc = [storyboard instantiateViewControllerWithIdentifier:@"AroundMeSlidingViewController"];
         
         [self.navigationController pushViewController:vc animated:YES];
         
