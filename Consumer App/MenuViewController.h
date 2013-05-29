@@ -7,7 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+#import<FacebookSDK/FacebookSDK.h>
 
 @interface MenuViewController : UIViewController
+@property (weak, nonatomic) IBOutlet UILabel *nameLabel;
 
 @end

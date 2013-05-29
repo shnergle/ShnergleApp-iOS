@@ -936,10 +936,13 @@
                             <constraint firstItem="cBd-5h-rzk" firstAttribute="leading" secondItem="jdx-Jc-tIj" secondAttribute="trailing" constant="8" symbolic="YES" type="default" id="wNZ-2I-B2X"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="nameLabel" destination="jdx-Jc-tIj" id="QCs-NH-zCM"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ap6-cl-UHS" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-2276" y="-630"/>
+            <point key="canvasLocation" x="-2277" y="-720"/>
         </scene>
         <!--Around Me Sliding View Controller-->
         <scene sceneID="kOd-FU-g3w">
@@ -953,7 +956,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="X09-Ib-GEu" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1797" y="-586"/>
+            <point key="canvasLocation" x="-1781" y="-740"/>
         </scene>
         <!--Login Screen Controller - Shnergle-->
         <scene sceneID="ddY-3I-oVq">
@@ -1008,7 +1011,7 @@
     <resources>
         <image name="Screen Shot 2013-04-19 at 09.52.50.png" width="196" height="53"/>
         <image name="arrowDown.png" width="42" height="42"/>
-        <image name="facebook.png" width="196" height="40"/>
+        <image name="facebook.png" width="1250" height="1250"/>
         <image name="mahiki.jpg" width="420" height="308"/>
         <image name="plusone.png" width="26" height="22"/>
         <image name="profileicon.png" width="54" height="38"/>
