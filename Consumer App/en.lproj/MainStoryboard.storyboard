@@ -20,7 +20,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="h9g-Nd-nT0" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-2315" y="85"/>
+            <point key="canvasLocation" x="-2319" y="57"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="5">
@@ -374,7 +374,6 @@
                             </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nL3-PY-rIh">
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="29" id="p4G-B3-Jq3"/>
                                     <constraint firstAttribute="height" constant="29" id="vdB-FZ-boy"/>
                                 </constraints>
                             </imageView>
@@ -745,29 +744,11 @@
                     <view key="view" contentMode="scaleToFill" id="T3d-vY-Mf8">
                         <rect key="frame" x="0.0" y="20" width="320" height="548"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        <subviews>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="n0U-XD-sPR">
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="120" id="dh8-uo-8ck"/>
-                                    <constraint firstAttribute="height" constant="137" id="jYB-Ke-kqO"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstAttribute="trailing" secondItem="n0U-XD-sPR" secondAttribute="trailing" constant="8" id="fWt-NY-Hia"/>
-                            <constraint firstItem="n0U-XD-sPR" firstAttribute="top" secondItem="T3d-vY-Mf8" secondAttribute="top" constant="29" id="ghh-GV-gjX"/>
-                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Profile" id="zZz-2u-Qxt">
                         <barButtonItem key="rightBarButtonItem" title="Settings" id="wa2-7h-tR6"/>
                     </navigationItem>
-                    <connections>
-                        <outlet property="names" destination="n0U-XD-sPR" id="MNQ-cg-8GO"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="S6M-cZ-UVf" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -902,6 +883,12 @@
                                 <gestureRecognizers/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="45" id="4C8-t3-VQ6"/>
+                                    <constraint firstItem="ZaT-oa-Hde" firstAttribute="centerY" secondItem="jdx-Jc-tIj" secondAttribute="centerY" type="default" id="1FA-Wp-vHY"/>
+                                    <constraint firstItem="jdx-Jc-tIj" firstAttribute="leading" secondItem="mag-Vw-urX" secondAttribute="leading" constant="1" id="TVJ-OQ-HlQ"/>
+                                    <constraint firstItem="ZaT-oa-Hde" firstAttribute="bottom" secondItem="mag-Vw-urX" secondAttribute="bottom" type="default" id="dfO-on-nSd"/>
+                                    <constraint firstItem="cBd-5h-rzk" firstAttribute="centerY" secondItem="mag-Vw-urX" secondAttribute="centerY" type="default" id="fxe-ie-k5l"/>
+                                    <constraint firstItem="ZaT-oa-Hde" firstAttribute="leading" secondItem="mag-Vw-urX" secondAttribute="leading" constant="13" id="pPs-DK-Uhv"/>
+                                    <constraint firstItem="cBd-5h-rzk" firstAttribute="leading" secondItem="mag-Vw-urX" secondAttribute="leading" constant="184" id="q3X-w0-xsG"/>
                                 </constraints>
                                 <attributedString key="attributedText">
                                     <fragment content="Ivan Schneiderhose">
@@ -945,6 +932,10 @@
                             <constraint firstItem="Eyr-d6-rQB" firstAttribute="leading" secondItem="2oN-RZ-QoM" secondAttribute="leading" type="default" id="ck2-YF-Wmg"/>
                             <constraint firstItem="jdx-Jc-tIj" firstAttribute="leading" secondItem="2oN-RZ-QoM" secondAttribute="leading" constant="11" id="eZa-KY-b0O"/>
                             <constraint firstItem="cBd-5h-rzk" firstAttribute="leading" secondItem="jdx-Jc-tIj" secondAttribute="trailing" constant="8" symbolic="YES" type="default" id="mOG-Bm-lMM"/>
+                            <constraint firstItem="mag-Vw-urX" firstAttribute="trailing" secondItem="2oN-RZ-QoM" secondAttribute="trailing" type="default" id="0TR-FS-wUf"/>
+                            <constraint firstItem="mag-Vw-urX" firstAttribute="leading" secondItem="2oN-RZ-QoM" secondAttribute="leading" type="default" id="3dY-BR-3IJ"/>
+                            <constraint firstItem="mag-Vw-urX" firstAttribute="top" secondItem="2oN-RZ-QoM" secondAttribute="top" constant="25" id="dR6-cB-alf"/>
+                            <constraint firstAttribute="bottom" secondItem="mag-Vw-urX" secondAttribute="bottom" constant="435" id="nLg-vd-ewd"/>
                         </constraints>
                     </view>
                     <connections>
@@ -1166,5 +1157,6 @@
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
         <segue reference="YMm-xr-6w3"/>
+        <segue reference="tqr-a5-URU"/>
     </inferredMetricsTieBreakers>
 </document>
