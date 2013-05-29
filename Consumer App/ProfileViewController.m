@@ -61,10 +61,10 @@
                  self.names.text = userInfo;
              
              // Show the profile picture for a user
-             self.profilePictureView = user.
+             //self.profilePictureView = user.
              //self.name.text = userInfo;
              // Add the profile picture view to the main view
-             [self.view addSubview:self.profilePictureView];
+             //[self.view addSubview:self.profilePictureView];
              //[self.view addSubview:self.names];
              
          }
