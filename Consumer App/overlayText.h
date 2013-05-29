@@ -12,7 +12,7 @@
 
 - (IBAction)swipeDown:(id)sender;
 - (IBAction)swipeUp:(id)sender;
-- (void)setTabBarHidden:(BOOL)hidden animated:(BOOL)animated;
+- (void)setTabBarHidden:(BOOL)hide animated:(BOOL)animated;
 - (IBAction)tapPromotion:(id)sender;
 
 @property (weak, nonatomic) IBOutlet UILabel *offerHeadline;

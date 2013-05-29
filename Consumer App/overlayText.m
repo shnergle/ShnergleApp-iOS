@@ -20,7 +20,11 @@
 
 - (id)initWithFrame:(CGRect)frame
 {
-    frame = CGRectMake(0,350, self.frame.size.width,self.frame.size.height);
+    CGRect screenRect = [[UIScreen mainScreen] bounds];
+    CGFloat screenHeight = screenRect.size.height;
+
+    
+    frame = CGRectMake(0,screenHeight-70, self.frame.size.width,self.frame.size.height);
     self = [super initWithFrame:frame];
     
     if (self) {
@@ -58,8 +62,10 @@
         self.frame = CGRectMake(self.frame.origin.x, 390, self.frame.size.width, self.frame.size.height);
     }
      */
+    CGRect screenRect = [[UIScreen mainScreen] bounds];
+    CGFloat screenHeight = screenRect.size.height;
     
-    [self hideAnimated:self.frame.origin.y animationDuration:0.5 targetSize:450 contentView:self];
+    [self hideAnimated:self.frame.origin.y animationDuration:0.5 targetSize:screenHeight-90 contentView:self];
 
 }
 
@@ -115,9 +121,8 @@
                      }];
 }
 
-- (void)setTabBarHidden:(BOOL)hidden animated:(BOOL)animated
+- (void)setTabBarHidden:(BOOL)hide animated:(BOOL)animated
 {
-    NSLog(@"setTabBarHidden:%d animated:%d", hidden, animated);
     
 	if ( [self.subviews count] < 2 )
 		return;
@@ -126,21 +131,24 @@
     
 	
 		contentView = self;
+    
+    CGRect screenRect = [[UIScreen mainScreen] bounds];
+    CGFloat screenHeight = screenRect.size.height;
 	
     
-    if(hidden) //IF hidden, then show:
+    if(hide) 
     {
-        NSInteger targetSize = 450;
+        NSInteger targetSize = screenHeight-160;
         double animationDuration = 0.5;
         double animationDelay = 0.2;
             
         [self showAnimated:targetSize animationDelay:animationDelay animationDuration:animationDuration];
         
     }
-    else //else hide:
+    else 
     {
-        NSInteger targetSize = 340;
-        NSInteger originalSize = 450;
+        NSInteger targetSize = screenHeight-160;
+        NSInteger originalSize = screenHeight-70;
                 
         [self hideAnimated:originalSize animationDuration:0.5 targetSize:targetSize contentView:contentView];
         

@@ -118,8 +118,12 @@
 - (void)displayTextView {
     if(!textViewOpen){
         overlayView = [[[NSBundle mainBundle] loadNibNamed:@"overlayText" owner:self options:nil] objectAtIndex:0];
-        // TODO: SET DEFAULT POSITION FOR overlayView HERE:! Bom.
-        overlayView.frame = CGRectMake(overlayView.bounds.origin.x, 450, overlayView.bounds.size.width, overlayView.bounds.size.height);
+        //Get screen height:
+        CGRect screenRect = [[UIScreen mainScreen] bounds];
+        CGFloat screenHeight = screenRect.size.height;
+        
+        
+        overlayView.frame = CGRectMake(overlayView.bounds.origin.x, screenHeight-70, overlayView.bounds.size.width, overlayView.bounds.size.height);
         overlayView.clipsToBounds = NO;
         [self configureMapWithLat:-33.86 longitude:151.20];
         [self.view addSubview:overlayView];
@@ -179,7 +183,7 @@
     startContentOffset = lastContentOffset = scrollView.contentOffset.y;
     //NSLog(@"scrollViewWillBeginDragging: %f", scrollView.contentOffset.y);
 }
-
+/*
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView
 {
     CGFloat currentOffset = scrollView.contentOffset.y;
@@ -199,8 +203,9 @@
         if(scrollView.isTracking && (abs(differenceFromLast)>1))
             [self showOverlay];
     }
-    
+ 
 }
+ */
 
 - (void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate
 {
