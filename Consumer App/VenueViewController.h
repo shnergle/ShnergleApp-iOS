@@ -18,6 +18,8 @@
 -(void)viewWillAppear:(BOOL)animated;
 -(void)goToPromotionView;
 -(void)goToPromotionDetailView;
+-(void)goBack;
+- (UIBarButtonItem *)createLeftBarButton:(NSString *)imageName actionSelector:(SEL)actionSelector;
 @property (weak, nonatomic) IBOutlet UICollectionView *crowdCollectionV;
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *checkInButton;
 

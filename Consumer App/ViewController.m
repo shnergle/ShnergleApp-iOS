@@ -65,31 +65,40 @@
 - (void)toolbarDecorations
 {
     //TOOLBAR Additions
-    UIBarButtonItem *backButton = [UIBarButtonItem new];
-    [backButton setTitle:@"Back-"];
-    [backButton setTintColor:[UIColor whiteColor]];
-    [backButton setTitleTextAttributes:
-     [NSDictionary dictionaryWithObjectsAndKeys:
-      [UIColor blackColor],
-      UITextAttributeTextColor,
-      [NSValue valueWithUIOffset:UIOffsetMake(0, 0)],
-      UITextAttributeTextShadowOffset,
-      nil] forState:UIControlStateNormal];
+    UIBarButtonItem *menuButton;
+    menuButton = [self createLeftBarButton:@"arrow_west.png" actionSelector:@selector(goBack)];
+    self.navigationItem.leftBarButtonItem = menuButton;
     
-    [[self navigationItem] setBackBarButtonItem:backButton];
+    //[[self navigationItem] setBackBarButtonItem:menuButton];
 }
 
-- (void)menuButtonDecorations
+//workaround to get the custom back button to work
+- (void)goBack
 {
-    
-    UIImage *menuButtonImg = [UIImage imageNamed:@"mainmenu_button.png"];
+    [self.navigationController popViewControllerAnimated:YES];
+}
+
+- (UIBarButtonItem *)createLeftBarButton:(NSString *)imageName actionSelector:(SEL)actionSelector
+{
+    UIImage *menuButtonImg = [UIImage imageNamed:imageName];
     
     UIButton *menuButtonTmp = [UIButton buttonWithType:UIButtonTypeCustom];
     menuButtonTmp.frame = CGRectMake(280.0, 10.0, 22.0, 22.0);
     [menuButtonTmp setBackgroundImage:menuButtonImg forState:UIControlStateNormal];
-    [menuButtonTmp addTarget:self action:@selector(tapMenu) forControlEvents:UIControlEventTouchUpInside];
+    [menuButtonTmp addTarget:self action:actionSelector forControlEvents:UIControlEventTouchUpInside];
     
     UIBarButtonItem *menuButton = [[UIBarButtonItem alloc]initWithCustomView:menuButtonTmp];
+    return menuButton;
+}
+
+- (void)menuButtonDecorations
+{
+    SEL actionSelector = @selector(tapMenu);
+    NSString *imageName = @"mainmenu_button.png";
+    
+    
+    UIBarButtonItem *menuButton;
+    menuButton = [self createLeftBarButton:imageName actionSelector:actionSelector];
     
     
     self.navBarMenuItem.leftBarButtonItem = menuButton;

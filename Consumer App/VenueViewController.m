@@ -228,7 +228,7 @@
     /*[self.navigationController setNavigationBarHidden:hidden
                                              animated:YES];*/
     
-    self.navigationItem.hidesBackButton = NO;
+    //self.navigationItem.hidesBackButton = NO;
     self.navigationController.navigationBarHidden = NO;
     
 }
@@ -238,6 +238,9 @@
     [super viewDidAppear:animated];
     [self.overlayView setTabBarHidden:hidden
                                   animated:NO];
+    UIBarButtonItem *menuButton;
+    menuButton = [self createLeftBarButton:@"arrow_west" actionSelector:@selector(goBack)];
+    self.navigationItem.leftBarButtonItem = menuButton;
 }
 
 -(void)viewDidDisappear:(BOOL)animated
@@ -256,6 +259,25 @@
     PromotionDetailView *promotionDetailView = [[[NSBundle mainBundle] loadNibNamed:@"PromotionDetailView" owner:self options:nil] objectAtIndex:0];
     
     [self.view addSubview:promotionDetailView];
+}
+
+- (UIBarButtonItem *)createLeftBarButton:(NSString *)imageName actionSelector:(SEL)actionSelector
+{
+    UIImage *menuButtonImg = [UIImage imageNamed:imageName];
+    
+    UIButton *menuButtonTmp = [UIButton buttonWithType:UIButtonTypeCustom];
+    menuButtonTmp.frame = CGRectMake(280.0, 10.0, 22.0, 22.0);
+    [menuButtonTmp setBackgroundImage:menuButtonImg forState:UIControlStateNormal];
+    [menuButtonTmp addTarget:self action:actionSelector forControlEvents:UIControlEventTouchUpInside];
+    
+    UIBarButtonItem *menuButton = [[UIBarButtonItem alloc]initWithCustomView:menuButtonTmp];
+    return menuButton;
+}
+
+//workaround to get the custom back button to work
+- (void)goBack
+{
+    [self.navigationController popViewControllerAnimated:YES];
 }
 
 

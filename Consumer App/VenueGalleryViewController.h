@@ -12,5 +12,8 @@
 @property (weak, nonatomic) IBOutlet UIScrollView *imageScrollView;
 @property (weak, nonatomic) IBOutlet UIPageControl *imagePageControl;
 
+
+- (UIBarButtonItem *)createLeftBarButton:(NSString *)imageName actionSelector:(SEL)actionSelector;
+-(void)goBack;
 -(void)imageScrollerSetup;
 @end

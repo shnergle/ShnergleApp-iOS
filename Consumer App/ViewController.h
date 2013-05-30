@@ -43,4 +43,5 @@ didTapAtCoordinate:(CLLocationCoordinate2D)coordinate;
 -(void)showOverlay;
 -(void)showDistanceScroller;
 -(void)hideDistanceScroller;
+-(void)goback;
 @end

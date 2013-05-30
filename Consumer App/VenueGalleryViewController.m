@@ -32,6 +32,9 @@
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
     [self imageScrollerSetup];
+    UIBarButtonItem *menuButton;
+    menuButton = [self createLeftBarButton:@"arrow_west" actionSelector:@selector(goBack)];
+    self.navigationItem.leftBarButtonItem = menuButton;
 
 }
 
@@ -69,5 +72,25 @@
     [self.imageScrollView updateConstraints];
     imageScrollView.pagingEnabled = YES;
 }
+
+- (UIBarButtonItem *)createLeftBarButton:(NSString *)imageName actionSelector:(SEL)actionSelector
+{
+    UIImage *menuButtonImg = [UIImage imageNamed:imageName];
+    
+    UIButton *menuButtonTmp = [UIButton buttonWithType:UIButtonTypeCustom];
+    menuButtonTmp.frame = CGRectMake(280.0, 10.0, 22.0, 22.0);
+    [menuButtonTmp setBackgroundImage:menuButtonImg forState:UIControlStateNormal];
+    [menuButtonTmp addTarget:self action:actionSelector forControlEvents:UIControlEventTouchUpInside];
+    
+    UIBarButtonItem *menuButton = [[UIBarButtonItem alloc]initWithCustomView:menuButtonTmp];
+    return menuButton;
+}
+
+//workaround to get the custom back button to work
+- (void)goBack
+{
+    [self.navigationController popViewControllerAnimated:YES];
+}
+
 
 @end
