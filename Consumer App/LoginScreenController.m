@@ -16,6 +16,8 @@
 @property (strong, nonatomic) IBOutlet UIButton *buttonLoginLogout;
 //@property (strong, nonatomic) IBOutlet UITextView *textNoteOrLink;
 
+@property (strong, nonatomic) NSMutableData *response;
+
 - (IBAction)buttonClickHandler:(id)sender;
 - (void)updateView;
 
@@ -26,6 +28,8 @@
 @implementation LoginScreenController
 
 @synthesize buttonLoginLogout = _buttonLoginLogout;
+
+@synthesize response = _response;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -88,6 +92,52 @@
         
        [self.buttonLoginLogout setImage:image2 forState:UIControlStateNormal];
         
+        
+        //login on server
+        NSMutableString *params = [[NSMutableString alloc] initWithString:@"app_secret=FCuf65iuOUDCjlbiyyer678Coutyc64v655478VGvgh76&"];
+        
+
+            [[[FBRequest alloc] initWithSession:appDelegate.session graphPath:@"me"] startWithCompletionHandler:
+             ^(FBRequestConnection *connection,
+               NSDictionary<FBGraphUser> *user,
+               NSError *error) {
+                 if (!error) {
+                     [params appendString:@"facebook_id="];
+                     [params appendString:user.id];
+                     [params appendString:@"&facebook="];
+                     [params appendString:user.username];
+                     NSMutableString *urlString;
+                     urlString=[[NSMutableString alloc] initWithString:@"http://shnergle-api.azurewebsites.net/users/set"];
+                     NSURL *url;
+                     url=[[NSURL alloc] initWithString:urlString];
+                     
+                     NSMutableURLRequest *urlRequest=[NSMutableURLRequest requestWithURL:url];
+                     
+                     [urlRequest setHTTPMethod:@"POST"];
+                     [urlRequest setHTTPBody:[params dataUsingEncoding:NSISOLatin1StringEncoding]];
+                     
+                     _response = [[NSMutableData alloc] init];
+                     
+                     NSURLConnection *connection = [[NSURLConnection alloc] initWithRequest:urlRequest delegate:self];
+                     
+                     if (!connection)
+                     {
+                         NSLog(@"Failed to submit request");
+                     }
+                     else
+                     {
+                         NSLog(@"--------- Request submitted ---------");
+                         NSLog(@"connection: %@ method: %@, encoded body: %@, body: %@", connection, [urlRequest HTTPMethod], [urlRequest HTTPBody], params);
+                     }
+                 } else {
+                     NSLog(@"FUCKING FACEBOOK");
+                 }
+             }];      
+        
+                
+
+        
+        
         UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"MainStoryboard" bundle:nil];
         ViewController *vc = [storyboard instantiateViewControllerWithIdentifier:@"AroundMeSlidingViewController"];
         
@@ -102,6 +152,15 @@
         //[self.textNoteOrLink setText:@"Login to create a link to fetch account data"];
     }
     
+}
+
+- (void)connection:(NSURLConnection *) connection didReceiveData:(NSData *)data {
+    [_response appendData:data];
+}
+
+-(void)connectionDidFinishLoading: (NSURLConnection *)connection {
+    NSString *responseString = [[NSString alloc] initWithData:_response encoding:NSUTF8StringEncoding];
+    NSLog(@"actual response: %@", responseString);
 }
 
 // FBSample logic
