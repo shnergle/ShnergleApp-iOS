@@ -78,7 +78,7 @@
     UIImage *menuButtonImg = [UIImage imageNamed:imageName];
     
     UIButton *menuButtonTmp = [UIButton buttonWithType:UIButtonTypeCustom];
-    menuButtonTmp.frame = CGRectMake(280.0, 10.0, 22.0, 22.0);
+    menuButtonTmp.frame = CGRectMake(280.0, 10.0, 19.0, 16.0);
     [menuButtonTmp setBackgroundImage:menuButtonImg forState:UIControlStateNormal];
     [menuButtonTmp addTarget:self action:actionSelector forControlEvents:UIControlEventTouchUpInside];
     
