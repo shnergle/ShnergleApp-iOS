@@ -13,5 +13,9 @@
 @property (weak, nonatomic) IBOutlet UILabel *promotionTitle;
 @property (weak, nonatomic) IBOutlet UILabel *promotionExpiry;
 
+-(void)setpromotionTitle:(NSString *) contents;
+-(void)setpromotionBody:(NSString *) contents;
+-(void)setpromotionExpiry:(NSString *) contents;
+
 - (IBAction)tapUseDeal:(id)sender;
 @end

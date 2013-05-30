@@ -261,22 +261,13 @@
 -(void)goToPromotionView{
     
     PromotionView *promotionView = [[[NSBundle mainBundle] loadNibNamed:@"PromotionView" owner:self options:nil] objectAtIndex:0];
-    
-    promotionView.promotionTitle.attributedText = [self myLabelAttributes:promotionTitle];
-    promotionView.promotionBody.attributedText = [self myLabelAttributes:promotionBody];
-    promotionView.promotionExpiry.attributedText = [self myLabelAttributes:promotionExpiry];
+    [promotionView setpromotionTitle:promotionTitle];
+    [promotionView setpromotionBody:promotionBody];
+    [promotionView setpromotionExpiry:promotionExpiry];
+
     
     
     [self.view addSubview:promotionView];
-}
-
-- (NSMutableAttributedString *)myLabelAttributes:(NSString *)input
-{
-    NSMutableAttributedString *labelAttributes = [[NSMutableAttributedString alloc] initWithString:input];
-    
-    [labelAttributes addAttribute:NSForegroundColorAttributeName value:[UIColor whiteColor] range:NSMakeRange(0, labelAttributes.length)];
-    
-    return labelAttributes;
 }
 
 -(void)goToPromotionDetailView{
