@@ -20,6 +20,7 @@
 -(void)goToPromotionDetailView;
 -(void)goBack;
 - (UIBarButtonItem *)createLeftBarButton:(NSString *)imageName actionSelector:(SEL)actionSelector;
+- (NSMutableAttributedString *)myLabelAttributes:(NSString *)input;
 @property (weak, nonatomic) IBOutlet UICollectionView *crowdCollectionV;
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *checkInButton;
 

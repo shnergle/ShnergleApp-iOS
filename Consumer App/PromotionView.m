@@ -22,6 +22,10 @@
     return self;
 }
 
+@synthesize promotionBody;
+@synthesize promotionExpiry;
+@synthesize promotionTitle;
+
 /*
 // Only override drawRect: if you perform custom drawing.
 // An empty implementation adversely affects performance during animation.
@@ -38,4 +42,28 @@
     [parentVC goToPromotionDetailView];
     
 }
+
+-(void)setpromotionTitle:(NSString *) contents
+{
+    NSMutableAttributedString *labelAttributes = [[NSMutableAttributedString alloc] initWithString:contents];
+    
+    [labelAttributes addAttribute:NSForegroundColorAttributeName value:[UIColor whiteColor] range:NSMakeRange(0, labelAttributes.length)];
+    
+    self.promotionTitle.attributedText = labelAttributes;
+}
+-(void)setpromotionBody:(NSString *) contents
+{
+    
+    self.promotionTitle.attributedText = contents;
+
+}
+-(void)setpromotionExpiry:(NSString *) contents
+{
+    NSMutableAttributedString *labelAttributes = [[NSMutableAttributedString alloc] initWithString:contents];
+    
+    [labelAttributes addAttribute:NSForegroundColorAttributeName value:[UIColor whiteColor] range:NSMakeRange(0, labelAttributes.length)];
+    self.promotionTitle.attributedText = labelAttributes;
+
+}
+
 @end

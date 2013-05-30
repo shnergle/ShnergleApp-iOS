@@ -16,6 +16,10 @@
     NSArray *venueNames;
     NSArray *images;
     NSInteger selectedVenue;
+    NSString *promotionTitle;
+    NSString *promotionBody;
+    NSString *promotionExpiry;
+    
     BOOL textViewOpen;
     
     //Scrollhide
@@ -38,6 +42,8 @@
     if (self) {
         // Custom initialization
     }
+    
+    
     return self;
 }
 
@@ -64,6 +70,10 @@
     
     images = [[NSArray alloc] initWithObjects:@"liverpool.JPG", @"liverpool2.jpg", @"mahiki.jpg",@"liverpool.JPG", @"liverpool2.jpg", @"mahiki.jpg",@"liverpool.JPG", @"liverpool2.jpg", @"mahiki.jpg",@"liverpool2.jpg", @"mahiki.jpg",@"liverpool2.jpg", @"mahiki.jpg",@"liverpool2.jpg", @"mahiki.jpg",@"liverpool.JPG", @"liverpool2.jpg", @"mahiki.jpg",@"liverpool.JPG", @"liverpool2.jpg", @"mahiki.jpg",@"liverpool.JPG", @"liverpool2.jpg", @"mahiki.jpg",@"liverpool2.jpg", @"mahiki.jpg",@"liverpool2.jpg", @"mahiki.jpg",@"liverpool2.jpg", @"mahiki.jpg",nil];
     venueNames = [[NSArray alloc] initWithObjects:@"liverpool street station",@"liverpool street station",@"mahiki",@"liverpool street station",@"liverpool street station",@"mahiki",@"liverpool street station",@"liverpool street station",@"mahiki",@"liverpool street station",@"mahiki",@"liverpool street station",@"mahiki",@"liverpool street station",@"mahiki",@"liverpool street station",@"liverpool street station",@"mahiki",@"liverpool street station",@"liverpool street station",@"mahiki",@"liverpool street station",@"liverpool street station",@"mahiki",@"liverpool street station",@"mahiki",@"liverpool street station",@"mahiki",@"liverpool street station",@"mahiki", nil];
+    
+    promotionTitle = @"Tonights special offer";
+    promotionExpiry = @"Expires at 11 pm";
+    promotionBody = @"50% OFF real ale";
 
     [self displayTextView];
     
@@ -252,7 +262,21 @@
     
     PromotionView *promotionView = [[[NSBundle mainBundle] loadNibNamed:@"PromotionView" owner:self options:nil] objectAtIndex:0];
     
+    promotionView.promotionTitle.attributedText = [self myLabelAttributes:promotionTitle];
+    promotionView.promotionBody.attributedText = [self myLabelAttributes:promotionBody];
+    promotionView.promotionExpiry.attributedText = [self myLabelAttributes:promotionExpiry];
+    
+    
     [self.view addSubview:promotionView];
+}
+
+- (NSMutableAttributedString *)myLabelAttributes:(NSString *)input
+{
+    NSMutableAttributedString *labelAttributes = [[NSMutableAttributedString alloc] initWithString:input];
+    
+    [labelAttributes addAttribute:NSForegroundColorAttributeName value:[UIColor whiteColor] range:NSMakeRange(0, labelAttributes.length)];
+    
+    return labelAttributes;
 }
 
 -(void)goToPromotionDetailView{
