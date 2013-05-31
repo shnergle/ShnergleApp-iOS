@@ -34,9 +34,6 @@
     return self;
 }
 
--(void)loginViewFetchedUserInfo:(FBLoginView *)loginView user:(id<FBGraphUser>)user {
-    self.lab.text = [NSString stringWithFormat:@"%@", [user name]];
-}
 
 
 - (void)viewDidLoad
@@ -46,10 +43,11 @@
     // Do any additional setup after loading the view from its nib.
     
     
-    FBLoginView* loginview = [[FBLoginView alloc ]init];
-    loginview.delegate = self;
-    //loginview.frame = CGRectOffset(loginview.frame, 20, 50);
-    //[self.view addSubview:loginview];
+    //FBLoginView* loginview = [[FBLoginView alloc ]init];
+    //loginview.delegate = self;
+    
+    AppDelegate *appdelegate = [[UIApplication sharedApplication]delegate];
+    self.lab.text = appdelegate.fullName;
     
 
 }
