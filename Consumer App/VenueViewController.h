@@ -12,7 +12,6 @@
 #import "TransitionViewController.h"
 
 @interface VenueViewController : ViewController
-@property (weak, nonatomic) IBOutlet UINavigationItem *navBar;
 -(void)setTitle:(NSString *)title;
 -(void)viewDidAppear:(BOOL)animated;
 -(void)viewWillAppear:(BOOL)animated;
@@ -20,7 +19,7 @@
 -(void)goToPromotionDetailView;
 -(void)goBack;
 - (UIBarButtonItem *)createLeftBarButton:(NSString *)imageName actionSelector:(SEL)actionSelector;
-- (NSMutableAttributedString *)myLabelAttributes:(NSString *)input;
+
 @property (weak, nonatomic) IBOutlet UICollectionView *crowdCollectionV;
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *checkInButton;
 
