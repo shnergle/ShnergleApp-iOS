@@ -16,12 +16,6 @@
 
 @implementation MenuViewController
 
-@synthesize nameLabel;
-@synthesize searchBar;
-@synthesize tableData;
-@synthesize bar = _bar;
-@synthesize response = _response;
-
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
@@ -47,11 +41,11 @@
     [self.view addSubview: blah];
     AppDelegate *appDelegate = [[UIApplication sharedApplication]delegate];
 
-    nameLabel.font = [UIFont fontWithName:@"Roboto" size:nameLabel.font.pointSize];
-    nameLabel.textColor = [UIColor whiteColor];
-    nameLabel.text = appDelegate.fullName;
+    _nameLabel.font = [UIFont fontWithName:@"Roboto" size:_nameLabel.font.pointSize];
+    _nameLabel.textColor = [UIColor whiteColor];
+    _nameLabel.text = appDelegate.fullName;
 
-    tableData = [[NSArray alloc] initWithObjects:@"Around me", @"Favourites", @"Promotions", @"Quiet", @"Trending", nil];
+    _tableData = [[NSArray alloc] initWithObjects:@"Around me", @"Favourites", @"Promotions", @"Quiet", @"Trending", nil];
 
 #pragma mark - Tableview Data Source Methods
 
@@ -74,7 +68,7 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return [tableData count];
+    return [_tableData count];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -86,7 +80,7 @@
         cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"MyCell"];
     }
 
-    cell.textLabel.text = [tableData objectAtIndex:indexPath.row];
+    cell.textLabel.text = [_tableData objectAtIndex:indexPath.row];
 
     return cell;
 }

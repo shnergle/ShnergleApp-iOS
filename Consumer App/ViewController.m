@@ -27,17 +27,7 @@
 
 @implementation ViewController
 
-//@synthesize titleView;
-//@synthesize dropDownIndicator;
-@synthesize mapView;
-@synthesize overlay;
-@synthesize navBar;
-@synthesize navBarMenuItem;
-@synthesize checkInButton;
-@synthesize distanceScrollerView;
-@synthesize drawerCloseButton;
-//@synthesize dropDownMenu;
-//@synthesize titleLabel;
+
 // Don't need to modify the default initWithNibName:bundle: method.
 
 

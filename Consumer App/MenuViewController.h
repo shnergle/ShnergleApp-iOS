@@ -11,9 +11,6 @@
 #import "SearchBarView.h"
 
 @interface MenuViewController : UIViewController <UITableViewDataSource>
-{
-    NSArray *tableData;
-}
 
 @property (weak, nonatomic) IBOutlet UILabel *nameLabel;
 @property (weak,nonatomic) IBOutlet SearchBarView *searchBar;

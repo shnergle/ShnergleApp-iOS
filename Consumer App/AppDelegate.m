@@ -11,10 +11,6 @@
 
 @implementation AppDelegate
 
-@synthesize window = _window;
-@synthesize viewController = _viewController;
-@synthesize session = _session;
-@synthesize viewcont = _viewcont;
 
 // FBSample logic
 // The native facebook application transitions back to an authenticating application when the user

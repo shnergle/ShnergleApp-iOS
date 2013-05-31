@@ -9,8 +9,6 @@
 
 @implementation TransitionViewController
 
-@synthesize containerView = _containerView,
-viewController = _viewController;
 
 - (id)initWithViewController:(UIViewController *)viewController
 {

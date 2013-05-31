@@ -14,8 +14,6 @@
 
 
 @implementation VenueGalleryViewController
-@synthesize imageScrollView;
-@synthesize imagePageControl;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -46,7 +44,7 @@
 
 -(void)imageScrollerSetup {
     CGRect windowBounds = [[UIScreen mainScreen]bounds];
-    imageScrollView.bounds = CGRectMake(0, 0, windowBounds.size.width, windowBounds.size.height / 2);
+    _imageScrollView.bounds = CGRectMake(0, 0, windowBounds.size.width, windowBounds.size.height / 2);
     UIImage *image = [UIImage imageNamed:@"mahiki.jpg"];
     UIImage *image2 = [UIImage imageNamed:@"liverpool.JPG"];
     UIImageView *imageView1 = [[UIImageView alloc] initWithImage:image];
@@ -56,22 +54,22 @@
     //UIScrollView *imageScrollView = [[UIScrollView alloc] initWithFrame:self.view.bounds];
 
 
-    [self.view addSubview: imageScrollView]; //This code assumes it's in a UIViewController
-    CGRect cRect = imageScrollView.bounds;
+    [self.view addSubview: _imageScrollView]; //This code assumes it's in a UIViewController
+    CGRect cRect = _imageScrollView.bounds;
     UIImageView *cView;
     for (int i = 0; i < imageViews.count; i++) {
         cView = [imageViews objectAtIndex:i];
         cView.frame = cRect;
         cView.backgroundColor = [UIColor blueColor];
-        [imageScrollView addSubview:cView];
+        [_imageScrollView addSubview:cView];
         cRect.origin.x += cRect.size.width;
         NSLog(@"image added at %f,%f",cRect.origin.x,cRect.origin.y);
     }
-    NSLog(@"subviews of scrollview:%d",imageScrollView.subviews.count);
-    imageScrollView.contentSize = CGSizeMake(cRect.origin.x, imageScrollView.bounds.size.height);
-    imageScrollView.contentOffset = CGPointMake(imageScrollView.bounds.size.width, 1.0); //should be the center page in a 3 page setup
+    NSLog(@"subviews of scrollview:%d",_imageScrollView.subviews.count);
+    _imageScrollView.contentSize = CGSizeMake(cRect.origin.x, _imageScrollView.bounds.size.height);
+    _imageScrollView.contentOffset = CGPointMake(_imageScrollView.bounds.size.width, 1.0); //should be the center page in a 3 page setup
     [self.imageScrollView updateConstraints];
-    imageScrollView.pagingEnabled = YES;
+    _imageScrollView.pagingEnabled = YES;
 }
 
 - (UIBarButtonItem *)createLeftBarButton:(NSString *)imageName actionSelector:(SEL)actionSelector

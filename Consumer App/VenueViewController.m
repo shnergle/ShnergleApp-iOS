@@ -32,9 +32,6 @@
 
 @implementation VenueViewController
 
-@synthesize navBar;
-@synthesize overlayView;
-@synthesize checkInButton;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -127,16 +124,16 @@
 
 - (void)displayTextView {
     if(!textViewOpen) {
-        overlayView = [[[NSBundle mainBundle] loadNibNamed:@"overlayText" owner:self options:nil] objectAtIndex:0];
+        _overlayView = [[[NSBundle mainBundle] loadNibNamed:@"overlayText" owner:self options:nil] objectAtIndex:0];
         //Get screen height:
         CGRect screenRect = [[UIScreen mainScreen] bounds];
         CGFloat screenHeight = screenRect.size.height;
 
 
-        overlayView.frame = CGRectMake(overlayView.bounds.origin.x, screenHeight-70, overlayView.bounds.size.width, overlayView.bounds.size.height);
-        overlayView.clipsToBounds = NO;
+        _overlayView.frame = CGRectMake(_overlayView.bounds.origin.x, screenHeight-70, _overlayView.bounds.size.width, _overlayView.bounds.size.height);
+        _overlayView.clipsToBounds = NO;
         [self configureMapWithLat:-33.86 longitude:151.20];
-        [self.view addSubview:overlayView];
+        [self.view addSubview:_overlayView];
         textViewOpen = true;
     }
 }

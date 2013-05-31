@@ -21,8 +21,6 @@
 
 @implementation ProfileViewController
 
-//@synthesize profilePictureView = _profilePictureView;
-
 
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil

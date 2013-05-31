@@ -22,10 +22,6 @@
     return self;
 }
 
-@synthesize promotionBody;
-@synthesize promotionExpiry;
-@synthesize promotionTitle;
-
 /*
    // Only override drawRect: if you perform custom drawing.
    // An empty implementation adversely affects performance during animation.
