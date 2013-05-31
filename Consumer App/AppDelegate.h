@@ -24,6 +24,7 @@
 @property (strong, nonatomic) FBSession *session;
 @property (strong, nonatomic) NSString *fullName;
 @property (strong, nonatomic) NSString *email;
+@property (strong, nonatomic) NSString *facebook_id;
 
 
 //- (void) closeSession;
