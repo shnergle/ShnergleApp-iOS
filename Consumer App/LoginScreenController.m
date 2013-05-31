@@ -54,7 +54,7 @@
     AppDelegate *appDelegate = [[UIApplication sharedApplication]delegate];
     if (!appDelegate.session.isOpen) {
         // create a fresh session object
-        appDelegate.session = [[FBSession alloc] initWithPermissions:[NSArray arrayWithObjects:@"email", nil]];
+        appDelegate.session = [[FBSession alloc] initWithPermissions:[NSArray arrayWithObjects:@"email", @"user_birthday", nil]];
         
         // if we don't have a cached token, a call to open here would cause UX for login to
         // occur; we don't want that to happen unless the user clicks the login button, and so
@@ -117,6 +117,30 @@
                      [params appendString:user.last_name];
                      [params appendString:@"&email="];
                      [params appendString:[user objectForKey:@"email"]];
+                     [params appendString:@"&gender="];
+                     [params appendString:[[user objectForKey:@"gender"] substringToIndex:1]];
+                     [params appendString:@"&country="];
+                     [params appendString:[[[user objectForKey:@"locale"] substringFromIndex:3] lowercaseString]];
+                     [params appendString:@"&language="];
+                     [params appendString:[user objectForKey:@"locale"]];
+                     [params appendString:@"&birth_day="];
+                     [params appendString:[[user objectForKey:@"birthday"] substringWithRange:NSMakeRange(3, 2)]];
+                     [params appendString:@"&birth_month="];
+                     [params appendString:[[user objectForKey:@"birthday"] substringToIndex:2]];
+                     [params appendString:@"&birth_year="];
+                     [params appendString:[[user objectForKey:@"birthday"] substringFromIndex:6]];
+                     NSDate* now = [NSDate date];
+                     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+                     [dateFormatter setDateFormat:@"MM/dd/yyyy"];
+                     NSDate* birthday = [dateFormatter dateFromString:[user objectForKey:@"birthday"]];
+                     NSDateComponents* ageComponents = [[NSCalendar currentCalendar]
+                                                        components:NSYearCalendarUnit
+                                                        fromDate:birthday
+                                                        toDate:now
+                                                        options:0];
+                     NSInteger age = [ageComponents year];
+                     [params appendString:@"&age="];
+                     [params appendString:[NSString stringWithFormat:@"%d", age]];
                      NSMutableString *urlString;
                      urlString=[[NSMutableString alloc] initWithString:@"http://shnergle-api.azurewebsites.net/users/set"];
                      NSURL *url;
