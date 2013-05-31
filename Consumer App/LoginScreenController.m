@@ -54,7 +54,7 @@
     AppDelegate *appDelegate = [[UIApplication sharedApplication]delegate];
     if (!appDelegate.session.isOpen) {
         // create a fresh session object
-        appDelegate.session = [[FBSession alloc] init];
+        appDelegate.session = [[FBSession alloc] initWithPermissions:[NSArray arrayWithObjects:@"email", nil]];
         
         // if we don't have a cached token, a call to open here would cause UX for login to
         // occur; we don't want that to happen unless the user clicks the login button, and so
@@ -106,6 +106,7 @@
                      [fullName appendString:@" "];
                      [fullName appendString:user.last_name];
                      appDelegate.fullName = fullName;
+                     appDelegate.email = [user objectForKey:@"email"];
                      [params appendString:@"facebook_id="];
                      [params appendString:user.id];
                      [params appendString:@"&facebook="];
@@ -114,6 +115,8 @@
                      [params appendString:user.first_name];
                      [params appendString:@"&surname="];
                      [params appendString:user.last_name];
+                     [params appendString:@"&email="];
+                     [params appendString:[user objectForKey:@"email"]];
                      NSMutableString *urlString;
                      urlString=[[NSMutableString alloc] initWithString:@"http://shnergle-api.azurewebsites.net/users/set"];
                      NSURL *url;
