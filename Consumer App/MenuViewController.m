@@ -18,7 +18,9 @@
 
 @synthesize nameLabel;
 @synthesize searchBar;
-//@synthesize tableData;
+@synthesize tableData;
+@synthesize bar = _bar;
+@synthesize response = _response;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -55,17 +57,6 @@
     
 }
 
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
-{
-    
-}
-
-
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    
-}
-
 - (void)connection:(NSURLConnection *) connection didReceiveData:(NSData *)data {
     [_response appendData:data];
 }
@@ -81,7 +72,15 @@
     // Dispose of any resources that can be recreated.
 }
 
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
+        
+}
 
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+        
+}
 
 - (IBAction)tapProfile:(id)sender {
     NSLog(@"Profle tapped");
