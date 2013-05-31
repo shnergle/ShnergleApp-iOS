@@ -43,6 +43,9 @@
     assert(blah != nil && "searchBarView can't be nil");
     [self.view addSubview: blah];
     AppDelegate *appDelegate = [[UIApplication sharedApplication]delegate];
+    
+    nameLabel.font = [UIFont fontWithName:@"Roboto" size:nameLabel.font.pointSize];
+    nameLabel.textColor = [UIColor whiteColor];
     nameLabel.text = appDelegate.fullName;
     
 }
