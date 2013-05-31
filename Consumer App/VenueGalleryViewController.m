@@ -48,8 +48,9 @@
     CGRect windowBounds = [[UIScreen mainScreen]bounds];
     imageScrollView.bounds = CGRectMake(0, 0, windowBounds.size.width, windowBounds.size.height / 2);
     UIImage *image = [UIImage imageNamed:@"mahiki.jpg"];
+    UIImage *image2 = [UIImage imageNamed:@"liverpool.JPG"];
     UIImageView *imageView1 = [[UIImageView alloc] initWithImage:image];
-    UIImageView *imageView2 = [[UIImageView alloc] initWithImage:image];
+    UIImageView *imageView2 = [[UIImageView alloc] initWithImage:image2];
     UIImageView *imageView3 = [[UIImageView alloc] initWithImage:image];
     NSArray *imageViews = [NSArray arrayWithObjects:imageView1, imageView2, imageView3, nil];
     //UIScrollView *imageScrollView = [[UIScrollView alloc] initWithFrame:self.view.bounds];
@@ -68,7 +69,7 @@
     }
     NSLog(@"subviews of scrollview:%d",imageScrollView.subviews.count);
     imageScrollView.contentSize = CGSizeMake(cRect.origin.x, imageScrollView.bounds.size.height);
-    imageScrollView.contentOffset = CGPointMake(imageScrollView.bounds.size.width, 0); //should be the center page in a 3 page setup
+    imageScrollView.contentOffset = CGPointMake(imageScrollView.bounds.size.width, 1.0); //should be the center page in a 3 page setup
     [self.imageScrollView updateConstraints];
     imageScrollView.pagingEnabled = YES;
 }
@@ -91,6 +92,7 @@
 {
     [self.navigationController popViewControllerAnimated:YES];
 }
+
 
 
 @end
