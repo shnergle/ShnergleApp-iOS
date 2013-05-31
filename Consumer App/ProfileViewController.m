@@ -10,18 +10,18 @@
 #import <FacebookSDK/FacebookSDK.h>
 
 
-@interface ProfileViewController ()
+@interface ProfileViewController () <FBLoginViewDelegate>
 
-@property (strong, nonatomic) FBProfilePictureView *profilePictureView;
-@property (strong, nonatomic) IBOutlet UILabel *names;
+//@property (strong, nonatomic) FBProfilePictureView *profilePictureView;
+@property (strong, nonatomic) IBOutlet UILabel *lab;
 
 
 @end
 
 @implementation ProfileViewController
 
-@synthesize profilePictureView = _profilePictureView;
-//@synthesize name = _name;
+//@synthesize profilePictureView = _profilePictureView;
+
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -32,44 +32,22 @@
     return self;
 }
 
+-(void)loginViewFetchedUserInfo:(FBLoginView *)loginView user:(id<FBGraphUser>)user {
+    self.lab.text = [NSString stringWithFormat:@"%@", [user name]];
+}
 
 
 - (void)viewDidLoad
 {
+
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     
-    // Initialize the profile picture
-    self.profilePictureView = [[FBProfilePictureView alloc] init];
-    // Set the size
-    self.profilePictureView.frame = CGRectMake(0.0, 0.0, 75.0, 75.0);
-    [FBRequestConnection
-         startForMeWithCompletionHandler:^(FBRequestConnection *connection,
-                                           id<FBGraphUser> user,
-                                           NSError *error)
-         {
-             
-                 NSString *userInfo = @"";
-                 
-                 // Example: typed access (name)
-                 // - no special permissions required
-                 userInfo = [userInfo
-                             stringByAppendingString:
-                             [NSString stringWithFormat:@"Name: %@\n\n",
-                              user.name]];
-             
-                 self.names.text = userInfo;
-             
-             // Show the profile picture for a user
-             //self.profilePictureView = user.
-             //self.name.text = userInfo;
-             // Add the profile picture view to the main view
-             //[self.view addSubview:self.profilePictureView];
-             //[self.view addSubview:self.names];
-             
-         }
-     ];
-
+    FBLoginView* loginview = [[FBLoginView alloc ]init];
+    loginview.delegate = self;
+    //loginview.frame = CGRectOffset(loginview.frame, 20, 50);
+    //[self.view addSubview:loginview];
+    
 
 }
 
