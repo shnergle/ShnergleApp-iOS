@@ -18,5 +18,8 @@
 @property (weak, nonatomic) IBOutlet UILabel *nameLabel;
 @property (weak,nonatomic) IBOutlet SearchBarView *searchBar;
 - (IBAction)tapProfile:(id)sender;
+- (IBAction)something:(id)sender;
+@property (weak, nonatomic) IBOutlet UITextField *bar;
+@property (strong, nonatomic) NSMutableData *response;
 
 @end

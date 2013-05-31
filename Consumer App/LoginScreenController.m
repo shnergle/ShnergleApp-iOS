@@ -106,6 +106,7 @@
                      [fullName appendString:@" "];
                      [fullName appendString:user.last_name];
                      appDelegate.fullName = fullName;
+                     appDelegate.facebook_id = user.id;
                      appDelegate.email = [user objectForKey:@"email"];
                      [params appendString:@"facebook_id="];
                      [params appendString:user.id];
