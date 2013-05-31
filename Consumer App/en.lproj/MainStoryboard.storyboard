@@ -826,11 +826,11 @@
                             <constraint firstItem="e5b-b1-kWB" firstAttribute="centerX" secondItem="228-rQ-4Ko" secondAttribute="centerX" type="default" id="0R5-Ru-9Rf"/>
                             <constraint firstItem="a1y-xm-GB3" firstAttribute="top" secondItem="T3d-vY-Mf8" secondAttribute="top" type="default" id="9c2-Ue-EBK"/>
                             <constraint firstItem="228-rQ-4Ko" firstAttribute="top" secondItem="T3d-vY-Mf8" secondAttribute="top" constant="57" id="Beh-55-xOi"/>
+                            <constraint firstItem="yde-oe-RSM" firstAttribute="centerX" secondItem="228-rQ-4Ko" secondAttribute="centerX" type="default" id="Fih-Cn-AD1"/>
                             <constraint firstItem="e5b-b1-kWB" firstAttribute="top" secondItem="T3d-vY-Mf8" secondAttribute="top" constant="50" id="HCq-1m-hy4"/>
+                            <constraint firstItem="yde-oe-RSM" firstAttribute="top" secondItem="T3d-vY-Mf8" secondAttribute="top" constant="96" id="LEc-gt-Ehc"/>
                             <constraint firstItem="228-rQ-4Ko" firstAttribute="centerX" secondItem="a1y-xm-GB3" secondAttribute="centerX" type="default" id="MGw-Tf-5yV"/>
-                            <constraint firstItem="yde-oe-RSM" firstAttribute="centerX" secondItem="T3d-vY-Mf8" secondAttribute="centerX" type="default" id="Rca-b2-dJr"/>
-                            <constraint firstItem="yde-oe-RSM" firstAttribute="top" secondItem="T3d-vY-Mf8" secondAttribute="top" constant="96" id="h2d-Tm-JAM"/>
-                            <constraint firstItem="228-rQ-4Ko" firstAttribute="centerX" secondItem="yde-oe-RSM" secondAttribute="centerX" type="default" id="kjl-mK-ukG"/>
+                            <constraint firstItem="a1y-xm-GB3" firstAttribute="trailing" secondItem="T3d-vY-Mf8" secondAttribute="trailing" type="default" id="g8F-fG-fOl"/>
                             <constraint firstItem="a1y-xm-GB3" firstAttribute="leading" secondItem="T3d-vY-Mf8" secondAttribute="leading" type="default" id="zAR-Hy-JpB"/>
                         </constraints>
                     </view>
@@ -1006,22 +1006,112 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Eyr-d6-rQB" customClass="SearchBarView">
                                 <color key="backgroundColor" red="0.3490196168422699" green="0.3490196168422699" blue="0.3490196168422699" alpha="0.0" colorSpace="deviceRGB"/>
                             </view>
+                            <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="Qvk-72-yW9">
+                                <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <outlet property="delegate" destination="nGm-Na-jzU" id="Qll-np-Ck7"/>
+                                </connections>
+                            </searchBar>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Explore" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mhN-T2-Udn">
+                                <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="15" id="v8a-n3-Uim"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="13"/>
+                                <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="singleLineEtched" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="OEo-Lu-Lqh">
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="253" id="ENI-bA-VLc"/>
+                                    <constraint firstAttribute="width" constant="220" id="LUQ-Dw-at1"/>
+                                </constraints>
+                                <prototypes>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="OJg-2p-vWo">
+                                        <rect key="frame" x="0.0" y="22" width="220" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                            <rect key="frame" x="0.0" y="0.0" width="220" height="43"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        </view>
+                                    </tableViewCell>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="LrI-eh-BZG">
+                                        <rect key="frame" x="0.0" y="66" width="220" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                            <rect key="frame" x="0.0" y="0.0" width="220" height="43"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        </view>
+                                    </tableViewCell>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="avO-Ei-Vr6">
+                                        <rect key="frame" x="0.0" y="110" width="220" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                            <rect key="frame" x="0.0" y="0.0" width="220" height="43"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        </view>
+                                    </tableViewCell>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="xH9-FP-E3k">
+                                        <rect key="frame" x="0.0" y="154" width="220" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                            <rect key="frame" x="0.0" y="0.0" width="220" height="43"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        </view>
+                                    </tableViewCell>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="MH8-dn-GSk">
+                                        <rect key="frame" x="0.0" y="198" width="220" height="45"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                            <rect key="frame" x="0.0" y="0.0" width="220" height="43"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        </view>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Profile" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1jj-MB-EFK">
+                                <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="302" id="Exu-ZX-DAu"/>
+                                    <constraint firstAttribute="height" constant="15" id="P3J-WF-aOz"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="13"/>
+                                <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="0.34963060461956519" green="0.34963060461956519" blue="0.34963060461956519" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="Eyr-d6-rQB" firstAttribute="top" secondItem="2oN-RZ-QoM" secondAttribute="top" type="default" id="3Eh-s7-Oco"/>
-                            <constraint firstItem="jdx-Jc-tIj" firstAttribute="top" secondItem="2oN-RZ-QoM" secondAttribute="top" constant="45" id="61h-NF-66H"/>
+                            <constraint firstItem="1jj-MB-EFK" firstAttribute="leading" secondItem="mhN-T2-Udn" secondAttribute="leading" type="default" id="4BJ-UD-93R"/>
                             <constraint firstAttribute="trailing" secondItem="Eyr-d6-rQB" secondAttribute="trailing" constant="80" id="GYX-70-h9H"/>
-                            <constraint firstItem="cBd-5h-rzk" firstAttribute="top" secondItem="2oN-RZ-QoM" secondAttribute="top" constant="60" id="SRw-XT-lc7"/>
+                            <constraint firstItem="OEo-Lu-Lqh" firstAttribute="top" secondItem="mhN-T2-Udn" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="S54-KN-q2G"/>
+                            <constraint firstItem="mhN-T2-Udn" firstAttribute="top" secondItem="2oN-RZ-QoM" secondAttribute="top" constant="84" id="UFz-wc-BPM"/>
+                            <constraint firstItem="cBd-5h-rzk" firstAttribute="top" secondItem="2oN-RZ-QoM" secondAttribute="top" constant="61" id="VAS-hd-jBj"/>
+                            <constraint firstItem="1jj-MB-EFK" firstAttribute="top" secondItem="Qvk-72-yW9" secondAttribute="bottom" type="default" id="Wff-ez-vgD"/>
+                            <constraint firstItem="jdx-Jc-tIj" firstAttribute="top" secondItem="2oN-RZ-QoM" secondAttribute="top" constant="46" id="YXF-X2-UFx"/>
                             <constraint firstItem="Eyr-d6-rQB" firstAttribute="leading" secondItem="2oN-RZ-QoM" secondAttribute="leading" type="default" id="ck2-YF-Wmg"/>
+                            <constraint firstItem="Qvk-72-yW9" firstAttribute="top" secondItem="2oN-RZ-QoM" secondAttribute="top" type="default" id="dxx-yj-qk5"/>
                             <constraint firstItem="jdx-Jc-tIj" firstAttribute="leading" secondItem="2oN-RZ-QoM" secondAttribute="leading" constant="11" id="eZa-KY-b0O"/>
+                            <constraint firstItem="1jj-MB-EFK" firstAttribute="trailing" secondItem="mhN-T2-Udn" secondAttribute="trailing" type="default" id="eh7-Vy-pjQ"/>
+                            <constraint firstItem="Qvk-72-yW9" firstAttribute="leading" secondItem="2oN-RZ-QoM" secondAttribute="leading" type="default" id="fpZ-pI-haN"/>
                             <constraint firstItem="cBd-5h-rzk" firstAttribute="leading" secondItem="jdx-Jc-tIj" secondAttribute="trailing" constant="8" symbolic="YES" type="default" id="mOG-Bm-lMM"/>
-                            <constraint firstAttribute="bottom" secondItem="Eyr-d6-rQB" secondAttribute="bottom" constant="504" id="ql4-vQ-0a8"/>
+                            <constraint firstItem="OEo-Lu-Lqh" firstAttribute="leading" secondItem="jdx-Jc-tIj" secondAttribute="leading" type="default" id="rHY-rs-hh9"/>
+                            <constraint firstItem="Qvk-72-yW9" firstAttribute="bottom" secondItem="Eyr-d6-rQB" secondAttribute="bottom" type="default" id="vrd-FG-RZ5"/>
+                            <constraint firstItem="1jj-MB-EFK" firstAttribute="centerX" secondItem="Qvk-72-yW9" secondAttribute="centerX" type="default" id="xp0-SV-RbA"/>
+                            <constraint firstItem="Qvk-72-yW9" firstAttribute="trailing" secondItem="2oN-RZ-QoM" secondAttribute="trailing" type="default" id="ybC-GE-bvy"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="nameLabel" destination="jdx-Jc-tIj" id="QCs-NH-zCM"/>
                         <outlet property="searchBar" destination="Eyr-d6-rQB" id="JEf-Et-bw2"/>
+                        <outlet property="searchDisplayController" destination="aXG-dC-scz" id="8Zn-it-7mb"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ap6-cl-UHS" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1030,6 +1120,15 @@
                         <segue destination="qgb-Kw-YNh" kind="push" id="YMm-xr-6w3"/>
                     </connections>
                 </tapGestureRecognizer>
+                <searchDisplayController id="aXG-dC-scz">
+                    <connections>
+                        <outlet property="delegate" destination="nGm-Na-jzU" id="8WB-T7-o1e"/>
+                        <outlet property="searchBar" destination="Qvk-72-yW9" id="ZC3-Jo-Jva"/>
+                        <outlet property="searchContentsController" destination="nGm-Na-jzU" id="t5k-Ws-BX3"/>
+                        <outlet property="searchResultsDataSource" destination="nGm-Na-jzU" id="Yhy-xM-DWd"/>
+                        <outlet property="searchResultsDelegate" destination="nGm-Na-jzU" id="nYC-qn-sv2"/>
+                    </connections>
+                </searchDisplayController>
             </objects>
             <point key="canvasLocation" x="-2277" y="-720"/>
         </scene>
@@ -1108,6 +1207,132 @@
         <image name="profileicon.png" width="54" height="38"/>
         <image name="twitter.jpg" width="945" height="651"/>
     </resources>
+    <classes>
+        <class className="AroundMeSlidingViewController" superclassName="ECSlidingViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/AroundMeSlidingViewController.h"/>
+        </class>
+        <class className="CheckInViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/CheckInViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="ChooseExisting"/>
+                <relationship kind="action" name="TakePhoto"/>
+                <relationship kind="outlet" name="imageView" candidateClass="UIImageView"/>
+            </relationships>
+        </class>
+        <class className="CrowdItem" superclassName="UICollectionViewCell">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/CrowdItem.h"/>
+            <relationships>
+                <relationship kind="outlet" name="crowdImage" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="venueName" candidateClass="UILabel"/>
+            </relationships>
+        </class>
+        <class className="DropDownMenu" superclassName="UIView">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/DropDownMenu.h"/>
+        </class>
+        <class className="ECSlidingViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/ECSlidingViewController.h"/>
+        </class>
+        <class className="FavouritesViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/FavouritesViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="tapTitle:"/>
+                <relationship kind="outlet" name="crowdCollection" candidateClass="UICollectionView"/>
+                <relationship kind="outlet" name="dropDownMenu" candidateClass="DropDownMenu"/>
+                <relationship kind="outlet" name="overlay" candidateClass="overlayText"/>
+            </relationships>
+        </class>
+        <class className="GMSMapView" superclassName="UIView">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/GMSMapView.h"/>
+        </class>
+        <class className="LoginScreenController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/LoginScreenController.h"/>
+            <relationships>
+                <relationship kind="action" name="buttonClickHandler:"/>
+                <relationship kind="outlet" name="buttonLoginLogout" candidateClass="UIButton"/>
+            </relationships>
+        </class>
+        <class className="MenuViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/MenuViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="tapProfile:"/>
+                <relationship kind="outlet" name="nameLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="searchBar" candidateClass="SearchBarView"/>
+            </relationships>
+        </class>
+        <class className="NSLayoutConstraint" superclassName="NSObject">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/NSLayoutConstraint.h"/>
+        </class>
+        <class className="PhotoLocationViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/PhotoLocationViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="headline" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="searchBar" candidateClass="UISearchBar"/>
+                <relationship kind="outlet" name="searchResultTable" candidateClass="UITableView"/>
+            </relationships>
+        </class>
+        <class className="ProfileViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/ProfileViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="authButtonAction:"/>
+                <relationship kind="outlet" name="authButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="lab" candidateClass="UILabel"/>
+            </relationships>
+        </class>
+        <class className="SearchBarView" superclassName="UIView">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/SearchBarView.h"/>
+        </class>
+        <class className="UICollectionReusableView" superclassName="UIView">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/UICollectionReusableView.h"/>
+        </class>
+        <class className="UICollectionViewCell" superclassName="UICollectionReusableView">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/UICollectionViewCell.h"/>
+        </class>
+        <class className="UICollectionViewFlowLayout" superclassName="UICollectionViewLayout">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/UICollectionViewFlowLayout.h"/>
+        </class>
+        <class className="VenueGalleryViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/VenueGalleryViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="imagePageControl" candidateClass="UIPageControl"/>
+                <relationship kind="outlet" name="imageScrollView" candidateClass="UIScrollView"/>
+            </relationships>
+        </class>
+        <class className="VenueViewController" superclassName="ViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/VenueViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="checkInButton" candidateClass="UIBarButtonItem"/>
+                <relationship kind="outlet" name="crowdCollectionV" candidateClass="UICollectionView"/>
+                <relationship kind="outlet" name="overlayView" candidateClass="overlayText"/>
+            </relationships>
+        </class>
+        <class className="ViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/ViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="tapArrow:"/>
+                <relationship kind="action" name="tapMap:"/>
+                <relationship kind="outlet" name="checkInButton" candidateClass="UIBarButtonItem"/>
+                <relationship kind="outlet" name="crowdCollection" candidateClass="UICollectionView"/>
+                <relationship kind="outlet" name="distanceScrollerView" candidateClass="overlayText"/>
+                <relationship kind="outlet" name="drawerCloseButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="mapView" candidateClass="GMSMapView"/>
+                <relationship kind="outlet" name="navBar" candidateClass="UINavigationBar"/>
+                <relationship kind="outlet" name="navBarMenuItem" candidateClass="UINavigationItem"/>
+                <relationship kind="outlet" name="overlay" candidateClass="overlayText"/>
+            </relationships>
+        </class>
+        <class className="overlayText" superclassName="UIView">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/overlayText.h"/>
+            <relationships>
+                <relationship kind="action" name="swipeDown:"/>
+                <relationship kind="action" name="swipeUp:"/>
+                <relationship kind="action" name="tapPromotion:"/>
+                <relationship kind="outlet" name="offerContents" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="offerCount" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="offerHeadline" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="venueMap" candidateClass="GMSMapView"/>
+            </relationships>
+        </class>
+    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>
