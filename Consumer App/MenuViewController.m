@@ -97,22 +97,17 @@
 
 - (IBAction)something:(id)sender {
     AppDelegate *appDelegate = [[UIApplication sharedApplication]delegate];
-    NSMutableString *params = [[NSMutableString alloc] initWithString:@"app_secret=FCuf65iuOUDCjlbiyyer678Coutyc64v655478VGvgh76&term="];
+    NSMutableString *params = [[NSMutableString alloc] initWithString:@"app_secret="];
+    [params appendString:appDelegate.app_secret];
+    [params appendString:@"&term="];
     [params appendString:_bar.text];
     [params appendString:@"&facebook_id="];
     [params appendString:appDelegate.facebook_id];
-    NSMutableString *urlString;
-    urlString=[[NSMutableString alloc] initWithString:@"http://shnergle-api.azurewebsites.net/user_searches/set"];
-    NSURL *url;
-    url=[[NSURL alloc] initWithString:urlString];
-
+    NSURL *url = [[NSURL alloc] initWithString:@"http://shnergle-api.azurewebsites.net/user_searches/set"];
     NSMutableURLRequest *urlRequest=[NSMutableURLRequest requestWithURL:url];
-
     [urlRequest setHTTPMethod:@"POST"];
     [urlRequest setHTTPBody:[params dataUsingEncoding:NSISOLatin1StringEncoding]];
     _response = [[NSMutableData alloc] init];
-
     NSURLConnection *connection = [[NSURLConnection alloc] initWithRequest:urlRequest delegate:self];
-
 }
 @end

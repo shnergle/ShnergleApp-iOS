@@ -107,7 +107,7 @@
     //[self.window makeKeyAndVisible];
 
     [GMSServices provideAPIKey:@"AIzaSyBep8BSlPxrxQwXqVUqsSSqpWGewZjOoy0"];
-
+    _app_secret = @"FCuf65iuOUDCjlbiyyer678Coutyc64v655478VGvgh76";
     return YES;
 }
 

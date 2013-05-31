@@ -89,26 +89,22 @@
     UIImage *image2 = [UIImage imageNamed: @"fbloginview_logout.png"];
     if (appDelegate.session.isOpen) {
         // valid account UI is shown whenever the session is open
-
+        self.buttonLoginLogout.enabled = NO;
         [self.buttonLoginLogout setImage:image2 forState:UIControlStateNormal];
 
 
         //login on server
-        NSMutableString *params = [[NSMutableString alloc] initWithString:@"app_secret=FCuf65iuOUDCjlbiyyer678Coutyc64v655478VGvgh76&"];
-
-
         [[[FBRequest alloc] initWithSession:appDelegate.session graphPath:@"me"] startWithCompletionHandler:
          ^(FBRequestConnection *connection,
            NSDictionary<FBGraphUser> *user,
            NSError *error) {
              if (!error) {
-                 NSMutableString *fullName = [[NSMutableString alloc] initWithString:user.first_name];
-                 [fullName appendString:@" "];
-                 [fullName appendString:user.last_name];
-                 appDelegate.fullName = fullName;
+                 appDelegate.fullName = [NSString stringWithFormat:@"%@ %@", user.first_name, user.last_name];
                  appDelegate.facebook_id = user.id;
                  appDelegate.email = [user objectForKey:@"email"];
-                 [params appendString:@"facebook_id="];
+                 NSMutableString *params = [[NSMutableString alloc] initWithString:@"app_secret="];
+                 [params appendString:appDelegate.app_secret];
+                 [params appendString:@"&facebook_id="];
                  [params appendString:user.id];
                  [params appendString:@"&facebook="];
                  [params appendString:user.username];
@@ -142,23 +138,16 @@
                  NSInteger age = [ageComponents year];
                  [params appendString:@"&age="];
                  [params appendString:[NSString stringWithFormat:@"%d", age]];
-                 NSMutableString *urlString;
-                 urlString=[[NSMutableString alloc] initWithString:@"http://shnergle-api.azurewebsites.net/users/set"];
-                 NSURL *url;
-                 url=[[NSURL alloc] initWithString:urlString];
-
+                 NSURL *url=[[NSURL alloc] initWithString:@"http://shnergle-api.azurewebsites.net/users/set"];
                  NSMutableURLRequest *urlRequest=[NSMutableURLRequest requestWithURL:url];
-
                  [urlRequest setHTTPMethod:@"POST"];
                  [urlRequest setHTTPBody:[params dataUsingEncoding:NSISOLatin1StringEncoding]];
-
                  _response = [[NSMutableData alloc] init];
-
                  NSURLConnection *connection = [[NSURLConnection alloc] initWithRequest:urlRequest delegate:self];
 
                  UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"MainStoryboard" bundle:nil];
                  ViewController *vc = [storyboard instantiateViewControllerWithIdentifier:@"AroundMeSlidingViewController"];
-
+                 self.buttonLoginLogout.enabled = YES;
                  [self.navigationController pushViewController:vc animated:YES];
 
                  if (!connection)
@@ -172,15 +161,9 @@
                  }
              } else {
                  NSLog(@"FUCKING FACEBOOK");
+                 self.buttonLoginLogout.enabled = YES;
              }
          }];
-
-
-
-
-
-
-
 
         /*[self.textNoteOrLink setText:[NSString stringWithFormat:@"https://graph.facebook.com/me/friends?access_token=%@",
            appDelegate.session.accessTokenData.accessToken]];*/
