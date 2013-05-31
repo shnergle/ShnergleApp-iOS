@@ -18,6 +18,7 @@
 
 @synthesize nameLabel;
 @synthesize searchBar;
+@synthesize tableData;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -47,6 +48,21 @@
     nameLabel.font = [UIFont fontWithName:@"Roboto" size:nameLabel.font.pointSize];
     nameLabel.textColor = [UIColor whiteColor];
     nameLabel.text = appDelegate.fullName;
+    
+    tableData = [[NSArray alloc] initWithObjects:@"Around me", @"Favourites", @"Promotions", @"Quiet", @"Trending", nil];
+    
+#pragma mark - Tableview Data Source Methods
+    
+}
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
+    
+}
+
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
     
 }
 

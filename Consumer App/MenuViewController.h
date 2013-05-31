@@ -10,7 +10,11 @@
 #import<FacebookSDK/FacebookSDK.h>
 #import "SearchBarView.h"
 
-@interface MenuViewController : UIViewController
+@interface MenuViewController : UIViewController <UITableViewDataSource>
+{
+    NSArray *tableData;
+}
+
 @property (weak, nonatomic) IBOutlet UILabel *nameLabel;
 @property (weak,nonatomic) IBOutlet SearchBarView *searchBar;
 - (IBAction)tapProfile:(id)sender;
