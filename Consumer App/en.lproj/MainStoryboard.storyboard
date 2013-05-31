@@ -200,6 +200,7 @@
                             <constraint firstItem="jEV-Fr-dKK" firstAttribute="trailing" secondItem="3" secondAttribute="trailing" type="default" id="pfi-CY-9zH"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="7uE-nf-CCR"/>
                     <connections>
                         <outlet property="checkInButton" destination="lQP-pY-6Jo" id="nBg-wx-ByB"/>
                         <outlet property="crowdCollection" destination="NoU-2f-HS3" id="gIQ-gS-rMU"/>
@@ -784,27 +785,57 @@
                         <rect key="frame" x="0.0" y="20" width="320" height="548"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="n0U-XD-sPR">
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="120" id="dh8-uo-8ck"/>
-                                    <constraint firstAttribute="height" constant="137" id="jYB-Ke-kqO"/>
-                                </constraints>
+                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="a1y-xm-GB3">
+                                <items>
+                                    <navigationItem title="About you" id="urR-xk-tAx">
+                                        <barButtonItem key="leftBarButtonItem" title="Back" id="2vk-JK-bmc">
+                                            <connections>
+                                                <segue destination="2" kind="push" id="RIK-7m-1ij"/>
+                                            </connections>
+                                        </barButtonItem>
+                                        <barButtonItem key="rightBarButtonItem" title="Sign out" id="Wjj-2L-pdI"/>
+                                    </navigationItem>
+                                </items>
+                            </navigationBar>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="228-rQ-4Ko">
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="Screen Shot 2013-05-30 at 15.25.20.png" translatesAutoresizingMaskIntoConstraints="NO" id="yde-oe-RSM">
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="439" id="OJ6-jb-Rxe"/>
+                                    <constraint firstAttribute="width" constant="326" id="qPT-3V-jr4"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="center" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="e5b-b1-kWB">
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="21" id="3fU-KM-kwr"/>
+                                    <constraint firstAttribute="width" constant="278" id="dcl-Ky-bKZ"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="19"/>
+                                <color key="textColor" red="0.0" green="8.2014513730000005e-05" blue="1" alpha="0.69999999999999996" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstAttribute="trailing" secondItem="n0U-XD-sPR" secondAttribute="trailing" constant="8" id="fWt-NY-Hia"/>
-                            <constraint firstItem="n0U-XD-sPR" firstAttribute="top" secondItem="T3d-vY-Mf8" secondAttribute="top" constant="29" id="ghh-GV-gjX"/>
+                            <constraint firstItem="e5b-b1-kWB" firstAttribute="centerX" secondItem="228-rQ-4Ko" secondAttribute="centerX" type="default" id="0R5-Ru-9Rf"/>
+                            <constraint firstItem="a1y-xm-GB3" firstAttribute="top" secondItem="T3d-vY-Mf8" secondAttribute="top" type="default" id="9c2-Ue-EBK"/>
+                            <constraint firstItem="228-rQ-4Ko" firstAttribute="top" secondItem="T3d-vY-Mf8" secondAttribute="top" constant="57" id="Beh-55-xOi"/>
+                            <constraint firstItem="e5b-b1-kWB" firstAttribute="top" secondItem="T3d-vY-Mf8" secondAttribute="top" constant="50" id="HCq-1m-hy4"/>
+                            <constraint firstItem="228-rQ-4Ko" firstAttribute="centerX" secondItem="a1y-xm-GB3" secondAttribute="centerX" type="default" id="MGw-Tf-5yV"/>
+                            <constraint firstItem="yde-oe-RSM" firstAttribute="centerX" secondItem="T3d-vY-Mf8" secondAttribute="centerX" type="default" id="Rca-b2-dJr"/>
+                            <constraint firstItem="yde-oe-RSM" firstAttribute="top" secondItem="T3d-vY-Mf8" secondAttribute="top" constant="96" id="h2d-Tm-JAM"/>
+                            <constraint firstItem="228-rQ-4Ko" firstAttribute="centerX" secondItem="yde-oe-RSM" secondAttribute="centerX" type="default" id="kjl-mK-ukG"/>
+                            <constraint firstItem="a1y-xm-GB3" firstAttribute="leading" secondItem="T3d-vY-Mf8" secondAttribute="leading" type="default" id="zAR-Hy-JpB"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Profile" id="zZz-2u-Qxt">
                         <barButtonItem key="rightBarButtonItem" title="Settings" id="wa2-7h-tR6"/>
                     </navigationItem>
                     <connections>
-                        <outlet property="names" destination="n0U-XD-sPR" id="MNQ-cg-8GO"/>
+                        <outlet property="lab" destination="e5b-b1-kWB" id="hxr-x9-jLM"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="S6M-cZ-UVf" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1065,8 +1096,9 @@
     </scenes>
     <resources>
         <image name="Screen Shot 2013-04-19 at 09.52.50.png" width="196" height="53"/>
+        <image name="Screen Shot 2013-05-30 at 15.25.20.png" width="320" height="549"/>
         <image name="arrowDown.png" width="42" height="42"/>
-        <image name="facebook.png" width="1250" height="1250"/>
+        <image name="facebook.png" width="196" height="40"/>
         <image name="greybutton03.png" width="157" height="60"/>
         <image name="mahiki.jpg" width="420" height="308"/>
         <image name="plusone.png" width="26" height="22"/>
@@ -1139,7 +1171,7 @@
         <class className="ProfileViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/ProfileViewController.h"/>
             <relationships>
-                <relationship kind="outlet" name="names" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="lab" candidateClass="UILabel"/>
             </relationships>
         </class>
         <class className="SearchBarView" superclassName="UIView">
