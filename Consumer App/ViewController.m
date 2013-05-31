@@ -318,6 +318,12 @@ didHighlightItemAtIndexPath:(NSIndexPath *)indexPath {
 
 }
 
+-(IBAction)tapMenu:(id)sender
+{
+    NSLog(@"triggering menu by swipe");
+    [self tapMenu];
+}
+
 
 - (IBAction)tapArrow:(id)sender {
     

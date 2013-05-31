@@ -39,6 +39,8 @@ didTapAtCoordinate:(CLLocationCoordinate2D)coordinate;
 - (IBAction)tapMap:(id)sender;
 -(void)initMap;
 - (void)tapMenu;
+- (IBAction)tapMenu:(id)sender;
+
 -(void)hideOverlay;
 -(void)showOverlay;
 -(void)showDistanceScroller;

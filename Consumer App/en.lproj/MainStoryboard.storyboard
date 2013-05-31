@@ -199,6 +199,9 @@
                             <constraint firstItem="jEV-Fr-dKK" firstAttribute="top" secondItem="3" secondAttribute="top" type="default" id="pAf-G3-NWL"/>
                             <constraint firstItem="jEV-Fr-dKK" firstAttribute="trailing" secondItem="3" secondAttribute="trailing" type="default" id="pfi-CY-9zH"/>
                         </constraints>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="pRa-J1-1yX" appends="YES" id="lBr-11-iVD"/>
+                        </connections>
                     </view>
                     <navigationItem key="navigationItem" id="7uE-nf-CCR"/>
                     <connections>
@@ -218,6 +221,11 @@
                         <action selector="tapMap:" destination="2" id="nW5-zh-twV"/>
                     </connections>
                 </tapGestureRecognizer>
+                <swipeGestureRecognizer direction="right" id="pRa-J1-1yX">
+                    <connections>
+                        <action selector="tapMenu:" destination="2" id="l5Z-Lc-1dq"/>
+                    </connections>
+                </swipeGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="-1255" y="-37"/>
         </scene>
@@ -1258,7 +1266,9 @@
         <class className="MenuViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/MenuViewController.h"/>
             <relationships>
+                <relationship kind="action" name="something:"/>
                 <relationship kind="action" name="tapProfile:"/>
+                <relationship kind="outlet" name="bar" candidateClass="UITextField"/>
                 <relationship kind="outlet" name="nameLabel" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="searchBar" candidateClass="SearchBarView"/>
             </relationships>
@@ -1294,9 +1304,6 @@
         <class className="UICollectionViewFlowLayout" superclassName="UICollectionViewLayout">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/UICollectionViewFlowLayout.h"/>
         </class>
-        <class className="UICollectionViewLayout" superclassName="NSObject">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/UICollectionViewLayout.h"/>
-        </class>
         <class className="VenueGalleryViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/VenueGalleryViewController.h"/>
             <relationships>
@@ -1317,6 +1324,7 @@
             <relationships>
                 <relationship kind="action" name="tapArrow:"/>
                 <relationship kind="action" name="tapMap:"/>
+                <relationship kind="action" name="tapMenu:"/>
                 <relationship kind="outlet" name="checkInButton" candidateClass="UIBarButtonItem"/>
                 <relationship kind="outlet" name="crowdCollection" candidateClass="UICollectionView"/>
                 <relationship kind="outlet" name="distanceScrollerView" candidateClass="overlayText"/>
@@ -1346,6 +1354,6 @@
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="YMm-xr-6w3"/>
+        <segue reference="CSo-XF-E6R"/>
     </inferredMetricsTieBreakers>
 </document>
