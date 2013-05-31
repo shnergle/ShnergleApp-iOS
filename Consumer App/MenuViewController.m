@@ -18,7 +18,7 @@
 
 @synthesize nameLabel;
 @synthesize searchBar;
-@synthesize tableData;
+//@synthesize tableData;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
