@@ -23,4 +23,6 @@
 
 @property (strong, nonatomic) FBSession *session;
 
+//- (void) closeSession;
+
 @end
