@@ -11,7 +11,7 @@
 
 @interface ProfileViewController : UIViewController
 
-- (IBAction)authButtonAction:(id)sender;
+//- (IBAction)authButtonAction:(id)sender;
 
 @property (strong, nonatomic) IBOutlet UIButton *authButton;
 

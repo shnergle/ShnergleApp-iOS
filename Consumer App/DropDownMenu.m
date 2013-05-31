@@ -51,7 +51,7 @@
 
 - (void)showAnimated:(NSInteger)targetSize animationDelay:(double)animationDelay animationDuration:(double)animationDuration
 {
-    [DropDownMenu animateWithDuration:animationDuration delay:animationDelay options: UIViewAnimationCurveEaseOut
+    [DropDownMenu animateWithDuration:animationDuration delay:animationDelay options:(UIViewAnimationOptions) UIViewAnimationCurveEaseOut
      animations:^{
          //contentView.frame = self.bounds;
 

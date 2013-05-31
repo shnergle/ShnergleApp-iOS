@@ -104,7 +104,7 @@
 
 - (void)showAnimated:(NSInteger)targetSize animationDelay:(double)animationDelay animationDuration:(double)animationDuration
 {
-    [UIView animateWithDuration:animationDuration delay:animationDelay options: UIViewAnimationCurveEaseOut
+    [UIView animateWithDuration:animationDuration delay:animationDelay options:(UIViewAnimationOptions)UIViewAnimationCurveEaseOut
      animations:^{
          //contentView.frame = self.bounds;
 

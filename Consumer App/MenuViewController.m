@@ -109,5 +109,6 @@
     [urlRequest setHTTPBody:[params dataUsingEncoding:NSISOLatin1StringEncoding]];
     _response = [[NSMutableData alloc] init];
     NSURLConnection *connection = [[NSURLConnection alloc] initWithRequest:urlRequest delegate:self];
+    #pragma unused(connection)
 }
 @end
