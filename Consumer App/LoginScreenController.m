@@ -102,10 +102,18 @@
                NSDictionary<FBGraphUser> *user,
                NSError *error) {
                  if (!error) {
+                     NSMutableString *fullName = [[NSMutableString alloc] initWithString:user.first_name];
+                     [fullName appendString:@" "];
+                     [fullName appendString:user.last_name];
+                     appDelegate.fullName = fullName;
                      [params appendString:@"facebook_id="];
                      [params appendString:user.id];
                      [params appendString:@"&facebook="];
                      [params appendString:user.username];
+                     [params appendString:@"&forename="];
+                     [params appendString:user.first_name];
+                     [params appendString:@"&surname="];
+                     [params appendString:user.last_name];
                      NSMutableString *urlString;
                      urlString=[[NSMutableString alloc] initWithString:@"http://shnergle-api.azurewebsites.net/users/set"];
                      NSURL *url;
@@ -119,6 +127,11 @@
                      _response = [[NSMutableData alloc] init];
                      
                      NSURLConnection *connection = [[NSURLConnection alloc] initWithRequest:urlRequest delegate:self];
+                     
+                     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"MainStoryboard" bundle:nil];
+                     ViewController *vc = [storyboard instantiateViewControllerWithIdentifier:@"AroundMeSlidingViewController"];
+                     
+                     [self.navigationController pushViewController:vc animated:YES];
                      
                      if (!connection)
                      {
@@ -138,10 +151,7 @@
 
         
         
-        UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"MainStoryboard" bundle:nil];
-        ViewController *vc = [storyboard instantiateViewControllerWithIdentifier:@"AroundMeSlidingViewController"];
-        
-        [self.navigationController pushViewController:vc animated:YES];
+    
         
         
         /*[self.textNoteOrLink setText:[NSString stringWithFormat:@"https://graph.facebook.com/me/friends?access_token=%@",

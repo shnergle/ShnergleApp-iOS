@@ -42,6 +42,8 @@
     }
     assert(blah != nil && "searchBarView can't be nil");
     [self.view addSubview: blah];
+    AppDelegate *appDelegate = [[UIApplication sharedApplication]delegate];
+    nameLabel.text = appDelegate.fullName;
     
 }
 

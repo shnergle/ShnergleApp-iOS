@@ -22,5 +22,6 @@
 
 
 @property (strong, nonatomic) FBSession *session;
+@property (strong, nonatomic) NSString *fullName;
 
 @end
