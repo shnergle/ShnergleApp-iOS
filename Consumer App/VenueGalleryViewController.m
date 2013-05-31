@@ -30,7 +30,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-	// Do any additional setup after loading the view.
+    // Do any additional setup after loading the view.
     [self imageScrollerSetup];
     UIBarButtonItem *menuButton;
     menuButton = [self createLeftBarButton:@"arrow_west" actionSelector:@selector(goBack)];
@@ -44,7 +44,7 @@
     // Dispose of any resources that can be recreated.
 }
 
--(void)imageScrollerSetup{
+-(void)imageScrollerSetup {
     CGRect windowBounds = [[UIScreen mainScreen]bounds];
     imageScrollView.bounds = CGRectMake(0, 0, windowBounds.size.width, windowBounds.size.height / 2);
     UIImage *image = [UIImage imageNamed:@"mahiki.jpg"];
@@ -54,12 +54,12 @@
     UIImageView *imageView3 = [[UIImageView alloc] initWithImage:image];
     NSArray *imageViews = [NSArray arrayWithObjects:imageView1, imageView2, imageView3, nil];
     //UIScrollView *imageScrollView = [[UIScrollView alloc] initWithFrame:self.view.bounds];
-    
-    
+
+
     [self.view addSubview: imageScrollView]; //This code assumes it's in a UIViewController
     CGRect cRect = imageScrollView.bounds;
     UIImageView *cView;
-    for (int i = 0; i < imageViews.count; i++){
+    for (int i = 0; i < imageViews.count; i++) {
         cView = [imageViews objectAtIndex:i];
         cView.frame = cRect;
         cView.backgroundColor = [UIColor blueColor];
@@ -77,12 +77,12 @@
 - (UIBarButtonItem *)createLeftBarButton:(NSString *)imageName actionSelector:(SEL)actionSelector
 {
     UIImage *menuButtonImg = [UIImage imageNamed:imageName];
-    
+
     UIButton *menuButtonTmp = [UIButton buttonWithType:UIButtonTypeCustom];
     menuButtonTmp.frame = CGRectMake(280.0, 10.0, 19.0, 16.0);
     [menuButtonTmp setBackgroundImage:menuButtonImg forState:UIControlStateNormal];
     [menuButtonTmp addTarget:self action:actionSelector forControlEvents:UIControlEventTouchUpInside];
-    
+
     UIBarButtonItem *menuButton = [[UIBarButtonItem alloc]initWithCustomView:menuButtonTmp];
     return menuButton;
 }

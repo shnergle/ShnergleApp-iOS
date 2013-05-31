@@ -41,36 +41,36 @@
 
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
-    
-    
+
+
     //FBLoginView* loginview = [[FBLoginView alloc ]init];
     //loginview.delegate = self;
-    
+
     AppDelegate *appdelegate = [[UIApplication sharedApplication]delegate];
     self.lab.text = appdelegate.fullName;
-    
+
 
 }
 
 
 
 /*- (IBAction)authButtonAction:(id)sender {
-    
+
     AppDelegate *appDelegate =
     [[UIApplication sharedApplication] delegate];
-    
+
     // If the user is authenticated, log out when the button is clicked.
     // If the user is not authenticated, log in when the button is clicked.
-    
+
         [appDelegate closeSession];
-   
+
         // The user has initiated a login, so call the openSession method
         // and show the login UX if necessary.
         //[appDelegate openSessionWithAllowLoginUI:YES];
-    
-    
-    
-}*/
+
+
+
+   }*/
 
 - (void)didReceiveMemoryWarning
 {

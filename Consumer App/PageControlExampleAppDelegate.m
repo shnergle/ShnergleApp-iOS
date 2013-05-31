@@ -39,7 +39,7 @@ static NSUInteger kNumberOfPages = 7;
     }
     self.viewControllers = controllers;
     [controllers release];
-	
+
     // a page is the width of the scroll view
     scrollView.pagingEnabled = YES;
     scrollView.contentSize = CGSizeMake(scrollView.frame.size.width * kNumberOfPages, scrollView.frame.size.height);
@@ -47,10 +47,10 @@ static NSUInteger kNumberOfPages = 7;
     scrollView.showsVerticalScrollIndicator = NO;
     scrollView.scrollsToTop = NO;
     scrollView.delegate = self;
-	
+
     pageControl.numberOfPages = kNumberOfPages;
     pageControl.currentPage = 0;
-	
+
     // pages are created on demand
     // load the visible page
     // load the page on either side to avoid flashes when the user starts scrolling
@@ -61,7 +61,7 @@ static NSUInteger kNumberOfPages = 7;
 - (void)loadScrollViewWithPage:(int)page {
     if (page < 0) return;
     if (page >= kNumberOfPages) return;
-	
+
     // replace the placeholder if necessary
     PageControlExampleViewControl *controller = [viewControllers objectAtIndex:page];
     if ((NSNull *)controller == [NSNull null]) {
@@ -69,7 +69,7 @@ static NSUInteger kNumberOfPages = 7;
         [viewControllers replaceObjectAtIndex:page withObject:controller];
         [controller release];
     }
-	
+
     // add the controller's view to the scroll view
     if (nil == controller.view.superview) {
         CGRect frame = scrollView.frame;
@@ -92,12 +92,12 @@ static NSUInteger kNumberOfPages = 7;
     CGFloat pageWidth = scrollView.frame.size.width;
     int page = floor((scrollView.contentOffset.x - pageWidth / 2) / pageWidth) + 1;
     pageControl.currentPage = page;
-	
+
     // load the visible page and the page on either side of it (to avoid flashes when the user starts scrolling)
     [self loadScrollViewWithPage:page - 1];
     [self loadScrollViewWithPage:page];
     [self loadScrollViewWithPage:page + 1];
-	
+
     // A possible optimization would be to unload the views+controllers which are no longer visible
 }
 

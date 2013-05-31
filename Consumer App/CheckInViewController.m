@@ -56,7 +56,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-	// Do any additional setup after loading the view.
+    // Do any additional setup after loading the view.
     self.navigationItem.hidesBackButton = NO;
     self.navigationController.navigationBarHidden = NO;
 }

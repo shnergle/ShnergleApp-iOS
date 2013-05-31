@@ -11,11 +11,11 @@
 #import "CrowdItem.h"
 @interface FavouritesViewController ()
 {
-NSArray *venueNames;
-NSArray *images;
-NSInteger selectedVenue;
-Boolean crowdImagesHidden;
-Boolean dropDownHidden;
+    NSArray *venueNames;
+    NSArray *images;
+    NSInteger selectedVenue;
+    Boolean crowdImagesHidden;
+    Boolean dropDownHidden;
 }
 @end
 
@@ -35,11 +35,11 @@ Boolean dropDownHidden;
 {
     [super viewDidLoad];
 
-    
+
     dropDownHidden = YES;
 }
 
--(void)viewWillAppear:(BOOL)animated{
+-(void)viewWillAppear:(BOOL)animated {
     self.navigationItem.hidesBackButton = NO;
     self.navigationController.navigationBarHidden = NO;
 }
@@ -52,7 +52,7 @@ Boolean dropDownHidden;
 
 - (IBAction)tapTitle:(id)sender {
     NSLog(@"tapTitle run from FavouritesViewController");
-    if(dropDownHidden){
+    if(dropDownHidden) {
         [[self dropDownMenu] showAnimated:0 animationDelay:0 animationDuration:0.5];
         dropDownHidden = NO;
     }else {

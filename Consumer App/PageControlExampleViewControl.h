@@ -11,7 +11,7 @@
 
 @interface PageControlExampleViewControl : UIViewController {
 
-	IBOutlet UILabel *pageNumberLabel;
+    IBOutlet UILabel *pageNumberLabel;
     int pageNumber;
 }
 
@@ -19,7 +19,7 @@
 
 - (id)initWithPageNumber:(int)page;
 
-	
+
 
 
 @end

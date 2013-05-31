@@ -8,9 +8,9 @@
 
 #import <UIKit/UIKit.h>
 
-@interface PageControlExampleAppDelegate : NSObject <UIApplicationDelegate , UIScrollViewDelegate> {
+@interface PageControlExampleAppDelegate : NSObject <UIApplicationDelegate, UIScrollViewDelegate> {
     UIWindow *window;
-	IBOutlet UIScrollView *scrollView;
+    IBOutlet UIScrollView *scrollView;
     IBOutlet UIPageControl *pageControl;
     NSMutableArray *viewControllers;
     BOOL pageControlUsed;

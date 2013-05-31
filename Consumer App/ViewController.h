@@ -17,7 +17,7 @@ NSInteger selectedVenueIndex;
 
 
 @interface ViewController : UIViewController<UICollectionViewDataSource, UICollectionViewDelegate,GMSMapViewDelegate> {
-    
+
 }
 //@property (weak, nonatomic) IBOutlet UIImageView *dropDownIndicator;
 @property (weak, nonatomic) IBOutlet UIButton *drawerCloseButton;
@@ -28,7 +28,7 @@ NSInteger selectedVenueIndex;
 @property (weak, nonatomic) IBOutlet UINavigationItem *navBarMenuItem;
 - (IBAction)tapArrow:(id)sender;
 - (void)mapView:(GMSMapView *)mapView
-didTapAtCoordinate:(CLLocationCoordinate2D)coordinate;
+    didTapAtCoordinate:(CLLocationCoordinate2D)coordinate;
 @property (weak, nonatomic) IBOutlet overlayText *overlay;
 //@property(nonatomic, retain) UIView *titleView;
 //@property (weak, nonatomic) IBOutlet UILabel *titleLabel;

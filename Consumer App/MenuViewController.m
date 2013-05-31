@@ -35,7 +35,7 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
-    
+
     //load search bar
     NSArray *bundle = [[NSBundle mainBundle] loadNibNamed:@"SearchBar" owner:self options:nil];
     SearchBarView *blah;
@@ -46,15 +46,15 @@
     assert(blah != nil && "searchBarView can't be nil");
     [self.view addSubview: blah];
     AppDelegate *appDelegate = [[UIApplication sharedApplication]delegate];
-    
+
     nameLabel.font = [UIFont fontWithName:@"Roboto" size:nameLabel.font.pointSize];
     nameLabel.textColor = [UIColor whiteColor];
     nameLabel.text = appDelegate.fullName;
-    
+
     tableData = [[NSArray alloc] initWithObjects:@"Around me", @"Favourites", @"Promotions", @"Quiet", @"Trending", nil];
-    
+
 #pragma mark - Tableview Data Source Methods
-    
+
 }
 
 - (void)connection:(NSURLConnection *) connection didReceiveData:(NSData *)data {
@@ -81,13 +81,13 @@
 {
     UITableViewCell *cell = nil;
     cell = [tableView dequeueReusableCellWithIdentifier:@"MyCell"];
-    
+
     if (cell == nil) {
         cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"MyCell"];
     }
-    
+
     cell.textLabel.text = [tableData objectAtIndex:indexPath.row];
-    
+
     return cell;
 }
 
@@ -105,14 +105,14 @@
     urlString=[[NSMutableString alloc] initWithString:@"http://shnergle-api.azurewebsites.net/user_searches/set"];
     NSURL *url;
     url=[[NSURL alloc] initWithString:urlString];
-    
+
     NSMutableURLRequest *urlRequest=[NSMutableURLRequest requestWithURL:url];
-    
+
     [urlRequest setHTTPMethod:@"POST"];
     [urlRequest setHTTPBody:[params dataUsingEncoding:NSISOLatin1StringEncoding]];
     _response = [[NSMutableData alloc] init];
-        
+
     NSURLConnection *connection = [[NSURLConnection alloc] initWithRequest:urlRequest delegate:self];
-    
+
 }
 @end

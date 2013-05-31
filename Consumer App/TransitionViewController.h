@@ -13,6 +13,6 @@
 
 - (id)initWithViewController:(UIViewController *)viewController;
 - (void)transitionToViewController:(UIViewController *)viewController
-                       withOptions:(UIViewAnimationOptions)options;
+    withOptions:(UIViewAnimationOptions)options;
 
 @end

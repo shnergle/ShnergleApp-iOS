@@ -26,11 +26,11 @@ viewController = _viewController;
     UIView *view = [[UIView alloc] initWithFrame:[UIScreen mainScreen].applicationFrame];
     view.autoresizingMask = UIViewAutoresizingFlexibleHeight|UIViewAutoresizingFlexibleWidth;
     self.view = view;
-    
+
     _containerView = [[UIView alloc] initWithFrame:view.bounds];
     _containerView.autoresizingMask = UIViewAutoresizingFlexibleWidth|UIViewAutoresizingFlexibleHeight;
     [self.view addSubview:_containerView];
-    
+
     [_containerView addSubview:self.viewController.view];
 }
 
@@ -50,19 +50,19 @@ viewController = _viewController;
 }
 
 - (void)transitionToViewController:(UIViewController *)aViewController
-                       withOptions:(UIViewAnimationOptions)options
+    withOptions:(UIViewAnimationOptions)options
 {
     aViewController.view.frame = self.containerView.bounds;
     [UIView transitionWithView:self.containerView
-                      duration:0.65f
-                       options:options
-                    animations:^{
-                        [self.viewController.view removeFromSuperview];
-                        [self.containerView addSubview:aViewController.view];
-                    }
-                    completion:^(BOOL finished){
-                        self.viewController = aViewController;
-                    }];
+     duration:0.65f
+     options:options
+     animations:^{
+         [self.viewController.view removeFromSuperview];
+         [self.containerView addSubview:aViewController.view];
+     }
+     completion:^(BOOL finished){
+         self.viewController = aViewController;
+     }];
 }
 
 @end
