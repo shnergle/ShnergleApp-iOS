@@ -17,6 +17,5 @@
 - (IBAction)tapProfile:(id)sender;
 - (IBAction)something:(id)sender;
 @property (weak, nonatomic) IBOutlet UITextField *bar;
-@property (strong, nonatomic) NSMutableData *response;
 @property (nonatomic, retain) NSArray *tableData;
 @end

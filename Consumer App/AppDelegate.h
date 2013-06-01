@@ -14,7 +14,11 @@
 @class LoginScreenController;
 
 
-@interface AppDelegate : UIResponder <UIApplicationDelegate>
+@interface AppDelegate : UIResponder <UIApplicationDelegate> {
+    NSMutableData *response;
+    id responseObject;
+    SEL responseCallback;
+}
 
 @property (strong, nonatomic) UIViewController *viewcont;
 @property (strong, nonatomic) UIWindow *window;
@@ -29,5 +33,7 @@
 @property (strong, nonatomic) NSString *app_secret;
 
 //- (void) closeSession;
+
+- (void)postRequest:(NSString *)path params:(NSString *)params delegate:(id)object callback:(SEL)cb;
 
 @end

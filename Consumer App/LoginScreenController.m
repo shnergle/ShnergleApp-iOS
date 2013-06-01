@@ -98,9 +98,7 @@
                  appDelegate.fullName = [NSString stringWithFormat:@"%@ %@", user.first_name, user.last_name];
                  appDelegate.facebook_id = user.id;
                  appDelegate.email = [user objectForKey:@"email"];
-                 NSMutableString *params = [[NSMutableString alloc] initWithString:@"app_secret="];
-                 [params appendString:appDelegate.app_secret];
-                 [params appendString:@"&facebook_id="];
+                 NSMutableString *params = [[NSMutableString alloc] initWithString:@"facebook_id="];
                  [params appendString:user.id];
                  [params appendString:@"&facebook="];
                  [params appendString:user.username];
@@ -134,27 +132,13 @@
                  NSInteger age = [ageComponents year];
                  [params appendString:@"&age="];
                  [params appendString:[NSString stringWithFormat:@"%d", age]];
-                 NSURL *url=[[NSURL alloc] initWithString:@"http://shnergle-api.azurewebsites.net/users/set"];
-                 NSMutableURLRequest *urlRequest=[NSMutableURLRequest requestWithURL:url];
-                 [urlRequest setHTTPMethod:@"POST"];
-                 [urlRequest setHTTPBody:[params dataUsingEncoding:NSISOLatin1StringEncoding]];
-                 _response = [[NSMutableData alloc] init];
-                 NSURLConnection *connection = [[NSURLConnection alloc] initWithRequest:urlRequest delegate:self];
+                 
+                 [appDelegate postRequest:@"users/set" params:params delegate:self callback:@selector(postResponse:)];
 
                  UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"MainStoryboard" bundle:nil];
                  ViewController *vc = [storyboard instantiateViewControllerWithIdentifier:@"AroundMeSlidingViewController"];
                  self.buttonLoginLogout.enabled = YES;
                  [self.navigationController pushViewController:vc animated:YES];
-
-                 if (!connection)
-                 {
-                     NSLog(@"Failed to submit request");
-                 }
-                 else
-                 {
-                     NSLog(@"--------- Request submitted ---------");
-                     NSLog(@"connection: %@ method: %@, encoded body: %@, body: %@", connection, [urlRequest HTTPMethod], [urlRequest HTTPBody], params);
-                 }
              } else {
                  NSLog(@"FUCKING FACEBOOK");
                  self.buttonLoginLogout.enabled = YES;
@@ -171,13 +155,8 @@
 
 }
 
-- (void)connection:(NSURLConnection *) connection didReceiveData:(NSData *)data {
-    [_response appendData:data];
-}
-
--(void)connectionDidFinishLoading: (NSURLConnection *)connection {
-    NSString *responseString = [[NSString alloc] initWithData:_response encoding:NSUTF8StringEncoding];
-    NSLog(@"actual response: %@", responseString);
+- (void)postResponse:(NSString *)response {
+    NSLog(@"actual response: %@", response);
 }
 
 // FBSample logic

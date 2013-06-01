@@ -51,13 +51,8 @@
 
 }
 
-- (void)connection:(NSURLConnection *) connection didReceiveData:(NSData *)data {
-    [_response appendData:data];
-}
-
--(void)connectionDidFinishLoading: (NSURLConnection *)connection {
-    NSString *responseString = [[NSString alloc] initWithData:_response encoding:NSUTF8StringEncoding];
-    NSLog(@"search response: %@", responseString);
+- (void)postResponse:(NSString *)response {
+    NSLog(@"search response: %@", response);
 }
 
 - (void)didReceiveMemoryWarning
@@ -90,19 +85,8 @@
 }
 
 - (IBAction)something:(id)sender {
-    AppDelegate *appDelegate = [[UIApplication sharedApplication]delegate];
-    NSMutableString *params = [[NSMutableString alloc] initWithString:@"app_secret="];
-    [params appendString:appDelegate.app_secret];
-    [params appendString:@"&term="];
-    [params appendString:_bar.text];
-    [params appendString:@"&facebook_id="];
-    [params appendString:appDelegate.facebook_id];
-    NSURL *url = [[NSURL alloc] initWithString:@"http://shnergle-api.azurewebsites.net/user_searches/set"];
-    NSMutableURLRequest *urlRequest=[NSMutableURLRequest requestWithURL:url];
-    [urlRequest setHTTPMethod:@"POST"];
-    [urlRequest setHTTPBody:[params dataUsingEncoding:NSISOLatin1StringEncoding]];
-    _response = [[NSMutableData alloc] init];
-    NSURLConnection *connection = [[NSURLConnection alloc] initWithRequest:urlRequest delegate:self];
-    #pragma unused(connection)
+    AppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
+    NSString *params = [NSString stringWithFormat:@"term=%@&facebook_id=%@", _bar.text, appDelegate.facebook_id];
+    [appDelegate postRequest:@"user_searches/set" params:params delegate:self callback:@selector(postResponse:)];
 }
 @end
