@@ -15,7 +15,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *nameLabel;
 @property (weak,nonatomic) IBOutlet SearchBarView *searchBar;
 - (IBAction)tapProfile:(id)sender;
-- (IBAction)something:(id)sender;
+- (IBAction)searchExited:(id)sender;
 @property (weak, nonatomic) IBOutlet UITextField *bar;
 @property (nonatomic, retain) NSArray *tableData;
 @end
