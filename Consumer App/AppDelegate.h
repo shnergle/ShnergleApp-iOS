@@ -14,26 +14,18 @@
 @class LoginScreenController;
 
 
-@interface AppDelegate : UIResponder <UIApplicationDelegate> {
-    NSMutableData *response;
-    id responseObject;
-    SEL responseCallback;
-}
+@interface AppDelegate : UIResponder <UIApplicationDelegate>
 
 @property (strong, nonatomic) UIViewController *viewcont;
 @property (strong, nonatomic) UIWindow *window;
 @property (strong, nonatomic) LoginScreenController *viewController;
 
-
 @property (strong, nonatomic) FBSession *session;
 @property (strong, nonatomic) NSString *fullName;
 @property (strong, nonatomic) NSString *email;
-@property (strong, nonatomic) NSString *facebook_id;
-
-@property (strong, nonatomic) NSString *app_secret;
+@property (strong, nonatomic) NSString *facebookId;
+@property (strong, nonatomic) NSString *appSecret;
 
 //- (void) closeSession;
-
-- (void)postRequest:(NSString *)path params:(NSString *)params delegate:(id)object callback:(SEL)cb;
 
 @end

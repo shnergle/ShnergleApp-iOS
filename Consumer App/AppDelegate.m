@@ -103,7 +103,7 @@
     //[self.window makeKeyAndVisible];
 
     [GMSServices provideAPIKey:@"AIzaSyBep8BSlPxrxQwXqVUqsSSqpWGewZjOoy0"];
-    _app_secret = @"FCuf65iuOUDCjlbiyyer678Coutyc64v655478VGvgh76";
+    _appSecret = @"FCuf65iuOUDCjlbiyyer678Coutyc64v655478VGvgh76";
     return YES;
 }
 
@@ -147,34 +147,5 @@
     [FBSession.activeSession closeAndClearTokenInformation];
    }
  */
-
-- (void)postRequest:(NSString *)path params:(NSString *)params delegate:(id)object callback:(SEL)cb {
-    NSString *urlString = [NSString stringWithFormat:@"http://shnergle-api.azurewebsites.net/%@", path];
-    NSString *paramsString = [NSString stringWithFormat:@"app_secret=%@&%@", _app_secret, params];
-    NSURL *url = [[NSURL alloc] initWithString:urlString];
-    NSMutableURLRequest *urlRequest=[NSMutableURLRequest requestWithURL:url];
-    [urlRequest setHTTPMethod:@"POST"];
-    [urlRequest setHTTPBody:[paramsString dataUsingEncoding:NSISOLatin1StringEncoding]];
-    response = [[NSMutableData alloc] init];
-    responseObject = object;
-    responseCallback = cb;
-    if (![[NSURLConnection alloc] initWithRequest:urlRequest delegate:self])
-        NSLog(@"POST failed!");
-}
-
-- (void)connection:(NSURLConnection *)connection didReceiveData:(NSData *)data {
-    [response appendData:data];
-}
-
-- (void)connectionDidFinishLoading:(NSURLConnection *)connection {
-    NSString *responseString = [[NSString alloc] initWithData:response encoding:NSUTF8StringEncoding];
-    NSMethodSignature *methodSig = [[responseObject class] instanceMethodSignatureForSelector:responseCallback];
-    NSInvocation *invocation = [NSInvocation invocationWithMethodSignature:methodSig];
-    [invocation setSelector:responseCallback];
-    [invocation setArgument:&responseString atIndex:2];
-    [invocation setTarget:responseObject];
-    [invocation retainArguments];
-    [invocation invoke];
-}
 
 @end

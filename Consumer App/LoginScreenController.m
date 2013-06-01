@@ -9,7 +9,7 @@
 #import "LoginScreenController.h"
 #import "AppDelegate.h"
 #import "ViewController.h"
-//#import "AppDelegate.m"
+#import "PostRequest.h"
 
 @interface LoginScreenController ()
 
@@ -96,7 +96,7 @@
            NSError *error) {
              if (!error) {
                  appDelegate.fullName = [NSString stringWithFormat:@"%@ %@", user.first_name, user.last_name];
-                 appDelegate.facebook_id = user.id;
+                 appDelegate.facebookId = user.id;
                  appDelegate.email = [user objectForKey:@"email"];
                  NSMutableString *params = [[NSMutableString alloc] initWithString:@"facebook_id="];
                  [params appendString:user.id];
@@ -133,7 +133,7 @@
                  [params appendString:@"&age="];
                  [params appendString:[NSString stringWithFormat:@"%d", age]];
                  
-                 [appDelegate postRequest:@"users/set" params:params delegate:self callback:@selector(postResponse:)];
+                 [[[PostRequest alloc] init] exec:@"users/set" params:params delegate:self callback:@selector(postResponse:)];
 
                  UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"MainStoryboard" bundle:nil];
                  ViewController *vc = [storyboard instantiateViewControllerWithIdentifier:@"AroundMeSlidingViewController"];

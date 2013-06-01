@@ -150,6 +150,7 @@
 		80D6FF6D17219E4F008A3AFD /* PromotionDetailView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 80D6FF6C17219E4F008A3AFD /* PromotionDetailView.xib */; };
 		80ED0A13172ADACA00E3C749 /* liverpool2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 80ED0A12172ADACA00E3C749 /* liverpool2.jpg */; };
 		80ED0A15172ADAD600E3C749 /* mahiki.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 80ED0A14172ADAD600E3C749 /* mahiki.jpg */; };
+		CDB72C2E175A5F2B00018271 /* PostRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = CDB72C2D175A5F2B00018271 /* PostRequest.m */; };
 		EE0A80711733D97300792AE4 /* ProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EE0A806F1733D97300792AE4 /* ProfileViewController.m */; };
 		EE0A80721733D97300792AE4 /* ProfileViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = EE0A80701733D97300792AE4 /* ProfileViewController.xib */; };
 		EE3AFF8D170F11BF009BE96C /* MapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EE3AFF8C170F11BF009BE96C /* MapViewController.m */; };
@@ -372,6 +373,8 @@
 		80ED0A12172ADACA00E3C749 /* liverpool2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = liverpool2.jpg; sourceTree = "<group>"; };
 		80ED0A14172ADAD600E3C749 /* mahiki.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = mahiki.jpg; sourceTree = "<group>"; };
 		92FD2BD9498A41EEBBD26F82 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		CDB72C2C175A5F2B00018271 /* PostRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PostRequest.h; sourceTree = "<group>"; };
+		CDB72C2D175A5F2B00018271 /* PostRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PostRequest.m; sourceTree = "<group>"; };
 		EE0A806E1733D97300792AE4 /* ProfileViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProfileViewController.h; sourceTree = "<group>"; };
 		EE0A806F1733D97300792AE4 /* ProfileViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProfileViewController.m; sourceTree = "<group>"; };
 		EE0A80701733D97300792AE4 /* ProfileViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ProfileViewController.xib; sourceTree = "<group>"; };
@@ -622,6 +625,8 @@
 				EE8FF813172A9CFD0003A8E1 /* LoginScreenController.h */,
 				EE8FF814172A9CFD0003A8E1 /* LoginScreenController.m */,
 				808F13CF16FB6A5C00B66E6D /* Supporting Files */,
+				CDB72C2C175A5F2B00018271 /* PostRequest.h */,
+				CDB72C2D175A5F2B00018271 /* PostRequest.m */,
 			);
 			path = "Consumer App";
 			sourceTree = "<group>";
@@ -1064,6 +1069,7 @@
 				80B77D28173E938E00085A71 /* MenuViewController.m in Sources */,
 				EE0A80711733D97300792AE4 /* ProfileViewController.m in Sources */,
 				808330C11756620100C183B9 /* SearchBarView.m in Sources */,
+				CDB72C2E175A5F2B00018271 /* PostRequest.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

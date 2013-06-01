@@ -9,6 +9,7 @@
 #import "MenuViewController.h"
 #import "AppDelegate.h"
 #import "SearchBarView.h"
+#import "PostRequest.h"
 
 @interface MenuViewController ()
 
@@ -86,7 +87,7 @@
 
 - (IBAction)searchExited:(id)sender {
     AppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
-    NSString *params = [NSString stringWithFormat:@"term=%@&facebook_id=%@", _bar.text, appDelegate.facebook_id];
-    [appDelegate postRequest:@"user_searches/set" params:params delegate:self callback:@selector(postResponse:)];
+    NSString *params = [NSString stringWithFormat:@"term=%@&facebook_id=%@", _bar.text, appDelegate.facebookId];
+    [[[PostRequest alloc] init] exec:@"user_searches/set" params:params delegate:self callback:@selector(postResponse:)];
 }
 @end
