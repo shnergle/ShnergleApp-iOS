@@ -8,7 +8,6 @@
 
 #import "AppDelegate.h"
 #import "LoginScreenController.h"
-#import <objc/message.h>
 
 @implementation AppDelegate
 
