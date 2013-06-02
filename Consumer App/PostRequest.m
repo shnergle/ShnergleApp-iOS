@@ -8,7 +8,6 @@
 
 #import "PostRequest.h"
 #import "AppDelegate.h"
-#import <UIKit/UIImage.h>
 
 @implementation PostRequest
 
