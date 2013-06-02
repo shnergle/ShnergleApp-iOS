@@ -7,13 +7,12 @@
 //
 
 #import "ProfileViewController.h"
-#import <FacebookSDK/FacebookSDK.h>
 #import "AppDelegate.h"
 #import "ViewController.h"
 
 
 
-@interface ProfileViewController () <FBLoginViewDelegate>
+@interface ProfileViewController ()
 
 //@property (strong, nonatomic) FBProfilePictureView *profilePictureView;
 @property (strong, nonatomic) IBOutlet UILabel *lab;
