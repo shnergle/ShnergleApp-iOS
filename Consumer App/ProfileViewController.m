@@ -124,9 +124,7 @@
 {
     AppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
     [appDelegate.session closeAndClearTokenInformation];
-    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"MainStoryboard" bundle:nil];
-    ViewController *vc = [storyboard instantiateViewControllerWithIdentifier:@"LoginScreenController"];
-    [self.navigationController pushViewController:vc animated:YES];
+    [self.navigationController popToRootViewControllerAnimated:YES];
 }
 
 @end
