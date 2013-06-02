@@ -307,25 +307,8 @@
 		EE0A80701733D97300792AE4 /* ProfileViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ProfileViewController.xib; sourceTree = "<group>"; };
 		EE3AFF8B170F11BF009BE96C /* MapViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapViewController.h; sourceTree = "<group>"; };
 		EE3AFF8C170F11BF009BE96C /* MapViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MapViewController.m; sourceTree = "<group>"; };
-		EE7EC3E41704677B00EF152E /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
-		EE7EC3E61704678C00EF152E /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
-		EE7EC3E8170467A000EF152E /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
-		EE7EC3EA170467A900EF152E /* CoreText.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreText.framework; path = System/Library/Frameworks/CoreText.framework; sourceTree = SDKROOT; };
-		EE7EC3EC170467D200EF152E /* GLKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GLKit.framework; path = System/Library/Frameworks/GLKit.framework; sourceTree = SDKROOT; };
-		EE7EC3EE170467E300EF152E /* ImageIO.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ImageIO.framework; path = System/Library/Frameworks/ImageIO.framework; sourceTree = SDKROOT; };
-		EE7EC3F01704680B00EF152E /* libc++.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libc++.dylib"; path = "usr/lib/libc++.dylib"; sourceTree = SDKROOT; };
-		EE7EC3F21704682700EF152E /* libicucore.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libicucore.dylib; path = usr/lib/libicucore.dylib; sourceTree = SDKROOT; };
-		EE7EC3F41704685A00EF152E /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
-		EE7EC3F61704689100EF152E /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
-		EE7EC3F8170468AB00EF152E /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
-		EE7EC3FA170468B600EF152E /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		EE8FF813172A9CFD0003A8E1 /* LoginScreenController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginScreenController.h; sourceTree = "<group>"; };
 		EE8FF814172A9CFD0003A8E1 /* LoginScreenController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginScreenController.m; sourceTree = "<group>"; };
-		EE8FF81A172AA3960003A8E1 /* Accounts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accounts.framework; path = System/Library/Frameworks/Accounts.framework; sourceTree = SDKROOT; };
-		EE8FF81C172AA3B60003A8E1 /* AdSupport.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AdSupport.framework; path = System/Library/Frameworks/AdSupport.framework; sourceTree = SDKROOT; };
-		EE8FF81E172AA3CC0003A8E1 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
-		EE8FF820172AA3D60003A8E1 /* Social.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Social.framework; path = System/Library/Frameworks/Social.framework; sourceTree = SDKROOT; };
-		EE8FF822172AA3F90003A8E1 /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
 		EEBED179172AD78A00956220 /* fbloginview_logout.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = fbloginview_logout.png; sourceTree = "<group>"; };
 		EEFD65F91758A12B005F7F40 /* Screen Shot 2013-05-30 at 15.25.20.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Screen Shot 2013-05-30 at 15.25.20.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -420,23 +403,6 @@
 		808F13C716FB6A5C00B66E6D /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				EE8FF822172AA3F90003A8E1 /* libsqlite3.dylib */,
-				EE7EC3F41704685A00EF152E /* libz.dylib */,
-				EE7EC3F21704682700EF152E /* libicucore.dylib */,
-				EE7EC3F01704680B00EF152E /* libc++.dylib */,
-				EE8FF820172AA3D60003A8E1 /* Social.framework */,
-				EE8FF81E172AA3CC0003A8E1 /* Security.framework */,
-				EE8FF81C172AA3B60003A8E1 /* AdSupport.framework */,
-				EE8FF81A172AA3960003A8E1 /* Accounts.framework */,
-				EE7EC3FA170468B600EF152E /* SystemConfiguration.framework */,
-				EE7EC3F8170468AB00EF152E /* QuartzCore.framework */,
-				EE7EC3F61704689100EF152E /* OpenGLES.framework */,
-				EE7EC3EE170467E300EF152E /* ImageIO.framework */,
-				EE7EC3EC170467D200EF152E /* GLKit.framework */,
-				EE7EC3EA170467A900EF152E /* CoreText.framework */,
-				EE7EC3E8170467A000EF152E /* CoreLocation.framework */,
-				EE7EC3E61704678C00EF152E /* CoreData.framework */,
-				EE7EC3E41704677B00EF152E /* AVFoundation.framework */,
 				808F13C816FB6A5C00B66E6D /* UIKit.framework */,
 				808F13CA16FB6A5C00B66E6D /* Foundation.framework */,
 				808F13CC16FB6A5C00B66E6D /* CoreGraphics.framework */,
