@@ -1142,10 +1142,10 @@
                         <rect key="frame" x="0.0" y="64" width="320" height="504"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="Screen Shot 2013-04-19 at 09.52.50.png" translatesAutoresizingMaskIntoConstraints="NO" id="b5v-3N-voP">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" image="shnerglelogo.png" translatesAutoresizingMaskIntoConstraints="NO" id="b5v-3N-voP">
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="67" id="GUD-Tj-HDp"/>
                                     <constraint firstAttribute="width" constant="253" id="KTJ-DD-CYI"/>
+                                    <constraint firstAttribute="height" constant="78" id="nkT-at-22y"/>
                                 </constraints>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0Fe-ga-82h">
@@ -1169,8 +1169,8 @@
                         <color key="backgroundColor" red="0.94006614960000001" green="0.75330748179999996" blue="0.070588238540000001" alpha="1" colorSpace="deviceRGB"/>
                         <constraints>
                             <constraint firstItem="0Fe-ga-82h" firstAttribute="centerX" secondItem="b5v-3N-voP" secondAttribute="centerX" type="default" id="4we-wa-C1C"/>
-                            <constraint firstItem="b5v-3N-voP" firstAttribute="top" secondItem="pvJ-ME-z3b" secondAttribute="top" constant="123" id="6MD-W5-tYR"/>
                             <constraint firstAttribute="bottom" secondItem="0Fe-ga-82h" secondAttribute="bottom" constant="149" id="Cei-X8-wUc"/>
+                            <constraint firstItem="b5v-3N-voP" firstAttribute="top" secondItem="pvJ-ME-z3b" secondAttribute="top" constant="117" id="ZLd-EV-pTP"/>
                             <constraint firstItem="b5v-3N-voP" firstAttribute="leading" secondItem="pvJ-ME-z3b" secondAttribute="leading" constant="35" id="ioe-uz-Gts"/>
                         </constraints>
                     </view>
@@ -1185,7 +1185,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="Screen Shot 2013-04-19 at 09.52.50.png" width="196" height="53"/>
         <image name="Screen Shot 2013-05-30 at 15.25.20.png" width="320" height="549"/>
         <image name="arrowDown.png" width="42" height="42"/>
         <image name="facebook.png" width="196" height="40"/>
@@ -1193,6 +1192,7 @@
         <image name="mahiki.jpg" width="420" height="308"/>
         <image name="plusone.png" width="26" height="22"/>
         <image name="profileicon.png" width="54" height="38"/>
+        <image name="shnerglelogo.png" width="500" height="144"/>
         <image name="twitter.jpg" width="945" height="651"/>
     </resources>
     <classes>
@@ -1278,6 +1278,9 @@
         </class>
         <class className="UICollectionViewFlowLayout" superclassName="UICollectionViewLayout">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/UICollectionViewFlowLayout.h"/>
+        </class>
+        <class className="UICollectionViewLayout" superclassName="NSObject">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/UICollectionViewLayout.h"/>
         </class>
         <class className="VenueGalleryViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/VenueGalleryViewController.h"/>
