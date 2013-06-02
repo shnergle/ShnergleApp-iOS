@@ -8,10 +8,15 @@
 
 #import "PostRequest.h"
 #import "AppDelegate.h"
+#import <UIKit/UIImage.h>
 
 @implementation PostRequest
 
 - (void)exec:(NSString *)path params:(NSString *)params delegate:(id)object callback:(SEL)cb {
+    [self exec:path params:params delegate:object callback:cb type:@"string"];
+}
+
+- (void)exec:(NSString *)path params:(NSString *)params delegate:(id)object callback:(SEL)cb type:(NSString *)type {
     NSString *urlString = [NSString stringWithFormat:@"http://shnergle-api.azurewebsites.net/%@", path];
     AppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
     NSString *paramsString = [NSString stringWithFormat:@"app_secret=%@&%@", appDelegate.appSecret, params];
@@ -22,6 +27,7 @@
     response = [[NSMutableData alloc] init];
     responseObject = object;
     responseCallback = cb;
+    responseType = type;
     if (![[NSURLConnection alloc] initWithRequest:urlRequest delegate:self])
         NSLog(@"POST failed!");
 }
@@ -31,11 +37,15 @@
 }
 
 - (void)connectionDidFinishLoading:(NSURLConnection *)connection {
-    NSString *responseString = [[NSString alloc] initWithData:response encoding:NSUTF8StringEncoding];
+    id responseArg;
+    if ([responseType isEqual: @"image"])
+        responseArg = [UIImage imageWithData:response];
+    else
+        responseArg = [[NSString alloc] initWithData:response encoding:NSUTF8StringEncoding];
     NSMethodSignature *methodSig = [[responseObject class] instanceMethodSignatureForSelector:responseCallback];
     NSInvocation *invocation = [NSInvocation invocationWithMethodSignature:methodSig];
     [invocation setSelector:responseCallback];
-    [invocation setArgument:&responseString atIndex:2];
+    [invocation setArgument:&responseArg atIndex:2];
     [invocation setTarget:responseObject];
     [invocation retainArguments];
     [invocation invoke];

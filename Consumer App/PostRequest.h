@@ -12,8 +12,11 @@
     NSMutableData *response;
     id responseObject;
     SEL responseCallback;
+    NSString *responseType;
 }
 
 - (void)exec:(NSString *)path params:(NSString *)params delegate:(id)object callback:(SEL)cb;
+
+- (void)exec:(NSString *)path params:(NSString *)params delegate:(id)object callback:(SEL)cb type:(NSString *)type;
 
 @end
