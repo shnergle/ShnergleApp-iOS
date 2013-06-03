@@ -24,12 +24,20 @@
     return self;
 }
 
+-(void)viewWillAppear:(BOOL)animated
+{
+    [[self navigationController] setNavigationBarHidden:TRUE];
+
+}
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
 
+    [self.buttonLoginLogout setBackgroundImage:[UIImage imageNamed:@"login-button-small.png"] forState:UIControlStateNormal];
+    [self.buttonLoginLogout setBackgroundImage:[UIImage imageNamed:@"login-button-small-pressed.png"] forState:UIControlStateHighlighted];
+    
     [self updateView];
 
     //HideNavBar
@@ -73,7 +81,7 @@
     //UIImage *image2 = [UIImage imageNamed: @"fbloginview_logout.png"];
     if (appDelegate.session.isOpen) {
         // valid account UI is shown whenever the session is open
-        self.buttonLoginLogout.enabled = NO;
+        self.buttonLoginLogout.hidden = YES;
         //[self.buttonLoginLogout setImage:image2 forState:UIControlStateNormal];
 
 
@@ -138,7 +146,7 @@
     } else {
         // login-needed account UI is shown whenever the session is closed
         //[self.buttonLoginLogout setImage:image forState:UIControlStateNormal];
-        [self.buttonLoginLogout setEnabled:FALSE];
+        //[self.buttonLoginLogout setEnabled:FALSE];
         //[self.textNoteOrLink setText:@"Login to create a link to fetch account data"];
     }
 
