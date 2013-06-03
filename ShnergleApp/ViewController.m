@@ -308,6 +308,8 @@
     [self.slidingViewController anchorTopViewTo:ECRight];
     crowdImagesHidden=NO;
     dropDownHidden=YES;
+    [self drawerButtonImage:@"arrowDown.png"];
+
 
 }
 
