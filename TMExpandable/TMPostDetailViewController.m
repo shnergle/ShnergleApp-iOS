@@ -27,10 +27,6 @@
 
 #import "TMPostDetailViewController.h"
 
-@interface TMPostDetailViewController ()
-
-@end
-
 @implementation TMPostDetailViewController
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil

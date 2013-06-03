@@ -17,6 +17,12 @@ NSInteger selectedVenueIndex;
 
 
 @interface ViewController : UIViewController<UICollectionViewDataSource, UICollectionViewDelegate,GMSMapViewDelegate> {
+    NSArray *venueNames;
+    NSArray *images;
+    NSInteger selectedVenue;
+    Boolean crowdImagesHidden;
+    Boolean dropDownHidden;
+    Boolean hasPositionLocked;
 
 }
 //@property (weak, nonatomic) IBOutlet UIImageView *dropDownIndicator;

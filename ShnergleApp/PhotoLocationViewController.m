@@ -8,10 +8,6 @@
 
 #import "PhotoLocationViewController.h"
 
-@interface PhotoLocationViewController ()
-
-@end
-
 @implementation PhotoLocationViewController
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil

@@ -12,7 +12,13 @@
 #import <QuartzCore/QuartzCore.h>
 
 
-@interface FavouritesViewController : UIViewController
+@interface FavouritesViewController : UIViewController{
+    NSArray *venueNames;
+    NSArray *images;
+    NSInteger selectedVenue;
+    Boolean crowdImagesHidden;
+    Boolean dropDownHidden;
+}
 
 - (IBAction)tapTitle:(id)sender;
 @property (weak, nonatomic) IBOutlet DropDownMenu *dropDownMenu;

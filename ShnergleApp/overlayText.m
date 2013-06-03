@@ -14,9 +14,6 @@
 #define TABBAR_HEIGHT (45)
 
 @implementation overlayText
-{
-
-}
 
 - (id)initWithFrame:(CGRect)frame
 {

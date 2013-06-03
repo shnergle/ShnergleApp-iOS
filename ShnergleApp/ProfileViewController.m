@@ -10,16 +10,6 @@
 #import "AppDelegate.h"
 #import "ViewController.h"
 
-
-
-@interface ProfileViewController ()
-
-//@property (strong, nonatomic) FBProfilePictureView *profilePictureView;
-@property (strong, nonatomic) IBOutlet UILabel *lab;
-
-
-@end
-
 @implementation ProfileViewController
 
 

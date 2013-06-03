@@ -11,25 +11,6 @@
 #import "PromotionView.h"
 #import "PromotionDetailView.h"
 
-@interface VenueViewController ()
-{
-    NSArray *venueNames;
-    NSArray *images;
-    NSInteger selectedVenue;
-    NSString *promotionTitle;
-    NSString *promotionBody;
-    NSString *promotionExpiry;
-
-    BOOL textViewOpen;
-
-    //Scrollhide
-    CGFloat startContentOffset;
-    CGFloat lastContentOffset;
-    BOOL hidden;
-}
-
-@end
-
 @implementation VenueViewController
 
 

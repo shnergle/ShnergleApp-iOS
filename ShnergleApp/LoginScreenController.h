@@ -10,5 +10,13 @@
 
 @interface LoginScreenController : UIViewController
 
+@property (strong, nonatomic) IBOutlet UIButton *buttonLoginLogout;
+//@property (strong, nonatomic) IBOutlet UITextView *textNoteOrLink;
+
+@property (strong, nonatomic) NSMutableData *response;
+
+- (IBAction)buttonClickHandler:(id)sender;
+- (void)updateView;
+
 @end
 

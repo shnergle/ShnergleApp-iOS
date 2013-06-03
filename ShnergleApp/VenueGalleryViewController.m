@@ -8,11 +8,6 @@
 
 #import "VenueGalleryViewController.h"
 
-@interface VenueGalleryViewController ()
-
-@end
-
-
 @implementation VenueGalleryViewController
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil

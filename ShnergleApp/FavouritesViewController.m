@@ -9,15 +9,6 @@
 #import "FavouritesViewController.h"
 #import "ViewController.h"
 #import "CrowdItem.h"
-@interface FavouritesViewController ()
-{
-    NSArray *venueNames;
-    NSArray *images;
-    NSInteger selectedVenue;
-    Boolean crowdImagesHidden;
-    Boolean dropDownHidden;
-}
-@end
 
 @implementation FavouritesViewController
 

@@ -12,19 +12,6 @@
 #import "CoreLocation/CoreLocation.h"
 #import "MenuViewController.h"
 
-@interface ViewController ()
-{
-    NSArray *venueNames;
-    NSArray *images;
-    NSInteger selectedVenue;
-    Boolean crowdImagesHidden;
-    Boolean dropDownHidden;
-    Boolean hasPositionLocked;
-}
-
-
-@end
-
 @implementation ViewController
 
 
