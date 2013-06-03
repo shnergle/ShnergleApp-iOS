@@ -9,8 +9,8 @@
 #import <UIKit/UIKit.h>
 
 @interface VenueGalleryViewController : UIViewController
-@property (weak, nonatomic) IBOutlet UIScrollView *imageScrollView;
 @property (weak, nonatomic) IBOutlet UIPageControl *imagePageControl;
+@property (weak, nonatomic) IBOutlet UIScrollView *imageScrollView;
 
 
 - (UIBarButtonItem *)createLeftBarButton:(NSString *)imageName actionSelector:(SEL)actionSelector;
