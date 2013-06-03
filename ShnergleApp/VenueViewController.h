@@ -9,7 +9,6 @@
 #import <UIKit/UIKit.h>
 #import "ViewController.h"
 #import "OverlayText.h"
-#import "TransitionViewController.h"
 
 @interface VenueViewController : ViewController {
     NSString *promotionTitle;

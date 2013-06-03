@@ -24,17 +24,28 @@
     return self;
 }
 
+-(void)viewWillAppear:(BOOL)animated
+{
+    [[self navigationController] setNavigationBarHidden:TRUE];
+    self.buttonLoginLogout.hidden = NO;
+}
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
 
+    [self.buttonLoginLogout setBackgroundImage:[UIImage imageNamed:@"login-button-small.png"] forState:UIControlStateNormal];
+    [self.buttonLoginLogout setBackgroundImage:[UIImage imageNamed:@"login-button-small-pressed.png"] forState:UIControlStateHighlighted];
+    
     [self updateView];
 
+    //HideNavBar
+    [[self navigationController] setNavigationBarHidden:TRUE];
     //[self colouriseNavBar];
     AppDelegate *appDelegate = [[UIApplication sharedApplication]delegate];
     if (!appDelegate.session.isOpen) {
+        self.buttonLoginLogout.hidden = YES;
         // create a fresh session object
         appDelegate.session = [[FBSession alloc] initWithPermissions:[NSArray arrayWithObjects:@"email", @"user_birthday", nil]];
 
@@ -67,12 +78,12 @@
 - (void)updateView {
     // get the app delegate, so that we can reference the session property
     AppDelegate *appDelegate = [[UIApplication sharedApplication]delegate];
-    UIImage *image = [UIImage imageNamed: @"fb-login-button.png"];
-    UIImage *image2 = [UIImage imageNamed: @"fbloginview_logout.png"];
+    //UIImage *image = [UIImage imageNamed: @"fb-login-button.png"];
+    //UIImage *image2 = [UIImage imageNamed: @"fbloginview_logout.png"];
     if (appDelegate.session.isOpen) {
         // valid account UI is shown whenever the session is open
-        self.buttonLoginLogout.enabled = NO;
-        [self.buttonLoginLogout setImage:image2 forState:UIControlStateNormal];
+        self.buttonLoginLogout.hidden = YES;
+        //[self.buttonLoginLogout setImage:image2 forState:UIControlStateNormal];
 
 
         //login on server
@@ -123,19 +134,20 @@
 
                  UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"MainStoryboard" bundle:nil];
                  ViewController *vc = [storyboard instantiateViewControllerWithIdentifier:@"AroundMeSlidingViewController"];
-                 self.buttonLoginLogout.enabled = YES;
                  [self.navigationController pushViewController:vc animated:YES];
              } else {
                  NSLog(@"FUCKING FACEBOOK");
-                 self.buttonLoginLogout.enabled = YES;
+
+                 self.buttonLoginLogout.hidden = NO;
              }
          }];
 
         /*[self.textNoteOrLink setText:[NSString stringWithFormat:@"https://graph.facebook.com/me/friends?access_token=%@",
            appDelegate.session.accessTokenData.accessToken]];*/
     } else {
+        self.buttonLoginLogout.hidden = NO;
         // login-needed account UI is shown whenever the session is closed
-        [self.buttonLoginLogout setImage:image forState:UIControlStateNormal];
+        //[self.buttonLoginLogout setImage:image forState:UIControlStateNormal];
         //[self.textNoteOrLink setText:@"Login to create a link to fetch account data"];
     }
 

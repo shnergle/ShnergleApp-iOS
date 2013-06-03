@@ -25,7 +25,7 @@
     self = [super initWithFrame:frame];
 
     if (self) {
-
+        isUp = NO;
     }
     return self;
 }
@@ -57,6 +57,7 @@
     CGFloat screenHeight = screenRect.size.height;
 
     [self hideAnimated:self.frame.origin.y animationDuration:0.5 targetSize:screenHeight-160 contentView:self];
+    isUp = NO;
 
 }
 
@@ -64,11 +65,18 @@
 
     //[self setTabBarHidden:true animated:true];
     NSLog(@"SwipeUP");
-
+    
     [self showAnimated:50 animationDelay:0.2 animationDuration:0.5];
+    isUp = YES;
 
 }
 
+- (IBAction)tap:(id)sender {
+    if (isUp)
+        [self swipeDown:sender];
+    else
+        [self swipeUp:sender];
+}
 
 
 

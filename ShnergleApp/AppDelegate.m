@@ -102,7 +102,7 @@
     //[self.window addSubview: [Controller view]];
     //[self.window makeKeyAndVisible];
 
-    [GMSServices provideAPIKey:@"AIzaSyBep8BSlPxrxQwXqVUqsSSqpWGewZjOoy0"];
+    [GMSServices provideAPIKey:@"AIzaSyBiJeQvT0FUQdGPMbOR8DFGdVbEtHMJe7c"];
     _appSecret = @"FCuf65iuOUDCjlbiyyer678Coutyc64v655478VGvgh76";
     return YES;
 }
