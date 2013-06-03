@@ -954,7 +954,6 @@
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                                         <constraints>
                                             <constraint firstItem="mc9-vJ-eG8" firstAttribute="leading" secondItem="gJ1-F0-r4G" secondAttribute="leading" type="default" id="16s-2h-2EA"/>
-                                            <constraint firstItem="O35-G2-0P4" firstAttribute="top" secondItem="X6T-vE-tC0" secondAttribute="top" type="default" id="1Ye-7k-mZF"/>
                                             <constraint firstItem="p0E-5Q-yIK" firstAttribute="centerY" secondItem="lQw-dO-qoQ" secondAttribute="centerY" type="default" id="4fm-ge-BFD"/>
                                             <constraint firstItem="wCf-21-3l1" firstAttribute="bottom" secondItem="84I-3t-Sf0" secondAttribute="bottom" type="default" id="7zb-14-U2w"/>
                                             <constraint firstAttribute="trailing" secondItem="wCf-21-3l1" secondAttribute="trailing" constant="9" id="85U-uL-CVZ"/>
@@ -976,7 +975,6 @@
                                             <constraint firstItem="O35-G2-0P4" firstAttribute="baseline" secondItem="X6T-vE-tC0" secondAttribute="baseline" type="default" id="eiU-j7-QnQ"/>
                                             <constraint firstAttribute="bottom" secondItem="zN9-Dk-DAR" secondAttribute="bottom" constant="3" id="gRO-t6-kDZ"/>
                                             <constraint firstItem="zN9-Dk-DAR" firstAttribute="trailing" secondItem="5i0-JZ-HpY" secondAttribute="trailing" type="default" id="gi5-JF-zCo"/>
-                                            <constraint firstItem="wCf-21-3l1" firstAttribute="centerY" secondItem="X6T-vE-tC0" secondAttribute="centerY" type="default" id="goN-Ub-uzf"/>
                                             <constraint firstItem="gJ1-F0-r4G" firstAttribute="centerY" secondItem="5i0-JZ-HpY" secondAttribute="centerY" type="default" id="jQW-kX-x8j"/>
                                             <constraint firstAttribute="bottom" secondItem="5i0-JZ-HpY" secondAttribute="bottom" constant="46" id="l8c-MB-UIJ"/>
                                             <constraint firstItem="f4K-tX-UWy" firstAttribute="leading" secondItem="G5B-44-FjK" secondAttribute="leading" type="default" id="ldq-6C-m7O"/>
@@ -1471,134 +1469,6 @@
         <image name="shnerglelogo_splash_screen.png" width="600" height="172"/>
         <image name="twitter.jpg" width="945" height="651"/>
     </resources>
-    <classes>
-        <class className="AroundMeSlidingViewController" superclassName="ECSlidingViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/AroundMeSlidingViewController.h"/>
-        </class>
-        <class className="CheckInViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/CheckInViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="ChooseExisting"/>
-                <relationship kind="action" name="TakePhoto"/>
-                <relationship kind="outlet" name="imageView" candidateClass="UIImageView"/>
-            </relationships>
-        </class>
-        <class className="CrowdItem" superclassName="UICollectionViewCell">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/CrowdItem.h"/>
-            <relationships>
-                <relationship kind="outlet" name="crowdImage" candidateClass="UIImageView"/>
-                <relationship kind="outlet" name="venueName" candidateClass="UILabel"/>
-            </relationships>
-        </class>
-        <class className="DropDownMenu" superclassName="UIView">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/DropDownMenu.h"/>
-        </class>
-        <class className="ECSlidingViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/ECSlidingViewController.h"/>
-        </class>
-        <class className="FavouritesViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/FavouritesViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="tapTitle:"/>
-                <relationship kind="outlet" name="crowdCollection" candidateClass="UICollectionView"/>
-                <relationship kind="outlet" name="dropDownMenu" candidateClass="DropDownMenu"/>
-                <relationship kind="outlet" name="overlay" candidateClass="OverlayText"/>
-            </relationships>
-        </class>
-        <class className="GMSMapView" superclassName="UIView">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/GMSMapView.h"/>
-        </class>
-        <class className="LoginScreenController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/LoginScreenController.h"/>
-            <relationships>
-                <relationship kind="action" name="buttonClickHandler:"/>
-                <relationship kind="outlet" name="buttonLoginLogout" candidateClass="UIButton"/>
-            </relationships>
-        </class>
-        <class className="MenuViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/MenuViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="searchExited:"/>
-                <relationship kind="action" name="tapProfile:"/>
-                <relationship kind="outlet" name="bar" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="nameLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="searchBar" candidateClass="SearchBarView"/>
-            </relationships>
-        </class>
-        <class className="NSLayoutConstraint" superclassName="NSObject">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/NSLayoutConstraint.h"/>
-        </class>
-        <class className="OverlayText" superclassName="UIView">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/OverlayText.h"/>
-            <relationships>
-                <relationship kind="action" name="swipeDown:"/>
-                <relationship kind="action" name="swipeUp:"/>
-                <relationship kind="action" name="tapPromotion:"/>
-                <relationship kind="outlet" name="offerContents" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="offerCount" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="offerHeadline" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="venueMap" candidateClass="GMSMapView"/>
-            </relationships>
-        </class>
-        <class className="PhotoLocationViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/PhotoLocationViewController.h"/>
-            <relationships>
-                <relationship kind="outlet" name="headline" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="searchBar" candidateClass="UISearchBar"/>
-                <relationship kind="outlet" name="searchResultTable" candidateClass="UITableView"/>
-            </relationships>
-        </class>
-        <class className="ProfileViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/ProfileViewController.h"/>
-            <relationships>
-                <relationship kind="outlet" name="authButton" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="lab" candidateClass="UILabel"/>
-            </relationships>
-        </class>
-        <class className="SearchBarView" superclassName="UIView">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/SearchBarView.h"/>
-        </class>
-        <class className="UICollectionReusableView" superclassName="UIView">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/UICollectionReusableView.h"/>
-        </class>
-        <class className="UICollectionViewCell" superclassName="UICollectionReusableView">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/UICollectionViewCell.h"/>
-        </class>
-        <class className="UICollectionViewFlowLayout" superclassName="UICollectionViewLayout">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/UICollectionViewFlowLayout.h"/>
-        </class>
-        <class className="VenueGalleryViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/VenueGalleryViewController.h"/>
-            <relationships>
-                <relationship kind="outlet" name="imagePageControl" candidateClass="UIPageControl"/>
-                <relationship kind="outlet" name="imageScrollView" candidateClass="UIScrollView"/>
-            </relationships>
-        </class>
-        <class className="VenueViewController" superclassName="ViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/VenueViewController.h"/>
-            <relationships>
-                <relationship kind="outlet" name="checkInButton" candidateClass="UIBarButtonItem"/>
-                <relationship kind="outlet" name="crowdCollectionV" candidateClass="UICollectionView"/>
-                <relationship kind="outlet" name="overlayView" candidateClass="OverlayText"/>
-            </relationships>
-        </class>
-        <class className="ViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/ViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="tapArrow:"/>
-                <relationship kind="action" name="tapMap:"/>
-                <relationship kind="action" name="tapMenu:"/>
-                <relationship kind="outlet" name="checkInButton" candidateClass="UIBarButtonItem"/>
-                <relationship kind="outlet" name="crowdCollection" candidateClass="UICollectionView"/>
-                <relationship kind="outlet" name="distanceScrollerView" candidateClass="OverlayText"/>
-                <relationship kind="outlet" name="drawerCloseButton" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="mapView" candidateClass="GMSMapView"/>
-                <relationship kind="outlet" name="navBar" candidateClass="UINavigationBar"/>
-                <relationship kind="outlet" name="navBarMenuItem" candidateClass="UINavigationItem"/>
-                <relationship kind="outlet" name="overlay" candidateClass="OverlayText"/>
-            </relationships>
-        </class>
-    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>

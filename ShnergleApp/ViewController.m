@@ -8,7 +8,6 @@
 
 #import "ViewController.h"
 #import "CrowdItem.h"
-#import <GoogleMaps/GoogleMaps.h>
 #import "CoreLocation/CoreLocation.h"
 #import "MenuViewController.h"
 
@@ -79,8 +78,8 @@
     [self toolbarDecorations];
     
     //CROWD stuff
-    [[self crowdCollection]setDataSource:self];
-    [[self crowdCollection]setDelegate:self];
+    [[self crowdCollection] setDataSource:self];
+    [[self crowdCollection] setDelegate:self];
     //[self createTitleButton];
     images = [[NSArray alloc] initWithObjects:@"liverpool.JPG", @"liverpool2.jpg", @"mahiki.jpg", @"liverpool.JPG", @"liverpool2.jpg", @"mahiki.jpg", @"liverpool.JPG", @"liverpool2.jpg", @"mahiki.jpg", nil];
     venueNames = [[NSArray alloc] initWithObjects:@"liverpool street station", @"liverpool street station", @"mahiki", @"liverpool street station", @"liverpool street station", @"mahiki", @"liverpool street station", @"liverpool street station", @"mahiki", nil];
@@ -173,9 +172,9 @@
      */
     /* Here we can set the elements of the crowdItem (the cell) in the cellview */
     
-    [[item crowdImage]setImage:[UIImage imageNamed:[images objectAtIndex:indexPath.item]]];
+    [[item crowdImage] setImage:[UIImage imageNamed:[images objectAtIndex:indexPath.item]]];
     
-    [[item venueName]setText:[venueNames objectAtIndex:indexPath.item]];
+    [[item venueName] setText:[venueNames objectAtIndex:indexPath.item]];
     
     item.venueName.font = [UIFont fontWithName:@"Roboto" size:11.0f];
     
