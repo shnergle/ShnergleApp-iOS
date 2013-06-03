@@ -27,7 +27,7 @@
 -(void)viewWillAppear:(BOOL)animated
 {
     [[self navigationController] setNavigationBarHidden:TRUE];
-
+    self.buttonLoginLogout.hidden = NO;
 }
 
 - (void)viewDidLoad
@@ -134,11 +134,10 @@
 
                  UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"MainStoryboard" bundle:nil];
                  ViewController *vc = [storyboard instantiateViewControllerWithIdentifier:@"AroundMeSlidingViewController"];
-                 self.buttonLoginLogout.enabled = YES;
                  [self.navigationController pushViewController:vc animated:YES];
              } else {
                  NSLog(@"FUCKING FACEBOOK");
-                 self.buttonLoginLogout.enabled = YES;
+
                  self.buttonLoginLogout.hidden = NO;
              }
          }];
@@ -149,7 +148,6 @@
         self.buttonLoginLogout.hidden = NO;
         // login-needed account UI is shown whenever the session is closed
         //[self.buttonLoginLogout setImage:image forState:UIControlStateNormal];
-        //[self.buttonLoginLogout setEnabled:FALSE];
         //[self.textNoteOrLink setText:@"Login to create a link to fetch account data"];
     }
 
