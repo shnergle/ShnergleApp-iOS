@@ -98,7 +98,6 @@
 		80B401181754F2D700A377D9 /* comment.png in Resources */ = {isa = PBXBuildFile; fileRef = 80B401171754F2D500A377D9 /* comment.png */; };
 		80B77D23173E8FCB00085A71 /* AroundMeSlidingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 80B77D22173E8FCB00085A71 /* AroundMeSlidingViewController.m */; };
 		80B77D28173E938E00085A71 /* MenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 80B77D26173E938E00085A71 /* MenuViewController.m */; };
-		80B957BA16FB7A910044A505 /* CrowdItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 80B957B916FB7A910044A505 /* CrowdItem.m */; };
 		80B957D116FBB74F0044A505 /* CheckInViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 80B957D016FBB74F0044A505 /* CheckInViewController.m */; };
 		80B957D616FC65F90044A505 /* VenueViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 80B957D516FC65F90044A505 /* VenueViewController.m */; };
 		80D6FF521720303D008A3AFD /* photoScroll_dummy.png in Resources */ = {isa = PBXBuildFile; fileRef = 80D6FF501720303D008A3AFD /* photoScroll_dummy.png */; };
@@ -112,6 +111,7 @@
 		80ED0A13172ADACA00E3C749 /* liverpool2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 80ED0A12172ADACA00E3C749 /* liverpool2.jpg */; };
 		80ED0A15172ADAD600E3C749 /* mahiki.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 80ED0A14172ADAD600E3C749 /* mahiki.jpg */; };
 		CD098C9F175BD15900EE3398 /* fb-login-button.png in Resources */ = {isa = PBXBuildFile; fileRef = CD098C9E175BD15900EE3398 /* fb-login-button.png */; };
+		CD3B655D175CBA72006A4151 /* CrowdItem.m in Sources */ = {isa = PBXBuildFile; fileRef = CD3B655C175CBA72006A4151 /* CrowdItem.m */; };
 		CD7C1B10175B424400902AA9 /* ImageCache.m in Sources */ = {isa = PBXBuildFile; fileRef = CD7C1B0F175B424400902AA9 /* ImageCache.m */; };
 		CDB72C2E175A5F2B00018271 /* PostRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = CDB72C2D175A5F2B00018271 /* PostRequest.m */; };
 		CDD09AAB175B93C3006CE935 /* shnerglelogo.png in Resources */ = {isa = PBXBuildFile; fileRef = CDD09AAA175B93C3006CE935 /* shnerglelogo.png */; };
@@ -246,7 +246,6 @@
 		80B77D25173E938E00085A71 /* MenuViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MenuViewController.h; sourceTree = "<group>"; };
 		80B77D26173E938E00085A71 /* MenuViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MenuViewController.m; sourceTree = "<group>"; };
 		80B957B816FB7A910044A505 /* CrowdItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CrowdItem.h; sourceTree = "<group>"; };
-		80B957B916FB7A910044A505 /* CrowdItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CrowdItem.m; sourceTree = "<group>"; };
 		80B957CF16FBB74F0044A505 /* CheckInViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CheckInViewController.h; sourceTree = "<group>"; };
 		80B957D016FBB74F0044A505 /* CheckInViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CheckInViewController.m; sourceTree = "<group>"; };
 		80B957D416FC65F90044A505 /* VenueViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VenueViewController.h; sourceTree = "<group>"; };
@@ -267,6 +266,7 @@
 		80ED0A14172ADAD600E3C749 /* mahiki.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = mahiki.jpg; sourceTree = "<group>"; };
 		92FD2BD9498A41EEBBD26F82 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		CD098C9E175BD15900EE3398 /* fb-login-button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "fb-login-button.png"; sourceTree = "<group>"; };
+		CD3B655C175CBA72006A4151 /* CrowdItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CrowdItem.m; sourceTree = "<group>"; };
 		CD7C1B0E175B424400902AA9 /* ImageCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageCache.h; sourceTree = "<group>"; };
 		CD7C1B0F175B424400902AA9 /* ImageCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageCache.m; sourceTree = "<group>"; };
 		CDB72C2C175A5F2B00018271 /* PostRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PostRequest.h; sourceTree = "<group>"; };
@@ -378,36 +378,20 @@
 			children = (
 				808F13D716FB6A5C00B66E6D /* AppDelegate.h */,
 				808F13D816FB6A5C00B66E6D /* AppDelegate.m */,
-				80B77D21173E8FCB00085A71 /* AroundMeSlidingViewController.h */,
-				80B77D22173E8FCB00085A71 /* AroundMeSlidingViewController.m */,
-				80B957CF16FBB74F0044A505 /* CheckInViewController.h */,
-				80B957D016FBB74F0044A505 /* CheckInViewController.m */,
+				CD3B655B175CBA22006A4151 /* Around Me */,
+				CD3B655E175CBB0E006A4151 /* Check In */,
 				80B957B816FB7A910044A505 /* CrowdItem.h */,
-				80B957B916FB7A910044A505 /* CrowdItem.m */,
-				808CA3081736856900932A27 /* FavouritesViewController.h */,
-				808CA3091736856900932A27 /* FavouritesViewController.m */,
-				EE8FF813172A9CFD0003A8E1 /* LoginScreenController.h */,
-				EE8FF814172A9CFD0003A8E1 /* LoginScreenController.m */,
+				CD3B655C175CBA72006A4151 /* CrowdItem.m */,
+				CD3B6561175CBB44006A4151 /* Favourites */,
+				CD3B6560175CBB3A006A4151 /* Login */,
 				808F13E016FB6A5C00B66E6D /* MainStoryboard.storyboard */,
-				EE3AFF8B170F11BF009BE96C /* MapViewController.h */,
-				EE3AFF8C170F11BF009BE96C /* MapViewController.m */,
-				80B77D25173E938E00085A71 /* MenuViewController.h */,
-				80B77D26173E938E00085A71 /* MenuViewController.m */,
-				805CE6CE16FCBDC9002445C3 /* PhotoLocationViewController.h */,
-				805CE6CF16FCBDC9002445C3 /* PhotoLocationViewController.m */,
-				EE0A806E1733D97300792AE4 /* ProfileViewController.h */,
-				EE0A806F1733D97300792AE4 /* ProfileViewController.m */,
-				EE0A80701733D97300792AE4 /* ProfileViewController.xib */,
-				808330BC17565F9F00C183B9 /* SearchBar.xib */,
-				808330BF1756620000C183B9 /* SearchBarView.h */,
-				808330C01756620000C183B9 /* SearchBarView.m */,
+				CD3B655A175CB94A006A4151 /* Menu */,
+				CD3B655F175CBB29006A4151 /* Profile */,
 				CD3B6559175C9F19006A4151 /* Server */,
 				80D6FF58172159D3008A3AFD /* StoryboardLayersNavigation.h */,
 				80D6FF59172159D3008A3AFD /* StoryboardLayersNavigation.m */,
 				808F13CF16FB6A5C00B66E6D /* Supporting Files */,
 				80D6FF6817219B4E008A3AFD /* Venue and Promotions */,
-				808F13E316FB6A5C00B66E6D /* ViewController.h */,
-				808F13E416FB6A5C00B66E6D /* ViewController.m */,
 			);
 			path = ShnergleApp;
 			sourceTree = "<group>";
@@ -549,6 +533,70 @@
 				CDB72C2D175A5F2B00018271 /* PostRequest.m */,
 			);
 			name = Server;
+			sourceTree = "<group>";
+		};
+		CD3B655A175CB94A006A4151 /* Menu */ = {
+			isa = PBXGroup;
+			children = (
+				80B77D25173E938E00085A71 /* MenuViewController.h */,
+				80B77D26173E938E00085A71 /* MenuViewController.m */,
+				808330BC17565F9F00C183B9 /* SearchBar.xib */,
+				808330BF1756620000C183B9 /* SearchBarView.h */,
+				808330C01756620000C183B9 /* SearchBarView.m */,
+			);
+			name = Menu;
+			sourceTree = "<group>";
+		};
+		CD3B655B175CBA22006A4151 /* Around Me */ = {
+			isa = PBXGroup;
+			children = (
+				80B77D21173E8FCB00085A71 /* AroundMeSlidingViewController.h */,
+				80B77D22173E8FCB00085A71 /* AroundMeSlidingViewController.m */,
+				EE3AFF8B170F11BF009BE96C /* MapViewController.h */,
+				EE3AFF8C170F11BF009BE96C /* MapViewController.m */,
+				808F13E316FB6A5C00B66E6D /* ViewController.h */,
+				808F13E416FB6A5C00B66E6D /* ViewController.m */,
+			);
+			name = "Around Me";
+			sourceTree = "<group>";
+		};
+		CD3B655E175CBB0E006A4151 /* Check In */ = {
+			isa = PBXGroup;
+			children = (
+				80B957CF16FBB74F0044A505 /* CheckInViewController.h */,
+				80B957D016FBB74F0044A505 /* CheckInViewController.m */,
+				805CE6CE16FCBDC9002445C3 /* PhotoLocationViewController.h */,
+				805CE6CF16FCBDC9002445C3 /* PhotoLocationViewController.m */,
+			);
+			name = "Check In";
+			sourceTree = "<group>";
+		};
+		CD3B655F175CBB29006A4151 /* Profile */ = {
+			isa = PBXGroup;
+			children = (
+				EE0A806E1733D97300792AE4 /* ProfileViewController.h */,
+				EE0A806F1733D97300792AE4 /* ProfileViewController.m */,
+				EE0A80701733D97300792AE4 /* ProfileViewController.xib */,
+			);
+			name = Profile;
+			sourceTree = "<group>";
+		};
+		CD3B6560175CBB3A006A4151 /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				EE8FF813172A9CFD0003A8E1 /* LoginScreenController.h */,
+				EE8FF814172A9CFD0003A8E1 /* LoginScreenController.m */,
+			);
+			name = Login;
+			sourceTree = "<group>";
+		};
+		CD3B6561175CBB44006A4151 /* Favourites */ = {
+			isa = PBXGroup;
+			children = (
+				808CA3081736856900932A27 /* FavouritesViewController.h */,
+				808CA3091736856900932A27 /* FavouritesViewController.m */,
+			);
+			name = Favourites;
 			sourceTree = "<group>";
 		};
 		CDECAD66175C974100851C1F /* App Images */ = {
@@ -791,7 +839,6 @@
 				808F13D516FB6A5C00B66E6D /* main.m in Sources */,
 				808F13D916FB6A5C00B66E6D /* AppDelegate.m in Sources */,
 				808F13E516FB6A5C00B66E6D /* ViewController.m in Sources */,
-				80B957BA16FB7A910044A505 /* CrowdItem.m in Sources */,
 				80B957D116FBB74F0044A505 /* CheckInViewController.m in Sources */,
 				80B957D616FC65F90044A505 /* VenueViewController.m in Sources */,
 				805CE6D016FCBDC9002445C3 /* PhotoLocationViewController.m in Sources */,
@@ -811,6 +858,7 @@
 				808330C11756620100C183B9 /* SearchBarView.m in Sources */,
 				CDB72C2E175A5F2B00018271 /* PostRequest.m in Sources */,
 				CD7C1B10175B424400902AA9 /* ImageCache.m in Sources */,
+				CD3B655D175CBA72006A4151 /* CrowdItem.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
