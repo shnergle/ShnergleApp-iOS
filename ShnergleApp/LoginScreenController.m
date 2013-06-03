@@ -27,7 +27,7 @@
 -(void)viewWillAppear:(BOOL)animated
 {
     [[self navigationController] setNavigationBarHidden:TRUE];
-
+    self.buttonLoginLogout.hidden = NO;
 }
 
 - (void)viewDidLoad
