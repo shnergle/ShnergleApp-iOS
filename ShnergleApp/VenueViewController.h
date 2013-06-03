@@ -22,17 +22,17 @@
     CGFloat lastContentOffset;
     BOOL hidden;
 }
--(void)setTitle:(NSString *)title;
--(void)viewDidAppear:(BOOL)animated;
--(void)viewWillAppear:(BOOL)animated;
--(void)goToPromotionView;
--(void)goToPromotionDetailView;
--(void)goBack;
+- (void)setTitle:(NSString *)title;
+- (void)viewDidAppear:(BOOL)animated;
+- (void)viewWillAppear:(BOOL)animated;
+- (void)goToPromotionView;
+- (void)goToPromotionDetailView;
+- (void)goBack;
 - (UIBarButtonItem *)createLeftBarButton:(NSString *)imageName actionSelector:(SEL)actionSelector;
 
 @property (weak, nonatomic) IBOutlet UICollectionView *crowdCollectionV;
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *checkInButton;
 
 @property (weak, nonatomic) IBOutlet OverlayText *overlayView;
--(void)configureMapWithLat:(CLLocationDegrees )lat longitude:(CLLocationDegrees )lon;
+- (void)configureMapWithLat:(CLLocationDegrees)lat longitude:(CLLocationDegrees)lon;
 @end

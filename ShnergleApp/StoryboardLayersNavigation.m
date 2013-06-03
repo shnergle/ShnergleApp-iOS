@@ -10,12 +10,12 @@
 
 
 @implementation UIView (FindUIViewController)
-- (UIViewController *) firstAvailableUIViewController {
+- (UIViewController *)firstAvailableUIViewController {
     // convenience function for casting and to "mask" the recursive function
     return (UIViewController *)[self traverseResponderChainForUIViewController];
 }
 
-- (id) traverseResponderChainForUIViewController {
+- (id)traverseResponderChainForUIViewController {
     id nextResponder = [self nextResponder];
     if ([nextResponder isKindOfClass:[UIViewController class]]) {
         return nextResponder;
@@ -25,4 +25,5 @@
         return nil;
     }
 }
+
 @end

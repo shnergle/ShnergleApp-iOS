@@ -20,15 +20,14 @@
     AppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
     NSString *paramsString = [NSString stringWithFormat:@"app_secret=%@&%@", appDelegate.appSecret, params];
     NSURL *url = [[NSURL alloc] initWithString:urlString];
-    NSMutableURLRequest *urlRequest=[NSMutableURLRequest requestWithURL:url];
+    NSMutableURLRequest *urlRequest = [NSMutableURLRequest requestWithURL:url];
     [urlRequest setHTTPMethod:@"POST"];
     [urlRequest setHTTPBody:[paramsString dataUsingEncoding:NSISOLatin1StringEncoding]];
     response = [[NSMutableData alloc] init];
     responseObject = object;
     responseCallback = cb;
     responseType = type;
-    if (![[NSURLConnection alloc] initWithRequest:urlRequest delegate:self])
-        NSLog(@"POST failed!");
+    if (![[NSURLConnection alloc] initWithRequest:urlRequest delegate:self]) NSLog(@"POST failed!");
 }
 
 - (void)connection:(NSURLConnection *)connection didReceiveData:(NSData *)data {
@@ -37,10 +36,8 @@
 
 - (void)connectionDidFinishLoading:(NSURLConnection *)connection {
     id responseArg;
-    if ([responseType isEqual: @"image"])
-        responseArg = [UIImage imageWithData:response];
-    else
-        responseArg = [[NSString alloc] initWithData:response encoding:NSUTF8StringEncoding];
+    if ([responseType isEqual:@"image"]) responseArg = [UIImage imageWithData:response];
+    else responseArg = [[NSString alloc] initWithData:response encoding:NSUTF8StringEncoding];
     NSMethodSignature *methodSig = [[responseObject class] instanceMethodSignatureForSelector:responseCallback];
     NSInvocation *invocation = [NSInvocation invocationWithMethodSignature:methodSig];
     [invocation setSelector:responseCallback];

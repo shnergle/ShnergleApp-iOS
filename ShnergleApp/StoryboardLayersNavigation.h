@@ -9,6 +9,6 @@
 #import <Foundation/Foundation.h>
 
 @interface UIView (FindUIViewController)
-- (UIViewController *) firstAvailableUIViewController;
-- (id) traverseResponderChainForUIViewController;
+- (UIViewController *)firstAvailableUIViewController;
+- (id)traverseResponderChainForUIViewController;
 @end

@@ -10,8 +10,7 @@
 
 @implementation PhotoLocationViewController
 
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
-{
+- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         // Custom initialization
@@ -19,8 +18,7 @@
     return self;
 }
 
-- (void)viewDidLoad
-{
+- (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     self.navigationItem.title = @"Location";
@@ -29,20 +27,16 @@
     self.navigationItem.leftBarButtonItem = menuButton;
 }
 
--(void)viewWillAppear:(BOOL)animated
-{
+- (void)viewWillAppear:(BOOL)animated {
     self.navigationController.navigationBarHidden = NO;
-    
 }
 
-- (void)didReceiveMemoryWarning
-{
+- (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
 
-- (UIBarButtonItem *)createLeftBarButton:(NSString *)imageName actionSelector:(SEL)actionSelector
-{
+- (UIBarButtonItem *)createLeftBarButton:(NSString *)imageName actionSelector:(SEL)actionSelector {
     UIImage *menuButtonImg = [UIImage imageNamed:imageName];
     
     UIButton *menuButtonTmp = [UIButton buttonWithType:UIButtonTypeCustom];
@@ -55,8 +49,7 @@
 }
 
 //workaround to get the custom back button to work
-- (void)goBack
-{
+- (void)goBack {
     [self.navigationController popViewControllerAnimated:YES];
 }
 
