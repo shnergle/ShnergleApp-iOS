@@ -1,19 +1,19 @@
 //
-//  overlayText.m
+//  OverlayText.m
 //  ShnergleApp
 //
 //  Created by Stian Johansen on 3/28/13.
 //  Copyright (c) 2013 Shnergle. All rights reserved.
 //
 
-#import "overlayText.h"
+#import "OverlayText.h"
 #import "StoryboardLayersNavigation.h" //for getting the viewcontroller from this view.
 #import "PromotionViewController.h"
 #import "VenueViewController.h"
 
 #define TABBAR_HEIGHT (45)
 
-@implementation overlayText
+@implementation OverlayText
 
 - (id)initWithFrame:(CGRect)frame
 {

@@ -1,5 +1,5 @@
 //
-//  overlayText.h
+//  OverlayText.h
 //  ShnergleApp
 //
 //  Created by Stian Johansen on 3/28/13.
@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import <GoogleMaps/GoogleMaps.h>
-@interface overlayText : UIView
+@interface OverlayText : UIView
 
 - (IBAction)swipeDown:(id)sender;
 - (IBAction)swipeUp:(id)sender;

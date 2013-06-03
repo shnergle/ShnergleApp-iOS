@@ -7,7 +7,7 @@
 //
 
 #import "ViewController.h"
-#import "overlayText.h"
+#import "OverlayText.h"
 #import "DropDownMenu.h"
 #import <QuartzCore/QuartzCore.h>
 
@@ -25,7 +25,7 @@
 
 @property (weak, nonatomic) IBOutlet UICollectionView *crowdCollection;
 
-@property (weak, nonatomic) IBOutlet overlayText *overlay;
+@property (weak, nonatomic) IBOutlet OverlayText *overlay;
 
 
 @end

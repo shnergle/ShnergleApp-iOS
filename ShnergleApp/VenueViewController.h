@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "ViewController.h"
-#import "overlayText.h"
+#import "OverlayText.h"
 #import "TransitionViewController.h"
 
 @interface VenueViewController : ViewController {
@@ -34,6 +34,6 @@
 @property (weak, nonatomic) IBOutlet UICollectionView *crowdCollectionV;
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *checkInButton;
 
-@property (weak, nonatomic) IBOutlet overlayText *overlayView;
+@property (weak, nonatomic) IBOutlet OverlayText *overlayView;
 -(void)configureMapWithLat:(CLLocationDegrees )lat longitude:(CLLocationDegrees )lon;
 @end
