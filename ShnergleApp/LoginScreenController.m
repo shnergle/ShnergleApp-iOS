@@ -53,6 +53,8 @@
                 // we recurse here, in order to update buttons and labels
                 [self updateView];
             }];
+        } else {
+            self.buttonLoginLogout.hidden = NO;
         }
     }
 }
@@ -76,6 +78,7 @@
            NSDictionary<FBGraphUser> *user,
            NSError *error) {
              if (!error) {
+                 NSLog(@"logging in to server");
                  appDelegate.fullName = [NSString stringWithFormat:@"%@ %@", user.first_name, user.last_name];
                  appDelegate.facebookId = user.id;
                  appDelegate.email = [user objectForKey:@"email"];
