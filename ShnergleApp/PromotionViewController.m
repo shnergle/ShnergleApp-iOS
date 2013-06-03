@@ -8,10 +8,6 @@
 
 #import "PromotionViewController.h"
 
-@interface PromotionViewController ()
-
-@end
-
 @implementation PromotionViewController
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil

@@ -7,19 +7,25 @@
 //
 
 #import "ViewController.h"
-#import "overlayText.h"
+#import "OverlayText.h"
 #import "DropDownMenu.h"
 #import <QuartzCore/QuartzCore.h>
 
 
-@interface FavouritesViewController : UIViewController
+@interface FavouritesViewController : UIViewController{
+    NSArray *venueNames;
+    NSArray *images;
+    NSInteger selectedVenue;
+    BOOL crowdImagesHidden;
+    BOOL dropDownHidden;
+}
 
 - (IBAction)tapTitle:(id)sender;
 @property (weak, nonatomic) IBOutlet DropDownMenu *dropDownMenu;
 
 @property (weak, nonatomic) IBOutlet UICollectionView *crowdCollection;
 
-@property (weak, nonatomic) IBOutlet overlayText *overlay;
+@property (weak, nonatomic) IBOutlet OverlayText *overlay;
 
 
 @end

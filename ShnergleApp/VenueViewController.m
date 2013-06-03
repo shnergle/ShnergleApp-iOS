@@ -11,25 +11,6 @@
 #import "PromotionView.h"
 #import "PromotionDetailView.h"
 
-@interface VenueViewController ()
-{
-    NSArray *venueNames;
-    NSArray *images;
-    NSInteger selectedVenue;
-    NSString *promotionTitle;
-    NSString *promotionBody;
-    NSString *promotionExpiry;
-
-    BOOL textViewOpen;
-
-    //Scrollhide
-    CGFloat startContentOffset;
-    CGFloat lastContentOffset;
-    BOOL hidden;
-}
-
-@end
-
 @implementation VenueViewController
 
 
@@ -124,7 +105,7 @@
 
 - (void)displayTextView {
     if(!textViewOpen) {
-        _overlayView = [[[NSBundle mainBundle] loadNibNamed:@"overlayText" owner:self options:nil] objectAtIndex:0];
+        _overlayView = [[[NSBundle mainBundle] loadNibNamed:@"OverlayText" owner:self options:nil] objectAtIndex:0];
         //Get screen height:
         CGRect screenRect = [[UIScreen mainScreen] bounds];
         CGFloat screenHeight = screenRect.size.height;

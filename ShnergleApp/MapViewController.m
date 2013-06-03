@@ -10,10 +10,6 @@
 #import "GoogleMaps/GoogleMaps.h"
 #import "CoreLocation/CoreLocation.h"
 
-@interface MapViewController ()
-
-@end
-
 @implementation MapViewController {
     GMSMapView *mapView_;
 

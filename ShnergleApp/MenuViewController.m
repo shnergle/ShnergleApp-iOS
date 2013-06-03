@@ -11,10 +11,6 @@
 #import "SearchBarView.h"
 #import "PostRequest.h"
 
-@interface MenuViewController ()
-
-@end
-
 @implementation MenuViewController
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil

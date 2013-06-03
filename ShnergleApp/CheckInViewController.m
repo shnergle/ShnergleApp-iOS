@@ -8,10 +8,6 @@
 
 #import "CheckInViewController.h"
 
-@interface CheckInViewController ()
-
-@end
-
 @implementation CheckInViewController
 
 

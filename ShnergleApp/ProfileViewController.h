@@ -15,5 +15,7 @@
 
 @property (strong, nonatomic) IBOutlet UIButton *authButton;
 
+//@property (strong, nonatomic) FBProfilePictureView *profilePictureView;
+@property (strong, nonatomic) IBOutlet UILabel *lab;
 
 @end

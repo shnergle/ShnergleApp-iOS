@@ -8,10 +8,6 @@
 
 #import "AroundMeSlidingViewController.h"
 
-@interface AroundMeSlidingViewController ()
-
-@end
-
 @implementation AroundMeSlidingViewController
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil

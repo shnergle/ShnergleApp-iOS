@@ -8,10 +8,21 @@
 
 #import <UIKit/UIKit.h>
 #import "ViewController.h"
-#import "overlayText.h"
+#import "OverlayText.h"
 #import "TransitionViewController.h"
 
-@interface VenueViewController : ViewController
+@interface VenueViewController : ViewController {
+    NSString *promotionTitle;
+    NSString *promotionBody;
+    NSString *promotionExpiry;
+    
+    BOOL textViewOpen;
+    
+    //Scrollhide
+    CGFloat startContentOffset;
+    CGFloat lastContentOffset;
+    BOOL hidden;
+}
 -(void)setTitle:(NSString *)title;
 -(void)viewDidAppear:(BOOL)animated;
 -(void)viewWillAppear:(BOOL)animated;
@@ -23,6 +34,6 @@
 @property (weak, nonatomic) IBOutlet UICollectionView *crowdCollectionV;
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *checkInButton;
 
-@property (weak, nonatomic) IBOutlet overlayText *overlayView;
+@property (weak, nonatomic) IBOutlet OverlayText *overlayView;
 -(void)configureMapWithLat:(CLLocationDegrees )lat longitude:(CLLocationDegrees )lon;
 @end
