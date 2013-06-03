@@ -149,7 +149,7 @@
     self.navigationItem.hidesBackButton = YES;
     //Make it hidden whenever we navigate back to the view as well.
     dropDownHidden = YES;
-
+    crowdImagesHidden = NO;
     //THE SANDWICH MENU SYSTEM (ECSlidingViewController)
     if (![self.slidingViewController.underLeftViewController isKindOfClass:[MenuViewController class]]) {
         self.slidingViewController.underLeftViewController  = [self.storyboard instantiateViewControllerWithIdentifier:@"AroundMeMenu"];
@@ -303,8 +303,11 @@
 
 -(void)tapMenu
 {
+    
+    NSLog(@"menu triggered from button");
     [self.slidingViewController anchorTopViewTo:ECRight];
-    NSLog(@"menu triggered from ViewController class");
+    crowdImagesHidden=NO;
+    dropDownHidden=YES;
 
 }
 
@@ -315,19 +318,21 @@
 }
 
 
+- (void)drawerButtonImage:(NSString *)imagenamed {
+    [self.drawerCloseButton setImage:[UIImage imageNamed:imagenamed] forState:UIControlStateNormal];
+}
+
 - (IBAction)tapArrow:(id)sender {
 
 
     if(crowdImagesHidden) {
         [self showOverlay];
         [self hideDistanceScroller];
-        [self.drawerCloseButton setImage:[UIImage imageNamed:@"arrowDown.png"] forState:UIControlStateNormal];
+        [self drawerButtonImage:@"arrowDown.png"];
     }else{
         [self hideOverlay];
         [self showDistanceScroller];
-        [self.drawerCloseButton
-         setImage:
-         [UIImage imageNamed:@"arrowUp.png"] forState:UIControlStateNormal];
+        [self drawerButtonImage:@"arrowUp.png"];
     }
 
 
