@@ -54,6 +54,7 @@
 		80A8AADD175CA6640082AAB8 /* splash_screen_iphone4.png in Resources */ = {isa = PBXBuildFile; fileRef = 80A8AADB175CA6640082AAB8 /* splash_screen_iphone4.png */; };
 		80A8AADF175CA6870082AAB8 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 80A8AADE175CA6870082AAB8 /* Default-568h@2x.png */; };
 		80A8AAE1175CA6900082AAB8 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 80A8AAE0175CA6900082AAB8 /* Default@2x.png */; };
+		80A8AAE3175CAA380082AAB8 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 80A8AAE2175CAA380082AAB8 /* Default.png */; };
 		80B400E617540CCA00A377D9 /* Add_place_blue_highlight.png in Resources */ = {isa = PBXBuildFile; fileRef = 80B400C017540CCA00A377D9 /* Add_place_blue_highlight.png */; };
 		80B400E717540CCA00A377D9 /* avatar.png in Resources */ = {isa = PBXBuildFile; fileRef = 80B400C117540CCA00A377D9 /* avatar.png */; };
 		80B400E817540CCA00A377D9 /* avatar_small.png in Resources */ = {isa = PBXBuildFile; fileRef = 80B400C217540CCA00A377D9 /* avatar_small.png */; };
@@ -199,6 +200,7 @@
 		80A8AADB175CA6640082AAB8 /* splash_screen_iphone4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = splash_screen_iphone4.png; path = "App Images/splash_screen_iphone4.png"; sourceTree = "<group>"; };
 		80A8AADE175CA6870082AAB8 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		80A8AAE0175CA6900082AAB8 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
+		80A8AAE2175CAA380082AAB8 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
 		80B400C017540CCA00A377D9 /* Add_place_blue_highlight.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Add_place_blue_highlight.png; sourceTree = "<group>"; };
 		80B400C117540CCA00A377D9 /* avatar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = avatar.png; sourceTree = "<group>"; };
 		80B400C217540CCA00A377D9 /* avatar_small.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = avatar_small.png; sourceTree = "<group>"; };
@@ -342,6 +344,7 @@
 		808F13BC16FB6A5C00B66E6D = {
 			isa = PBXGroup;
 			children = (
+				80A8AAE2175CAA380082AAB8 /* Default.png */,
 				80A8AAE0175CA6900082AAB8 /* Default@2x.png */,
 				80A8AADE175CA6870082AAB8 /* Default-568h@2x.png */,
 				808F13CE16FB6A5C00B66E6D /* ShnergleApp */,
@@ -726,6 +729,7 @@
 				80A8AADD175CA6640082AAB8 /* splash_screen_iphone4.png in Resources */,
 				80A8AADF175CA6870082AAB8 /* Default-568h@2x.png in Resources */,
 				80A8AAE1175CA6900082AAB8 /* Default@2x.png in Resources */,
+				80A8AAE3175CAA380082AAB8 /* Default.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -890,11 +894,12 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
-				ONLY_ACTIVE_ARCH = YES;
+				ONLY_ACTIVE_ARCH = NO;
 				OTHER_LDFLAGS = "-ObjC";
 				PROVISIONING_PROFILE = "";
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
 				SDKROOT = iphoneos;
+				VALID_ARCHS = armv7;
 			};
 			name = Debug;
 		};
@@ -919,12 +924,14 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
+				ONLY_ACTIVE_ARCH = NO;
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
 				OTHER_LDFLAGS = "-ObjC";
 				PROVISIONING_PROFILE = "";
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
+				VALID_ARCHS = armv7;
 			};
 			name = Release;
 		};
