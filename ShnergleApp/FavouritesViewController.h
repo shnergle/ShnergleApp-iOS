@@ -16,8 +16,8 @@
     NSArray *venueNames;
     NSArray *images;
     NSInteger selectedVenue;
-    Boolean crowdImagesHidden;
-    Boolean dropDownHidden;
+    BOOL crowdImagesHidden;
+    BOOL dropDownHidden;
 }
 
 - (IBAction)tapTitle:(id)sender;

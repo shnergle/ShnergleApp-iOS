@@ -153,7 +153,7 @@
     self.navigationController.navigationBar.clipsToBounds = YES;
     self.navBar.clipsToBounds = YES;
 
-    crowdImagesHidden = false;
+    crowdImagesHidden = NO;
 
     [self addShadowToDistanceSlider];
 
@@ -322,7 +322,7 @@
 
 -(void)initMap
 {
-    hasPositionLocked = FALSE;
+    hasPositionLocked = NO;
     self.mapView.myLocationEnabled = YES;
     [self.mapView addObserver:self forKeyPath:@"myLocation" options:NSKeyValueObservingOptionNew context: nil];
 }
@@ -345,7 +345,7 @@
             [self.mapView animateToCameraPosition:[GMSCameraPosition cameraWithLatitude:self.mapView.myLocation.coordinate.latitude -0.012
                                                    longitude:self.mapView.myLocation.coordinate.longitude
                                                    zoom:13]];
-            hasPositionLocked = TRUE;
+            hasPositionLocked = YES;
         }
 
     }

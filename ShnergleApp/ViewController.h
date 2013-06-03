@@ -20,9 +20,9 @@ NSInteger selectedVenueIndex;
     NSArray *venueNames;
     NSArray *images;
     NSInteger selectedVenue;
-    Boolean crowdImagesHidden;
-    Boolean dropDownHidden;
-    Boolean hasPositionLocked;
+    BOOL crowdImagesHidden;
+    BOOL dropDownHidden;
+    BOOL hasPositionLocked;
 
 }
 //@property (weak, nonatomic) IBOutlet UIImageView *dropDownIndicator;
