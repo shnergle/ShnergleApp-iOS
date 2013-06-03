@@ -96,10 +96,6 @@
 		80B957BA16FB7A910044A505 /* CrowdItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 80B957B916FB7A910044A505 /* CrowdItem.m */; };
 		80B957D116FBB74F0044A505 /* CheckInViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 80B957D016FBB74F0044A505 /* CheckInViewController.m */; };
 		80B957D616FC65F90044A505 /* VenueViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 80B957D516FC65F90044A505 /* VenueViewController.m */; };
-		80D26B5F172A813300B0581D /* MainWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 80D26B5E172A813300B0581D /* MainWindow.xib */; };
-		80D26B61172A814E00B0581D /* PageControllerExample.xib in Resources */ = {isa = PBXBuildFile; fileRef = 80D26B60172A814E00B0581D /* PageControllerExample.xib */; };
-		80D26B66172A815E00B0581D /* PageControlExampleAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 80D26B63172A815E00B0581D /* PageControlExampleAppDelegate.m */; };
-		80D26B67172A815E00B0581D /* PageControlExampleViewControl.m in Sources */ = {isa = PBXBuildFile; fileRef = 80D26B65172A815E00B0581D /* PageControlExampleViewControl.m */; };
 		80D6FF521720303D008A3AFD /* photoScroll_dummy.png in Resources */ = {isa = PBXBuildFile; fileRef = 80D6FF501720303D008A3AFD /* photoScroll_dummy.png */; };
 		80D6FF5A172159D3008A3AFD /* StoryboardLayersNavigation.m in Sources */ = {isa = PBXBuildFile; fileRef = 80D6FF59172159D3008A3AFD /* StoryboardLayersNavigation.m */; };
 		80D6FF5D17215C18008A3AFD /* PromotionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 80D6FF5C17215C18008A3AFD /* PromotionViewController.m */; };
@@ -246,13 +242,6 @@
 		80B957D016FBB74F0044A505 /* CheckInViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CheckInViewController.m; sourceTree = "<group>"; };
 		80B957D416FC65F90044A505 /* VenueViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VenueViewController.h; sourceTree = "<group>"; };
 		80B957D516FC65F90044A505 /* VenueViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VenueViewController.m; sourceTree = "<group>"; };
-		80D26B5E172A813300B0581D /* MainWindow.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MainWindow.xib; sourceTree = "<group>"; };
-		80D26B60172A814E00B0581D /* PageControllerExample.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PageControllerExample.xib; sourceTree = "<group>"; };
-		80D26B62172A815E00B0581D /* PageControlExampleAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PageControlExampleAppDelegate.h; sourceTree = "<group>"; };
-		80D26B63172A815E00B0581D /* PageControlExampleAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PageControlExampleAppDelegate.m; sourceTree = "<group>"; };
-		80D26B64172A815E00B0581D /* PageControlExampleViewControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PageControlExampleViewControl.h; sourceTree = "<group>"; };
-		80D26B65172A815E00B0581D /* PageControlExampleViewControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PageControlExampleViewControl.m; sourceTree = "<group>"; };
-		80D26B68172A817600B0581D /* PageControlExample_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PageControlExample_Prefix.pch; sourceTree = "<group>"; };
 		80D6FF501720303D008A3AFD /* photoScroll_dummy.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = photoScroll_dummy.png; sourceTree = "<group>"; };
 		80D6FF58172159D3008A3AFD /* StoryboardLayersNavigation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StoryboardLayersNavigation.h; sourceTree = "<group>"; };
 		80D6FF59172159D3008A3AFD /* StoryboardLayersNavigation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StoryboardLayersNavigation.m; sourceTree = "<group>"; };
@@ -387,7 +376,6 @@
 				80B957B916FB7A910044A505 /* CrowdItem.m */,
 				808CA3081736856900932A27 /* FavouritesViewController.h */,
 				808CA3091736856900932A27 /* FavouritesViewController.m */,
-				80D26B5D172A812100B0581D /* GalleryScroll */,
 				EE8FF813172A9CFD0003A8E1 /* LoginScreenController.h */,
 				EE8FF814172A9CFD0003A8E1 /* LoginScreenController.m */,
 				808F13E016FB6A5C00B66E6D /* MainStoryboard.storyboard */,
@@ -515,20 +503,6 @@
 				80B400DB17540CCA00A377D9 /* stafficon.png */,
 			);
 			path = Icons;
-			sourceTree = "<group>";
-		};
-		80D26B5D172A812100B0581D /* GalleryScroll */ = {
-			isa = PBXGroup;
-			children = (
-				80D26B5E172A813300B0581D /* MainWindow.xib */,
-				80D26B68172A817600B0581D /* PageControlExample_Prefix.pch */,
-				80D26B62172A815E00B0581D /* PageControlExampleAppDelegate.h */,
-				80D26B63172A815E00B0581D /* PageControlExampleAppDelegate.m */,
-				80D26B64172A815E00B0581D /* PageControlExampleViewControl.h */,
-				80D26B65172A815E00B0581D /* PageControlExampleViewControl.m */,
-				80D26B60172A814E00B0581D /* PageControllerExample.xib */,
-			);
-			name = GalleryScroll;
 			sourceTree = "<group>";
 		};
 		80D6FF6817219B4E008A3AFD /* Venue and Promotions */ = {
@@ -660,8 +634,6 @@
 				80D6FF5F17216140008A3AFD /* PromotionViewController.xib in Resources */,
 				80D6FF64172191A4008A3AFD /* PromotionView.xib in Resources */,
 				80D6FF6D17219E4F008A3AFD /* PromotionDetailView.xib in Resources */,
-				80D26B5F172A813300B0581D /* MainWindow.xib in Resources */,
-				80D26B61172A814E00B0581D /* PageControllerExample.xib in Resources */,
 				805AB9E6172AC46F0056DCFB /* liverpool.JPG in Resources */,
 				EEBED17A172AD78A00956220 /* fbloginview_logout.png in Resources */,
 				80ED0A13172ADACA00E3C749 /* liverpool2.jpg in Resources */,
@@ -833,8 +805,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				808F13FA16FB6A5C00B66E6D /* ShnergleAppTests.m in Sources */,
-				80D26B66172A815E00B0581D /* PageControlExampleAppDelegate.m in Sources */,
-				80D26B67172A815E00B0581D /* PageControlExampleViewControl.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
