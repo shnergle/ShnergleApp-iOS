@@ -40,7 +40,7 @@
     if (!appDelegate.session.isOpen) {
         self.buttonLoginLogout.hidden = YES;
         // create a fresh session object
-        appDelegate.session = [[FBSession alloc] initWithPermissions:[NSArray arrayWithObjects:@"email", @"user_birthday", nil]];
+        appDelegate.session = [[FBSession alloc] initWithAppID:nil permissions:[NSArray arrayWithObjects:@"email", @"user_birthday", nil] urlSchemeSuffix:nil tokenCacheStrategy:nil];
         
         // if we don't have a cached token, a call to open here would cause UX for login to
         // occur; we don't want that to happen unless the user clicks the login button, and so
@@ -146,8 +146,7 @@
 - (IBAction)buttonClickHandler:(id)sender {
     AppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
     
-    if (appDelegate.session.state != FBSessionStateCreated) appDelegate.session = [[FBSession alloc] init];
-    
+    if (appDelegate.session.state != FBSessionStateCreated) appDelegate.session = [[FBSession alloc] initWithAppID:nil permissions:[NSArray arrayWithObjects:@"email", @"user_birthday", nil] urlSchemeSuffix:nil tokenCacheStrategy:nil];    
     [appDelegate.session openWithCompletionHandler:^(FBSession *session,
                                                      FBSessionState status,
                                                      NSError *error) {
