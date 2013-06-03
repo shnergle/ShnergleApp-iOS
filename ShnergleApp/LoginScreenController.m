@@ -27,7 +27,7 @@
 -(void)viewWillAppear:(BOOL)animated
 {
     [[self navigationController] setNavigationBarHidden:TRUE];
-    self.buttonLoginLogout.hidden = NO;
+
 }
 
 - (void)viewDidLoad
@@ -45,6 +45,7 @@
     //[self colouriseNavBar];
     AppDelegate *appDelegate = [[UIApplication sharedApplication]delegate];
     if (!appDelegate.session.isOpen) {
+        self.buttonLoginLogout.hidden = YES;
         // create a fresh session object
         appDelegate.session = [[FBSession alloc] initWithPermissions:[NSArray arrayWithObjects:@"email", @"user_birthday", nil]];
 
@@ -138,12 +139,14 @@
              } else {
                  NSLog(@"FUCKING FACEBOOK");
                  self.buttonLoginLogout.enabled = YES;
+                 self.buttonLoginLogout.hidden = NO;
              }
          }];
 
         /*[self.textNoteOrLink setText:[NSString stringWithFormat:@"https://graph.facebook.com/me/friends?access_token=%@",
            appDelegate.session.accessTokenData.accessToken]];*/
     } else {
+        self.buttonLoginLogout.hidden = NO;
         // login-needed account UI is shown whenever the session is closed
         //[self.buttonLoginLogout setImage:image forState:UIControlStateNormal];
         //[self.buttonLoginLogout setEnabled:FALSE];
