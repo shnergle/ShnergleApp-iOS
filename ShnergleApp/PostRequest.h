@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-@interface PostRequest : NSObject {
+@interface PostRequest : NSObject <NSURLConnectionDelegate> {
     NSMutableData *response;
     id responseObject;
     SEL responseCallback;

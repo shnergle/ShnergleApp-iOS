@@ -8,7 +8,9 @@
 
 #import <UIKit/UIKit.h>
 #import <GoogleMaps/GoogleMaps.h>
-@interface OverlayText : UIView
+@interface OverlayText : UIView {
+    BOOL isUp;
+}
 
 - (IBAction)swipeDown:(id)sender;
 - (IBAction)swipeUp:(id)sender;
