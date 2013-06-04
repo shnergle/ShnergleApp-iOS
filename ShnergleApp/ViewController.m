@@ -43,6 +43,18 @@
     //[[self navigationItem] setBackBarButtonItem:menuButton];
 }
 
+-(void)decorateScroller {
+    UIImage *maxBarImage = [UIImage imageNamed:@"highlight_distance_02_transparent.png"];
+    UIImage *thumbImage = [UIImage imageNamed:@"highlight_distance.png"];
+    UIImage *minBarImage = [UIImage imageNamed:@"highlight_distance_02_long.png"];
+    UIEdgeInsets insets = UIEdgeInsetsMake(8, 8, 0, 0);
+    minBarImage = [minBarImage resizableImageWithCapInsets:insets];
+    
+    [self.distanceScroller setMaximumTrackImage:maxBarImage forState:UIControlStateNormal];
+    [self.distanceScroller setMinimumTrackImage:minBarImage forState:UIControlStateNormal];
+    [self.distanceScroller setThumbImage:thumbImage forState:UIControlStateNormal];
+}
+
 //workaround to get the custom back button to work
 - (void)goBack {
     [self.navigationController popViewControllerAnimated:YES];
@@ -75,6 +87,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self decorateCheckInButton];
+    [self decorateScroller];
     [self toolbarDecorations];
     
     //CROWD stuff
