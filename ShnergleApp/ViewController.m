@@ -46,11 +46,11 @@
 
 -(void)decorateScroller {
     UIImage *maxBarImage = [UIImage imageNamed:@"highlight_distance_02_transparent.png"];
-    maxBarImage = [maxBarImage scaleToSize:CGSizeMake(320.0f,23.0f)];
+    //maxBarImage = [maxBarImage scaleToSize:CGSizeMake(320.0f,23.0f)];
     UIImage *thumbImage = [UIImage imageNamed:@"highlight_distance.png"];
-    thumbImage = [thumbImage scaleToSize:CGSizeMake(24.0f,24.0f)];
+    //thumbImage = [thumbImage scaleToSize:CGSizeMake(24.0f,24.0f)];
     UIImage *minBarImage = [UIImage imageNamed:@"highlight_distance_02_long.png"];
-    minBarImage = [minBarImage scaleToSize:CGSizeMake(320.0f,23.0f)];
+    //minBarImage = [minBarImage scaleToSize:CGSizeMake(320.0f,23.0f)];
 
     
     
