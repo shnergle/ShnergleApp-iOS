@@ -29,6 +29,7 @@
 - (void)goToPromotionDetailView;
 - (void)goBack;
 - (UIBarButtonItem *)createLeftBarButton:(NSString *)imageName actionSelector:(SEL)actionSelector;
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender;
 
 @property (weak, nonatomic) IBOutlet UICollectionView *crowdCollectionV;
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *checkInButton;
