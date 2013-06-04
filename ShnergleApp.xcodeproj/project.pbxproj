@@ -123,6 +123,7 @@
 		CD84ECEF175CC10000A09FA6 /* AppIcon_114.png in Resources */ = {isa = PBXBuildFile; fileRef = CD84ECEE175CC10000A09FA6 /* AppIcon_114.png */; };
 		CD84ECF1175CC10E00A09FA6 /* icon57.png in Resources */ = {isa = PBXBuildFile; fileRef = CD84ECF0175CC10D00A09FA6 /* icon57.png */; };
 		CDAD1D2F175E011100581713 /* ShareViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CDAD1D2E175E011100581713 /* ShareViewController.m */; };
+		CDAD1D33175E2BF800581713 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CDAD1D32175E2BF800581713 /* UIKit.framework */; };
 		CDB72C2E175A5F2B00018271 /* PostRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = CDB72C2D175A5F2B00018271 /* PostRequest.m */; };
 		CDD09AAB175B93C3006CE935 /* shnerglelogo.png in Resources */ = {isa = PBXBuildFile; fileRef = CDD09AAA175B93C3006CE935 /* shnerglelogo.png */; };
 		EE0A80711733D97300792AE4 /* ProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EE0A806F1733D97300792AE4 /* ProfileViewController.m */; };
@@ -293,6 +294,7 @@
 		CD84ECF0175CC10D00A09FA6 /* icon57.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon57.png; sourceTree = "<group>"; };
 		CDAD1D2D175E011100581713 /* ShareViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShareViewController.h; sourceTree = "<group>"; };
 		CDAD1D2E175E011100581713 /* ShareViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShareViewController.m; sourceTree = "<group>"; };
+		CDAD1D32175E2BF800581713 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		CDB72C2C175A5F2B00018271 /* PostRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PostRequest.h; sourceTree = "<group>"; };
 		CDB72C2D175A5F2B00018271 /* PostRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PostRequest.m; sourceTree = "<group>"; };
 		CDD09AAA175B93C3006CE935 /* shnerglelogo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = shnerglelogo.png; sourceTree = "<group>"; };
@@ -317,6 +319,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CDAD1D33175E2BF800581713 /* UIKit.framework in Frameworks */,
 				1F95516217BB4B9FAB164196 /* libPods.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -384,6 +387,7 @@
 		808F13C716FB6A5C00B66E6D /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				CDAD1D32175E2BF800581713 /* UIKit.framework */,
 				808F13EC16FB6A5C00B66E6D /* SenTestingKit.framework */,
 				92FD2BD9498A41EEBBD26F82 /* libPods.a */,
 			);
