@@ -10,6 +10,7 @@
 #import "CrowdItem.h"
 #import "CoreLocation/CoreLocation.h"
 #import "MenuViewController.h"
+#import "UIImageResizing.h"
 
 @implementation ViewController
 
@@ -45,9 +46,16 @@
 
 -(void)decorateScroller {
     UIImage *maxBarImage = [UIImage imageNamed:@"highlight_distance_02_transparent.png"];
+    maxBarImage = [maxBarImage scaleToSize:CGSizeMake(320.0f,23.0f)];
     UIImage *thumbImage = [UIImage imageNamed:@"highlight_distance.png"];
+    thumbImage = [thumbImage scaleToSize:CGSizeMake(24.0f,24.0f)];
     UIImage *minBarImage = [UIImage imageNamed:@"highlight_distance_02_long.png"];
-    UIEdgeInsets insets = UIEdgeInsetsMake(8, 8, 0, 0);
+    minBarImage = [minBarImage scaleToSize:CGSizeMake(320.0f,23.0f)];
+
+    
+    
+    
+    UIEdgeInsets insets = UIEdgeInsetsMake(0, 0, 0, 0);
     minBarImage = [minBarImage resizableImageWithCapInsets:insets];
     
     [self.distanceScroller setMaximumTrackImage:maxBarImage forState:UIControlStateNormal];
