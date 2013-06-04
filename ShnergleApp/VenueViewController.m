@@ -108,6 +108,10 @@
     }
 }
 
+-(void)instantHideTextView{
+    
+}
+
 - (void)configureMapWithLat:(CLLocationDegrees)lat longitude:(CLLocationDegrees)lon {
     GMSCameraPosition *camera = [GMSCameraPosition cameraWithLatitude:lat
                                                             longitude:lon
@@ -195,6 +199,8 @@
      animated:YES];*/
     
     //self.navigationItem.hidesBackButton = NO;
+    hidden = YES;
+
     self.navigationController.navigationBarHidden = NO;
 }
 
@@ -246,10 +252,7 @@
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    NSLog(@"Running prepareforSeque in VenueViewController");
-
     if ([segue.identifier isEqualToString:@"ToGallery"]) {
-        NSLog(@"iseQualto the string -- YES");
         [segue.destinationViewController setTitle:self.navigationItem.title];
     }
 }
