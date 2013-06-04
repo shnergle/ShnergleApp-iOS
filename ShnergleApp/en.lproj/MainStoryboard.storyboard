@@ -988,6 +988,7 @@
                                             <constraint firstItem="reI-HU-QFh" firstAttribute="leading" secondItem="ho1-hg-V7U" secondAttribute="leading" constant="5" id="49q-4X-QfA"/>
                                             <constraint firstItem="zN9-Dk-DAR" firstAttribute="bottom" secondItem="ho1-hg-V7U" secondAttribute="bottom" type="default" id="7l0-mt-cGI"/>
                                             <constraint firstAttribute="bottom" secondItem="mc9-vJ-eG8" secondAttribute="bottom" constant="11" id="ANj-el-KhO"/>
+                                            <constraint firstItem="C41-aV-eej" firstAttribute="top" secondItem="ho1-hg-V7U" secondAttribute="top" constant="27" id="BVa-vq-rrr"/>
                                             <constraint firstItem="gJ1-F0-r4G" firstAttribute="centerX" secondItem="reI-HU-QFh" secondAttribute="centerX" type="default" id="Bu3-tG-q2q"/>
                                             <constraint firstItem="wCf-21-3l1" firstAttribute="baseline" secondItem="X6T-vE-tC0" secondAttribute="baseline" type="default" id="FDV-rf-w9a"/>
                                             <constraint firstItem="reI-HU-QFh" firstAttribute="top" secondItem="ho1-hg-V7U" secondAttribute="top" constant="9" id="G1N-vG-jAc"/>
@@ -1000,13 +1001,12 @@
                                             <constraint firstAttribute="width" constant="313" id="Upf-4C-qHN"/>
                                             <constraint firstItem="gJ1-F0-r4G" firstAttribute="leading" secondItem="5i0-JZ-HpY" secondAttribute="trailing" constant="8" symbolic="YES" type="default" id="V5k-PH-MgD"/>
                                             <constraint firstItem="zN9-Dk-DAR" firstAttribute="leading" secondItem="5i0-JZ-HpY" secondAttribute="leading" type="default" id="W0G-gu-9D4"/>
+                                            <constraint firstItem="C41-aV-eej" firstAttribute="baseline" secondItem="B6N-VF-klk" secondAttribute="baseline" type="default" id="WAy-Tv-1MR"/>
                                             <constraint firstItem="lvZ-Xo-ozX" firstAttribute="top" secondItem="ho1-hg-V7U" secondAttribute="top" constant="31" id="aeb-ae-fLI"/>
                                             <constraint firstItem="B6N-VF-klk" firstAttribute="centerX" secondItem="ho1-hg-V7U" secondAttribute="centerX" type="default" id="b1i-dd-2eY"/>
-                                            <constraint firstItem="B6N-VF-klk" firstAttribute="top" secondItem="ho1-hg-V7U" secondAttribute="top" constant="30" id="cEG-Nw-vH1"/>
                                             <constraint firstItem="lvZ-Xo-ozX" firstAttribute="leading" secondItem="ho1-hg-V7U" secondAttribute="leading" constant="12" id="cfk-02-j77"/>
                                             <constraint firstItem="O35-G2-0P4" firstAttribute="baseline" secondItem="X6T-vE-tC0" secondAttribute="baseline" type="default" id="eiU-j7-QnQ"/>
                                             <constraint firstItem="O35-G2-0P4" firstAttribute="top" secondItem="ho1-hg-V7U" secondAttribute="top" constant="90" id="h0l-mQ-qaT"/>
-                                            <constraint firstItem="C41-aV-eej" firstAttribute="top" secondItem="ho1-hg-V7U" secondAttribute="top" constant="26" id="jPw-IA-xzM"/>
                                             <constraint firstAttribute="trailing" secondItem="wCf-21-3l1" secondAttribute="trailing" constant="9" id="kPD-61-CRY"/>
                                             <constraint firstItem="f4K-tX-UWy" firstAttribute="leading" secondItem="G5B-44-FjK" secondAttribute="leading" type="default" id="ldq-6C-m7O"/>
                                             <constraint firstItem="3F8-dh-TCs" firstAttribute="leading" secondItem="reI-HU-QFh" secondAttribute="leading" type="default" id="pKF-pK-Z0x"/>
@@ -1595,9 +1595,6 @@
         </class>
         <class className="UICollectionViewFlowLayout" superclassName="UICollectionViewLayout">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/UICollectionViewFlowLayout.h"/>
-        </class>
-        <class className="UICollectionViewLayout" superclassName="NSObject">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/UICollectionViewLayout.h"/>
         </class>
         <class className="VenueGalleryViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/VenueGalleryViewController.h"/>
