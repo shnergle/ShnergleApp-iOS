@@ -27,6 +27,7 @@ NSInteger selectedVenueIndex;
 //@property (weak, nonatomic) IBOutlet UIImageView *dropDownIndicator;
 @property (weak, nonatomic) IBOutlet UIButton *drawerCloseButton;
 @property (weak, nonatomic) IBOutlet OverlayText *distanceScrollerView;
+@property (weak, nonatomic) IBOutlet UISlider *distanceScroller;
 @property (weak, nonatomic) IBOutlet GMSMapView *mapView;
 @property (weak, nonatomic) IBOutlet UICollectionView *crowdCollection;
 @property (weak, nonatomic) IBOutlet UINavigationBar *navBar;
@@ -50,5 +51,4 @@ NSInteger selectedVenueIndex;
 - (void)showOverlay;
 - (void)showDistanceScroller;
 - (void)hideDistanceScroller;
-//-(void)goback;
 @end

@@ -208,6 +208,7 @@
                     <connections>
                         <outlet property="checkInButton" destination="lQP-pY-6Jo" id="nBg-wx-ByB"/>
                         <outlet property="crowdCollection" destination="NoU-2f-HS3" id="gIQ-gS-rMU"/>
+                        <outlet property="distanceScroller" destination="KE8-Yl-GlD" id="BVc-hx-Ghm"/>
                         <outlet property="distanceScrollerView" destination="Yep-ys-8YG" id="QWb-NX-1Xt"/>
                         <outlet property="drawerCloseButton" destination="3ru-jW-uGF" id="C3A-Gd-yDl"/>
                         <outlet property="mapView" destination="jEV-Fr-dKK" id="GvI-xX-n96"/>
@@ -399,7 +400,6 @@
                                         <constraints>
                                             <constraint firstAttribute="trailing" secondItem="zpk-oQ-Ics" secondAttribute="trailing" constant="8" id="EHz-uL-98s"/>
                                             <constraint firstItem="zpk-oQ-Ics" firstAttribute="bottom" secondItem="JFo-V8-IX5" secondAttribute="bottom" type="default" id="Hr8-fv-6DQ"/>
-                                            <constraint firstItem="4Bj-Xy-ePL" firstAttribute="baseline" secondItem="JFo-V8-IX5" secondAttribute="baseline" type="default" id="J7b-QO-tHq"/>
                                             <constraint firstItem="JFo-V8-IX5" firstAttribute="bottom" secondItem="4Bj-Xy-ePL" secondAttribute="bottom" type="default" id="Ujo-LR-bLq"/>
                                             <constraint firstItem="4Bj-Xy-ePL" firstAttribute="leading" secondItem="lyM-op-7R1" secondAttribute="leading" constant="1" id="eUZ-Jx-QLg"/>
                                             <constraint firstItem="JFo-V8-IX5" firstAttribute="leading" secondItem="lyM-op-7R1" secondAttribute="leading" constant="107" id="ifa-hB-4eb"/>
@@ -1573,9 +1573,6 @@
         <class className="UICollectionViewFlowLayout" superclassName="UICollectionViewLayout">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/UICollectionViewFlowLayout.h"/>
         </class>
-        <class className="UICollectionViewLayout" superclassName="NSObject">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/UICollectionViewLayout.h"/>
-        </class>
         <class className="VenueGalleryViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/VenueGalleryViewController.h"/>
             <relationships>
@@ -1599,6 +1596,7 @@
                 <relationship kind="action" name="tapMenu:"/>
                 <relationship kind="outlet" name="checkInButton" candidateClass="UIBarButtonItem"/>
                 <relationship kind="outlet" name="crowdCollection" candidateClass="UICollectionView"/>
+                <relationship kind="outlet" name="distanceScroller" candidateClass="UISlider"/>
                 <relationship kind="outlet" name="distanceScrollerView" candidateClass="OverlayText"/>
                 <relationship kind="outlet" name="drawerCloseButton" candidateClass="UIButton"/>
                 <relationship kind="outlet" name="mapView" candidateClass="GMSMapView"/>
