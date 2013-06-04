@@ -32,9 +32,15 @@
     // Dispose of any resources that can be recreated.
 }
 
+-(void)setTitle:(NSString *)title
+{
+    self.navigationItem.title = title;
+    NSLog(@"setTitle is being run, with %@",title);
+}
+
 - (void)imageScrollerSetup {
     CGRect windowBounds = [[UIScreen mainScreen]bounds];
-    _imageScrollView.bounds = CGRectMake(0, 0, windowBounds.size.width, windowBounds.size.height / 2);
+    _imageScrollView.bounds = CGRectMake(0, 0, windowBounds.size.width, 245);
     UIImage *image = [UIImage imageNamed:@"mahiki.jpg"];
     UIImage *image2 = [UIImage imageNamed:@"liverpool.JPG"];
     UIImageView *imageView1 = [[UIImageView alloc] initWithImage:image];

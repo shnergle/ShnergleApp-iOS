@@ -245,4 +245,14 @@
     [self.navigationController popViewControllerAnimated:YES];
 }
 
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    NSLog(@"Running prepareforSeque in VenueViewController");
+
+    if ([segue.identifier isEqualToString:@"ToGallery"]) {
+        NSLog(@"iseQualto the string -- YES");
+        [segue.destinationViewController setTitle:self.navigationItem.title];
+    }
+}
+
+
 @end
