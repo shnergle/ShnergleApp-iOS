@@ -124,6 +124,7 @@
 		CD84ECF1175CC10E00A09FA6 /* icon57.png in Resources */ = {isa = PBXBuildFile; fileRef = CD84ECF0175CC10D00A09FA6 /* icon57.png */; };
 		CDAD1D2F175E011100581713 /* ShareViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CDAD1D2E175E011100581713 /* ShareViewController.m */; };
 		CDAD1D33175E2BF800581713 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CDAD1D32175E2BF800581713 /* UIKit.framework */; };
+		CDAD1D35175E2FA600581713 /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = CDAD1D34175E2FA600581713 /* Settings.bundle */; };
 		CDB72C2E175A5F2B00018271 /* PostRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = CDB72C2D175A5F2B00018271 /* PostRequest.m */; };
 		CDD09AAB175B93C3006CE935 /* shnerglelogo.png in Resources */ = {isa = PBXBuildFile; fileRef = CDD09AAA175B93C3006CE935 /* shnerglelogo.png */; };
 		EE0A80711733D97300792AE4 /* ProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EE0A806F1733D97300792AE4 /* ProfileViewController.m */; };
@@ -290,6 +291,7 @@
 		CDAD1D2D175E011100581713 /* ShareViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShareViewController.h; sourceTree = "<group>"; };
 		CDAD1D2E175E011100581713 /* ShareViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShareViewController.m; sourceTree = "<group>"; };
 		CDAD1D32175E2BF800581713 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		CDAD1D34175E2FA600581713 /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = Settings.bundle; path = ../Settings.bundle; sourceTree = "<group>"; };
 		CDB72C2C175A5F2B00018271 /* PostRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PostRequest.h; sourceTree = "<group>"; };
 		CDB72C2D175A5F2B00018271 /* PostRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PostRequest.m; sourceTree = "<group>"; };
 		CDD09AAA175B93C3006CE935 /* shnerglelogo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = shnerglelogo.png; sourceTree = "<group>"; };
@@ -387,6 +389,7 @@
 		808F13CE16FB6A5C00B66E6D /* ShnergleApp */ = {
 			isa = PBXGroup;
 			children = (
+				CDAD1D34175E2FA600581713 /* Settings.bundle */,
 				801D4ED7175E079F007212E0 /* UIImageResizing.h */,
 				801D4ED8175E079F007212E0 /* UIImageResizing.m */,
 				808F13D716FB6A5C00B66E6D /* AppDelegate.h */,
@@ -803,6 +806,7 @@
 				801D4EDF175E1FCF007212E0 /* highlight_distance@2x.png in Resources */,
 				EE0B37DF175E0FA900B6EE58 /* twitter-bird-white-on-blue.png in Resources */,
 				EE0B37E1175E108100B6EE58 /* FB-f-Logo__blue_50.png in Resources */,
+				CDAD1D35175E2FA600581713 /* Settings.bundle in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -69,13 +69,13 @@
 
     [appDelegate.session requestNewPublishPermissions:[NSArray arrayWithObject:@"publish_actions"] defaultAudience:FBSessionDefaultAudienceEveryone completionHandler:^(FBSession *session, NSError *error) {
 
-    NSMutableDictionary *params = [NSMutableDictionary dictionaryWithObjectsAndKeys:
+    /*NSMutableDictionary *params = [NSMutableDictionary dictionaryWithObjectsAndKeys:
                                    @"My test app", @"name",
                                    @"http://www.google.com", @"link",
                                    @"FBTestApp app for iPhone!", @"caption",
                                    @"This is a description of my app", @"description",
                                    @"Hello!\n\nThis is a test message\nfrom my test iPhone app!", @"message",
-                                   nil];
+                                   nil];*/
     //TODO publish
     }];
     ACAccountStore *accountStore = [[ACAccountStore alloc] init];
@@ -169,8 +169,7 @@
 
 - (void)facebookViewControllerCancelWasPressed:(id)sender
 {
-    [self dismissModalViewControllerAnimated:YES];
-    
+    [self dismissViewControllerAnimated:YES completion:nil];
 }
 
 - (void)facebookViewControllerDoneWasPressed:(id)sender
@@ -182,7 +181,7 @@
             _friendLabel.text = @"";
             break;
         case 1:
-            _friendLabel.text = [NSString stringWithFormat:@"With %@", [selectedFriends objectAtIndex:0]];
+            _friendLabel.text = [NSString stringWithFormat:@"With %@", [[selectedFriends objectAtIndex:0] name]];
             break;
         case 2:
             _friendLabel.text = [NSString stringWithFormat:@"With %@ and %@", [[selectedFriends objectAtIndex:0] name], [[selectedFriends objectAtIndex:1] name]];
@@ -194,7 +193,7 @@
             _friendLabel.text = [NSString stringWithFormat:@"With %@, %@ and %d other", [[selectedFriends objectAtIndex:0] name], [[selectedFriends objectAtIndex:1] name], [selectedFriends count] - 2];
             break;
     }
-    [self dismissModalViewControllerAnimated:YES];
+    [self dismissViewControllerAnimated:YES completion:nil];
 }
 
 //workaround to get the custom back button to work
