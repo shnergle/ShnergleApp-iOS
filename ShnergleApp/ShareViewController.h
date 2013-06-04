@@ -14,6 +14,6 @@
 }
 @property (weak, nonatomic) IBOutlet UIButton *nameList;
 @property (weak, nonatomic) IBOutlet UILabel *friendLabel;
-@property (weak, nonatomic) IBOutlet UITextView *textFieldname;
-- (IBAction)cleartextfield:(id)sender;
+//@property (weak, nonatomic) IBOutlet UITextView *textFieldname;
+//- (IBAction)cleartextfield:(id)sender;
 @end
