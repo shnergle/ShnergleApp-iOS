@@ -17,7 +17,10 @@
 @implementation OverlayText
 
 - (IBAction)share:(id)sender {
-    AppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
+    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"MainStoryboard" bundle:nil];
+    ViewController *vc = [storyboard instantiateViewControllerWithIdentifier:@"ShareViewController"];
+    [self.caller.navigationController pushViewController:vc animated:YES];
+    /*AppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
     [appDelegate.session requestNewPublishPermissions:[NSArray arrayWithObject:@"publish_actions"] defaultAudience:FBSessionDefaultAudienceEveryone completionHandler:^(FBSession *session, NSError *error) {
         [FBDialogs presentOSIntegratedShareDialogModallyFrom:self.caller initialText:@"I am sharing a venue" image:[UIImage imageNamed:@"shnerglelogo.png"] url:[NSURL URLWithString:@"https://shnergle.com/"] handler:^(FBOSIntegratedShareDialogResult result, NSError *error) {
             
@@ -38,7 +41,7 @@
                  show];
             }
         }];
-    }];
+    }];*/
 }
 
 - (id)initWithFrame:(CGRect)frame {
