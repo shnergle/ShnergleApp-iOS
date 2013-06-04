@@ -201,4 +201,8 @@
     [self.navigationController popViewControllerAnimated:YES];
 }
 
+- (IBAction)cleartextfield:(id)sender{
+    _textFieldname.text = [NSString stringWithFormat:@""];
+}
+
 @end
