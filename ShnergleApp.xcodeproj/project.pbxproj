@@ -40,17 +40,12 @@
 		808CA33D1739AFA900932A27 /* Roboto-MediumItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 808CA3191739A54800932A27 /* Roboto-MediumItalic.ttf */; };
 		808CA33E1739AFA900932A27 /* Roboto-Thin.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 808CA31B1739A54800932A27 /* Roboto-Thin.ttf */; };
 		808CA33F1739AFA900932A27 /* Roboto-ThinItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 808CA31C1739A54800932A27 /* Roboto-ThinItalic.ttf */; };
-		808F13C916FB6A5C00B66E6D /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 808F13C816FB6A5C00B66E6D /* UIKit.framework */; };
-		808F13CB16FB6A5C00B66E6D /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 808F13CA16FB6A5C00B66E6D /* Foundation.framework */; };
-		808F13CD16FB6A5C00B66E6D /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 808F13CC16FB6A5C00B66E6D /* CoreGraphics.framework */; };
 		808F13D316FB6A5C00B66E6D /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 808F13D116FB6A5C00B66E6D /* InfoPlist.strings */; };
 		808F13D516FB6A5C00B66E6D /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 808F13D416FB6A5C00B66E6D /* main.m */; };
 		808F13D916FB6A5C00B66E6D /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 808F13D816FB6A5C00B66E6D /* AppDelegate.m */; };
 		808F13E216FB6A5C00B66E6D /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 808F13E016FB6A5C00B66E6D /* MainStoryboard.storyboard */; };
 		808F13E516FB6A5C00B66E6D /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 808F13E416FB6A5C00B66E6D /* ViewController.m */; };
 		808F13ED16FB6A5C00B66E6D /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 808F13EC16FB6A5C00B66E6D /* SenTestingKit.framework */; };
-		808F13EE16FB6A5C00B66E6D /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 808F13C816FB6A5C00B66E6D /* UIKit.framework */; };
-		808F13EF16FB6A5C00B66E6D /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 808F13CA16FB6A5C00B66E6D /* Foundation.framework */; };
 		808F13F716FB6A5C00B66E6D /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 808F13F516FB6A5C00B66E6D /* InfoPlist.strings */; };
 		808F13FA16FB6A5C00B66E6D /* ShnergleAppTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 808F13F916FB6A5C00B66E6D /* ShnergleAppTests.m */; };
 		80A8AADF175CA6870082AAB8 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 80A8AADE175CA6870082AAB8 /* Default-568h@2x.png */; };
@@ -191,9 +186,6 @@
 		808CA31B1739A54800932A27 /* Roboto-Thin.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Thin.ttf"; sourceTree = "<group>"; };
 		808CA31C1739A54800932A27 /* Roboto-ThinItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-ThinItalic.ttf"; sourceTree = "<group>"; };
 		808F13C516FB6A5C00B66E6D /* ShnergleApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ShnergleApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		808F13C816FB6A5C00B66E6D /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
-		808F13CA16FB6A5C00B66E6D /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
-		808F13CC16FB6A5C00B66E6D /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		808F13D016FB6A5C00B66E6D /* ShnergleApp-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "ShnergleApp-Info.plist"; sourceTree = "<group>"; };
 		808F13D216FB6A5C00B66E6D /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		808F13D416FB6A5C00B66E6D /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -315,9 +307,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				808F13C916FB6A5C00B66E6D /* UIKit.framework in Frameworks */,
-				808F13CB16FB6A5C00B66E6D /* Foundation.framework in Frameworks */,
-				808F13CD16FB6A5C00B66E6D /* CoreGraphics.framework in Frameworks */,
 				1F95516217BB4B9FAB164196 /* libPods.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -327,8 +316,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				808F13ED16FB6A5C00B66E6D /* SenTestingKit.framework in Frameworks */,
-				808F13EE16FB6A5C00B66E6D /* UIKit.framework in Frameworks */,
-				808F13EF16FB6A5C00B66E6D /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -387,9 +374,6 @@
 		808F13C716FB6A5C00B66E6D /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				808F13C816FB6A5C00B66E6D /* UIKit.framework */,
-				808F13CA16FB6A5C00B66E6D /* Foundation.framework */,
-				808F13CC16FB6A5C00B66E6D /* CoreGraphics.framework */,
 				808F13EC16FB6A5C00B66E6D /* SenTestingKit.framework */,
 				92FD2BD9498A41EEBBD26F82 /* libPods.a */,
 			);
