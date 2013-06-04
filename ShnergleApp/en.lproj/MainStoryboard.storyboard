@@ -377,7 +377,12 @@
                         <rect key="frame" x="0.0" y="64" width="320" height="416"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFill" directionalLockEnabled="YES" bounces="NO" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dSb-F6-Rh6"/>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" directionalLockEnabled="YES" bounces="NO" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dSb-F6-Rh6">
+                                <color key="backgroundColor" red="0.69385834854014594" green="0.0" blue="0.0" alpha="0.0" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="245" type="user" id="pA7-wS-Gd9"/>
+                                </constraints>
+                            </scrollView>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="AFq-eg-D9c">
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lyM-op-7R1">
@@ -421,7 +426,7 @@
                                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="The people in this place have funny hats. Also I liked the balloons." lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="231" translatesAutoresizingMaskIntoConstraints="NO" id="diO-ua-hnK">
+                                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="The people in this place have funny hats. Also liked the balloons." lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="231" translatesAutoresizingMaskIntoConstraints="NO" id="diO-ua-hnK">
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="31" id="S4h-Bp-QoQ"/>
                                                     <constraint firstAttribute="width" constant="231" id="rTC-68-aRJ"/>
@@ -464,9 +469,8 @@
                             <constraint firstItem="AFq-eg-D9c" firstAttribute="bottom" secondItem="0ht-SK-gFa" secondAttribute="bottom" type="default" id="3k6-iB-yiE"/>
                             <constraint firstItem="dSb-F6-Rh6" firstAttribute="trailing" secondItem="0ht-SK-gFa" secondAttribute="trailing" type="default" id="8lD-VA-caf"/>
                             <constraint firstItem="AFq-eg-D9c" firstAttribute="trailing" secondItem="0ht-SK-gFa" secondAttribute="trailing" type="default" id="EU9-fK-iNx"/>
-                            <constraint firstAttribute="bottom" secondItem="dSb-F6-Rh6" secondAttribute="bottom" constant="171" id="I1q-VW-TOI"/>
                             <constraint firstItem="dSb-F6-Rh6" firstAttribute="leading" secondItem="0ht-SK-gFa" secondAttribute="leading" type="default" id="IsV-fB-LpH"/>
-                            <constraint firstItem="dSb-F6-Rh6" firstAttribute="top" secondItem="0ht-SK-gFa" secondAttribute="top" type="default" id="RrS-bZ-dBf"/>
+                            <constraint firstItem="dSb-F6-Rh6" firstAttribute="top" secondItem="0ht-SK-gFa" secondAttribute="top" type="user" id="RrS-bZ-dBf"/>
                             <constraint firstItem="AFq-eg-D9c" firstAttribute="leading" secondItem="0ht-SK-gFa" secondAttribute="leading" type="default" id="cZU-pE-69c"/>
                             <constraint firstItem="AFq-eg-D9c" firstAttribute="top" secondItem="0ht-SK-gFa" secondAttribute="top" constant="244" id="f4K-UX-qN9"/>
                             <constraint firstItem="AFq-eg-D9c" firstAttribute="top" relation="lessThanOrEqual" secondItem="0ht-SK-gFa" secondAttribute="top" constant="400" type="user" id="tpZ-LS-vG1"/>
