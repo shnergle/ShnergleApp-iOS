@@ -56,7 +56,12 @@
 
 
 - (void)viewWillAppear:(BOOL)animated {
-    self.navigationController.navigationBarHidden = NO;
+    [self.navigationController setNavigationBarHidden:NO animated:YES];
+}
+
+-(void)viewWillDisappear:(BOOL)animated{
+    //Sketchy! Look out for bugs. this is done to hide the navbar beautifully when navigating back to main page or login page
+    [self.navigationController setNavigationBarHidden:YES animated:YES];
 }
 
 /*- (IBAction)authButtonAction:(id)sender {
