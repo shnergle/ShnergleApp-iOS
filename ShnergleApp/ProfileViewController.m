@@ -58,6 +58,23 @@
 
 }
 
+
+- (void)populateUserDetails
+{
+    if (FBSession.activeSession.isOpen) {
+        [[FBRequest requestForMe] startWithCompletionHandler:
+         ^(FBRequestConnection *connection,
+           NSDictionary<FBGraphUser> *user,
+           NSError *error) {
+             if (!error) {
+                 self.userProfileImage.profileID = user.id;
+             }
+         }];
+    }
+}
+
+
+
 -(void)viewWillAppear:(BOOL)animated
 {
     self.navigationController.navigationBarHidden = NO;
