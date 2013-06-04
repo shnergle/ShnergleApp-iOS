@@ -46,6 +46,22 @@
     UIBarButtonItem *menuButton;
     menuButton = [self createLeftBarButton:@"arrow_west" actionSelector:@selector(goBack)];
     self.navigationItem.leftBarButtonItem = menuButton;
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] init];
+    self.navigationItem.rightBarButtonItem.title = @"Share";
+    self.navigationItem.rightBarButtonItem.target = self;
+    self.navigationItem.rightBarButtonItem.action = @selector(share);
+    [self.navigationItem.rightBarButtonItem setTitleTextAttributes:
+     [NSDictionary dictionaryWithObjectsAndKeys:
+      [UIColor blackColor], UITextAttributeTextColor,
+      [UIColor clearColor], UITextAttributeTextShadowColor,
+      [NSValue valueWithUIOffset:UIOffsetMake(0, 0)], UITextAttributeTextShadowOffset,
+      [UIFont fontWithName:@"Roboto" size:14.0], UITextAttributeFont,
+      nil]
+                                                          forState:UIControlStateNormal];
+}
+
+- (void)share {
+    
 }
 
 //workaround to get the custom back button to work
