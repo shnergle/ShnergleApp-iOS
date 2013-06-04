@@ -11,8 +11,7 @@
 @implementation CheckInViewController
 
 
--(IBAction)TakePhoto
-{
+- (IBAction)TakePhoto {
     imgPickerCam = [[UIImagePickerController alloc] init];
     imgPickerCam.delegate = self;
     [imgPickerCam setSourceType:UIImagePickerControllerSourceTypeCamera];
@@ -20,28 +19,24 @@
     //[imgPickerCam release]; //Nevermind for automatic ref counting.
 }
 
--(IBAction)ChooseExisting
-{
+- (IBAction)ChooseExisting {
     imgPickerLib = [[UIImagePickerController alloc] init];
     imgPickerLib.delegate = self;
     [imgPickerLib setSourceType:UIImagePickerControllerSourceTypePhotoLibrary];
     [self presentViewController:imgPickerLib animated:YES completion:NULL];
 }
 
--(void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info
-{
+- (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info {
     image = [info objectForKey:UIImagePickerControllerOriginalImage];
     [imageView setImage:image];
     //dismissal removed, not for auto ref counting.
 }
 
--(void)imagePickerControllerDidCancel:(UIImagePickerController *)picker
-{
+- (void)imagePickerControllerDidCancel:(UIImagePickerController *)picker {
     [self dismissViewControllerAnimated:YES completion:NULL];
 }
 
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
-{
+- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         // Custom initialization
@@ -49,8 +44,7 @@
     return self;
 }
 
-- (void)viewDidLoad
-{
+- (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     self.navigationController.navigationBarHidden = NO;
@@ -59,14 +53,12 @@
     self.navigationItem.leftBarButtonItem = menuButton;
 }
 
-- (void)didReceiveMemoryWarning
-{
+- (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
 
-- (UIBarButtonItem *)createLeftBarButton:(NSString *)imageName actionSelector:(SEL)actionSelector
-{
+- (UIBarButtonItem *)createLeftBarButton:(NSString *)imageName actionSelector:(SEL)actionSelector {
     UIImage *menuButtonImg = [UIImage imageNamed:imageName];
     
     UIButton *menuButtonTmp = [UIButton buttonWithType:UIButtonTypeCustom];
@@ -79,8 +71,7 @@
 }
 
 //workaround to get the custom back button to work
-- (void)goBack
-{
+- (void)goBack {
     [self.navigationController popViewControllerAnimated:YES];
 }
 

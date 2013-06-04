@@ -16,8 +16,8 @@
     IBOutlet UIImageView *imageView;
 }
 
--(IBAction)TakePhoto;
--(IBAction)ChooseExisting;
+- (IBAction)TakePhoto;
+- (IBAction)ChooseExisting;
 
 
 @end

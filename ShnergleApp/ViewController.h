@@ -16,14 +16,13 @@
 NSInteger selectedVenueIndex;
 
 
-@interface ViewController : UIViewController<UICollectionViewDataSource, UICollectionViewDelegate,GMSMapViewDelegate> {
+@interface ViewController : UIViewController<UICollectionViewDataSource, UICollectionViewDelegate, GMSMapViewDelegate> {
     NSArray *venueNames;
     NSArray *images;
     NSInteger selectedVenue;
     BOOL crowdImagesHidden;
     BOOL dropDownHidden;
     BOOL hasPositionLocked;
-
 }
 //@property (weak, nonatomic) IBOutlet UIImageView *dropDownIndicator;
 @property (weak, nonatomic) IBOutlet UIButton *drawerCloseButton;
@@ -33,23 +32,23 @@ NSInteger selectedVenueIndex;
 @property (weak, nonatomic) IBOutlet UINavigationBar *navBar;
 @property (weak, nonatomic) IBOutlet UINavigationItem *navBarMenuItem;
 - (IBAction)tapArrow:(id)sender;
-- (void)mapView:(GMSMapView *)mapView
+- (void)       mapView:(GMSMapView *)mapView
     didTapAtCoordinate:(CLLocationCoordinate2D)coordinate;
 @property (weak, nonatomic) IBOutlet OverlayText *overlay;
 //@property(nonatomic, retain) UIView *titleView;
 //@property (weak, nonatomic) IBOutlet UILabel *titleLabel;
 //@property (weak, nonatomic) IBOutlet DropDownMenu *dropDownMenu;
--(BOOL)scrollViewShouldScrollToTop:(UIScrollView *)scrollView;
+- (BOOL)scrollViewShouldScrollToTop:(UIScrollView *)scrollView;
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *checkInButton;
 //-(void)createTitleButton;
 - (IBAction)tapMap:(id)sender;
--(void)initMap;
+- (void)initMap;
 - (void)tapMenu;
 - (IBAction)tapMenu:(id)sender;
 
--(void)hideOverlay;
--(void)showOverlay;
--(void)showDistanceScroller;
--(void)hideDistanceScroller;
+- (void)hideOverlay;
+- (void)showOverlay;
+- (void)showDistanceScroller;
+- (void)hideDistanceScroller;
 //-(void)goback;
 @end

@@ -22,14 +22,14 @@
 // state, as well as its arguments passed to the state completion handler indicate whether the login
 // was successful; note that if the session is nil or closed when handleOpenURL is called, the expression
 // will be boolean NO, meaning the URL was not handled by the authenticating application
-- (BOOL)application:(UIApplication *)application
-    openURL:(NSURL *)url
+- (BOOL)  application:(UIApplication *)application
+              openURL:(NSURL *)url
     sourceApplication:(NSString *)sourceApplication
-    annotation:(id)annotation {
+           annotation:(id)annotation {
     // attempt to extract a token from the url
     return [FBAppCall handleOpenURL:url
-            sourceApplication:sourceApplication
-            withSession:self.session];
+                  sourceApplication:sourceApplication
+                        withSession:self.session];
 }
 
 // FBSample logic
@@ -47,10 +47,7 @@
     [self.session close];
 }
 
-
-
-- (void)customiseNavBar
-{
+- (void)customiseNavBar {
     [[UINavigationBar appearance] setTitleTextAttributes:
      [NSDictionary dictionaryWithObjectsAndKeys:
       [UIColor colorWithRed:0 green:0 blue:0 alpha:1.0],
@@ -61,47 +58,43 @@
       UITextAttributeTextShadowOffset,
       [UIFont fontWithName:@"Roboto-Regular" size:20.0],
       UITextAttributeFont, nil]];
-
-    [[UINavigationBar appearance] setTintColor:[UIColor colorWithRed:233.0/255 green:235.0/255 blue:240.0/255 alpha:1.0]];
-
-    [[UIBarButtonItem appearanceWhenContainedIn:[UINavigationBar class], nil] setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:[UIColor blackColor], UITextAttributeTextColor,nil] forState:UIControlStateNormal];
-
+    
+    [[UINavigationBar appearance] setTintColor:[UIColor colorWithRed:233.0 / 255 green:235.0 / 255 blue:240.0 / 255 alpha:1.0]];
+    
+    [[UIBarButtonItem appearanceWhenContainedIn:[UINavigationBar class], nil] setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:[UIColor blackColor], UITextAttributeTextColor, nil] forState:UIControlStateNormal];
+    
     NSDictionary *attributes = [NSDictionary dictionaryWithObjectsAndKeys:
                                 [UIColor whiteColor],
                                 UITextAttributeTextColor,
                                 [UIColor clearColor],
                                 UITextAttributeTextShadowColor, nil];
-
-    [[UIBarButtonItem appearance] setTitleTextAttributes: attributes
-     forState: UIControlStateNormal];
-
-
+    
+    [[UIBarButtonItem appearance] setTitleTextAttributes:attributes
+                                                forState:UIControlStateNormal];
 }
 
-- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
-{
-
+- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     [self customiseNavBar];
-
+    
     //self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     // Override point for customization after application launch.
     /*if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPhone) {
-       self.viewController = [[LoginScreenController alloc] initWithNibName:@"viewcont" bundle:nil];
-       } else {
-       self.viewController = [[LoginScreenController alloc] initWithNibName:@"viewcont" bundle:nil];
-       }*/
+     self.viewController = [[LoginScreenController alloc] initWithNibName:@"viewcont" bundle:nil];
+     } else {
+     self.viewController = [[LoginScreenController alloc] initWithNibName:@"viewcont" bundle:nil];
+     }*/
     //self.window.rootViewController = self.viewController;
     //[self.window makeKeyAndVisible];
-
+    
     // Override point for customization after application launch.
     /*UIViewController *rootViewController = [[UIViewController alloc] init];
-       self.window.rootViewController = rootViewController;
-
-       LoginScreenController *loginViewController = [[LoginScreenController alloc] init];
-       [rootViewController presentViewController:loginViewController animated:NO completion:nil];*/
+     self.window.rootViewController = rootViewController;
+     
+     LoginScreenController *loginViewController = [[LoginScreenController alloc] init];
+     [rootViewController presentViewController:loginViewController animated:NO completion:nil];*/
     //[self.window addSubview: [Controller view]];
     //[self.window makeKeyAndVisible];
-
+    
     [GMSServices provideAPIKey:@"AIzaSyBiJeQvT0FUQdGPMbOR8DFGdVbEtHMJe7c"];
     _appSecret = @"FCuf65iuOUDCjlbiyyer678Coutyc64v655478VGvgh76";
     return YES;
@@ -115,37 +108,33 @@
 // completely logging in
 - (void)applicationDidBecomeActive:(UIApplication *)application {
     /*
-       Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
+     Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
      */
-
+    
     // FBSample logic
     // We need to properly handle activation of the application with regards to SSO
     //  (e.g., returning from iOS 6.0 authorization dialog or from fast app switching).
-
+    
     [FBAppCall handleDidBecomeActiveWithSession:self.session];
-
 }
 
-- (void)applicationWillResignActive:(UIApplication *)application
-{
+- (void)applicationWillResignActive:(UIApplication *)application {
     // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
     // Use this method to pause ongoing tasks, disable timers, and throttle down OpenGL ES frame rates. Games should use this method to pause the game.
 }
 
-- (void)applicationDidEnterBackground:(UIApplication *)application
-{
+- (void)applicationDidEnterBackground:(UIApplication *)application {
     // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later.
     // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
 }
 
-- (void)applicationWillEnterForeground:(UIApplication *)application
-{
+- (void)applicationWillEnterForeground:(UIApplication *)application {
     // Called as part of the transition from the background to the inactive state; here you can undo many of the changes made on entering the background.
 }
 
 /*- (void) closeSession {
-    [FBSession.activeSession closeAndClearTokenInformation];
-   }
+ [FBSession.activeSession closeAndClearTokenInformation];
+ }
  */
 
 @end

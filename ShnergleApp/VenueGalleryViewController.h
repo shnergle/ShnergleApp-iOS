@@ -14,6 +14,6 @@
 
 
 - (UIBarButtonItem *)createLeftBarButton:(NSString *)imageName actionSelector:(SEL)actionSelector;
--(void)goBack;
--(void)imageScrollerSetup;
+- (void)goBack;
+- (void)imageScrollerSetup;
 @end

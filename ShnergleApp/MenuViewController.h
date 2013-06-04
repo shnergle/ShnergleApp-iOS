@@ -13,7 +13,7 @@
 @interface MenuViewController : UIViewController <UITableViewDataSource>
 
 @property (weak, nonatomic) IBOutlet UILabel *nameLabel;
-@property (weak,nonatomic) IBOutlet SearchBarView *searchBar;
+@property (weak, nonatomic) IBOutlet SearchBarView *searchBar;
 - (IBAction)tapProfile:(id)sender;
 - (IBAction)searchExited:(id)sender;
 @property (weak, nonatomic) IBOutlet UITextField *bar;

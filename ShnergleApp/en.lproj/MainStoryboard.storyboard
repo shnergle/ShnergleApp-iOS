@@ -200,6 +200,9 @@
                             <constraint firstItem="jEV-Fr-dKK" firstAttribute="top" secondItem="3" secondAttribute="top" type="default" id="pAf-G3-NWL"/>
                             <constraint firstItem="jEV-Fr-dKK" firstAttribute="trailing" secondItem="3" secondAttribute="trailing" type="default" id="pfi-CY-9zH"/>
                         </constraints>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="2Ec-ck-7VA" appends="YES" id="fnD-ae-GEz"/>
+                        </connections>
                     </view>
                     <navigationItem key="navigationItem" id="7uE-nf-CCR"/>
                     <connections>
@@ -219,6 +222,11 @@
                         <action selector="tapMap:" destination="2" id="nW5-zh-twV"/>
                     </connections>
                 </tapGestureRecognizer>
+                <swipeGestureRecognizer direction="right" id="2Ec-ck-7VA">
+                    <connections>
+                        <action selector="tapMenu:" destination="2" id="MCR-HG-g2r"/>
+                    </connections>
+                </swipeGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="-1255" y="-37"/>
         </scene>
