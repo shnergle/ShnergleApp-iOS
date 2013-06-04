@@ -78,7 +78,6 @@
            NSDictionary<FBGraphUser> *user,
            NSError *error) {
              if (!error) {
-                 NSLog(@"logging in to server");
                  appDelegate.fullName = [NSString stringWithFormat:@"%@ %@", user.first_name, user.last_name];
                  appDelegate.facebookId = user.id;
                  appDelegate.email = [user objectForKey:@"email"];
@@ -117,15 +116,13 @@
                  [params appendString:@"&age="];
                  [params appendString:[NSString stringWithFormat:@"%d", age]];
                  
-                 [[[PostRequest alloc] init] exec:@"users/set" params:params delegate:self callback:@selector(postResponse:)];
+                 if (![[[PostRequest alloc] init] exec:@"users/set" params:params delegate:self callback:@selector(postResponse:)])
+                     [self alert];
                  
-                 UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"MainStoryboard" bundle:nil];
-                 ViewController *vc = [storyboard instantiateViewControllerWithIdentifier:@"AroundMeSlidingViewController"];
-                 [self.navigationController pushViewController:vc animated:YES];
              } else {
-                 NSLog(@"FUCKING FACEBOOK");
                  
                  self.buttonLoginLogout.hidden = NO;
+                 [self alert];
              }
          }];
         
@@ -140,7 +137,13 @@
 }
 
 - (void)postResponse:(NSString *)response {
-    NSLog(@"actual response: %@", response);
+    if ([response isEqual:@"true"]) {
+        UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"MainStoryboard" bundle:nil];
+        ViewController *vc = [storyboard instantiateViewControllerWithIdentifier:@"AroundMeSlidingViewController"];
+        [self.navigationController pushViewController:vc animated:YES];
+    } else {
+        [self alert];
+    }
 }
 
 - (IBAction)buttonClickHandler:(id)sender {
@@ -174,6 +177,11 @@
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (void)alert {
+    UIActionSheet *alert = [[UIActionSheet alloc] initWithTitle:@"Connection failed!" delegate:nil cancelButtonTitle:@"OK" destructiveButtonTitle:nil otherButtonTitles:nil];
+    [alert showInView:[[self view] window]];
 }
 
 @end
