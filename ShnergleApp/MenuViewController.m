@@ -66,6 +66,8 @@
     }
     
     cell.textLabel.text = [_tableData objectAtIndex:indexPath.row];
+    cell.textLabel.textColor = [UIColor whiteColor];
+    cell.textLabel.font = [UIFont fontWithName:@"Roboto" size:20.0];
     
     return cell;
 }
