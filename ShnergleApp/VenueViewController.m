@@ -31,20 +31,18 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [[self checkInButton] setTitleTextAttributes:
-     [NSDictionary dictionaryWithObjectsAndKeys:
-      [UIColor whiteColor], UITextAttributeTextColor,
-      [UIColor clearColor], UITextAttributeTextShadowColor,
-      [NSValue valueWithUIOffset:UIOffsetMake(0, 0)], UITextAttributeTextShadowOffset,
-      [UIFont fontWithName:@"Roboto" size:14.0], UITextAttributeFont,
-      nil]
+     @{UITextAttributeTextColor: [UIColor whiteColor],
+      UITextAttributeTextShadowColor: [UIColor clearColor],
+      UITextAttributeTextShadowOffset: [NSValue valueWithUIOffset:UIOffsetMake(0, 0)],
+      UITextAttributeFont: [UIFont fontWithName:@"Roboto" size:14.0]}
                                         forState:UIControlStateNormal];
     
     textViewOpen = false;
     [[self crowdCollectionV]setDataSource:self];
     [[self crowdCollectionV]setDelegate:self];
     
-    images = [[NSArray alloc] initWithObjects:@"liverpool.JPG", @"liverpool2.jpg", @"mahiki.jpg", @"liverpool.JPG", @"liverpool2.jpg", @"mahiki.jpg", @"liverpool.JPG", @"liverpool2.jpg", @"mahiki.jpg", @"liverpool2.jpg", @"mahiki.jpg", @"liverpool2.jpg", @"mahiki.jpg", @"liverpool2.jpg", @"mahiki.jpg", @"liverpool.JPG", @"liverpool2.jpg", @"mahiki.jpg", @"liverpool.JPG", @"liverpool2.jpg", @"mahiki.jpg", @"liverpool.JPG", @"liverpool2.jpg", @"mahiki.jpg", @"liverpool2.jpg", @"mahiki.jpg", @"liverpool2.jpg", @"mahiki.jpg", @"liverpool2.jpg", @"mahiki.jpg", nil];
-    venueNames = [[NSArray alloc] initWithObjects:@"liverpool street station", @"liverpool street station", @"mahiki", @"liverpool street station", @"liverpool street station", @"mahiki", @"liverpool street station", @"liverpool street station", @"mahiki", @"liverpool street station", @"mahiki", @"liverpool street station", @"mahiki", @"liverpool street station", @"mahiki", @"liverpool street station", @"liverpool street station", @"mahiki", @"liverpool street station", @"liverpool street station", @"mahiki", @"liverpool street station", @"liverpool street station", @"mahiki", @"liverpool street station", @"mahiki", @"liverpool street station", @"mahiki", @"liverpool street station", @"mahiki", nil];
+    images = @[@"liverpool.JPG", @"liverpool2.jpg", @"mahiki.jpg", @"liverpool.JPG", @"liverpool2.jpg", @"mahiki.jpg", @"liverpool.JPG", @"liverpool2.jpg", @"mahiki.jpg", @"liverpool2.jpg", @"mahiki.jpg", @"liverpool2.jpg", @"mahiki.jpg", @"liverpool2.jpg", @"mahiki.jpg", @"liverpool.JPG", @"liverpool2.jpg", @"mahiki.jpg", @"liverpool.JPG", @"liverpool2.jpg", @"mahiki.jpg", @"liverpool.JPG", @"liverpool2.jpg", @"mahiki.jpg", @"liverpool2.jpg", @"mahiki.jpg", @"liverpool2.jpg", @"mahiki.jpg", @"liverpool2.jpg", @"mahiki.jpg"];
+    venueNames = @[@"liverpool street station", @"liverpool street station", @"mahiki", @"liverpool street station", @"liverpool street station", @"mahiki", @"liverpool street station", @"liverpool street station", @"mahiki", @"liverpool street station", @"mahiki", @"liverpool street station", @"mahiki", @"liverpool street station", @"mahiki", @"liverpool street station", @"liverpool street station", @"mahiki", @"liverpool street station", @"liverpool street station", @"mahiki", @"liverpool street station", @"liverpool street station", @"mahiki", @"liverpool street station", @"mahiki", @"liverpool street station", @"mahiki", @"liverpool street station", @"mahiki"];
     
     promotionTitle = @"Tonights special offer";
     promotionExpiry = @"Expires at 11 pm";
@@ -66,8 +64,8 @@
     static NSString *cellIdentifier = @"Cell";
     CrowdItem *item = [collectionView dequeueReusableCellWithReuseIdentifier:cellIdentifier forIndexPath:indexPath];
     /* Here we can set the elements of the crowdItem (the cell) in the cellview */
-    [[item crowdImage]setImage:[UIImage imageNamed:[images objectAtIndex:indexPath.item]]];
-    [[item venueName]setText:[venueNames objectAtIndex:indexPath.item]];
+    [[item crowdImage]setImage:[UIImage imageNamed:images[indexPath.item]]];
+    [[item venueName]setText:venueNames[indexPath.item]];
     
     
     /*SHADOW AROUND OBJECTS
@@ -93,7 +91,7 @@
 
 - (void)displayTextView {
     if (!textViewOpen) {
-        _overlayView = [[[NSBundle mainBundle] loadNibNamed:@"OverlayText" owner:self options:nil] objectAtIndex:0];
+        _overlayView = [[NSBundle mainBundle] loadNibNamed:@"OverlayText" owner:self options:nil][0];
         _overlayView.caller = self;
         //Get screen height:
         CGRect screenRect = [[UIScreen mainScreen] bounds];
@@ -218,7 +216,7 @@
 }
 
 - (void)goToPromotionView {
-    PromotionView *promotionView = [[[NSBundle mainBundle] loadNibNamed:@"PromotionView" owner:self options:nil] objectAtIndex:0];
+    PromotionView *promotionView = [[NSBundle mainBundle] loadNibNamed:@"PromotionView" owner:self options:nil][0];
     [promotionView setpromotionTitle:promotionTitle];
     [promotionView setpromotionBody:promotionBody];
     [promotionView setpromotionExpiry:promotionExpiry];
@@ -229,7 +227,7 @@
 }
 
 - (void)goToPromotionDetailView {
-    PromotionDetailView *promotionDetailView = [[[NSBundle mainBundle] loadNibNamed:@"PromotionDetailView" owner:self options:nil] objectAtIndex:0];
+    PromotionDetailView *promotionDetailView = [[NSBundle mainBundle] loadNibNamed:@"PromotionDetailView" owner:self options:nil][0];
     
     [self.view addSubview:promotionDetailView];
 }

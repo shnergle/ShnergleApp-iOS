@@ -26,12 +26,10 @@
 - (void)decorateCheckInButton {
     //check in button
     [[self checkInButton] setTitleTextAttributes:
-     [NSDictionary dictionaryWithObjectsAndKeys:
-      [UIColor whiteColor], UITextAttributeTextColor,
-      [UIColor clearColor], UITextAttributeTextShadowColor,
-      [NSValue valueWithUIOffset:UIOffsetMake(0, 0)], UITextAttributeTextShadowOffset,
-      [UIFont fontWithName:@"Roboto" size:14.0], UITextAttributeFont,
-      nil]
+     @{UITextAttributeTextColor: [UIColor whiteColor],
+      UITextAttributeTextShadowColor: [UIColor clearColor],
+      UITextAttributeTextShadowOffset: [NSValue valueWithUIOffset:UIOffsetMake(0, 0)],
+      UITextAttributeFont: [UIFont fontWithName:@"Roboto" size:14.0]}
                                         forState:UIControlStateNormal];
 }
 
@@ -102,8 +100,8 @@
     [[self crowdCollection] setDataSource:self];
     [[self crowdCollection] setDelegate:self];
     //[self createTitleButton];
-    images = [[NSArray alloc] initWithObjects:@"liverpool.JPG", @"liverpool2.jpg", @"mahiki.jpg", @"liverpool.JPG", @"liverpool2.jpg", @"mahiki.jpg", @"liverpool.JPG", @"liverpool2.jpg", @"mahiki.jpg", nil];
-    venueNames = [[NSArray alloc] initWithObjects:@"liverpool street station", @"liverpool street station", @"mahiki", @"liverpool street station", @"liverpool street station", @"mahiki", @"liverpool street station", @"liverpool street station", @"mahiki", nil];
+    images = @[@"liverpool.JPG", @"liverpool2.jpg", @"mahiki.jpg", @"liverpool.JPG", @"liverpool2.jpg", @"mahiki.jpg", @"liverpool.JPG", @"liverpool2.jpg", @"mahiki.jpg"];
+    venueNames = @[@"liverpool street station", @"liverpool street station", @"mahiki", @"liverpool street station", @"liverpool street station", @"mahiki", @"liverpool street station", @"liverpool street station", @"mahiki"];
     
     crowdImagesHidden = NO;
     dropDownHidden = YES;
@@ -193,9 +191,9 @@
      */
     /* Here we can set the elements of the crowdItem (the cell) in the cellview */
     
-    [[item crowdImage] setImage:[UIImage imageNamed:[images objectAtIndex:indexPath.item]]];
+    [[item crowdImage] setImage:[UIImage imageNamed:images[indexPath.item]]];
     
-    [[item venueName] setText:[venueNames objectAtIndex:indexPath.item]];
+    [[item venueName] setText:venueNames[indexPath.item]];
     
     item.venueName.font = [UIFont fontWithName:@"Roboto" size:11.0f];
     
@@ -206,7 +204,7 @@
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     if ([segue.identifier isEqualToString:@"ToVenueSite"]) {
-        [segue.destinationViewController setTitle:[venueNames objectAtIndex:selectedVenue]];
+        [segue.destinationViewController setTitle:venueNames[selectedVenue]];
     }
 }
 

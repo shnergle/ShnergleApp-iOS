@@ -46,7 +46,7 @@
     UIImageView *imageView1 = [[UIImageView alloc] initWithImage:image];
     UIImageView *imageView2 = [[UIImageView alloc] initWithImage:image2];
     UIImageView *imageView3 = [[UIImageView alloc] initWithImage:image];
-    NSArray *imageViews = [NSArray arrayWithObjects:imageView1, imageView2, imageView3, nil];
+    NSArray *imageViews = @[imageView1, imageView2, imageView3];
     //UIScrollView *imageScrollView = [[UIScrollView alloc] initWithFrame:self.view.bounds];
     
     
@@ -54,7 +54,7 @@
     CGRect cRect = _imageScrollView.bounds;
     UIImageView *cView;
     for (int i = 0; i < imageViews.count; i++) {
-        cView = [imageViews objectAtIndex:i];
+        cView = imageViews[i];
         cView.frame = cRect;
         cView.backgroundColor = [UIColor blueColor];
         [_imageScrollView addSubview:cView];

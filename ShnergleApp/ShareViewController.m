@@ -55,19 +55,17 @@
     self.navigationItem.rightBarButtonItem.target = self;
     self.navigationItem.rightBarButtonItem.action = @selector(share);
     [self.navigationItem.rightBarButtonItem setTitleTextAttributes:
-     [NSDictionary dictionaryWithObjectsAndKeys:
-      [UIColor blackColor], UITextAttributeTextColor,
-      [UIColor clearColor], UITextAttributeTextShadowColor,
-      [NSValue valueWithUIOffset:UIOffsetMake(0, 0)], UITextAttributeTextShadowOffset,
-      [UIFont fontWithName:@"Roboto" size:14.0], UITextAttributeFont,
-      nil]
+     @{UITextAttributeTextColor: [UIColor blackColor],
+      UITextAttributeTextShadowColor: [UIColor clearColor],
+      UITextAttributeTextShadowOffset: [NSValue valueWithUIOffset:UIOffsetMake(0, 0)],
+      UITextAttributeFont: [UIFont fontWithName:@"Roboto" size:14.0]}
                                                           forState:UIControlStateNormal];
 }
 
 - (void)share {
     AppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
 
-    [appDelegate.session requestNewPublishPermissions:[NSArray arrayWithObject:@"publish_actions"] defaultAudience:FBSessionDefaultAudienceEveryone completionHandler:^(FBSession *session, NSError *error) {
+    [appDelegate.session requestNewPublishPermissions:@[@"publish_actions"] defaultAudience:FBSessionDefaultAudienceEveryone completionHandler:^(FBSession *session, NSError *error) {
 
     /*NSMutableDictionary *params = [NSMutableDictionary dictionaryWithObjectsAndKeys:
                                    @"My test app", @"name",
@@ -181,16 +179,16 @@
             _friendLabel.text = @"";
             break;
         case 1:
-            _friendLabel.text = [NSString stringWithFormat:@"With %@", [[selectedFriends objectAtIndex:0] name]];
+            _friendLabel.text = [NSString stringWithFormat:@"With %@", [selectedFriends[0] name]];
             break;
         case 2:
-            _friendLabel.text = [NSString stringWithFormat:@"With %@ and %@", [[selectedFriends objectAtIndex:0] name], [[selectedFriends objectAtIndex:1] name]];
+            _friendLabel.text = [NSString stringWithFormat:@"With %@ and %@", [selectedFriends[0] name], [selectedFriends[1] name]];
             break;
         case 3:
-            _friendLabel.text = [NSString stringWithFormat:@"With %@, %@ and %@", [[selectedFriends objectAtIndex:0] name], [[selectedFriends objectAtIndex:1] name], [[selectedFriends objectAtIndex:2] name]];
+            _friendLabel.text = [NSString stringWithFormat:@"With %@, %@ and %@", [selectedFriends[0] name], [selectedFriends[1] name], [selectedFriends[2] name]];
             break;
         default:
-            _friendLabel.text = [NSString stringWithFormat:@"With %@, %@ and %d other", [[selectedFriends objectAtIndex:0] name], [[selectedFriends objectAtIndex:1] name], [selectedFriends count] - 2];
+            _friendLabel.text = [NSString stringWithFormat:@"With %@, %@ and %d other", [selectedFriends[0] name], [selectedFriends[1] name], [selectedFriends count] - 2];
             break;
     }
     [self dismissViewControllerAnimated:YES completion:nil];

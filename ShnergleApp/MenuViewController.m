@@ -39,7 +39,7 @@
     _nameLabel.textColor = [UIColor whiteColor];
     _nameLabel.text = appDelegate.fullName;
     
-    _tableData = [[NSArray alloc] initWithObjects:@"Around me", @"Favourites", @"Promotions", @"Quiet", @"Trending", nil];
+    _tableData = @[@"Around me", @"Favourites", @"Promotions", @"Quiet", @"Trending"];
     
 #pragma mark - Tableview Data Source Methods
 }
@@ -65,7 +65,7 @@
         cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"MyCell"];
     }
     
-    cell.textLabel.text = [_tableData objectAtIndex:indexPath.row];
+    cell.textLabel.text = _tableData[indexPath.row];
     cell.textLabel.textColor = [UIColor whiteColor];
     cell.textLabel.font = [UIFont fontWithName:@"Roboto" size:20.0];
     

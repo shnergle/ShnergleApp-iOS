@@ -40,7 +40,7 @@
     if (!appDelegate.session.isOpen) {
         self.buttonLoginLogout.hidden = YES;
         // create a fresh session object
-        appDelegate.session = [[FBSession alloc] initWithAppID:nil permissions:[NSArray arrayWithObjects:@"email", @"user_birthday", nil] urlSchemeSuffix:nil tokenCacheStrategy:nil];
+        appDelegate.session = [[FBSession alloc] initWithAppID:nil permissions:@[@"email", @"user_birthday"] urlSchemeSuffix:nil tokenCacheStrategy:nil];
         
         // if we don't have a cached token, a call to open here would cause UX for login to
         // occur; we don't want that to happen unless the user clicks the login button, and so
@@ -80,7 +80,7 @@
              if (!error) {
                  appDelegate.fullName = [NSString stringWithFormat:@"%@ %@", user.first_name, user.last_name];
                  appDelegate.facebookId = user.id;
-                 appDelegate.email = [user objectForKey:@"email"];
+                 appDelegate.email = user[@"email"];
                  NSMutableString *params = [[NSMutableString alloc] initWithString:@"facebook_id="];
                  [params appendString:user.id];
                  [params appendString:@"&facebook="];
@@ -90,23 +90,23 @@
                  [params appendString:@"&surname="];
                  [params appendString:user.last_name];
                  [params appendString:@"&email="];
-                 [params appendString:[user objectForKey:@"email"]];
+                 [params appendString:user[@"email"]];
                  [params appendString:@"&gender="];
-                 [params appendString:[[user objectForKey:@"gender"] substringToIndex:1]];
+                 [params appendString:[user[@"gender"] substringToIndex:1]];
                  [params appendString:@"&country="];
-                 [params appendString:[[[user objectForKey:@"locale"] substringFromIndex:3] lowercaseString]];
+                 [params appendString:[[user[@"locale"] substringFromIndex:3] lowercaseString]];
                  [params appendString:@"&language="];
-                 [params appendString:[user objectForKey:@"locale"]];
+                 [params appendString:user[@"locale"]];
                  [params appendString:@"&birth_day="];
-                 [params appendString:[[user objectForKey:@"birthday"] substringWithRange:NSMakeRange(3, 2)]];
+                 [params appendString:[user[@"birthday"] substringWithRange:NSMakeRange(3, 2)]];
                  [params appendString:@"&birth_month="];
-                 [params appendString:[[user objectForKey:@"birthday"] substringToIndex:2]];
+                 [params appendString:[user[@"birthday"] substringToIndex:2]];
                  [params appendString:@"&birth_year="];
-                 [params appendString:[[user objectForKey:@"birthday"] substringFromIndex:6]];
+                 [params appendString:[user[@"birthday"] substringFromIndex:6]];
                  NSDate *now = [NSDate date];
                  NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
                  [dateFormatter setDateFormat:@"MM/dd/yyyy"];
-                 NSDate *birthday = [dateFormatter dateFromString:[user objectForKey:@"birthday"]];
+                 NSDate *birthday = [dateFormatter dateFromString:user[@"birthday"]];
                  NSDateComponents *ageComponents = [[NSCalendar currentCalendar]
                                                     components:NSYearCalendarUnit
                                                     fromDate:birthday
@@ -149,7 +149,7 @@
 - (IBAction)buttonClickHandler:(id)sender {
     AppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
     
-    if (appDelegate.session.state != FBSessionStateCreated) appDelegate.session = [[FBSession alloc] initWithAppID:nil permissions:[NSArray arrayWithObjects:@"email", @"user_birthday", nil] urlSchemeSuffix:nil tokenCacheStrategy:nil];    
+    if (appDelegate.session.state != FBSessionStateCreated) appDelegate.session = [[FBSession alloc] initWithAppID:nil permissions:@[@"email", @"user_birthday"] urlSchemeSuffix:nil tokenCacheStrategy:nil];    
     [appDelegate.session openWithCompletionHandler:^(FBSession *session,
                                                      FBSessionState status,
                                                      NSError *error) {

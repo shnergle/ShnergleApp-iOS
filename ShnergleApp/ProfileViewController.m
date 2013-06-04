@@ -30,12 +30,10 @@
     //FBLoginView* loginview = [[FBLoginView alloc ]init];
     //loginview.delegate = self;
     [self.navigationItem.rightBarButtonItem setTitleTextAttributes:
-     [NSDictionary dictionaryWithObjectsAndKeys:
-      [UIColor blackColor], UITextAttributeTextColor,
-      [UIColor clearColor], UITextAttributeTextShadowColor,
-      [NSValue valueWithUIOffset:UIOffsetMake(0, 0)], UITextAttributeTextShadowOffset,
-      [UIFont fontWithName:@"Roboto" size:14.0], UITextAttributeFont,
-      nil]
+     @{UITextAttributeTextColor: [UIColor blackColor],
+      UITextAttributeTextShadowColor: [UIColor clearColor],
+      UITextAttributeTextShadowOffset: [NSValue valueWithUIOffset:UIOffsetMake(0, 0)],
+      UITextAttributeFont: [UIFont fontWithName:@"Roboto" size:14.0]}
                                                           forState:UIControlStateNormal];
     
     self.navigationItem.title = @"About you";

@@ -24,7 +24,7 @@
     responseCallback = cb;
     key = [NSString stringWithFormat:@"%@/%@", type, type_id];
     id obj;
-    if ((obj = [cache objectForKey:key]) != nil) {
+    if ((obj = cache[key]) != nil) {
         [self received:obj];
     } else {
         NSString *path = @"images/get";
@@ -34,8 +34,8 @@
 }
 
 - (void)received:(UIImage *)response {
-    if ([cache objectForKey:key] == nil) {
-        [cache setObject:response forKey:key];
+    if (cache[key] == nil) {
+        cache[key] = response;
     }
     NSMethodSignature *methodSig = [[responseObject class] instanceMethodSignatureForSelector:responseCallback];
     NSInvocation *invocation = [NSInvocation invocationWithMethodSignature:methodSig];

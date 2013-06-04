@@ -27,7 +27,7 @@
 }
 
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info {
-    image = [info objectForKey:UIImagePickerControllerOriginalImage];
+    image = info[UIImagePickerControllerOriginalImage];
     [imageView setImage:image];
     //dismissal removed, not for auto ref counting.
 }
