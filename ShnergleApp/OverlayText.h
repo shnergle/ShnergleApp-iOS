@@ -21,7 +21,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *offerContents;
 @property (weak, nonatomic) IBOutlet UILabel *offerCount;
 @property (weak, nonatomic) IBOutlet GMSMapView *venueMap;
-
+@property (weak, nonatomic) UIViewController *caller;
 
 - (void)hideAnimated:(NSInteger)originalSize animationDuration:(double)animationDuration targetSize:(NSInteger)targetSize contentView:(UIView *)contentView;
 - (void)showAnimated:(NSInteger)targetSize animationDelay:(double)animationDelay animationDuration:(double)animationDuration;
