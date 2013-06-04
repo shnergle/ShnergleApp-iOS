@@ -7,6 +7,8 @@
 //
 
 #import "ShareViewController.h"
+#import <FacebookSDK/FBFriendPickerViewController.h>
+#import "AppDelegate.h"
 
 @implementation ShareViewController
 
@@ -62,6 +64,56 @@
 
 - (void)share {
     
+}
+
+- (IBAction)selectFriendsButtonAction:(id)sender {
+    AppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
+    // Initialize the friend picker
+    FBFriendPickerViewController *friendPickerController =
+    [[FBFriendPickerViewController alloc] init];
+    
+    // Configure the picker ...
+    friendPickerController.title = @"Select Friends";
+    // Set this view controller as the friend picker delegate
+    friendPickerController.delegate = self;
+    friendPickerController.session = appDelegate.session;
+    
+    // Fetch the data
+    [friendPickerController loadData];
+    
+    [self presentViewController:friendPickerController
+                           animated:YES
+                         completion:nil];
+}
+
+- (void)facebookViewControllerCancelWasPressed:(id)sender
+{
+    [self dismissModalViewControllerAnimated:YES];
+    
+}
+
+- (void)facebookViewControllerDoneWasPressed:(id)sender
+{
+    FBFriendPickerViewController *fpc = (FBFriendPickerViewController *)sender;
+    selectedFriends = fpc.selection;
+    switch ([selectedFriends count]) {
+        case 0:
+            _friendLabel.text = @"";
+            break;
+        case 1:
+            _friendLabel.text = [NSString stringWithFormat:@"With %@", [selectedFriends objectAtIndex:0]];
+            break;
+        case 2:
+            _friendLabel.text = [NSString stringWithFormat:@"With %@ and %@", [[selectedFriends objectAtIndex:0] name], [[selectedFriends objectAtIndex:1] name]];
+            break;
+        case 3:
+            _friendLabel.text = [NSString stringWithFormat:@"With %@, %@ and %@", [[selectedFriends objectAtIndex:0] name], [[selectedFriends objectAtIndex:1] name], [[selectedFriends objectAtIndex:2] name]];
+            break;
+        default:
+            _friendLabel.text = [NSString stringWithFormat:@"With %@, %@ and %d other", [[selectedFriends objectAtIndex:0] name], [[selectedFriends objectAtIndex:1] name], [selectedFriends count] - 2];
+            break;
+    }
+    [self dismissModalViewControllerAnimated:YES];
 }
 
 //workaround to get the custom back button to work
