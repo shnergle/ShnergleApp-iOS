@@ -10,6 +10,7 @@
 		1F95516217BB4B9FAB164196 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 92FD2BD9498A41EEBBD26F82 /* libPods.a */; };
 		801D4ED4175DF1E1007212E0 /* highlight_distance_02_transparent.png in Resources */ = {isa = PBXBuildFile; fileRef = 801D4ED3175DF1E1007212E0 /* highlight_distance_02_transparent.png */; };
 		801D4ED6175DF337007212E0 /* highlight_distance_02_long.png in Resources */ = {isa = PBXBuildFile; fileRef = 801D4ED5175DF337007212E0 /* highlight_distance_02_long.png */; };
+		801D4ED9175E079F007212E0 /* UIImageResizing.m in Sources */ = {isa = PBXBuildFile; fileRef = 801D4ED8175E079F007212E0 /* UIImageResizing.m */; };
 		8045AFC6170493D3002012D5 /* OverlayText.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8045AFC5170493D3002012D5 /* OverlayText.xib */; };
 		8045AFC9170495CE002012D5 /* OverlayText.m in Sources */ = {isa = PBXBuildFile; fileRef = 8045AFC8170495CE002012D5 /* OverlayText.m */; };
 		805AB9E1172A9AFA0056DCFB /* VenueGalleryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 805AB9E0172A9AFA0056DCFB /* VenueGalleryViewController.m */; };
@@ -154,6 +155,8 @@
 		6199414049D54724BA967C32 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = SOURCE_ROOT; };
 		801D4ED3175DF1E1007212E0 /* highlight_distance_02_transparent.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = highlight_distance_02_transparent.png; sourceTree = "<group>"; };
 		801D4ED5175DF337007212E0 /* highlight_distance_02_long.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = highlight_distance_02_long.png; sourceTree = "<group>"; };
+		801D4ED7175E079F007212E0 /* UIImageResizing.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIImageResizing.h; sourceTree = "<group>"; };
+		801D4ED8175E079F007212E0 /* UIImageResizing.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIImageResizing.m; sourceTree = "<group>"; };
 		8045AFC5170493D3002012D5 /* OverlayText.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = OverlayText.xib; sourceTree = "<group>"; };
 		8045AFC7170495CD002012D5 /* OverlayText.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OverlayText.h; sourceTree = "<group>"; };
 		8045AFC8170495CE002012D5 /* OverlayText.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OverlayText.m; sourceTree = "<group>"; };
@@ -400,6 +403,8 @@
 		808F13CE16FB6A5C00B66E6D /* ShnergleApp */ = {
 			isa = PBXGroup;
 			children = (
+				801D4ED7175E079F007212E0 /* UIImageResizing.h */,
+				801D4ED8175E079F007212E0 /* UIImageResizing.m */,
 				808F13D716FB6A5C00B66E6D /* AppDelegate.h */,
 				808F13D816FB6A5C00B66E6D /* AppDelegate.m */,
 				CD3B655B175CBA22006A4151 /* Around Me */,
@@ -903,6 +908,7 @@
 				CDB72C2E175A5F2B00018271 /* PostRequest.m in Sources */,
 				CD7C1B10175B424400902AA9 /* ImageCache.m in Sources */,
 				CD3B655D175CBA72006A4151 /* CrowdItem.m in Sources */,
+				801D4ED9175E079F007212E0 /* UIImageResizing.m in Sources */,
 				CDAD1D2F175E011100581713 /* ShareViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
