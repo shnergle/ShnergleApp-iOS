@@ -139,6 +139,14 @@
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Yep-ys-8YG" customClass="OverlayText">
                                 <subviews>
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ptr-GU-idP">
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="320" id="nXd-dV-mbw"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mRC-GB-AsM">
                                         <constraints>
                                             <constraint firstAttribute="height" constant="21" id="1bH-Yw-Rsj"/>
@@ -166,6 +174,8 @@
                                     <constraint firstItem="KE8-Yl-GlD" firstAttribute="centerX" secondItem="Yep-ys-8YG" secondAttribute="centerX" type="default" id="EGd-2M-Pfz"/>
                                     <constraint firstItem="KE8-Yl-GlD" firstAttribute="top" secondItem="Yep-ys-8YG" secondAttribute="top" constant="31" id="ONp-dS-zI2"/>
                                     <constraint firstItem="mRC-GB-AsM" firstAttribute="leading" secondItem="KE8-Yl-GlD" secondAttribute="leading" type="default" id="jg7-YR-qOt"/>
+                                    <constraint firstItem="ptr-GU-idP" firstAttribute="leading" secondItem="Yep-ys-8YG" secondAttribute="leading" constant="145" id="nX3-EA-Zhr"/>
+                                    <constraint firstItem="ptr-GU-idP" firstAttribute="centerY" secondItem="Yep-ys-8YG" secondAttribute="centerY" type="default" id="roD-n7-WuD"/>
                                     <constraint firstItem="mRC-GB-AsM" firstAttribute="top" secondItem="Yep-ys-8YG" secondAttribute="top" constant="5" id="vFC-SM-5HP"/>
                                 </constraints>
                             </view>
