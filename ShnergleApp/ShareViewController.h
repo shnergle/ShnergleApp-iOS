@@ -7,7 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <FacebookSDK/FBViewController.h>
 
-@interface ShareViewController : UIViewController
+@interface ShareViewController : UIViewController <FBViewControllerDelegate> {
+    id selectedFriends;
+}
+@property (weak, nonatomic) IBOutlet UIButton *nameList;
+@property (weak, nonatomic) IBOutlet UILabel *friendLabel;
 
 @end
