@@ -8,7 +8,7 @@
 
 #import "ShnergleAppTests.h"
 
-@implementation Consumer_AppTests
+@implementation ShnergleAppTests
 
 - (void)setUp
 {
@@ -26,7 +26,7 @@
 
 - (void)testExample
 {
-    STFail(@"Unit tests are not implemented yet in Consumer AppTests");
+    STFail(@"Unit tests are not implemented yet in ShnergleAppTests");
 }
 
 @end
