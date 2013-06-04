@@ -11,11 +11,11 @@
 
 @implementation PostRequest
 
-- (void)exec:(NSString *)path params:(NSString *)params delegate:(id)object callback:(SEL)cb {
-    [self exec:path params:params delegate:object callback:cb type:@"string"];
+- (BOOL)exec:(NSString *)path params:(NSString *)params delegate:(id)object callback:(SEL)cb {
+    return [self exec:path params:params delegate:object callback:cb type:@"string"];
 }
 
-- (void)exec:(NSString *)path params:(NSString *)params delegate:(id)object callback:(SEL)cb type:(NSString *)type {
+- (BOOL)exec:(NSString *)path params:(NSString *)params delegate:(id)object callback:(SEL)cb type:(NSString *)type {
     NSString *urlString = [NSString stringWithFormat:@"http://shnergle-api.azurewebsites.net/%@", path];
     AppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
     NSString *paramsString = [NSString stringWithFormat:@"app_secret=%@&%@", appDelegate.appSecret, params];
@@ -27,7 +27,7 @@
     responseObject = object;
     responseCallback = cb;
     responseType = type;
-    if (![[NSURLConnection alloc] initWithRequest:urlRequest delegate:self]) NSLog(@"POST failed!");
+    return !![[NSURLConnection alloc] initWithRequest:urlRequest delegate:self];
 }
 
 - (void)connection:(NSURLConnection *)connection didReceiveData:(NSData *)data {

@@ -14,6 +14,7 @@
 //- (IBAction)authButtonAction:(id)sender;
 
 @property (strong, nonatomic) IBOutlet UIButton *authButton;
+@property (strong, nonatomic) IBOutlet FBProfilePictureView *userProfileImage;
 
 //@property (strong, nonatomic) FBProfilePictureView *profilePictureView;
 @property (strong, nonatomic) IBOutlet UILabel *lab;
