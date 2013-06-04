@@ -10,10 +10,36 @@
 #import "StoryboardLayersNavigation.h" //for getting the viewcontroller from this view.
 #import "PromotionViewController.h"
 #import "VenueViewController.h"
+#import "AppDelegate.h"
 
 #define TABBAR_HEIGHT (45)
 
 @implementation OverlayText
+
+- (IBAction)share:(id)sender {
+    AppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
+    [appDelegate.session requestNewPublishPermissions:[NSArray arrayWithObject:@"publish_actions"] defaultAudience:FBSessionDefaultAudienceEveryone completionHandler:^(FBSession *session, NSError *error) {
+        [FBDialogs presentOSIntegratedShareDialogModallyFrom:self.caller initialText:@"I am sharing a venue" image:[UIImage imageNamed:@"shnerglelogo.png"] url:[NSURL URLWithString:@"https://shnergle.com/"] handler:^(FBOSIntegratedShareDialogResult result, NSError *error) {
+            
+            NSString *alertText = @"";
+            if (error) {
+                alertText = [NSString stringWithFormat:
+                             @"error: domain = %@, code = %d",
+                             error.domain, error.code];
+            } else if (result == FBNativeDialogResultSucceeded) {
+                alertText = @"Posted successfully.";
+            }
+            if (![alertText isEqualToString:@""]) {
+                [[[UIAlertView alloc] initWithTitle:@"Result"
+                                            message:alertText
+                                           delegate:self
+                                  cancelButtonTitle:@"OK!"
+                                  otherButtonTitles:nil]
+                 show];
+            }
+        }];
+    }];
+}
 
 - (id)initWithFrame:(CGRect)frame {
     CGRect screenRect = [[UIScreen mainScreen] bounds];

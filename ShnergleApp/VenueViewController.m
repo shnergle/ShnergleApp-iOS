@@ -94,6 +94,7 @@
 - (void)displayTextView {
     if (!textViewOpen) {
         _overlayView = [[[NSBundle mainBundle] loadNibNamed:@"OverlayText" owner:self options:nil] objectAtIndex:0];
+        _overlayView.caller = self;
         //Get screen height:
         CGRect screenRect = [[UIScreen mainScreen] bounds];
         CGFloat screenHeight = screenRect.size.height;
