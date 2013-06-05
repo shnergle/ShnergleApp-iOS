@@ -23,6 +23,8 @@ NSInteger selectedVenueIndex;
     BOOL crowdImagesHidden;
     BOOL dropDownHidden;
     BOOL hasPositionLocked;
+    BOOL pinDropped;
+    CLLocationCoordinate2D pinDroppedLocation;
 }
 //@property (weak, nonatomic) IBOutlet UIImageView *dropDownIndicator;
 @property (weak, nonatomic) IBOutlet UIButton *drawerCloseButton;
@@ -40,7 +42,10 @@ NSInteger selectedVenueIndex;
 //@property (weak, nonatomic) IBOutlet UILabel *titleLabel;
 //@property (weak, nonatomic) IBOutlet DropDownMenu *dropDownMenu;
 - (BOOL)scrollViewShouldScrollToTop:(UIScrollView *)scrollView;
+- (IBAction)sliderValueChanged:(id)sender;
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *checkInButton;
+
+
 //-(void)createTitleButton;
 - (IBAction)tapMap:(id)sender;
 - (void)initMap;

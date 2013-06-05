@@ -199,6 +199,13 @@
     
     item.venueName.textColor = [UIColor whiteColor];
     
+    //Turn the indicator on or off:
+    if([item.venueName.text isEqual: @"mahiki"]){ //just an example filter
+        item.promotionIndicator.hidden = YES;
+    }else{
+        item.promotionIndicator.hidden = NO;
+    }
+    
     return item;
 }
 
@@ -279,6 +286,47 @@
     return YES;
 }
 
+- (IBAction)sliderValueChanged:(id)sender {
+    
+    /*
+     Here we can query the database for venues within the radius
+     given in self.distanceScroller.value (this is in metres)
+     Would have to translate into coordinates?
+     */
+    [self.mapView clear ];//Thanks Adam
+    
+    
+    CLLocationCoordinate2D coord;
+    if(pinDropped){
+        coord = pinDroppedLocation;
+    }else{
+        coord = self.mapView.myLocation.coordinate;
+    }
+    
+    //Creates a circle on the map with a radius in metres
+    GMSCircle *mapCircle = [GMSCircle circleWithPosition:coord radius:self.distanceScroller.value*1000];
+    mapCircle.strokeColor = [UIColor orangeColor];
+    mapCircle.strokeWidth = 5;
+    
+    mapCircle.map = self.mapView;
+}
+
+- (void)mapView:(GMSMapView *)mapView
+didTapAtCoordinate:(CLLocationCoordinate2D)coordinate {
+    [self.mapView clear];
+    /*
+    CLLocationCoordinate2D position = CLLocationCoordinate2DMake(coordinate.latitude, coordinate.longitude);
+    GMSMarker *marker = [GMSMarker markerWithPosition:position];
+    marker.title = @"Dropped Pin";
+    marker.map = self.mapView;
+     */
+    pinDropped = true;
+    pinDroppedLocation = coordinate;
+    [self sliderValueChanged:nil];
+
+}
+
+
 - (void)tapMenu {
     NSLog(@"menu triggered from button");
     [self.slidingViewController anchorTopViewTo:ECRight];
@@ -311,6 +359,7 @@
 - (void)initMap {
     hasPositionLocked = NO;
     self.mapView.myLocationEnabled = YES;
+    self.mapView.delegate = self;
     [self.mapView addObserver:self forKeyPath:@"myLocation" options:NSKeyValueObservingOptionNew context:nil];
 }
 
@@ -334,13 +383,5 @@
     }
 }
 
-// MAP FUNCTIONS -- DOES NOT WORK.
-- (void)       mapView:(GMSMapView *)mapView
-    didTapAtCoordinate:(CLLocationCoordinate2D)coordinate {
-    NSLog(@"tapped at coords %f, %f", coordinate.latitude, coordinate.longitude);
-    GMSMarker *marker = [GMSMarker markerWithPosition:coordinate];
-    marker.title = @"Hello World";
-    marker.map = self.mapView;
-}
 
 @end

@@ -18,5 +18,7 @@
 
 //@property (strong, nonatomic) FBProfilePictureView *profilePictureView;
 @property (strong, nonatomic) IBOutlet UILabel *lab;
+@property (strong, nonatomic) IBOutlet UISwitch *twitterSwitch;
+- (IBAction)twitterSwitchAction:(id)sender;
 
 @end
