@@ -279,6 +279,18 @@
     return YES;
 }
 
+- (IBAction)sliderValueChanged:(id)sender {
+    
+    self.mapView.clear;
+    
+    //Creates a circle on the map with a radius in metres
+    GMSCircle *mapCircle = [GMSCircle circleWithPosition:self.mapView.myLocation.coordinate radius:self.distanceScroller.value*1000];
+    mapCircle.strokeColor = [UIColor orangeColor];
+    mapCircle.strokeWidth = 5;
+    
+    mapCircle.map = self.mapView;
+}
+
 - (void)tapMenu {
     NSLog(@"menu triggered from button");
     [self.slidingViewController anchorTopViewTo:ECRight];

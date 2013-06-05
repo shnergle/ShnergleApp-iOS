@@ -40,7 +40,10 @@ NSInteger selectedVenueIndex;
 //@property (weak, nonatomic) IBOutlet UILabel *titleLabel;
 //@property (weak, nonatomic) IBOutlet DropDownMenu *dropDownMenu;
 - (BOOL)scrollViewShouldScrollToTop:(UIScrollView *)scrollView;
+- (IBAction)sliderValueChanged:(id)sender;
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *checkInButton;
+
+
 //-(void)createTitleButton;
 - (IBAction)tapMap:(id)sender;
 - (void)initMap;

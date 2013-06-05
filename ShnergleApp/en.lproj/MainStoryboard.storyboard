@@ -145,7 +145,7 @@
                                             <constraint firstAttribute="height" constant="21" id="xDF-Si-ToX"/>
                                         </constraints>
                                         <attributedString key="attributedText">
-                                            <fragment content="0.1     0.2     0.3     0.4     0.5     0.6     0.7     0.8     0.9     1.0">
+                                            <fragment content="0.2     0.4     0.6     0.8     1.0     1.2     1.4     1.6     1.8     2.0">
                                                 <attributes>
                                                     <color key="NSColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <font key="NSFont" size="11" name="Roboto-Regular"/>
@@ -171,10 +171,13 @@
                                         </attributedString>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="KE8-Yl-GlD">
+                                    <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="1" minValue="0.20000000000000001" maxValue="2" continuous="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KE8-Yl-GlD">
                                         <constraints>
                                             <constraint firstAttribute="width" constant="302" id="tc0-O5-bJc"/>
                                         </constraints>
+                                        <connections>
+                                            <action selector="sliderValueChanged:" destination="2" eventType="valueChanged" id="lvx-9s-9eY"/>
+                                        </connections>
                                     </slider>
                                 </subviews>
                                 <color key="backgroundColor" red="0.9137254901960784" green="0.92156862745098034" blue="0.94117647058823528" alpha="1" colorSpace="calibratedRGB"/>
@@ -390,17 +393,17 @@
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4Bj-Xy-ePL">
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="35" type="user" id="Nmm-qN-M9f"/>
-                                                    <constraint firstAttribute="width" constant="100" id="cWr-YF-xZT"/>
+                                                    <constraint firstAttribute="width" constant="102" id="b18-FP-EMy"/>
                                                 </constraints>
                                                 <fontDescription key="fontDescription" name="Helvetica-Bold" family="Helvetica" pointSize="13"/>
-                                                <state key="normal" title="Comment" backgroundImage="greybutton03.png">
+                                                <state key="normal" title="Like" backgroundImage="greybutton03.png">
                                                     <color key="titleColor" white="0.28740875912408759" alpha="1" colorSpace="calibratedWhite"/>
                                                     <color key="titleShadowColor" white="0.69482778284671531" alpha="1" colorSpace="calibratedWhite"/>
                                                 </state>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JFo-V8-IX5">
                                                 <constraints>
-                                                    <constraint firstAttribute="width" constant="100" id="8An-14-FGD"/>
+                                                    <constraint firstAttribute="width" constant="102" id="M5Q-AS-a2Z"/>
                                                 </constraints>
                                                 <fontDescription key="fontDescription" name="Helvetica-Bold" family="Helvetica" pointSize="13"/>
                                                 <state key="normal" title="Share" backgroundImage="greybutton03.png">
@@ -410,7 +413,7 @@
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zpk-oQ-Ics">
                                                 <constraints>
-                                                    <constraint firstAttribute="width" constant="100" id="bef-pz-Vof"/>
+                                                    <constraint firstAttribute="width" constant="102" id="zTb-Da-Fvi"/>
                                                 </constraints>
                                                 <fontDescription key="fontDescription" name="Helvetica-Bold" family="Helvetica" pointSize="13"/>
                                                 <state key="normal" title="Flag for review" backgroundImage="greybutton03.png">
@@ -440,17 +443,21 @@
                                         <constraints>
                                             <constraint firstItem="4Bj-Xy-ePL" firstAttribute="top" secondItem="9Po-tE-tg7" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="2aw-LC-oiN"/>
                                             <constraint firstItem="9Po-tE-tg7" firstAttribute="baseline" secondItem="diO-ua-hnK" secondAttribute="baseline" type="default" id="6fO-61-jNb"/>
-                                            <constraint firstAttribute="trailing" secondItem="zpk-oQ-Ics" secondAttribute="trailing" constant="8" id="EHz-uL-98s"/>
                                             <constraint firstItem="9Po-tE-tg7" firstAttribute="top" secondItem="diO-ua-hnK" secondAttribute="top" type="default" id="F1Y-Ca-MMf"/>
+                                            <constraint firstItem="zpk-oQ-Ics" firstAttribute="baseline" secondItem="JFo-V8-IX5" secondAttribute="baseline" type="default" id="GPG-2j-wXA"/>
                                             <constraint firstItem="zpk-oQ-Ics" firstAttribute="bottom" secondItem="JFo-V8-IX5" secondAttribute="bottom" type="default" id="Hr8-fv-6DQ"/>
+                                            <constraint firstItem="4Bj-Xy-ePL" firstAttribute="baseline" secondItem="JFo-V8-IX5" secondAttribute="baseline" type="default" id="IHP-pE-323"/>
                                             <constraint firstItem="9Po-tE-tg7" firstAttribute="top" secondItem="lyM-op-7R1" secondAttribute="top" constant="4" id="LMs-zB-OGO"/>
+                                            <constraint firstItem="4Bj-Xy-ePL" firstAttribute="baseline" secondItem="zpk-oQ-Ics" secondAttribute="baseline" type="default" id="RYS-xu-Upa"/>
                                             <constraint firstItem="JFo-V8-IX5" firstAttribute="bottom" secondItem="4Bj-Xy-ePL" secondAttribute="bottom" type="default" id="Ujo-LR-bLq"/>
                                             <constraint firstItem="diO-ua-hnK" firstAttribute="leading" secondItem="9Po-tE-tg7" secondAttribute="trailing" constant="8" symbolic="YES" type="default" id="amo-hZ-MSI"/>
+                                            <constraint firstItem="4Bj-Xy-ePL" firstAttribute="leading" secondItem="lyM-op-7R1" secondAttribute="leading" constant="5" id="ctt-D4-d54"/>
+                                            <constraint firstAttribute="trailing" secondItem="zpk-oQ-Ics" secondAttribute="trailing" constant="5" id="dZA-gz-pje"/>
                                             <constraint firstItem="zpk-oQ-Ics" firstAttribute="top" secondItem="diO-ua-hnK" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="evP-vy-Nsu"/>
                                             <constraint firstAttribute="trailing" secondItem="diO-ua-hnK" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="iMw-Ji-4L8"/>
-                                            <constraint firstItem="JFo-V8-IX5" firstAttribute="leading" secondItem="lyM-op-7R1" secondAttribute="leading" constant="107" id="ifa-hB-4eb"/>
                                             <constraint firstItem="JFo-V8-IX5" firstAttribute="top" secondItem="diO-ua-hnK" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="kBO-9L-gjQ"/>
-                                            <constraint firstItem="4Bj-Xy-ePL" firstAttribute="leading" secondItem="lyM-op-7R1" secondAttribute="leading" constant="1" id="n6b-IE-Yqc"/>
+                                            <constraint firstItem="JFo-V8-IX5" firstAttribute="leading" secondItem="lyM-op-7R1" secondAttribute="leading" constant="109" id="nSs-iH-uCc"/>
+                                            <constraint firstItem="JFo-V8-IX5" firstAttribute="centerX" secondItem="lyM-op-7R1" secondAttribute="centerX" type="default" id="wJr-jR-Kh0"/>
                                         </constraints>
                                     </view>
                                 </subviews>
@@ -461,7 +468,6 @@
                                     <constraint firstItem="lyM-op-7R1" firstAttribute="top" secondItem="AFq-eg-D9c" secondAttribute="top" type="default" id="IOy-XX-EOY"/>
                                     <constraint firstItem="lyM-op-7R1" firstAttribute="centerY" secondItem="AFq-eg-D9c" secondAttribute="centerY" type="default" id="nX2-GD-wBy"/>
                                     <constraint firstItem="lyM-op-7R1" firstAttribute="leading" secondItem="AFq-eg-D9c" secondAttribute="leading" type="default" id="qu2-Qe-TEj"/>
-                                    <constraint firstItem="lyM-op-7R1" firstAttribute="centerX" secondItem="AFq-eg-D9c" secondAttribute="centerX" type="default" id="yEu-Iu-YAg"/>
                                 </constraints>
                             </scrollView>
                         </subviews>
@@ -1699,7 +1705,6 @@
         <class className="ShareViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/ShareViewController.h"/>
             <relationships>
-                <relationship kind="action" name="cleartextfield:"/>
                 <relationship kind="outlet" name="friendLabel" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="nameList" candidateClass="UIButton"/>
                 <relationship kind="outlet" name="textFieldname" candidateClass="UITextView"/>
@@ -1713,6 +1718,9 @@
         </class>
         <class className="UICollectionViewFlowLayout" superclassName="UICollectionViewLayout">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/UICollectionViewFlowLayout.h"/>
+        </class>
+        <class className="UICollectionViewLayout" superclassName="NSObject">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/UICollectionViewLayout.h"/>
         </class>
         <class className="VenueGalleryViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/VenueGalleryViewController.h"/>
@@ -1732,6 +1740,7 @@
         <class className="ViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/ViewController.h"/>
             <relationships>
+                <relationship kind="action" name="sliderValueChanged:"/>
                 <relationship kind="action" name="tapArrow:"/>
                 <relationship kind="action" name="tapMap:"/>
                 <relationship kind="action" name="tapMenu:"/>
