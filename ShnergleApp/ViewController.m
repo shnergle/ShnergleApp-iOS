@@ -281,11 +281,24 @@
 
 - (IBAction)sliderValueChanged:(id)sender {
     
-    
+    /*
+     Here we can query the database for venues within the radius
+     given in self.distanceScroller.value (this is in metres)
+     Would have to translate into coordinates?
+     */
     self.mapView.clear; // I USE GETTERS FOR SIDE EFFECTS, SUE ME.
     
+    //IF no pin dropped, use myLocation
+    CLLocationCoordinate2D coord = self.mapView.myLocation.coordinate;
+    //IF pin is dropped, use the pins location
+    /*TODO: implement pin dropping on the map*/
+    //CLLocationCoordinate2D coord = pin location;
+    
+    
+    
+    
     //Creates a circle on the map with a radius in metres
-    GMSCircle *mapCircle = [GMSCircle circleWithPosition:self.mapView.myLocation.coordinate radius:self.distanceScroller.value*1000];
+    GMSCircle *mapCircle = [GMSCircle circleWithPosition:coord radius:self.distanceScroller.value*1000];
     mapCircle.strokeColor = [UIColor orangeColor];
     mapCircle.strokeWidth = 5;
     
