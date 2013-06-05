@@ -304,6 +304,19 @@
     
     mapCircle.map = self.mapView;
 }
+#pragma mark - GMSMapViewDelegate
+
+- (void)mapView:(GMSMapView *)mapView
+didTapAtCoordinate:(CLLocationCoordinate2D)coordinate {
+    self.mapView.clear;
+    
+    CLLocationCoordinate2D position = CLLocationCoordinate2DMake(coordinate.latitude, coordinate.longitude);
+    GMSMarker *marker = [GMSMarker markerWithPosition:position];
+    marker.title = @"Dropped Pin";
+    marker.map = self.mapView;
+
+}
+
 
 - (void)tapMenu {
     NSLog(@"menu triggered from button");
@@ -337,6 +350,7 @@
 - (void)initMap {
     hasPositionLocked = NO;
     self.mapView.myLocationEnabled = YES;
+    self.mapView.delegate = self;
     [self.mapView addObserver:self forKeyPath:@"myLocation" options:NSKeyValueObservingOptionNew context:nil];
 }
 
@@ -360,13 +374,5 @@
     }
 }
 
-// MAP FUNCTIONS -- DOES NOT WORK.
-- (void)       mapView:(GMSMapView *)mapView
-    didTapAtCoordinate:(CLLocationCoordinate2D)coordinate {
-    NSLog(@"tapped at coords %f, %f", coordinate.latitude, coordinate.longitude);
-    GMSMarker *marker = [GMSMarker markerWithPosition:coordinate];
-    marker.title = @"Hello World";
-    marker.map = self.mapView;
-}
 
 @end
