@@ -13,20 +13,12 @@
 
 @implementation LoginScreenController
 
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-    if (self) {
-    }
-    return self;
-}
-
 - (void)viewWillAppear:(BOOL)animated {
     [[self navigationController] setNavigationBarHidden:TRUE];
 }
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view, typically from a nib.
     
     [self.buttonLoginLogout setBackgroundImage:[UIImage imageNamed:@"login-button-small.png"] forState:UIControlStateNormal];
     [self.buttonLoginLogout setBackgroundImage:[UIImage imageNamed:@"login-button-small-pressed.png"] forState:UIControlStateHighlighted];
@@ -35,7 +27,6 @@
     
     //HideNavBar
     [[self navigationController] setNavigationBarHidden:TRUE];
-    //[self colouriseNavBar];
     AppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
     if (!appDelegate.session.isOpen) {
         self.buttonLoginLogout.hidden = YES;
@@ -59,17 +50,11 @@
     }
 }
 
-// FBSample logic
-// main helper method to update the UI to reflect the current state of the session.
+
 - (void)updateView {
-    // get the app delegate, so that we can reference the session property
     AppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
-    //UIImage *image = [UIImage imageNamed: @"fb-login-button.png"];
-    //UIImage *image2 = [UIImage imageNamed: @"fbloginview_logout.png"];
     if (appDelegate.session.isOpen) {
-        // valid account UI is shown whenever the session is open
         self.buttonLoginLogout.hidden = YES;
-        //[self.buttonLoginLogout setImage:image2 forState:UIControlStateNormal];
         
         
         //login on server
@@ -125,14 +110,8 @@
                  [self alert];
              }
          }];
-        
-        /*[self.textNoteOrLink setText:[NSString stringWithFormat:@"https://graph.facebook.com/me/friends?access_token=%@",
-         appDelegate.session.accessTokenData.accessToken]];*/
     } else {
         self.buttonLoginLogout.hidden = NO;
-        // login-needed account UI is shown whenever the session is closed
-        //[self.buttonLoginLogout setImage:image forState:UIControlStateNormal];
-        //[self.textNoteOrLink setText:@"Login to create a link to fetch account data"];
     }
 }
 
@@ -167,30 +146,18 @@
     [appDelegate.session openWithCompletionHandler:^(FBSession *session,
                                                      FBSessionState status,
                                                      NSError *error) {
-        // and here we make sure to update our UX according to the new session state
         [self updateView];
     }];
 }
 
 - (void)viewDidUnload {
     self.buttonLoginLogout = nil;
-    //self.textNoteOrLink = nil;
     
     [super viewDidUnload];
 }
 
-- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation {
-    // Return YES for supported orientations
-    if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPhone) {
-        return (interfaceOrientation != UIInterfaceOrientationPortraitUpsideDown);
-    } else {
-        return YES;
-    }
-}
-
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
 
 - (void)alert {
