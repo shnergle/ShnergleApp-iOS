@@ -10,7 +10,7 @@
 #import "CrowdItem.h"
 #import "PromotionView.h"
 #import "PromotionDetailView.h"
-
+#import "VenueGalleryViewController.h"
 @implementation VenueViewController
 
 
@@ -252,6 +252,7 @@
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     if ([segue.identifier isEqualToString:@"ToGallery"]) {
         [segue.destinationViewController setTitle:self.navigationItem.title];
+        [(VenueGalleryViewController *)segue.destinationViewController imageScrollerSetup:images];
     }
 }
 
