@@ -10,6 +10,8 @@
 #import "AppDelegate.h"
 #import "ViewController.h"
 #import "PostRequest.h"
+#import <Social/Social.h>
+#import <Accounts/Accounts.h>
 
 @implementation ProfileViewController
 
@@ -105,17 +107,29 @@
 - (IBAction)twitterSwitchAction:(id)sender {
     AppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
     if (_twitterSwitch.on) {
-#warning permission not acquired
-#warning username not acquired
-        NSString *twitter = @"schakaki";
-        appDelegate.twitter = twitter;
-        NSString *params = [NSString stringWithFormat:@"facebook_id=%@&twitter=%@", appDelegate.facebookId, twitter];
-        if (![[[PostRequest alloc] init] exec:@"users/set" params:params delegate:self callback:@selector(twitterReq:) type:@"string"]) {
-            [self alertTwitter];
+        ACAccountStore *accountStore = [[ACAccountStore alloc] init];
+        if ([SLComposeViewController isAvailableForServiceType:SLServiceTypeTwitter]) {
+            
+            ACAccountType *twitterAccountType = [accountStore
+                                                 accountTypeWithAccountTypeIdentifier:
+                                                 ACAccountTypeIdentifierTwitter];
+            [accountStore
+             requestAccessToAccountsWithType:twitterAccountType
+             options:NULL
+             completion:^(BOOL granted, NSError *error) {
+                 if (granted) {
+#warning only uses last twitter account
+                     NSString *twitter = [[accountStore accountsWithAccountType:twitterAccountType] lastObject];
+                     appDelegate.twitter = twitter;
+                     NSString *params = [NSString stringWithFormat:@"facebook_id=%@&twitter=%@", appDelegate.facebookId, twitter];
+                     if (![[[PostRequest alloc] init] exec:@"users/set" params:params delegate:self callback:@selector(twitterReq:) type:@"string"]) {
+                         [self alertTwitter];
+                     }
+                 } else _twitterSwitch.on = NO;
+             }];
         }
     } else {
         appDelegate.twitter = nil;
-#warning permission not revoked
         NSString *params = [NSString stringWithFormat:@"facebook_id=%@&twitter=", appDelegate.facebookId];
         if (![[[PostRequest alloc] init] exec:@"users/set" params:params delegate:self callback:@selector(twitterReq:) type:@"string"]) {
             [self alertTwitter];
