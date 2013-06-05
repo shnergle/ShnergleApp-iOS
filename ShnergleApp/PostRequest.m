@@ -8,11 +8,12 @@
 
 #import "PostRequest.h"
 #import "AppDelegate.h"
+#import <SBJson/SBJson.h>
 
 @implementation PostRequest
 
 - (BOOL)exec:(NSString *)path params:(NSString *)params delegate:(id)object callback:(SEL)cb {
-    return [self exec:path params:params delegate:object callback:cb type:@"string"];
+    return [self exec:path params:params delegate:object callback:cb type:@"json"];
 }
 
 - (BOOL)exec:(NSString *)path params:(NSString *)params delegate:(id)object callback:(SEL)cb type:(NSString *)type {
@@ -37,7 +38,13 @@
 - (void)connectionDidFinishLoading:(NSURLConnection *)connection {
     id responseArg;
     if ([responseType isEqual:@"image"]) responseArg = [UIImage imageWithData:response];
-    else responseArg = [[NSString alloc] initWithData:response encoding:NSUTF8StringEncoding];
+    else if ([responseType isEqual:@"string"]) responseArg = [[NSString alloc] initWithData:response encoding:NSUTF8StringEncoding];
+    else {
+        SBJsonParser *jsonParser = [[SBJsonParser alloc] init];
+        NSString *string = [[NSString alloc] initWithData:response encoding:NSUTF8StringEncoding];
+        id jsonObjects = [jsonParser objectWithString:string];
+        responseArg = jsonObjects;
+    }
     NSMethodSignature *methodSig = [[responseObject class] instanceMethodSignatureForSelector:responseCallback];
     NSInvocation *invocation = [NSInvocation invocationWithMethodSignature:methodSig];
     [invocation setSelector:responseCallback];

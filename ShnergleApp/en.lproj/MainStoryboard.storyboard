@@ -1047,7 +1047,11 @@
                                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <switch opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="f4K-tX-UWy"/>
+                                            <switch opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="f4K-tX-UWy">
+                                                <connections>
+                                                    <action selector="twitterSwitchAction:" destination="qgb-Kw-YNh" eventType="valueChanged" id="NqF-qj-vfl"/>
+                                                </connections>
+                                            </switch>
                                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="FB-f-Logo__blue_50.png" translatesAutoresizingMaskIntoConstraints="NO" id="zN9-Dk-DAR">
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="40" id="He2-eo-n7Q"/>
@@ -1164,6 +1168,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="lab" destination="e5b-b1-kWB" id="hxr-x9-jLM"/>
+                        <outlet property="twitterSwitch" destination="f4K-tX-UWy" id="C6H-cL-Kei"/>
                         <outlet property="userProfileImage" destination="h0v-Dh-fc8" id="Owq-5r-Q3x"/>
                     </connections>
                 </viewController>

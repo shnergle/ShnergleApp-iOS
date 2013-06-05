@@ -116,7 +116,7 @@
                  [params appendString:@"&age="];
                  [params appendString:[NSString stringWithFormat:@"%d", age]];
                  
-                 if (![[[PostRequest alloc] init] exec:@"users/set" params:params delegate:self callback:@selector(postResponse:)])
+                 if (![[[PostRequest alloc] init] exec:@"users/set" params:params delegate:self callback:@selector(postResponse:) type:@"string"])
                      [self alert];
                  
              } else {
@@ -136,8 +136,22 @@
     }
 }
 
-- (void)postResponse:(NSString *)response {
+- (void)postResponse:(id)response {
+    AppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
     if ([response isEqual:@"true"]) {
+        NSString *params = [NSString stringWithFormat:@"facebook_id=%@", appDelegate.facebookId];
+        if (![[[PostRequest alloc] init] exec:@"users/get" params:params delegate:self callback:@selector(getResponse:)])
+            [self alert];
+    } else {
+        [self alert];
+    }
+}
+
+- (void)getResponse:(id)response {
+    AppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
+    if (response) {
+        if (![((NSDictionary *)response)[@"twitter"] isEqual:@""])
+            appDelegate.twitter = ((NSDictionary *)response)[@"twitter"];
         UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"MainStoryboard" bundle:nil];
         ViewController *vc = [storyboard instantiateViewControllerWithIdentifier:@"AroundMeSlidingViewController"];
         [self.navigationController pushViewController:vc animated:YES];
