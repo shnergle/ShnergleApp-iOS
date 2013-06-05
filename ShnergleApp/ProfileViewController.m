@@ -125,11 +125,13 @@
                      me.accounts = [accountStore accountsWithAccountType:twitterAccountType];
                      if (me.accounts.count > 0) {
                          if (me.accounts.count > 1) {
-                             UIActionSheet *popupQuery = [[UIActionSheet alloc] initWithTitle:@"Title" delegate:delegateMe cancelButtonTitle:@"Cancel" destructiveButtonTitle:nil otherButtonTitles:nil];
+                             
+                             UIActionSheet *alert = [[UIActionSheet alloc] initWithTitle:@"Select Twitter Account" delegate:delegateMe cancelButtonTitle:nil destructiveButtonTitle:nil otherButtonTitles:nil];
                              for (int i = 0; i < me.accounts.count; i++)
-                                 [popupQuery addButtonWithTitle:[[me.accounts objectAtIndex:i] username]];
-                             popupQuery.actionSheetStyle = UIActionSheetStyleBlackOpaque;
-                             [popupQuery showInView:me.view];
+                                 [alert addButtonWithTitle:[[me.accounts objectAtIndex:i] username]];
+                             [alert addButtonWithTitle:@"Cancel"];
+                             
+                             [alert showInView:[[self view] window]];
                          } else {
                              NSString *twitter = [[me.accounts lastObject] username];
                              appDelegate.twitter = twitter;
@@ -153,7 +155,7 @@
 
 -(void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex {
     AppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
-    if (buttonIndex == [actionSheet cancelButtonIndex]) {
+    if (buttonIndex == _accounts.count) {
         _twitterSwitch.on = NO;
     } else {
         NSString *twitter = [[_accounts objectAtIndex:buttonIndex] username];
