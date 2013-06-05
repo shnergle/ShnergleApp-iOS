@@ -7,33 +7,29 @@
 //
 
 #import "CheckInViewController.h"
+#import "ViewController.h"
 
 @implementation CheckInViewController
 
 
-- (IBAction)TakePhoto {
+- (void)TakePhoto {
     imgPickerCam = [[UIImagePickerController alloc] init];
     imgPickerCam.delegate = self;
     [imgPickerCam setSourceType:UIImagePickerControllerSourceTypeCamera];
-    [self presentViewController:imgPickerCam animated:YES completion:NULL];
-    //[imgPickerCam release]; //Nevermind for automatic ref counting.
-}
-
-- (IBAction)ChooseExisting {
-    imgPickerLib = [[UIImagePickerController alloc] init];
-    imgPickerLib.delegate = self;
-    [imgPickerLib setSourceType:UIImagePickerControllerSourceTypePhotoLibrary];
-    [self presentViewController:imgPickerLib animated:YES completion:NULL];
+    [self presentViewController:imgPickerCam animated:NO completion:NULL];
 }
 
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info {
-    image = info[UIImagePickerControllerOriginalImage];
-    [imageView setImage:image];
-    //dismissal removed, not for auto ref counting.
+    image = info[@"UIImagePickerControllerOriginalImage"];
+    [imgPickerCam dismissViewControllerAnimated:NO completion:nil];
+    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"MainStoryboard" bundle:nil];
+    ViewController *vc = [storyboard instantiateViewControllerWithIdentifier:@"PhotoLocationViewController"];
+    [self.navigationController pushViewController:vc animated:YES];
 }
 
 - (void)imagePickerControllerDidCancel:(UIImagePickerController *)picker {
-    [self dismissViewControllerAnimated:YES completion:NULL];
+    [imgPickerCam dismissViewControllerAnimated:YES completion:nil];
+    [self goBack];
 }
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {
@@ -46,28 +42,12 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
-    self.navigationController.navigationBarHidden = NO;
-    UIBarButtonItem *menuButton;
-    menuButton = [self createLeftBarButton:@"arrow_west" actionSelector:@selector(goBack)];
-    self.navigationItem.leftBarButtonItem = menuButton;
+    [self TakePhoto];
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
-}
-
-- (UIBarButtonItem *)createLeftBarButton:(NSString *)imageName actionSelector:(SEL)actionSelector {
-    UIImage *menuButtonImg = [UIImage imageNamed:imageName];
-    
-    UIButton *menuButtonTmp = [UIButton buttonWithType:UIButtonTypeCustom];
-    menuButtonTmp.frame = CGRectMake(280.0, 10.0, 19.0, 16.0);
-    [menuButtonTmp setBackgroundImage:menuButtonImg forState:UIControlStateNormal];
-    [menuButtonTmp addTarget:self action:actionSelector forControlEvents:UIControlEventTouchUpInside];
-    
-    UIBarButtonItem *menuButton = [[UIBarButtonItem alloc]initWithCustomView:menuButtonTmp];
-    return menuButton;
 }
 
 //workaround to get the custom back button to work

@@ -41,7 +41,6 @@
     
     _tableData = @[@"Around me", @"Favourites", @"Promotions", @"Quiet", @"Trending"];
     
-#pragma mark - Tableview Data Source Methods
 }
 
 - (void)postResponse:(NSString *)response {
