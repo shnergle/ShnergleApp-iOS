@@ -1696,8 +1696,10 @@
         <class className="ProfileViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/ProfileViewController.h"/>
             <relationships>
+                <relationship kind="action" name="twitterSwitchAction:"/>
                 <relationship kind="outlet" name="authButton" candidateClass="UIButton"/>
                 <relationship kind="outlet" name="lab" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="twitterSwitch" candidateClass="UISwitch"/>
                 <relationship kind="outlet" name="userProfileImage" candidateClass="FBProfilePictureView"/>
             </relationships>
         </class>
