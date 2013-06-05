@@ -36,7 +36,8 @@
       UITextAttributeFont: [UIFont fontWithName:@"Roboto" size:14.0]}
                                                           forState:UIControlStateNormal];
     
-    self.navigationItem.title = @"About you";
+    //self.navigationItem.title = @"About you";
+    
     
     UIBarButtonItem *menuButton;
     menuButton = [self createLeftBarButton:@"arrow_west" actionSelector:@selector(goBack)];
@@ -46,7 +47,8 @@
     self.navigationItem.rightBarButtonItem.action = @selector(signOut);
     
     AppDelegate *appdelegate = [[UIApplication sharedApplication]delegate];
-    self.lab.text = appdelegate.fullName;
+    self.navigationItem.title = appdelegate.fullName;
+    //self.lab.text = appdelegate.fullName;
     //NSLog(@"%@", appdelegate.facebookId);
     self.userProfileImage.profileID = appdelegate.facebookId;
 }
