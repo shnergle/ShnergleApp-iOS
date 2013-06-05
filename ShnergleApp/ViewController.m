@@ -199,6 +199,13 @@
     
     item.venueName.textColor = [UIColor whiteColor];
     
+    //Turn the indicator on or off:
+    if([item.venueName.text isEqual: @"mahiki"]){ //just an example filter
+        item.promotionIndicator.hidden = YES;
+    }else{
+        item.promotionIndicator.hidden = NO;
+    }
+    
     return item;
 }
 
@@ -286,7 +293,7 @@
      given in self.distanceScroller.value (this is in metres)
      Would have to translate into coordinates?
      */
-    self.mapView.clear; // I USE GETTERS FOR SIDE EFFECTS, SUE ME.
+    [self.mapView clear ];//Thanks Adam
     
     
     CLLocationCoordinate2D coord;
@@ -303,16 +310,16 @@
     
     mapCircle.map = self.mapView;
 }
-#pragma mark - GMSMapViewDelegate
 
 - (void)mapView:(GMSMapView *)mapView
 didTapAtCoordinate:(CLLocationCoordinate2D)coordinate {
-    self.mapView.clear;
-    
+    [self.mapView clear];
+    /*
     CLLocationCoordinate2D position = CLLocationCoordinate2DMake(coordinate.latitude, coordinate.longitude);
     GMSMarker *marker = [GMSMarker markerWithPosition:position];
     marker.title = @"Dropped Pin";
     marker.map = self.mapView;
+     */
     pinDropped = true;
     pinDroppedLocation = coordinate;
     [self sliderValueChanged:nil];
