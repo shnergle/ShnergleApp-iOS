@@ -21,6 +21,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    [self imageScrollerSetup:nil];
     UIBarButtonItem *menuButton;
     menuButton = [self createLeftBarButton:@"arrow_west" actionSelector:@selector(goBack)];
     self.navigationItem.leftBarButtonItem = menuButton;
