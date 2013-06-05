@@ -23,6 +23,8 @@ NSInteger selectedVenueIndex;
     BOOL crowdImagesHidden;
     BOOL dropDownHidden;
     BOOL hasPositionLocked;
+    BOOL pinDropped;
+    CLLocationCoordinate2D pinDroppedLocation;
 }
 //@property (weak, nonatomic) IBOutlet UIImageView *dropDownIndicator;
 @property (weak, nonatomic) IBOutlet UIButton *drawerCloseButton;

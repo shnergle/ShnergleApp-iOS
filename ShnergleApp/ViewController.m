@@ -288,14 +288,13 @@
      */
     self.mapView.clear; // I USE GETTERS FOR SIDE EFFECTS, SUE ME.
     
-    //IF no pin dropped, use myLocation
-    CLLocationCoordinate2D coord = self.mapView.myLocation.coordinate;
-    //IF pin is dropped, use the pins location
-    /*TODO: implement pin dropping on the map*/
-    //CLLocationCoordinate2D coord = pin location;
     
-    
-    
+    CLLocationCoordinate2D coord;
+    if(pinDropped){
+        coord = pinDroppedLocation;
+    }else{
+        coord = self.mapView.myLocation.coordinate;
+    }
     
     //Creates a circle on the map with a radius in metres
     GMSCircle *mapCircle = [GMSCircle circleWithPosition:coord radius:self.distanceScroller.value*1000];
@@ -314,6 +313,9 @@ didTapAtCoordinate:(CLLocationCoordinate2D)coordinate {
     GMSMarker *marker = [GMSMarker markerWithPosition:position];
     marker.title = @"Dropped Pin";
     marker.map = self.mapView;
+    pinDropped = true;
+    pinDroppedLocation = coordinate;
+    [self sliderValueChanged:nil];
 
 }
 
