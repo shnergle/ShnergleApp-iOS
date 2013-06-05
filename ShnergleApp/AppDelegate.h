@@ -25,6 +25,7 @@
 @property (strong, nonatomic) NSString *email;
 @property (strong, nonatomic) NSString *facebookId;
 @property (strong, nonatomic) NSString *appSecret;
+@property (strong, nonatomic) NSString *twitter;
 
 //- (void) closeSession;
 

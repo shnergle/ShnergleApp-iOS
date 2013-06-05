@@ -9,18 +9,9 @@
 #import "ProfileViewController.h"
 #import "AppDelegate.h"
 #import "ViewController.h"
+#import "PostRequest.h"
 
 @implementation ProfileViewController
-
-
-
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-    if (self) {
-        // Custom initialization
-    }
-    return self;
-}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -49,6 +40,9 @@
     self.lab.text = appdelegate.fullName;
     //NSLog(@"%@", appdelegate.facebookId);
     self.userProfileImage.profileID = appdelegate.facebookId;
+    AppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
+    if (appDelegate.twitter)
+        _twitterSwitch.on = YES;
 }
 
 
@@ -106,6 +100,39 @@
     AppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
     [appDelegate.session closeAndClearTokenInformation];
     [self.navigationController popToRootViewControllerAnimated:YES];
+}
+
+- (IBAction)twitterSwitchAction:(id)sender {
+    AppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
+    if (_twitterSwitch.on) {
+#warning permission not acquired
+#warning username not acquired
+        NSString *twitter = @"schakaki";
+        appDelegate.twitter = twitter;
+        NSString *params = [NSString stringWithFormat:@"facebook_id=%@&twitter=%@", appDelegate.facebookId, twitter];
+        if (![[[PostRequest alloc] init] exec:@"users/set" params:params delegate:self callback:@selector(twitterReq:) type:@"string"]) {
+            [self alertTwitter];
+        }
+    } else {
+        appDelegate.twitter = nil;
+#warning permission not revoked
+        NSString *params = [NSString stringWithFormat:@"facebook_id=%@&twitter=", appDelegate.facebookId];
+        if (![[[PostRequest alloc] init] exec:@"users/set" params:params delegate:self callback:@selector(twitterReq:) type:@"string"]) {
+            [self alertTwitter];
+        }
+    }
+}
+
+- (void)twitterReq:(id)response {
+    if (![response isEqual:@"true"])
+        [self alertTwitter];
+}
+
+
+- (void)alertTwitter {
+    _twitterSwitch.on = !_twitterSwitch.on;
+    UIActionSheet *alert = [[UIActionSheet alloc] initWithTitle:@"Twitter (de)activation failed!" delegate:nil cancelButtonTitle:@"OK" destructiveButtonTitle:nil otherButtonTitles:nil];
+    [alert showInView:[[self view] window]];
 }
 
 @end
