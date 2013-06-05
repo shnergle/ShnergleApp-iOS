@@ -1310,6 +1310,7 @@
                         <barButtonItem key="rightBarButtonItem" title="Settings" id="wa2-7h-tR6"/>
                     </navigationItem>
                     <connections>
+                        <outlet property="twitterSwitch" destination="f4K-tX-UWy" id="F0h-nK-o20"/>
                         <outlet property="userProfileImage" destination="h0v-Dh-fc8" id="Owq-5r-Q3x"/>
                     </connections>
                 </viewController>
@@ -1821,6 +1822,7 @@
             <relationships>
                 <relationship kind="action" name="swipeDown:"/>
                 <relationship kind="action" name="swipeUp:"/>
+                <relationship kind="action" name="tap:"/>
                 <relationship kind="action" name="tapPromotion:"/>
                 <relationship kind="outlet" name="offerContents" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="offerCount" candidateClass="UILabel"/>
@@ -1841,7 +1843,6 @@
             <relationships>
                 <relationship kind="action" name="twitterSwitchAction:"/>
                 <relationship kind="outlet" name="authButton" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="lab" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="twitterSwitch" candidateClass="UISwitch"/>
                 <relationship kind="outlet" name="userProfileImage" candidateClass="FBProfilePictureView"/>
             </relationships>

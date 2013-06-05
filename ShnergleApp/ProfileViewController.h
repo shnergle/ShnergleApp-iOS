@@ -13,11 +13,9 @@
 
 //- (IBAction)authButtonAction:(id)sender;
 
-@property (strong, nonatomic) IBOutlet UIButton *authButton;
 @property (strong, nonatomic) IBOutlet FBProfilePictureView *userProfileImage;
 
 //@property (strong, nonatomic) FBProfilePictureView *profilePictureView;
-@property (strong, nonatomic) IBOutlet UILabel *lab;
 @property (strong, nonatomic) IBOutlet UISwitch *twitterSwitch;
 - (IBAction)twitterSwitchAction:(id)sender;
 @property (strong, nonatomic) NSArray *accounts;
