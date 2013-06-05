@@ -252,8 +252,13 @@
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     if ([segue.identifier isEqualToString:@"ToGallery"]) {
         [segue.destinationViewController setTitle:self.navigationItem.title];
-        [(VenueGalleryViewController *)segue.destinationViewController setImages:images];
+        [(VenueGalleryViewController *)segue.destinationViewController setImages:images index:selectedImage];
     }
+}
+
+- (void)collectionView:(UICollectionView *)collectionView
+    didHighlightItemAtIndexPath:(NSIndexPath *)indexPath {
+    selectedImage = indexPath.row;
 }
 
 

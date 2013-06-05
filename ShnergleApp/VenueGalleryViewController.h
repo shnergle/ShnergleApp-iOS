@@ -11,6 +11,7 @@
 @interface VenueGalleryViewController : UIViewController
 {
     NSArray *images;
+    NSInteger imageIndex;
 }
 @property (weak, nonatomic) IBOutlet UIScrollView *imageScrollView;
 
@@ -19,5 +20,5 @@
 - (void)goBack;
 - (void)imageScrollerSetup;
 -(void)setTitle:(NSString *)title;
--(void)setImages:(NSArray *)img;
+-(void)setImages:(NSArray *)img index:(NSInteger)index;
 @end

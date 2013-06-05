@@ -10,10 +10,11 @@
 #import "ViewController.h"
 #import "OverlayText.h"
 
-@interface VenueViewController : ViewController {
+@interface VenueViewController : ViewController<UICollectionViewDataSource,UICollectionViewDelegate>{
     NSString *promotionTitle;
     NSString *promotionBody;
     NSString *promotionExpiry;
+    NSInteger selectedImage;
     
     BOOL textViewOpen;
     

@@ -41,9 +41,6 @@
 - (void)imageScrollerSetup {
     CGRect windowBounds = [[UIScreen mainScreen]bounds];
     _imageScrollView.bounds = CGRectMake(0, 0, windowBounds.size.width, 245);
-    UIImage *image = [UIImage imageNamed:@"mahiki.jpg"];
-    UIImage *image2 = [UIImage imageNamed:@"liverpool.JPG"];
-    //NSArray *imageViews = @[imageView1, imageView2, imageView3];
     NSMutableArray *imageViews = [[NSMutableArray alloc]init];
     for (int i = 0; i<images.count; i++) {
         UIImageView *imgV = [[UIImageView alloc] initWithImage:[UIImage imageNamed:images[i]]];
@@ -65,14 +62,15 @@
     }
     NSLog(@"subviews of scrollview:%d", _imageScrollView.subviews.count);
     _imageScrollView.contentSize = CGSizeMake(cRect.origin.x, _imageScrollView.bounds.size.height);
-    _imageScrollView.contentOffset = CGPointMake(_imageScrollView.bounds.size.width, 1.0); //should be the center page in a 3 page setup
+    _imageScrollView.contentOffset = CGPointMake(_imageScrollView.bounds.size.width*imageIndex, 1.0); //should be the center page in a 3 page setup
     [self.imageScrollView updateConstraints];
     _imageScrollView.pagingEnabled = YES;
 }
 
--(void)setImages:(NSArray *)img
+-(void)setImages:(NSArray *)img index:(NSInteger)index
 {
     images = img;
+    imageIndex = index;
 }
 
 - (UIBarButtonItem *)createLeftBarButton:(NSString *)imageName actionSelector:(SEL)actionSelector {
