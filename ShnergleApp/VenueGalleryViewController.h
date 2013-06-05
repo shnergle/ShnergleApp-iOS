@@ -9,12 +9,15 @@
 #import <UIKit/UIKit.h>
 
 @interface VenueGalleryViewController : UIViewController
+{
+    NSArray *images;
+}
 @property (weak, nonatomic) IBOutlet UIScrollView *imageScrollView;
 
 
 - (UIBarButtonItem *)createLeftBarButton:(NSString *)imageName actionSelector:(SEL)actionSelector;
 - (void)goBack;
-- (void)imageScrollerSetup:(NSArray *)imageObjects;
+- (void)imageScrollerSetup;
 -(void)setTitle:(NSString *)title;
-
+-(void)setImages:(NSArray *)img;
 @end
