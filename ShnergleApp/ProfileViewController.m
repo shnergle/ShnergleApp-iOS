@@ -119,7 +119,7 @@
              completion:^(BOOL granted, NSError *error) {
                  if (granted) {
 #warning only uses last twitter account
-                     NSString *twitter = [[accountStore accountsWithAccountType:twitterAccountType] lastObject];
+                     NSString *twitter = [[[accountStore accountsWithAccountType:twitterAccountType] lastObject] username];
                      appDelegate.twitter = twitter;
                      NSString *params = [NSString stringWithFormat:@"facebook_id=%@&twitter=%@", appDelegate.facebookId, twitter];
                      if (![[[PostRequest alloc] init] exec:@"users/set" params:params delegate:self callback:@selector(twitterReq:) type:@"string"]) {
