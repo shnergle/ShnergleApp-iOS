@@ -21,7 +21,6 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    [self imageScrollerSetup];
     UIBarButtonItem *menuButton;
     menuButton = [self createLeftBarButton:@"arrow_west" actionSelector:@selector(goBack)];
     self.navigationItem.leftBarButtonItem = menuButton;
@@ -38,7 +37,7 @@
     NSLog(@"setTitle is being run, with %@",title);
 }
 
-- (void)imageScrollerSetup {
+- (void)imageScrollerSetup:(NSArray *)imageObjects {
     CGRect windowBounds = [[UIScreen mainScreen]bounds];
     _imageScrollView.bounds = CGRectMake(0, 0, windowBounds.size.width, 245);
     UIImage *image = [UIImage imageNamed:@"mahiki.jpg"];
