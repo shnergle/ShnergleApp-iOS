@@ -281,7 +281,8 @@
 
 - (IBAction)sliderValueChanged:(id)sender {
     
-    self.mapView.clear;
+    
+    self.mapView.clear; // I USE GETTERS FOR SIDE EFFECTS, SUE ME.
     
     //Creates a circle on the map with a radius in metres
     GMSCircle *mapCircle = [GMSCircle circleWithPosition:self.mapView.myLocation.coordinate radius:self.distanceScroller.value*1000];
