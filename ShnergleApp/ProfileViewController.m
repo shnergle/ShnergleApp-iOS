@@ -108,6 +108,8 @@
 
 - (IBAction)twitterSwitchAction:(id)sender {
     AppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
+    id delegateMe = self;
+    ProfileViewController *me = self;
     if (_twitterSwitch.on) {
         ACAccountStore *accountStore = [[ACAccountStore alloc] init];
         if ([SLComposeViewController isAvailableForServiceType:SLServiceTypeTwitter]) {
@@ -120,13 +122,23 @@
              options:NULL
              completion:^(BOOL granted, NSError *error) {
                  if (granted) {
-#warning only uses last twitter account
-                     NSString *twitter = [[[accountStore accountsWithAccountType:twitterAccountType] lastObject] username];
-                     appDelegate.twitter = twitter;
-                     NSString *params = [NSString stringWithFormat:@"facebook_id=%@&twitter=%@", appDelegate.facebookId, twitter];
-                     if (![[[PostRequest alloc] init] exec:@"users/set" params:params delegate:self callback:@selector(twitterReq:) type:@"string"]) {
-                         [self alertTwitter];
-                     }
+                     me.accounts = [accountStore accountsWithAccountType:twitterAccountType];
+                     if (me.accounts.count > 0) {
+                         if (me.accounts.count > 1) {
+                             UIActionSheet *popupQuery = [[UIActionSheet alloc] initWithTitle:@"Title" delegate:delegateMe cancelButtonTitle:@"Cancel" destructiveButtonTitle:nil otherButtonTitles:nil];
+                             for (int i = 0; i < me.accounts.count; i++)
+                                 [popupQuery addButtonWithTitle:[[me.accounts objectAtIndex:i] username]];
+                             popupQuery.actionSheetStyle = UIActionSheetStyleBlackOpaque;
+                             [popupQuery showInView:self.view];
+                         } else {
+                             NSString *twitter = [[me.accounts lastObject] username];
+                             appDelegate.twitter = twitter;
+                             NSString *params = [NSString stringWithFormat:@"facebook_id=%@&twitter=%@", appDelegate.facebookId, twitter];
+                             if (![[[PostRequest alloc] init] exec:@"users/set" params:params delegate:self callback:@selector(twitterReq:) type:@"string"]) {
+                                 [self alertTwitter];
+                             }
+                         }
+                     } else _twitterSwitch.on = NO;
                  } else _twitterSwitch.on = NO;
              }];
         }
@@ -136,6 +148,21 @@
         if (![[[PostRequest alloc] init] exec:@"users/set" params:params delegate:self callback:@selector(twitterReq:) type:@"string"]) {
             [self alertTwitter];
         }
+    }
+}
+
+-(void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex {
+    AppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
+    if (buttonIndex == [actionSheet cancelButtonIndex]) {
+        _twitterSwitch.on = NO;
+    } else {
+        NSString *twitter = [[_accounts objectAtIndex:buttonIndex] username];
+        appDelegate.twitter = twitter;
+        NSString *params = [NSString stringWithFormat:@"facebook_id=%@&twitter=%@", appDelegate.facebookId, twitter];
+        if (![[[PostRequest alloc] init] exec:@"users/set" params:params delegate:self callback:@selector(twitterReq:) type:@"string"]) {
+            [self alertTwitter];
+        }
+
     }
 }
 
