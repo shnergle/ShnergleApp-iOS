@@ -389,6 +389,37 @@
                         <rect key="frame" x="0.0" y="64" width="320" height="416"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4Bj-Xy-ePL">
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="35" type="user" id="Nmm-qN-M9f"/>
+                                    <constraint firstAttribute="width" constant="102" id="vUv-f9-gCR"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Helvetica-Bold" family="Helvetica" pointSize="13"/>
+                                <state key="normal" title="Like" backgroundImage="greybutton03.png">
+                                    <color key="titleColor" white="0.28740875912408759" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="titleShadowColor" white="0.69482778284671531" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JFo-V8-IX5">
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="102" id="Ptq-fm-Jkg"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Helvetica-Bold" family="Helvetica" pointSize="13"/>
+                                <state key="normal" title="Share" backgroundImage="greybutton03.png">
+                                    <color key="titleColor" white="0.28740875912408759" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="titleShadowColor" white="0.69482778284671531" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zpk-oQ-Ics">
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="102" id="5OL-cK-yLr"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Helvetica-Bold" family="Helvetica" pointSize="13"/>
+                                <state key="normal" title="Flag for review" backgroundImage="greybutton03.png">
+                                    <color key="titleColor" white="0.28740875912408759" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="titleShadowColor" white="0.69482778284671531" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" directionalLockEnabled="YES" bounces="NO" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dSb-F6-Rh6">
                                 <color key="backgroundColor" red="0.69385834854014594" green="0.0" blue="0.0" alpha="0.0" colorSpace="calibratedRGB"/>
                                 <constraints>
@@ -399,37 +430,6 @@
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lyM-op-7R1">
                                         <subviews>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4Bj-Xy-ePL">
-                                                <constraints>
-                                                    <constraint firstAttribute="height" constant="35" type="user" id="Nmm-qN-M9f"/>
-                                                    <constraint firstAttribute="width" constant="102" id="b18-FP-EMy"/>
-                                                </constraints>
-                                                <fontDescription key="fontDescription" name="Helvetica-Bold" family="Helvetica" pointSize="13"/>
-                                                <state key="normal" title="Like" backgroundImage="greybutton03.png">
-                                                    <color key="titleColor" white="0.28740875912408759" alpha="1" colorSpace="calibratedWhite"/>
-                                                    <color key="titleShadowColor" white="0.69482778284671531" alpha="1" colorSpace="calibratedWhite"/>
-                                                </state>
-                                            </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JFo-V8-IX5">
-                                                <constraints>
-                                                    <constraint firstAttribute="width" constant="102" id="M5Q-AS-a2Z"/>
-                                                </constraints>
-                                                <fontDescription key="fontDescription" name="Helvetica-Bold" family="Helvetica" pointSize="13"/>
-                                                <state key="normal" title="Share" backgroundImage="greybutton03.png">
-                                                    <color key="titleColor" white="0.28740875912408759" alpha="1" colorSpace="calibratedWhite"/>
-                                                    <color key="titleShadowColor" white="0.69482778284671531" alpha="1" colorSpace="calibratedWhite"/>
-                                                </state>
-                                            </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zpk-oQ-Ics">
-                                                <constraints>
-                                                    <constraint firstAttribute="width" constant="102" id="zTb-Da-Fvi"/>
-                                                </constraints>
-                                                <fontDescription key="fontDescription" name="Helvetica-Bold" family="Helvetica" pointSize="13"/>
-                                                <state key="normal" title="Flag for review" backgroundImage="greybutton03.png">
-                                                    <color key="titleColor" white="0.28740875912408759" alpha="1" colorSpace="calibratedWhite"/>
-                                                    <color key="titleShadowColor" white="0.69482778284671531" alpha="1" colorSpace="calibratedWhite"/>
-                                                </state>
-                                            </button>
                                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Stian J." lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="55" translatesAutoresizingMaskIntoConstraints="NO" id="9Po-tE-tg7">
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="55" id="mao-E6-toY"/>
@@ -450,20 +450,11 @@
                                         </subviews>
                                         <color key="backgroundColor" white="1" alpha="0.0" colorSpace="custom" customColorSpace="calibratedWhite"/>
                                         <constraints>
-                                            <constraint firstItem="4Bj-Xy-ePL" firstAttribute="top" secondItem="9Po-tE-tg7" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="2aw-LC-oiN"/>
                                             <constraint firstItem="9Po-tE-tg7" firstAttribute="baseline" secondItem="diO-ua-hnK" secondAttribute="baseline" type="default" id="6fO-61-jNb"/>
                                             <constraint firstItem="9Po-tE-tg7" firstAttribute="top" secondItem="diO-ua-hnK" secondAttribute="top" type="default" id="F1Y-Ca-MMf"/>
-                                            <constraint firstItem="zpk-oQ-Ics" firstAttribute="bottom" secondItem="JFo-V8-IX5" secondAttribute="bottom" type="default" id="Hr8-fv-6DQ"/>
                                             <constraint firstItem="9Po-tE-tg7" firstAttribute="top" secondItem="lyM-op-7R1" secondAttribute="top" constant="4" id="LMs-zB-OGO"/>
-                                            <constraint firstItem="JFo-V8-IX5" firstAttribute="bottom" secondItem="4Bj-Xy-ePL" secondAttribute="bottom" type="default" id="Ujo-LR-bLq"/>
                                             <constraint firstItem="diO-ua-hnK" firstAttribute="leading" secondItem="9Po-tE-tg7" secondAttribute="trailing" constant="8" symbolic="YES" type="default" id="amo-hZ-MSI"/>
-                                            <constraint firstItem="4Bj-Xy-ePL" firstAttribute="leading" secondItem="lyM-op-7R1" secondAttribute="leading" constant="5" id="ctt-D4-d54"/>
-                                            <constraint firstAttribute="trailing" secondItem="zpk-oQ-Ics" secondAttribute="trailing" constant="5" id="dZA-gz-pje"/>
-                                            <constraint firstItem="zpk-oQ-Ics" firstAttribute="top" secondItem="diO-ua-hnK" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="evP-vy-Nsu"/>
                                             <constraint firstAttribute="trailing" secondItem="diO-ua-hnK" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="iMw-Ji-4L8"/>
-                                            <constraint firstItem="JFo-V8-IX5" firstAttribute="top" secondItem="diO-ua-hnK" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="kBO-9L-gjQ"/>
-                                            <constraint firstItem="JFo-V8-IX5" firstAttribute="leading" secondItem="lyM-op-7R1" secondAttribute="leading" constant="109" id="nSs-iH-uCc"/>
-                                            <constraint firstItem="JFo-V8-IX5" firstAttribute="centerX" secondItem="lyM-op-7R1" secondAttribute="centerX" type="default" id="wJr-jR-Kh0"/>
                                         </constraints>
                                     </view>
                                 </subviews>
@@ -473,20 +464,29 @@
                                     <constraint firstItem="lyM-op-7R1" firstAttribute="trailing" secondItem="AFq-eg-D9c" secondAttribute="trailing" type="default" id="4wX-fZ-wiN"/>
                                     <constraint firstItem="lyM-op-7R1" firstAttribute="top" secondItem="AFq-eg-D9c" secondAttribute="top" type="default" id="IOy-XX-EOY"/>
                                     <constraint firstItem="lyM-op-7R1" firstAttribute="centerY" secondItem="AFq-eg-D9c" secondAttribute="centerY" type="default" id="nX2-GD-wBy"/>
+                                    <constraint firstItem="lyM-op-7R1" firstAttribute="centerX" secondItem="AFq-eg-D9c" secondAttribute="centerX" type="default" id="py1-Me-VTy"/>
                                     <constraint firstItem="lyM-op-7R1" firstAttribute="leading" secondItem="AFq-eg-D9c" secondAttribute="leading" type="default" id="qu2-Qe-TEj"/>
                                 </constraints>
                             </scrollView>
                         </subviews>
                         <color key="backgroundColor" red="0.91372555489999996" green="0.9215686917" blue="0.94117653369999998" alpha="1" colorSpace="deviceRGB"/>
                         <constraints>
+                            <constraint firstItem="JFo-V8-IX5" firstAttribute="leading" secondItem="4Bj-Xy-ePL" secondAttribute="trailing" constant="8" symbolic="YES" type="default" id="2ga-Jz-L6r"/>
+                            <constraint firstItem="JFo-V8-IX5" firstAttribute="centerX" secondItem="AFq-eg-D9c" secondAttribute="centerX" type="default" id="3RT-t3-eQP"/>
                             <constraint firstItem="AFq-eg-D9c" firstAttribute="bottom" secondItem="0ht-SK-gFa" secondAttribute="bottom" type="default" id="3k6-iB-yiE"/>
                             <constraint firstItem="dSb-F6-Rh6" firstAttribute="trailing" secondItem="0ht-SK-gFa" secondAttribute="trailing" type="default" id="8lD-VA-caf"/>
+                            <constraint firstItem="JFo-V8-IX5" firstAttribute="top" secondItem="zpk-oQ-Ics" secondAttribute="top" type="default" id="D1x-8g-pHF"/>
                             <constraint firstItem="AFq-eg-D9c" firstAttribute="trailing" secondItem="0ht-SK-gFa" secondAttribute="trailing" type="default" id="EU9-fK-iNx"/>
                             <constraint firstItem="dSb-F6-Rh6" firstAttribute="leading" secondItem="0ht-SK-gFa" secondAttribute="leading" type="default" id="IsV-fB-LpH"/>
+                            <constraint firstItem="zpk-oQ-Ics" firstAttribute="leading" secondItem="JFo-V8-IX5" secondAttribute="trailing" constant="8" symbolic="YES" type="default" id="R03-17-VeA"/>
                             <constraint firstItem="dSb-F6-Rh6" firstAttribute="top" secondItem="0ht-SK-gFa" secondAttribute="top" type="user" id="RrS-bZ-dBf"/>
                             <constraint firstItem="AFq-eg-D9c" firstAttribute="leading" secondItem="0ht-SK-gFa" secondAttribute="leading" type="default" id="cZU-pE-69c"/>
                             <constraint firstItem="AFq-eg-D9c" firstAttribute="top" secondItem="0ht-SK-gFa" secondAttribute="top" constant="244" id="f4K-UX-qN9"/>
+                            <constraint firstItem="zpk-oQ-Ics" firstAttribute="bottom" secondItem="JFo-V8-IX5" secondAttribute="bottom" type="default" id="hoL-eN-lD4"/>
+                            <constraint firstItem="4Bj-Xy-ePL" firstAttribute="top" secondItem="JFo-V8-IX5" secondAttribute="top" type="default" id="jSU-Zk-thU"/>
+                            <constraint firstItem="4Bj-Xy-ePL" firstAttribute="top" secondItem="0ht-SK-gFa" secondAttribute="top" constant="286" id="tWU-lf-BAf"/>
                             <constraint firstItem="AFq-eg-D9c" firstAttribute="top" relation="lessThanOrEqual" secondItem="0ht-SK-gFa" secondAttribute="top" constant="400" type="user" id="tpZ-LS-vG1"/>
+                            <constraint firstItem="JFo-V8-IX5" firstAttribute="bottom" secondItem="4Bj-Xy-ePL" secondAttribute="bottom" type="default" id="yo8-1f-1ZG"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="be1-hQ-8nR"/>
