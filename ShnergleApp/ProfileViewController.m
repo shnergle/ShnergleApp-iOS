@@ -129,7 +129,7 @@
                              for (int i = 0; i < me.accounts.count; i++)
                                  [popupQuery addButtonWithTitle:[[me.accounts objectAtIndex:i] username]];
                              popupQuery.actionSheetStyle = UIActionSheetStyleBlackOpaque;
-                             [popupQuery showInView:self.view];
+                             [popupQuery showInView:me.view];
                          } else {
                              NSString *twitter = [[me.accounts lastObject] username];
                              appDelegate.twitter = twitter;
