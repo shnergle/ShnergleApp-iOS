@@ -17,6 +17,13 @@
     [self imageScrollerSetup];
 }
 
+-(void)setImages:(NSArray *)img index:(NSInteger)index
+{
+    images = img;
+   imageIndex = index;
+}
+
+
 -(void)setTitle:(NSString *)title
 {
     self.navigationItem.title = title;

@@ -10,6 +10,6 @@
 
 @interface CustomBackViewController : UIViewController
 
-- (UIBarButtonItem *)setRightBarButton:(NSString *)title actionSelector:(SEL)actionSelector;
+- (void)setRightBarButton:(NSString *)title actionSelector:(SEL)actionSelector;
 
 @end
