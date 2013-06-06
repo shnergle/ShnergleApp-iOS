@@ -55,6 +55,7 @@
     [super viewDidLoad];
     self.navigationItem.title = @"Favourites";
     [self menuButtonDecorations];
+    [self decorateCheckInButton];
     //THE SANDWICH MENU SYSTEM (ECSlidingViewController)
     if (![self.slidingViewController.underLeftViewController isKindOfClass:[MenuViewController class]]) {
         self.slidingViewController.underLeftViewController  = [self.storyboard instantiateViewControllerWithIdentifier:@"AroundMeMenu"];
