@@ -117,10 +117,10 @@
                                             <constraint firstItem="NoU-2f-HS3" firstAttribute="bottom" secondItem="idD-fk-d6Y" secondAttribute="bottom" type="default" id="n2p-yY-ana"/>
                                         </constraints>
                                     </scrollView>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3ru-jW-uGF">
+                                    <button opaque="NO" alpha="0.80000000000000004" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3ru-jW-uGF">
                                         <constraints>
-                                            <constraint firstAttribute="width" constant="25" id="fWq-sW-BPD"/>
-                                            <constraint firstAttribute="height" constant="25" id="iCb-4O-A1a"/>
+                                            <constraint firstAttribute="height" constant="30" id="U0L-mF-cR7"/>
+                                            <constraint firstAttribute="width" constant="30" id="vmN-G5-173"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="boldSystem" size="button"/>
                                         <state key="normal" image="arrowDown.png">
@@ -1771,8 +1771,10 @@
         <class className="OverlayText" superclassName="UIView">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/OverlayText.h"/>
             <relationships>
+                <relationship kind="action" name="share:"/>
                 <relationship kind="action" name="swipeDown:"/>
                 <relationship kind="action" name="swipeUp:"/>
+                <relationship kind="action" name="tap:"/>
                 <relationship kind="action" name="tapPromotion:"/>
                 <relationship kind="action" name="tapPullerMenu:"/>
                 <relationship kind="outlet" name="offerContents" candidateClass="UILabel"/>
