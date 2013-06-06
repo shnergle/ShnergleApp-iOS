@@ -417,72 +417,50 @@
                                     <color key="titleShadowColor" white="0.69482778284671531" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                             </button>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Stian J." lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="55" translatesAutoresizingMaskIntoConstraints="NO" id="9Po-tE-tg7">
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="55" id="mao-E6-toY"/>
+                                    <constraint firstAttribute="height" constant="31" id="tbR-5L-r9M"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="12"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="The people in this place have funny hats. Also liked the balloons." lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="231" translatesAutoresizingMaskIntoConstraints="NO" id="diO-ua-hnK">
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="231" id="rTC-68-aRJ"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" directionalLockEnabled="YES" bounces="NO" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dSb-F6-Rh6">
                                 <color key="backgroundColor" red="0.69385834854014594" green="0.0" blue="0.0" alpha="0.0" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="245" type="user" id="pA7-wS-Gd9"/>
                                 </constraints>
                             </scrollView>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="AFq-eg-D9c">
-                                <subviews>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lyM-op-7R1">
-                                        <subviews>
-                                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Stian J." lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="55" translatesAutoresizingMaskIntoConstraints="NO" id="9Po-tE-tg7">
-                                                <constraints>
-                                                    <constraint firstAttribute="width" constant="55" id="mao-E6-toY"/>
-                                                    <constraint firstAttribute="height" constant="31" id="tbR-5L-r9M"/>
-                                                </constraints>
-                                                <fontDescription key="fontDescription" type="boldSystem" pointSize="12"/>
-                                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="The people in this place have funny hats. Also liked the balloons." lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="231" translatesAutoresizingMaskIntoConstraints="NO" id="diO-ua-hnK">
-                                                <constraints>
-                                                    <constraint firstAttribute="width" constant="231" id="rTC-68-aRJ"/>
-                                                </constraints>
-                                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                        </subviews>
-                                        <color key="backgroundColor" white="1" alpha="0.0" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                                        <constraints>
-                                            <constraint firstItem="9Po-tE-tg7" firstAttribute="baseline" secondItem="diO-ua-hnK" secondAttribute="baseline" type="default" id="6fO-61-jNb"/>
-                                            <constraint firstItem="9Po-tE-tg7" firstAttribute="top" secondItem="diO-ua-hnK" secondAttribute="top" type="default" id="F1Y-Ca-MMf"/>
-                                            <constraint firstItem="9Po-tE-tg7" firstAttribute="top" secondItem="lyM-op-7R1" secondAttribute="top" constant="4" id="LMs-zB-OGO"/>
-                                            <constraint firstItem="diO-ua-hnK" firstAttribute="leading" secondItem="9Po-tE-tg7" secondAttribute="trailing" constant="8" symbolic="YES" type="default" id="amo-hZ-MSI"/>
-                                            <constraint firstAttribute="trailing" secondItem="diO-ua-hnK" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="iMw-Ji-4L8"/>
-                                        </constraints>
-                                    </view>
-                                </subviews>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                <constraints>
-                                    <constraint firstItem="lyM-op-7R1" firstAttribute="bottom" secondItem="AFq-eg-D9c" secondAttribute="bottom" type="default" id="3KO-ip-dBK"/>
-                                    <constraint firstItem="lyM-op-7R1" firstAttribute="trailing" secondItem="AFq-eg-D9c" secondAttribute="trailing" type="default" id="4wX-fZ-wiN"/>
-                                    <constraint firstItem="lyM-op-7R1" firstAttribute="top" secondItem="AFq-eg-D9c" secondAttribute="top" type="default" id="IOy-XX-EOY"/>
-                                    <constraint firstItem="lyM-op-7R1" firstAttribute="centerY" secondItem="AFq-eg-D9c" secondAttribute="centerY" type="default" id="nX2-GD-wBy"/>
-                                    <constraint firstItem="lyM-op-7R1" firstAttribute="centerX" secondItem="AFq-eg-D9c" secondAttribute="centerX" type="default" id="py1-Me-VTy"/>
-                                    <constraint firstItem="lyM-op-7R1" firstAttribute="leading" secondItem="AFq-eg-D9c" secondAttribute="leading" type="default" id="qu2-Qe-TEj"/>
-                                </constraints>
-                            </scrollView>
                         </subviews>
                         <color key="backgroundColor" red="0.91372555489999996" green="0.9215686917" blue="0.94117653369999998" alpha="1" colorSpace="deviceRGB"/>
                         <constraints>
+                            <constraint firstItem="zpk-oQ-Ics" firstAttribute="baseline" secondItem="4Bj-Xy-ePL" secondAttribute="baseline" type="default" id="0pN-5l-xgJ"/>
                             <constraint firstItem="JFo-V8-IX5" firstAttribute="leading" secondItem="4Bj-Xy-ePL" secondAttribute="trailing" constant="8" symbolic="YES" type="default" id="2ga-Jz-L6r"/>
-                            <constraint firstItem="JFo-V8-IX5" firstAttribute="centerX" secondItem="AFq-eg-D9c" secondAttribute="centerX" type="default" id="3RT-t3-eQP"/>
-                            <constraint firstItem="AFq-eg-D9c" firstAttribute="bottom" secondItem="0ht-SK-gFa" secondAttribute="bottom" type="default" id="3k6-iB-yiE"/>
+                            <constraint firstItem="9Po-tE-tg7" firstAttribute="leading" secondItem="0ht-SK-gFa" secondAttribute="leading" constant="2" id="4iZ-jJ-DBM"/>
                             <constraint firstItem="dSb-F6-Rh6" firstAttribute="trailing" secondItem="0ht-SK-gFa" secondAttribute="trailing" type="default" id="8lD-VA-caf"/>
                             <constraint firstItem="JFo-V8-IX5" firstAttribute="top" secondItem="zpk-oQ-Ics" secondAttribute="top" type="default" id="D1x-8g-pHF"/>
-                            <constraint firstItem="AFq-eg-D9c" firstAttribute="trailing" secondItem="0ht-SK-gFa" secondAttribute="trailing" type="default" id="EU9-fK-iNx"/>
                             <constraint firstItem="dSb-F6-Rh6" firstAttribute="leading" secondItem="0ht-SK-gFa" secondAttribute="leading" type="default" id="IsV-fB-LpH"/>
+                            <constraint firstItem="9Po-tE-tg7" firstAttribute="top" secondItem="diO-ua-hnK" secondAttribute="top" type="default" id="OPU-iT-5b4"/>
                             <constraint firstItem="zpk-oQ-Ics" firstAttribute="leading" secondItem="JFo-V8-IX5" secondAttribute="trailing" constant="8" symbolic="YES" type="default" id="R03-17-VeA"/>
                             <constraint firstItem="dSb-F6-Rh6" firstAttribute="top" secondItem="0ht-SK-gFa" secondAttribute="top" type="user" id="RrS-bZ-dBf"/>
-                            <constraint firstItem="AFq-eg-D9c" firstAttribute="leading" secondItem="0ht-SK-gFa" secondAttribute="leading" type="default" id="cZU-pE-69c"/>
-                            <constraint firstItem="AFq-eg-D9c" firstAttribute="top" secondItem="0ht-SK-gFa" secondAttribute="top" constant="244" id="f4K-UX-qN9"/>
+                            <constraint firstItem="JFo-V8-IX5" firstAttribute="baseline" secondItem="zpk-oQ-Ics" secondAttribute="baseline" type="default" id="aEK-6g-y8h"/>
+                            <constraint firstItem="9Po-tE-tg7" firstAttribute="baseline" secondItem="diO-ua-hnK" secondAttribute="baseline" type="default" id="gFU-gy-hmd"/>
                             <constraint firstItem="zpk-oQ-Ics" firstAttribute="bottom" secondItem="JFo-V8-IX5" secondAttribute="bottom" type="default" id="hoL-eN-lD4"/>
                             <constraint firstItem="4Bj-Xy-ePL" firstAttribute="top" secondItem="JFo-V8-IX5" secondAttribute="top" type="default" id="jSU-Zk-thU"/>
+                            <constraint firstItem="4Bj-Xy-ePL" firstAttribute="baseline" secondItem="JFo-V8-IX5" secondAttribute="baseline" type="default" id="jeR-x5-ZmF"/>
+                            <constraint firstAttribute="bottom" secondItem="9Po-tE-tg7" secondAttribute="bottom" constant="137" id="qFx-xl-Rkw"/>
+                            <constraint firstItem="diO-ua-hnK" firstAttribute="leading" secondItem="0ht-SK-gFa" secondAttribute="leading" constant="64" id="qGr-ZT-lgF"/>
+                            <constraint firstItem="JFo-V8-IX5" firstAttribute="centerX" secondItem="dSb-F6-Rh6" secondAttribute="centerX" type="default" id="t50-3O-TZ7"/>
                             <constraint firstItem="4Bj-Xy-ePL" firstAttribute="top" secondItem="0ht-SK-gFa" secondAttribute="top" constant="286" id="tWU-lf-BAf"/>
-                            <constraint firstItem="AFq-eg-D9c" firstAttribute="top" relation="lessThanOrEqual" secondItem="0ht-SK-gFa" secondAttribute="top" constant="400" type="user" id="tpZ-LS-vG1"/>
                             <constraint firstItem="JFo-V8-IX5" firstAttribute="bottom" secondItem="4Bj-Xy-ePL" secondAttribute="bottom" type="default" id="yo8-1f-1ZG"/>
                         </constraints>
                     </view>
@@ -1767,7 +1745,6 @@
         <class className="ShareViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/ShareViewController.h"/>
             <relationships>
-                <relationship kind="action" name="selectFriendsButtonAction:"/>
                 <relationship kind="outlet" name="friendLabel" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="nameList" candidateClass="UIButton"/>
             </relationships>
