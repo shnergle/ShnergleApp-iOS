@@ -52,19 +52,31 @@
     // Dispose of any resources that can be recreated.
 }
 
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+/*- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     return [_tableData count];
-}
+}*/
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     UITableViewCell *cell = nil;
-    cell = [tableView dequeueReusableCellWithIdentifier:[NSString stringWithFormat:@"MyCell%d", indexPath.item]];
     
-    if (cell == nil) {
-        cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"MyCell"];
+    if (indexPath.section != 0)
+    {
+        cell = [tableView dequeueReusableCellWithIdentifier:[NSString stringWithFormat:@"MyCell%d", indexPath.item]];
     }
     
+    if (cell == nil) {
+        cell = [tableView dequeueReusableCellWithIdentifier:@"MyCell"];
+    }
+    
+    AppDelegate *appdelegate = [[UIApplication sharedApplication] delegate];
+    if (indexPath.section == 0) {
+        cell.textLabel.text = appdelegate.fullName;
+    }
+    else
+    {
     cell.textLabel.text = _tableData[indexPath.row];
+    }
+    
     cell.textLabel.textColor = [UIColor whiteColor];
     cell.textLabel.font = [UIFont fontWithName:@"Roboto" size:20.0];
     
@@ -79,6 +91,33 @@
     AppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
     NSString *params = [NSString stringWithFormat:@"term=%@&facebook_id=%@", _bar.text, appDelegate.facebookId];
     [[[PostRequest alloc] init] exec:@"user_searches/set" params:params delegate:self callback:@selector(postResponse:)];
+}
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
+    if (section == 0)
+    {
+        return 1;
+    }
+    else
+    {
+        return 5;
+    }
+}
+
+-(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
+{
+    return 2;
+}
+
+/*-(NSArray *)sectionIndexTitlesForTableView:(UITableView *)tableView
+{
+    return @[@"Profile", @"Explore"];
+}*/
+
+- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
+{
+    return (@[@"Profile", @"Explore"])[section];
 }
 
 @end
