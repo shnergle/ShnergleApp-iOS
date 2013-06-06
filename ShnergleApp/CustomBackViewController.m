@@ -10,8 +10,8 @@
 
 @implementation CustomBackViewController
 
-- (void)viewDidAppear:(BOOL)animated {
-    [super viewDidAppear:animated];
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
     UIBarButtonItem *menuButton;
     menuButton = [self createLeftBarButton:@"arrow_west" actionSelector:@selector(goBack)];
     self.navigationItem.leftBarButtonItem = menuButton;
@@ -33,7 +33,7 @@
     [self.navigationController popViewControllerAnimated:YES];
 }
 
-- (UIBarButtonItem *)setRightBarButton:(NSString *)title actionSelector:(SEL)actionSelector {
+- (void)setRightBarButton:(NSString *)title actionSelector:(SEL)actionSelector {
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] init];
     self.navigationItem.rightBarButtonItem.title = title;
     self.navigationItem.rightBarButtonItem.target = self;
@@ -45,4 +45,5 @@
                                                UITextAttributeFont: [UIFont fontWithName:@"Roboto" size:14.0]}
                                                           forState:UIControlStateNormal];
 }
+
 @end
