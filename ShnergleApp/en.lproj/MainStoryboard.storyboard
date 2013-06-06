@@ -743,7 +743,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Dpl-bY-Po8" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-710" y="317"/>
+            <point key="canvasLocation" x="-644" y="163"/>
         </scene>
         <!--Profile View Controller - Profile Page-->
         <scene sceneID="aFZ-SR-USp">
@@ -1368,7 +1368,14 @@
                         <subviews>
                             <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BRG-Y7-nAX">
                                 <items>
-                                    <navigationItem title="Favourites" id="ijm-KI-t8F"/>
+                                    <navigationItem title="Favourites" id="ijm-KI-t8F">
+                                        <barButtonItem key="rightBarButtonItem" title="Check In" style="plain" id="Kbi-8Y-RPI">
+                                            <color key="tintColor" red="0.40000000000000002" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                            <connections>
+                                                <segue destination="CuC-E9-ArH" kind="push" id="HHH-Gt-FIZ"/>
+                                            </connections>
+                                        </barButtonItem>
+                                    </navigationItem>
                                 </items>
                             </navigationBar>
                         </subviews>
@@ -1380,6 +1387,7 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="checkInButton" destination="Kbi-8Y-RPI" id="nTm-zl-SDf"/>
                         <outlet property="navBar" destination="BRG-Y7-nAX" id="u7F-nV-9mM"/>
                         <outlet property="navBarItem" destination="ijm-KI-t8F" id="bvl-rO-OW0"/>
                     </connections>
@@ -1716,6 +1724,7 @@
             <source key="sourceIdentifier" type="project" relativePath="./Classes/FavouritesViewController.h"/>
             <relationships>
                 <relationship kind="action" name="menuButtonTriggered:"/>
+                <relationship kind="outlet" name="checkInButton" candidateClass="UIBarButtonItem"/>
                 <relationship kind="outlet" name="navBar" candidateClass="UINavigationBar"/>
                 <relationship kind="outlet" name="navBarItem" candidateClass="UINavigationItem"/>
             </relationships>
@@ -1815,4 +1824,7 @@
         <simulatedOrientationMetrics key="orientation"/>
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
+    <inferredMetricsTieBreakers>
+        <segue reference="HHH-Gt-FIZ"/>
+    </inferredMetricsTieBreakers>
 </document>
