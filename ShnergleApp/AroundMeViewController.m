@@ -6,13 +6,13 @@
 //  Copyright (c) 2013 Shnergle. All rights reserved.
 //
 
-#import "ViewController.h"
+#import "AroundMeViewController.h"
 #import "CrowdItem.h"
 #import "CoreLocation/CoreLocation.h"
 #import "MenuViewController.h"
 #import "UIImageResizing.h"
 
-@implementation ViewController
+@implementation AroundMeViewController
 
 
 // Don't need to modify the default initWithNibName:bundle: method.

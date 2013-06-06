@@ -7,7 +7,7 @@
 //
 
 #import "FavouritesViewController.h"
-#import "ViewController.h"
+#import "AroundMeViewController.h"
 #import "CrowdItem.h"
 
 @implementation FavouritesViewController

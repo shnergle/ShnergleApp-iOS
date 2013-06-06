@@ -13,10 +13,7 @@
 #import <ECSlidingViewController.h>
 #import <QuartzCore/QuartzCore.h> // shadow and border
 
-NSInteger selectedVenueIndex;
-
-
-@interface ViewController : UIViewController<UICollectionViewDataSource, UICollectionViewDelegate, GMSMapViewDelegate> {
+@interface AroundMeViewController : UIViewController<UICollectionViewDataSource, UICollectionViewDelegate, GMSMapViewDelegate> {
     NSArray *venueNames;
     NSArray *images;
     NSInteger selectedVenue;
@@ -25,6 +22,8 @@ NSInteger selectedVenueIndex;
     BOOL hasPositionLocked;
     BOOL pinDropped;
     CLLocationCoordinate2D pinDroppedLocation;
+    NSInteger selectedVenueIndex;
+
 }
 //@property (weak, nonatomic) IBOutlet UIImageView *dropDownIndicator;
 @property (weak, nonatomic) IBOutlet UIButton *drawerCloseButton;
