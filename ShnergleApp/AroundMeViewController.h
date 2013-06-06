@@ -1,5 +1,5 @@
 //
-//  ViewController.h
+//  AroundMeViewController.h
 //  ShnergleApp
 //
 //  Created by Stian Johansen on 3/21/13.
@@ -14,8 +14,6 @@
 #import <QuartzCore/QuartzCore.h> // shadow and border
 
 @interface AroundMeViewController : UIViewController<UICollectionViewDataSource, UICollectionViewDelegate, GMSMapViewDelegate> {
-    NSArray *venueNames;
-    NSArray *images;
     NSInteger selectedVenue;
     BOOL crowdImagesHidden;
     BOOL dropDownHidden;

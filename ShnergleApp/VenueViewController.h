@@ -14,8 +14,6 @@
     NSString *promotionBody;
     NSString *promotionExpiry;
     NSInteger selectedImage;
-    NSArray *images;
-    NSArray *venueNames;
     
     BOOL textViewOpen;
     

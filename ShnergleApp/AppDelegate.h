@@ -27,6 +27,7 @@
 @property (strong, nonatomic) NSString *appSecret;
 @property (strong, nonatomic) NSString *twitter;
 
-//- (void) closeSession;
+@property (strong, nonatomic) NSArray *images;
+@property (strong, nonatomic) NSArray *venueNames;
 
 @end

@@ -1,5 +1,5 @@
 //
-//  ViewController.m
+//  AroundMeViewController.m
 //  ShnergleApp
 //
 //  Created by Stian Johansen on 3/21/13.
@@ -11,12 +11,9 @@
 #import "CoreLocation/CoreLocation.h"
 #import "MenuViewController.h"
 #import "UIImageResizing.h"
+#import "AppDelegate.h"
 
 @implementation AroundMeViewController
-
-
-// Don't need to modify the default initWithNibName:bundle: method.
-
 
 
 - (void)didReceiveMemoryWarning {
@@ -100,8 +97,9 @@
     [[self crowdCollection] setDataSource:self];
     [[self crowdCollection] setDelegate:self];
     //[self createTitleButton];
-    images = @[@"liverpool.JPG", @"liverpool2.jpg", @"mahiki.jpg", @"liverpool.JPG", @"liverpool2.jpg", @"mahiki.jpg", @"liverpool.JPG", @"liverpool2.jpg", @"mahiki.jpg"];
-    venueNames = @[@"liverpool street station", @"liverpool street station", @"mahiki", @"liverpool street station", @"liverpool street station", @"mahiki", @"liverpool street station", @"liverpool street station", @"mahiki"];
+    AppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
+    appDelegate.images = @[@"liverpool.JPG", @"liverpool2.jpg", @"mahiki.jpg", @"liverpool.JPG", @"liverpool2.jpg", @"mahiki.jpg", @"liverpool.JPG", @"liverpool2.jpg", @"mahiki.jpg"];
+    appDelegate.venueNames = @[@"liverpool street station", @"liverpool street station", @"mahiki", @"liverpool street station", @"liverpool street station", @"mahiki", @"liverpool street station", @"liverpool street station", @"mahiki"];
     
     crowdImagesHidden = NO;
     dropDownHidden = YES;
@@ -169,8 +167,8 @@
 }
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
-    //return the number of venue images
-    return [images count];
+    AppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
+    return [appDelegate.images count];
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
@@ -190,10 +188,10 @@
      //item.layer.shouldRasterize = YES;
      */
     /* Here we can set the elements of the crowdItem (the cell) in the cellview */
+    AppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
+    [[item crowdImage] setImage:[UIImage imageNamed:appDelegate.images[indexPath.item]]];
     
-    [[item crowdImage] setImage:[UIImage imageNamed:images[indexPath.item]]];
-    
-    [[item venueName] setText:venueNames[indexPath.item]];
+    [[item venueName] setText:appDelegate.venueNames[indexPath.item]];
     
     item.venueName.font = [UIFont fontWithName:@"Roboto" size:11.0f];
     
@@ -210,8 +208,9 @@
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    AppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
     if ([segue.identifier isEqualToString:@"ToVenueSite"]) {
-        [segue.destinationViewController setTitle:venueNames[selectedVenue]];
+        [segue.destinationViewController setTitle:appDelegate.venueNames[selectedVenue]];
     }
 }
 

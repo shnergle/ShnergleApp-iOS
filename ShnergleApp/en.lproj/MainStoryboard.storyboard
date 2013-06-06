@@ -1678,6 +1678,24 @@
         <class className="AroundMeSlidingViewController" superclassName="ECSlidingViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/AroundMeSlidingViewController.h"/>
         </class>
+        <class className="AroundMeViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/AroundMeViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="sliderValueChanged:"/>
+                <relationship kind="action" name="tapArrow:"/>
+                <relationship kind="action" name="tapMap:"/>
+                <relationship kind="action" name="tapMenu:"/>
+                <relationship kind="outlet" name="checkInButton" candidateClass="UIBarButtonItem"/>
+                <relationship kind="outlet" name="crowdCollection" candidateClass="UICollectionView"/>
+                <relationship kind="outlet" name="distanceScroller" candidateClass="UISlider"/>
+                <relationship kind="outlet" name="distanceScrollerView" candidateClass="OverlayText"/>
+                <relationship kind="outlet" name="drawerCloseButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="mapView" candidateClass="GMSMapView"/>
+                <relationship kind="outlet" name="navBar" candidateClass="UINavigationBar"/>
+                <relationship kind="outlet" name="navBarMenuItem" candidateClass="UINavigationItem"/>
+                <relationship kind="outlet" name="overlay" candidateClass="OverlayText"/>
+            </relationships>
+        </class>
         <class className="CheckInViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/CheckInViewController.h"/>
             <relationships>
@@ -1738,6 +1756,7 @@
             <relationships>
                 <relationship kind="action" name="swipeDown:"/>
                 <relationship kind="action" name="swipeUp:"/>
+                <relationship kind="action" name="tap:"/>
                 <relationship kind="action" name="tapPromotion:"/>
                 <relationship kind="outlet" name="offerContents" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="offerCount" candidateClass="UILabel"/>
@@ -1767,7 +1786,6 @@
         <class className="ShareViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/ShareViewController.h"/>
             <relationships>
-                <relationship kind="action" name="selectFriendsButtonAction:"/>
                 <relationship kind="outlet" name="friendLabel" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="nameList" candidateClass="UIButton"/>
             </relationships>
@@ -1787,30 +1805,12 @@
                 <relationship kind="outlet" name="imageScrollView" candidateClass="UIScrollView"/>
             </relationships>
         </class>
-        <class className="VenueViewController" superclassName="ViewController">
+        <class className="VenueViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/VenueViewController.h"/>
             <relationships>
                 <relationship kind="outlet" name="checkInButton" candidateClass="UIBarButtonItem"/>
                 <relationship kind="outlet" name="crowdCollectionV" candidateClass="UICollectionView"/>
                 <relationship kind="outlet" name="overlayView" candidateClass="OverlayText"/>
-            </relationships>
-        </class>
-        <class className="ViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/ViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="sliderValueChanged:"/>
-                <relationship kind="action" name="tapArrow:"/>
-                <relationship kind="action" name="tapMap:"/>
-                <relationship kind="action" name="tapMenu:"/>
-                <relationship kind="outlet" name="checkInButton" candidateClass="UIBarButtonItem"/>
-                <relationship kind="outlet" name="crowdCollection" candidateClass="UICollectionView"/>
-                <relationship kind="outlet" name="distanceScroller" candidateClass="UISlider"/>
-                <relationship kind="outlet" name="distanceScrollerView" candidateClass="OverlayText"/>
-                <relationship kind="outlet" name="drawerCloseButton" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="mapView" candidateClass="GMSMapView"/>
-                <relationship kind="outlet" name="navBar" candidateClass="UINavigationBar"/>
-                <relationship kind="outlet" name="navBarMenuItem" candidateClass="UINavigationItem"/>
-                <relationship kind="outlet" name="overlay" candidateClass="OverlayText"/>
             </relationships>
         </class>
     </classes>

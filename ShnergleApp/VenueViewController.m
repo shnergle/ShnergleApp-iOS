@@ -11,6 +11,7 @@
 #import "PromotionView.h"
 #import "PromotionDetailView.h"
 #import "VenueGalleryViewController.h"
+#import "AppDelegate.h"
 
 @implementation VenueViewController
 
@@ -31,9 +32,9 @@
     textViewOpen = false;
     [[self crowdCollectionV] setDataSource:self];
     [[self crowdCollectionV] setDelegate:self];
-    
-    images = @[@"liverpool.JPG", @"liverpool2.jpg", @"mahiki.jpg", @"liverpool.JPG", @"liverpool2.jpg", @"mahiki.jpg", @"liverpool.JPG", @"liverpool2.jpg", @"mahiki.jpg", @"liverpool2.jpg", @"mahiki.jpg", @"liverpool2.jpg", @"mahiki.jpg", @"liverpool2.jpg", @"mahiki.jpg", @"liverpool.JPG", @"liverpool2.jpg", @"mahiki.jpg", @"liverpool.JPG", @"liverpool2.jpg", @"mahiki.jpg", @"liverpool.JPG", @"liverpool2.jpg", @"mahiki.jpg", @"liverpool2.jpg", @"mahiki.jpg", @"liverpool2.jpg", @"mahiki.jpg", @"liverpool2.jpg", @"mahiki.jpg"];
-    venueNames = @[@"liverpool street station", @"liverpool street station", @"mahiki", @"liverpool street station", @"liverpool street station", @"mahiki", @"liverpool street station", @"liverpool street station", @"mahiki", @"liverpool street station", @"mahiki", @"liverpool street station", @"mahiki", @"liverpool street station", @"mahiki", @"liverpool street station", @"liverpool street station", @"mahiki", @"liverpool street station", @"liverpool street station", @"mahiki", @"liverpool street station", @"liverpool street station", @"mahiki", @"liverpool street station", @"mahiki", @"liverpool street station", @"mahiki", @"liverpool street station", @"mahiki"];
+    AppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
+    appDelegate.images = @[@"liverpool.JPG", @"liverpool2.jpg", @"mahiki.jpg", @"liverpool.JPG", @"liverpool2.jpg", @"mahiki.jpg", @"liverpool.JPG", @"liverpool2.jpg", @"mahiki.jpg", @"liverpool2.jpg", @"mahiki.jpg", @"liverpool2.jpg", @"mahiki.jpg", @"liverpool2.jpg", @"mahiki.jpg", @"liverpool.JPG", @"liverpool2.jpg", @"mahiki.jpg", @"liverpool.JPG", @"liverpool2.jpg", @"mahiki.jpg", @"liverpool.JPG", @"liverpool2.jpg", @"mahiki.jpg", @"liverpool2.jpg", @"mahiki.jpg", @"liverpool2.jpg", @"mahiki.jpg", @"liverpool2.jpg", @"mahiki.jpg"];
+    appDelegate.venueNames = @[@"liverpool street station", @"liverpool street station", @"mahiki", @"liverpool street station", @"liverpool street station", @"mahiki", @"liverpool street station", @"liverpool street station", @"mahiki", @"liverpool street station", @"mahiki", @"liverpool street station", @"mahiki", @"liverpool street station", @"mahiki", @"liverpool street station", @"liverpool street station", @"mahiki", @"liverpool street station", @"liverpool street station", @"mahiki", @"liverpool street station", @"liverpool street station", @"mahiki", @"liverpool street station", @"mahiki", @"liverpool street station", @"mahiki", @"liverpool street station", @"mahiki"];
     
     promotionTitle = @"Tonights special offer";
     promotionExpiry = @"Expires at 11 pm";
@@ -47,16 +48,17 @@
 }
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
-    //return the number of venue images
-    return [images count];
+    AppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
+    return [appDelegate.images count];
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     static NSString *cellIdentifier = @"Cell";
     CrowdItem *item = [collectionView dequeueReusableCellWithReuseIdentifier:cellIdentifier forIndexPath:indexPath];
+    AppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
     /* Here we can set the elements of the crowdItem (the cell) in the cellview */
-    [[item crowdImage]setImage:[UIImage imageNamed:images[indexPath.item]]];
-    [[item venueName]setText:venueNames[indexPath.item]];
+    [[item crowdImage] setImage:[UIImage imageNamed:appDelegate.images[indexPath.item]]];
+    [[item venueName] setText:appDelegate.venueNames[indexPath.item]];
     
     
     /*SHADOW AROUND OBJECTS
@@ -241,9 +243,10 @@
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    AppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
     if ([segue.identifier isEqualToString:@"ToGallery"]) {
         [segue.destinationViewController setTitle:self.navigationItem.title];
-        [(VenueGalleryViewController *)segue.destinationViewController setImages:images index:selectedImage];
+        [(VenueGalleryViewController *)segue.destinationViewController setImages:appDelegate.images index:selectedImage];
     }
 }
 
