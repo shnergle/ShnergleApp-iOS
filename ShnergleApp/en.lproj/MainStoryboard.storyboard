@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="3084" systemVersion="12E55" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="Yrf-wA-f9e">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="3084" systemVersion="12D78" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="Yrf-wA-f9e">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="2083"/>
     </dependencies>
@@ -371,7 +371,6 @@
                     </navigationItem>
                     <connections>
                         <outlet property="checkInButton" destination="j8H-eV-cm2" id="XKX-Mi-ND9"/>
-                        <outlet property="crowdCollection" destination="p6Q-Ks-hgi" id="FHm-1m-aj3"/>
                         <outlet property="crowdCollectionV" destination="p6Q-Ks-hgi" id="fwr-0r-VhS"/>
                     </connections>
                 </viewController>
@@ -444,7 +443,6 @@
                         </subviews>
                         <color key="backgroundColor" red="0.91372555489999996" green="0.9215686917" blue="0.94117653369999998" alpha="1" colorSpace="deviceRGB"/>
                         <constraints>
-                            <constraint firstItem="zpk-oQ-Ics" firstAttribute="baseline" secondItem="4Bj-Xy-ePL" secondAttribute="baseline" type="default" id="0pN-5l-xgJ"/>
                             <constraint firstItem="JFo-V8-IX5" firstAttribute="leading" secondItem="4Bj-Xy-ePL" secondAttribute="trailing" constant="8" symbolic="YES" type="default" id="2ga-Jz-L6r"/>
                             <constraint firstItem="9Po-tE-tg7" firstAttribute="leading" secondItem="0ht-SK-gFa" secondAttribute="leading" constant="2" id="4iZ-jJ-DBM"/>
                             <constraint firstItem="dSb-F6-Rh6" firstAttribute="trailing" secondItem="0ht-SK-gFa" secondAttribute="trailing" type="default" id="8lD-VA-caf"/>
@@ -453,11 +451,9 @@
                             <constraint firstItem="9Po-tE-tg7" firstAttribute="top" secondItem="diO-ua-hnK" secondAttribute="top" type="default" id="OPU-iT-5b4"/>
                             <constraint firstItem="zpk-oQ-Ics" firstAttribute="leading" secondItem="JFo-V8-IX5" secondAttribute="trailing" constant="8" symbolic="YES" type="default" id="R03-17-VeA"/>
                             <constraint firstItem="dSb-F6-Rh6" firstAttribute="top" secondItem="0ht-SK-gFa" secondAttribute="top" type="user" id="RrS-bZ-dBf"/>
-                            <constraint firstItem="JFo-V8-IX5" firstAttribute="baseline" secondItem="zpk-oQ-Ics" secondAttribute="baseline" type="default" id="aEK-6g-y8h"/>
                             <constraint firstItem="9Po-tE-tg7" firstAttribute="baseline" secondItem="diO-ua-hnK" secondAttribute="baseline" type="default" id="gFU-gy-hmd"/>
                             <constraint firstItem="zpk-oQ-Ics" firstAttribute="bottom" secondItem="JFo-V8-IX5" secondAttribute="bottom" type="default" id="hoL-eN-lD4"/>
                             <constraint firstItem="4Bj-Xy-ePL" firstAttribute="top" secondItem="JFo-V8-IX5" secondAttribute="top" type="default" id="jSU-Zk-thU"/>
-                            <constraint firstItem="4Bj-Xy-ePL" firstAttribute="baseline" secondItem="JFo-V8-IX5" secondAttribute="baseline" type="default" id="jeR-x5-ZmF"/>
                             <constraint firstAttribute="bottom" secondItem="9Po-tE-tg7" secondAttribute="bottom" constant="137" id="qFx-xl-Rkw"/>
                             <constraint firstItem="diO-ua-hnK" firstAttribute="leading" secondItem="0ht-SK-gFa" secondAttribute="leading" constant="64" id="qGr-ZT-lgF"/>
                             <constraint firstItem="JFo-V8-IX5" firstAttribute="centerX" secondItem="dSb-F6-Rh6" secondAttribute="centerX" type="default" id="t50-3O-TZ7"/>
@@ -1735,7 +1731,6 @@
             <relationships>
                 <relationship kind="action" name="swipeDown:"/>
                 <relationship kind="action" name="swipeUp:"/>
-                <relationship kind="action" name="tap:"/>
                 <relationship kind="action" name="tapPromotion:"/>
                 <relationship kind="outlet" name="offerContents" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="offerCount" candidateClass="UILabel"/>
@@ -1765,7 +1760,6 @@
         <class className="ShareViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/ShareViewController.h"/>
             <relationships>
-                <relationship kind="action" name="selectFriendsButtonAction:"/>
                 <relationship kind="outlet" name="friendLabel" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="nameList" candidateClass="UIButton"/>
             </relationships>
@@ -1779,6 +1773,9 @@
         <class className="UICollectionViewFlowLayout" superclassName="UICollectionViewLayout">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/UICollectionViewFlowLayout.h"/>
         </class>
+        <class className="UICollectionViewLayout" superclassName="NSObject">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/UICollectionViewLayout.h"/>
+        </class>
         <class className="VenueGalleryViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/VenueGalleryViewController.h"/>
             <relationships>
@@ -1789,8 +1786,8 @@
             <source key="sourceIdentifier" type="project" relativePath="./Classes/VenueViewController.h"/>
             <relationships>
                 <relationship kind="outlet" name="checkInButton" candidateClass="UIBarButtonItem"/>
+                <relationship kind="outlet" name="crowdCollection" candidateClass="UICollectionView"/>
                 <relationship kind="outlet" name="crowdCollectionV" candidateClass="UICollectionView"/>
-                <relationship kind="outlet" name="overlayView" candidateClass="OverlayText"/>
             </relationships>
         </class>
     </classes>
