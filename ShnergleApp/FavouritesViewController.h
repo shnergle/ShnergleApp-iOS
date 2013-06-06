@@ -10,5 +10,6 @@
 #import <ECSlidingViewController.h>
 @interface FavouritesViewController : UIViewController
 - (IBAction)menuButtonTriggered:(id)sender;
+@property (weak, nonatomic) IBOutlet UIButton *navBarItem;
 
 @end

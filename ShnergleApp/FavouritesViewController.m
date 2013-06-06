@@ -23,10 +23,36 @@
     return self;
 }
 
+- (UIBarButtonItem *)createLeftBarButton:(NSString *)imageName actionSelector:(SEL)actionSelector {
+    UIImage *menuButtonImg = [UIImage imageNamed:imageName];
+    
+    UIButton *menuButtonTmp = [UIButton buttonWithType:UIButtonTypeCustom];
+    menuButtonTmp.frame = CGRectMake(280.0, 10.0, 22.0, 22.0);
+    [menuButtonTmp setBackgroundImage:menuButtonImg forState:UIControlStateNormal];
+    [menuButtonTmp addTarget:self action:actionSelector forControlEvents:UIControlEventTouchUpInside];
+    
+    UIBarButtonItem *menuButton = [[UIBarButtonItem alloc]initWithCustomView:menuButtonTmp];
+    return menuButton;
+}
+
+- (void)menuButtonDecorations {
+    SEL actionSelector = @selector(tapMenu);
+    NSString *imageName = @"mainmenu_button.png";
+    
+    
+    UIBarButtonItem *menuButton;
+    menuButton = [self createLeftBarButton:imageName actionSelector:actionSelector];
+    
+    
+    self.navigationItem.leftBarButtonItem = menuButton;
+}
+
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
     self.navigationItem.title = @"Favourites";
+    [self menuButtonDecorations];
     //THE SANDWICH MENU SYSTEM (ECSlidingViewController)
     if (![self.slidingViewController.underLeftViewController isKindOfClass:[MenuViewController class]]) {
         self.slidingViewController.underLeftViewController  = [self.storyboard instantiateViewControllerWithIdentifier:@"AroundMeMenu"];
@@ -54,4 +80,10 @@
 - (IBAction)menuButtonTriggered:(id)sender {
     [self.slidingViewController anchorTopViewTo:ECRight];
 }
+
+- (void)tapMenu {
+    NSLog(@"menu triggered from button");
+    [self.slidingViewController anchorTopViewTo:ECRight];
+}
+
 @end
