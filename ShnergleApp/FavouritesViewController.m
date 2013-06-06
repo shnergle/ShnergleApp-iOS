@@ -26,7 +26,6 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    self.navigationController.navigationBarHidden = NO;
     self.navigationItem.title = @"Favourites";
     //THE SANDWICH MENU SYSTEM (ECSlidingViewController)
     if (![self.slidingViewController.underLeftViewController isKindOfClass:[MenuViewController class]]) {
@@ -44,6 +43,12 @@
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+-(void)vewDidAppear{
+    
+    [[self navigationController] setNavigationBarHidden:NO animated:YES];
+    
 }
 
 - (IBAction)menuButtonTriggered:(id)sender {

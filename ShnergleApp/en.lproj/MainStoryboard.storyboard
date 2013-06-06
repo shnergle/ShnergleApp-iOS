@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="3084" systemVersion="12E55" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="Yrf-wA-f9e">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="3084" systemVersion="12D78" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="Yrf-wA-f9e">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="2083"/>
     </dependencies>
@@ -1379,11 +1379,19 @@
                                     <action selector="menuButtonTriggered:" destination="Hxi-4h-Khl" eventType="touchUpInside" id="v5W-R5-ElX"/>
                                 </connections>
                             </button>
+                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BRG-Y7-nAX">
+                                <items>
+                                    <navigationItem title="Title" id="ijm-KI-t8F"/>
+                                </items>
+                            </navigationBar>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="BRG-Y7-nAX" firstAttribute="trailing" secondItem="6S5-MJ-Ufd" secondAttribute="trailing" type="default" id="9JF-p1-WT5"/>
                             <constraint firstItem="yAi-Hi-IYG" firstAttribute="top" secondItem="6S5-MJ-Ufd" secondAttribute="top" constant="142" id="Cwl-5X-zWv"/>
                             <constraint firstItem="yAi-Hi-IYG" firstAttribute="leading" secondItem="6S5-MJ-Ufd" secondAttribute="leading" constant="57" id="eVZ-Yx-JlH"/>
+                            <constraint firstItem="BRG-Y7-nAX" firstAttribute="top" secondItem="6S5-MJ-Ufd" secondAttribute="top" type="default" id="rKA-3m-fip"/>
+                            <constraint firstItem="BRG-Y7-nAX" firstAttribute="leading" secondItem="6S5-MJ-Ufd" secondAttribute="leading" type="default" id="zZB-QW-2up"/>
                         </constraints>
                     </view>
                 </viewController>
@@ -1748,6 +1756,9 @@
                 <relationship kind="outlet" name="venueName" candidateClass="UILabel"/>
             </relationships>
         </class>
+        <class className="CustomBackViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/CustomBackViewController.h"/>
+        </class>
         <class className="DropDownMenu" superclassName="UIView">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/DropDownMenu.h"/>
         </class>
@@ -1805,7 +1816,7 @@
                 <relationship kind="outlet" name="venueMap" candidateClass="GMSMapView"/>
             </relationships>
         </class>
-        <class className="PhotoLocationViewController" superclassName="UIViewController">
+        <class className="PhotoLocationViewController" superclassName="CustomBackViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/PhotoLocationViewController.h"/>
             <relationships>
                 <relationship kind="outlet" name="headline" candidateClass="UILabel"/>
@@ -1813,7 +1824,7 @@
                 <relationship kind="outlet" name="searchResultTable" candidateClass="UITableView"/>
             </relationships>
         </class>
-        <class className="ProfileViewController" superclassName="UIViewController">
+        <class className="ProfileViewController" superclassName="CustomBackViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/ProfileViewController.h"/>
             <relationships>
                 <relationship kind="action" name="twitterSwitchAction:"/>
@@ -1824,7 +1835,7 @@
         <class className="SearchBarView" superclassName="UIView">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/SearchBarView.h"/>
         </class>
-        <class className="ShareViewController" superclassName="UIViewController">
+        <class className="ShareViewController" superclassName="CustomBackViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/ShareViewController.h"/>
             <relationships>
                 <relationship kind="outlet" name="friendLabel" candidateClass="UILabel"/>
@@ -1842,13 +1853,13 @@
         <class className="UICollectionViewFlowLayout" superclassName="UICollectionViewLayout">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/UICollectionViewFlowLayout.h"/>
         </class>
-        <class className="VenueGalleryViewController" superclassName="UIViewController">
+        <class className="VenueGalleryViewController" superclassName="CustomBackViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/VenueGalleryViewController.h"/>
             <relationships>
                 <relationship kind="outlet" name="imageScrollView" candidateClass="UIScrollView"/>
             </relationships>
         </class>
-        <class className="VenueViewController" superclassName="UIViewController">
+        <class className="VenueViewController" superclassName="CustomBackViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/VenueViewController.h"/>
             <relationships>
                 <relationship kind="outlet" name="checkInButton" candidateClass="UIBarButtonItem"/>
