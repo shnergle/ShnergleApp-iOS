@@ -1723,6 +1723,8 @@
             <source key="sourceIdentifier" type="project" relativePath="./Classes/FavouritesViewController.h"/>
             <relationships>
                 <relationship kind="action" name="menuButtonTriggered:"/>
+                <relationship kind="outlet" name="navBar" candidateClass="UINavigationBar"/>
+                <relationship kind="outlet" name="navBarItem" candidateClass="UINavigationItem"/>
                 <relationship kind="outlet" name="navBarItem" candidateClass="UIButton"/>
             </relationships>
         </class>
