@@ -21,8 +21,8 @@
 {
     [super viewDidLoad];
     
-    self.textFieldname.text = @"Write something..";
-    _textFieldname.textColor = [UIColor lightGrayColor];
+    self.textFieldname.placeholder = @"Write something..";
+    _textFieldname.placeholderColor= [UIColor lightGrayColor];
 
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
@@ -31,22 +31,6 @@
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
 }
 
-/*- (IBAction)Textviewtap:(id)sender {
-    
-    [self textViewShouldBeginEditing:self.textFieldname];
-}
-
-- (BOOL) textViewShouldBeginEditing:(UITextView *)textFieldname
-{
-    NSLog(@"a");
-    if ([self.textFieldname.text isEqual: @"Write something.."]) {
-        self.textFieldname.text = [NSString stringWithFormat:@""];
-        self.textFieldname.textColor = [UIColor blackColor];
-        NSLog(@"b");
-    }
-    
-    return YES;
-}*/
 
 - (void)didReceiveMemoryWarning
 {
@@ -221,44 +205,4 @@
     [self.navigationController popViewControllerAnimated:YES];
 }
 
-/*- (IBAction)cleartextfield:(id)sender{
-    _textFieldname.text = [NSString stringWithFormat:@""];
-}*/
-
-#pragma mark -
-#pragma mark TextView Delegate methods
-
-
-
-/*- (BOOL) textViewShouldBeginEditing:(UITextView *)textFieldname
-{
-    if ([_textFieldname.text isEqual: @"Write something.."]) {
-        _textFieldname.text = [NSString stringWithFormat:@""];
-        _textFieldname.textColor = [UIColor blackColor];
-    }
-    
-    return YES;
-}
-
--(void) textViewDidChange:(UITextView *)textFieldname
-{
-    if(self.textFieldname.text.length == 0){
-        _textFieldname.text = [NSString stringWithFormat:@"Write something.."];
-        [_textFieldname resignFirstResponder];
-    }
-}
-
-- (BOOL)textFieldname:(UITextView *)textFieldname shouldChangeTextInRange:(NSRange)range replacementText:(NSString *)text {
-    
-    if([self.textFieldname.text isEqualToString:@"\n"]) {
-        [self.textFieldname resignFirstResponder];
-        if(self.textFieldname.text.length == 0){
-            _textFieldname.text = @"Write something..";
-            [_textFieldname resignFirstResponder];
-        }
-        return NO;
-    }
-    
-    return YES;
-}*/
 @end

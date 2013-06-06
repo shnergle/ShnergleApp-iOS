@@ -8,12 +8,14 @@
 
 #import <UIKit/UIKit.h>
 #import <FacebookSDK/FBViewController.h>
+#import "GCPlaceholderTextView.h"
+
 
 @interface ShareViewController : UIViewController <FBViewControllerDelegate> {
     id selectedFriends;
 }
 @property (weak, nonatomic) IBOutlet UIButton *nameList;
 @property (weak, nonatomic) IBOutlet UILabel *friendLabel;
-@property (weak, nonatomic) IBOutlet UITextView *textFieldname;
+@property (weak, nonatomic) IBOutlet GCPlaceholderTextView *textFieldname;
 //- (IBAction)cleartextfield:(id)sender;
 @end
