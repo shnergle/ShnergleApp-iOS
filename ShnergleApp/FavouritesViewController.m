@@ -66,7 +66,13 @@
     // Shadow for sandwich system
     self.view.layer.shadowOpacity = 0.75f;
     self.view.layer.shadowRadius = 10.0f;
-    self.view.layer.shadowColor = [UIColor blackColor].CGColor;}
+    self.view.layer.shadowColor = [UIColor blackColor].CGColor;
+    
+    //remove shadow from navbar
+    self.navigationController.navigationBar.clipsToBounds = YES;
+    self.navBar.clipsToBounds = YES;
+
+}
 
 - (void)didReceiveMemoryWarning
 {
