@@ -18,7 +18,7 @@
 
 - (IBAction)share:(id)sender {
     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"MainStoryboard" bundle:nil];
-    AroundMeViewController *vc = [storyboard instantiateViewControllerWithIdentifier:@"ShareViewController"];
+    UIViewController *vc = [storyboard instantiateViewControllerWithIdentifier:@"ShareViewController"];
     [self.caller.navigationController pushViewController:vc animated:YES];
     /*AppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
     [appDelegate.session requestNewPublishPermissions:[NSArray arrayWithObject:@"publish_actions"] defaultAudience:FBSessionDefaultAudienceEveryone completionHandler:^(FBSession *session, NSError *error) {

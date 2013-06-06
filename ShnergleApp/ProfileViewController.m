@@ -8,7 +8,6 @@
 
 #import "ProfileViewController.h"
 #import "AppDelegate.h"
-#import "AroundMeViewController.h"
 #import "PostRequest.h"
 #import <Social/Social.h>
 #import <Accounts/Accounts.h>

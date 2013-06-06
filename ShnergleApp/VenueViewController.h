@@ -7,14 +7,15 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "AroundMeViewController.h"
 #import "OverlayText.h"
 
-@interface VenueViewController : AroundMeViewController<UICollectionViewDataSource,UICollectionViewDelegate>{
+@interface VenueViewController : UIViewController<UICollectionViewDataSource,UICollectionViewDelegate>{
     NSString *promotionTitle;
     NSString *promotionBody;
     NSString *promotionExpiry;
     NSInteger selectedImage;
+    NSArray *images;
+    NSArray *venueNames;
     
     BOOL textViewOpen;
     

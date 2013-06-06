@@ -8,7 +8,6 @@
 
 #import "LoginScreenController.h"
 #import "AppDelegate.h"
-#import "AroundMeViewController.h"
 #import "PostRequest.h"
 
 @implementation LoginScreenController
@@ -132,7 +131,7 @@
         if (![((NSDictionary *)response)[@"twitter"] isEqual:@""])
             appDelegate.twitter = ((NSDictionary *)response)[@"twitter"];
         UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"MainStoryboard" bundle:nil];
-        AroundMeViewController *vc = [storyboard instantiateViewControllerWithIdentifier:@"AroundMeSlidingViewController"];
+        UIViewController *vc = [storyboard instantiateViewControllerWithIdentifier:@"AroundMeSlidingViewController"];
         [self.navigationController pushViewController:vc animated:YES];
     } else {
         [self alert];

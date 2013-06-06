@@ -7,7 +7,6 @@
 //
 
 #import "CheckInViewController.h"
-#import "AroundMeViewController.h"
 
 @implementation CheckInViewController
 
@@ -23,7 +22,7 @@
     image = info[@"UIImagePickerControllerOriginalImage"];
     [imgPickerCam dismissViewControllerAnimated:NO completion:nil];
     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"MainStoryboard" bundle:nil];
-    AroundMeViewController *vc = [storyboard instantiateViewControllerWithIdentifier:@"PhotoLocationViewController"];
+    UIViewController *vc = [storyboard instantiateViewControllerWithIdentifier:@"PhotoLocationViewController"];
     [self.navigationController pushViewController:vc animated:YES];
 }
 

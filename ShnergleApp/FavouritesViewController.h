@@ -6,7 +6,6 @@
 //  Copyright (c) 2013 Shnergle. All rights reserved.
 //
 
-#import "AroundMeViewController.h"
 #import "OverlayText.h"
 #import "DropDownMenu.h"
 #import <QuartzCore/QuartzCore.h>

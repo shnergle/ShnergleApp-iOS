@@ -11,18 +11,9 @@
 #import "PromotionView.h"
 #import "PromotionDetailView.h"
 #import "VenueGalleryViewController.h"
+
 @implementation VenueViewController
 
-
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-    if (self) {
-        // Custom initialization
-    }
-    
-    
-    return self;
-}
 
 - (void)setTitle:(NSString *)title {
     self.navigationItem.title = title;
@@ -38,8 +29,8 @@
                                         forState:UIControlStateNormal];
     
     textViewOpen = false;
-    [[self crowdCollectionV]setDataSource:self];
-    [[self crowdCollectionV]setDelegate:self];
+    [[self crowdCollectionV] setDataSource:self];
+    [[self crowdCollectionV] setDelegate:self];
     
     images = @[@"liverpool.JPG", @"liverpool2.jpg", @"mahiki.jpg", @"liverpool.JPG", @"liverpool2.jpg", @"mahiki.jpg", @"liverpool.JPG", @"liverpool2.jpg", @"mahiki.jpg", @"liverpool2.jpg", @"mahiki.jpg", @"liverpool2.jpg", @"mahiki.jpg", @"liverpool2.jpg", @"mahiki.jpg", @"liverpool.JPG", @"liverpool2.jpg", @"mahiki.jpg", @"liverpool.JPG", @"liverpool2.jpg", @"mahiki.jpg", @"liverpool.JPG", @"liverpool2.jpg", @"mahiki.jpg", @"liverpool2.jpg", @"mahiki.jpg", @"liverpool2.jpg", @"mahiki.jpg", @"liverpool2.jpg", @"mahiki.jpg"];
     venueNames = @[@"liverpool street station", @"liverpool street station", @"mahiki", @"liverpool street station", @"liverpool street station", @"mahiki", @"liverpool street station", @"liverpool street station", @"mahiki", @"liverpool street station", @"mahiki", @"liverpool street station", @"mahiki", @"liverpool street station", @"mahiki", @"liverpool street station", @"liverpool street station", @"mahiki", @"liverpool street station", @"liverpool street station", @"mahiki", @"liverpool street station", @"liverpool street station", @"mahiki", @"liverpool street station", @"mahiki", @"liverpool street station", @"mahiki", @"liverpool street station", @"mahiki"];
