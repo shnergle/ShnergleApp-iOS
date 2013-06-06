@@ -44,7 +44,7 @@
     menuButton = [self createLeftBarButton:imageName actionSelector:actionSelector];
     
     
-    self.navigationItem.leftBarButtonItem = menuButton;
+    self.navBarItem.leftBarButtonItem = menuButton;
 }
 
 
