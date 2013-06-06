@@ -1787,9 +1787,13 @@
         <class className="FBProfilePictureView" superclassName="UIView">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/FBProfilePictureView.h"/>
         </class>
+        <class className="FavouritesSlidingViewController" superclassName="ECSlidingViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/FavouritesSlidingViewController.h"/>
+        </class>
         <class className="FavouritesViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/FavouritesViewController.h"/>
             <relationships>
+                <relationship kind="action" name="menuButtonTriggered:"/>
                 <relationship kind="action" name="tapTitle:"/>
                 <relationship kind="outlet" name="crowdCollection" candidateClass="UICollectionView"/>
                 <relationship kind="outlet" name="dropDownMenu" candidateClass="DropDownMenu"/>
