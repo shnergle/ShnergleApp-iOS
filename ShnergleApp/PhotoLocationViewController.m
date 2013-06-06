@@ -50,7 +50,8 @@
 }
 
 - (void)goBack {
-    [self.navigationController popViewControllerAnimated:YES];
+#warning should pop twice, not to root
+    [self.navigationController popToRootViewControllerAnimated:YES];
 }
 
 
@@ -72,6 +73,5 @@
     
     return cell;
 }
-
 
 @end
