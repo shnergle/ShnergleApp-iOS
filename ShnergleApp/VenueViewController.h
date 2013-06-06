@@ -7,13 +7,13 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "ViewController.h"
 #import "OverlayText.h"
 
-@interface VenueViewController : ViewController {
+@interface VenueViewController : UIViewController<UICollectionViewDataSource,UICollectionViewDelegate>{
     NSString *promotionTitle;
     NSString *promotionBody;
     NSString *promotionExpiry;
+    NSInteger selectedImage;
     
     BOOL textViewOpen;
     
@@ -34,6 +34,6 @@
 @property (weak, nonatomic) IBOutlet UICollectionView *crowdCollectionV;
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *checkInButton;
 
-@property (weak, nonatomic) IBOutlet OverlayText *overlayView;
+@property (weak, nonatomic) OverlayText *overlayView;
 - (void)configureMapWithLat:(CLLocationDegrees)lat longitude:(CLLocationDegrees)lon;
 @end

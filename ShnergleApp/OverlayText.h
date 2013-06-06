@@ -16,6 +16,7 @@
 - (IBAction)swipeUp:(id)sender;
 - (void)setTabBarHidden:(BOOL)hide animated:(BOOL)animated;
 - (IBAction)tapPromotion:(id)sender;
+- (IBAction)tapPullerMenu:(id)sender;
 
 @property (weak, nonatomic) IBOutlet UILabel *offerHeadline;
 @property (weak, nonatomic) IBOutlet UILabel *offerContents;

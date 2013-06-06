@@ -8,7 +8,6 @@
 
 #import "ProfileViewController.h"
 #import "AppDelegate.h"
-#import "ViewController.h"
 #import "PostRequest.h"
 #import <Social/Social.h>
 #import <Accounts/Accounts.h>
@@ -125,11 +124,13 @@
                      me.accounts = [accountStore accountsWithAccountType:twitterAccountType];
                      if (me.accounts.count > 0) {
                          if (me.accounts.count > 1) {
-                             UIActionSheet *popupQuery = [[UIActionSheet alloc] initWithTitle:@"Title" delegate:delegateMe cancelButtonTitle:@"Cancel" destructiveButtonTitle:nil otherButtonTitles:nil];
+                             
+                             UIActionSheet *alert = [[UIActionSheet alloc] initWithTitle:@"Select Twitter Account" delegate:delegateMe cancelButtonTitle:nil destructiveButtonTitle:nil otherButtonTitles:nil];
                              for (int i = 0; i < me.accounts.count; i++)
-                                 [popupQuery addButtonWithTitle:[[me.accounts objectAtIndex:i] username]];
-                             popupQuery.actionSheetStyle = UIActionSheetStyleBlackOpaque;
-                             [popupQuery showInView:me.view];
+                                 [alert addButtonWithTitle:[(me.accounts)[i] username]];
+                             [alert addButtonWithTitle:@"Cancel"];
+                             
+                             [alert showInView:[[self view] window]];
                          } else {
                              NSString *twitter = [[me.accounts lastObject] username];
                              appDelegate.twitter = twitter;
@@ -153,10 +154,10 @@
 
 -(void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex {
     AppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
-    if (buttonIndex == [actionSheet cancelButtonIndex]) {
+    if (buttonIndex == _accounts.count) {
         _twitterSwitch.on = NO;
     } else {
-        NSString *twitter = [[_accounts objectAtIndex:buttonIndex] username];
+        NSString *twitter = [_accounts[buttonIndex] username];
         appDelegate.twitter = twitter;
         NSString *params = [NSString stringWithFormat:@"facebook_id=%@&twitter=%@", appDelegate.facebookId, twitter];
         if (![[[PostRequest alloc] init] exec:@"users/set" params:params delegate:self callback:@selector(twitterReq:) type:@"string"]) {

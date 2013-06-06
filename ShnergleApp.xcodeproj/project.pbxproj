@@ -47,7 +47,7 @@
 		808F13D516FB6A5C00B66E6D /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 808F13D416FB6A5C00B66E6D /* main.m */; };
 		808F13D916FB6A5C00B66E6D /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 808F13D816FB6A5C00B66E6D /* AppDelegate.m */; };
 		808F13E216FB6A5C00B66E6D /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 808F13E016FB6A5C00B66E6D /* MainStoryboard.storyboard */; };
-		808F13E516FB6A5C00B66E6D /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 808F13E416FB6A5C00B66E6D /* ViewController.m */; };
+		808F13E516FB6A5C00B66E6D /* AroundMeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 808F13E416FB6A5C00B66E6D /* AroundMeViewController.m */; };
 		808F13ED16FB6A5C00B66E6D /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 808F13EC16FB6A5C00B66E6D /* SenTestingKit.framework */; };
 		808F13F716FB6A5C00B66E6D /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 808F13F516FB6A5C00B66E6D /* InfoPlist.strings */; };
 		808F13FA16FB6A5C00B66E6D /* ShnergleAppTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 808F13F916FB6A5C00B66E6D /* ShnergleAppTests.m */; };
@@ -198,8 +198,8 @@
 		808F13D716FB6A5C00B66E6D /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		808F13D816FB6A5C00B66E6D /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		808F13E116FB6A5C00B66E6D /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard.storyboard; sourceTree = "<group>"; };
-		808F13E316FB6A5C00B66E6D /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		808F13E416FB6A5C00B66E6D /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		808F13E316FB6A5C00B66E6D /* AroundMeViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AroundMeViewController.h; sourceTree = "<group>"; };
+		808F13E416FB6A5C00B66E6D /* AroundMeViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AroundMeViewController.m; sourceTree = "<group>"; };
 		808F13EB16FB6A5C00B66E6D /* ShnergleAppTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ShnergleAppTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
 		808F13EC16FB6A5C00B66E6D /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
 		808F13F416FB6A5C00B66E6D /* ShnergleAppTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "ShnergleAppTests-Info.plist"; sourceTree = "<group>"; };
@@ -590,8 +590,8 @@
 			children = (
 				80B77D21173E8FCB00085A71 /* AroundMeSlidingViewController.h */,
 				80B77D22173E8FCB00085A71 /* AroundMeSlidingViewController.m */,
-				808F13E316FB6A5C00B66E6D /* ViewController.h */,
-				808F13E416FB6A5C00B66E6D /* ViewController.m */,
+				808F13E316FB6A5C00B66E6D /* AroundMeViewController.h */,
+				808F13E416FB6A5C00B66E6D /* AroundMeViewController.m */,
 			);
 			name = "Around Me";
 			sourceTree = "<group>";
@@ -872,7 +872,7 @@
 			files = (
 				808F13D516FB6A5C00B66E6D /* main.m in Sources */,
 				808F13D916FB6A5C00B66E6D /* AppDelegate.m in Sources */,
-				808F13E516FB6A5C00B66E6D /* ViewController.m in Sources */,
+				808F13E516FB6A5C00B66E6D /* AroundMeViewController.m in Sources */,
 				80B957D116FBB74F0044A505 /* CheckInViewController.m in Sources */,
 				80B957D616FC65F90044A505 /* VenueViewController.m in Sources */,
 				805CE6D016FCBDC9002445C3 /* PhotoLocationViewController.m in Sources */,

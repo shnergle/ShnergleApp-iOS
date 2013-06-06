@@ -1,5 +1,5 @@
 //
-//  ViewController.h
+//  AroundMeViewController.h
 //  ShnergleApp
 //
 //  Created by Stian Johansen on 3/21/13.
@@ -13,12 +13,7 @@
 #import <ECSlidingViewController.h>
 #import <QuartzCore/QuartzCore.h> // shadow and border
 
-NSInteger selectedVenueIndex;
-
-
-@interface ViewController : UIViewController<UICollectionViewDataSource, UICollectionViewDelegate, GMSMapViewDelegate> {
-    NSArray *venueNames;
-    NSArray *images;
+@interface AroundMeViewController : UIViewController<UICollectionViewDataSource, UICollectionViewDelegate, GMSMapViewDelegate> {
     NSInteger selectedVenue;
     BOOL crowdImagesHidden;
     BOOL dropDownHidden;

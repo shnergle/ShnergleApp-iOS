@@ -18,7 +18,7 @@
 
 - (IBAction)share:(id)sender {
     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"MainStoryboard" bundle:nil];
-    ViewController *vc = [storyboard instantiateViewControllerWithIdentifier:@"ShareViewController"];
+    UIViewController *vc = [storyboard instantiateViewControllerWithIdentifier:@"ShareViewController"];
     [self.caller.navigationController pushViewController:vc animated:YES];
     /*AppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
     [appDelegate.session requestNewPublishPermissions:[NSArray arrayWithObject:@"publish_actions"] defaultAudience:FBSessionDefaultAudienceEveryone completionHandler:^(FBSession *session, NSError *error) {
@@ -165,11 +165,13 @@
 
 - (IBAction)tapPromotion:(id)sender {
     VenueViewController *parentVC = (VenueViewController *)[self firstAvailableUIViewController];
-    
-    
-    // do any setup you need for myNewVC
-    
     [parentVC goToPromotionView];
+}
+
+- (IBAction)tapPullerMenu:(id)sender {
+    NSLog(@"tapped");
+    if (isUp) [self swipeDown:sender];
+    else [self swipeUp:sender];
 }
 
 @end
