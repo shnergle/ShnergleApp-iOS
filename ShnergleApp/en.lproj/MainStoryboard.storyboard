@@ -259,7 +259,7 @@
                     </connections>
                 </swipeGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="-1431" y="-59"/>
+            <point key="canvasLocation" x="-1375" y="57"/>
         </scene>
         <!--Venue View Controller-->
         <scene sceneID="MVj-zz-jE1">
@@ -1434,8 +1434,31 @@
                                 </constraints>
                                 <color key="separatorColor" white="1" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="gray" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="MyCell0" textLabel="7uC-Kq-c8f" style="IBUITableViewCellStyleDefault" id="OJg-2p-vWo">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="MyCell" textLabel="4nf-dD-iuj" imageView="l3s-73-3u2" style="IBUITableViewCellStyleDefault" id="uJ3-86-6jI">
                                         <rect key="frame" x="0.0" y="22" width="220" height="44"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                            <rect key="frame" x="0.0" y="0.0" width="200" height="43"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4nf-dD-iuj">
+                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <color key="highlightedColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                </label>
+                                                <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" image="profileicon.png" id="l3s-73-3u2">
+                                                    <rect key="frame" x="2" y="2" width="54" height="38"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                </imageView>
+                                            </subviews>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        </view>
+                                        <connections>
+                                            <segue destination="qgb-Kw-YNh" kind="push" id="eqt-nO-rwH"/>
+                                        </connections>
+                                    </tableViewCell>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="gray" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="MyCell0" textLabel="7uC-Kq-c8f" style="IBUITableViewCellStyleDefault" id="OJg-2p-vWo">
+                                        <rect key="frame" x="0.0" y="66" width="220" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                             <rect key="frame" x="0.0" y="0.0" width="200" height="43"/>
@@ -1455,7 +1478,7 @@
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="MyCell1" textLabel="sSU-h5-QBi" style="IBUITableViewCellStyleDefault" id="LrI-eh-BZG">
-                                        <rect key="frame" x="0.0" y="66" width="220" height="44"/>
+                                        <rect key="frame" x="0.0" y="110" width="220" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                             <rect key="frame" x="0.0" y="0.0" width="200" height="43"/>
@@ -1476,7 +1499,7 @@
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="MyCell2" textLabel="pwc-lL-mi0" style="IBUITableViewCellStyleDefault" id="avO-Ei-Vr6">
-                                        <rect key="frame" x="0.0" y="110" width="220" height="44"/>
+                                        <rect key="frame" x="0.0" y="154" width="220" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                             <rect key="frame" x="0.0" y="0.0" width="200" height="43"/>
@@ -1493,7 +1516,7 @@
                                         <color key="backgroundColor" red="0.27843138575553894" green="0.27843138575553894" blue="0.27843138575553894" alpha="1" colorSpace="deviceRGB"/>
                                     </tableViewCell>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="MyCell3" textLabel="hR5-fa-Cbc" style="IBUITableViewCellStyleDefault" id="xH9-FP-E3k">
-                                        <rect key="frame" x="0.0" y="154" width="220" height="44"/>
+                                        <rect key="frame" x="0.0" y="198" width="220" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                             <rect key="frame" x="0.0" y="0.0" width="200" height="43"/>
@@ -1510,7 +1533,7 @@
                                         <color key="backgroundColor" red="0.27843138575553894" green="0.27843138575553894" blue="0.27843138575553894" alpha="1" colorSpace="deviceRGB"/>
                                     </tableViewCell>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="MyCell4" textLabel="Yg3-mM-ame" style="IBUITableViewCellStyleDefault" id="MH8-dn-GSk">
-                                        <rect key="frame" x="0.0" y="198" width="220" height="44"/>
+                                        <rect key="frame" x="0.0" y="242" width="220" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                             <rect key="frame" x="0.0" y="0.0" width="200" height="43"/>
@@ -1572,11 +1595,7 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ap6-cl-UHS" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <tapGestureRecognizer id="udM-Fv-bMB">
-                    <connections>
-                        <segue destination="qgb-Kw-YNh" kind="push" id="YMm-xr-6w3"/>
-                    </connections>
-                </tapGestureRecognizer>
+                <tapGestureRecognizer id="udM-Fv-bMB"/>
                 <searchDisplayController id="aXG-dC-scz">
                     <connections>
                         <outlet property="delegate" destination="nGm-Na-jzU" id="8WB-T7-o1e"/>
@@ -1603,7 +1622,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="X09-Ib-GEu" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1759" y="-698"/>
+            <point key="canvasLocation" x="-1760" y="-408"/>
         </scene>
         <!--Login Screen Controller - Shnergle-->
         <scene sceneID="ddY-3I-oVq">
@@ -1724,6 +1743,9 @@
                 <relationship kind="outlet" name="venueName" candidateClass="UILabel"/>
             </relationships>
         </class>
+        <class className="CustomBackViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/CustomBackViewController.h"/>
+        </class>
         <class className="DropDownMenu" superclassName="UIView">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/DropDownMenu.h"/>
         </class>
@@ -1771,10 +1793,8 @@
         <class className="OverlayText" superclassName="UIView">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/OverlayText.h"/>
             <relationships>
-                <relationship kind="action" name="share:"/>
                 <relationship kind="action" name="swipeDown:"/>
                 <relationship kind="action" name="swipeUp:"/>
-                <relationship kind="action" name="tap:"/>
                 <relationship kind="action" name="tapPromotion:"/>
                 <relationship kind="action" name="tapPullerMenu:"/>
                 <relationship kind="outlet" name="offerContents" candidateClass="UILabel"/>
@@ -1783,7 +1803,7 @@
                 <relationship kind="outlet" name="venueMap" candidateClass="GMSMapView"/>
             </relationships>
         </class>
-        <class className="PhotoLocationViewController" superclassName="UIViewController">
+        <class className="PhotoLocationViewController" superclassName="CustomBackViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/PhotoLocationViewController.h"/>
             <relationships>
                 <relationship kind="outlet" name="headline" candidateClass="UILabel"/>
@@ -1791,7 +1811,7 @@
                 <relationship kind="outlet" name="searchResultTable" candidateClass="UITableView"/>
             </relationships>
         </class>
-        <class className="ProfileViewController" superclassName="UIViewController">
+        <class className="ProfileViewController" superclassName="CustomBackViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/ProfileViewController.h"/>
             <relationships>
                 <relationship kind="action" name="twitterSwitchAction:"/>
@@ -1802,7 +1822,7 @@
         <class className="SearchBarView" superclassName="UIView">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/SearchBarView.h"/>
         </class>
-        <class className="ShareViewController" superclassName="UIViewController">
+        <class className="ShareViewController" superclassName="CustomBackViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/ShareViewController.h"/>
             <relationships>
                 <relationship kind="outlet" name="friendLabel" candidateClass="UILabel"/>
@@ -1820,13 +1840,13 @@
         <class className="UICollectionViewFlowLayout" superclassName="UICollectionViewLayout">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/UICollectionViewFlowLayout.h"/>
         </class>
-        <class className="VenueGalleryViewController" superclassName="UIViewController">
+        <class className="VenueGalleryViewController" superclassName="CustomBackViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/VenueGalleryViewController.h"/>
             <relationships>
                 <relationship kind="outlet" name="imageScrollView" candidateClass="UIScrollView"/>
             </relationships>
         </class>
-        <class className="VenueViewController" superclassName="UIViewController">
+        <class className="VenueViewController" superclassName="CustomBackViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/VenueViewController.h"/>
             <relationships>
                 <relationship kind="outlet" name="checkInButton" candidateClass="UIBarButtonItem"/>
