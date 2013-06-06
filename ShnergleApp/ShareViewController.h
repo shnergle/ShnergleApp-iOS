@@ -14,6 +14,7 @@
 @interface ShareViewController : UIViewController <FBViewControllerDelegate> {
     id selectedFriends;
 }
+@property (weak, nonatomic) IBOutlet UIImageView *image;
 @property (weak, nonatomic) IBOutlet UIButton *nameList;
 @property (weak, nonatomic) IBOutlet UILabel *friendLabel;
 @property (weak, nonatomic) IBOutlet GCPlaceholderTextView *textFieldname;

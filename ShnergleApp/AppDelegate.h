@@ -30,4 +30,6 @@
 @property (strong, nonatomic) NSArray *images;
 @property (strong, nonatomic) NSArray *venueNames;
 
+@property (strong, nonatomic) UIImage *shareImage;
+
 @end

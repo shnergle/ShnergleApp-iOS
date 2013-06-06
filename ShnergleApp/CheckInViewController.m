@@ -7,6 +7,7 @@
 //
 
 #import "CheckInViewController.h"
+#import "AppDelegate.h"
 
 @implementation CheckInViewController
 
@@ -19,7 +20,8 @@
 }
 
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info {
-    image = info[@"UIImagePickerControllerOriginalImage"];
+    AppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
+    appDelegate.shareImage = info[@"UIImagePickerControllerOriginalImage"];
     [imgPickerCam dismissViewControllerAnimated:NO completion:nil];
     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"MainStoryboard" bundle:nil];
     UIViewController *vc = [storyboard instantiateViewControllerWithIdentifier:@"PhotoLocationViewController"];

@@ -12,7 +12,6 @@
 {
     UIImagePickerController *imgPickerCam;
     UIImagePickerController *imgPickerLib;
-    UIImage *image;
     IBOutlet UIImageView *imageView;
 }
 
