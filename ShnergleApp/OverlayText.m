@@ -165,10 +165,6 @@
 
 - (IBAction)tapPromotion:(id)sender {
     VenueViewController *parentVC = (VenueViewController *)[self firstAvailableUIViewController];
-    
-    
-    // do any setup you need for myNewVC
-    
     [parentVC goToPromotionView];
 }
 
