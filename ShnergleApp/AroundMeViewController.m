@@ -22,7 +22,7 @@
 
 - (void)decorateCheckInButton {
     //check in button
-    [[self checkInButton] setTitleTextAttributes:
+    [self.checkInButton setTitleTextAttributes:
      @{UITextAttributeTextColor: [UIColor whiteColor],
       UITextAttributeTextShadowColor: [UIColor clearColor],
       UITextAttributeTextShadowOffset: [NSValue valueWithUIOffset:UIOffsetMake(0, 0)],

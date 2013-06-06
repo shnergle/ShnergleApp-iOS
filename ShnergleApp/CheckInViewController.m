@@ -30,7 +30,7 @@
 
 - (void)imagePickerControllerDidCancel:(UIImagePickerController *)picker {
     [imgPickerCam dismissViewControllerAnimated:YES completion:nil];
-    [self goBack];
+    [self.navigationController popViewControllerAnimated:YES];
 }
 
 - (void)viewDidLoad {
@@ -41,11 +41,6 @@
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
-}
-
-//workaround to get the custom back button to work
-- (void)goBack {
-    [self.navigationController popViewControllerAnimated:YES];
 }
 
 @end

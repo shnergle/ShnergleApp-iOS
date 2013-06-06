@@ -22,7 +22,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [[self checkInButton] setTitleTextAttributes:
+    [self.checkInButton setTitleTextAttributes:
      @{UITextAttributeTextColor: [UIColor whiteColor],
       UITextAttributeTextShadowColor: [UIColor clearColor],
       UITextAttributeTextShadowOffset: [NSValue valueWithUIOffset:UIOffsetMake(0, 0)],
@@ -184,6 +184,7 @@
 }
 
 - (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
     //[super viewWillAppear:animated];
     //self.navigationItem.hidesBackButton = NO;
     /*[self.navigationController setNavigationBarHidden:hidden
@@ -199,12 +200,10 @@
     [super viewDidAppear:animated];
     [self.overlayView setTabBarHidden:hidden
                              animated:NO];
-    UIBarButtonItem *menuButton;
-    menuButton = [self createLeftBarButton:@"arrow_west" actionSelector:@selector(goBack)];
-    self.navigationItem.leftBarButtonItem = menuButton;
 }
 
 - (void)viewDidDisappear:(BOOL)animated {
+    [super viewDidDisappear:animated];
     self.navigationController.navigationBarHidden = NO;
 }
 
@@ -223,23 +222,6 @@
     PromotionDetailView *promotionDetailView = [[NSBundle mainBundle] loadNibNamed:@"PromotionDetailView" owner:self options:nil][0];
     
     [self.view addSubview:promotionDetailView];
-}
-
-- (UIBarButtonItem *)createLeftBarButton:(NSString *)imageName actionSelector:(SEL)actionSelector {
-    UIImage *menuButtonImg = [UIImage imageNamed:imageName];
-    
-    UIButton *menuButtonTmp = [UIButton buttonWithType:UIButtonTypeCustom];
-    menuButtonTmp.frame = CGRectMake(280.0, 10.0, 19.0, 16.0);
-    [menuButtonTmp setBackgroundImage:menuButtonImg forState:UIControlStateNormal];
-    [menuButtonTmp addTarget:self action:actionSelector forControlEvents:UIControlEventTouchUpInside];
-    
-    UIBarButtonItem *menuButton = [[UIBarButtonItem alloc]initWithCustomView:menuButtonTmp];
-    return menuButton;
-}
-
-//workaround to get the custom back button to work
-- (void)goBack {
-    [self.navigationController popViewControllerAnimated:YES];
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {

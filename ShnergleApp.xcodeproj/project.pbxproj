@@ -120,6 +120,7 @@
 		80DC1DFB1760CAC2000AA6DF /* FavouritesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 80DC1DFA1760CAC2000AA6DF /* FavouritesViewController.m */; };
 		80ED0A13172ADACA00E3C749 /* liverpool2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 80ED0A12172ADACA00E3C749 /* liverpool2.jpg */; };
 		80ED0A15172ADAD600E3C749 /* mahiki.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 80ED0A14172ADAD600E3C749 /* mahiki.jpg */; };
+		CD3703751760C8B600CFD249 /* CustomBackViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CD3703741760C8B600CFD249 /* CustomBackViewController.m */; };
 		CD3B655D175CBA72006A4151 /* CrowdItem.m in Sources */ = {isa = PBXBuildFile; fileRef = CD3B655C175CBA72006A4151 /* CrowdItem.m */; };
 		CD7C1B10175B424400902AA9 /* ImageCache.m in Sources */ = {isa = PBXBuildFile; fileRef = CD7C1B0F175B424400902AA9 /* ImageCache.m */; };
 		CD84ECEF175CC10000A09FA6 /* AppIcon_114.png in Resources */ = {isa = PBXBuildFile; fileRef = CD84ECEE175CC10000A09FA6 /* AppIcon_114.png */; };
@@ -287,6 +288,8 @@
 		80ED0A12172ADACA00E3C749 /* liverpool2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = liverpool2.jpg; sourceTree = "<group>"; };
 		80ED0A14172ADAD600E3C749 /* mahiki.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = mahiki.jpg; sourceTree = "<group>"; };
 		92FD2BD9498A41EEBBD26F82 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		CD3703731760C8B600CFD249 /* CustomBackViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomBackViewController.h; sourceTree = "<group>"; };
+		CD3703741760C8B600CFD249 /* CustomBackViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomBackViewController.m; sourceTree = "<group>"; };
 		CD3B655C175CBA72006A4151 /* CrowdItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CrowdItem.m; sourceTree = "<group>"; };
 		CD7C1B0E175B424400902AA9 /* ImageCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageCache.h; sourceTree = "<group>"; };
 		CD7C1B0F175B424400902AA9 /* ImageCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageCache.m; sourceTree = "<group>"; };
@@ -645,6 +648,8 @@
 				80D6FF59172159D3008A3AFD /* StoryboardLayersNavigation.m */,
 				801D4ED7175E079F007212E0 /* UIImageResizing.h */,
 				801D4ED8175E079F007212E0 /* UIImageResizing.m */,
+				CD3703731760C8B600CFD249 /* CustomBackViewController.h */,
+				CD3703741760C8B600CFD249 /* CustomBackViewController.m */,
 			);
 			name = Helper;
 			sourceTree = "<group>";
@@ -908,6 +913,7 @@
 				801D4ED9175E079F007212E0 /* UIImageResizing.m in Sources */,
 				CDAD1D2F175E011100581713 /* ShareViewController.m in Sources */,
 				80DC1DFB1760CAC2000AA6DF /* FavouritesViewController.m in Sources */,
+				CD3703751760C8B600CFD249 /* CustomBackViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

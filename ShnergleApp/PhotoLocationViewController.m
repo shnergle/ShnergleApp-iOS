@@ -10,25 +10,14 @@
 
 @implementation PhotoLocationViewController
 
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-    if (self) {
-        // Custom initialization
-    }
-    return self;
-}
-
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
     self.navigationItem.title = @"Location";
-    UIBarButtonItem *menuButton;
-    menuButton = [self createLeftBarButton:@"arrow_west" actionSelector:@selector(goBack)];
-    self.navigationItem.leftBarButtonItem = menuButton;
     _tableData = @[@"One"];
 }
 
 - (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
     self.navigationController.navigationBarHidden = NO;
 }
 
@@ -36,24 +25,6 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
-
-- (UIBarButtonItem *)createLeftBarButton:(NSString *)imageName actionSelector:(SEL)actionSelector {
-    UIImage *menuButtonImg = [UIImage imageNamed:imageName];
-    
-    UIButton *menuButtonTmp = [UIButton buttonWithType:UIButtonTypeCustom];
-    menuButtonTmp.frame = CGRectMake(280.0, 10.0, 19.0, 16.0);
-    [menuButtonTmp setBackgroundImage:menuButtonImg forState:UIControlStateNormal];
-    [menuButtonTmp addTarget:self action:actionSelector forControlEvents:UIControlEventTouchUpInside];
-    
-    UIBarButtonItem *menuButton = [[UIBarButtonItem alloc] initWithCustomView:menuButtonTmp];
-    return menuButton;
-}
-
-- (void)goBack {
-#warning should pop twice, not to root
-    [self.navigationController popToRootViewControllerAnimated:YES];
-}
-
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     return [_tableData count];

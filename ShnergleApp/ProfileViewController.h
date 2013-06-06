@@ -8,8 +8,9 @@
 
 #import <UIKit/UIKit.h>
 #import <FacebookSDK/FacebookSDK.h>
+#import "CustomBackViewController.h"
 
-@interface ProfileViewController : UIViewController
+@interface ProfileViewController : CustomBackViewController
 
 //- (IBAction)authButtonAction:(id)sender;
 

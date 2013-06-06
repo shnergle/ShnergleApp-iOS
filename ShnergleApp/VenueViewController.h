@@ -8,8 +8,9 @@
 
 #import <UIKit/UIKit.h>
 #import "OverlayText.h"
+#import "CustomBackViewController.h"
 
-@interface VenueViewController : UIViewController<UICollectionViewDataSource,UICollectionViewDelegate>{
+@interface VenueViewController : CustomBackViewController<UICollectionViewDataSource,UICollectionViewDelegate>{
     NSString *promotionTitle;
     NSString *promotionBody;
     NSString *promotionExpiry;
@@ -27,8 +28,6 @@
 - (void)viewWillAppear:(BOOL)animated;
 - (void)goToPromotionView;
 - (void)goToPromotionDetailView;
-- (void)goBack;
-- (UIBarButtonItem *)createLeftBarButton:(NSString *)imageName actionSelector:(SEL)actionSelector;
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender;
 
 @property (weak, nonatomic) IBOutlet UICollectionView *crowdCollectionV;
