@@ -43,9 +43,4 @@
     // Dispose of any resources that can be recreated.
 }
 
-//workaround to get the custom back button to work
-- (void)goBack {
-    [self.navigationController popViewControllerAnimated:YES];
-}
-
 @end

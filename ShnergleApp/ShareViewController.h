@@ -9,9 +9,10 @@
 #import <UIKit/UIKit.h>
 #import <FacebookSDK/FBViewController.h>
 #import "GCPlaceholderTextView.h"
+#import "CustomBackViewController.h"
 
 
-@interface ShareViewController : UIViewController <FBViewControllerDelegate> {
+@interface ShareViewController : CustomBackViewController <FBViewControllerDelegate> {
     id selectedFriends;
 }
 @property (weak, nonatomic) IBOutlet UIImageView *image;

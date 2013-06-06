@@ -14,7 +14,9 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    
+    UIBarButtonItem *menuButton;
+    menuButton = [self createLeftBarButton:@"arrow_west" actionSelector:@selector(goBack)];
+    self.navigationItem.leftBarButtonItem = menuButton;
     dropDownHidden = YES;
 }
 
@@ -37,6 +39,22 @@
         [[self dropDownMenu] hideAnimated:0 animationDuration:0.5 targetSize:-280 contentView:[self dropDownMenu]];
         dropDownHidden = YES;
     }
+}
+
+- (UIBarButtonItem *)createLeftBarButton:(NSString *)imageName actionSelector:(SEL)actionSelector {
+    UIImage *menuButtonImg = [UIImage imageNamed:imageName];
+
+    UIButton *menuButtonTmp = [UIButton buttonWithType:UIButtonTypeCustom];
+    menuButtonTmp.frame = CGRectMake(280.0, 10.0, 19.0, 16.0);
+    [menuButtonTmp setBackgroundImage:menuButtonImg forState:UIControlStateNormal];
+    [menuButtonTmp addTarget:self action:actionSelector forControlEvents:UIControlEventTouchUpInside];
+
+    UIBarButtonItem *menuButton = [[UIBarButtonItem alloc] initWithCustomView:menuButtonTmp];
+    return menuButton;
+}
+
+- (void)goBack {
+    [self.navigationController popViewControllerAnimated:YES];
 }
 
 @end
