@@ -30,7 +30,7 @@
 }
 
 - (void)imageScrollerSetup {
-    CGRect windowBounds = [[UIScreen mainScreen]bounds];
+    CGRect windowBounds = [[UIScreen mainScreen] bounds];
     _imageScrollView.bounds = CGRectMake(0, 0, windowBounds.size.width, 245);
     NSMutableArray *imageViews = [[NSMutableArray alloc]init];
     for (int i = 0; i<images.count; i++) {
