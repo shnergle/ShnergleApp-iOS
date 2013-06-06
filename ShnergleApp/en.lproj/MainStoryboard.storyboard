@@ -372,6 +372,7 @@
                     <connections>
                         <outlet property="checkInButton" destination="j8H-eV-cm2" id="XKX-Mi-ND9"/>
                         <outlet property="crowdCollection" destination="p6Q-Ks-hgi" id="FHm-1m-aj3"/>
+                        <outlet property="crowdCollectionV" destination="p6Q-Ks-hgi" id="fwr-0r-VhS"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5J8-5c-1wg" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1798,6 +1799,9 @@
         </class>
         <class className="UICollectionViewFlowLayout" superclassName="UICollectionViewLayout">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/UICollectionViewFlowLayout.h"/>
+        </class>
+        <class className="UICollectionViewLayout" superclassName="NSObject">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/UICollectionViewLayout.h"/>
         </class>
         <class className="VenueGalleryViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/VenueGalleryViewController.h"/>
