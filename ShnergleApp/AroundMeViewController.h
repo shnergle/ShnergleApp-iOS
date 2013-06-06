@@ -20,8 +20,6 @@
     BOOL hasPositionLocked;
     BOOL pinDropped;
     CLLocationCoordinate2D pinDroppedLocation;
-    NSInteger selectedVenueIndex;
-
 }
 //@property (weak, nonatomic) IBOutlet UIImageView *dropDownIndicator;
 @property (weak, nonatomic) IBOutlet UIButton *drawerCloseButton;

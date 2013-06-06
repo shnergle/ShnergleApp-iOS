@@ -34,6 +34,6 @@
 @property (weak, nonatomic) IBOutlet UICollectionView *crowdCollectionV;
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *checkInButton;
 
-@property (weak, nonatomic) IBOutlet OverlayText *overlayView;
+@property (weak, nonatomic) OverlayText *overlayView;
 - (void)configureMapWithLat:(CLLocationDegrees)lat longitude:(CLLocationDegrees)lon;
 @end
