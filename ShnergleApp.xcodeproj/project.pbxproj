@@ -292,7 +292,7 @@
 		CDAD1D2D175E011100581713 /* ShareViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShareViewController.h; sourceTree = "<group>"; };
 		CDAD1D2E175E011100581713 /* ShareViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShareViewController.m; sourceTree = "<group>"; };
 		CDAD1D32175E2BF800581713 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
-		CDAD1D34175E2FA600581713 /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = Settings.bundle; path = ../Settings.bundle; sourceTree = "<group>"; };
+		CDAD1D34175E2FA600581713 /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
 		CDB72C2C175A5F2B00018271 /* PostRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PostRequest.h; sourceTree = "<group>"; };
 		CDB72C2D175A5F2B00018271 /* PostRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PostRequest.m; sourceTree = "<group>"; };
 		CDD09AAA175B93C3006CE935 /* shnerglelogo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = shnerglelogo.png; sourceTree = "<group>"; };
@@ -358,6 +358,7 @@
 				808F13F216FB6A5C00B66E6D /* ShnergleAppTest */,
 				808F13C716FB6A5C00B66E6D /* Frameworks */,
 				808F13C616FB6A5C00B66E6D /* Products */,
+				CDAD1D34175E2FA600581713 /* Settings.bundle */,
 				CD84ECEE175CC10000A09FA6 /* AppIcon_114.png */,
 				CD84ECF0175CC10D00A09FA6 /* icon57.png */,
 				80A8AADE175CA6870082AAB8 /* Default-568h@2x.png */,
@@ -389,23 +390,17 @@
 		808F13CE16FB6A5C00B66E6D /* ShnergleApp */ = {
 			isa = PBXGroup;
 			children = (
-				CDAD1D34175E2FA600581713 /* Settings.bundle */,
-				801D4ED7175E079F007212E0 /* UIImageResizing.h */,
-				801D4ED8175E079F007212E0 /* UIImageResizing.m */,
 				808F13D716FB6A5C00B66E6D /* AppDelegate.h */,
 				808F13D816FB6A5C00B66E6D /* AppDelegate.m */,
 				CD3B655B175CBA22006A4151 /* Around Me */,
 				CD3B655E175CBB0E006A4151 /* Check In */,
-				80B957B816FB7A910044A505 /* CrowdItem.h */,
-				CD3B655C175CBA72006A4151 /* CrowdItem.m */,
 				CD3B6561175CBB44006A4151 /* Favourites */,
+				CDB8A25C1760B0AD00ABF7A8 /* Helper */,
 				CD3B6560175CBB3A006A4151 /* Login */,
 				808F13E016FB6A5C00B66E6D /* MainStoryboard.storyboard */,
 				CD3B655A175CB94A006A4151 /* Menu */,
 				CD3B655F175CBB29006A4151 /* Profile */,
 				CD3B6559175C9F19006A4151 /* Server */,
-				80D6FF58172159D3008A3AFD /* StoryboardLayersNavigation.h */,
-				80D6FF59172159D3008A3AFD /* StoryboardLayersNavigation.m */,
 				808F13CF16FB6A5C00B66E6D /* Supporting Files */,
 				80D6FF6817219B4E008A3AFD /* Venue and Promotions */,
 			);
@@ -634,6 +629,19 @@
 				808CA3091736856900932A27 /* FavouritesViewController.m */,
 			);
 			name = Favourites;
+			sourceTree = "<group>";
+		};
+		CDB8A25C1760B0AD00ABF7A8 /* Helper */ = {
+			isa = PBXGroup;
+			children = (
+				80B957B816FB7A910044A505 /* CrowdItem.h */,
+				CD3B655C175CBA72006A4151 /* CrowdItem.m */,
+				80D6FF58172159D3008A3AFD /* StoryboardLayersNavigation.h */,
+				80D6FF59172159D3008A3AFD /* StoryboardLayersNavigation.m */,
+				801D4ED7175E079F007212E0 /* UIImageResizing.h */,
+				801D4ED8175E079F007212E0 /* UIImageResizing.m */,
+			);
+			name = Helper;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
