@@ -30,7 +30,7 @@
 
 - (void)imagePickerControllerDidCancel:(UIImagePickerController *)picker {
     [imgPickerCam dismissViewControllerAnimated:YES completion:nil];
-    [self goBack];
+    [self.navigationController popViewControllerAnimated:YES];
 }
 
 - (void)viewDidLoad {
