@@ -763,9 +763,6 @@
             <objects>
                 <viewController id="CuC-E9-ArH" customClass="CheckInViewController" sceneMemberID="viewController">
                     <navigationItem key="navigationItem" title="Check in" id="Oqo-OR-Jkq"/>
-                    <connections>
-                        <segue destination="XrI-Qp-xcf" kind="push" id="Xkd-qx-aFl"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Dpl-bY-Po8" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -1772,6 +1769,7 @@
         <class className="ShareViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/ShareViewController.h"/>
             <relationships>
+                <relationship kind="action" name="selectFriendsButtonAction:"/>
                 <relationship kind="outlet" name="friendLabel" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="nameList" candidateClass="UIButton"/>
             </relationships>

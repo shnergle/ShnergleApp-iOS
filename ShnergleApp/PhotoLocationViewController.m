@@ -45,7 +45,7 @@
     [menuButtonTmp setBackgroundImage:menuButtonImg forState:UIControlStateNormal];
     [menuButtonTmp addTarget:self action:actionSelector forControlEvents:UIControlEventTouchUpInside];
     
-    UIBarButtonItem *menuButton = [[UIBarButtonItem alloc]initWithCustomView:menuButtonTmp];
+    UIBarButtonItem *menuButton = [[UIBarButtonItem alloc] initWithCustomView:menuButtonTmp];
     return menuButton;
 }
 
@@ -60,10 +60,10 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     UITableViewCell *cell = nil;
-    cell = [tableView dequeueReusableCellWithIdentifier:@"MyCell"];
+    cell = [tableView dequeueReusableCellWithIdentifier:@"LocationTableCells"];
     
     if (cell == nil) {
-        cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"MyCell"];
+        cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"LocationTableCells"];
     }
     
     cell.textLabel.text = _tableData[indexPath.row];

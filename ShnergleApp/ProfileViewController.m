@@ -128,7 +128,7 @@
                              
                              UIActionSheet *alert = [[UIActionSheet alloc] initWithTitle:@"Select Twitter Account" delegate:delegateMe cancelButtonTitle:nil destructiveButtonTitle:nil otherButtonTitles:nil];
                              for (int i = 0; i < me.accounts.count; i++)
-                                 [alert addButtonWithTitle:[[me.accounts objectAtIndex:i] username]];
+                                 [alert addButtonWithTitle:[(me.accounts)[i] username]];
                              [alert addButtonWithTitle:@"Cancel"];
                              
                              [alert showInView:[[self view] window]];
@@ -158,7 +158,7 @@
     if (buttonIndex == _accounts.count) {
         _twitterSwitch.on = NO;
     } else {
-        NSString *twitter = [[_accounts objectAtIndex:buttonIndex] username];
+        NSString *twitter = [_accounts[buttonIndex] username];
         appDelegate.twitter = twitter;
         NSString *params = [NSString stringWithFormat:@"facebook_id=%@&twitter=%@", appDelegate.facebookId, twitter];
         if (![[[PostRequest alloc] init] exec:@"users/set" params:params delegate:self callback:@selector(twitterReq:) type:@"string"]) {
