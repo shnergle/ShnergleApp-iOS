@@ -7,10 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "ViewController.h"
 #import "OverlayText.h"
 
-@interface VenueViewController : ViewController<UICollectionViewDataSource,UICollectionViewDelegate>{
+@interface VenueViewController : UIViewController<UICollectionViewDataSource,UICollectionViewDelegate>{
     NSString *promotionTitle;
     NSString *promotionBody;
     NSString *promotionExpiry;
