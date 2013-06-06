@@ -168,4 +168,10 @@
     [parentVC goToPromotionView];
 }
 
+- (IBAction)tapPullerMenu:(id)sender {
+    NSLog(@"tapped");
+    if (isUp) [self swipeDown:sender];
+    else [self swipeUp:sender];
+}
+
 @end
