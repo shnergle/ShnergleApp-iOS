@@ -7,4 +7,4 @@ The application, responsible for administering users, crowd images creation, che
 Harshita
 
 
-![picture alt](http://us.123rf.com/400wm/400/400/noedelhap/noedelhap1010/noedelhap101000014/7863571-a-happy-smiling-cartoon-guy-with-blonde-hair.jpg "Stian")
+![picture alt](http://www.featurepics.com/FI/Thumb300/20110726/Bugs-1952144.jpg "Stian")
