@@ -12,6 +12,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *headline;
 @property (weak, nonatomic) IBOutlet UISearchBar *searchBar;
 @property (weak, nonatomic) IBOutlet UITableView *searchResultTable;
+@property (nonatomic, retain) NSArray *tableData;
 
 
 @end
