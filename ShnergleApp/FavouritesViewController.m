@@ -14,14 +14,16 @@
 
 @implementation FavouritesViewController
 
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
-{
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-    if (self) {
-        // Custom initialization
-    }
-    return self;
+- (void)decorateCheckInButton {
+    //check in button
+    [self.checkInButton setTitleTextAttributes:
+     @{UITextAttributeTextColor: [UIColor whiteColor],
+                UITextAttributeTextShadowColor: [UIColor clearColor],
+               UITextAttributeTextShadowOffset: [NSValue valueWithUIOffset:UIOffsetMake(0, 0)],
+                           UITextAttributeFont: [UIFont fontWithName:@"Roboto" size:14.0]}
+                                      forState:UIControlStateNormal];
 }
+
 
 - (UIBarButtonItem *)createLeftBarButton:(NSString *)imageName actionSelector:(SEL)actionSelector {
     UIImage *menuButtonImg = [UIImage imageNamed:imageName];
@@ -53,6 +55,7 @@
     [super viewDidLoad];
     self.navigationItem.title = @"Favourites";
     [self menuButtonDecorations];
+    [self decorateCheckInButton];
     //THE SANDWICH MENU SYSTEM (ECSlidingViewController)
     if (![self.slidingViewController.underLeftViewController isKindOfClass:[MenuViewController class]]) {
         self.slidingViewController.underLeftViewController  = [self.storyboard instantiateViewControllerWithIdentifier:@"AroundMeMenu"];
