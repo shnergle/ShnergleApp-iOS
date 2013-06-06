@@ -7,8 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "CustomBackViewController.h"
 
-@interface VenueGalleryViewController : UIViewController
+@interface VenueGalleryViewController : CustomBackViewController
 {
     NSArray *images;
     NSInteger imageIndex;
@@ -16,8 +17,6 @@
 @property (weak, nonatomic) IBOutlet UIScrollView *imageScrollView;
 
 
-- (UIBarButtonItem *)createLeftBarButton:(NSString *)imageName actionSelector:(SEL)actionSelector;
-- (void)goBack;
 - (void)imageScrollerSetup;
 -(void)setTitle:(NSString *)title;
 -(void)setImages:(NSArray *)img index:(NSInteger)index;
