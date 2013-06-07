@@ -79,7 +79,7 @@
                          [self alertTwitter];
                          break;
                      }
-                     case 100:
+                     case 1:
                      {
                          appDelegate.twitter = [me.accounts.lastObject username];
                          NSString *params = [NSString stringWithFormat:@"facebook_id=%@&twitter=%@", appDelegate.facebookId, appDelegate.twitter];
