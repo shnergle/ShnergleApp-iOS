@@ -41,20 +41,26 @@
 
 - (void)share {
     AppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
+    if ([appDelegate.session.permissions containsObject:@"publish_actions"])
+        [appDelegate.session requestNewPublishPermissions:@[@"publish_actions"] defaultAudience:FBSessionDefaultAudienceEveryone completionHandler:^(FBSession *session, NSError *error) {
+            [self shareOnFacebook];
+        }];
+    else
+        [self shareOnFacebook];
+}
 
-    [appDelegate.session requestNewPublishPermissions:@[@"publish_actions"] defaultAudience:FBSessionDefaultAudienceEveryone completionHandler:^(FBSession *session, NSError *error) {
-
-    /*NSMutableDictionary *params = [NSMutableDictionary dictionaryWithObjectsAndKeys:
-                                   @"My test app", @"name",
-                                   @"http://www.google.com", @"link",
-                                   @"FBTestApp app for iPhone!", @"caption",
-                                   @"This is a description of my app", @"description",
-                                   @"Hello!\n\nThis is a test message\nfrom my test iPhone app!", @"message",
-                                   nil];*/
-    //TODO publish
+- (void)shareOnFacebook {
+    AppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
+    NSMutableDictionary<FBGraphObject> *data = [NSMutableDictionary  dictionaryWithObjectsAndKeys:
+                                                @"http://www.shnergle.com", @"link",
+                                                @"Shnergle", @"name",
+                                                @"I share now? I share now.", @"caption",
+                                                nil];
+    [[[FBRequest alloc] initForPostWithSession:appDelegate.session graphPath:@"me/feed" graphObject:data] startWithCompletionHandler:^(FBRequestConnection *connection, id result, NSError *error) {
+        NSLog(@"FBSHARE - connection: %@", connection);
+        NSLog(@"FBSHARE - result: %@", result);
+        NSLog(@"FBSHARE - error: %@", error);
     }];
-
-    
 }
 
 - (IBAction)selectFriendsButtonAction:(id)sender {
