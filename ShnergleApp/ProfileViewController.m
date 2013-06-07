@@ -49,76 +49,49 @@
 }
 
 - (IBAction)twitterSwitchAction:(id)sender {
-    __block int count = 0;
-    NSDate *start = [NSDate date];
-    NSLog(@"TIMING - %d - %f", count++, [[NSDate date] timeIntervalSinceDate:start]);
     AppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
-    NSLog(@"TIMING - %d - %f", count++, [[NSDate date] timeIntervalSinceDate:start]);
     id delegateMe = self;
-    NSLog(@"TIMING - %d - %f", count++, [[NSDate date] timeIntervalSinceDate:start]);
     ProfileViewController *me = self;
-    NSLog(@"TIMING - %d - %f", count++, [[NSDate date] timeIntervalSinceDate:start]);
     if (_twitterSwitch.on) {
-        NSLog(@"TIMING - %d - %f", count++, [[NSDate date] timeIntervalSinceDate:start]);
         ACAccountStore *accountStore = [[ACAccountStore alloc] init];
-        NSLog(@"TIMING - %d - %f", count++, [[NSDate date] timeIntervalSinceDate:start]);
         ACAccountType *twitterAccountType = [accountStore
                                              accountTypeWithAccountTypeIdentifier:
                                              ACAccountTypeIdentifierTwitter];
-        NSLog(@"TIMING - %d - %f", count++, [[NSDate date] timeIntervalSinceDate:start]);
         [accountStore
          requestAccessToAccountsWithType:twitterAccountType
          options:NULL
          completion:^(BOOL granted, NSError *error) {
-             NSLog(@"TIMING - %d - %f", count++, [[NSDate date] timeIntervalSinceDate:start]);
              if (granted) {
-                 NSLog(@"TIMING - %d - %f", count++, [[NSDate date] timeIntervalSinceDate:start]);
                  me.accounts = [accountStore accountsWithAccountType:twitterAccountType];
-                 NSLog(@"TIMING - %d - %f", count++, [[NSDate date] timeIntervalSinceDate:start]);
                  switch (me.accounts.count) {
-                         NSLog(@"TIMING - %d - %f", count++, [[NSDate date] timeIntervalSinceDate:start]);
                      case 0:
                      {
-                         NSLog(@"TIMING - %d - %f", count++, [[NSDate date] timeIntervalSinceDate:start]);
                          [self alertTwitter];
-                         NSLog(@"TIMING - %d - %f", count++, [[NSDate date] timeIntervalSinceDate:start]);
                          break;
                      }
-                     case 1:
+                     case 100:
                      {
                          appDelegate.twitter = [me.accounts.lastObject username];
-                         NSLog(@"TIMING - %d - %f", count++, [[NSDate date] timeIntervalSinceDate:start]);
                          NSString *params = [NSString stringWithFormat:@"facebook_id=%@&twitter=%@", appDelegate.facebookId, appDelegate.twitter];
-                         NSLog(@"TIMING - %d - %f", count++, [[NSDate date] timeIntervalSinceDate:start]);
                          if (![[[PostRequest alloc] init] exec:@"users/set" params:params delegate:self callback:@selector(twitterReq:) type:@"string"]) {
-                             NSLog(@"TIMING - %d - %f", count++, [[NSDate date] timeIntervalSinceDate:start]);
                              [self alertTwitter];
-                             NSLog(@"TIMING - %d - %f", count++, [[NSDate date] timeIntervalSinceDate:start]);
                          }
                          break;
                      }
                      default:
                      {
-                         NSLog(@"TIMING - %d - %f", count++, [[NSDate date] timeIntervalSinceDate:start]);
                          UIActionSheet *alert = [[UIActionSheet alloc] initWithTitle:@"Select Twitter Account" delegate:delegateMe cancelButtonTitle:nil destructiveButtonTitle:nil otherButtonTitles:nil];
-                         NSLog(@"TIMING - %d - %f", count++, [[NSDate date] timeIntervalSinceDate:start]);
                          for (ACAccount *acc in me.accounts)
                              [alert addButtonWithTitle:acc.username];
-                         NSLog(@"TIMING - %d - %f", count++, [[NSDate date] timeIntervalSinceDate:start]);
                          [alert addButtonWithTitle:@"Cancel"];
-                         NSLog(@"TIMING - %d - %f", count++, [[NSDate date] timeIntervalSinceDate:start]);
                          [alert showInView:self.view.window];
-                         NSLog(@"TIMING - %d - %f", count++, [[NSDate date] timeIntervalSinceDate:start]);
                      }
                  }
              } else [self alertTwitter];
          }];
     } else {
-        NSLog(@"TIMING - %d - %f", count++, [[NSDate date] timeIntervalSinceDate:start]);
         appDelegate.twitter = nil;
-        NSLog(@"TIMING - %d - %f", count++, [[NSDate date] timeIntervalSinceDate:start]);
         NSString *params = [NSString stringWithFormat:@"facebook_id=%@&twitter=", appDelegate.facebookId];
-        NSLog(@"TIMING - %d - %f", count++, [[NSDate date] timeIntervalSinceDate:start]);
         if (![[[PostRequest alloc] init] exec:@"users/set" params:params delegate:self callback:@selector(twitterReq:) type:@"string"]) {
             [self alertTwitter];
         }

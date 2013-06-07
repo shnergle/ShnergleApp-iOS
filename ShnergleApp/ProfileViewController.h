@@ -10,7 +10,7 @@
 #import <FacebookSDK/FacebookSDK.h>
 #import "CustomBackViewController.h"
 
-@interface ProfileViewController : CustomBackViewController
+@interface ProfileViewController : CustomBackViewController <UIActionSheetDelegate>
 
 //- (IBAction)authButtonAction:(id)sender;
 
