@@ -11,5 +11,6 @@
 @interface FavouritesViewController : UIViewController
 @property (weak, nonatomic) IBOutlet UINavigationBar *navBar;
 @property (weak, nonatomic) IBOutlet UINavigationItem *navBarItem;
+@property (weak, nonatomic) IBOutlet UIBarButtonItem *checkInButton;
 
 @end

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="3084" systemVersion="12D78" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="Yrf-wA-f9e">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="3084" systemVersion="12E55" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="Yrf-wA-f9e">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="2083"/>
     </dependencies>
@@ -367,6 +367,9 @@
                     <navigationItem key="navigationItem" id="fS0-pY-YIw">
                         <barButtonItem key="rightBarButtonItem" title="Check In" id="j8H-eV-cm2">
                             <color key="tintColor" red="0.40000000000000002" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                            <connections>
+                                <segue destination="CuC-E9-ArH" kind="push" id="Ad1-T8-PAD"/>
+                            </connections>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
@@ -743,7 +746,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Dpl-bY-Po8" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-710" y="317"/>
+            <point key="canvasLocation" x="-644" y="163"/>
         </scene>
         <!--Profile View Controller - Profile Page-->
         <scene sceneID="aFZ-SR-USp">
@@ -1366,9 +1369,16 @@
                         <rect key="frame" x="0.0" y="20" width="320" height="548"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BRG-Y7-nAX">
+                            <navigationBar contentMode="scaleToFill" barStyle="blackOpaque" translatesAutoresizingMaskIntoConstraints="NO" id="BRG-Y7-nAX">
                                 <items>
-                                    <navigationItem title="Favourites" id="ijm-KI-t8F"/>
+                                    <navigationItem title="Favourites" id="ijm-KI-t8F">
+                                        <barButtonItem key="rightBarButtonItem" title="Check In" id="Kbi-8Y-RPI">
+                                            <color key="tintColor" red="0.40000000000000002" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                            <connections>
+                                                <segue destination="CuC-E9-ArH" kind="push" id="HHH-Gt-FIZ"/>
+                                            </connections>
+                                        </barButtonItem>
+                                    </navigationItem>
                                 </items>
                             </navigationBar>
                         </subviews>
@@ -1380,6 +1390,7 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="checkInButton" destination="Kbi-8Y-RPI" id="nTm-zl-SDf"/>
                         <outlet property="navBar" destination="BRG-Y7-nAX" id="u7F-nV-9mM"/>
                         <outlet property="navBarItem" destination="ijm-KI-t8F" id="bvl-rO-OW0"/>
                     </connections>
@@ -1584,7 +1595,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="X09-Ib-GEu" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1760" y="-408"/>
+            <point key="canvasLocation" x="-1745" y="-619"/>
         </scene>
         <!--Login Screen Controller - Shnergle-->
         <scene sceneID="ddY-3I-oVq">
@@ -1673,4 +1684,7 @@
         <simulatedOrientationMetrics key="orientation"/>
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
+    <inferredMetricsTieBreakers>
+        <segue reference="HHH-Gt-FIZ"/>
+    </inferredMetricsTieBreakers>
 </document>
