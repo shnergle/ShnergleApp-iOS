@@ -18,4 +18,5 @@
 - (IBAction)searchExited:(id)sender;
 @property (weak, nonatomic) IBOutlet UITextField *bar;
 @property (nonatomic, retain) NSArray *tableData;
+
 @end

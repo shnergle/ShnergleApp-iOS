@@ -21,10 +21,20 @@
 
     AppDelegate *appdelegate = [[UIApplication sharedApplication]delegate];
     self.navigationItem.title = appdelegate.fullName;
-    self.userProfileImage.profileID = appdelegate.facebookId;
+    self.userProfileImage3.profileID = appdelegate.facebookId;
+    //self.userProfileImage2.profileID = appdelegate.facebookId;
+    //self.userProfileImage1.profileID = appdelegate.facebookId;
     AppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
     if (appDelegate.twitter)
         _twitterSwitch.on = YES;
+    _checkInView.layer.borderColor = [UIColor colorWithRed:134.0/255 green:134.0/255 blue:134.0/255 alpha:1].CGColor;
+    _checkInView.layer.borderWidth = 2;
+    _redeemed.layer.borderColor = [UIColor colorWithRed:134.0/255 green:134.0/255 blue:134.0/255 alpha:1].CGColor;
+    _redeemed.layer.borderWidth = 2;
+    _favourites.layer.borderColor = [UIColor colorWithRed:134.0/255 green:134.0/255 blue:134.0/255 alpha:1].CGColor;
+    _favourites.layer.borderWidth = 2;
+    _scoutView.backgroundColor = [UIColor colorWithRed:34.0/255 green:148.0/255 blue:221.0/255 alpha:1];
+    _userProfileImage3.hidden = NO;
 }
 
 
