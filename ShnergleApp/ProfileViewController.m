@@ -35,6 +35,12 @@
     _favourites.layer.borderWidth = 2;
     _scoutView.backgroundColor = [UIColor colorWithRed:34.0/255 green:148.0/255 blue:221.0/255 alpha:1];
     _userProfileImage3.hidden = NO;
+    _userProfileImage3.layer.borderColor = [UIColor colorWithRed:255 green:255 blue:255 alpha:1].CGColor;
+    _userProfileImage3.layer.borderWidth = 2;
+    _userProfileImage2.layer.borderColor = [UIColor colorWithRed:255 green:255 blue:255 alpha:1].CGColor;
+    _userProfileImage2.layer.borderWidth = 2;
+    _userProfileImage1.layer.borderColor = [UIColor colorWithRed:255 green:255 blue:255 alpha:1].CGColor;
+    _userProfileImage1.layer.borderWidth = 2;
 }
 
 
