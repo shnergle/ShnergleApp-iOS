@@ -54,38 +54,41 @@
     ProfileViewController *me = self;
     if (_twitterSwitch.on) {
         ACAccountStore *accountStore = [[ACAccountStore alloc] init];
-        if ([SLComposeViewController isAvailableForServiceType:SLServiceTypeTwitter]) {
-            
-            ACAccountType *twitterAccountType = [accountStore
-                                                 accountTypeWithAccountTypeIdentifier:
-                                                 ACAccountTypeIdentifierTwitter];
-            [accountStore
-             requestAccessToAccountsWithType:twitterAccountType
-             options:NULL
-             completion:^(BOOL granted, NSError *error) {
-                 if (granted) {
-                     me.accounts = [accountStore accountsWithAccountType:twitterAccountType];
-                     if (me.accounts.count > 0) {
-                         if (me.accounts.count > 1) {
-                             
-                             UIActionSheet *alert = [[UIActionSheet alloc] initWithTitle:@"Select Twitter Account" delegate:delegateMe cancelButtonTitle:nil destructiveButtonTitle:nil otherButtonTitles:nil];
-                             for (int i = 0; i < me.accounts.count; i++)
-                                 [alert addButtonWithTitle:[(me.accounts)[i] username]];
-                             [alert addButtonWithTitle:@"Cancel"];
-                             
-                             [alert showInView:[[self view] window]];
-                         } else {
-                             NSString *twitter = [[me.accounts lastObject] username];
-                             appDelegate.twitter = twitter;
-                             NSString *params = [NSString stringWithFormat:@"facebook_id=%@&twitter=%@", appDelegate.facebookId, twitter];
-                             if (![[[PostRequest alloc] init] exec:@"users/set" params:params delegate:self callback:@selector(twitterReq:) type:@"string"]) {
-                                 [self alertTwitter];
-                             }
+        ACAccountType *twitterAccountType = [accountStore
+                                             accountTypeWithAccountTypeIdentifier:
+                                             ACAccountTypeIdentifierTwitter];
+        [accountStore
+         requestAccessToAccountsWithType:twitterAccountType
+         options:NULL
+         completion:^(BOOL granted, NSError *error) {
+             if (granted) {
+                 me.accounts = [accountStore accountsWithAccountType:twitterAccountType];
+                 switch (me.accounts.count) {
+                     case 0:
+                     {
+                         [self alertTwitter];
+                         break;
+                     }
+                     case 1:
+                     {
+                         appDelegate.twitter = [me.accounts.lastObject username];
+                         NSString *params = [NSString stringWithFormat:@"facebook_id=%@&twitter=%@", appDelegate.facebookId, appDelegate.twitter];
+                         if (![[[PostRequest alloc] init] exec:@"users/set" params:params delegate:self callback:@selector(twitterReq:) type:@"string"]) {
+                             [self alertTwitter];
                          }
-                     } else _twitterSwitch.on = NO;
-                 } else _twitterSwitch.on = NO;
-             }];
-        }
+                         break;
+                     }
+                     default:
+                     {
+                         UIActionSheet *alert = [[UIActionSheet alloc] initWithTitle:@"Select Twitter Account" delegate:delegateMe cancelButtonTitle:nil destructiveButtonTitle:nil otherButtonTitles:nil];
+                         for (ACAccount *acc in me.accounts)
+                             [alert addButtonWithTitle:acc.username];
+                         [alert addButtonWithTitle:@"Cancel"];
+                         [alert showInView:self.view.window];
+                     }
+                 }
+             } else [self alertTwitter];
+         }];
     } else {
         appDelegate.twitter = nil;
         NSString *params = [NSString stringWithFormat:@"facebook_id=%@&twitter=", appDelegate.facebookId];
