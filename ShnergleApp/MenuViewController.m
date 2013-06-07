@@ -119,9 +119,19 @@
 
 - (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
 {
+    
     return (@[@"Profile", @"Explore"])[section];
+    
+    //[section setBackgroundColor:[UIColor blackColor]];
 }
 
+
+/*- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
+{
+    UIView *section = [[[UIView alloc] initWithFrame:CGRectMake(0, 0, tableView.bounds.size.width, 22)] autorelease];
+    
+    return section;
+}*/
 
 
 @end

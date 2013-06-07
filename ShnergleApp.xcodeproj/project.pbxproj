@@ -133,6 +133,7 @@
 		EE0A80711733D97300792AE4 /* ProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EE0A806F1733D97300792AE4 /* ProfileViewController.m */; };
 		EE0B37DF175E0FA900B6EE58 /* twitter-bird-white-on-blue.png in Resources */ = {isa = PBXBuildFile; fileRef = EE0B37DE175E0FA900B6EE58 /* twitter-bird-white-on-blue.png */; };
 		EE0B37E1175E108100B6EE58 /* FB-f-Logo__blue_50.png in Resources */ = {isa = PBXBuildFile; fileRef = EE0B37E0175E108100B6EE58 /* FB-f-Logo__blue_50.png */; };
+		EE4CCDF41761E05A00774FAD /* HeaderTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = EE4CCDF31761E05A00774FAD /* HeaderTableView.m */; };
 		EE61F4D6175CDB02000FDE71 /* Screen Shot 2013-06-03 at 15.06.11.png in Resources */ = {isa = PBXBuildFile; fileRef = EE61F4D5175CDB02000FDE71 /* Screen Shot 2013-06-03 at 15.06.11.png */; };
 		EE8FF815172A9CFD0003A8E1 /* LoginScreenController.m in Sources */ = {isa = PBXBuildFile; fileRef = EE8FF814172A9CFD0003A8E1 /* LoginScreenController.m */; };
 		EEFD65FA1758A12B005F7F40 /* Screen Shot 2013-05-30 at 15.25.20.png in Resources */ = {isa = PBXBuildFile; fileRef = EEFD65F91758A12B005F7F40 /* Screen Shot 2013-05-30 at 15.25.20.png */; };
@@ -306,6 +307,8 @@
 		EE0A806F1733D97300792AE4 /* ProfileViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProfileViewController.m; sourceTree = "<group>"; };
 		EE0B37DE175E0FA900B6EE58 /* twitter-bird-white-on-blue.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "twitter-bird-white-on-blue.png"; sourceTree = "<group>"; };
 		EE0B37E0175E108100B6EE58 /* FB-f-Logo__blue_50.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "FB-f-Logo__blue_50.png"; sourceTree = "<group>"; };
+		EE4CCDF21761E05A00774FAD /* HeaderTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HeaderTableView.h; sourceTree = "<group>"; };
+		EE4CCDF31761E05A00774FAD /* HeaderTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HeaderTableView.m; sourceTree = "<group>"; };
 		EE61F4D5175CDB02000FDE71 /* Screen Shot 2013-06-03 at 15.06.11.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Screen Shot 2013-06-03 at 15.06.11.png"; sourceTree = "<group>"; };
 		EE8FF813172A9CFD0003A8E1 /* LoginScreenController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginScreenController.h; sourceTree = "<group>"; };
 		EE8FF814172A9CFD0003A8E1 /* LoginScreenController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginScreenController.m; sourceTree = "<group>"; };
@@ -582,6 +585,8 @@
 				808330BC17565F9F00C183B9 /* SearchBar.xib */,
 				808330BF1756620000C183B9 /* SearchBarView.h */,
 				808330C01756620000C183B9 /* SearchBarView.m */,
+				EE4CCDF21761E05A00774FAD /* HeaderTableView.h */,
+				EE4CCDF31761E05A00774FAD /* HeaderTableView.m */,
 			);
 			name = Menu;
 			sourceTree = "<group>";
@@ -914,6 +919,7 @@
 				CDAD1D2F175E011100581713 /* ShareViewController.m in Sources */,
 				80DC1DFB1760CAC2000AA6DF /* FavouritesViewController.m in Sources */,
 				CD3703751760C8B600CFD249 /* CustomBackViewController.m in Sources */,
+				EE4CCDF41761E05A00774FAD /* HeaderTableView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
