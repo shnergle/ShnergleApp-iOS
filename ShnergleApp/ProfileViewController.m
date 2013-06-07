@@ -9,8 +9,6 @@
 #import "ProfileViewController.h"
 #import "AppDelegate.h"
 #import "PostRequest.h"
-#import <Social/Social.h>
-#import <Accounts/Accounts.h>
 
 @implementation ProfileViewController
 
@@ -24,9 +22,9 @@
     self.userProfileImage3.profileID = appdelegate.facebookId;
     //self.userProfileImage2.profileID = appdelegate.facebookId;
     //self.userProfileImage1.profileID = appdelegate.facebookId;
-    AppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
-    if (appDelegate.twitter)
-        _twitterSwitch.on = YES;
+    //AppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
+    //if (appDelegate.twitter)
+    //    _twitterSwitch.on = YES;
     _checkInView.layer.borderColor = [UIColor colorWithRed:134.0/255 green:134.0/255 blue:134.0/255 alpha:1].CGColor;
     _checkInView.layer.borderWidth = 2;
     _redeemed.layer.borderColor = [UIColor colorWithRed:134.0/255 green:134.0/255 blue:134.0/255 alpha:1].CGColor;
@@ -65,80 +63,8 @@
 }
 
 - (IBAction)twitterSwitchAction:(id)sender {
-    AppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
-    id delegateMe = self;
-    ProfileViewController *me = self;
-    if (_twitterSwitch.on) {
-        ACAccountStore *accountStore = [[ACAccountStore alloc] init];
-        ACAccountType *twitterAccountType = [accountStore
-                                             accountTypeWithAccountTypeIdentifier:
-                                             ACAccountTypeIdentifierTwitter];
-        [accountStore
-         requestAccessToAccountsWithType:twitterAccountType
-         options:NULL
-         completion:^(BOOL granted, NSError *error) {
-             if (granted) {
-                 me.accounts = [accountStore accountsWithAccountType:twitterAccountType];
-                 switch (me.accounts.count) {
-                     case 0:
-                     {
-                         [self alertTwitter];
-                         break;
-                     }
-                     case 1:
-                     {
-                         appDelegate.twitter = [me.accounts.lastObject username];
-                         NSString *params = [NSString stringWithFormat:@"facebook_id=%@&twitter=%@", appDelegate.facebookId, appDelegate.twitter];
-                         if (![[[PostRequest alloc] init] exec:@"users/set" params:params delegate:self callback:@selector(twitterReq:) type:@"string"]) {
-                             [self alertTwitter];
-                         }
-                         break;
-                     }
-                     default:
-                     {
-                         UIActionSheet *alert = [[UIActionSheet alloc] initWithTitle:@"Select Twitter Account" delegate:delegateMe cancelButtonTitle:nil destructiveButtonTitle:nil otherButtonTitles:nil];
-                         for (ACAccount *acc in me.accounts)
-                             [alert addButtonWithTitle:acc.username];
-                         [alert addButtonWithTitle:@"Cancel"];
-                         [alert showInView:self.view.window];
-                     }
-                 }
-             } else [self alertTwitter];
-         }];
-    } else {
-        appDelegate.twitter = nil;
-        NSString *params = [NSString stringWithFormat:@"facebook_id=%@&twitter=", appDelegate.facebookId];
-        if (![[[PostRequest alloc] init] exec:@"users/set" params:params delegate:self callback:@selector(twitterReq:) type:@"string"]) {
-            [self alertTwitter];
-        }
-    }
-}
-
--(void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex {
-    AppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
-    if (buttonIndex == _accounts.count) {
-        _twitterSwitch.on = NO;
-    } else {
-        NSString *twitter = [_accounts[buttonIndex] username];
-        appDelegate.twitter = twitter;
-        NSString *params = [NSString stringWithFormat:@"facebook_id=%@&twitter=%@", appDelegate.facebookId, twitter];
-        if (![[[PostRequest alloc] init] exec:@"users/set" params:params delegate:self callback:@selector(twitterReq:) type:@"string"]) {
-            [self alertTwitter];
-        }
-
-    }
-}
-
-- (void)twitterReq:(id)response {
-    if (![response isEqual:@"true"])
-        [self alertTwitter];
-}
-
-
-- (void)alertTwitter {
-    _twitterSwitch.on = !_twitterSwitch.on;
-    UIActionSheet *alert = [[UIActionSheet alloc] initWithTitle:@"Twitter (de)activation failed!" delegate:nil cancelButtonTitle:@"OK" destructiveButtonTitle:nil otherButtonTitles:nil];
-    [alert showInView:[[self view] window]];
+    UIActionSheet *actionSheet = [[UIActionSheet alloc] initWithTitle:@"Twitter, tsk!" delegate:nil cancelButtonTitle:@"Yeah, I'm gonna use Facebook then!" destructiveButtonTitle:nil otherButtonTitles:nil];
+    [actionSheet showInView:self.view.window];
 }
 
 @end
