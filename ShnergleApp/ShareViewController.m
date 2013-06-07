@@ -41,7 +41,7 @@
 
 - (void)share {
     AppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
-    if ([appDelegate.session.permissions containsObject:@"publish_actions"])
+    if ([appDelegate.session.permissions indexOfObject:@"publish_actions"] == NSNotFound)
         [appDelegate.session requestNewPublishPermissions:@[@"publish_actions"] defaultAudience:FBSessionDefaultAudienceEveryone completionHandler:^(FBSession *session, NSError *error) {
             [self shareOnFacebook];
         }];
@@ -51,15 +51,18 @@
 
 - (void)shareOnFacebook {
     AppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
-    NSMutableDictionary<FBGraphObject> *data = [NSMutableDictionary  dictionaryWithObjectsAndKeys:
-                                                @"http://www.shnergle.com", @"link",
-                                                @"Shnergle", @"name",
-                                                @"I share now? I share now.", @"caption",
-                                                nil];
+    NSMutableDictionary<FBGraphObject> *data = [NSMutableDictionary dictionaryWithObjectsAndKeys:
+                                                 @"http://www.shnergle.com/", @"link",
+                                                 @"https://developers.facebook.com/attachment/iossdk_logo.png", @"picture",
+                                                 @"Shnergle", @"name",
+                                                 @"Get the app!", @"caption",
+                                                 @"I share now? I share now!", @"description",
+                                                 nil];
     [[[FBRequest alloc] initForPostWithSession:appDelegate.session graphPath:@"me/feed" graphObject:data] startWithCompletionHandler:^(FBRequestConnection *connection, id result, NSError *error) {
         NSLog(@"FBSHARE - connection: %@", connection);
         NSLog(@"FBSHARE - result: %@", result);
         NSLog(@"FBSHARE - error: %@", error);
+        [self.navigationController popToRootViewControllerAnimated:YES];
     }];
 }
 
