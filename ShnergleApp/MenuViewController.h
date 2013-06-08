@@ -17,6 +17,7 @@
 - (IBAction)tapProfile:(id)sender;
 - (IBAction)searchExited:(id)sender;
 @property (weak, nonatomic) IBOutlet UITextField *bar;
-@property (nonatomic, retain) NSArray *tableData;
+@property (nonatomic, retain) NSArray *tableSections;
+@property (nonatomic, retain) NSDictionary *tableData;
 
 @end

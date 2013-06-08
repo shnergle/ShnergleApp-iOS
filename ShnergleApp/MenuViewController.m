@@ -30,45 +30,21 @@
     _nameLabel.font = [UIFont fontWithName:@"Roboto" size:_nameLabel.font.pointSize];
     _nameLabel.textColor = [UIColor whiteColor];
     _nameLabel.text = appDelegate.fullName;
-    
-    _tableData = @[@"Around me", @"Favourites", @"Promotions", @"Quiet", @"Trending"];
+
+    _tableSections = @[@"Profile", @"Explore"];
+    _tableData = @{@0: @[appDelegate.fullName], @1: @[@"Around me", @"Favourites", @"Promotions", @"Quiet", @"Trending"]};
 }
 
 - (void)postResponse:(NSString *)response {
     NSLog(@"search response: %@", response);
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
-
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell = nil;
-    
-    if (indexPath.section != 0)
-    {
-        cell = [tableView dequeueReusableCellWithIdentifier:[NSString stringWithFormat:@"MyCell%d", indexPath.item]];
-    }
-    
-    if (cell == nil) {
-        cell = [tableView dequeueReusableCellWithIdentifier:@"MyCell"];
-    }
-    
-    AppDelegate *appdelegate = [[UIApplication sharedApplication] delegate];
-    if (indexPath.section == 0) {
-        cell.textLabel.text = appdelegate.fullName;
-    }
-    else
-    {
-    cell.textLabel.text = _tableData[indexPath.row];
-    }
-    
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:[NSString stringWithFormat:@"MyCell%d%d", indexPath.section, indexPath.item]];
+    cell.textLabel.text = _tableData[@(indexPath.section)][indexPath.row];
     cell.textLabel.textColor = [UIColor whiteColor];
-    cell.textLabel.font = [UIFont fontWithName:@"Roboto" size:20.0];
-
+    cell.textLabel.font = [UIFont fontWithName:@"Roboto" size:20];
     if (indexPath.section == 0) cell.accessoryView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"profileicon.png"]];
-    
     return cell;
 }
 
@@ -84,25 +60,18 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    if (section == 0)
-    {
-        return 1;
-    }
-    else
-    {
-        return 5;
-    }
+    return [_tableData[@(section)] count];
 }
 
 -(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-    return 2;
+    return [_tableData count];
 }
 
 - (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
 {
     
-    return (@[@"Profile", @"Explore"])[section];
+    return _tableSections[section];
 }
 
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
@@ -112,6 +81,14 @@
     sectionLabel.font = [UIFont fontWithName:@"Roboto-Regular" size:12];
     sectionLabel.text = [NSString stringWithFormat:@"   %@",[self tableView:tableView titleForHeaderInSection:section]];
     return sectionLabel;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section {
+    return [_tableData count] - 1 == section ? tableView.sectionFooterHeight : 0;
+}
+
+- (UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section {
+    return [[UIView alloc] init];
 }
 
 @end
