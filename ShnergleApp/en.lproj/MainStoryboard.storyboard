@@ -1821,6 +1821,7 @@
             <relationships>
                 <relationship kind="action" name="swipeDown:"/>
                 <relationship kind="action" name="swipeUp:"/>
+                <relationship kind="action" name="tap:"/>
                 <relationship kind="action" name="tapPromotion:"/>
                 <relationship kind="action" name="tapPullerMenu:"/>
                 <relationship kind="outlet" name="offerContents" candidateClass="UILabel"/>
@@ -1873,9 +1874,6 @@
         </class>
         <class className="UICollectionViewFlowLayout" superclassName="UICollectionViewLayout">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/UICollectionViewFlowLayout.h"/>
-        </class>
-        <class className="UICollectionViewLayout" superclassName="NSObject">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/UICollectionViewLayout.h"/>
         </class>
         <class className="VenueGalleryViewController" superclassName="CustomBackViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/VenueGalleryViewController.h"/>
