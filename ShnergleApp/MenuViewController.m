@@ -10,6 +10,7 @@
 #import "AppDelegate.h"
 #import "SearchBarView.h"
 #import "PostRequest.h"
+#import "FavouritesSlidingViewController.h"
 
 @implementation MenuViewController
 
@@ -79,7 +80,7 @@
     sectionLabel.textColor = [UIColor colorWithRed:117/255. green:117/255. blue:117/255. alpha:1];
     sectionLabel.backgroundColor = [UIColor colorWithRed:29/255. green:29/255. blue:29/255. alpha:1];
     sectionLabel.font = [UIFont fontWithName:@"Roboto-Regular" size:12];
-    sectionLabel.text = [NSString stringWithFormat:@"   %@",[self tableView:tableView titleForHeaderInSection:section]];
+    sectionLabel.text = [NSString stringWithFormat:@"   %@", [self tableView:tableView titleForHeaderInSection:section]];
     return sectionLabel;
 }
 
@@ -89,6 +90,16 @@
 
 - (UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section {
     return [[UIView alloc] init];
+}
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    if ([segue.identifier isEqualToString:@"PromotionSegue"]) {
+        ((FavouritesSlidingViewController *) segue.destinationViewController).type = @"Promotions";
+    } else if ([segue.identifier isEqualToString:@"QuietSegue"]) {
+        ((FavouritesSlidingViewController *) segue.destinationViewController).type = @"Quiet";
+    } else if ([segue.identifier isEqualToString:@"TrendingSegue"]) {
+        ((FavouritesSlidingViewController *) segue.destinationViewController).type = @"Trending";
+    }
 }
 
 @end

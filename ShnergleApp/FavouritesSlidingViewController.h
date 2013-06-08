@@ -13,5 +13,6 @@
 
 @interface FavouritesSlidingViewController : ECSlidingViewController
 
+@property (weak, nonatomic) NSString *type;
 
 @end

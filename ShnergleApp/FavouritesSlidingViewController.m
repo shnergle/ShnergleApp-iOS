@@ -8,6 +8,7 @@
 
 #import "FavouritesSlidingViewController.h"
 #import "CrowdItem.h"
+#import "FavouritesViewController.h"
 
 @implementation FavouritesSlidingViewController
 
@@ -21,7 +22,9 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"MainStoryboard" bundle:nil];
-    self.topViewController = [storyboard instantiateViewControllerWithIdentifier:@"Favourites"];
+    FavouritesViewController *controller = [storyboard instantiateViewControllerWithIdentifier:@"Favourites"];
+    controller.type = _type;
+    self.topViewController = controller;
     self.navigationItem.hidesBackButton = YES;
     [self.navigationController setNavigationBarHidden:YES animated:YES];
 }

@@ -54,7 +54,8 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    self.navigationItem.title = @"Favourites";
+    if (_type)
+        ((UINavigationItem *) self.navBar.items[0]).title = _type;
     [self menuButtonDecorations];
     [self decorateCheckInButton];
     //THE SANDWICH MENU SYSTEM (ECSlidingViewController)
