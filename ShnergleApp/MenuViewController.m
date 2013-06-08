@@ -33,7 +33,7 @@
     _nameLabel.text = appDelegate.fullName;
 
     _tableSections = @[@"Profile", @"Explore"];
-    _tableData = @{@0: @[appDelegate.fullName], @1: @[@"Around me", @"Favourites", @"Promotions", @"Quiet", @"Trending"]};
+    _tableData = @{@0: @[appDelegate.fullName], @1: @[@"Around Me", @"Favourites", @"Promotions", @"Quiet", @"Trending"]};
 }
 
 - (void)postResponse:(NSString *)response {
@@ -45,12 +45,23 @@
     cell.textLabel.text = _tableData[@(indexPath.section)][indexPath.row];
     cell.textLabel.textColor = [UIColor whiteColor];
     cell.textLabel.font = [UIFont fontWithName:@"Roboto" size:20];
-    if (indexPath.section == 0) cell.accessoryView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"profileicon.png"]];
+    if (indexPath.section == 0) {
+        cell.accessoryView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"profileicon.png"]];
+        cell.accessoryView.bounds = CGRectMake(0, 0, 27, 19);
+    } else if (indexPath.row == 1) {
+        UILabel *noLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 20, 15)];
+        noLabel.text = @"0";
+        noLabel.font = [UIFont fontWithName:@"Roboto" size:20];
+        noLabel.textColor = [UIColor whiteColor];
+        noLabel.backgroundColor = [UIColor clearColor];
+        cell.accessoryView = noLabel;
+        cell.accessoryView.opaque = NO;
+    }
     return cell;
 }
 
 - (IBAction)tapProfile:(id)sender {
-    NSLog(@"Profle tapped");
+    NSLog(@"Profile tapped");
 }
 
 - (IBAction)searchExited:(id)sender {
