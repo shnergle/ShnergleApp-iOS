@@ -133,6 +133,59 @@
                                     <constraint firstItem="3ru-jW-uGF" firstAttribute="leading" secondItem="LIP-CL-Z0j" secondAttribute="leading" constant="139" id="kVB-6m-sHI"/>
                                 </constraints>
                             </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Yep-ys-8YG" customClass="OverlayText">
+                                <subviews>
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ptr-GU-idP">
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="320" id="NfQ-TY-B6Q"/>
+                                            <constraint firstAttribute="height" constant="21" id="xDF-Si-ToX"/>
+                                        </constraints>
+                                        <attributedString key="attributedText">
+                                            <fragment content="0.2     0.4     0.6     0.8     1.0     1.2     1.4     1.6     1.8     2.0">
+                                                <attributes>
+                                                    <color key="NSColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <font key="NSFont" size="11" name="Roboto-Regular"/>
+                                                    <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
+                                                </attributes>
+                                            </fragment>
+                                        </attributedString>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mRC-GB-AsM">
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="21" id="1bH-Yw-Rsj"/>
+                                            <constraint firstAttribute="width" constant="67" id="a9k-Kv-jbm"/>
+                                        </constraints>
+                                        <attributedString key="attributedText">
+                                            <fragment content="Distance">
+                                                <attributes>
+                                                    <color key="NSColor" name="disabledControlTextColor" catalog="System" colorSpace="catalog"/>
+                                                    <font key="NSFont" size="11" name="Roboto-Regular"/>
+                                                    <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
+                                                </attributes>
+                                            </fragment>
+                                        </attributedString>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="1" minValue="0.20000000000000001" maxValue="2" continuous="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KE8-Yl-GlD">
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="302" id="tc0-O5-bJc"/>
+                                        </constraints>
+                                        <connections>
+                                            <action selector="sliderValueChanged:" destination="2" eventType="valueChanged" id="lvx-9s-9eY"/>
+                                        </connections>
+                                    </slider>
+                                </subviews>
+                                <color key="backgroundColor" red="0.9137254901960784" green="0.92156862745098034" blue="0.94117647058823528" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstItem="ptr-GU-idP" firstAttribute="leading" secondItem="Yep-ys-8YG" secondAttribute="leading" constant="12" id="3gx-p3-gEw"/>
+                                    <constraint firstItem="KE8-Yl-GlD" firstAttribute="top" secondItem="Yep-ys-8YG" secondAttribute="top" constant="31" id="ONp-dS-zI2"/>
+                                    <constraint firstItem="mRC-GB-AsM" firstAttribute="leading" secondItem="KE8-Yl-GlD" secondAttribute="leading" type="default" id="jg7-YR-qOt"/>
+                                    <constraint firstItem="mRC-GB-AsM" firstAttribute="top" secondItem="Yep-ys-8YG" secondAttribute="top" constant="5" id="vFC-SM-5HP"/>
+                                    <constraint firstItem="KE8-Yl-GlD" firstAttribute="centerX" secondItem="Yep-ys-8YG" secondAttribute="centerX" type="default" id="vkk-9o-DRA"/>
+                                    <constraint firstItem="ptr-GU-idP" firstAttribute="top" secondItem="Yep-ys-8YG" secondAttribute="top" constant="33" id="zuh-W3-YLg"/>
+                                </constraints>
+                            </view>
                             <navigationBar contentMode="scaleToFill" barStyle="blackOpaque" translatesAutoresizingMaskIntoConstraints="NO" id="5nO-C1-XZo">
                                 <items>
                                     <navigationItem title="Around Me" id="nJg-Cb-NLe">
@@ -151,11 +204,15 @@
                             <constraint firstItem="jEV-Fr-dKK" firstAttribute="bottom" secondItem="3" secondAttribute="bottom" type="default" id="6IF-dP-TUP"/>
                             <constraint firstItem="LIP-CL-Z0j" firstAttribute="leading" secondItem="3" secondAttribute="leading" type="default" id="8aQ-rw-Za9"/>
                             <constraint firstItem="5nO-C1-XZo" firstAttribute="leading" secondItem="3" secondAttribute="leading" type="default" id="GNW-8o-GCv"/>
+                            <constraint firstItem="Yep-ys-8YG" firstAttribute="leading" secondItem="3" secondAttribute="leading" type="default" id="GqB-D3-JGa"/>
                             <constraint firstItem="jEV-Fr-dKK" firstAttribute="leading" secondItem="3" secondAttribute="leading" type="default" id="Hde-AL-Ogp"/>
                             <constraint firstItem="LIP-CL-Z0j" firstAttribute="bottom" secondItem="3" secondAttribute="bottom" type="default" id="P3A-rn-1MW"/>
                             <constraint firstItem="5nO-C1-XZo" firstAttribute="trailing" secondItem="3" secondAttribute="trailing" type="default" id="V5j-Oi-H31"/>
+                            <constraint firstItem="Yep-ys-8YG" firstAttribute="bottom" secondItem="5nO-C1-XZo" secondAttribute="top" type="default" id="Vzy-bW-Qkf"/>
+                            <constraint firstItem="Yep-ys-8YG" firstAttribute="top" secondItem="3" secondAttribute="top" constant="-70" id="ccn-Id-tZQ"/>
                             <constraint firstItem="LIP-CL-Z0j" firstAttribute="trailing" secondItem="3" secondAttribute="trailing" type="default" id="dbX-Yq-VTx"/>
                             <constraint firstItem="LIP-CL-Z0j" firstAttribute="top" secondItem="3" secondAttribute="top" constant="126" id="fqJ-MI-gdQ"/>
+                            <constraint firstItem="Yep-ys-8YG" firstAttribute="trailing" secondItem="3" secondAttribute="trailing" type="default" id="jXD-JI-rAV"/>
                             <constraint firstItem="5nO-C1-XZo" firstAttribute="top" secondItem="3" secondAttribute="top" type="default" id="lBl-Yw-d1N"/>
                             <constraint firstItem="jEV-Fr-dKK" firstAttribute="top" secondItem="3" secondAttribute="top" type="default" id="pAf-G3-NWL"/>
                             <constraint firstItem="jEV-Fr-dKK" firstAttribute="trailing" secondItem="3" secondAttribute="trailing" type="default" id="pfi-CY-9zH"/>
@@ -168,6 +225,8 @@
                     <connections>
                         <outlet property="checkInButton" destination="lQP-pY-6Jo" id="nBg-wx-ByB"/>
                         <outlet property="crowdCollection" destination="NoU-2f-HS3" id="gIQ-gS-rMU"/>
+                        <outlet property="distanceScroller" destination="KE8-Yl-GlD" id="BVc-hx-Ghm"/>
+                        <outlet property="distanceScrollerView" destination="Yep-ys-8YG" id="QWb-NX-1Xt"/>
                         <outlet property="drawerCloseButton" destination="3ru-jW-uGF" id="C3A-Gd-yDl"/>
                         <outlet property="mapView" destination="jEV-Fr-dKK" id="GvI-xX-n96"/>
                         <outlet property="navBar" destination="5nO-C1-XZo" id="urY-Ys-s6F"/>
@@ -1838,8 +1897,8 @@
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="wJZ-W6-KFM"/>
-        <segue reference="HHH-Gt-FIZ"/>
         <segue reference="GBJ-CV-e6H"/>
+        <segue reference="ohm-kx-4nt"/>
+        <segue reference="Zho-BK-kL6"/>
     </inferredMetricsTieBreakers>
 </document>
