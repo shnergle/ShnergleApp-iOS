@@ -13,14 +13,6 @@
 
 @implementation MenuViewController
 
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-    if (self) {
-        // Custom initialization
-    }
-    return self;
-}
-
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
@@ -40,9 +32,6 @@
     _nameLabel.text = appDelegate.fullName;
     
     _tableData = @[@"Around me", @"Favourites", @"Promotions", @"Quiet", @"Trending"];
-    
-    
-    
 }
 
 - (void)postResponse:(NSString *)response {
@@ -53,10 +42,6 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
-
-/*- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return [_tableData count];
-}*/
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     UITableViewCell *cell = nil;
@@ -114,26 +99,19 @@
     return 2;
 }
 
-/*-(NSArray *)sectionIndexTitlesForTableView:(UITableView *)tableView
-{
-    return @[@"Profile", @"Explore"];
-}*/
-
 - (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
 {
     
     return (@[@"Profile", @"Explore"])[section];
-    
-    //[section setBackgroundColor:[UIColor blackColor]];
 }
 
-
-/*- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
-{
-    UIView *section = [[[UIView alloc] initWithFrame:CGRectMake(0, 0, tableView.bounds.size.width, 22)] autorelease];
-    
-    return section;
-}*/
-
+- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
+    UILabel *sectionLabel = [[UILabel alloc] init];
+    sectionLabel.textColor = [UIColor colorWithRed:117/255. green:117/255. blue:117/255. alpha:1];
+    sectionLabel.backgroundColor = [UIColor colorWithRed:29/255. green:29/255. blue:29/255. alpha:1];
+    sectionLabel.font = [UIFont fontWithName:@"Roboto-Regular" size:12];
+    sectionLabel.text = [NSString stringWithFormat:@"   %@",[self tableView:tableView titleForHeaderInSection:section]];
+    return sectionLabel;
+}
 
 @end

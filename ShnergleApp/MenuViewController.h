@@ -10,7 +10,7 @@
 #import <FacebookSDK/FacebookSDK.h>
 #import "SearchBarView.h"
 
-@interface MenuViewController : UIViewController <UITableViewDataSource>
+@interface MenuViewController : UIViewController <UITableViewDataSource, UITableViewDelegate>
 
 @property (weak, nonatomic) IBOutlet UILabel *nameLabel;
 @property (weak, nonatomic) IBOutlet SearchBarView *searchBar;
