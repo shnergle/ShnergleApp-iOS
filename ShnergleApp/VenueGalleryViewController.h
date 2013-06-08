@@ -18,6 +18,6 @@
 
 
 - (void)imageScrollerSetup;
--(void)setTitle:(NSString *)title;
--(void)setImages:(NSArray *)img index:(NSInteger)index;
+- (void)setTitle:(NSString *)title;
+- (void)setImages:(NSArray *)img index:(NSInteger)index;
 @end

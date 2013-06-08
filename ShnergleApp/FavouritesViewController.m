@@ -19,21 +19,20 @@
     //check in button
     [self.checkInButton setTitleTextAttributes:
      @{UITextAttributeTextColor: [UIColor whiteColor],
-                UITextAttributeTextShadowColor: [UIColor clearColor],
-               UITextAttributeTextShadowOffset: [NSValue valueWithUIOffset:UIOffsetMake(0, 0)],
-                           UITextAttributeFont: [UIFont fontWithName:@"Roboto" size:14.0]}
+       UITextAttributeTextShadowColor: [UIColor clearColor],
+       UITextAttributeTextShadowOffset: [NSValue valueWithUIOffset:UIOffsetMake(0, 0)],
+       UITextAttributeFont: [UIFont fontWithName:@"Roboto" size:14.0]}
                                       forState:UIControlStateNormal];
 }
 
-
 - (UIBarButtonItem *)createLeftBarButton:(NSString *)imageName actionSelector:(SEL)actionSelector {
     UIImage *menuButtonImg = [UIImage imageNamed:imageName];
-    
+
     UIButton *menuButtonTmp = [UIButton buttonWithType:UIButtonTypeCustom];
     menuButtonTmp.frame = CGRectMake(280.0, 10.0, 22.0, 22.0);
     [menuButtonTmp setBackgroundImage:menuButtonImg forState:UIControlStateNormal];
     [menuButtonTmp addTarget:self action:actionSelector forControlEvents:UIControlEventTouchUpInside];
-    
+
     UIBarButtonItem *menuButton = [[UIBarButtonItem alloc]initWithCustomView:menuButtonTmp];
     return menuButton;
 }
@@ -41,51 +40,44 @@
 - (void)menuButtonDecorations {
     SEL actionSelector = @selector(tapMenu);
     NSString *imageName = @"mainmenu_button.png";
-    
-    
+
+
     UIBarButtonItem *menuButton;
     menuButton = [self createLeftBarButton:imageName actionSelector:actionSelector];
-    
-    
+
+
     self.navBarItem.leftBarButtonItem = menuButton;
 }
 
-
-- (void)viewDidLoad
-{
+- (void)viewDidLoad {
     [super viewDidLoad];
-    if (_type)
-        ((UINavigationItem *) self.navBar.items[0]).title = _type;
+    if (_type) ((UINavigationItem *)self.navBar.items[0]).title = _type;
     [self menuButtonDecorations];
     [self decorateCheckInButton];
     //THE SANDWICH MENU SYSTEM (ECSlidingViewController)
     if (![self.slidingViewController.underLeftViewController isKindOfClass:[MenuViewController class]]) {
         self.slidingViewController.underLeftViewController  = [self.storyboard instantiateViewControllerWithIdentifier:@"AroundMeMenu"];
     }
-    
+
     [self.slidingViewController setAnchorRightRevealAmount:230.0f];
-    
+
     // Shadow for sandwich system
     self.view.layer.shadowOpacity = 0.75f;
     self.view.layer.shadowRadius = 10.0f;
     self.view.layer.shadowColor = [UIColor blackColor].CGColor;
-    
+
     //remove shadow from navbar
     self.navigationController.navigationBar.clipsToBounds = YES;
     self.navBar.clipsToBounds = YES;
-
 }
 
-- (void)didReceiveMemoryWarning
-{
+- (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
 
--(void)vewDidAppear{
-    
+- (void)vewDidAppear {
     [[self navigationController] setNavigationBarHidden:NO animated:YES];
-    
 }
 
 - (IBAction)menuButtonTriggered:(id)sender {
@@ -112,15 +104,15 @@
 
     /*SHADOW AROUND OBJECTS*/
     /*
-     item.layer.masksToBounds = NO;
-     item.layer.borderColor = [UIColor grayColor].CGColor;
-     item.layer.borderWidth = 1.5f;
-     item.layer.contentsScale = [UIScreen mainScreen].scale;
-     item.layer.shadowOpacity = 0.5f;
-     item.layer.shadowRadius = 3.0f;
-     item.layer.shadowOffset = CGSizeZero;
-     item.layer.shadowPath = [UIBezierPath bezierPathWithRect:item.bounds].CGPath;
-     //item.layer.shouldRasterize = YES;
+       item.layer.masksToBounds = NO;
+       item.layer.borderColor = [UIColor grayColor].CGColor;
+       item.layer.borderWidth = 1.5f;
+       item.layer.contentsScale = [UIScreen mainScreen].scale;
+       item.layer.shadowOpacity = 0.5f;
+       item.layer.shadowRadius = 3.0f;
+       item.layer.shadowOffset = CGSizeZero;
+       item.layer.shadowPath = [UIBezierPath bezierPathWithRect:item.bounds].CGPath;
+       //item.layer.shouldRasterize = YES;
      */
     /* Here we can set the elements of the crowdItem (the cell) in the cellview */
     AppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
@@ -133,9 +125,9 @@
     item.venueName.textColor = [UIColor whiteColor];
 
     //Turn the indicator on or off:
-    if([item.venueName.text isEqual: @"mahiki"]){ //just an example filter
+    if ([item.venueName.text isEqual:@"mahiki"]) { //just an example filter
         item.promotionIndicator.hidden = YES;
-    }else{
+    } else {
         item.promotionIndicator.hidden = NO;
     }
 

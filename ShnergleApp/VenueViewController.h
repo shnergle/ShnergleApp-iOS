@@ -10,14 +10,14 @@
 #import "OverlayText.h"
 #import "CustomBackViewController.h"
 
-@interface VenueViewController : CustomBackViewController<UICollectionViewDataSource,UICollectionViewDelegate>{
+@interface VenueViewController : CustomBackViewController<UICollectionViewDataSource, UICollectionViewDelegate>{
     NSString *promotionTitle;
     NSString *promotionBody;
     NSString *promotionExpiry;
     NSInteger selectedImage;
-    
+
     BOOL textViewOpen;
-    
+
     //Scrollhide
     CGFloat startContentOffset;
     CGFloat lastContentOffset;

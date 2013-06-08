@@ -17,7 +17,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
-    
+
     //load search bar
     NSArray *bundle = [[NSBundle mainBundle] loadNibNamed:@"SearchBar" owner:self options:nil];
     SearchBarView *blah;
@@ -27,7 +27,7 @@
     assert(blah != nil && "searchBarView can't be nil");
     [self.view addSubview:blah];
     AppDelegate *appDelegate = [[UIApplication sharedApplication]delegate];
-    
+
     _nameLabel.font = [UIFont fontWithName:@"Roboto" size:_nameLabel.font.pointSize];
     _nameLabel.textColor = [UIColor whiteColor];
     _nameLabel.text = appDelegate.fullName;
@@ -70,26 +70,22 @@
     [[[PostRequest alloc] init] exec:@"user_searches/set" params:params delegate:self callback:@selector(postResponse:)];
 }
 
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
-{
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     return [_tableData[@(section)] count];
 }
 
--(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
-{
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
     return [_tableData count];
 }
 
-- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
-{
-    
+- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
     return _tableSections[section];
 }
 
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
     UILabel *sectionLabel = [[UILabel alloc] init];
-    sectionLabel.textColor = [UIColor colorWithRed:117/255. green:117/255. blue:117/255. alpha:1];
-    sectionLabel.backgroundColor = [UIColor colorWithRed:29/255. green:29/255. blue:29/255. alpha:1];
+    sectionLabel.textColor = [UIColor colorWithRed:117 / 255. green:117 / 255. blue:117 / 255. alpha:1];
+    sectionLabel.backgroundColor = [UIColor colorWithRed:29 / 255. green:29 / 255. blue:29 / 255. alpha:1];
     sectionLabel.font = [UIFont fontWithName:@"Roboto-Regular" size:12];
     sectionLabel.text = [NSString stringWithFormat:@"   %@", [self tableView:tableView titleForHeaderInSection:section]];
     return sectionLabel;
@@ -105,11 +101,11 @@
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     if ([segue.identifier isEqualToString:@"PromotionSegue"]) {
-        ((FavouritesSlidingViewController *) segue.destinationViewController).type = @"Promotions";
+        ((FavouritesSlidingViewController *)segue.destinationViewController).type = @"Promotions";
     } else if ([segue.identifier isEqualToString:@"QuietSegue"]) {
-        ((FavouritesSlidingViewController *) segue.destinationViewController).type = @"Quiet";
+        ((FavouritesSlidingViewController *)segue.destinationViewController).type = @"Quiet";
     } else if ([segue.identifier isEqualToString:@"TrendingSegue"]) {
-        ((FavouritesSlidingViewController *) segue.destinationViewController).type = @"Trending";
+        ((FavouritesSlidingViewController *)segue.destinationViewController).type = @"Trending";
     }
 }
 

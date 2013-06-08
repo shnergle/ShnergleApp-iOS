@@ -19,12 +19,12 @@
 }
 
 /*
- // Only override drawRect: if you perform custom drawing.
- // An empty implementation adversely affects performance during animation.
- - (void)drawRect:(CGRect)rect
- {
- // Drawing code
- }
+   // Only override drawRect: if you perform custom drawing.
+   // An empty implementation adversely affects performance during animation.
+   - (void)drawRect:(CGRect)rect
+   {
+   // Drawing code
+   }
  */
 
 - (void)hideAnimated:(NSInteger)originalSize animationDuration:(double)animationDuration targetSize:(NSInteger)targetSize contentView:(UIView *)contentView {
@@ -32,38 +32,38 @@
                             originalSize,
                             self.bounds.size.width,
                             self.bounds.size.height);
-    
+
     [UIView animateWithDuration:animationDuration
                      animations:^{
-                         self.frame = CGRectMake(self.bounds.origin.x,
-                                                 targetSize,
-                                                 self.bounds.size.width,
-                                                 self.bounds.size.height);
-                     }   completion:^(BOOL finished) {
-                         contentView.frame = CGRectMake(self.bounds.origin.x,
-                                                        targetSize,
-                                                        self.bounds.size.width,
-                                                        self.bounds.size.height);
-                     }];
+        self.frame = CGRectMake(self.bounds.origin.x,
+                                targetSize,
+                                self.bounds.size.width,
+                                self.bounds.size.height);
+    }   completion:^(BOOL finished) {
+        contentView.frame = CGRectMake(self.bounds.origin.x,
+                                       targetSize,
+                                       self.bounds.size.width,
+                                       self.bounds.size.height);
+    }];
 }
 
 - (void)showAnimated:(NSInteger)targetSize animationDelay:(double)animationDelay animationDuration:(double)animationDuration {
     [DropDownMenu animateWithDuration:animationDuration delay:animationDelay options:(UIViewAnimationOptions)UIViewAnimationCurveEaseOut
                            animations:^{
-                               //contentView.frame = self.bounds;
-                               
-                               self.frame = CGRectMake(self.bounds.origin.x,
-                                                       targetSize,
-                                                       self.bounds.size.width,
-                                                       self.bounds.size.height /*TABBAR_HEIGHT*/);
-                           }
-     
+        //contentView.frame = self.bounds;
+
+        self.frame = CGRectMake(self.bounds.origin.x,
+                                targetSize,
+                                self.bounds.size.width,
+                                self.bounds.size.height /*TABBAR_HEIGHT*/);
+    }
+
                            completion:^(BOOL finished) {
-                               self.frame = CGRectMake(self.bounds.origin.x,
-                                                       targetSize,
-                                                       self.bounds.size.width,
-                                                       self.bounds.size.height /*TABBAR_HEIGHT*/);
-                           }];
+        self.frame = CGRectMake(self.bounds.origin.x,
+                                targetSize,
+                                self.bounds.size.width,
+                                self.bounds.size.height /*TABBAR_HEIGHT*/);
+    }];
 }
 
 @end
