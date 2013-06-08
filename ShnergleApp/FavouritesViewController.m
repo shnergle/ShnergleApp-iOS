@@ -8,11 +8,12 @@
 
 #import "FavouritesViewController.h"
 #import "MenuViewController.h"
-@interface FavouritesViewController ()
+#import "CrowdItem.h"
+#import "AppDelegate.h"
 
-@end
-
-@implementation FavouritesViewController
+@implementation FavouritesViewController {
+    NSInteger selectedVenue;
+}
 
 - (void)decorateCheckInButton {
     //check in button
@@ -93,6 +94,56 @@
 - (void)tapMenu {
     NSLog(@"menu triggered from button");
     [self.slidingViewController anchorTopViewTo:ECRight];
+}
+
+- (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView {
+    return 1;
+}
+
+- (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
+    AppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
+    return [appDelegate.images count];
+}
+
+- (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
+    static NSString *cellIdentifier = @"FavCell";
+    CrowdItem *item = [collectionView dequeueReusableCellWithReuseIdentifier:cellIdentifier forIndexPath:indexPath];
+
+    /*SHADOW AROUND OBJECTS*/
+    /*
+     item.layer.masksToBounds = NO;
+     item.layer.borderColor = [UIColor grayColor].CGColor;
+     item.layer.borderWidth = 1.5f;
+     item.layer.contentsScale = [UIScreen mainScreen].scale;
+     item.layer.shadowOpacity = 0.5f;
+     item.layer.shadowRadius = 3.0f;
+     item.layer.shadowOffset = CGSizeZero;
+     item.layer.shadowPath = [UIBezierPath bezierPathWithRect:item.bounds].CGPath;
+     //item.layer.shouldRasterize = YES;
+     */
+    /* Here we can set the elements of the crowdItem (the cell) in the cellview */
+    AppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
+    [[item crowdImage] setImage:[UIImage imageNamed:appDelegate.images[indexPath.item]]];
+
+    [[item venueName] setText:appDelegate.venueNames[indexPath.item]];
+
+    item.venueName.font = [UIFont fontWithName:@"Roboto" size:11.0f];
+
+    item.venueName.textColor = [UIColor whiteColor];
+
+    //Turn the indicator on or off:
+    if([item.venueName.text isEqual: @"mahiki"]){ //just an example filter
+        item.promotionIndicator.hidden = YES;
+    }else{
+        item.promotionIndicator.hidden = NO;
+    }
+
+    return item;
+}
+
+- (void)         collectionView:(UICollectionView *)collectionView
+    didHighlightItemAtIndexPath:(NSIndexPath *)indexPath {
+    selectedVenue = indexPath.row;
 }
 
 @end
