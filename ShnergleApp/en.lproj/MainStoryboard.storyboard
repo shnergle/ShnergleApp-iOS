@@ -1222,62 +1222,7 @@
                     <view key="view" contentMode="scaleToFill" id="3zF-Rl-p2R">
                         <rect key="frame" x="0.0" y="20" width="320" height="548"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jzh-IN-mtV" customClass="DropDownMenu">
-                                <color key="backgroundColor" red="0.001613451086956541" green="0.001613451086956541" blue="0.001613451086956541" alpha="1" colorSpace="calibratedRGB"/>
-                            </view>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Nqu-Ga-iCR" customClass="OverlayText">
-                                <subviews>
-                                    <collectionView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" minimumZoomScale="0.0" maximumZoomScale="0.0" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="r8V-Qi-LaI">
-                                        <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="ESy-ac-6Bj">
-                                            <size key="itemSize" width="50" height="50"/>
-                                            <size key="headerReferenceSize" width="0.0" height="0.0"/>
-                                            <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                                            <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
-                                        </collectionViewFlowLayout>
-                                        <cells>
-                                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="FavouritesCollectionCell" id="e9y-tp-hEb">
-                                                <rect key="frame" x="0.0" y="17" width="50" height="50"/>
-                                                <autoresizingMask key="autoresizingMask"/>
-                                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                                    <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
-                                                    <autoresizingMask key="autoresizingMask"/>
-                                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                                </view>
-                                            </collectionViewCell>
-                                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="Cell" id="SOP-v9-h8a" customClass="CrowdItem">
-                                                <rect key="frame" x="60" y="0.0" width="80" height="85"/>
-                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                                    <rect key="frame" x="0.0" y="0.0" width="80" height="85"/>
-                                                    <autoresizingMask key="autoresizingMask"/>
-                                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                                </view>
-                                                <size key="customSize" width="80" height="85"/>
-                                            </collectionViewCell>
-                                        </cells>
-                                    </collectionView>
-                                </subviews>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                                <constraints>
-                                    <constraint firstItem="r8V-Qi-LaI" firstAttribute="top" secondItem="Nqu-Ga-iCR" secondAttribute="top" type="default" id="Gpw-hf-LaE"/>
-                                    <constraint firstItem="r8V-Qi-LaI" firstAttribute="bottom" secondItem="Nqu-Ga-iCR" secondAttribute="bottom" type="default" id="hfc-Fh-nd6"/>
-                                    <constraint firstItem="r8V-Qi-LaI" firstAttribute="leading" secondItem="Nqu-Ga-iCR" secondAttribute="leading" type="default" id="lOk-OG-yGL"/>
-                                    <constraint firstItem="r8V-Qi-LaI" firstAttribute="trailing" secondItem="Nqu-Ga-iCR" secondAttribute="trailing" type="default" id="nCD-jG-MAE"/>
-                                </constraints>
-                            </view>
-                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstItem="jzh-IN-mtV" firstAttribute="top" secondItem="3zF-Rl-p2R" secondAttribute="top" constant="-260" id="12C-Ym-CNF"/>
-                            <constraint firstItem="jzh-IN-mtV" firstAttribute="leading" secondItem="3zF-Rl-p2R" secondAttribute="leading" type="default" id="DWe-7M-ZtN"/>
-                            <constraint firstItem="Nqu-Ga-iCR" firstAttribute="bottom" secondItem="3zF-Rl-p2R" secondAttribute="bottom" type="default" id="DsN-z9-fSO"/>
-                            <constraint firstItem="Nqu-Ga-iCR" firstAttribute="trailing" secondItem="3zF-Rl-p2R" secondAttribute="trailing" type="default" id="Wig-Ht-zuN"/>
-                            <constraint firstItem="Nqu-Ga-iCR" firstAttribute="leading" secondItem="3zF-Rl-p2R" secondAttribute="leading" type="default" id="euh-UI-54u"/>
-                            <constraint firstItem="jzh-IN-mtV" firstAttribute="trailing" secondItem="3zF-Rl-p2R" secondAttribute="trailing" type="default" id="mL6-WG-M3O"/>
-                            <constraint firstItem="Nqu-Ga-iCR" firstAttribute="top" secondItem="3zF-Rl-p2R" secondAttribute="top" type="default" id="n6d-Cb-xCK"/>
-                            <constraint firstAttribute="bottom" secondItem="jzh-IN-mtV" secondAttribute="bottom" constant="416" id="zfy-2M-5vi"/>
-                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="lN2-Tl-fnG">
                         <nil key="title"/>
@@ -1368,24 +1313,33 @@
                                                     <nil key="highlightedColor"/>
                                                     <size key="shadowOffset" width="0.0" height="0.0"/>
                                                 </label>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" image="PromotionStar.png" translatesAutoresizingMaskIntoConstraints="NO" id="s5g-hH-jXZ">
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="16" id="KwO-Zs-b7D"/>
+                                                        <constraint firstAttribute="width" constant="17" id="xvn-z2-H7l"/>
+                                                    </constraints>
+                                                </imageView>
                                             </subviews>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         </view>
                                         <color key="backgroundColor" red="0.81047559306569339" green="0.0" blue="0.88711792883211682" alpha="0.5" colorSpace="calibratedRGB"/>
                                         <constraints>
                                             <constraint firstItem="Adc-aB-2GZ" firstAttribute="top" secondItem="Bwr-Fv-ZJI" secondAttribute="top" constant="74" id="19S-8B-udA"/>
-                                            <constraint firstItem="22b-cz-pYx" firstAttribute="top" secondItem="Bwr-Fv-ZJI" secondAttribute="top" type="default" id="3SL-Id-b7t"/>
-                                            <constraint firstItem="22b-cz-pYx" firstAttribute="trailing" secondItem="Bwr-Fv-ZJI" secondAttribute="trailing" type="default" id="6aD-m1-UmM"/>
-                                            <constraint firstItem="22b-cz-pYx" firstAttribute="leading" secondItem="Bwr-Fv-ZJI" secondAttribute="leading" type="default" id="Hpc-IN-gF2"/>
-                                            <constraint firstItem="22b-cz-pYx" firstAttribute="bottom" secondItem="Bwr-Fv-ZJI" secondAttribute="bottom" type="default" id="QWn-kK-p11"/>
-                                            <constraint firstItem="Adc-aB-2GZ" firstAttribute="centerX" secondItem="22b-cz-pYx" secondAttribute="centerX" type="default" id="cTv-9e-6Mv"/>
-                                            <constraint firstItem="Adc-aB-2GZ" firstAttribute="trailing" secondItem="Bwr-Fv-ZJI" secondAttribute="trailing" type="default" id="gBK-Oq-7cH"/>
+                                            <constraint firstItem="22b-cz-pYx" firstAttribute="leading" secondItem="Bwr-Fv-ZJI" secondAttribute="leading" type="default" id="1sw-US-ala"/>
+                                            <constraint firstItem="s5g-hH-jXZ" firstAttribute="top" secondItem="Bwr-Fv-ZJI" secondAttribute="top" type="default" id="2Ii-gx-ETz"/>
+                                            <constraint firstItem="22b-cz-pYx" firstAttribute="trailing" secondItem="Bwr-Fv-ZJI" secondAttribute="trailing" type="default" id="8V3-Yi-aOA"/>
+                                            <constraint firstItem="22b-cz-pYx" firstAttribute="top" secondItem="Bwr-Fv-ZJI" secondAttribute="top" type="default" id="NZE-Mp-na7"/>
+                                            <constraint firstItem="Adc-aB-2GZ" firstAttribute="leading" secondItem="Bwr-Fv-ZJI" secondAttribute="leading" type="default" id="PR8-g1-OHU"/>
+                                            <constraint firstItem="s5g-hH-jXZ" firstAttribute="trailing" secondItem="Bwr-Fv-ZJI" secondAttribute="trailing" type="default" id="RYc-p6-8TC"/>
+                                            <constraint firstItem="Adc-aB-2GZ" firstAttribute="trailing" secondItem="Bwr-Fv-ZJI" secondAttribute="trailing" type="default" id="eq3-6Z-K62"/>
+                                            <constraint firstItem="22b-cz-pYx" firstAttribute="bottom" secondItem="Bwr-Fv-ZJI" secondAttribute="bottom" type="default" id="gVC-Td-M2a"/>
                                         </constraints>
                                         <size key="customSize" width="152" height="112"/>
                                         <connections>
                                             <outlet property="crowdImage" destination="22b-cz-pYx" id="4be-FD-nKY"/>
+                                            <outlet property="promotionIndicator" destination="s5g-hH-jXZ" id="wcm-2u-uZa"/>
                                             <outlet property="venueName" destination="Adc-aB-2GZ" id="w2i-o3-OT3"/>
-                                            <segue destination="rpF-0H-Qzy" kind="push" id="wJZ-W6-KFM"/>
+                                            <segue destination="rpF-0H-Qzy" kind="push" identifier="ToVenueSite" id="wJZ-W6-KFM"/>
                                         </connections>
                                     </collectionViewCell>
                                 </cells>
@@ -1754,9 +1708,6 @@
         <class className="CustomBackViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/CustomBackViewController.h"/>
         </class>
-        <class className="DropDownMenu" superclassName="UIView">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/DropDownMenu.h"/>
-        </class>
         <class className="ECSlidingViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/ECSlidingViewController.h"/>
         </class>
@@ -1769,6 +1720,7 @@
         <class className="FavouritesViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/FavouritesViewController.h"/>
             <relationships>
+                <relationship kind="action" name="menuButtonTriggered:"/>
                 <relationship kind="outlet" name="checkInButton" candidateClass="UIBarButtonItem"/>
                 <relationship kind="outlet" name="navBar" candidateClass="UINavigationBar"/>
                 <relationship kind="outlet" name="navBarItem" candidateClass="UINavigationItem"/>
@@ -1879,7 +1831,7 @@
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="Zho-BK-kL6"/>
-        <segue reference="Ad1-T8-PAD"/>
+        <segue reference="wJZ-W6-KFM"/>
+        <segue reference="HHH-Gt-FIZ"/>
     </inferredMetricsTieBreakers>
 </document>

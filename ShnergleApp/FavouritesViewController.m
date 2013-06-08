@@ -146,4 +146,11 @@
     selectedVenue = indexPath.row;
 }
 
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    AppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
+    if ([segue.identifier isEqualToString:@"ToVenueSite"]) {
+        [segue.destinationViewController setTitle:appDelegate.venueNames[selectedVenue]];
+    }
+}
+
 @end
