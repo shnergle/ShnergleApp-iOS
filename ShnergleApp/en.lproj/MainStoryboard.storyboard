@@ -1431,7 +1431,7 @@
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="Bwr-Fv-ZJI">
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="Cell" id="Bwr-Fv-ZJI">
                                         <rect key="frame" x="0.0" y="0.0" width="152" height="112"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
@@ -1439,7 +1439,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="22b-cz-pYx">
-                                                    <color key="backgroundColor" red="0.49803924560546875" green="0.40392160415649414" blue="0.74117648601531982" alpha="1" colorSpace="deviceRGB"/>
+                                                    <color key="backgroundColor" red="0.49803924560546875" green="0.40392160415649414" blue="0.74117648601531982" alpha="0.0" colorSpace="deviceRGB"/>
                                                 </imageView>
                                                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="2" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="151" translatesAutoresizingMaskIntoConstraints="NO" id="Adc-aB-2GZ">
                                                     <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.5" colorSpace="calibratedRGB"/>
@@ -1502,6 +1502,7 @@
                     </view>
                     <connections>
                         <outlet property="checkInButton" destination="Kbi-8Y-RPI" id="nTm-zl-SDf"/>
+                        <outlet property="crowdCollection" destination="KpA-8g-IKJ" id="lhS-tk-5Ud"/>
                         <outlet property="navBar" destination="BRG-Y7-nAX" id="u7F-nV-9mM"/>
                         <outlet property="navBarItem" destination="ijm-KI-t8F" id="bvl-rO-OW0"/>
                     </connections>
@@ -1842,7 +1843,9 @@
         <class className="FavouritesViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/FavouritesViewController.h"/>
             <relationships>
+                <relationship kind="action" name="menuButtonTriggered:"/>
                 <relationship kind="outlet" name="checkInButton" candidateClass="UIBarButtonItem"/>
+                <relationship kind="outlet" name="crowdCollection" candidateClass="UICollectionView"/>
                 <relationship kind="outlet" name="navBar" candidateClass="UINavigationBar"/>
                 <relationship kind="outlet" name="navBarItem" candidateClass="UINavigationItem"/>
             </relationships>
