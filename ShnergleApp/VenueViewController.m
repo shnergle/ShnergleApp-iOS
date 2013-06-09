@@ -9,7 +9,6 @@
 #import "VenueViewController.h"
 #import "CrowdItem.h"
 #import "PromotionView.h"
-#import "PromotionDetailView.h"
 #import "VenueGalleryViewController.h"
 #import "AppDelegate.h"
 
@@ -211,16 +210,7 @@
     [promotionView setpromotionTitle:promotionTitle];
     [promotionView setpromotionBody:promotionBody];
     [promotionView setpromotionExpiry:promotionExpiry];
-
-
-
-    [self.view addSubview:promotionView];
-}
-
-- (void)goToPromotionDetailView {
-    PromotionDetailView *promotionDetailView = [[NSBundle mainBundle] loadNibNamed:@"PromotionDetailView" owner:self options:nil][0];
-
-    [self.view addSubview:promotionDetailView];
+    [self.navigationController pushViewController:promotionView animated:YES];
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {

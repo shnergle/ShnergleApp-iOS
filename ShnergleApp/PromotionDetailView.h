@@ -7,7 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "CustomBackViewController.h"
 
-@interface PromotionDetailView : UIView
+@interface PromotionDetailView : CustomBackViewController
+- (IBAction)tapDone:(id)sender;
 
 @end

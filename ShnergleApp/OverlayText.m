@@ -8,7 +8,6 @@
 
 #import "OverlayText.h"
 #import "StoryboardLayersNavigation.h" //for getting the viewcontroller from this view.
-#import "PromotionViewController.h"
 #import "VenueViewController.h"
 #import "AppDelegate.h"
 

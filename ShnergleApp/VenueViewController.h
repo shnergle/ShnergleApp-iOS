@@ -27,7 +27,6 @@
 - (void)viewDidAppear:(BOOL)animated;
 - (void)viewWillAppear:(BOOL)animated;
 - (void)goToPromotionView;
-- (void)goToPromotionDetailView;
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender;
 
 @property (weak, nonatomic) IBOutlet UICollectionView *crowdCollectionV;

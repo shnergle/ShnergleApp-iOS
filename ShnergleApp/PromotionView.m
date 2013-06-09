@@ -9,6 +9,7 @@
 #import "PromotionView.h"
 #import "StoryboardLayersNavigation.h"
 #import "VenueViewController.h"
+#import "PromotionDetailView.h"
 
 
 @implementation PromotionView
@@ -22,10 +23,14 @@
    }
  */
 
-- (IBAction)tapUseDeal:(id)sender {
-    VenueViewController *parentVC = (VenueViewController *)[self firstAvailableUIViewController];
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    self.navigationItem.title = @"Promotion";
+}
 
-    [parentVC goToPromotionDetailView];
+- (IBAction)tapUseDeal:(id)sender {
+    PromotionDetailView *promotionDetailView = [[NSBundle mainBundle] loadNibNamed:@"PromotionDetailView" owner:self options:nil][0];
+    [self.navigationController pushViewController:promotionDetailView animated:YES];
 }
 
 - (void)setpromotionTitle:(NSString *)contents {
