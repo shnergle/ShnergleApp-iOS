@@ -29,6 +29,7 @@
 
 - (IBAction)tapUseDeal:(id)sender {
     PromotionDetailView *promotionDetailView = [[NSBundle mainBundle] loadNibNamed:@"PromotionDetailView" owner:self options:nil][0];
+    [promotionDetailView view];
     [self.navigationController pushViewController:promotionDetailView animated:YES];
 }
 

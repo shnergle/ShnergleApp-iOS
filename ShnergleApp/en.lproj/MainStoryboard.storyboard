@@ -30,7 +30,7 @@
                         <rect key="frame" x="0.0" y="20" width="320" height="548"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <view multipleTouchEnabled="YES" contentMode="scaleAspectFill" translatesAutoresizingMaskIntoConstraints="NO" id="jEV-Fr-dKK" customClass="GMSMapView">
+                            <view multipleTouchEnabled="YES" contentMode="scaleAspectFill" restorationIdentifier="" translatesAutoresizingMaskIntoConstraints="NO" id="jEV-Fr-dKK" customClass="GMSMapView">
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                                 <gestureRecognizers/>
                                 <connections>
@@ -1736,15 +1736,168 @@
         <image name="shnerglelogo_splash_screen.png" width="600" height="172"/>
         <image name="twitter-bird-white-on-blue.png" width="300" height="300"/>
     </resources>
+    <classes>
+        <class className="AroundMeSlidingViewController" superclassName="ECSlidingViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/AroundMeSlidingViewController.h"/>
+        </class>
+        <class className="AroundMeViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/AroundMeViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="sliderValueChanged:"/>
+                <relationship kind="action" name="tapArrow:"/>
+                <relationship kind="action" name="tapMap:"/>
+                <relationship kind="action" name="tapMenu:"/>
+                <relationship kind="outlet" name="checkInButton" candidateClass="UIBarButtonItem"/>
+                <relationship kind="outlet" name="crowdCollection" candidateClass="UICollectionView"/>
+                <relationship kind="outlet" name="distanceScroller" candidateClass="UISlider"/>
+                <relationship kind="outlet" name="distanceScrollerView" candidateClass="OverlayText"/>
+                <relationship kind="outlet" name="drawerCloseButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="mapView" candidateClass="GMSMapView"/>
+                <relationship kind="outlet" name="navBar" candidateClass="UINavigationBar"/>
+                <relationship kind="outlet" name="navBarMenuItem" candidateClass="UINavigationItem"/>
+                <relationship kind="outlet" name="overlay" candidateClass="OverlayText"/>
+            </relationships>
+        </class>
+        <class className="CheckInViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/CheckInViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="imageView" candidateClass="UIImageView"/>
+            </relationships>
+        </class>
+        <class className="CrowdItem" superclassName="UICollectionViewCell">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/CrowdItem.h"/>
+            <relationships>
+                <relationship kind="outlet" name="crowdImage" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="promotionIndicator" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="venueName" candidateClass="UILabel"/>
+            </relationships>
+        </class>
+        <class className="CustomBackViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/CustomBackViewController.h"/>
+        </class>
+        <class className="ECSlidingViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/ECSlidingViewController.h"/>
+        </class>
+        <class className="FBProfilePictureView" superclassName="UIView">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/FBProfilePictureView.h"/>
+        </class>
+        <class className="FavouritesSlidingViewController" superclassName="ECSlidingViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/FavouritesSlidingViewController.h"/>
+        </class>
+        <class className="FavouritesViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/FavouritesViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="checkInButton" candidateClass="UIBarButtonItem"/>
+                <relationship kind="outlet" name="navBar" candidateClass="UINavigationBar"/>
+                <relationship kind="outlet" name="navBarItem" candidateClass="UINavigationItem"/>
+            </relationships>
+        </class>
+        <class className="GCPlaceholderTextView" superclassName="UITextView">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/GCPlaceholderTextView.h"/>
+        </class>
+        <class className="GMSMapView" superclassName="UIView">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/GMSMapView.h"/>
+        </class>
+        <class className="LoginScreenController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/LoginScreenController.h"/>
+            <relationships>
+                <relationship kind="action" name="buttonClickHandler:"/>
+                <relationship kind="outlet" name="buttonLoginLogout" candidateClass="UIButton"/>
+            </relationships>
+        </class>
+        <class className="MenuViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/MenuViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="searchExited:"/>
+                <relationship kind="outlet" name="bar" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="nameLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="searchBar" candidateClass="SearchBarView"/>
+            </relationships>
+        </class>
+        <class className="NSLayoutConstraint" superclassName="NSObject">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/NSLayoutConstraint.h"/>
+        </class>
+        <class className="OverlayText" superclassName="UIView">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/OverlayText.h"/>
+            <relationships>
+                <relationship kind="action" name="swipeDown:"/>
+                <relationship kind="action" name="swipeUp:"/>
+                <relationship kind="action" name="tapPromotion:"/>
+                <relationship kind="action" name="tapPullerMenu:"/>
+                <relationship kind="outlet" name="offerContents" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="offerCount" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="offerHeadline" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="venueMap" candidateClass="GMSMapView"/>
+            </relationships>
+        </class>
+        <class className="PhotoLocationViewController" superclassName="CustomBackViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/PhotoLocationViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="headline" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="searchBar" candidateClass="UISearchBar"/>
+                <relationship kind="outlet" name="searchResultTable" candidateClass="UITableView"/>
+            </relationships>
+        </class>
+        <class className="ProfileViewController" superclassName="CustomBackViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/ProfileViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="twitterSwitchAction:"/>
+                <relationship kind="outlet" name="checkInView" candidateClass="UIView"/>
+                <relationship kind="outlet" name="explorerView" candidateClass="UIView"/>
+                <relationship kind="outlet" name="favourites" candidateClass="UIView"/>
+                <relationship kind="outlet" name="redeemed" candidateClass="UIView"/>
+                <relationship kind="outlet" name="scoutView" candidateClass="UIView"/>
+                <relationship kind="outlet" name="shnerglerView" candidateClass="UIView"/>
+                <relationship kind="outlet" name="twitterSwitch" candidateClass="UISwitch"/>
+                <relationship kind="outlet" name="userProfileImage1" candidateClass="FBProfilePictureView"/>
+                <relationship kind="outlet" name="userProfileImage2" candidateClass="FBProfilePictureView"/>
+                <relationship kind="outlet" name="userProfileImage3" candidateClass="FBProfilePictureView"/>
+            </relationships>
+        </class>
+        <class className="SearchBarView" superclassName="UIView">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/SearchBarView.h"/>
+        </class>
+        <class className="ShareViewController" superclassName="CustomBackViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/ShareViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="friendLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="image" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="nameList" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="textFieldname" candidateClass="GCPlaceholderTextView"/>
+            </relationships>
+        </class>
+        <class className="UICollectionReusableView" superclassName="UIView">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/UICollectionReusableView.h"/>
+        </class>
+        <class className="UICollectionViewCell" superclassName="UICollectionReusableView">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/UICollectionViewCell.h"/>
+        </class>
+        <class className="UICollectionViewFlowLayout" superclassName="UICollectionViewLayout">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/UICollectionViewFlowLayout.h"/>
+        </class>
+        <class className="VenueGalleryViewController" superclassName="CustomBackViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/VenueGalleryViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="imageScrollView" candidateClass="UIScrollView"/>
+            </relationships>
+        </class>
+        <class className="VenueViewController" superclassName="CustomBackViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/VenueViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="checkInButton" candidateClass="UIBarButtonItem"/>
+                <relationship kind="outlet" name="crowdCollectionV" candidateClass="UICollectionView"/>
+            </relationships>
+        </class>
+    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="V1y-Vn-JKN"/>
-        <segue reference="wJZ-W6-KFM"/>
-        <segue reference="HHH-Gt-FIZ"/>
         <segue reference="GBJ-CV-e6H"/>
+        <segue reference="wJZ-W6-KFM"/>
+        <segue reference="Ad1-T8-PAD"/>
+        <segue reference="V1y-Vn-JKN"/>
     </inferredMetricsTieBreakers>
 </document>
