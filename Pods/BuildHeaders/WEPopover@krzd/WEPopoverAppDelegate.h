@@ -1,1 +1,0 @@
-../../WEPopover@krzd/Classes/WEPopoverAppDelegate.h

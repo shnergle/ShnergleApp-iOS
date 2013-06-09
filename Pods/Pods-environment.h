@@ -36,9 +36,3 @@
 #define COCOAPODS_VERSION_MINOR_SBJson 2
 #define COCOAPODS_VERSION_PATCH_SBJson 0
 
-// WEPopover@krzd
-#define COCOAPODS_POD_AVAILABLE_WEPopover_krzd
-#define COCOAPODS_VERSION_MAJOR_WEPopover_krzd 0
-#define COCOAPODS_VERSION_MINOR_WEPopover_krzd 1
-#define COCOAPODS_VERSION_PATCH_WEPopover_krzd 0
-
