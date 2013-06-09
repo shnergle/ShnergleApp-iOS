@@ -103,8 +103,11 @@
         ((FavouritesSlidingViewController *)segue.destinationViewController).type = @"Quiet";
     } else if ([segue.identifier isEqualToString:@"TrendingSegue"]) {
         ((FavouritesSlidingViewController *)segue.destinationViewController).type = @"Trending";
-    } else if ([segue.identifier isEqualToString:@"ProfileSegue"]) {
+    }
+    if ([segue.identifier isEqualToString:@"ProfileSegue"]) {
         _profileCell.selected = NO;
+    } else {
+        [self.presentingViewController.navigationController popViewControllerAnimated:NO];
     }
 }
 
