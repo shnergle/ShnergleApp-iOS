@@ -8,9 +8,8 @@
 
 #import "AroundMeViewController.h"
 #import "CrowdItem.h"
-#import "CoreLocation/CoreLocation.h"
+#import <CoreLocation/CoreLocation.h>
 #import "MenuViewController.h"
-#import "UIImageResizing.h"
 #import "AppDelegate.h"
 
 @implementation AroundMeViewController

@@ -76,10 +76,6 @@
     // Dispose of any resources that can be recreated.
 }
 
-- (void)vewDidAppear {
-    [[self navigationController] setNavigationBarHidden:NO animated:YES];
-}
-
 - (IBAction)menuButtonTriggered:(id)sender {
     [self.slidingViewController anchorTopViewTo:ECRight];
 }
