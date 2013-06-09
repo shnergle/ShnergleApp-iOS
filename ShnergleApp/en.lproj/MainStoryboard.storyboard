@@ -22,10 +22,10 @@
             </objects>
             <point key="canvasLocation" x="-2315" y="57"/>
         </scene>
-        <!--Around Me View Controller-->
+        <!--Around Me-->
         <scene sceneID="5">
             <objects>
-                <viewController storyboardIdentifier="AroundMe" id="2" customClass="AroundMeViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="AroundMe" id="2" userLabel="Around Me" customClass="AroundMeViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="3">
                         <rect key="frame" x="0.0" y="20" width="320" height="548"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -248,10 +248,10 @@
             </objects>
             <point key="canvasLocation" x="-1403" y="39"/>
         </scene>
-        <!--Venue View Controller-->
+        <!--Venue-->
         <scene sceneID="MVj-zz-jE1">
             <objects>
-                <viewController storyboardIdentifier="Venue" id="rpF-0H-Qzy" customClass="VenueViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="Venue" id="rpF-0H-Qzy" userLabel="Venue" customClass="VenueViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="IVE-af-RYQ">
                         <rect key="frame" x="0.0" y="20" width="320" height="548"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -446,10 +446,10 @@
             </objects>
             <point key="canvasLocation" x="-707" y="972"/>
         </scene>
-        <!--Photo Location View Controller-->
+        <!--Photo Location-->
         <scene sceneID="gTR-eI-tKr">
             <objects>
-                <viewController storyboardIdentifier="PhotoLocationViewController" id="XrI-Qp-xcf" customClass="PhotoLocationViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="PhotoLocationViewController" id="XrI-Qp-xcf" userLabel="Photo Location" customClass="PhotoLocationViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="wWP-cp-JQK">
                         <rect key="frame" x="0.0" y="20" width="320" height="548"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -538,12 +538,12 @@
             </objects>
             <point key="canvasLocation" x="-226" y="317"/>
         </scene>
-        <!--Share View Controller-->
+        <!--Share-->
         <scene sceneID="kWb-KU-8CY">
             <objects>
-                <viewController storyboardIdentifier="ShareViewController" id="X6s-9K-8Ms" customClass="ShareViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ShareViewController" id="X6s-9K-8Ms" userLabel="Share" customClass="ShareViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="vOU-bV-1Mm">
-                        <rect key="frame" x="0.0" y="20" width="320" height="548"/>
+                        <rect key="frame" x="0.0" y="64" width="320" height="416"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xXT-6c-y6I">
@@ -714,20 +714,20 @@
             </objects>
             <point key="canvasLocation" x="298" y="317"/>
         </scene>
-        <!--Check In View Controller - Check in-->
+        <!--Check In-->
         <scene sceneID="MvE-mu-x5f">
             <objects>
-                <viewController id="CuC-E9-ArH" customClass="CheckInViewController" sceneMemberID="viewController">
+                <viewController id="CuC-E9-ArH" userLabel="Check In" customClass="CheckInViewController" sceneMemberID="viewController">
                     <navigationItem key="navigationItem" title="Check in" id="Oqo-OR-Jkq"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Dpl-bY-Po8" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-644" y="163"/>
         </scene>
-        <!--Profile View Controller - Profile Page-->
+        <!--Profile-->
         <scene sceneID="aFZ-SR-USp">
             <objects>
-                <viewController storyboardIdentifier="Profile" title="Profile Page" id="qgb-Kw-YNh" customClass="ProfileViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="Profile" title="Profile Page" id="qgb-Kw-YNh" userLabel="Profile" customClass="ProfileViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="T3d-vY-Mf8">
                         <rect key="frame" x="0.0" y="20" width="320" height="548"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -1279,10 +1279,10 @@
             </objects>
             <point key="canvasLocation" x="-1270" y="-726"/>
         </scene>
-        <!--Custom Sliding View Controller-->
+        <!--Favourites Sliding-->
         <scene sceneID="2ce-1L-Y1h">
             <objects>
-                <viewController id="O8X-O7-5VA" customClass="CustomSlidingViewController" sceneMemberID="viewController">
+                <viewController id="O8X-O7-5VA" userLabel="Favourites Sliding" customClass="CustomSlidingViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="3zF-Rl-p2R">
                         <rect key="frame" x="0.0" y="20" width="320" height="548"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -1335,10 +1335,10 @@
             </objects>
             <point key="canvasLocation" x="-1879" y="-1656"/>
         </scene>
-        <!--Favourites View Controller-->
+        <!--Favourites-->
         <scene sceneID="rVJ-cU-o2t">
             <objects>
-                <viewController storyboardIdentifier="Favourites" id="Hxi-4h-Khl" customClass="FavouritesViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="Favourites" id="Hxi-4h-Khl" userLabel="Favourites" customClass="FavouritesViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="6S5-MJ-Ufd">
                         <rect key="frame" x="0.0" y="20" width="320" height="548"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -1457,10 +1457,10 @@
             </objects>
             <point key="canvasLocation" x="-1540" y="-1656"/>
         </scene>
-        <!--Menu View Controller-->
+        <!--Menu-->
         <scene sceneID="o38-We-2n8">
             <objects>
-                <viewController storyboardIdentifier="AroundMeMenu" id="nGm-Na-jzU" customClass="MenuViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="AroundMeMenu" id="nGm-Na-jzU" userLabel="Menu" customClass="MenuViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="2oN-RZ-QoM">
                         <rect key="frame" x="0.0" y="20" width="320" height="548"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -1632,10 +1632,10 @@
             </objects>
             <point key="canvasLocation" x="-2277" y="-720"/>
         </scene>
-        <!--Custom Sliding View Controller-->
+        <!--Around Me Sliding-->
         <scene sceneID="kOd-FU-g3w">
             <objects>
-                <viewController storyboardIdentifier="AroundMeSlidingViewController" id="agu-Bk-UBN" customClass="CustomSlidingViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="AroundMeSlidingViewController" id="agu-Bk-UBN" userLabel="Around Me Sliding" customClass="CustomSlidingViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Km9-Iy-bjO">
                         <rect key="frame" x="0.0" y="20" width="320" height="548"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -1650,10 +1650,10 @@
             </objects>
             <point key="canvasLocation" x="-1745" y="-619"/>
         </scene>
-        <!--Login Screen Controller - Shnergle-->
+        <!--Login-->
         <scene sceneID="ddY-3I-oVq">
             <objects>
-                <viewController storyboardIdentifier="LoginScreenController" id="Elr-eK-1V1" customClass="LoginScreenController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="LoginScreenController" id="Elr-eK-1V1" userLabel="Login" customClass="LoginScreenController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="pvJ-ME-z3b">
                         <rect key="frame" x="0.0" y="20" width="320" height="548"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -1730,6 +1730,154 @@
         <image name="shnerglelogo_splash_screen.png" width="600" height="172"/>
         <image name="twitter-bird-white-on-blue.png" width="300" height="300"/>
     </resources>
+    <classes>
+        <class className="AroundMeViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/AroundMeViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="sliderValueChanged:"/>
+                <relationship kind="action" name="tapArrow:"/>
+                <relationship kind="action" name="tapMap:"/>
+                <relationship kind="action" name="tapMenu:"/>
+                <relationship kind="outlet" name="checkInButton" candidateClass="UIBarButtonItem"/>
+                <relationship kind="outlet" name="crowdCollection" candidateClass="UICollectionView"/>
+                <relationship kind="outlet" name="distanceScroller" candidateClass="UISlider"/>
+                <relationship kind="outlet" name="distanceScrollerView" candidateClass="OverlayText"/>
+                <relationship kind="outlet" name="drawerCloseButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="mapView" candidateClass="GMSMapView"/>
+                <relationship kind="outlet" name="navBar" candidateClass="UINavigationBar"/>
+                <relationship kind="outlet" name="navBarMenuItem" candidateClass="UINavigationItem"/>
+                <relationship kind="outlet" name="overlay" candidateClass="OverlayText"/>
+            </relationships>
+        </class>
+        <class className="CheckInViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/CheckInViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="imageView" candidateClass="UIImageView"/>
+            </relationships>
+        </class>
+        <class className="CrowdItem" superclassName="UICollectionViewCell">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/CrowdItem.h"/>
+            <relationships>
+                <relationship kind="outlet" name="crowdImage" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="promotionIndicator" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="venueName" candidateClass="UILabel"/>
+            </relationships>
+        </class>
+        <class className="CustomBackViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/CustomBackViewController.h"/>
+        </class>
+        <class className="CustomSlidingViewController" superclassName="ECSlidingViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/CustomSlidingViewController.h"/>
+        </class>
+        <class className="ECSlidingViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/ECSlidingViewController.h"/>
+        </class>
+        <class className="FBProfilePictureView" superclassName="UIView">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/FBProfilePictureView.h"/>
+        </class>
+        <class className="FavouritesViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/FavouritesViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="checkInButton" candidateClass="UIBarButtonItem"/>
+                <relationship kind="outlet" name="navBar" candidateClass="UINavigationBar"/>
+                <relationship kind="outlet" name="navBarItem" candidateClass="UINavigationItem"/>
+            </relationships>
+        </class>
+        <class className="GCPlaceholderTextView" superclassName="UITextView">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/GCPlaceholderTextView.h"/>
+        </class>
+        <class className="GMSMapView" superclassName="UIView">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/GMSMapView.h"/>
+        </class>
+        <class className="LoginScreenController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/LoginScreenController.h"/>
+            <relationships>
+                <relationship kind="action" name="buttonClickHandler:"/>
+                <relationship kind="outlet" name="buttonLoginLogout" candidateClass="UIButton"/>
+            </relationships>
+        </class>
+        <class className="MenuViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/MenuViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="bar" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="searchBar" candidateClass="SearchBarView"/>
+            </relationships>
+        </class>
+        <class className="NSLayoutConstraint" superclassName="NSObject">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/NSLayoutConstraint.h"/>
+        </class>
+        <class className="OverlayText" superclassName="UIView">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/OverlayText.h"/>
+            <relationships>
+                <relationship kind="action" name="swipeDown:"/>
+                <relationship kind="action" name="swipeUp:"/>
+                <relationship kind="action" name="tap:"/>
+                <relationship kind="action" name="tapPromotion:"/>
+                <relationship kind="action" name="tapPullerMenu:"/>
+                <relationship kind="outlet" name="offerContents" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="offerCount" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="offerHeadline" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="venueMap" candidateClass="GMSMapView"/>
+            </relationships>
+        </class>
+        <class className="PhotoLocationViewController" superclassName="CustomBackViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/PhotoLocationViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="headline" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="searchResultTable" candidateClass="UITableView"/>
+            </relationships>
+        </class>
+        <class className="ProfileViewController" superclassName="CustomBackViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/ProfileViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="twitterSwitchAction:"/>
+                <relationship kind="outlet" name="checkInView" candidateClass="UIView"/>
+                <relationship kind="outlet" name="explorerView" candidateClass="UIView"/>
+                <relationship kind="outlet" name="favourites" candidateClass="UIView"/>
+                <relationship kind="outlet" name="redeemed" candidateClass="UIView"/>
+                <relationship kind="outlet" name="scoutView" candidateClass="UIView"/>
+                <relationship kind="outlet" name="shnerglerView" candidateClass="UIView"/>
+                <relationship kind="outlet" name="twitterSwitch" candidateClass="UISwitch"/>
+                <relationship kind="outlet" name="userProfileImage1" candidateClass="FBProfilePictureView"/>
+                <relationship kind="outlet" name="userProfileImage2" candidateClass="FBProfilePictureView"/>
+                <relationship kind="outlet" name="userProfileImage3" candidateClass="FBProfilePictureView"/>
+            </relationships>
+        </class>
+        <class className="SearchBarView" superclassName="UIView">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/SearchBarView.h"/>
+        </class>
+        <class className="ShareViewController" superclassName="CustomBackViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/ShareViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="friendLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="image" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="nameList" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="textFieldname" candidateClass="GCPlaceholderTextView"/>
+            </relationships>
+        </class>
+        <class className="UICollectionReusableView" superclassName="UIView">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/UICollectionReusableView.h"/>
+        </class>
+        <class className="UICollectionViewCell" superclassName="UICollectionReusableView">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/UICollectionViewCell.h"/>
+        </class>
+        <class className="UICollectionViewFlowLayout" superclassName="UICollectionViewLayout">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/UICollectionViewFlowLayout.h"/>
+        </class>
+        <class className="VenueGalleryViewController" superclassName="CustomBackViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/VenueGalleryViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="imageScrollView" candidateClass="UIScrollView"/>
+            </relationships>
+        </class>
+        <class className="VenueViewController" superclassName="CustomBackViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/VenueViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="checkInButton" candidateClass="UIBarButtonItem"/>
+                <relationship kind="outlet" name="crowdCollectionV" candidateClass="UICollectionView"/>
+            </relationships>
+        </class>
+    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>
@@ -1738,7 +1886,7 @@
     <inferredMetricsTieBreakers>
         <segue reference="Zho-BK-kL6"/>
         <segue reference="ohm-kx-4nt"/>
+        <segue reference="V1y-Vn-JKN"/>
         <segue reference="xzO-IX-Cmd"/>
-        <segue reference="IPm-OE-qZg"/>
     </inferredMetricsTieBreakers>
 </document>
