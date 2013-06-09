@@ -12,6 +12,5 @@
 @property (weak, nonatomic) IBOutlet UINavigationBar *navBar;
 @property (weak, nonatomic) IBOutlet UINavigationItem *navBarItem;
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *checkInButton;
-@property (weak, nonatomic) NSString *type;
 
 @end

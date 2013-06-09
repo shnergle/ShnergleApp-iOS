@@ -10,7 +10,6 @@
 #import "AppDelegate.h"
 #import "SearchBarView.h"
 #import "PostRequest.h"
-#import "FavouritesSlidingViewController.h"
 
 @implementation MenuViewController
 
@@ -82,12 +81,15 @@
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    AppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
     if ([segue.identifier isEqualToString:@"PromotionSegue"]) {
-        ((FavouritesSlidingViewController *)segue.destinationViewController).type = @"Promotions";
+        appDelegate.topViewType = @"Promotions";
     } else if ([segue.identifier isEqualToString:@"QuietSegue"]) {
-        ((FavouritesSlidingViewController *)segue.destinationViewController).type = @"Quiet";
+        appDelegate.topViewType = @"Quiet";
     } else if ([segue.identifier isEqualToString:@"TrendingSegue"]) {
-        ((FavouritesSlidingViewController *)segue.destinationViewController).type = @"Trending";
+        appDelegate.topViewType = @"Trending";
+    } else if ([segue.identifier isEqualToString:@"FavouritesSegue"]) {
+        appDelegate.topViewType = @"Favourites";
     }
     if ([segue.identifier isEqualToString:@"ProfileSegue"]) {
         _profileCell.selected = NO;

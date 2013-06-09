@@ -51,7 +51,8 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    if (_type) ((UINavigationItem *)self.navBar.items[0]).title = _type;
+    AppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
+    if (appDelegate.topViewType) ((UINavigationItem *)self.navBar.items[0]).title = appDelegate.topViewType;
     [self menuButtonDecorations];
     [self decorateCheckInButton];
     //THE SANDWICH MENU SYSTEM (ECSlidingViewController)
