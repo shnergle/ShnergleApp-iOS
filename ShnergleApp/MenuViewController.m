@@ -48,6 +48,7 @@
     if (indexPath.section == 0) {
         cell.accessoryView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"profileicon.png"]];
         cell.accessoryView.bounds = CGRectMake(0, 0, 27, 19);
+        _profileCell = cell;
     } else if (indexPath.row == 1) {
         UILabel *noLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 20, 15)];
         noLabel.text = @"0";
@@ -58,10 +59,6 @@
         cell.accessoryView.opaque = NO;
     }
     return cell;
-}
-
-- (IBAction)tapProfile:(id)sender {
-    NSLog(@"Profile tapped");
 }
 
 - (IBAction)searchExited:(id)sender {
@@ -106,6 +103,8 @@
         ((FavouritesSlidingViewController *)segue.destinationViewController).type = @"Quiet";
     } else if ([segue.identifier isEqualToString:@"TrendingSegue"]) {
         ((FavouritesSlidingViewController *)segue.destinationViewController).type = @"Trending";
+    } else if ([segue.identifier isEqualToString:@"ProfileSegue"]) {
+        _profileCell.selected = NO;
     }
 }
 
