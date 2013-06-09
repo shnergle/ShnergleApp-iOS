@@ -19,18 +19,9 @@
     // Do any additional setup after loading the view from its nib.
 
     //load search bar
-    NSArray *bundle = [[NSBundle mainBundle] loadNibNamed:@"SearchBar" owner:self options:nil];
-    SearchBarView *blah;
-    for (id object in bundle) {
-        if ([object isKindOfClass:[SearchBarView class]]) blah = (SearchBarView *)object;
-    }
-    assert(blah != nil && "searchBarView can't be nil");
-    [self.view addSubview:blah];
-    AppDelegate *appDelegate = [[UIApplication sharedApplication]delegate];
-
-    _nameLabel.font = [UIFont fontWithName:@"Roboto" size:_nameLabel.font.pointSize];
-    _nameLabel.textColor = [UIColor whiteColor];
-    _nameLabel.text = appDelegate.fullName;
+    UIView *searchBar = [[NSBundle mainBundle] loadNibNamed:@"SearchBar" owner:self options:nil][0];
+    [self.view addSubview:searchBar];
+    AppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
 
     _tableSections = @[@"Profile", @"Explore"];
     _tableData = @{@0: @[appDelegate.fullName], @1: @[@"Around Me", @"Favourites", @"Promotions", @"Quiet", @"Trending"]};
@@ -59,12 +50,6 @@
         cell.accessoryView.opaque = NO;
     }
     return cell;
-}
-
-- (IBAction)searchExited:(id)sender {
-    AppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
-    NSString *params = [NSString stringWithFormat:@"term=%@&facebook_id=%@", _bar.text, appDelegate.facebookId];
-    [[[PostRequest alloc] init] exec:@"user_searches/set" params:params delegate:self callback:@selector(postResponse:)];
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
@@ -109,6 +94,14 @@
     } else {
         [self.presentingViewController.navigationController popViewControllerAnimated:NO];
     }
+}
+
+- (BOOL)textFieldShouldReturn:(UITextField *)textField {
+    AppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
+    NSString *params = [NSString stringWithFormat:@"term=%@&facebook_id=%@", _bar.text, appDelegate.facebookId];
+    [[[PostRequest alloc] init] exec:@"user_searches/set" params:params delegate:self callback:@selector(postResponse:)];
+    [textField resignFirstResponder];
+    return YES;
 }
 
 @end
