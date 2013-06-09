@@ -45,4 +45,8 @@
     return cell;
 }
 
+- (void)searchBarSearchButtonClicked:(UISearchBar *)searchBar {
+    [searchBar resignFirstResponder];
+}
+
 @end
