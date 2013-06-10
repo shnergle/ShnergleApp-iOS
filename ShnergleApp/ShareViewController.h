@@ -12,7 +12,7 @@
 #import "CustomBackViewController.h"
 
 
-@interface ShareViewController : CustomBackViewController <FBViewControllerDelegate> {
+@interface ShareViewController : CustomBackViewController <FBViewControllerDelegate, UITextViewDelegate> {
     id selectedFriends;
 }
 @property (weak, nonatomic) IBOutlet UIImageView *image;

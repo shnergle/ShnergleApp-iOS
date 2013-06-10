@@ -13,29 +13,28 @@
 
 @interface FavouritesViewController ()
 
-@end
-
-@implementation FavouritesViewController
+@implementation FavouritesViewController {
+    NSInteger selectedVenue;
+}
 
 - (void)decorateCheckInButton {
     //check in button
     [self.checkInButton setTitleTextAttributes:
      @{UITextAttributeTextColor: [UIColor whiteColor],
-                UITextAttributeTextShadowColor: [UIColor clearColor],
-               UITextAttributeTextShadowOffset: [NSValue valueWithUIOffset:UIOffsetMake(0, 0)],
-                           UITextAttributeFont: [UIFont fontWithName:@"Roboto" size:14.0]}
+       UITextAttributeTextShadowColor: [UIColor clearColor],
+       UITextAttributeTextShadowOffset: [NSValue valueWithUIOffset:UIOffsetMake(0, 0)],
+       UITextAttributeFont: [UIFont fontWithName:@"Roboto" size:14.0]}
                                       forState:UIControlStateNormal];
 }
 
-
 - (UIBarButtonItem *)createLeftBarButton:(NSString *)imageName actionSelector:(SEL)actionSelector {
     UIImage *menuButtonImg = [UIImage imageNamed:imageName];
-    
+
     UIButton *menuButtonTmp = [UIButton buttonWithType:UIButtonTypeCustom];
     menuButtonTmp.frame = CGRectMake(280.0, 10.0, 22.0, 22.0);
     [menuButtonTmp setBackgroundImage:menuButtonImg forState:UIControlStateNormal];
     [menuButtonTmp addTarget:self action:actionSelector forControlEvents:UIControlEventTouchUpInside];
-    
+
     UIBarButtonItem *menuButton = [[UIBarButtonItem alloc]initWithCustomView:menuButtonTmp];
     return menuButton;
 }
@@ -43,20 +42,19 @@
 - (void)menuButtonDecorations {
     SEL actionSelector = @selector(tapMenu);
     NSString *imageName = @"mainmenu_button.png";
-    
-    
+
+
     UIBarButtonItem *menuButton;
     menuButton = [self createLeftBarButton:imageName actionSelector:actionSelector];
-    
-    
+
+
     self.navBarItem.leftBarButtonItem = menuButton;
 }
 
-
-- (void)viewDidLoad
-{
+- (void)viewDidLoad {
     [super viewDidLoad];
-    self.navigationItem.title = @"Favourites";
+    AppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
+    if (appDelegate.topViewType) ((UINavigationItem *)self.navBar.items[0]).title = appDelegate.topViewType;
     [self menuButtonDecorations];
     [self decorateCheckInButton];
     [[self crowdCollection] setDataSource:self];
@@ -66,30 +64,22 @@
     if (![self.slidingViewController.underLeftViewController isKindOfClass:[MenuViewController class]]) {
         self.slidingViewController.underLeftViewController  = [self.storyboard instantiateViewControllerWithIdentifier:@"AroundMeMenu"];
     }
-    
+
     [self.slidingViewController setAnchorRightRevealAmount:230.0f];
-    
+
     // Shadow for sandwich system
     self.view.layer.shadowOpacity = 0.75f;
     self.view.layer.shadowRadius = 10.0f;
     self.view.layer.shadowColor = [UIColor blackColor].CGColor;
-    
+
     //remove shadow from navbar
     self.navigationController.navigationBar.clipsToBounds = YES;
     self.navBar.clipsToBounds = YES;
-
 }
 
-- (void)didReceiveMemoryWarning
-{
+- (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
-}
-
--(void)vewDidAppear{
-    
-    [[self navigationController] setNavigationBarHidden:NO animated:YES];
-    
 }
 
 - (IBAction)menuButtonTriggered:(id)sender {

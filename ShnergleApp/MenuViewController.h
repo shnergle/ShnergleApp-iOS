@@ -10,13 +10,12 @@
 #import <FacebookSDK/FacebookSDK.h>
 #import "SearchBarView.h"
 
-@interface MenuViewController : UIViewController <UITableViewDataSource>
+@interface MenuViewController : UIViewController <UITableViewDataSource, UITableViewDelegate, UITextFieldDelegate>
 
-@property (weak, nonatomic) IBOutlet UILabel *nameLabel;
 @property (weak, nonatomic) IBOutlet SearchBarView *searchBar;
-- (IBAction)tapProfile:(id)sender;
-- (IBAction)searchExited:(id)sender;
 @property (weak, nonatomic) IBOutlet UITextField *bar;
-@property (nonatomic, retain) NSArray *tableData;
+@property (strong, nonatomic) NSArray *tableSections;
+@property (strong, nonatomic) NSDictionary *tableData;
+@property (strong, nonatomic) UITableViewCell *profileCell;
 
 @end

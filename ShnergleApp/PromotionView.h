@@ -7,8 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "CustomBackViewController.h"
 
-@interface PromotionView : UIView
+@interface PromotionView : CustomBackViewController
 @property (weak, nonatomic) IBOutlet UILabel *promotionBody;
 @property (weak, nonatomic) IBOutlet UILabel *promotionTitle;
 @property (weak, nonatomic) IBOutlet UILabel *promotionExpiry;

@@ -50,43 +50,43 @@
 - (void)customiseNavBar {
     [[UINavigationBar appearance] setTitleTextAttributes:
      @{UITextAttributeTextColor: [UIColor colorWithRed:0 green:0 blue:0 alpha:1.0],
-      UITextAttributeTextShadowColor: [UIColor clearColor],
-      UITextAttributeTextShadowOffset: [NSValue valueWithUIOffset:UIOffsetMake(0, 0)],
-      UITextAttributeFont: [UIFont fontWithName:@"Roboto-Regular" size:20.0]}];
-    
+       UITextAttributeTextShadowColor: [UIColor clearColor],
+       UITextAttributeTextShadowOffset: [NSValue valueWithUIOffset:UIOffsetMake(0, 0)],
+       UITextAttributeFont: [UIFont fontWithName:@"Roboto-Regular" size:20.0]}];
+
     [[UINavigationBar appearance] setTintColor:[UIColor colorWithRed:233.0 / 255 green:235.0 / 255 blue:240.0 / 255 alpha:1.0]];
-    
+
     [[UIBarButtonItem appearanceWhenContainedIn:[UINavigationBar class], nil] setTitleTextAttributes:@{UITextAttributeTextColor: [UIColor blackColor]} forState:UIControlStateNormal];
-    
+
     NSDictionary *attributes = @{UITextAttributeTextColor: [UIColor whiteColor],
-                                UITextAttributeTextShadowColor: [UIColor clearColor]};
-    
+                                 UITextAttributeTextShadowColor: [UIColor clearColor]};
+
     [[UIBarButtonItem appearance] setTitleTextAttributes:attributes
                                                 forState:UIControlStateNormal];
 }
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     [self customiseNavBar];
-    
+
     //self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     // Override point for customization after application launch.
     /*if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPhone) {
-     self.viewController = [[LoginScreenController alloc] initWithNibName:@"viewcont" bundle:nil];
-     } else {
-     self.viewController = [[LoginScreenController alloc] initWithNibName:@"viewcont" bundle:nil];
-     }*/
+       self.viewController = [[LoginScreenController alloc] initWithNibName:@"viewcont" bundle:nil];
+       } else {
+       self.viewController = [[LoginScreenController alloc] initWithNibName:@"viewcont" bundle:nil];
+       }*/
     //self.window.rootViewController = self.viewController;
     //[self.window makeKeyAndVisible];
-    
+
     // Override point for customization after application launch.
     /*UIViewController *rootViewController = [[UIViewController alloc] init];
-     self.window.rootViewController = rootViewController;
-     
-     LoginScreenController *loginViewController = [[LoginScreenController alloc] init];
-     [rootViewController presentViewController:loginViewController animated:NO completion:nil];*/
+       self.window.rootViewController = rootViewController;
+
+       LoginScreenController *loginViewController = [[LoginScreenController alloc] init];
+       [rootViewController presentViewController:loginViewController animated:NO completion:nil];*/
     //[self.window addSubview: [Controller view]];
     //[self.window makeKeyAndVisible];
-    
+
     [GMSServices provideAPIKey:@"AIzaSyBiJeQvT0FUQdGPMbOR8DFGdVbEtHMJe7c"];
     _appSecret = @"FCuf65iuOUDCjlbiyyer678Coutyc64v655478VGvgh76";
     return YES;
@@ -100,13 +100,13 @@
 // completely logging in
 - (void)applicationDidBecomeActive:(UIApplication *)application {
     /*
-     Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
+       Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
      */
-    
+
     // FBSample logic
     // We need to properly handle activation of the application with regards to SSO
     //  (e.g., returning from iOS 6.0 authorization dialog or from fast app switching).
-    
+
     [FBAppCall handleDidBecomeActiveWithSession:self.session];
 }
 
@@ -125,8 +125,8 @@
 }
 
 /*- (void) closeSession {
- [FBSession.activeSession closeAndClearTokenInformation];
- }
+   [FBSession.activeSession closeAndClearTokenInformation];
+   }
  */
 
 @end

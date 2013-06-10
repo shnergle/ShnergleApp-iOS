@@ -13,127 +13,97 @@
 
 @implementation MenuViewController
 
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-    if (self) {
-        // Custom initialization
-    }
-    return self;
-}
-
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
-    
+
     //load search bar
-    NSArray *bundle = [[NSBundle mainBundle] loadNibNamed:@"SearchBar" owner:self options:nil];
-    SearchBarView *blah;
-    for (id object in bundle) {
-        if ([object isKindOfClass:[SearchBarView class]]) blah = (SearchBarView *)object;
-    }
-    assert(blah != nil && "searchBarView can't be nil");
-    [self.view addSubview:blah];
-    AppDelegate *appDelegate = [[UIApplication sharedApplication]delegate];
-    
-    _nameLabel.font = [UIFont fontWithName:@"Roboto" size:_nameLabel.font.pointSize];
-    _nameLabel.textColor = [UIColor whiteColor];
-    _nameLabel.text = appDelegate.fullName;
-    
-    _tableData = @[@"Around me", @"Favourites", @"Promotions", @"Quiet", @"Trending"];
-    
-    
-    
+    UIView *searchBar = [[NSBundle mainBundle] loadNibNamed:@"SearchBar" owner:self options:nil][0];
+    [self.view addSubview:searchBar];
+    AppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
+
+    _tableSections = @[@"Profile", @"Explore"];
+    _tableData = @{@0: @[appDelegate.fullName], @1: @[@"Around Me", @"Favourites", @"Promotions", @"Quiet", @"Trending"]};
 }
 
 - (void)postResponse:(NSString *)response {
     NSLog(@"search response: %@", response);
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
-
-/*- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return [_tableData count];
-}*/
-
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell = nil;
-    
-    if (indexPath.section != 0)
-    {
-        cell = [tableView dequeueReusableCellWithIdentifier:[NSString stringWithFormat:@"MyCell%d", indexPath.item]];
-    }
-    
-    if (cell == nil) {
-        cell = [tableView dequeueReusableCellWithIdentifier:@"MyCell"];
-    }
-    
-    AppDelegate *appdelegate = [[UIApplication sharedApplication] delegate];
-    if (indexPath.section == 0) {
-        cell.textLabel.text = appdelegate.fullName;
-    }
-    else
-    {
-    cell.textLabel.text = _tableData[indexPath.row];
-    }
-    
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:[NSString stringWithFormat:@"MyCell%d%d", indexPath.section, indexPath.item]];
+    cell.textLabel.text = _tableData[@(indexPath.section)][indexPath.row];
     cell.textLabel.textColor = [UIColor whiteColor];
-    cell.textLabel.font = [UIFont fontWithName:@"Roboto" size:20.0];
-
-    if (indexPath.section == 0) cell.accessoryView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"profileicon.png"]];
-    
+    cell.textLabel.font = [UIFont fontWithName:@"Roboto" size:20];
+    if (indexPath.section == 0) {
+        cell.accessoryView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"profileicon.png"]];
+        cell.accessoryView.bounds = CGRectMake(0, 0, 27, 19);
+        _profileCell = cell;
+    } else if (indexPath.row == 1) {
+        UILabel *noLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 20, 15)];
+        noLabel.text = @"0";
+        noLabel.font = [UIFont fontWithName:@"Roboto" size:20];
+        noLabel.textColor = [UIColor whiteColor];
+        noLabel.backgroundColor = [UIColor clearColor];
+        cell.accessoryView = noLabel;
+        cell.accessoryView.opaque = NO;
+    }
     return cell;
 }
 
-- (IBAction)tapProfile:(id)sender {
-    NSLog(@"Profle tapped");
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    return [_tableData[@(section)] count];
 }
 
-- (IBAction)searchExited:(id)sender {
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
+    return [_tableData count];
+}
+
+- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
+    return _tableSections[section];
+}
+
+- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
+    UILabel *sectionLabel = [[UILabel alloc] init];
+    sectionLabel.textColor = [UIColor colorWithRed:117 / 255. green:117 / 255. blue:117 / 255. alpha:1];
+    sectionLabel.backgroundColor = [UIColor colorWithRed:29 / 255. green:29 / 255. blue:29 / 255. alpha:1];
+    sectionLabel.font = [UIFont fontWithName:@"Roboto-Regular" size:12];
+    sectionLabel.text = [NSString stringWithFormat:@"   %@", [self tableView:tableView titleForHeaderInSection:section]];
+    return sectionLabel;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section {
+    return [_tableData count] - 1 == section ? tableView.sectionFooterHeight : 0;
+}
+
+- (UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section {
+    return [[UIView alloc] init];
+}
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    AppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
+    if ([segue.identifier isEqualToString:@"PromotionSegue"]) {
+        appDelegate.topViewType = @"Promotions";
+    } else if ([segue.identifier isEqualToString:@"QuietSegue"]) {
+        appDelegate.topViewType = @"Quiet";
+    } else if ([segue.identifier isEqualToString:@"TrendingSegue"]) {
+        appDelegate.topViewType = @"Trending";
+    } else if ([segue.identifier isEqualToString:@"FavouritesSegue"]) {
+        appDelegate.topViewType = @"Favourites";
+    }
+    if ([segue.identifier isEqualToString:@"ProfileSegue"]) {
+        _profileCell.selected = NO;
+    } else {
+        [self.presentingViewController.navigationController popViewControllerAnimated:NO];
+    }
+}
+
+- (BOOL)textFieldShouldReturn:(UITextField *)textField {
     AppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
     NSString *params = [NSString stringWithFormat:@"term=%@&facebook_id=%@", _bar.text, appDelegate.facebookId];
     [[[PostRequest alloc] init] exec:@"user_searches/set" params:params delegate:self callback:@selector(postResponse:)];
+    [textField resignFirstResponder];
+    return YES;
 }
-
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
-{
-    if (section == 0)
-    {
-        return 1;
-    }
-    else
-    {
-        return 5;
-    }
-}
-
--(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
-{
-    return 2;
-}
-
-/*-(NSArray *)sectionIndexTitlesForTableView:(UITableView *)tableView
-{
-    return @[@"Profile", @"Explore"];
-}*/
-
-- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
-{
-    
-    return (@[@"Profile", @"Explore"])[section];
-    
-    //[section setBackgroundColor:[UIColor blackColor]];
-}
-
-
-/*- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
-{
-    UIView *section = [[[UIView alloc] initWithFrame:CGRectMake(0, 0, tableView.bounds.size.width, 22)] autorelease];
-    
-    return section;
-}*/
-
 
 @end

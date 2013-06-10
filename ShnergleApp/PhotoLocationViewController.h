@@ -9,11 +9,11 @@
 #import <UIKit/UIKit.h>
 #import "CustomBackViewController.h"
 
-@interface PhotoLocationViewController : CustomBackViewController
+@interface PhotoLocationViewController : CustomBackViewController <UISearchBarDelegate>
+
 @property (weak, nonatomic) IBOutlet UILabel *headline;
-@property (weak, nonatomic) IBOutlet UISearchBar *searchBar;
 @property (weak, nonatomic) IBOutlet UITableView *searchResultTable;
-@property (nonatomic, retain) NSArray *tableData;
+@property (strong, nonatomic) NSArray *tableData;
 
 
 @end

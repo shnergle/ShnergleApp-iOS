@@ -31,21 +31,6 @@ install_resource()
 install_resource 'Facebook-iOS-SDK/src/FacebookSDKResources.bundle'
 install_resource 'Facebook-iOS-SDK/src/FBUserSettingsViewResources.bundle'
 install_resource 'Google-Maps-iOS-SDK/GoogleMaps.framework/Versions/A/Resources/GoogleMaps.bundle'
-install_resource 'WEPopover/popoverArrowDown.png'
-install_resource 'WEPopover/popoverArrowDown@2x.png'
-install_resource 'WEPopover/popoverArrowDownSimple.png'
-install_resource 'WEPopover/popoverArrowLeft.png'
-install_resource 'WEPopover/popoverArrowLeft@2x.png'
-install_resource 'WEPopover/popoverArrowLeftSimple.png'
-install_resource 'WEPopover/popoverArrowRight.png'
-install_resource 'WEPopover/popoverArrowRight@2x.png'
-install_resource 'WEPopover/popoverArrowRightSimple.png'
-install_resource 'WEPopover/popoverArrowUp.png'
-install_resource 'WEPopover/popoverArrowUp@2x.png'
-install_resource 'WEPopover/popoverArrowUpSimple.png'
-install_resource 'WEPopover/popoverBg.png'
-install_resource 'WEPopover/popoverBg@2x.png'
-install_resource 'WEPopover/popoverBgSimple.png'
 
 rsync -avr --no-relative --exclude '*/.svn/*' --files-from="$RESOURCES_TO_COPY" / "${CONFIGURATION_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}"
 rm "$RESOURCES_TO_COPY"

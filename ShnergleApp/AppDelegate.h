@@ -32,4 +32,6 @@
 
 @property (strong, nonatomic) UIImage *shareImage;
 
+@property (strong, nonatomic) NSString *topViewType;
+
 @end
