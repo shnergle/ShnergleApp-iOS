@@ -248,6 +248,90 @@
             </objects>
             <point key="canvasLocation" x="-1403" y="39"/>
         </scene>
+        <!--Add Venue View Controller-->
+        <scene sceneID="FeI-Fr-9M4">
+            <objects>
+                <viewController id="0PX-8N-tNM" customClass="AddVenueViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="i1y-ck-Dxh">
+                        <rect key="frame" x="0.0" y="20" width="320" height="548"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JFV-gw-isO" customClass="GMSMapView">
+                                <color key="backgroundColor" white="0.6156763229927007" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
+                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="r0m-Qg-RYy">
+                                <items>
+                                    <navigationItem title="Add a Place" id="KFZ-0L-FC2">
+                                        <barButtonItem key="rightBarButtonItem" title="Add" id="J02-eK-3bB">
+                                            <color key="tintColor" red="0.40000000000000002" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        </barButtonItem>
+                                    </navigationItem>
+                                </items>
+                            </navigationBar>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="YEy-1w-LuT">
+                                <color key="backgroundColor" white="1" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="209" id="htY-n7-4gM"/>
+                                </constraints>
+                                <prototypes>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" indentationWidth="10" id="pvs-HM-1nX">
+                                        <rect key="frame" x="0.0" y="22" width="320" height="44"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        </view>
+                                    </tableViewCell>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" indentationWidth="10" id="EtV-YV-F9o">
+                                        <rect key="frame" x="0.0" y="66" width="320" height="44"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        </view>
+                                    </tableViewCell>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" indentationWidth="10" id="NNw-CE-Azl">
+                                        <rect key="frame" x="0.0" y="110" width="320" height="44"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        </view>
+                                    </tableViewCell>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" indentationWidth="10" id="NZZ-2F-fQ6">
+                                        <rect key="frame" x="0.0" y="154" width="320" height="44"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        </view>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="JFV-gw-isO" firstAttribute="leading" secondItem="i1y-ck-Dxh" secondAttribute="leading" type="default" id="0i6-d6-tPg"/>
+                            <constraint firstItem="YEy-1w-LuT" firstAttribute="top" secondItem="JFV-gw-isO" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="8h9-xa-G2c"/>
+                            <constraint firstItem="JFV-gw-isO" firstAttribute="top" secondItem="r0m-Qg-RYy" secondAttribute="bottom" type="default" id="Old-46-GrC"/>
+                            <constraint firstItem="JFV-gw-isO" firstAttribute="trailing" secondItem="i1y-ck-Dxh" secondAttribute="trailing" type="default" id="RaE-zL-AgD"/>
+                            <constraint firstItem="r0m-Qg-RYy" firstAttribute="top" secondItem="i1y-ck-Dxh" secondAttribute="top" type="default" id="eAt-SC-MxZ"/>
+                            <constraint firstItem="r0m-Qg-RYy" firstAttribute="leading" secondItem="i1y-ck-Dxh" secondAttribute="leading" type="default" id="enK-fX-B8a"/>
+                            <constraint firstItem="r0m-Qg-RYy" firstAttribute="trailing" secondItem="i1y-ck-Dxh" secondAttribute="trailing" type="default" id="mOR-Rc-TUp"/>
+                            <constraint firstItem="YEy-1w-LuT" firstAttribute="leading" secondItem="i1y-ck-Dxh" secondAttribute="leading" type="default" id="pLg-Kl-Gl1"/>
+                            <constraint firstItem="YEy-1w-LuT" firstAttribute="trailing" secondItem="i1y-ck-Dxh" secondAttribute="trailing" type="default" id="tzn-0b-Wqq"/>
+                            <constraint firstItem="YEy-1w-LuT" firstAttribute="top" secondItem="i1y-ck-Dxh" secondAttribute="top" constant="235" id="uq4-x6-stq"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Omm-dV-3wh" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1942" y="818"/>
+        </scene>
         <!--Venue-->
         <scene sceneID="MVj-zz-jE1">
             <objects>
@@ -1471,7 +1555,7 @@
                                 <constraints>
                                     <constraint firstAttribute="width" constant="233" id="qAg-de-od2"/>
                                 </constraints>
-                                <color key="separatorColor" white="0.79000000000000004" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="separatorColor" cocoaTouchSystemColor="scrollViewTexturedBackgroundColor"/>
                                 <prototypes>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="blue" indentationWidth="10" reuseIdentifier="MyCell00" textLabel="bIW-ss-7SZ" style="IBUITableViewCellStyleDefault" id="uJ3-86-6jI">
                                         <rect key="frame" x="0.0" y="22" width="233" height="44"/>
@@ -1732,6 +1816,9 @@
         <image name="twitter-bird-white-on-blue.png" width="300" height="300"/>
     </resources>
     <classes>
+        <class className="AddVenueViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/AddVenueViewController.h"/>
+        </class>
         <class className="AroundMeViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/AroundMeViewController.h"/>
             <relationships>
@@ -1779,7 +1866,6 @@
         <class className="FavouritesViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/FavouritesViewController.h"/>
             <relationships>
-                <relationship kind="action" name="menuButtonTriggered:"/>
                 <relationship kind="outlet" name="checkInButton" candidateClass="UIBarButtonItem"/>
                 <relationship kind="outlet" name="crowdCollection" candidateClass="UICollectionView"/>
                 <relationship kind="outlet" name="navBar" candidateClass="UINavigationBar"/>
@@ -1814,7 +1900,6 @@
             <relationships>
                 <relationship kind="action" name="swipeDown:"/>
                 <relationship kind="action" name="swipeUp:"/>
-                <relationship kind="action" name="tap:"/>
                 <relationship kind="action" name="tapPromotion:"/>
                 <relationship kind="action" name="tapPullerMenu:"/>
                 <relationship kind="outlet" name="offerContents" candidateClass="UILabel"/>
@@ -1866,6 +1951,9 @@
         </class>
         <class className="UICollectionViewFlowLayout" superclassName="UICollectionViewLayout">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/UICollectionViewFlowLayout.h"/>
+        </class>
+        <class className="UICollectionViewLayout" superclassName="NSObject">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/UICollectionViewLayout.h"/>
         </class>
         <class className="VenueGalleryViewController" superclassName="CustomBackViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/VenueGalleryViewController.h"/>

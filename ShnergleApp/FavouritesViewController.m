@@ -13,7 +13,6 @@
 #import "AppDelegate.h"
 
 @implementation FavouritesViewController {
-    NSInteger selectedVenue;
 }
 
 - (void)decorateCheckInButton {
