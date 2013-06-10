@@ -46,19 +46,19 @@
 
 - (void)shareOnFacebook {
     AppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
-    NSMutableDictionary<FBGraphObject> *data = [NSMutableDictionary dictionaryWithObjectsAndKeys:
-                                                @"http://www.shnergle.com/", @"link",
-                                                @"https://developers.facebook.com/attachment/iossdk_logo.png", @"picture",
-                                                @"Shnergle", @"name",
-                                                @"Get the app!", @"caption",
-                                                @"I share now? I share now!", @"description",
-                                                nil];
-    [[[FBRequest alloc] initForPostWithSession:appDelegate.session graphPath:@"me/feed" graphObject:data] startWithCompletionHandler:^(FBRequestConnection *connection, id result, NSError *error) {
-        NSLog(@"FBSHARE - connection: %@", connection);
-        NSLog(@"FBSHARE - result: %@", result);
-        NSLog(@"FBSHARE - error: %@", error);
-        [self.navigationController popToRootViewControllerAnimated:YES];
-    }];
+    NSMutableDictionary<FBGraphObject> *action = [FBGraphObject graphObject];
+    action[@"venue"] = @"http://samples.ogp.me/259837270824167";
+    action[@"tags"] = selectedFriends;
+    action[@"message"] = _textFieldname.text;
+    action[@"picture"] = _image;
+    [[[FBRequest alloc] initForPostWithSession:appDelegate.session graphPath:@"me/shnergle:share" graphObject:action] startWithCompletionHandler:^(FBRequestConnection *connection,
+                                                     id result,
+                                                     NSError *error) {
+                                     NSLog(@"FBSHARE - connection: %@", connection);
+                                     NSLog(@"FBSHARE - result: %@", result);
+                                     NSLog(@"FBSHARE - error: %@", error);
+                                     [self.navigationController popToRootViewControllerAnimated:YES];
+                                 }];
 }
 
 - (IBAction)selectFriendsButtonAction:(id)sender {
