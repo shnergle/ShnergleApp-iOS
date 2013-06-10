@@ -27,7 +27,15 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    _tableData = @[@"Around Me"];
+    self.navigationItem.title = @"Add Place";
+    [self setRightBarButton:@"Add" actionSelector:@selector(addVenue)];
+    
+    _tableData = @[@"Name", @"Category", @"Address", @"Work here?"];
+}
+
+- (void) addVenue
+{
+    
 }
 
 - (void)didReceiveMemoryWarning
@@ -38,11 +46,31 @@
 
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell1"];
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:[NSString stringWithFormat:@"Cell%d", indexPath.row ]];
     cell.textLabel.text = _tableData[indexPath.row];
-    UITextField *textField = [[UITextField alloc] init];
-    [textField setPlaceholder:@"Input"];
-    [cell addSubview:textField];
+    if (indexPath.row == 0) {
+        UITextField *textField = [[UITextField alloc] initWithFrame:CGRectMake(110, 10, 185, 30)];
+        textField.delegate = self;
+        textField.placeholder = @"(Required)";
+        [cell.contentView addSubview:textField];
+    } else if (indexPath.row == 1) {
+        UILabel *textField = [[UILabel alloc] initWithFrame:CGRectMake(110, 6, 185, 30)];
+        textField.text = @"(Required)";
+        textField.textColor = [UIColor lightGrayColor];
+        textField.backgroundColor = [UIColor clearColor];
+        [cell.contentView addSubview:textField];
+        secondCell = cell;
+    } else if (indexPath.row == 2) {
+        UITextField *textField = [[UITextField alloc] initWithFrame:CGRectMake(110, 10, 185, 30)];
+        textField.delegate = self;
+        textField.placeholder = @"(Optional)";
+        [cell.contentView addSubview:textField];
+    }  else if (indexPath.row == 3) {
+        UISwitch *textField = [[UISwitch alloc] initWithFrame:CGRectMake(210, 8, 50, 30)];
+        [textField addTarget:self action:@selector(segwayToWork) forControlEvents:UIControlEventAllEvents];
+        [cell.contentView addSubview:textField];
+    }
+    
     return cell;
 }
 
@@ -52,6 +80,24 @@
     
 }
 
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    [self.navigationController setNavigationBarHidden:NO animated:YES];
+}
+
+- (BOOL)textFieldShouldReturn:(UITextField *)textField {
+    [textField resignFirstResponder];
+    
+    return YES;
+}
+
+- (void)segwayToWork {
+    NSLog(@"segway arrived");
+}
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    secondCell.selected = NO;
+}
 
 
 @end
