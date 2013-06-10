@@ -10,8 +10,7 @@
 #import "MenuViewController.h"
 #import "AppDelegate.h"
 #import "CrowdItem.h"
-
-@interface FavouritesViewController ()
+#import "AppDelegate.h"
 
 @implementation FavouritesViewController {
     NSInteger selectedVenue;
@@ -102,7 +101,7 @@
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
-    static NSString *cellIdentifier = @"Cell";
+    static NSString *cellIdentifier = @"FavCell";
     CrowdItem *item = [collectionView dequeueReusableCellWithReuseIdentifier:cellIdentifier forIndexPath:indexPath];
     
     /*SHADOW AROUND OBJECTS*/
@@ -122,7 +121,7 @@
     [[item crowdImage] setImage:[UIImage imageNamed:appDelegate.images[indexPath.item]]];
     
     [[item venueName] setText:appDelegate.venueNames[indexPath.item]];
-    
+
     item.venueName.font = [UIFont fontWithName:@"Roboto" size:11.0f];
     
     item.venueName.textColor = [UIColor whiteColor];
@@ -142,6 +141,13 @@
     didHighlightItemAtIndexPath:(NSIndexPath *)indexPath {
     selectedVenue = indexPath.row;
     
+}
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    AppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
+    if ([segue.identifier isEqualToString:@"ToVenueSite"]) {
+        [segue.destinationViewController setTitle:appDelegate.venueNames[selectedVenue]];
+    }
 }
 
 @end
