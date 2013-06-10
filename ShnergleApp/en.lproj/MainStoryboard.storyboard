@@ -539,7 +539,7 @@
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="nbL-bv-q2j">
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="274" id="epx-ea-2UH"/>
+                                    <constraint firstAttribute="height" constant="216" id="YnF-jC-aI1"/>
                                 </constraints>
                                 <prototypes>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="LocationTableCells" textLabel="bVh-Uz-C2M" style="IBUITableViewCellStyleDefault" id="9Eh-QS-fGt">
@@ -576,13 +576,13 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="Bpv-zI-nMC" firstAttribute="leading" secondItem="wWP-cp-JQK" secondAttribute="leading" type="default" id="46D-5g-Gcl"/>
-                            <constraint firstItem="Bpv-zI-nMC" firstAttribute="bottom" secondItem="nbL-bv-q2j" secondAttribute="top" type="default" id="GQQ-xf-uLg"/>
                             <constraint firstItem="nbL-bv-q2j" firstAttribute="trailing" secondItem="wWP-cp-JQK" secondAttribute="trailing" type="default" id="LMU-FE-FIn"/>
                             <constraint firstItem="nbL-bv-q2j" firstAttribute="leading" secondItem="wWP-cp-JQK" secondAttribute="leading" type="default" id="OXk-Bh-W61"/>
                             <constraint firstItem="6O5-PF-pDJ" firstAttribute="leading" secondItem="wWP-cp-JQK" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="dYp-hJ-Ad6"/>
                             <constraint firstItem="Bpv-zI-nMC" firstAttribute="trailing" secondItem="wWP-cp-JQK" secondAttribute="trailing" type="default" id="gBv-yM-2eD"/>
-                            <constraint firstItem="Bpv-zI-nMC" firstAttribute="top" secondItem="wWP-cp-JQK" secondAttribute="top" constant="247" id="gk6-gM-mTi"/>
                             <constraint firstItem="6O5-PF-pDJ" firstAttribute="top" secondItem="wWP-cp-JQK" secondAttribute="top" constant="44" id="izz-gt-hga"/>
+                            <constraint firstItem="nbL-bv-q2j" firstAttribute="bottom" secondItem="wWP-cp-JQK" secondAttribute="bottom" type="default" id="jn2-te-iRm"/>
+                            <constraint firstItem="Bpv-zI-nMC" firstAttribute="bottom" secondItem="nbL-bv-q2j" secondAttribute="top" type="default" id="mwT-br-A47"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="RoZ-NC-2LD"/>
@@ -609,7 +609,7 @@
             <objects>
                 <viewController storyboardIdentifier="ShareViewController" id="X6s-9K-8Ms" userLabel="Share" customClass="ShareViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="vOU-bV-1Mm">
-                        <rect key="frame" x="0.0" y="64" width="320" height="416"/>
+                        <rect key="frame" x="0.0" y="20" width="320" height="548"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xXT-6c-y6I">
@@ -1969,9 +1969,9 @@
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="Zho-BK-kL6"/>
         <segue reference="ohm-kx-4nt"/>
-        <segue reference="V1y-Vn-JKN"/>
+        <segue reference="Zho-BK-kL6"/>
+        <segue reference="IPm-OE-qZg"/>
         <segue reference="GBJ-CV-e6H"/>
     </inferredMetricsTieBreakers>
 </document>
