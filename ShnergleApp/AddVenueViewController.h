@@ -9,5 +9,8 @@
 #import <UIKit/UIKit.h>
 
 @interface AddVenueViewController : UIViewController
+@property (weak, nonatomic) IBOutlet UITableView *tableView;
+@property (strong, nonatomic) NSDictionary *tableData;
+@property (strong, nonatomic) NSArray *tableSections;
 
 @end

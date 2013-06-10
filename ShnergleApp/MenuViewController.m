@@ -23,7 +23,7 @@
     AppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
 
     _tableSections = @[@"Profile", @"Explore"];
-    _tableData = @{@0: @[appDelegate.fullName], @1: @[@"Around Me", @"Favourites", @"Promotions", @"Quiet", @"Trending"]};
+    _tableData = @{@0: @[appDelegate.fullName], @1: @[@"Around Me", @"Favourites", @"Promotions", @"Quiet", @"Trending", @"Add Venue"]};
 }
 
 - (void)postResponse:(NSString *)response {
