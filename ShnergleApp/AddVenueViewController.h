@@ -8,9 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
-@interface AddVenueViewController : UIViewController
+@interface AddVenueViewController : UIViewController<UITableViewDataSource, UITableViewDelegate>
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
-@property (strong, nonatomic) NSDictionary *tableData;
-@property (strong, nonatomic) NSArray *tableSections;
+@property (strong, nonatomic) NSArray *tableData;
 
 @end
