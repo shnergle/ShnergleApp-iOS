@@ -24,4 +24,10 @@
     [self.navigationController setNavigationBarHidden:YES animated:YES];
 }
 
+- (void)resetTopViewWithAnimations:(void (^)())animations onComplete:(void (^)())complete {
+    [super resetTopViewWithAnimations:animations onComplete:complete];
+    [[UINavigationBar appearance] setTintColor:[UIColor colorWithRed:233.0 / 255 green:235.0 / 255 blue:240.0 / 255 alpha:1.0]];
+    [[UINavigationBar appearance] setBackgroundColor:[UIColor colorWithRed:255 green:255 blue:255 alpha:1.0]]; //ios 7
+}
+
 @end
