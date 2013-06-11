@@ -73,6 +73,9 @@
     //remove shadow from navbar
     self.navigationController.navigationBar.clipsToBounds = YES;
     self.navBar.clipsToBounds = YES;
+
+    if ([[[[UIDevice currentDevice].systemVersion componentsSeparatedByString:@"."] objectAtIndex:0] intValue] > 6)
+        self.navBarItem.prompt = @" ";
 }
 
 - (void)didReceiveMemoryWarning {
