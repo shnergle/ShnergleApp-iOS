@@ -12,6 +12,7 @@
 @interface AddVenueViewController : CustomBackViewController<UITableViewDataSource, UITableViewDelegate, UITextFieldDelegate>
 {
     UITableViewCell *secondCell;
+    UILabel *secondCellField;
     
 }
 @property (weak, nonatomic) IBOutlet UITableView *tableView;

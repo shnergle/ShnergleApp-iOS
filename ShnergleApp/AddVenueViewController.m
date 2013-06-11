@@ -59,6 +59,7 @@
         textField.textColor = [UIColor lightGrayColor];
         textField.backgroundColor = [UIColor clearColor];
         [cell.contentView addSubview:textField];
+        secondCellField = textField;
         secondCell = cell;
     } else if (indexPath.row == 2) {
         UITextField *textField = [[UITextField alloc] initWithFrame:CGRectMake(110, 10, 185, 30)];
@@ -98,6 +99,11 @@
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     [self.navigationController setNavigationBarHidden:NO animated:YES];
+    AppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
+    if (appDelegate.addVenueType != nil) {
+        secondCellField.text = appDelegate.addVenueType;
+        secondCellField.textColor = [UIColor blackColor];
+    }
 }
 
 - (BOOL)textFieldShouldReturn:(UITextField *)textField {
@@ -113,5 +119,10 @@
     secondCell.selected = NO;
 }
 
+- (void)goBack {
+    AppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
+    appDelegate.addVenueType = nil;
+    [super goBack];
+}
 
 @end
