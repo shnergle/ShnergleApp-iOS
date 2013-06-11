@@ -45,6 +45,7 @@
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
+    [self menuButtonDecorations];
     self.navigationItem.hidesBackButton = YES;
     [self.navigationController setNavigationBarHidden:NO animated:YES];
     
@@ -67,13 +68,12 @@
 
 - (void)viewWillDisappear:(BOOL)animated {
     [super viewWillDisappear:animated];
-    //Sketchy! Look out for bugs. this is done to hide the navbar beautifully when navigating back to main page or login page
-    [self.navigationController setNavigationBarHidden:YES animated:YES];
 }
 
 
 - (void)tapMenu {
     [self.slidingViewController anchorTopViewTo:ECRight];
+    NSLog(@"tapMenu");
 
 }
 
@@ -109,8 +109,10 @@
     menuButton = [self createLeftBarButton:imageName actionSelector:actionSelector];
     
     
+    self.navBarItem.leftBarButtonItem = menuButton;
     self.navigationItem.leftBarButtonItem = menuButton;
 }
+
 
 
 @end
