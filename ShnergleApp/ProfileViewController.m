@@ -47,7 +47,6 @@
     [super viewWillAppear:animated];
     [self menuButtonDecorations];
     self.navigationItem.hidesBackButton = YES;
-    [self.navigationController setNavigationBarHidden:NO animated:YES];
     
     //THE SANDWICH MENU SYSTEM (ECSlidingViewController)
     if (![self.slidingViewController.underLeftViewController isKindOfClass:[MenuViewController class]]) {
@@ -75,6 +74,11 @@
     [self.slidingViewController anchorTopViewTo:ECRight];
     NSLog(@"tapMenu");
 
+}
+
+- (IBAction)tapMenu:(id)sender {
+    NSLog(@"triggering menu by swipe");
+    [self tapMenu];
 }
 
 - (void)signOut {
