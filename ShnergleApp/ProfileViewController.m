@@ -9,13 +9,15 @@
 #import "ProfileViewController.h"
 #import "AppDelegate.h"
 #import "PostRequest.h"
-
+#import "MenuViewController.h"
 @implementation ProfileViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-
-    [self setRightBarButton:@"Sign out" actionSelector:@selector(signOut)];
+    
+    [self menuButtonDecorations];
+    
+    //[self setRightBarButton:@"Sign out" actionSelector:@selector(signOut)];
 
     AppDelegate *appdelegate = [[UIApplication sharedApplication]delegate];
     self.navigationItem.title = appdelegate.fullName;
@@ -43,13 +45,36 @@
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
+    self.navigationItem.hidesBackButton = YES;
     [self.navigationController setNavigationBarHidden:NO animated:YES];
+    
+    //THE SANDWICH MENU SYSTEM (ECSlidingViewController)
+    if (![self.slidingViewController.underLeftViewController isKindOfClass:[MenuViewController class]]) {
+        self.slidingViewController.underLeftViewController  = [self.storyboard instantiateViewControllerWithIdentifier:@"AroundMeMenu"];
+    }
+    
+    [self.slidingViewController setAnchorRightRevealAmount:230.0f];
+    
+    // Shadow for sandwich system
+    self.view.layer.shadowOpacity = 0.75f;
+    self.view.layer.shadowRadius = 10.0f;
+    self.view.layer.shadowColor = [UIColor blackColor].CGColor;
+    
+    //Remove shadows for navbar
+    self.navigationController.navigationBar.clipsToBounds = YES;
+    //self.navBar.clipsToBounds = YES;
 }
 
 - (void)viewWillDisappear:(BOOL)animated {
     [super viewWillDisappear:animated];
     //Sketchy! Look out for bugs. this is done to hide the navbar beautifully when navigating back to main page or login page
     [self.navigationController setNavigationBarHidden:YES animated:YES];
+}
+
+
+- (void)tapMenu {
+    [self.slidingViewController anchorTopViewTo:ECRight];
+
 }
 
 - (void)signOut {
@@ -62,5 +87,30 @@
     UIActionSheet *actionSheet = [[UIActionSheet alloc] initWithTitle:@"Twitter, tsk!" delegate:nil cancelButtonTitle:@"Yeah, I'm gonna use Facebook then!" destructiveButtonTitle:nil otherButtonTitles:nil];
     [actionSheet showInView:self.view.window];
 }
+
+- (UIBarButtonItem *)createLeftBarButton:(NSString *)imageName actionSelector:(SEL)actionSelector {
+    UIImage *menuButtonImg = [UIImage imageNamed:imageName];
+    
+    UIButton *menuButtonTmp = [UIButton buttonWithType:UIButtonTypeCustom];
+    menuButtonTmp.frame = CGRectMake(280.0, 10.0, 22.0, 22.0);
+    [menuButtonTmp setBackgroundImage:menuButtonImg forState:UIControlStateNormal];
+    [menuButtonTmp addTarget:self action:actionSelector forControlEvents:UIControlEventTouchUpInside];
+    
+    UIBarButtonItem *menuButton = [[UIBarButtonItem alloc]initWithCustomView:menuButtonTmp];
+    return menuButton;
+}
+
+- (void)menuButtonDecorations {
+    SEL actionSelector = @selector(tapMenu);
+    NSString *imageName = @"mainmenu_button.png";
+    
+    
+    UIBarButtonItem *menuButton;
+    menuButton = [self createLeftBarButton:imageName actionSelector:actionSelector];
+    
+    
+    self.navigationItem.leftBarButtonItem = menuButton;
+}
+
 
 @end
