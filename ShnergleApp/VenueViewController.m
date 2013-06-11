@@ -32,7 +32,7 @@
     UILabel *titleView2 = [[UILabel alloc] initWithFrame:titleFrame];
     titleView2.backgroundColor = [UIColor clearColor];
     titleView2.font = [UIFont fontWithName:@"Roboto-Regular" size:20.0];
-    titleView2.textAlignment = UITextAlignmentCenter;
+    titleView2.textAlignment = NSTextAlignmentCenter;
     titleView2.textColor = [UIColor colorWithRed:0 green:0 blue:0 alpha:1.0];
     titleView2.shadowColor = [UIColor darkGrayColor];
     titleView2.shadowOffset = CGSizeMake(0, 0);
@@ -44,7 +44,7 @@
     UILabel *subtitleView2 = [[UILabel alloc] initWithFrame:subtitleFrame];
     subtitleView2.backgroundColor = [UIColor clearColor];
     subtitleView2.font = [UIFont fontWithName:@"Roboto-Regular" size:12.0];
-    subtitleView2.textAlignment = UITextAlignmentCenter;
+    subtitleView2.textAlignment = NSTextAlignmentCenter;
     subtitleView2.textColor = [UIColor colorWithRed:51.0/250 green:140.0/250 blue:16.0/250 alpha:1.0];
     subtitleView2.shadowColor = [UIColor clearColor];
     subtitleView2.shadowOffset = CGSizeMake(0, 0);
