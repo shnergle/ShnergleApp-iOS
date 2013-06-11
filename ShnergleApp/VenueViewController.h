@@ -28,10 +28,13 @@
 - (void)viewWillAppear:(BOOL)animated;
 - (void)goToPromotionView;
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender;
+- (void)setHeaderTitle:(NSString*)headerTitle andSubtitle:(NSString*)headerSubtitle;
+
 
 @property (weak, nonatomic) IBOutlet UICollectionView *crowdCollectionV;
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *checkInButton;
 
 @property (weak, nonatomic) OverlayText *overlayView;
+@property (weak, nonatomic) UIView *naviview;
 - (void)configureMapWithLat:(CLLocationDegrees)lat longitude:(CLLocationDegrees)lon;
 @end
