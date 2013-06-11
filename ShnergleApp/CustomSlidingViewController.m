@@ -18,12 +18,6 @@
     [self.navigationController setNavigationBarHidden:YES animated:YES];
 }
 
-- (void)viewWillAppear:(BOOL)animated {
-    [super viewWillAppear:animated];
-    self.navigationItem.hidesBackButton = YES;
-    [self.navigationController setNavigationBarHidden:YES animated:YES];
-}
-
 - (void)resetTopViewWithAnimations:(void (^)())animations onComplete:(void (^)())complete {
     [super resetTopViewWithAnimations:animations onComplete:complete];
     [[UINavigationBar appearance] setTintColor:[UIColor colorWithRed:233.0 / 255 green:235.0 / 255 blue:240.0 / 255 alpha:1.0]];
