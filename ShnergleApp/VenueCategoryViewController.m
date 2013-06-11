@@ -7,10 +7,7 @@
 //
 
 #import "VenueCategoryViewController.h"
-
-@interface VenueCategoryViewController ()
-
-@end
+#import "AppDelegate.h"
 
 @implementation VenueCategoryViewController
 
@@ -29,8 +26,6 @@
 	// Do any additional setup after loading the view.
     self.navigationItem.title = @"Add Place";
     categories = @[@"Hey",@"Ho",@"Let's",@"Go"];
-    
-    
 }
 
 - (void)didReceiveMemoryWarning
@@ -59,6 +54,8 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    AppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
+    appDelegate.addVenueType = categories[indexPath.row];
     [self goBack];
 }
 

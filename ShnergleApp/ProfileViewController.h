@@ -9,8 +9,9 @@
 #import <UIKit/UIKit.h>
 #import <FacebookSDK/FacebookSDK.h>
 #import "CustomBackViewController.h"
+#import <ECSlidingViewController.h>
 
-@interface ProfileViewController : CustomBackViewController <UIActionSheetDelegate>
+@interface ProfileViewController : UIViewController <UIActionSheetDelegate>
 
 //- (IBAction)authButtonAction:(id)sender;
 

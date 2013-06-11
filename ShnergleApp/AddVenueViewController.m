@@ -30,7 +30,7 @@
     self.navigationItem.title = @"Add Place";
     [self setRightBarButton:@"Add" actionSelector:@selector(addVenue)];
     
-    _tableData = @[@"Name", @"Category", @"Address", @"Work here?"];
+    _tableData = @[@"Name", @"Category", @"Address 1", @"Address 2", @"City", @"Postcode", @"Work here?"];
 }
 
 - (void) addVenue
@@ -59,13 +59,29 @@
         textField.textColor = [UIColor lightGrayColor];
         textField.backgroundColor = [UIColor clearColor];
         [cell.contentView addSubview:textField];
+        secondCellField = textField;
         secondCell = cell;
     } else if (indexPath.row == 2) {
         UITextField *textField = [[UITextField alloc] initWithFrame:CGRectMake(110, 10, 185, 30)];
         textField.delegate = self;
         textField.placeholder = @"(Optional)";
         [cell.contentView addSubview:textField];
-    }  else if (indexPath.row == 3) {
+    } else if (indexPath.row == 3) {
+        UITextField *textField = [[UITextField alloc] initWithFrame:CGRectMake(110, 10, 185, 30)];
+        textField.delegate = self;
+        textField.placeholder = @"(Optional)";
+        [cell.contentView addSubview:textField];
+    } else if (indexPath.row == 4) {
+        UITextField *textField = [[UITextField alloc] initWithFrame:CGRectMake(110, 10, 185, 30)];
+        textField.delegate = self;
+        textField.placeholder = @"(Optional)";
+        [cell.contentView addSubview:textField];
+    } else if (indexPath.row == 5) {
+        UITextField *textField = [[UITextField alloc] initWithFrame:CGRectMake(110, 10, 185, 30)];
+        textField.delegate = self;
+        textField.placeholder = @"(Optional)";
+        [cell.contentView addSubview:textField];
+    } else if (indexPath.row == 6) {
         UISwitch *textField = [[UISwitch alloc] initWithFrame:CGRectMake(210, 8, 50, 30)];
         [textField addTarget:self action:@selector(segwayToWork) forControlEvents:UIControlEventAllEvents];
         [cell.contentView addSubview:textField];
@@ -83,11 +99,15 @@
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     [self.navigationController setNavigationBarHidden:NO animated:YES];
+    AppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
+    if (appDelegate.addVenueType != nil) {
+        secondCellField.text = appDelegate.addVenueType;
+        secondCellField.textColor = [UIColor blackColor];
+    }
 }
 
 - (BOOL)textFieldShouldReturn:(UITextField *)textField {
     [textField resignFirstResponder];
-    
     return YES;
 }
 
@@ -99,5 +119,10 @@
     secondCell.selected = NO;
 }
 
+- (void)goBack {
+    AppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
+    appDelegate.addVenueType = nil;
+    [super goBack];
+}
 
 @end

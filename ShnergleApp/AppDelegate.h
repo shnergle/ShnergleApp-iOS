@@ -34,4 +34,6 @@
 
 @property (strong, nonatomic) NSString *topViewType;
 
+@property (strong, nonatomic) NSString *addVenueType;
+
 @end
