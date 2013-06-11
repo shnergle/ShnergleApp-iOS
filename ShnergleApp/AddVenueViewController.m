@@ -30,7 +30,7 @@
     self.navigationItem.title = @"Add Place";
     [self setRightBarButton:@"Add" actionSelector:@selector(addVenue)];
     
-    _tableData = @[@"Name", @"Category", @"Address", @"Work here?"];
+    _tableData = @[@"Name", @"Category", @"Address 1", @"Address 2", @"City", @"Postcode", @"Work here?"];
 }
 
 - (void) addVenue
@@ -65,7 +65,22 @@
         textField.delegate = self;
         textField.placeholder = @"(Optional)";
         [cell.contentView addSubview:textField];
-    }  else if (indexPath.row == 3) {
+    } else if (indexPath.row == 3) {
+        UITextField *textField = [[UITextField alloc] initWithFrame:CGRectMake(110, 10, 185, 30)];
+        textField.delegate = self;
+        textField.placeholder = @"(Optional)";
+        [cell.contentView addSubview:textField];
+    } else if (indexPath.row == 4) {
+        UITextField *textField = [[UITextField alloc] initWithFrame:CGRectMake(110, 10, 185, 30)];
+        textField.delegate = self;
+        textField.placeholder = @"(Optional)";
+        [cell.contentView addSubview:textField];
+    } else if (indexPath.row == 5) {
+        UITextField *textField = [[UITextField alloc] initWithFrame:CGRectMake(110, 10, 185, 30)];
+        textField.delegate = self;
+        textField.placeholder = @"(Optional)";
+        [cell.contentView addSubview:textField];
+    } else if (indexPath.row == 6) {
         UISwitch *textField = [[UISwitch alloc] initWithFrame:CGRectMake(210, 8, 50, 30)];
         [textField addTarget:self action:@selector(segwayToWork) forControlEvents:UIControlEventAllEvents];
         [cell.contentView addSubview:textField];
@@ -87,7 +102,6 @@
 
 - (BOOL)textFieldShouldReturn:(UITextField *)textField {
     [textField resignFirstResponder];
-    
     return YES;
 }
 
