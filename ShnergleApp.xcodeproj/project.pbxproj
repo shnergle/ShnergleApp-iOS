@@ -673,6 +673,11 @@
 			attributes = {
 				LastUpgradeCheck = 0500;
 				ORGANIZATIONNAME = Shnergle;
+				TargetAttributes = {
+					808F13C416FB6A5C00B66E6D = {
+						DevelopmentTeam = K392LF962M;
+					};
+				};
 			};
 			buildConfigurationList = 808F13C016FB6A5C00B66E6D /* Build configuration list for PBXProject "ShnergleApp" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -997,6 +1002,7 @@
 			baseConfigurationReference = 6199414049D54724BA967C32 /* Pods.xcconfig */;
 			buildSettings = {
 				ARCHS = armv7;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)\"",
@@ -1018,6 +1024,7 @@
 			baseConfigurationReference = 6199414049D54724BA967C32 /* Pods.xcconfig */;
 			buildSettings = {
 				ARCHS = armv7;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)\"",
