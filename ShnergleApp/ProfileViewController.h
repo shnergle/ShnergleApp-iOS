@@ -19,6 +19,7 @@
 @property (strong, nonatomic) IBOutlet FBProfilePictureView *userProfileImage1;
 @property (strong, nonatomic) IBOutlet FBProfilePictureView *userProfileImage2;
 @property (weak, nonatomic) IBOutlet UINavigationItem *navBarItem;
+@property (strong, nonatomic) IBOutlet UINavigationBar *navBar;
 
 //@property (strong, nonatomic) FBProfilePictureView *profilePictureView;
 @property (strong, nonatomic) IBOutlet UISwitch *twitterSwitch;

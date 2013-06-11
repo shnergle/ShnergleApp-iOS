@@ -1028,7 +1028,7 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HP1-zJ-Evb">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="503"/>
+                                <rect key="frame" x="0.0" y="40" width="320" height="507"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="d7K-2j-bO2">
                                         <rect key="frame" x="2" y="70" width="312" height="246"/>
@@ -1585,6 +1585,15 @@
                                     <outletCollection property="gestureRecognizers" destination="Foh-tV-EWs" appends="YES" id="I0T-tA-csK"/>
                                 </connections>
                             </scrollView>
+                            <navigationBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="uZw-Cy-fCl">
+                                <rect key="frame" x="0.0" y="-46" width="320" height="44"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                <items>
+                                    <navigationItem title="Profile" id="zZz-2u-Qxt">
+                                        <barButtonItem key="rightBarButtonItem" title="Settings" id="wa2-7h-tR6"/>
+                                    </navigationItem>
+                                </items>
+                            </navigationBar>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
@@ -1595,15 +1604,13 @@
                         </constraints>
                     </view>
                     <extendedEdge key="edgesForExtendedLayout"/>
-                    <navigationItem key="navigationItem" title="Profile" id="zZz-2u-Qxt">
-                        <barButtonItem key="rightBarButtonItem" title="Settings" id="wa2-7h-tR6"/>
-                    </navigationItem>
                     <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="lightContent"/>
-                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" barStyle="black" translucent="NO" prompted="NO"/>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                     <connections>
                         <outlet property="checkInView" destination="wHE-cF-94Z" id="OjQ-zN-VFG"/>
                         <outlet property="explorerView" destination="6aw-hx-FKb" id="EoE-nT-QKr"/>
                         <outlet property="favourites" destination="7GK-nU-Mra" id="0Pb-8F-lHv"/>
+                        <outlet property="navBar" destination="uZw-Cy-fCl" id="pOT-Jm-73w"/>
                         <outlet property="navBarItem" destination="zZz-2u-Qxt" id="9gp-T7-ZNS"/>
                         <outlet property="redeemed" destination="GKX-LD-Xt5" id="hR8-Rt-1nP"/>
                         <outlet property="scoutView" destination="oUU-4O-C2G" id="thm-UD-aEQ"/>
@@ -2212,6 +2219,7 @@
                 <relationship kind="outlet" name="checkInView" candidateClass="UIView"/>
                 <relationship kind="outlet" name="explorerView" candidateClass="UIView"/>
                 <relationship kind="outlet" name="favourites" candidateClass="UIView"/>
+                <relationship kind="outlet" name="navBar" candidateClass="UINavigationBar"/>
                 <relationship kind="outlet" name="navBarItem" candidateClass="UINavigationItem"/>
                 <relationship kind="outlet" name="redeemed" candidateClass="UIView"/>
                 <relationship kind="outlet" name="scoutView" candidateClass="UIView"/>

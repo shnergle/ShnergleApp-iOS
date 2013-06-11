@@ -62,7 +62,7 @@
     
     //Remove shadows for navbar
     self.navigationController.navigationBar.clipsToBounds = YES;
-    //self.navBar.clipsToBounds = YES;
+    self.navBar.clipsToBounds = YES;
 }
 
 - (void)viewWillDisappear:(BOOL)animated {
