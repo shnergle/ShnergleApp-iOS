@@ -83,7 +83,7 @@
         [cell.contentView addSubview:textField];
     } else if (indexPath.row == 6) {
         UISwitch *textField = [[UISwitch alloc] initWithFrame:CGRectMake(210, 8, 50, 30)];
-        [textField addTarget:self action:@selector(segwayToWork) forControlEvents:UIControlEventAllEvents];
+        [textField addTarget:self action:@selector(segwayToWork) forControlEvents:UIControlEventValueChanged];
         [cell.contentView addSubview:textField];
         _workSwitch = textField;
     }
@@ -117,7 +117,7 @@
    if (_workSwitch.on == YES)
    {
        UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"MainStoryboard" bundle:nil];
-       UIViewController *vc = [storyboard instantiateViewControllerWithIdentifier:@"VenueDetailsViewController"];
+       UIViewController *vc = [storyboard instantiateViewControllerWithIdentifier:@"VenueDetailsViewIdentifier"];
        [self.navigationController pushViewController:vc animated:YES];
 
    }

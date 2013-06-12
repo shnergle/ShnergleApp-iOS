@@ -9,12 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "CustomBackViewController.h"
 
-@interface VenueDetailsViewController : CustomBackViewController<UITableViewDataSource, UITableViewDelegate, UITextFieldDelegate>
-{
-    UITableViewCell *secondCell;
-    UILabel *secondCellField;
-    
-}
+@interface VenueDetailsViewController : CustomBackViewController<UITableViewDataSource, UITableViewDelegate>
 
 @property (weak, nonatomic) IBOutlet UITableView *tableView2;
 @property (strong, nonatomic) NSArray *tableData;
