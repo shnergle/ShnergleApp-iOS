@@ -7,8 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "CustomBackViewController.h"
 
-@interface StaffViewController : UICollectionViewController <UICollectionViewDataSource, UICollectionViewDelegate>
+@interface StaffViewController : CustomBackViewController <UICollectionViewDataSource, UICollectionViewDelegate>
 
 
 @end
