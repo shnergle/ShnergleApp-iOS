@@ -17,6 +17,11 @@
     self.navigationItem.title = @"Staff";
 }
 
+- (IBAction)deleteStaff:(id)sender {
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Really delete?" message:nil delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"Yes", nil];
+    [alert show];
+}
+
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
     AppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
@@ -62,6 +67,12 @@
 
 - (void)canCreatePromo {
     NSLog(@"switch");
+}
+
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
+    if (buttonIndex != alertView.cancelButtonIndex) {
+        NSLog(@"delete");
+    }
 }
 
 @end

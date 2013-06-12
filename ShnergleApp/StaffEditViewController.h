@@ -8,7 +8,7 @@
 
 #import "CustomBackViewController.h"
 
-@interface StaffEditViewController : CustomBackViewController <UITableViewDataSource, UITableViewDelegate> {
+@interface StaffEditViewController : CustomBackViewController <UITableViewDataSource, UITableViewDelegate, UIAlertViewDelegate> {
     UITableViewCell *secondCell;
 }
 
