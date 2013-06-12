@@ -20,11 +20,14 @@
 }
 
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info {
+    taken = YES;
     AppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
     appDelegate.shareImage = info[@"UIImagePickerControllerOriginalImage"];
     [imgPickerCam dismissViewControllerAnimated:NO completion:nil];
     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"MainStoryboard" bundle:nil];
     UIViewController *vc = [storyboard instantiateViewControllerWithIdentifier:@"PhotoLocationViewController"];
+    taken = NO;
+    [imgPickerCam dismissViewControllerAnimated:YES completion:nil];
     [self.navigationController pushViewController:vc animated:YES];
 }
 
@@ -35,7 +38,14 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [self takePhoto];
+    taken = NO;
+}
+
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    if (!taken) {
+        [self takePhoto];
+    }
 }
 
 - (void)didReceiveMemoryWarning {
