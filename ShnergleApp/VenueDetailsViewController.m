@@ -48,7 +48,6 @@
     cell.textLabel.text = _tableData[indexPath.row];
     if (indexPath.row == 0) {
         UITextField *textField = [[UITextField alloc] initWithFrame:CGRectMake(110, 10, 185, 30)];
-        textField.delegate = self;
         textField.placeholder = @"(Required)";
         [cell.contentView addSubview:textField];
     } else if (indexPath.row == 1) {
@@ -57,24 +56,18 @@
         textField.textColor = [UIColor lightGrayColor];
         textField.backgroundColor = [UIColor clearColor];
         [cell.contentView addSubview:textField];
-        secondCellField = textField;
-        secondCell = cell;
-    } else if (indexPath.row == 1) {
+    } else if (indexPath.row == 2) {
         UILabel *textField = [[UILabel alloc] initWithFrame:CGRectMake(110, 6, 185, 30)];
         textField.text = @"(Required)";
         textField.textColor = [UIColor lightGrayColor];
         textField.backgroundColor = [UIColor clearColor];
         [cell.contentView addSubview:textField];
-        secondCellField = textField;
-        secondCell = cell;
-    } else if (indexPath.row == 1) {
+    } else if (indexPath.row == 3) {
         UILabel *textField = [[UILabel alloc] initWithFrame:CGRectMake(110, 6, 185, 30)];
         textField.text = @"(Required)";
         textField.textColor = [UIColor lightGrayColor];
         textField.backgroundColor = [UIColor clearColor];
         [cell.contentView addSubview:textField];
-        secondCellField = textField;
-        secondCell = cell;
     }
     return cell;
 }

@@ -487,21 +487,16 @@
         <!--Venue Details View Controller-->
         <scene sceneID="RFJ-M9-wVd">
             <objects>
-                <viewController storyboardIdentifier="VenueDetailsViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Zbe-LX-fgV" customClass="VenueDetailsViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="VenueDetailsViewIdentifier" id="Zbe-LX-fgV" customClass="VenueDetailsViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="c6u-mz-3nl">
                         <rect key="frame" x="0.0" y="20" width="320" height="548"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="pkt-9w-dqz">
-                                <rect key="frame" x="0.0" y="44" width="320" height="504"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                            </view>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="singleLineEtched" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" translatesAutoresizingMaskIntoConstraints="NO" id="vq6-OI-ZZV">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="313"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="singleLineEtched" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" translatesAutoresizingMaskIntoConstraints="NO" id="vq6-OI-ZZV">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="548"/>
                                 <color key="backgroundColor" red="0.91372549020000005" green="0.92156862750000001" blue="0.94117647059999998" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="313" id="Eak-yI-CRk"/>
+                                    <constraint firstAttribute="height" constant="548" id="Eak-yI-CRk"/>
                                 </constraints>
                                 <prototypes>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="blue" indentationWidth="10" reuseIdentifier="Cell0" textLabel="jdt-br-I5o" style="IBUITableViewCellStyleDefault" id="gTC-GL-OxL">
@@ -578,12 +573,17 @@
                                 </prototypes>
                                 <sections/>
                                 <connections>
-                                    <outlet property="dataSource" destination="0PX-8N-tNM" id="WY5-Sv-f0U"/>
-                                    <outlet property="delegate" destination="0PX-8N-tNM" id="8u8-04-2FT"/>
+                                    <outlet property="dataSource" destination="Zbe-LX-fgV" id="zt0-ZJ-CSu"/>
+                                    <outlet property="delegate" destination="Zbe-LX-fgV" id="LeM-Br-yym"/>
                                 </connections>
                             </tableView>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.91372549020000005" green="0.92156862750000001" blue="0.94117647059999998" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="vq6-OI-ZZV" firstAttribute="top" secondItem="c6u-mz-3nl" secondAttribute="top" id="A1g-rf-Br1"/>
+                            <constraint firstItem="vq6-OI-ZZV" firstAttribute="trailing" secondItem="c6u-mz-3nl" secondAttribute="trailing" id="kg5-yb-sml"/>
+                            <constraint firstItem="vq6-OI-ZZV" firstAttribute="leading" secondItem="c6u-mz-3nl" secondAttribute="leading" id="mkK-fz-R51"/>
+                        </constraints>
                     </view>
                     <extendedEdge key="edgesForExtendedLayout"/>
                     <navigationItem key="navigationItem" id="TLm-Qo-Cvv"/>
@@ -2511,9 +2511,12 @@
                 <relationship kind="action" name="swipeUp:"/>
                 <relationship kind="action" name="tapPromotion:"/>
                 <relationship kind="action" name="tapPullerMenu:"/>
+                <relationship kind="outlet" name="commentButton" candidateClass="UIImageView"/>
                 <relationship kind="outlet" name="offerContents" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="offerCount" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="offerHeadline" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="postUpdateButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="shareButton" candidateClass="UIButton"/>
                 <relationship kind="outlet" name="venueMap" candidateClass="GMSMapView"/>
             </relationships>
         </class>
@@ -2527,6 +2530,7 @@
         <class className="ProfileViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/ProfileViewController.h"/>
             <relationships>
+                <relationship kind="action" name="signOut:"/>
                 <relationship kind="action" name="twitterSwitchAction:"/>
                 <relationship kind="outlet" name="checkInView" candidateClass="UIView"/>
                 <relationship kind="outlet" name="explorerView" candidateClass="UIView"/>
@@ -2554,6 +2558,15 @@
                 <relationship kind="outlet" name="textFieldname" candidateClass="GCPlaceholderTextView"/>
             </relationships>
         </class>
+        <class className="StaffEditViewController" superclassName="CustomBackViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/StaffEditViewController.h"/>
+        </class>
+        <class className="StaffTypeViewController" superclassName="CustomBackViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/StaffTypeViewController.h"/>
+        </class>
+        <class className="StaffViewController" superclassName="CustomBackViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/StaffViewController.h"/>
+        </class>
         <class className="UICollectionReusableView" superclassName="UIView">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/UICollectionReusableView.h"/>
         </class>
@@ -2575,6 +2588,7 @@
         <class className="VenueGalleryViewController" superclassName="CustomBackViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/VenueGalleryViewController.h"/>
             <relationships>
+                <relationship kind="action" name="flagButtonPressed:"/>
                 <relationship kind="outlet" name="imageScrollView" candidateClass="UIScrollView"/>
             </relationships>
         </class>
