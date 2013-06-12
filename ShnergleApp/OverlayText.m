@@ -151,4 +151,12 @@
     else [self swipeUp:sender];
 }
 
+- (void)didAppear {
+    AppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
+    if (appDelegate.venueStatus == Manager) {
+        [_shareButton setBackgroundImage:[UIImage imageNamed:@"stafficon.png"] forState:UIControlStateNormal];
+        _postUpdateButton.hidden = NO;
+    }
+}
+
 @end

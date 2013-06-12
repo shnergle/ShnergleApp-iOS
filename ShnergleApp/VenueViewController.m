@@ -304,6 +304,8 @@
         default:
             NSLog(@"clicked %d", buttonIndex);
     }
+    [_overlayView didAppear];
+
 }
 
 @end

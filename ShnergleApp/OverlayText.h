@@ -22,8 +22,12 @@
 @property (weak, nonatomic) IBOutlet UILabel *offerContents;
 @property (weak, nonatomic) IBOutlet UILabel *offerCount;
 @property (weak, nonatomic) IBOutlet GMSMapView *venueMap;
+@property (weak, nonatomic) IBOutlet UIButton *shareButton;
+@property (weak, nonatomic) IBOutlet UIImageView *commentButton;
 
+@property (weak, nonatomic) IBOutlet UIButton *postUpdateButton;
 - (void)hideAnimated:(NSInteger)originalSize animationDuration:(double)animationDuration targetSize:(NSInteger)targetSize contentView:(UIView *)contentView;
 - (void)showAnimated:(NSInteger)targetSize animationDelay:(double)animationDelay animationDuration:(double)animationDuration;
+- (void)didAppear;
 
 @end
