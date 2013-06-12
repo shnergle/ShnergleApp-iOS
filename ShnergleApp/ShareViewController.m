@@ -32,7 +32,7 @@
 
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
-    [self setRightBarButton:@"Share" actionSelector:@selector(share)];
+    [self setRightBarButton:@"Upload" actionSelector:@selector(share)];
 }
 
 - (void)share {

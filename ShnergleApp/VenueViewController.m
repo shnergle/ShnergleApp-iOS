@@ -287,7 +287,7 @@
             break;
         case 1:
             appDelegate.venueStatus = Default;
-            [self setHeaderTitle:titleHeader andSubtitle:@""];
+            [self setHeaderTitle:titleHeader andSubtitle:@"Tap to Follow"];
             break;
         case 2:
             appDelegate.venueStatus = Following;
