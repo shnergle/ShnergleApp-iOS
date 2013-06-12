@@ -31,6 +31,9 @@ install_resource()
 install_resource 'Facebook-iOS-SDK/src/FacebookSDKResources.bundle'
 install_resource 'Facebook-iOS-SDK/src/FBUserSettingsViewResources.bundle'
 install_resource 'Google-Maps-iOS-SDK/GoogleMaps.framework/Versions/A/Resources/GoogleMaps.bundle'
+install_resource 'Nimbus/src/overview/resources/NimbusOverviewer.bundle'
+install_resource 'Nimbus/src/photos/resources/NimbusPhotos.bundle'
+install_resource 'Nimbus/src/webcontroller/resources/NimbusWebController.bundle'
 
 rsync -avr --no-relative --exclude '*/.svn/*' --files-from="$RESOURCES_TO_COPY" / "${CONFIGURATION_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}"
 rm "$RESOURCES_TO_COPY"
