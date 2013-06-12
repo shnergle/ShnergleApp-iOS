@@ -22,4 +22,27 @@
     // Dispose of any resources that can be recreated.
 }
 
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
+    return 2;
+
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:[NSString stringWithFormat:@"Cell%d", indexPath.row ]];
+    if (indexPath.row == 0) {
+        UISwitch *textField = [[UISwitch alloc] initWithFrame:CGRectMake(210, 8, 50, 30)];
+        [textField addTarget:self action:@selector(canCreatePromo) forControlEvents:UIControlEventAllEvents];
+        cell.textLabel.text = @"Can create promotions";
+        [cell.contentView addSubview:textField];
+    } else if (indexPath.row == 1) {
+        cell.textLabel.text = @"Status: Staff";
+    }
+    return cell;
+}
+
+- (void)canCreatePromo {
+    NSLog(@"switch");
+}
+
 @end

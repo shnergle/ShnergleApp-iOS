@@ -8,6 +8,6 @@
 
 #import "CustomBackViewController.h"
 
-@interface StaffEditViewController : CustomBackViewController
+@interface StaffEditViewController : CustomBackViewController <UITableViewDataSource, UITableViewDelegate>
 
 @end
