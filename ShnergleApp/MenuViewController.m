@@ -23,7 +23,7 @@
     AppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
 
     _tableSections = @[@"Profile", @"Explore"];
-    _tableData = @{@0: @[appDelegate.fullName], @1: @[@"Around Me", @"Favourites", @"Promotions", @"Quiet", @"Trending", @"Add Venue"]};
+    _tableData = @{@0: @[appDelegate.fullName], @1: @[@"Around Me", @"Following", @"Promotions", @"Quiet", @"Trending", @"Add Venue"]};
 }
 
 - (void)postResponse:(NSString *)response {
@@ -90,7 +90,7 @@
     } else if ([segue.identifier isEqualToString:@"TrendingSegue"]) {
         appDelegate.topViewType = @"Trending";
     } else if ([segue.identifier isEqualToString:@"FavouritesSegue"]) {
-        appDelegate.topViewType = @"Favourites";
+        appDelegate.topViewType = @"Following";
     }
     if ([segue.identifier isEqualToString:@"ProfileSegue"]) {
         _profileCell.selected = NO;
