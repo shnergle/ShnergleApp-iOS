@@ -24,8 +24,7 @@
     AppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
     appDelegate.shareImage = info[@"UIImagePickerControllerOriginalImage"];
     [imgPickerCam dismissViewControllerAnimated:NO completion:nil];
-    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"MainStoryboard" bundle:nil];
-    UIViewController *vc = [storyboard instantiateViewControllerWithIdentifier:@"PhotoLocationViewController"];
+    UIViewController *vc = [self.storyboard instantiateViewControllerWithIdentifier:@"PhotoLocationViewController"];
     taken = NO;
     [imgPickerCam dismissViewControllerAnimated:YES completion:nil];
     [self.navigationController pushViewController:vc animated:YES];

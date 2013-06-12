@@ -116,8 +116,7 @@
     
    if (_workSwitch.on == YES)
    {
-       UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"MainStoryboard" bundle:nil];
-       UIViewController *vc = [storyboard instantiateViewControllerWithIdentifier:@"VenueDetailsViewIdentifier"];
+       UIViewController *vc = [self.storyboard instantiateViewControllerWithIdentifier:@"VenueDetailsViewIdentifier"];
        [self.navigationController pushViewController:vc animated:YES];
 
    }

@@ -12,8 +12,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"MainStoryboard" bundle:nil];
-    self.topViewController = [storyboard instantiateViewControllerWithIdentifier:_mainController];
+    self.topViewController = [self.storyboard instantiateViewControllerWithIdentifier:_mainController];
 }
 
 - (void)viewWillAppear:(BOOL)animated {

@@ -124,8 +124,7 @@
     AppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
     if (response) {
         if (![((NSDictionary *)response)[@"twitter"] isEqual : @""]) appDelegate.twitter = ((NSDictionary *)response)[@"twitter"];
-        UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"MainStoryboard" bundle:nil];
-        UIViewController *vc = [storyboard instantiateViewControllerWithIdentifier:@"AroundMeSlidingViewController"];
+        UIViewController *vc = [self.storyboard instantiateViewControllerWithIdentifier:@"AroundMeSlidingViewController"];
         [self.navigationController pushViewController:vc animated:YES];
     } else {
         [self alert];
