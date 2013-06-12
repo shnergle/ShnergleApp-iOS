@@ -16,7 +16,7 @@
 
 
 - (void)setTitle:(NSString *)title {
-  [self setHeaderTitle:title andSubtitle:@"Following"];
+    titleHeader = title;
 }
  
 
@@ -48,7 +48,7 @@
     subtitleView2.textColor = [UIColor colorWithRed:51.0/250 green:140.0/250 blue:16.0/250 alpha:1.0];
     subtitleView2.shadowColor = [UIColor clearColor];
     subtitleView2.shadowOffset = CGSizeMake(0, 0);
-    subtitleView2.text = @"Following";
+    subtitleView2.text = headerSubtitle;
     subtitleView2.adjustsFontSizeToFitWidth = YES;
     [headerTitleSubtitleView addSubview:subtitleView2];
     
@@ -241,6 +241,9 @@
     self.navigationController.navigationBarHidden = NO;
     //AppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
     //[self setHeaderTitle:appDelegate.venueNames[indexPath.item]  andSubtitle:@"subtitle"];
+
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"TESTING" message:@"Please select status of venue in relation to thyself." delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"Normal", @"Following", @"Staff", @"Manager", nil];
+    [alert show];
 }
 
 - (void)viewDidAppear:(BOOL)animated {
@@ -273,6 +276,28 @@
 - (void)         collectionView:(UICollectionView *)collectionView
     didHighlightItemAtIndexPath:(NSIndexPath *)indexPath {
     selectedImage = indexPath.row;
+}
+
+-(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
+    switch (buttonIndex) {
+        case 0:
+            [self goBack];
+            break;
+        case 1:
+            [self setHeaderTitle:titleHeader andSubtitle:@""];
+            break;
+        case 2:
+            [self setHeaderTitle:titleHeader andSubtitle:@"Following"];
+            break;
+        case 3:
+            [self setHeaderTitle:titleHeader andSubtitle:@"Staff"];
+            break;
+        case 4:
+            [self setHeaderTitle:titleHeader andSubtitle:@"Manager"];
+            break;
+        default:
+            NSLog(@"clicked %d", buttonIndex);
+    }
 }
 
 @end
