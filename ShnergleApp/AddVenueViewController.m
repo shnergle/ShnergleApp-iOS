@@ -85,6 +85,7 @@
         UISwitch *textField = [[UISwitch alloc] initWithFrame:CGRectMake(210, 8, 50, 30)];
         [textField addTarget:self action:@selector(segwayToWork) forControlEvents:UIControlEventAllEvents];
         [cell.contentView addSubview:textField];
+        _workSwitch = textField;
     }
     
     return cell;
@@ -112,7 +113,14 @@
 }
 
 - (void)segwayToWork {
-    NSLog(@"segway arrived");
+    
+   if (_workSwitch.on == YES)
+   {
+       UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"MainStoryboard" bundle:nil];
+       UIViewController *vc = [storyboard instantiateViewControllerWithIdentifier:@"VenueDetailsViewController"];
+       [self.navigationController pushViewController:vc animated:YES];
+
+   }
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {

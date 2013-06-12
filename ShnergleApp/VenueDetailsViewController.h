@@ -7,10 +7,16 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "CustomBackViewController.h"
 
-@interface VenueDetailsViewController : UIViewController
+@interface VenueDetailsViewController : CustomBackViewController<UITableViewDataSource, UITableViewDelegate, UITextFieldDelegate>
+{
+    UITableViewCell *secondCell;
+    UILabel *secondCellField;
+    
+}
 
-@property (weak, nonatomic) IBOutlet UITableView *tableView;
+@property (weak, nonatomic) IBOutlet UITableView *tableView2;
 @property (strong, nonatomic) NSArray *tableData;
 
 
