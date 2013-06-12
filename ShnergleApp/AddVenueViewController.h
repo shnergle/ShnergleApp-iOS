@@ -13,7 +13,6 @@
 {
     UITableViewCell *secondCell;
     UILabel *secondCellField;
-    
 }
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (strong, nonatomic) NSArray *tableData;

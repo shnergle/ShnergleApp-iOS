@@ -36,7 +36,7 @@
 
 @property (strong, nonatomic) NSString *addVenueType;
 
-typedef NS_ENUM(NSInteger, VENUE_STATUS) {
+typedef NS_ENUM (NSInteger, VENUE_STATUS) {
     Default,
     Following,
     Staff,

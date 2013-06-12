@@ -15,8 +15,7 @@
 
 @implementation AddVenueViewController
 
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
-{
+- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         // Custom initialization
@@ -24,26 +23,21 @@
     return self;
 }
 
-- (void)viewDidLoad
-{
+- (void)viewDidLoad {
     [super viewDidLoad];
     self.navigationItem.title = @"Add Place";
     [self setRightBarButton:@"Add" actionSelector:@selector(addVenue)];
-    
+
     _tableData = @[@"Name", @"Category", @"Address 1", @"Address 2", @"City", @"Postcode", @"Work here?"];
 }
 
-- (void) addVenue
-{
-    
+- (void)addVenue {
 }
 
-- (void)didReceiveMemoryWarning
-{
+- (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
-
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:[NSString stringWithFormat:@"Cell%d", indexPath.row ]];
@@ -87,14 +81,12 @@
         [cell.contentView addSubview:textField];
         _workSwitch = textField;
     }
-    
+
     return cell;
 }
 
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
-{
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     return _tableData.count;
-    
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -113,13 +105,10 @@
 }
 
 - (void)segwayToWork {
-    
-   if (_workSwitch.on == YES)
-   {
-       UIViewController *vc = [self.storyboard instantiateViewControllerWithIdentifier:@"VenueDetailsViewIdentifier"];
-       [self.navigationController pushViewController:vc animated:YES];
-
-   }
+    if (_workSwitch.on == YES) {
+        UIViewController *vc = [self.storyboard instantiateViewControllerWithIdentifier:@"VenueDetailsViewIdentifier"];
+        [self.navigationController pushViewController:vc animated:YES];
+    }
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {

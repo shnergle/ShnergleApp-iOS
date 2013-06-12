@@ -153,9 +153,8 @@
     self.navigationController.navigationBar.clipsToBounds = YES;
     self.navBar.clipsToBounds = YES;
 
-    if ([[[[UIDevice currentDevice].systemVersion componentsSeparatedByString:@"."] objectAtIndex:0] intValue] > 6)
-        self.navBarMenuItem.prompt = @" ";
-    
+    if ([[[[UIDevice currentDevice].systemVersion componentsSeparatedByString:@"."] objectAtIndex:0] intValue] > 6) self.navBarMenuItem.prompt = @" ";
+
     crowdImagesHidden = NO;
 
     [self addShadowToDistanceSlider];

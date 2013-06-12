@@ -30,7 +30,7 @@
 - (void)viewWillAppear:(BOOL)animated;
 - (void)goToPromotionView;
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender;
-- (void)setHeaderTitle:(NSString*)headerTitle andSubtitle:(NSString*)headerSubtitle;
+- (void)setHeaderTitle:(NSString *)headerTitle andSubtitle:(NSString *)headerSubtitle;
 
 
 @property (weak, nonatomic) IBOutlet UICollectionView *crowdCollectionV;
