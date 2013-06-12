@@ -9,13 +9,14 @@
 #import <UIKit/UIKit.h>
 #import "CustomBackViewController.h"
 
-@interface VenueGalleryViewController : CustomBackViewController
+@interface VenueGalleryViewController : CustomBackViewController <UIAlertViewDelegate>
 {
     NSArray *images;
     NSInteger imageIndex;
 }
 @property (weak, nonatomic) IBOutlet UIScrollView *imageScrollView;
 
+- (IBAction)flagButtonPressed:(id)sender;
 
 - (void)imageScrollerSetup;
 - (void)setTitle:(NSString *)title;
