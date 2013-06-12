@@ -26,6 +26,11 @@
     self.navigationItem.title = title;
 }
 
+- (IBAction)flagButtonPressed:(id)sender {
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Flag for Review" message:@"Flag as inappropriate?" delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"Yes", nil];
+    [alert show];
+}
+
 - (void)imageScrollerSetup {
     CGRect windowBounds = [[UIScreen mainScreen] bounds];
     _imageScrollView.bounds = CGRectMake(0, 0, windowBounds.size.width, 245);
@@ -53,6 +58,12 @@
     _imageScrollView.contentOffset = CGPointMake(_imageScrollView.bounds.size.width * imageIndex, 1.0); //should be the center page in a 3 page setup
     [self.imageScrollView updateConstraints];
     _imageScrollView.pagingEnabled = YES;
+}
+
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
+    if (buttonIndex != alertView.cancelButtonIndex) {
+        NSLog(@"flag");
+    }
 }
 
 @end

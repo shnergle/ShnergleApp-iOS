@@ -19,7 +19,7 @@
     
     //[self setRightBarButton:@"Sign out" actionSelector:@selector(signOut)];
 
-    AppDelegate *appdelegate = [[UIApplication sharedApplication]delegate];
+    AppDelegate *appdelegate = [[UIApplication sharedApplication] delegate];
     self.navigationItem.title = appdelegate.fullName;
     self.userProfileImage3.profileID = appdelegate.facebookId;
     //self.userProfileImage2.profileID = appdelegate.facebookId;
@@ -81,7 +81,7 @@
     [self tapMenu];
 }
 
-- (void)signOut {
+- (IBAction)signOut:(id)sender {
     AppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
     [appDelegate.session closeAndClearTokenInformation];
     [self.navigationController popToRootViewControllerAnimated:YES];

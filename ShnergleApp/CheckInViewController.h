@@ -13,6 +13,7 @@
     UIImagePickerController *imgPickerCam;
     UIImagePickerController *imgPickerLib;
     IBOutlet UIImageView *imageView;
+    BOOL taken;
 }
 
 

@@ -114,8 +114,10 @@
 		80DC1DFB1760CAC2000AA6DF /* FavouritesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 80DC1DFA1760CAC2000AA6DF /* FavouritesViewController.m */; };
 		80ED0A13172ADACA00E3C749 /* liverpool2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 80ED0A12172ADACA00E3C749 /* liverpool2.jpg */; };
 		80ED0A15172ADAD600E3C749 /* mahiki.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 80ED0A14172ADAD600E3C749 /* mahiki.jpg */; };
+		CD1BBBB217688F350008E4FD /* StaffViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CD61F0A417688C06005EB276 /* StaffViewController.m */; };
 		CD3703751760C8B600CFD249 /* CustomBackViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CD3703741760C8B600CFD249 /* CustomBackViewController.m */; };
 		CD3B655D175CBA72006A4151 /* CrowdItem.m in Sources */ = {isa = PBXBuildFile; fileRef = CD3B655C175CBA72006A4151 /* CrowdItem.m */; };
+		CD5024921768AED6003D3004 /* StaffTypeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CD5024911768AE99003D3004 /* StaffTypeViewController.m */; };
 		CD7C1B10175B424400902AA9 /* ImageCache.m in Sources */ = {isa = PBXBuildFile; fileRef = CD7C1B0F175B424400902AA9 /* ImageCache.m */; };
 		CD84ECEF175CC10000A09FA6 /* AppIcon_114.png in Resources */ = {isa = PBXBuildFile; fileRef = CD84ECEE175CC10000A09FA6 /* AppIcon_114.png */; };
 		CD84ECF1175CC10E00A09FA6 /* icon57.png in Resources */ = {isa = PBXBuildFile; fileRef = CD84ECF0175CC10D00A09FA6 /* icon57.png */; };
@@ -124,6 +126,7 @@
 		CDAD1D35175E2FA600581713 /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = CDAD1D34175E2FA600581713 /* Settings.bundle */; };
 		CDB72C2E175A5F2B00018271 /* PostRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = CDB72C2D175A5F2B00018271 /* PostRequest.m */; };
 		CDBCDE7F1765245B0048478F /* CustomSlidingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CDBCDE7E1765245B0048478F /* CustomSlidingViewController.m */; };
+		CDD8D95C1768A69C00BF3CAC /* StaffEditViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CDD8D95B1768A67900BF3CAC /* StaffEditViewController.m */; };
 		EE0A80711733D97300792AE4 /* ProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EE0A806F1733D97300792AE4 /* ProfileViewController.m */; };
 		EE0B37DF175E0FA900B6EE58 /* twitter-bird-white-on-blue.png in Resources */ = {isa = PBXBuildFile; fileRef = EE0B37DE175E0FA900B6EE58 /* twitter-bird-white-on-blue.png */; };
 		EE0B37E1175E108100B6EE58 /* FB-f-Logo__blue_50.png in Resources */ = {isa = PBXBuildFile; fileRef = EE0B37E0175E108100B6EE58 /* FB-f-Logo__blue_50.png */; };
@@ -274,6 +277,10 @@
 		CD3703731760C8B600CFD249 /* CustomBackViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomBackViewController.h; sourceTree = "<group>"; };
 		CD3703741760C8B600CFD249 /* CustomBackViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomBackViewController.m; sourceTree = "<group>"; };
 		CD3B655C175CBA72006A4151 /* CrowdItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CrowdItem.m; sourceTree = "<group>"; };
+		CD5024901768AE99003D3004 /* StaffTypeViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = StaffTypeViewController.h; sourceTree = "<group>"; };
+		CD5024911768AE99003D3004 /* StaffTypeViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = StaffTypeViewController.m; sourceTree = "<group>"; };
+		CD61F0A317688C06005EB276 /* StaffViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = StaffViewController.h; sourceTree = "<group>"; };
+		CD61F0A417688C06005EB276 /* StaffViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = StaffViewController.m; sourceTree = "<group>"; };
 		CD7C1B0E175B424400902AA9 /* ImageCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageCache.h; sourceTree = "<group>"; };
 		CD7C1B0F175B424400902AA9 /* ImageCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageCache.m; sourceTree = "<group>"; };
 		CD84ECEE175CC10000A09FA6 /* AppIcon_114.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = AppIcon_114.png; sourceTree = "<group>"; };
@@ -286,6 +293,8 @@
 		CDB72C2D175A5F2B00018271 /* PostRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PostRequest.m; sourceTree = "<group>"; };
 		CDBCDE7D1765245B0048478F /* CustomSlidingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomSlidingViewController.h; sourceTree = "<group>"; };
 		CDBCDE7E1765245B0048478F /* CustomSlidingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomSlidingViewController.m; sourceTree = "<group>"; };
+		CDD8D95A1768A67900BF3CAC /* StaffEditViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = StaffEditViewController.h; sourceTree = "<group>"; };
+		CDD8D95B1768A67900BF3CAC /* StaffEditViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = StaffEditViewController.m; sourceTree = "<group>"; };
 		EE0A806E1733D97300792AE4 /* ProfileViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProfileViewController.h; sourceTree = "<group>"; };
 		EE0A806F1733D97300792AE4 /* ProfileViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProfileViewController.m; sourceTree = "<group>"; };
 		EE0B37DE175E0FA900B6EE58 /* twitter-bird-white-on-blue.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "twitter-bird-white-on-blue.png"; sourceTree = "<group>"; };
@@ -540,6 +549,12 @@
 				80B957D516FC65F90044A505 /* VenueViewController.m */,
 				EEAFF0FE17677CBC00980DC1 /* VenueDetailsViewController.h */,
 				EEAFF0FF17677CBC00980DC1 /* VenueDetailsViewController.m */,
+				CD61F0A317688C06005EB276 /* StaffViewController.h */,
+				CD61F0A417688C06005EB276 /* StaffViewController.m */,
+				CDD8D95A1768A67900BF3CAC /* StaffEditViewController.h */,
+				CDD8D95B1768A67900BF3CAC /* StaffEditViewController.m */,
+				CD5024901768AE99003D3004 /* StaffTypeViewController.h */,
+				CD5024911768AE99003D3004 /* StaffTypeViewController.m */,
 			);
 			name = "Venue and Promotions";
 			sourceTree = "<group>";
@@ -678,6 +693,11 @@
 			attributes = {
 				LastUpgradeCheck = 0500;
 				ORGANIZATIONNAME = Shnergle;
+				TargetAttributes = {
+					808F13C416FB6A5C00B66E6D = {
+						DevelopmentTeam = K392LF962M;
+					};
+				};
 			};
 			buildConfigurationList = 808F13C016FB6A5C00B66E6D /* Build configuration list for PBXProject "ShnergleApp" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -859,6 +879,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				EEE9EAD11768ACF100B8530B /* VenueDetailsViewController.m in Sources */,
+				CD5024921768AED6003D3004 /* StaffTypeViewController.m in Sources */,
+				CDD8D95C1768A69C00BF3CAC /* StaffEditViewController.m in Sources */,
+				CD1BBBB217688F350008E4FD /* StaffViewController.m in Sources */,
 				808F13D516FB6A5C00B66E6D /* main.m in Sources */,
 				808F13D916FB6A5C00B66E6D /* AppDelegate.m in Sources */,
 				808F13E516FB6A5C00B66E6D /* AroundMeViewController.m in Sources */,
@@ -1003,6 +1026,7 @@
 			baseConfigurationReference = 6199414049D54724BA967C32 /* Pods.xcconfig */;
 			buildSettings = {
 				ARCHS = armv7;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)\"",
@@ -1024,6 +1048,7 @@
 			baseConfigurationReference = 6199414049D54724BA967C32 /* Pods.xcconfig */;
 			buildSettings = {
 				ARCHS = armv7;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)\"",

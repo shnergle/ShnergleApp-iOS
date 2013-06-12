@@ -10,7 +10,7 @@
 #import "OverlayText.h"
 #import "CustomBackViewController.h"
 
-@interface VenueViewController : CustomBackViewController<UICollectionViewDataSource, UICollectionViewDelegate>{
+@interface VenueViewController : CustomBackViewController<UICollectionViewDataSource, UICollectionViewDelegate, UIAlertViewDelegate> {
     NSString *promotionTitle;
     NSString *promotionBody;
     NSString *promotionExpiry;
@@ -22,6 +22,8 @@
     CGFloat startContentOffset;
     CGFloat lastContentOffset;
     BOOL hidden;
+
+    NSString *titleHeader;
 }
 - (void)setTitle:(NSString *)title;
 - (void)viewDidAppear:(BOOL)animated;

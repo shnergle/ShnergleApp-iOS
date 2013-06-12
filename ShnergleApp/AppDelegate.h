@@ -36,4 +36,16 @@
 
 @property (strong, nonatomic) NSString *addVenueType;
 
+typedef NS_ENUM(NSInteger, VENUE_STATUS) {
+    Default,
+    Following,
+    Staff,
+    Manager,
+    None
+};
+
+@property (nonatomic) VENUE_STATUS venueStatus;
+
+@property (strong, nonatomic) NSString *staffType;
+
 @end
