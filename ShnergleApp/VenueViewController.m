@@ -279,20 +279,26 @@
 }
 
 -(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
+    AppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
     switch (buttonIndex) {
         case 0:
+            appDelegate.venueStatus = None;
             [self goBack];
             break;
         case 1:
+            appDelegate.venueStatus = Default;
             [self setHeaderTitle:titleHeader andSubtitle:@""];
             break;
         case 2:
+            appDelegate.venueStatus = Following;
             [self setHeaderTitle:titleHeader andSubtitle:@"Following"];
             break;
         case 3:
+            appDelegate.venueStatus = Staff;
             [self setHeaderTitle:titleHeader andSubtitle:@"Staff"];
             break;
         case 4:
+            appDelegate.venueStatus = Manager;
             [self setHeaderTitle:titleHeader andSubtitle:@"Manager"];
             break;
         default:
