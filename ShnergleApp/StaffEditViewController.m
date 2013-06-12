@@ -6,6 +6,7 @@
 //  Copyright (c) 2013 Shnergle. All rights reserved.
 //
 
+#import "AppDelegate.h"
 #import "StaffEditViewController.h"
 
 @implementation StaffEditViewController
@@ -14,6 +15,14 @@
     [super viewWillAppear:animated];
     [self.navigationController setNavigationBarHidden:NO animated:YES];
     self.navigationItem.title = @"Staff";
+}
+
+- (void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
+    AppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
+    NSString *type = appDelegate.staffType;
+    if (type == nil) type = @"Staff";
+    secondCell.textLabel.text = [NSString stringWithFormat:@"Status: %@", type];
 }
 
 - (void)didReceiveMemoryWarning
@@ -25,7 +34,6 @@
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     return 2;
-
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -37,8 +45,19 @@
         [cell.contentView addSubview:textField];
     } else if (indexPath.row == 1) {
         cell.textLabel.text = @"Status: Staff";
+        secondCell = cell;
     }
     return cell;
+}
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    secondCell.selected = NO;
+}
+
+- (void)goBack {
+    AppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
+    appDelegate.addVenueType = nil;
+    [super goBack];
 }
 
 - (void)canCreatePromo {

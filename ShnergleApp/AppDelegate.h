@@ -46,4 +46,6 @@ typedef NS_ENUM(NSInteger, VENUE_STATUS) {
 
 @property (nonatomic) VENUE_STATUS venueStatus;
 
+@property (strong, nonatomic) NSString *staffType;
+
 @end

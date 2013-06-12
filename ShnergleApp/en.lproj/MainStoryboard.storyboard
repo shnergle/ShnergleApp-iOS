@@ -823,6 +823,9 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         </view>
+                                        <connections>
+                                            <segue destination="hXY-Mt-hiA" kind="push" id="QbE-vP-S8C"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                                 <connections>
@@ -852,6 +855,47 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Pmb-sr-gs3" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="417" y="1323"/>
+        </scene>
+        <!--Staff Type View Controller-->
+        <scene sceneID="cGV-5d-AsI">
+            <objects>
+                <viewController id="hXY-Mt-hiA" customClass="StaffTypeViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="nyM-Cd-UKL">
+                        <rect key="frame" x="0.0" y="20" width="320" height="548"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="nfi-JV-gQf">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="548"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <color key="backgroundColor" red="0.91372549020000005" green="0.92156862750000001" blue="0.94117647059999998" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="sectionIndexTrackingBackgroundColor" red="0.91372549020000005" green="0.92156862750000001" blue="0.94117647059999998" alpha="1" colorSpace="calibratedRGB"/>
+                                <prototypes>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" indentationWidth="10" reuseIdentifier="Cell" id="Pl8-t1-U60">
+                                        <rect key="frame" x="0.0" y="22" width="320" height="44"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        </view>
+                                        <color key="backgroundColor" red="0.91372549020000005" green="0.92156862750000001" blue="0.94117647059999998" alpha="1" colorSpace="calibratedRGB"/>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="hXY-Mt-hiA" id="Gc1-xj-3t2"/>
+                                    <outlet property="delegate" destination="hXY-Mt-hiA" id="C2J-HB-zJ9"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                    <extendedEdge key="edgesForExtendedLayout"/>
+                    <navigationItem key="navigationItem" id="CcW-mJ-tfm"/>
+                    <simulatedStatusBarMetrics key="simulatedStatusBarMetrics"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="23U-os-RSY" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="923" y="1325"/>
         </scene>
         <!--Photo Location-->
         <scene sceneID="gTR-eI-tKr">
@@ -2262,184 +2306,6 @@
         <image name="shnerglelogo_splash_screen.png" width="144" height="41.281375885009766"/>
         <image name="twitter-bird-white-on-blue.png" width="300" height="300"/>
     </resources>
-    <classes>
-        <class className="AddVenueViewController" superclassName="CustomBackViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/AddVenueViewController.h"/>
-            <relationships>
-                <relationship kind="outlet" name="tableView" candidateClass="UITableView"/>
-            </relationships>
-        </class>
-        <class className="AroundMeViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/AroundMeViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="sliderValueChanged:"/>
-                <relationship kind="action" name="tapArrow:"/>
-                <relationship kind="action" name="tapMap:"/>
-                <relationship kind="action" name="tapMenu:"/>
-                <relationship kind="outlet" name="checkInButton" candidateClass="UIBarButtonItem"/>
-                <relationship kind="outlet" name="crowdCollection" candidateClass="UICollectionView"/>
-                <relationship kind="outlet" name="distanceScroller" candidateClass="UISlider"/>
-                <relationship kind="outlet" name="distanceScrollerView" candidateClass="OverlayText"/>
-                <relationship kind="outlet" name="drawerCloseButton" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="mapView" candidateClass="GMSMapView"/>
-                <relationship kind="outlet" name="navBar" candidateClass="UINavigationBar"/>
-                <relationship kind="outlet" name="navBarMenuItem" candidateClass="UINavigationItem"/>
-                <relationship kind="outlet" name="overlay" candidateClass="OverlayText"/>
-            </relationships>
-        </class>
-        <class className="CheckInViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/CheckInViewController.h"/>
-            <relationships>
-                <relationship kind="outlet" name="imageView" candidateClass="UIImageView"/>
-            </relationships>
-        </class>
-        <class className="CrowdItem" superclassName="UICollectionViewCell">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/CrowdItem.h"/>
-            <relationships>
-                <relationship kind="outlet" name="crowdImage" candidateClass="UIImageView"/>
-                <relationship kind="outlet" name="promotionIndicator" candidateClass="UIImageView"/>
-                <relationship kind="outlet" name="venueName" candidateClass="UILabel"/>
-            </relationships>
-        </class>
-        <class className="CustomBackViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/CustomBackViewController.h"/>
-        </class>
-        <class className="CustomSlidingViewController" superclassName="ECSlidingViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/CustomSlidingViewController.h"/>
-        </class>
-        <class className="ECSlidingViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/ECSlidingViewController.h"/>
-        </class>
-        <class className="FBProfilePictureView" superclassName="UIView">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/FBProfilePictureView.h"/>
-        </class>
-        <class className="FavouritesViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/FavouritesViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="menuButtonTriggered:"/>
-                <relationship kind="outlet" name="checkInButton" candidateClass="UIBarButtonItem"/>
-                <relationship kind="outlet" name="crowdCollection" candidateClass="UICollectionView"/>
-                <relationship kind="outlet" name="navBar" candidateClass="UINavigationBar"/>
-                <relationship kind="outlet" name="navBarItem" candidateClass="UINavigationItem"/>
-            </relationships>
-        </class>
-        <class className="GCPlaceholderTextView" superclassName="UITextView">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/GCPlaceholderTextView.h"/>
-        </class>
-        <class className="GMSMapView" superclassName="UIView">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/GMSMapView.h"/>
-        </class>
-        <class className="LoginScreenController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/LoginScreenController.h"/>
-            <relationships>
-                <relationship kind="action" name="buttonClickHandler:"/>
-                <relationship kind="outlet" name="buttonLoginLogout" candidateClass="UIButton"/>
-            </relationships>
-        </class>
-        <class className="MenuViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/MenuViewController.h"/>
-            <relationships>
-                <relationship kind="outlet" name="bar" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="searchBar" candidateClass="SearchBarView"/>
-            </relationships>
-        </class>
-        <class className="NSLayoutConstraint" superclassName="NSObject">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/NSLayoutConstraint.h"/>
-        </class>
-        <class className="OverlayText" superclassName="UIView">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/OverlayText.h"/>
-            <relationships>
-                <relationship kind="action" name="share:"/>
-                <relationship kind="action" name="swipeDown:"/>
-                <relationship kind="action" name="swipeUp:"/>
-                <relationship kind="action" name="tap:"/>
-                <relationship kind="action" name="tapPromotion:"/>
-                <relationship kind="action" name="tapPullerMenu:"/>
-                <relationship kind="outlet" name="commentButton" candidateClass="UIImageView"/>
-                <relationship kind="outlet" name="offerContents" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="offerCount" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="offerHeadline" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="postUpdateButton" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="shareButton" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="venueMap" candidateClass="GMSMapView"/>
-            </relationships>
-        </class>
-        <class className="PhotoLocationViewController" superclassName="CustomBackViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/PhotoLocationViewController.h"/>
-            <relationships>
-                <relationship kind="outlet" name="headline" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="searchResultTable" candidateClass="UITableView"/>
-            </relationships>
-        </class>
-        <class className="ProfileViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/ProfileViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="signOut:"/>
-                <relationship kind="action" name="tapMenu:"/>
-                <relationship kind="action" name="twitterSwitchAction:"/>
-                <relationship kind="outlet" name="checkInView" candidateClass="UIView"/>
-                <relationship kind="outlet" name="explorerView" candidateClass="UIView"/>
-                <relationship kind="outlet" name="favourites" candidateClass="UIView"/>
-                <relationship kind="outlet" name="navBar" candidateClass="UINavigationBar"/>
-                <relationship kind="outlet" name="navBarItem" candidateClass="UINavigationItem"/>
-                <relationship kind="outlet" name="redeemed" candidateClass="UIView"/>
-                <relationship kind="outlet" name="scoutView" candidateClass="UIView"/>
-                <relationship kind="outlet" name="shnerglerView" candidateClass="UIView"/>
-                <relationship kind="outlet" name="twitterSwitch" candidateClass="UISwitch"/>
-                <relationship kind="outlet" name="userProfileImage1" candidateClass="FBProfilePictureView"/>
-                <relationship kind="outlet" name="userProfileImage2" candidateClass="FBProfilePictureView"/>
-                <relationship kind="outlet" name="userProfileImage3" candidateClass="FBProfilePictureView"/>
-            </relationships>
-        </class>
-        <class className="SearchBarView" superclassName="UIView">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/SearchBarView.h"/>
-        </class>
-        <class className="ShareViewController" superclassName="CustomBackViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/ShareViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="selectFriendsButtonAction:"/>
-                <relationship kind="outlet" name="friendLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="image" candidateClass="UIImageView"/>
-                <relationship kind="outlet" name="nameList" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="textFieldname" candidateClass="GCPlaceholderTextView"/>
-            </relationships>
-        </class>
-        <class className="StaffEditViewController" superclassName="CustomBackViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/StaffEditViewController.h"/>
-        </class>
-        <class className="StaffViewController" superclassName="CustomBackViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/StaffViewController.h"/>
-        </class>
-        <class className="UICollectionReusableView" superclassName="UIView">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/UICollectionReusableView.h"/>
-        </class>
-        <class className="UICollectionViewCell" superclassName="UICollectionReusableView">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/UICollectionViewCell.h"/>
-        </class>
-        <class className="UICollectionViewFlowLayout" superclassName="UICollectionViewLayout">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/UICollectionViewFlowLayout.h"/>
-        </class>
-        <class className="UICollectionViewLayout" superclassName="NSObject">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/UICollectionViewLayout.h"/>
-        </class>
-        <class className="VenueCategoryViewController" superclassName="CustomBackViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/VenueCategoryViewController.h"/>
-        </class>
-        <class className="VenueGalleryViewController" superclassName="CustomBackViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/VenueGalleryViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="flagButtonPressed:"/>
-                <relationship kind="outlet" name="imageScrollView" candidateClass="UIScrollView"/>
-            </relationships>
-        </class>
-        <class className="VenueViewController" superclassName="CustomBackViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/VenueViewController.h"/>
-            <relationships>
-                <relationship kind="outlet" name="checkInButton" candidateClass="UIBarButtonItem"/>
-                <relationship kind="outlet" name="crowdCollectionV" candidateClass="UICollectionView"/>
-            </relationships>
-        </class>
-    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>

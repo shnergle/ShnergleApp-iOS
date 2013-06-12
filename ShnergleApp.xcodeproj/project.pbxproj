@@ -117,6 +117,7 @@
 		CD1BBBB217688F350008E4FD /* StaffViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CD61F0A417688C06005EB276 /* StaffViewController.m */; };
 		CD3703751760C8B600CFD249 /* CustomBackViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CD3703741760C8B600CFD249 /* CustomBackViewController.m */; };
 		CD3B655D175CBA72006A4151 /* CrowdItem.m in Sources */ = {isa = PBXBuildFile; fileRef = CD3B655C175CBA72006A4151 /* CrowdItem.m */; };
+		CD5024921768AED6003D3004 /* StaffTypeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CD5024911768AE99003D3004 /* StaffTypeViewController.m */; };
 		CD7C1B10175B424400902AA9 /* ImageCache.m in Sources */ = {isa = PBXBuildFile; fileRef = CD7C1B0F175B424400902AA9 /* ImageCache.m */; };
 		CD84ECEF175CC10000A09FA6 /* AppIcon_114.png in Resources */ = {isa = PBXBuildFile; fileRef = CD84ECEE175CC10000A09FA6 /* AppIcon_114.png */; };
 		CD84ECF1175CC10E00A09FA6 /* icon57.png in Resources */ = {isa = PBXBuildFile; fileRef = CD84ECF0175CC10D00A09FA6 /* icon57.png */; };
@@ -275,6 +276,8 @@
 		CD3703731760C8B600CFD249 /* CustomBackViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomBackViewController.h; sourceTree = "<group>"; };
 		CD3703741760C8B600CFD249 /* CustomBackViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomBackViewController.m; sourceTree = "<group>"; };
 		CD3B655C175CBA72006A4151 /* CrowdItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CrowdItem.m; sourceTree = "<group>"; };
+		CD5024901768AE99003D3004 /* StaffTypeViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = StaffTypeViewController.h; sourceTree = "<group>"; };
+		CD5024911768AE99003D3004 /* StaffTypeViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = StaffTypeViewController.m; sourceTree = "<group>"; };
 		CD61F0A317688C06005EB276 /* StaffViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = StaffViewController.h; sourceTree = "<group>"; };
 		CD61F0A417688C06005EB276 /* StaffViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = StaffViewController.m; sourceTree = "<group>"; };
 		CD7C1B0E175B424400902AA9 /* ImageCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageCache.h; sourceTree = "<group>"; };
@@ -545,6 +548,8 @@
 				CD61F0A417688C06005EB276 /* StaffViewController.m */,
 				CDD8D95A1768A67900BF3CAC /* StaffEditViewController.h */,
 				CDD8D95B1768A67900BF3CAC /* StaffEditViewController.m */,
+				CD5024901768AE99003D3004 /* StaffTypeViewController.h */,
+				CD5024911768AE99003D3004 /* StaffTypeViewController.m */,
 			);
 			name = "Venue and Promotions";
 			sourceTree = "<group>";
@@ -868,6 +873,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CD5024921768AED6003D3004 /* StaffTypeViewController.m in Sources */,
 				CDD8D95C1768A69C00BF3CAC /* StaffEditViewController.m in Sources */,
 				CD1BBBB217688F350008E4FD /* StaffViewController.m in Sources */,
 				808F13D516FB6A5C00B66E6D /* main.m in Sources */,
