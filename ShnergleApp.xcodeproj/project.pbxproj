@@ -125,6 +125,7 @@
 		CDAD1D35175E2FA600581713 /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = CDAD1D34175E2FA600581713 /* Settings.bundle */; };
 		CDB72C2E175A5F2B00018271 /* PostRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = CDB72C2D175A5F2B00018271 /* PostRequest.m */; };
 		CDBCDE7F1765245B0048478F /* CustomSlidingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CDBCDE7E1765245B0048478F /* CustomSlidingViewController.m */; };
+		CDD8D95C1768A69C00BF3CAC /* StaffEditViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CDD8D95B1768A67900BF3CAC /* StaffEditViewController.m */; };
 		EE0A80711733D97300792AE4 /* ProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EE0A806F1733D97300792AE4 /* ProfileViewController.m */; };
 		EE0B37DF175E0FA900B6EE58 /* twitter-bird-white-on-blue.png in Resources */ = {isa = PBXBuildFile; fileRef = EE0B37DE175E0FA900B6EE58 /* twitter-bird-white-on-blue.png */; };
 		EE0B37E1175E108100B6EE58 /* FB-f-Logo__blue_50.png in Resources */ = {isa = PBXBuildFile; fileRef = EE0B37E0175E108100B6EE58 /* FB-f-Logo__blue_50.png */; };
@@ -288,6 +289,8 @@
 		CDB72C2D175A5F2B00018271 /* PostRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PostRequest.m; sourceTree = "<group>"; };
 		CDBCDE7D1765245B0048478F /* CustomSlidingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomSlidingViewController.h; sourceTree = "<group>"; };
 		CDBCDE7E1765245B0048478F /* CustomSlidingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomSlidingViewController.m; sourceTree = "<group>"; };
+		CDD8D95A1768A67900BF3CAC /* StaffEditViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = StaffEditViewController.h; sourceTree = "<group>"; };
+		CDD8D95B1768A67900BF3CAC /* StaffEditViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = StaffEditViewController.m; sourceTree = "<group>"; };
 		EE0A806E1733D97300792AE4 /* ProfileViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProfileViewController.h; sourceTree = "<group>"; };
 		EE0A806F1733D97300792AE4 /* ProfileViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProfileViewController.m; sourceTree = "<group>"; };
 		EE0B37DE175E0FA900B6EE58 /* twitter-bird-white-on-blue.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "twitter-bird-white-on-blue.png"; sourceTree = "<group>"; };
@@ -540,6 +543,8 @@
 				80B957D516FC65F90044A505 /* VenueViewController.m */,
 				CD61F0A317688C06005EB276 /* StaffViewController.h */,
 				CD61F0A417688C06005EB276 /* StaffViewController.m */,
+				CDD8D95A1768A67900BF3CAC /* StaffEditViewController.h */,
+				CDD8D95B1768A67900BF3CAC /* StaffEditViewController.m */,
 			);
 			name = "Venue and Promotions";
 			sourceTree = "<group>";
@@ -863,6 +868,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CDD8D95C1768A69C00BF3CAC /* StaffEditViewController.m in Sources */,
 				CD1BBBB217688F350008E4FD /* StaffViewController.m in Sources */,
 				808F13D516FB6A5C00B66E6D /* main.m in Sources */,
 				808F13D916FB6A5C00B66E6D /* AppDelegate.m in Sources */,

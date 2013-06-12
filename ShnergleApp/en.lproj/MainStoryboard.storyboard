@@ -748,6 +748,9 @@
                                             </subviews>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         </view>
+                                        <connections>
+                                            <segue destination="pR2-rf-Aa8" kind="push" id="OUO-RL-EXV"/>
+                                        </connections>
                                     </collectionViewCell>
                                 </cells>
                                 <connections>
@@ -764,6 +767,23 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JLV-eL-fbv" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-89" y="1329"/>
+        </scene>
+        <!--Staff Edit View Controller-->
+        <scene sceneID="bz2-MF-RBL">
+            <objects>
+                <viewController id="pR2-rf-Aa8" customClass="StaffEditViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="brn-Fa-2ys">
+                        <rect key="frame" x="0.0" y="20" width="320" height="548"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                    <extendedEdge key="edgesForExtendedLayout"/>
+                    <navigationItem key="navigationItem" id="mVN-L3-gsI"/>
+                    <simulatedStatusBarMetrics key="simulatedStatusBarMetrics"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Pmb-sr-gs3" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="417" y="1323"/>
         </scene>
         <!--Photo Location-->
         <scene sceneID="gTR-eI-tKr">
