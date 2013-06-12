@@ -29,7 +29,7 @@
 	self.navigationItem.title = @"Venue Details";
     //[self setRightBarButton: [NSString @"Done"];
     
-    self.tableData = @[@"Address", @"Phone", @"Email", @"Title"];
+    self.tableData = @[@"Phone", @"Email", @"Website"];
 }
 
 - (void)viewDidAppear:(BOOL)animated {
@@ -57,12 +57,6 @@
         textField.backgroundColor = [UIColor clearColor];
         [cell.contentView addSubview:textField];
     } else if (indexPath.row == 2) {
-        UILabel *textField = [[UILabel alloc] initWithFrame:CGRectMake(110, 6, 185, 30)];
-        textField.text = @"(Required)";
-        textField.textColor = [UIColor lightGrayColor];
-        textField.backgroundColor = [UIColor clearColor];
-        [cell.contentView addSubview:textField];
-    } else if (indexPath.row == 3) {
         UILabel *textField = [[UILabel alloc] initWithFrame:CGRectMake(110, 6, 185, 30)];
         textField.text = @"(Required)";
         textField.textColor = [UIColor lightGrayColor];
