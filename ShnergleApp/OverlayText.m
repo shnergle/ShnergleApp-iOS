@@ -15,6 +15,14 @@
 @implementation OverlayText
 
 - (IBAction)share:(id)sender {
+    AppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
+    if (appDelegate.venueStatus == Manager) {
+        UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"MainStoryboard" bundle:nil];
+        UIViewController *vc = [storyboard instantiateViewControllerWithIdentifier:@"Staff"];
+        UIViewController *caller = (UIViewController *)self.nextResponder.nextResponder;
+        [caller.navigationController pushViewController:vc animated:YES];
+        return;
+    }
     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"MainStoryboard" bundle:nil];
     UIViewController *vc = [storyboard instantiateViewControllerWithIdentifier:@"ShareViewController"];
     UIViewController *caller = (UIViewController *)self.nextResponder.nextResponder;
