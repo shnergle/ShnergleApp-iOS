@@ -23,7 +23,6 @@
 
 //@property (strong, nonatomic) FBProfilePictureView *profilePictureView;
 @property (strong, nonatomic) IBOutlet UISwitch *twitterSwitch;
-- (IBAction)twitterSwitchAction:(id)sender;
 @property (strong, nonatomic) NSArray *accounts;
 @property (weak, nonatomic) IBOutlet UIView *checkInView;
 @property (weak, nonatomic) IBOutlet UIView *redeemed;
@@ -31,5 +30,8 @@
 @property (weak, nonatomic) IBOutlet UIView *scoutView;
 @property (weak, nonatomic) IBOutlet UIView *shnerglerView;
 @property (weak, nonatomic) IBOutlet UIView *explorerView;
+
+- (IBAction)twitterSwitchAction:(id)sender;
+- (IBAction)signOut:(id)sender;
 
 @end
