@@ -11,7 +11,7 @@
 @interface ImageCache : NSObject {
     id responseObject;
     SEL responseCallback;
-    NSMutableDictionary *cache;
+    NSCache *cache;
     NSString *key;
 }
 
