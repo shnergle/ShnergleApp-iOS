@@ -139,7 +139,7 @@
     if (!hasPositionLocked) {
         NSLog(@"the location observer is being run");
         if ([keyPath isEqualToString:@"myLocation"] && [object isKindOfClass:[GMSMapView class]]) {
-            [self.mapView animateToCameraPosition:[GMSCameraPosition cameraWithLatitude:self.mapView.myLocation.coordinate.latitude - 0.012
+            [self.mapView animateToCameraPosition:[GMSCameraPosition cameraWithLatitude:self.mapView.myLocation.coordinate.latitude
                                                                               longitude:self.mapView.myLocation.coordinate.longitude
                                                                                    zoom:13]];
             
