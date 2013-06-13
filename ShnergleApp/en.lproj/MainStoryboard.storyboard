@@ -1883,9 +1883,6 @@
                                     <constraint firstItem="UL8-cw-UNK" firstAttribute="trailing" secondItem="xDq-dx-kAB" secondAttribute="trailing" id="hJn-z0-HKJ"/>
                                     <constraint firstItem="d7K-2j-bO2" firstAttribute="top" secondItem="UL8-cw-UNK" secondAttribute="bottom" constant="8" symbolic="YES" id="zmr-en-3nZ"/>
                                 </constraints>
-                                <connections>
-                                    <outletCollection property="gestureRecognizers" destination="Foh-tV-EWs" appends="YES" id="I0T-tA-csK"/>
-                                </connections>
                             </scrollView>
                             <navigationBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="uZw-Cy-fCl">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -1908,6 +1905,9 @@
                             <constraint firstItem="HP1-zJ-Evb" firstAttribute="top" secondItem="T3d-vY-Mf8" secondAttribute="top" constant="44" id="sq4-HT-3U6"/>
                             <constraint firstItem="HP1-zJ-Evb" firstAttribute="trailing" secondItem="T3d-vY-Mf8" secondAttribute="trailing" id="uL4-73-oFc"/>
                         </constraints>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="Foh-tV-EWs" appends="YES" id="wK0-9j-j2D"/>
+                        </connections>
                     </view>
                     <extendedEdge key="edgesForExtendedLayout"/>
                     <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="lightContent"/>
