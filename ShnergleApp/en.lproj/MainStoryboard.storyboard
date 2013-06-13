@@ -310,131 +310,69 @@
                                     <constraint firstAttribute="height" constant="313" id="8H1-rX-zEd"/>
                                 </constraints>
                                 <prototypes>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" indentationWidth="10" reuseIdentifier="Cell0" textLabel="CQv-cN-DhB" style="IBUITableViewCellStyleDefault" id="pvs-HM-1nX">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Cell0" id="lVC-nn-0Ga">
                                         <rect key="frame" x="0.0" y="46" width="320" height="45"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <autoresizingMask key="autoresizingMask"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                             <rect key="frame" x="10" y="1" width="300" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" ambiguous="YES" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CQv-cN-DhB">
-                                                    <rect key="frame" x="10" y="0.0" width="280" height="43"/>
-                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
-                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                                    <color key="highlightedColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                                </label>
-                                            </subviews>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         </view>
                                     </tableViewCell>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="Cell1" textLabel="NTh-sg-gME" style="IBUITableViewCellStyleDefault" id="5Ti-Al-dA2">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Cell1" id="jFl-iE-UJo">
                                         <rect key="frame" x="0.0" y="91" width="320" height="44"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <autoresizingMask key="autoresizingMask"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                             <rect key="frame" x="10" y="0.0" width="280" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="NTh-sg-gME">
-                                                    <rect key="frame" x="10" y="0.0" width="260" height="43"/>
-                                                    <autoresizingMask key="autoresizingMask"/>
-                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
-                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                                    <color key="highlightedColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                                </label>
-                                            </subviews>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         </view>
                                         <connections>
-                                            <segue destination="EYE-5f-vkw" kind="push" id="uVq-GS-0S2"/>
+                                            <segue destination="EYE-5f-vkw" kind="push" id="Zjh-nX-F7m"/>
                                         </connections>
                                     </tableViewCell>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" indentationWidth="10" reuseIdentifier="Cell2" textLabel="zxN-CE-EoI" style="IBUITableViewCellStyleDefault" id="lsd-hn-4mU">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Cell2" id="qi9-JN-BGB">
                                         <rect key="frame" x="0.0" y="135" width="320" height="44"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <autoresizingMask key="autoresizingMask"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                             <rect key="frame" x="10" y="0.0" width="300" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="zxN-CE-EoI">
-                                                    <rect key="frame" x="10" y="0.0" width="280" height="43"/>
-                                                    <autoresizingMask key="autoresizingMask"/>
-                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
-                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                                    <color key="highlightedColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                                </label>
-                                            </subviews>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         </view>
                                     </tableViewCell>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" indentationWidth="10" reuseIdentifier="Cell3" textLabel="VBR-Qd-9U2" style="IBUITableViewCellStyleDefault" id="Uzc-aZ-cgZ">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Cell3" id="pyU-cl-LXP">
                                         <rect key="frame" x="0.0" y="179" width="320" height="44"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <autoresizingMask key="autoresizingMask"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                             <rect key="frame" x="10" y="0.0" width="300" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="VBR-Qd-9U2">
-                                                    <rect key="frame" x="10" y="0.0" width="280" height="43"/>
-                                                    <autoresizingMask key="autoresizingMask"/>
-                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
-                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                                    <color key="highlightedColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                                </label>
-                                            </subviews>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         </view>
                                     </tableViewCell>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" indentationWidth="10" reuseIdentifier="Cell4" textLabel="zKp-F2-wHa" style="IBUITableViewCellStyleDefault" id="3b0-zr-WfS">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Cell4" id="tbw-L9-Syi">
                                         <rect key="frame" x="0.0" y="223" width="320" height="44"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <autoresizingMask key="autoresizingMask"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                             <rect key="frame" x="10" y="0.0" width="300" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="zKp-F2-wHa">
-                                                    <rect key="frame" x="10" y="0.0" width="280" height="43"/>
-                                                    <autoresizingMask key="autoresizingMask"/>
-                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
-                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                                    <color key="highlightedColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                                </label>
-                                            </subviews>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         </view>
                                     </tableViewCell>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" indentationWidth="10" reuseIdentifier="Cell5" textLabel="q6y-XD-Wya" style="IBUITableViewCellStyleDefault" id="pTx-W2-yTz">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Cell5" id="B5d-Lc-d61">
                                         <rect key="frame" x="0.0" y="267" width="320" height="44"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <autoresizingMask key="autoresizingMask"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                             <rect key="frame" x="10" y="0.0" width="300" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="q6y-XD-Wya">
-                                                    <rect key="frame" x="10" y="0.0" width="280" height="43"/>
-                                                    <autoresizingMask key="autoresizingMask"/>
-                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
-                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                                    <color key="highlightedColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                                </label>
-                                            </subviews>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         </view>
                                     </tableViewCell>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" indentationWidth="10" reuseIdentifier="Cell6" textLabel="S1V-nE-NJG" style="IBUITableViewCellStyleDefault" id="dOp-9L-2GE">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Cell6" id="jQp-zt-245">
                                         <rect key="frame" x="0.0" y="311" width="320" height="45"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <autoresizingMask key="autoresizingMask"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                             <rect key="frame" x="10" y="0.0" width="300" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="S1V-nE-NJG">
-                                                    <rect key="frame" x="10" y="0.0" width="280" height="43"/>
-                                                    <autoresizingMask key="autoresizingMask"/>
-                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
-                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                                    <color key="highlightedColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                                </label>
-                                            </subviews>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         </view>
                                     </tableViewCell>
@@ -1012,24 +950,16 @@
                                     <constraint firstAttribute="height" constant="216" id="YnF-jC-aI1"/>
                                 </constraints>
                                 <prototypes>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="LocationTableCells" textLabel="bVh-Uz-C2M" style="IBUITableViewCellStyleDefault" id="9Eh-QS-fGt">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Cell" id="Qiq-Hj-4mM">
                                         <rect key="frame" x="0.0" y="22" width="320" height="44"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <autoresizingMask key="autoresizingMask"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                             <rect key="frame" x="0.0" y="0.0" width="300" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" ambiguous="YES" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bVh-Uz-C2M">
-                                                    <rect key="frame" x="10" y="0.0" width="280" height="43"/>
-                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
-                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                                    <color key="highlightedColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                                </label>
-                                            </subviews>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         </view>
                                         <connections>
-                                            <segue destination="X6s-9K-8Ms" kind="push" id="IPm-OE-qZg"/>
+                                            <segue destination="X6s-9K-8Ms" kind="push" id="fjC-0F-Or5"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -2409,196 +2339,6 @@
         <image name="shnerglelogo_splash_screen.png" width="600" height="172"/>
         <image name="twitter-bird-white-on-blue.png" width="300" height="300"/>
     </resources>
-    <classes>
-        <class className="AddVenueViewController" superclassName="CustomBackViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/AddVenueViewController.h"/>
-            <relationships>
-                <relationship kind="outlet" name="mapView" candidateClass="GMSMapView"/>
-                <relationship kind="outlet" name="tableView" candidateClass="UITableView"/>
-            </relationships>
-        </class>
-        <class className="AroundMeViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/AroundMeViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="sliderValueChanged:"/>
-                <relationship kind="action" name="tapArrow:"/>
-                <relationship kind="action" name="tapMenu:"/>
-                <relationship kind="outlet" name="checkInButton" candidateClass="UIBarButtonItem"/>
-                <relationship kind="outlet" name="crowdCollection" candidateClass="UICollectionView"/>
-                <relationship kind="outlet" name="distanceScroller" candidateClass="UISlider"/>
-                <relationship kind="outlet" name="distanceScrollerView" candidateClass="OverlayText"/>
-                <relationship kind="outlet" name="drawerCloseButton" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="mapView" candidateClass="GMSMapView"/>
-                <relationship kind="outlet" name="navBar" candidateClass="UINavigationBar"/>
-                <relationship kind="outlet" name="navBarMenuItem" candidateClass="UINavigationItem"/>
-                <relationship kind="outlet" name="overlay" candidateClass="OverlayText"/>
-            </relationships>
-        </class>
-        <class className="CheckInViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/CheckInViewController.h"/>
-            <relationships>
-                <relationship kind="outlet" name="imageView" candidateClass="UIImageView"/>
-            </relationships>
-        </class>
-        <class className="CrowdItem" superclassName="UICollectionViewCell">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/CrowdItem.h"/>
-            <relationships>
-                <relationship kind="outlet" name="crowdImage" candidateClass="UIImageView"/>
-                <relationship kind="outlet" name="promotionIndicator" candidateClass="UIImageView"/>
-                <relationship kind="outlet" name="venueName" candidateClass="UILabel"/>
-            </relationships>
-        </class>
-        <class className="CustomBackViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/CustomBackViewController.h"/>
-        </class>
-        <class className="CustomSlidingViewController" superclassName="ECSlidingViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/CustomSlidingViewController.h"/>
-        </class>
-        <class className="ECSlidingViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/ECSlidingViewController.h"/>
-        </class>
-        <class className="FBProfilePictureView" superclassName="UIView">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/FBProfilePictureView.h"/>
-        </class>
-        <class className="FavouritesViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/FavouritesViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="menuButtonTriggered:"/>
-                <relationship kind="outlet" name="checkInButton" candidateClass="UIBarButtonItem"/>
-                <relationship kind="outlet" name="crowdCollection" candidateClass="UICollectionView"/>
-                <relationship kind="outlet" name="navBar" candidateClass="UINavigationBar"/>
-                <relationship kind="outlet" name="navBarItem" candidateClass="UINavigationItem"/>
-            </relationships>
-        </class>
-        <class className="GCPlaceholderTextView" superclassName="UITextView">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/GCPlaceholderTextView.h"/>
-        </class>
-        <class className="GMSMapView" superclassName="UIView">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/GMSMapView.h"/>
-        </class>
-        <class className="LoginScreenController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/LoginScreenController.h"/>
-            <relationships>
-                <relationship kind="action" name="buttonClickHandler:"/>
-                <relationship kind="outlet" name="buttonLoginLogout" candidateClass="UIButton"/>
-            </relationships>
-        </class>
-        <class className="MenuViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/MenuViewController.h"/>
-            <relationships>
-                <relationship kind="outlet" name="bar" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="searchBar" candidateClass="SearchBarView"/>
-            </relationships>
-        </class>
-        <class className="NSLayoutConstraint" superclassName="NSObject">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/NSLayoutConstraint.h"/>
-        </class>
-        <class className="OverlayText" superclassName="UIView">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/OverlayText.h"/>
-            <relationships>
-                <relationship kind="action" name="share:"/>
-                <relationship kind="action" name="swipeDown:"/>
-                <relationship kind="action" name="swipeUp:"/>
-                <relationship kind="action" name="tap:"/>
-                <relationship kind="action" name="tapPromotion:"/>
-                <relationship kind="action" name="tapPullerMenu:"/>
-                <relationship kind="outlet" name="commentButton" candidateClass="UIImageView"/>
-                <relationship kind="outlet" name="offerContents" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="offerCount" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="offerHeadline" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="postUpdateButton" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="shareButton" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="venueMap" candidateClass="GMSMapView"/>
-            </relationships>
-        </class>
-        <class className="PhotoLocationViewController" superclassName="CustomBackViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/PhotoLocationViewController.h"/>
-            <relationships>
-                <relationship kind="outlet" name="headline" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="searchResultTable" candidateClass="UITableView"/>
-            </relationships>
-        </class>
-        <class className="ProfileViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/ProfileViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="signOut:"/>
-                <relationship kind="action" name="tapMenu:"/>
-                <relationship kind="action" name="twitterSwitchAction:"/>
-                <relationship kind="outlet" name="checkInView" candidateClass="UIView"/>
-                <relationship kind="outlet" name="explorerView" candidateClass="UIView"/>
-                <relationship kind="outlet" name="favourites" candidateClass="UIView"/>
-                <relationship kind="outlet" name="navBar" candidateClass="UINavigationBar"/>
-                <relationship kind="outlet" name="navBarItem" candidateClass="UINavigationItem"/>
-                <relationship kind="outlet" name="redeemed" candidateClass="UIView"/>
-                <relationship kind="outlet" name="scoutView" candidateClass="UIView"/>
-                <relationship kind="outlet" name="shnerglerView" candidateClass="UIView"/>
-                <relationship kind="outlet" name="twitterSwitch" candidateClass="UISwitch"/>
-                <relationship kind="outlet" name="userProfileImage1" candidateClass="FBProfilePictureView"/>
-                <relationship kind="outlet" name="userProfileImage2" candidateClass="FBProfilePictureView"/>
-                <relationship kind="outlet" name="userProfileImage3" candidateClass="FBProfilePictureView"/>
-            </relationships>
-        </class>
-        <class className="SearchBarView" superclassName="UIView">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/SearchBarView.h"/>
-        </class>
-        <class className="ShareViewController" superclassName="CustomBackViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/ShareViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="selectFriendsButtonAction:"/>
-                <relationship kind="outlet" name="friendLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="image" candidateClass="UIImageView"/>
-                <relationship kind="outlet" name="nameList" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="textFieldname" candidateClass="GCPlaceholderTextView"/>
-            </relationships>
-        </class>
-        <class className="StaffEditViewController" superclassName="CustomBackViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/StaffEditViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="deleteStaff:"/>
-            </relationships>
-        </class>
-        <class className="StaffTypeViewController" superclassName="CustomBackViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/StaffTypeViewController.h"/>
-        </class>
-        <class className="StaffViewController" superclassName="CustomBackViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/StaffViewController.h"/>
-        </class>
-        <class className="UICollectionReusableView" superclassName="UIView">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/UICollectionReusableView.h"/>
-        </class>
-        <class className="UICollectionViewCell" superclassName="UICollectionReusableView">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/UICollectionViewCell.h"/>
-        </class>
-        <class className="UICollectionViewFlowLayout" superclassName="UICollectionViewLayout">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/UICollectionViewFlowLayout.h"/>
-        </class>
-        <class className="UICollectionViewLayout" superclassName="NSObject">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/UICollectionViewLayout.h"/>
-        </class>
-        <class className="VenueCategoryViewController" superclassName="CustomBackViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/VenueCategoryViewController.h"/>
-        </class>
-        <class className="VenueDetailsViewController" superclassName="CustomBackViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/VenueDetailsViewController.h"/>
-            <relationships>
-                <relationship kind="outlet" name="tableView2" candidateClass="UITableView"/>
-            </relationships>
-        </class>
-        <class className="VenueGalleryViewController" superclassName="CustomBackViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/VenueGalleryViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="flagButtonPressed:"/>
-                <relationship kind="outlet" name="imageScrollView" candidateClass="UIScrollView"/>
-            </relationships>
-        </class>
-        <class className="VenueViewController" superclassName="CustomBackViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/VenueViewController.h"/>
-            <relationships>
-                <relationship kind="outlet" name="checkInButton" candidateClass="UIBarButtonItem"/>
-                <relationship kind="outlet" name="crowdCollectionV" candidateClass="UICollectionView"/>
-            </relationships>
-        </class>
-    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>
@@ -2608,6 +2348,6 @@
         <segue reference="GBJ-CV-e6H"/>
         <segue reference="wJZ-W6-KFM"/>
         <segue reference="HHH-Gt-FIZ"/>
-        <segue reference="IPm-OE-qZg"/>
+        <segue reference="fjC-0F-Or5"/>
     </inferredMetricsTieBreakers>
 </document>
