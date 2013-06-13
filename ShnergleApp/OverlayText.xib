@@ -7,7 +7,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <view opaque="NO" autoresizesSubviews="NO" tag="5" contentMode="top" id="1" customClass="OverlayText">
+        <view autoresizesSubviews="NO" opaque="NO" tag="5" contentMode="top" id="1" customClass="OverlayText">
             <rect key="frame" x="0.0" y="0.0" width="321" height="662"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <userGuides>
@@ -258,9 +258,12 @@
                                         <constraint firstAttribute="height" constant="75" id="610"/>
                                     </constraints>
                                 </view>
-                                <button hidden="YES" opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hQT-9q-ZmQ">
+                                <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hQT-9q-ZmQ">
                                     <rect key="frame" x="107" y="305" width="105" height="18"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <constraints>
+                                        <constraint firstAttribute="width" constant="105" id="5oh-S9-6Oh"/>
+                                    </constraints>
                                     <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                     <state key="normal" title="Post Update">
                                         <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
@@ -297,6 +300,7 @@
                                 <constraint firstItem="327" firstAttribute="centerX" secondItem="1941" secondAttribute="centerX" id="2199"/>
                                 <constraint firstAttribute="centerX" secondItem="hQT-9q-ZmQ" secondAttribute="centerX" id="GCn-7w-eeF"/>
                                 <constraint firstAttribute="centerX" secondItem="hQT-9q-ZmQ" secondAttribute="centerX" id="Gon-zi-if4"/>
+                                <constraint firstItem="hQT-9q-ZmQ" firstAttribute="top" secondItem="1186" secondAttribute="bottom" constant="10" id="M3A-gF-Mqw"/>
                             </constraints>
                         </view>
                     </subviews>
@@ -465,30 +469,4 @@
         <image name="puller_menu.png" width="98" height="45"/>
         <image name="share.png" width="235" height="60"/>
     </resources>
-    <classes>
-        <class className="GMSMapView" superclassName="UIView">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/GMSMapView.h"/>
-        </class>
-        <class className="NSLayoutConstraint" superclassName="NSObject">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/NSLayoutConstraint.h"/>
-        </class>
-        <class className="OverlayText" superclassName="UIView">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/OverlayText.h"/>
-            <relationships>
-                <relationship kind="action" name="share:"/>
-                <relationship kind="action" name="swipeDown:"/>
-                <relationship kind="action" name="swipeUp:"/>
-                <relationship kind="action" name="tap:"/>
-                <relationship kind="action" name="tapPromotion:"/>
-                <relationship kind="action" name="tapPullerMenu:"/>
-                <relationship kind="outlet" name="commentButton" candidateClass="UIImageView"/>
-                <relationship kind="outlet" name="offerContents" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="offerCount" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="offerHeadline" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="postUpdateButton" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="shareButton" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="venueMap" candidateClass="GMSMapView"/>
-            </relationships>
-        </class>
-    </classes>
 </document>
