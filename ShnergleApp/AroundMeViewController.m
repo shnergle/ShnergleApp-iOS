@@ -153,9 +153,6 @@
     self.navigationController.navigationBar.clipsToBounds = YES;
     self.navBar.clipsToBounds = YES;
 
-    if ([[[[UIDevice currentDevice].systemVersion componentsSeparatedByString:@"."] objectAtIndex:0] intValue] > 6)
-        self.navBarMenuItem.prompt = @" ";
-    
     crowdImagesHidden = NO;
 
     [self addShadowToDistanceSlider];
@@ -221,48 +218,8 @@
     selectedVenue = indexPath.row;
 }
 
-- (void)createTitleButton {
-    /*
-       //Setup the custom middle buttons
-       //------------------------------
-       // Euurgh this changes every headline in this navigation!
-       //------------------------------
-       UIView *container = [[UIView alloc] init];
-       container.frame = CGRectMake(0, 0, 80, 44);
-       // create a button and add it to the container
-       UIButton *notificationButton = [UIButton buttonWithType:UIButtonTypeCustom];
-       notificationButton.frame = CGRectMake(0, 0, 35, 44);
-       notificationButton.backgroundColor = [UIColor redColor];
-       [container addSubview:notificationButton];
-       // Set the titleView to the container view
-       [self.navigationItem setTitleView:container];
-     */
-}
 
-- (IBAction)tapMap:(id)sender {
-    /*if(crowdImagesHidden){
-       [self showOverlay];
-       }else{
-       [self hideOverlay];
-       }
-     */
-}
-
-/*
-   - (IBAction)tapTitle:(id)sender {
-   NSLog(@"tapTitle run from ViewController");
-   if(dropDownHidden){
-   [[self dropDownMenu] showAnimated:0 animationDelay:0 animationDuration:0.5];
-   dropDownIndicator.highlighted = YES;
-   dropDownHidden = NO;
-   }else {
-   [[self dropDownMenu] hideAnimated:0 animationDuration:0.5 targetSize:-280 contentView:[self dropDownMenu]];
-   dropDownIndicator.highlighted = NO;
-   dropDownHidden = YES;
-   }
-   }
- */
-
+    
 - (void)showOverlay {
     [[self overlay] showAnimated:126 animationDelay:0.2 animationDuration:0.5];
 
@@ -362,12 +319,8 @@
 }
 
 - (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context {
-    // TODO: CHANGE THE ZOOM
     // How it works:
     // Whenever position changes, this method is run. It then changes the camera to point to the current position, minus a small latitude (to make the map position center in the top part of our Around Me view). The zoom level is an average level of detail for a few blocks.
-
-    //SIDE EFFECT:
-    //-- always bounces back to current position. makes better sense to do this once.
 
     //Make sure it is only run once:
     if (!hasPositionLocked) {

@@ -11,7 +11,6 @@
 @interface FavouritesViewController : UIViewController <UICollectionViewDataSource, UICollectionViewDelegate>
 {
     NSInteger selectedVenue;
-
 }
 @property (weak, nonatomic) IBOutlet UINavigationBar *navBar;
 @property (weak, nonatomic) IBOutlet UINavigationItem *navBarItem;

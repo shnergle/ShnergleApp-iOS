@@ -18,16 +18,13 @@
 - (void)setTitle:(NSString *)title {
     titleHeader = title;
 }
- 
 
-
--(void) setHeaderTitle:(NSString*)headerTitle andSubtitle:(NSString*)headerSubtitle {
-
+- (void)setHeaderTitle:(NSString *)headerTitle andSubtitle:(NSString *)headerSubtitle {
     CGRect headerTitleSubtitleFrame = CGRectMake(0, 0, 200, 44);
-    UIView* headerTitleSubtitleView = [[UILabel alloc] initWithFrame:headerTitleSubtitleFrame];
+    UIView *headerTitleSubtitleView = [[UILabel alloc] initWithFrame:headerTitleSubtitleFrame];
     headerTitleSubtitleView.backgroundColor = [UIColor clearColor];
     headerTitleSubtitleView.autoresizesSubviews = YES;
-    
+
     CGRect titleFrame = CGRectMake(0, 2, 200, 24);
     UILabel *titleView2 = [[UILabel alloc] initWithFrame:titleFrame];
     titleView2.backgroundColor = [UIColor clearColor];
@@ -39,27 +36,25 @@
     titleView2.text = headerTitle;
     titleView2.adjustsFontSizeToFitWidth = YES;
     [headerTitleSubtitleView addSubview:titleView2];
-    
-    CGRect subtitleFrame = CGRectMake(0, 24, 200, 44-24);
+
+    CGRect subtitleFrame = CGRectMake(0, 24, 200, 44 - 24);
     UILabel *subtitleView2 = [[UILabel alloc] initWithFrame:subtitleFrame];
     subtitleView2.backgroundColor = [UIColor clearColor];
     subtitleView2.font = [UIFont fontWithName:@"Roboto-Regular" size:12.0];
     subtitleView2.textAlignment = NSTextAlignmentCenter;
-    subtitleView2.textColor = [UIColor colorWithRed:51.0/250 green:140.0/250 blue:16.0/250 alpha:1.0];
+    subtitleView2.textColor = [UIColor colorWithRed:51.0 / 250 green:140.0 / 250 blue:16.0 / 250 alpha:1.0];
     subtitleView2.shadowColor = [UIColor clearColor];
     subtitleView2.shadowOffset = CGSizeMake(0, 0);
     subtitleView2.text = headerSubtitle;
     subtitleView2.adjustsFontSizeToFitWidth = YES;
     [headerTitleSubtitleView addSubview:subtitleView2];
-    
+
     headerTitleSubtitleView.autoresizingMask = (UIViewAutoresizingFlexibleLeftMargin |
-                                                 UIViewAutoresizingFlexibleRightMargin |
-                                                 UIViewAutoresizingFlexibleTopMargin |
-                                                 UIViewAutoresizingFlexibleBottomMargin);
-    
+                                                UIViewAutoresizingFlexibleRightMargin |
+                                                UIViewAutoresizingFlexibleTopMargin |
+                                                UIViewAutoresizingFlexibleBottomMargin);
+
     self.navigationItem.titleView = headerTitleSubtitleView;
-
-
 }
 
 - (void)viewDidLoad {
@@ -83,12 +78,7 @@
     promotionBody = @"50% OFF real ale";
 
     [self displayTextView];
-    
-    
-    
 }
-
-
 
 - (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView {
     return 1;
@@ -278,7 +268,7 @@
     selectedImage = indexPath.row;
 }
 
--(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
     AppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
     switch (buttonIndex) {
         case 0:
@@ -305,7 +295,6 @@
             NSLog(@"clicked %d", buttonIndex);
     }
     [_overlayView didAppear];
-
 }
 
 @end

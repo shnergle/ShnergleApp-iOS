@@ -41,7 +41,6 @@
 
 
 //-(void)createTitleButton;
-- (IBAction)tapMap:(id)sender;
 - (void)initMap;
 - (void)tapMenu;
 - (IBAction)tapMenu:(id)sender;

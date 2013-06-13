@@ -14,8 +14,7 @@
 
 @implementation VenueDetailsViewController
 
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
-{
+- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         // Custom initialization
@@ -23,12 +22,11 @@
     return self;
 }
 
-- (void)viewDidLoad
-{
+- (void)viewDidLoad {
     [super viewDidLoad];
-	self.navigationItem.title = @"Venue Details";
+    self.navigationItem.title = @"Venue Details";
     //[self setRightBarButton: [NSString @"Done"];
-    
+
     self.tableData = @[@"Phone", @"Email", @"Website"];
 }
 
@@ -37,9 +35,7 @@
     [self setRightBarButton:@"Done" actionSelector:@selector(goBack)];
 }
 
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
-{
-    
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     return _tableData.count;
 }
 
@@ -66,9 +62,7 @@
     return cell;
 }
 
-
-- (void)didReceiveMemoryWarning
-{
+- (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
