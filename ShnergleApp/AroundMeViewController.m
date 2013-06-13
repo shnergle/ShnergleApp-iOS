@@ -250,7 +250,7 @@
        given in self.distanceScroller.value (this is in metres)
        Would have to translate into coordinates?
      */
-    [self.mapView clear ]; //Thanks Adam
+    [self.mapView clear ];
 
 
     CLLocationCoordinate2D coord;

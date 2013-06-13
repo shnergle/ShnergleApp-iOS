@@ -30,6 +30,7 @@
 
     _tableData = @[@"Name", @"Category", @"Address 1", @"Address 2", @"City", @"Postcode", @"Work here?"];
     [self initMap];
+    
 }
 
 - (void)addVenue {
@@ -141,10 +142,25 @@
             [self.mapView animateToCameraPosition:[GMSCameraPosition cameraWithLatitude:self.mapView.myLocation.coordinate.latitude - 0.012
                                                                               longitude:self.mapView.myLocation.coordinate.longitude
                                                                                    zoom:13]];
+            
+            [self mapView:self.mapView didTapAtCoordinate:self.mapView.myLocation.coordinate];
+            venueCoord = self.mapView.myLocation.coordinate;
+            
             hasPositionLocked = YES;
         }
     }
 }
+
+- (void)mapView:(GMSMapView *)mapView
+    didTapAtCoordinate:(CLLocationCoordinate2D)coordinate {
+    [self.mapView clear];
+     CLLocationCoordinate2D position = CLLocationCoordinate2DMake(coordinate.latitude, coordinate.longitude);
+     GMSMarker *marker = [GMSMarker markerWithPosition:position];
+     marker.title = @"Selected venue location";
+     marker.map = self.mapView;
+     
+}
+
 
 
 @end
