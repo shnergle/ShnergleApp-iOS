@@ -36,9 +36,6 @@
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="548"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                                 <gestureRecognizers/>
-                                <connections>
-                                    <outletCollection property="gestureRecognizers" destination="y80-AP-SP4" appends="YES" id="WaU-WU-baq"/>
-                                </connections>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LIP-CL-Z0j" customClass="OverlayText">
                                 <rect key="frame" x="0.0" y="126" width="320" height="422"/>
@@ -251,11 +248,6 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4" sceneMemberID="firstResponder"/>
-                <tapGestureRecognizer id="y80-AP-SP4">
-                    <connections>
-                        <action selector="tapMap:" destination="2" id="nW5-zh-twV"/>
-                    </connections>
-                </tapGestureRecognizer>
                 <swipeGestureRecognizer direction="right" id="2Ec-ck-7VA">
                     <connections>
                         <action selector="tapMenu:" destination="2" id="MCR-HG-g2r"/>
@@ -2435,7 +2427,6 @@
             <relationships>
                 <relationship kind="action" name="sliderValueChanged:"/>
                 <relationship kind="action" name="tapArrow:"/>
-                <relationship kind="action" name="tapMap:"/>
                 <relationship kind="action" name="tapMenu:"/>
                 <relationship kind="outlet" name="checkInButton" candidateClass="UIBarButtonItem"/>
                 <relationship kind="outlet" name="crowdCollection" candidateClass="UICollectionView"/>
@@ -2608,9 +2599,9 @@
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="wJZ-W6-KFM"/>
-        <segue reference="HHH-Gt-FIZ"/>
-        <segue reference="V1y-Vn-JKN"/>
         <segue reference="GBJ-CV-e6H"/>
+        <segue reference="ohm-kx-4nt"/>
+        <segue reference="Zho-BK-kL6"/>
+        <segue reference="V1y-Vn-JKN"/>
     </inferredMetricsTieBreakers>
 </document>
