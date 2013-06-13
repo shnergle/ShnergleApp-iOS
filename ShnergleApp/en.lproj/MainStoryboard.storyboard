@@ -80,11 +80,11 @@
                                                             <nil key="highlightedColor"/>
                                                             <size key="shadowOffset" width="0.0" height="0.0"/>
                                                         </label>
-                                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" image="PromotionStar.png" translatesAutoresizingMaskIntoConstraints="NO" id="R33-p2-naO">
-                                                            <rect key="frame" x="135" y="0.0" width="17" height="16"/>
+                                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" image="promocorner.png" translatesAutoresizingMaskIntoConstraints="NO" id="R33-p2-naO">
+                                                            <rect key="frame" x="122" y="0.0" width="30" height="30"/>
                                                             <constraints>
-                                                                <constraint firstAttribute="height" constant="16" id="BLW-0J-ZPV"/>
-                                                                <constraint firstAttribute="width" constant="17" id="o49-TH-pTd"/>
+                                                                <constraint firstAttribute="height" constant="30" id="BLW-0J-ZPV"/>
+                                                                <constraint firstAttribute="width" constant="30" id="o49-TH-pTd"/>
                                                             </constraints>
                                                         </imageView>
                                                     </subviews>
@@ -2041,11 +2041,11 @@
                                                     <nil key="highlightedColor"/>
                                                     <size key="shadowOffset" width="0.0" height="0.0"/>
                                                 </label>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" image="PromotionStar.png" translatesAutoresizingMaskIntoConstraints="NO" id="s5g-hH-jXZ">
-                                                    <rect key="frame" x="135" y="0.0" width="17" height="16"/>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" image="promocorner.png" translatesAutoresizingMaskIntoConstraints="NO" id="s5g-hH-jXZ">
+                                                    <rect key="frame" x="122" y="0.0" width="30" height="30"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="height" constant="16" id="KwO-Zs-b7D"/>
-                                                        <constraint firstAttribute="width" constant="17" id="xvn-z2-H7l"/>
+                                                        <constraint firstAttribute="height" constant="30" id="KwO-Zs-b7D"/>
+                                                        <constraint firstAttribute="width" constant="30" id="xvn-z2-H7l"/>
                                                     </constraints>
                                                 </imageView>
                                             </subviews>
@@ -2404,13 +2404,13 @@
     </scenes>
     <resources>
         <image name="FB-f-Logo__blue_50.png" width="50" height="50"/>
-        <image name="PromotionStar.png" width="34" height="32"/>
         <image name="add_friend.png" width="89" height="89"/>
         <image name="arrowDown.png" width="42" height="42"/>
         <image name="greybutton03.png" width="157" height="60"/>
         <image name="login-button-small.png" width="151" height="43"/>
         <image name="login_screen_background.png" width="640" height="1136"/>
         <image name="mahiki.jpg" width="420" height="308"/>
+        <image name="promocorner.png" width="60" height="60"/>
         <image name="shnerglelogo_splash_screen.png" width="144" height="41.281375885009766"/>
         <image name="twitter-bird-white-on-blue.png" width="300" height="300"/>
     </resources>
@@ -2427,6 +2427,7 @@
             <relationships>
                 <relationship kind="action" name="sliderValueChanged:"/>
                 <relationship kind="action" name="tapArrow:"/>
+                <relationship kind="action" name="tapMap:"/>
                 <relationship kind="action" name="tapMenu:"/>
                 <relationship kind="outlet" name="checkInButton" candidateClass="UIBarButtonItem"/>
                 <relationship kind="outlet" name="crowdCollection" candidateClass="UICollectionView"/>
@@ -2599,6 +2600,12 @@
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
+<<<<<<< HEAD
+=======
+        <segue reference="ohm-kx-4nt"/>
+        <segue reference="Zho-BK-kL6"/>
+        <segue reference="V1y-Vn-JKN"/>
+>>>>>>> 405265c7648b45b9020aa9377a82222635980508
         <segue reference="GBJ-CV-e6H"/>
         <segue reference="ohm-kx-4nt"/>
         <segue reference="Zho-BK-kL6"/>

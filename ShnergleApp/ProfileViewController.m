@@ -14,9 +14,9 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
+
     [self menuButtonDecorations];
-    
+
     //[self setRightBarButton:@"Sign out" actionSelector:@selector(signOut)];
 
     AppDelegate *appdelegate = [[UIApplication sharedApplication] delegate];
@@ -47,19 +47,19 @@
     [super viewWillAppear:animated];
     [self menuButtonDecorations];
     self.navigationItem.hidesBackButton = YES;
-    
+
     //THE SANDWICH MENU SYSTEM (ECSlidingViewController)
     if (![self.slidingViewController.underLeftViewController isKindOfClass:[MenuViewController class]]) {
         self.slidingViewController.underLeftViewController  = [self.storyboard instantiateViewControllerWithIdentifier:@"AroundMeMenu"];
     }
-    
+
     [self.slidingViewController setAnchorRightRevealAmount:230.0f];
-    
+
     // Shadow for sandwich system
     self.view.layer.shadowOpacity = 0.75f;
     self.view.layer.shadowRadius = 10.0f;
     self.view.layer.shadowColor = [UIColor blackColor].CGColor;
-    
+
     //Remove shadows for navbar
     self.navigationController.navigationBar.clipsToBounds = YES;
     self.navBar.clipsToBounds = YES;
@@ -69,11 +69,9 @@
     [super viewWillDisappear:animated];
 }
 
-
 - (void)tapMenu {
     [self.slidingViewController anchorTopViewTo:ECRight];
     NSLog(@"tapMenu");
-
 }
 
 - (IBAction)tapMenu:(id)sender {
@@ -94,12 +92,12 @@
 
 - (UIBarButtonItem *)createLeftBarButton:(NSString *)imageName actionSelector:(SEL)actionSelector {
     UIImage *menuButtonImg = [UIImage imageNamed:imageName];
-    
+
     UIButton *menuButtonTmp = [UIButton buttonWithType:UIButtonTypeCustom];
     menuButtonTmp.frame = CGRectMake(280.0, 10.0, 22.0, 22.0);
     [menuButtonTmp setBackgroundImage:menuButtonImg forState:UIControlStateNormal];
     [menuButtonTmp addTarget:self action:actionSelector forControlEvents:UIControlEventTouchUpInside];
-    
+
     UIBarButtonItem *menuButton = [[UIBarButtonItem alloc]initWithCustomView:menuButtonTmp];
     return menuButton;
 }
@@ -107,16 +105,14 @@
 - (void)menuButtonDecorations {
     SEL actionSelector = @selector(tapMenu);
     NSString *imageName = @"mainmenu_button.png";
-    
-    
+
+
     UIBarButtonItem *menuButton;
     menuButton = [self createLeftBarButton:imageName actionSelector:actionSelector];
-    
-    
+
+
     self.navBarItem.leftBarButtonItem = menuButton;
     self.navigationItem.leftBarButtonItem = menuButton;
 }
-
-
 
 @end

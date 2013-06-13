@@ -52,13 +52,13 @@
     action[@"message"] = _textFieldname.text;
     action[@"picture"] = _image;
     [[[FBRequest alloc] initForPostWithSession:appDelegate.session graphPath:@"me/shnergle:share" graphObject:action] startWithCompletionHandler:^(FBRequestConnection *connection,
-                                                     id result,
-                                                     NSError *error) {
-                                     NSLog(@"FBSHARE - connection: %@", connection);
-                                     NSLog(@"FBSHARE - result: %@", result);
-                                     NSLog(@"FBSHARE - error: %@", error);
-                                     [self.navigationController popToRootViewControllerAnimated:YES];
-                                 }];
+                                                                                                                                                   id result,
+                                                                                                                                                   NSError *error) {
+        NSLog(@"FBSHARE - connection: %@", connection);
+        NSLog(@"FBSHARE - result: %@", result);
+        NSLog(@"FBSHARE - error: %@", error);
+        [self.navigationController popToRootViewControllerAnimated:YES];
+    }];
 }
 
 - (IBAction)selectFriendsButtonAction:(id)sender {

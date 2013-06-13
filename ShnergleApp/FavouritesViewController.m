@@ -57,7 +57,7 @@
     [self decorateCheckInButton];
     [[self crowdCollection] setDataSource:self];
     [[self crowdCollection] setDelegate:self];
-    
+
     //THE SANDWICH MENU SYSTEM (ECSlidingViewController)
     if (![self.slidingViewController.underLeftViewController isKindOfClass:[MenuViewController class]]) {
         self.slidingViewController.underLeftViewController  = [self.storyboard instantiateViewControllerWithIdentifier:@"AroundMeMenu"];
@@ -74,8 +74,7 @@
     self.navigationController.navigationBar.clipsToBounds = YES;
     self.navBar.clipsToBounds = YES;
 
-    if ([[[[UIDevice currentDevice].systemVersion componentsSeparatedByString:@"."] objectAtIndex:0] intValue] > 6)
-        self.navBarItem.prompt = @" ";
+    if ([[[[UIDevice currentDevice].systemVersion componentsSeparatedByString:@"."] objectAtIndex:0] intValue] > 6) self.navBarItem.prompt = @" ";
 }
 
 - (void)didReceiveMemoryWarning {
@@ -105,44 +104,42 @@
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     static NSString *cellIdentifier = @"FavCell";
     CrowdItem *item = [collectionView dequeueReusableCellWithReuseIdentifier:cellIdentifier forIndexPath:indexPath];
-    
+
     /*SHADOW AROUND OBJECTS*/
     /*
-     item.layer.masksToBounds = NO;
-     item.layer.borderColor = [UIColor grayColor].CGColor;
-     item.layer.borderWidth = 1.5f;
-     item.layer.contentsScale = [UIScreen mainScreen].scale;
-     item.layer.shadowOpacity = 0.5f;
-     item.layer.shadowRadius = 3.0f;
-     item.layer.shadowOffset = CGSizeZero;
-     item.layer.shadowPath = [UIBezierPath bezierPathWithRect:item.bounds].CGPath;
-     //item.layer.shouldRasterize = YES;
+       item.layer.masksToBounds = NO;
+       item.layer.borderColor = [UIColor grayColor].CGColor;
+       item.layer.borderWidth = 1.5f;
+       item.layer.contentsScale = [UIScreen mainScreen].scale;
+       item.layer.shadowOpacity = 0.5f;
+       item.layer.shadowRadius = 3.0f;
+       item.layer.shadowOffset = CGSizeZero;
+       item.layer.shadowPath = [UIBezierPath bezierPathWithRect:item.bounds].CGPath;
+       //item.layer.shouldRasterize = YES;
      */
     /* Here we can set the elements of the crowdItem (the cell) in the cellview */
     AppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
     [[item crowdImage] setImage:[UIImage imageNamed:appDelegate.images[indexPath.item]]];
-    
+
     [[item venueName] setText:appDelegate.venueNames[indexPath.item]];
 
     item.venueName.font = [UIFont fontWithName:@"Roboto" size:11.0f];
-    
+
     item.venueName.textColor = [UIColor whiteColor];
-    
+
     //Turn the indicator on or off:
-    if([item.venueName.text isEqual: @"mahiki"]){ //just an example filter
+    if ([item.venueName.text isEqual:@"mahiki"]) { //just an example filter
         item.promotionIndicator.hidden = YES;
-    }else{
+    } else {
         item.promotionIndicator.hidden = NO;
     }
-    
+
     return item;
 }
 
-
-- (void)collectionView:(UICollectionView *)collectionView
+- (void)         collectionView:(UICollectionView *)collectionView
     didHighlightItemAtIndexPath:(NSIndexPath *)indexPath {
     selectedVenue = indexPath.row;
-    
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {

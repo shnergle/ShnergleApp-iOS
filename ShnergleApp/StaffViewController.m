@@ -18,8 +18,7 @@
     self.navigationItem.title = @"Staff";
 }
 
-- (void)didReceiveMemoryWarning
-{
+- (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
 }
 
