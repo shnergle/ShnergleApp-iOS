@@ -229,9 +229,6 @@
                             <constraint firstItem="jEV-Fr-dKK" firstAttribute="top" secondItem="3" secondAttribute="top" id="pAf-G3-NWL"/>
                             <constraint firstItem="jEV-Fr-dKK" firstAttribute="trailing" secondItem="3" secondAttribute="trailing" id="pfi-CY-9zH"/>
                         </constraints>
-                        <connections>
-                            <outletCollection property="gestureRecognizers" destination="2Ec-ck-7VA" appends="YES" id="fnD-ae-GEz"/>
-                        </connections>
                     </view>
                     <extendedEdge key="edgesForExtendedLayout"/>
                     <navigationItem key="navigationItem" id="7uE-nf-CCR"/>
@@ -248,11 +245,6 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4" sceneMemberID="firstResponder"/>
-                <swipeGestureRecognizer direction="right" id="2Ec-ck-7VA">
-                    <connections>
-                        <action selector="tapMenu:" destination="2" id="MCR-HG-g2r"/>
-                    </connections>
-                </swipeGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="-1403" y="39"/>
         </scene>
@@ -2110,9 +2102,6 @@
                             <constraint firstItem="BRG-Y7-nAX" firstAttribute="top" secondItem="6S5-MJ-Ufd" secondAttribute="top" id="rKA-3m-fip"/>
                             <constraint firstItem="BRG-Y7-nAX" firstAttribute="leading" secondItem="6S5-MJ-Ufd" secondAttribute="leading" id="zZB-QW-2up"/>
                         </constraints>
-                        <connections>
-                            <outletCollection property="gestureRecognizers" destination="vAg-Xq-qNd" appends="YES" id="Vbd-lP-r9l"/>
-                        </connections>
                     </view>
                     <extendedEdge key="edgesForExtendedLayout"/>
                     <connections>
@@ -2123,11 +2112,6 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xTP-Ly-mpd" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <swipeGestureRecognizer direction="right" id="vAg-Xq-qNd">
-                    <connections>
-                        <action selector="menuButtonTriggered:" destination="Hxi-4h-Khl" id="jtw-VN-WyK"/>
-                    </connections>
-                </swipeGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="-1540" y="-1656"/>
         </scene>
@@ -2478,6 +2462,7 @@
         <class className="FavouritesViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/FavouritesViewController.h"/>
             <relationships>
+                <relationship kind="action" name="menuButtonTriggered:"/>
                 <relationship kind="outlet" name="checkInButton" candidateClass="UIBarButtonItem"/>
                 <relationship kind="outlet" name="crowdCollection" candidateClass="UICollectionView"/>
                 <relationship kind="outlet" name="navBar" candidateClass="UINavigationBar"/>
@@ -2510,8 +2495,10 @@
         <class className="OverlayText" superclassName="UIView">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/OverlayText.h"/>
             <relationships>
+                <relationship kind="action" name="share:"/>
                 <relationship kind="action" name="swipeDown:"/>
                 <relationship kind="action" name="swipeUp:"/>
+                <relationship kind="action" name="tap:"/>
                 <relationship kind="action" name="tapPromotion:"/>
                 <relationship kind="action" name="tapPullerMenu:"/>
                 <relationship kind="outlet" name="commentButton" candidateClass="UIImageView"/>
