@@ -37,26 +37,39 @@
 
 - (void)share {
     AppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
-    if ([appDelegate.session.permissions indexOfObject:@"publish_actions"] == NSNotFound)
+    //if ([appDelegate.session.permissions indexOfObject:@"publish_actions"] == NSNotFound)
         [appDelegate.session requestNewPublishPermissions:@[@"publish_actions"] defaultAudience:FBSessionDefaultAudienceEveryone completionHandler:^(FBSession *session, NSError *error) {
             [self shareOnFacebook];
         }];
-    else [self shareOnFacebook];
+    //else [self shareOnFacebook];
 }
 
 - (void)shareOnFacebook {
     AppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
     NSMutableDictionary<FBGraphObject> *action = [FBGraphObject graphObject];
-    action[@"venue"] = @"http://samples.ogp.me/259837270824167";
-    action[@"tags"] = selectedFriends;
-    action[@"message"] = _textFieldname.text;
-    action[@"picture"] = _image;
-    [[[FBRequest alloc] initForPostWithSession:appDelegate.session graphPath:@"me/shnergle:share" graphObject:action] startWithCompletionHandler:^(FBRequestConnection *connection,
+        NSData *imageData = UIImageJPEGRepresentation(_image.image, 90);
+    action[@"source"] = imageData;
+    [[[FBRequest alloc] initForPostWithSession:appDelegate.session graphPath:@"me/photos" graphObject:action] startWithCompletionHandler:^(FBRequestConnection *connection,
                                                                                                                                                    id result,
                                                                                                                                                    NSError *error) {
         NSLog(@"FBSHARE - connection: %@", connection);
         NSLog(@"FBSHARE - result: %@", result);
         NSLog(@"FBSHARE - error: %@", error);
+        NSMutableDictionary<FBGraphObject> *action = [FBGraphObject graphObject];
+        action[@"venue"] = @"http://samples.ogp.me/259837270824167";
+        action[@"tags"] = selectedFriends;
+        action[@"message"] = _textFieldname.text;
+        action[@"image"] = result;
+        action[@"fb:explicitly_shared"] = @"true";
+        [[[FBRequest alloc] initForPostWithSession:appDelegate.session graphPath:@"me/shnergle:share" graphObject:action] startWithCompletionHandler:^(FBRequestConnection *connection,
+                                                                                                                                                       id result,
+                                                                                                                                                       NSError *error) {
+            NSLog(@"FBSHARE - connection: %@", connection);
+            NSLog(@"FBSHARE - result: %@", result);
+            NSLog(@"FBSHARE - error: %@", error);
+            [self.navigationController popToRootViewControllerAnimated:YES];
+        }];
+
         [self.navigationController popToRootViewControllerAnimated:YES];
     }];
 }
