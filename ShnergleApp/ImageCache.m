@@ -14,7 +14,7 @@
 - (id)init {
     self = [super init];
     if (self != nil) {
-        cache = [[NSMutableDictionary alloc] init];
+        cache = [[NSCache alloc] init];
     }
     return self;
 }
@@ -23,9 +23,8 @@
     responseObject = object;
     responseCallback = cb;
     key = [NSString stringWithFormat:@"%@/%@", type, type_id];
-    id obj;
-    if ((obj = cache[key]) != nil) {
-        [self received:obj];
+    if ([cache objectForKey:key] != NULL) {
+        [self received:[cache objectForKey:key]];
     } else {
         NSString *path = @"images/get";
         NSString *params = [NSString stringWithFormat:@"entity=%@&entity_id=%@", type, type_id];
@@ -34,8 +33,8 @@
 }
 
 - (void)received:(UIImage *)response {
-    if (cache[key] == nil) {
-        cache[key] = response;
+    if ([cache objectForKey:key] == NULL) {
+        [cache setObject:response forKey:key];
     }
     NSMethodSignature *methodSig = [[responseObject class] instanceMethodSignatureForSelector:responseCallback];
     NSInvocation *invocation = [NSInvocation invocationWithMethodSignature:methodSig];

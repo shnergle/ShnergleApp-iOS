@@ -5,7 +5,6 @@
 //  Created by Stian Johansen on 3/21/13.
 //  Copyright (c) 2013 Shnergle. All rights reserved.
 //
-// Note: Icons http://www.glyphish.com/
 
 #import <UIKit/UIKit.h>
 #import <GoogleMaps/GoogleMaps.h>
@@ -35,6 +34,7 @@
 @property (strong, nonatomic) NSString *topViewType;
 
 @property (strong, nonatomic) NSString *addVenueType;
+
 
 typedef NS_ENUM (NSInteger, VENUE_STATUS) {
     Default,
