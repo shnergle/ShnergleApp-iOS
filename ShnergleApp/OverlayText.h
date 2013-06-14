@@ -26,6 +26,19 @@
 @property (weak, nonatomic) IBOutlet UIImageView *commentButton;
 
 @property (weak, nonatomic) IBOutlet UIButton *postUpdateButton;
+
+@property (weak, nonatomic) IBOutlet UILabel *goingLabel;
+@property (weak, nonatomic) IBOutlet UILabel *thinkingLabel;
+@property (weak, nonatomic) IBOutlet UILabel *checkedInLabel;
+
+- (IBAction)tappedGoing:(id)sender;
+- (IBAction)tappedThinking:(id)sender;
+
+@property (weak, nonatomic) IBOutlet UITapGestureRecognizer *tapGoing;
+@property (weak, nonatomic) IBOutlet UITapGestureRecognizer *tapThinking;
+
+
+
 - (void)hideAnimated:(NSInteger)originalSize animationDuration:(double)animationDuration targetSize:(NSInteger)targetSize contentView:(UIView *)contentView;
 - (void)showAnimated:(NSInteger)targetSize animationDelay:(double)animationDelay animationDuration:(double)animationDuration;
 - (void)didAppear;
