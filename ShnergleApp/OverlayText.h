@@ -8,6 +8,8 @@
 
 #import <UIKit/UIKit.h>
 #import <GoogleMaps/GoogleMaps.h>
+#import <Toast+UIView.h>
+
 @interface OverlayText : UIView {
     BOOL isUp;
 }
@@ -27,6 +29,7 @@
 
 @property (weak, nonatomic) IBOutlet UIButton *postUpdateButton;
 
+@property (weak, nonatomic) IBOutlet UIView *parentViewInside;
 @property (weak, nonatomic) IBOutlet UILabel *goingLabel;
 @property (weak, nonatomic) IBOutlet UILabel *thinkingLabel;
 @property (weak, nonatomic) IBOutlet UILabel *checkedInLabel;

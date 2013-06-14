@@ -87,6 +87,11 @@
     [self.goingLabel setFont:[UIFont fontWithName:self.goingLabel.font.fontName size:self.goingLabel.font.pointSize]];
     [self.goingLabel setText:[NSString stringWithFormat:@"%d",newValue]];
     [self.tapGoing setEnabled:NO];
+    [self.window makeToast:@"Yep! We're going!"
+                  duration:1.0
+                  position:[NSValue valueWithCGPoint:CGPointMake(160, 245)]
+                     image:[UIImage imageNamed:@"glass.png"]];
+
 
 }
 
@@ -97,7 +102,10 @@
     [self.thinkingLabel setFont:[UIFont fontWithName:self.thinkingLabel.font.fontName size:self.thinkingLabel.font.pointSize]];
     [self.thinkingLabel setText:[NSString stringWithFormat:@"%d",newValue]];
     [self.tapThinking setEnabled:NO];
-    
+    [self.window makeToast:@"Thinking about it..."
+                duration:1.0
+                position:[NSValue valueWithCGPoint:CGPointMake(160, 245)]
+                   image:[UIImage imageNamed:@"glass.png"]];
 
 }
 
