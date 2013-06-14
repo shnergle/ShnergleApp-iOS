@@ -61,7 +61,7 @@
         action[@"venue"] = @"http://samples.ogp.me/259837270824167";
         if (action[@"tags"] != nil) action[@"tags"] = selectedFriends;
         if (action[@"message"] != nil) action[@"message"] = _textFieldname.text;
-        action[@"image"] = result;
+        action[@"image"] = [NSString stringWithFormat:@"https://graph.facebook.com/%@", result[@"id"]];
         action[@"fb:explicitly_shared"] = @"true";
         [[[FBRequest alloc] initForPostWithSession:appDelegate.session graphPath:@"me/shnergle:share" graphObject:action] startWithCompletionHandler:^(FBRequestConnection *connection,
                                                                                                                                                        id result,
