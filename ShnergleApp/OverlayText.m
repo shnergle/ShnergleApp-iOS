@@ -22,6 +22,12 @@
         [caller.navigationController pushViewController:vc animated:YES];
         return;
     }
+    else if (appDelegate.venueStatus == Staff) {
+        UIViewController *vc = [caller.storyboard instantiateViewControllerWithIdentifier:@"viewconid"];
+        [caller.navigationController pushViewController:vc animated:YES];
+        return;
+    }
+
     UIViewController *vc = [caller.storyboard instantiateViewControllerWithIdentifier:@"ShareViewController"];
     [caller.navigationController pushViewController:vc animated:YES];
 }

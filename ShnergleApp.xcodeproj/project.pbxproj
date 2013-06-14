@@ -123,6 +123,7 @@
 		EE0B37DF175E0FA900B6EE58 /* twitter-bird-white-on-blue.png in Resources */ = {isa = PBXBuildFile; fileRef = EE0B37DE175E0FA900B6EE58 /* twitter-bird-white-on-blue.png */; };
 		EE0B37E1175E108100B6EE58 /* FB-f-Logo__blue_50.png in Resources */ = {isa = PBXBuildFile; fileRef = EE0B37E0175E108100B6EE58 /* FB-f-Logo__blue_50.png */; };
 		EE8FF815172A9CFD0003A8E1 /* LoginScreenController.m in Sources */ = {isa = PBXBuildFile; fileRef = EE8FF814172A9CFD0003A8E1 /* LoginScreenController.m */; };
+		EEB706F5176A1C5B00EF05C5 /* AddPromotionsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EEB706F4176A1C3D00EF05C5 /* AddPromotionsViewController.m */; };
 		EEE9EAD11768ACF100B8530B /* VenueDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EEAFF0FF17677CBC00980DC1 /* VenueDetailsViewController.m */; };
 /* End PBXBuildFile section */
 
@@ -287,6 +288,8 @@
 		EE8FF814172A9CFD0003A8E1 /* LoginScreenController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginScreenController.m; sourceTree = "<group>"; };
 		EEAFF0FE17677CBC00980DC1 /* VenueDetailsViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VenueDetailsViewController.h; sourceTree = "<group>"; };
 		EEAFF0FF17677CBC00980DC1 /* VenueDetailsViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VenueDetailsViewController.m; sourceTree = "<group>"; };
+		EEB706F3176A1C3D00EF05C5 /* AddPromotionsViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AddPromotionsViewController.h; sourceTree = "<group>"; };
+		EEB706F4176A1C3D00EF05C5 /* AddPromotionsViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AddPromotionsViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -531,6 +534,8 @@
 				805AB9E0172A9AFA0056DCFB /* VenueGalleryViewController.m */,
 				80B957D416FC65F90044A505 /* VenueViewController.h */,
 				80B957D516FC65F90044A505 /* VenueViewController.m */,
+				EEB706F3176A1C3D00EF05C5 /* AddPromotionsViewController.h */,
+				EEB706F4176A1C3D00EF05C5 /* AddPromotionsViewController.m */,
 			);
 			name = "Venue and Promotions";
 			sourceTree = "<group>";
@@ -846,6 +851,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EEB706F5176A1C5B00EF05C5 /* AddPromotionsViewController.m in Sources */,
 				EEE9EAD11768ACF100B8530B /* VenueDetailsViewController.m in Sources */,
 				CD5024921768AED6003D3004 /* StaffTypeViewController.m in Sources */,
 				CDD8D95C1768A69C00BF3CAC /* StaffEditViewController.m in Sources */,
