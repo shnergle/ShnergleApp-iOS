@@ -10,9 +10,9 @@
 #import "CustomBackViewController.h"
 
 
-@interface AddPromotionsViewController : CustomBackViewController<UIGestureRecognizerDelegate, UITableViewDataSource, UITableViewDelegate, UITextFieldDelegate>
+@interface AddPromotionsViewController : CustomBackViewController<UIGestureRecognizerDelegate, UITableViewDataSource, UITableViewDelegate, UITextFieldDelegate, UITextViewDelegate>
 {
-    
+    UIBarButtonItem *publishButton;
 }
 
 

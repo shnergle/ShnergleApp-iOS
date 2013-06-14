@@ -45,8 +45,8 @@
         [cell.contentView addSubview:textField];
     }
     else if (indexPath.section == 1) {
-        UITextView *textField = [[UITextView alloc] initWithFrame:CGRectMake(110, 10, 185, 30)];
-        //textField.delegate = self;
+        UITextView *textField = [[UITextView alloc] initWithFrame:CGRectMake(10, 35, 280, 100)];
+        textField.delegate = self;
         //textField.placeholder = @"(Required)";
         [cell.contentView addSubview:textField];
     }
@@ -83,6 +83,14 @@
     return cell;
 }
 
+- (BOOL)textView:(UITextView *)textView shouldChangeTextInRange:(NSRange)range replacementText:(NSString *)text {
+    if ([text isEqualToString:@"\n"]) {
+        [textView resignFirstResponder];
+        return NO;
+    }
+    return YES;
+}
+
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
@@ -112,9 +120,20 @@
             [UIView commitAnimations];
             
             // add the "Done" button to the nav bar
+            publishButton = self.navigationItem.rightBarButtonItem;
+            
             self.navigationItem.rightBarButtonItem = self.doneButton;
         }
     }
+}
+
+-(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell"];
+
+    return indexPath.section == 1 ? 140 : cell.bounds.size.height;
+    
 }
 
 - (IBAction)doneAction:(id)sender
@@ -129,11 +148,17 @@
     self.pickerView.frame = pickerFrame;
     [UIView commitAnimations];
     // remove the "Done" button in the nav bar
-    self.navigationItem.rightBarButtonItem = nil;
+    self.navigationItem.rightBarButtonItem = publishButton;
     
     // deselect the current table row
     NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
     [self.tableView deselectRowAtIndexPath:indexPath animated:YES];
+}
+
+-(BOOL)textFieldShouldReturn:(UITextField *)textField
+{
+    [textField resignFirstResponder];
+    return YES;
 }
 
 - (void)slideDownDidStop
