@@ -31,6 +31,32 @@
     [alert show];
 }
 
+- (IBAction)likeButtonPressed:(id)sender {
+#warning need to add the -fno-objc-arc compiler flag to Toast+UIView.m (see https://github.com/scalessec/Toast )
+    
+    NSString *newButtonLabel;
+    
+    if([self.likeButton.titleLabel.text isEqualToString:@"Like"]){
+        
+        [self.view makeToast:@"Liked!"
+                    duration:1.0
+                    position:[NSValue valueWithCGPoint:CGPointMake(160, 245)]];
+        
+        newButtonLabel = @"Unlike";
+
+    }else{
+        newButtonLabel = @"Like";
+        
+    }
+    
+    
+    [self.likeButton setTitle:newButtonLabel forState:UIControlStateNormal];
+    
+    
+}
+
+
+
 - (void)imageScrollerSetup {
     CGRect windowBounds = [[UIScreen mainScreen] bounds];
     _imageScrollView.bounds = CGRectMake(0, 0, windowBounds.size.width, 245);

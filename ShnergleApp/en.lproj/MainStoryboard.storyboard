@@ -648,6 +648,9 @@
                                     <color key="titleColor" white="0.28740875912408759" alpha="1" colorSpace="calibratedWhite"/>
                                     <color key="titleShadowColor" white="0.69482778284671531" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="likeButtonPressed:" destination="PQb-UE-tQ8" eventType="touchUpInside" id="MAF-FV-D7C"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JFo-V8-IX5">
                                 <rect key="frame" x="109" y="286" width="102" height="35"/>
@@ -730,6 +733,7 @@
                     <simulatedScreenMetrics key="simulatedDestinationMetrics"/>
                     <connections>
                         <outlet property="imageScrollView" destination="dSb-F6-Rh6" id="Fe2-AF-djm"/>
+                        <outlet property="likeButton" destination="4Bj-Xy-ePL" id="wNQ-cn-6kS"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8vH-m4-YOc" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -2417,6 +2421,7 @@
         <class className="OverlayText" superclassName="UIView">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/OverlayText.h"/>
             <relationships>
+                <relationship kind="action" name="share:"/>
                 <relationship kind="action" name="swipeDown:"/>
                 <relationship kind="action" name="swipeUp:"/>
                 <relationship kind="action" name="tap:"/>
@@ -2463,7 +2468,6 @@
         <class className="ShareViewController" superclassName="CustomBackViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/ShareViewController.h"/>
             <relationships>
-                <relationship kind="action" name="selectFriendsButtonAction:"/>
                 <relationship kind="outlet" name="friendLabel" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="image" candidateClass="UIImageView"/>
                 <relationship kind="outlet" name="nameList" candidateClass="UIButton"/>
@@ -2501,7 +2505,9 @@
             <source key="sourceIdentifier" type="project" relativePath="./Classes/VenueGalleryViewController.h"/>
             <relationships>
                 <relationship kind="action" name="flagButtonPressed:"/>
+                <relationship kind="action" name="likeButtonPressed:"/>
                 <relationship kind="outlet" name="imageScrollView" candidateClass="UIScrollView"/>
+                <relationship kind="outlet" name="likeButton" candidateClass="UIButton"/>
             </relationships>
         </class>
         <class className="VenueViewController" superclassName="CustomBackViewController">
