@@ -37,7 +37,7 @@
     
     if([self.likeButton.titleLabel.text isEqualToString:@"Like"]){
         
-        [self.view makeToast:@"Thinking about it..."
+        [self.view makeToast:@"Liked it!"
                       duration:1.0
                       position:@"center"
                          image:[UIImage imageNamed:@"thumbs_up.png"]];
