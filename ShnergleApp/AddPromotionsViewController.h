@@ -7,7 +7,19 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "CustomBackViewController.h"
 
-@interface AddPromotionsViewController : UIViewController
+
+@interface AddPromotionsViewController : CustomBackViewController<UIGestureRecognizerDelegate, UITableViewDataSource, UITableViewDelegate, UITextFieldDelegate>
+{
+    
+}
+
+
+@property (weak, nonatomic) IBOutlet UITableView *tableView;
+@property (strong, nonatomic) NSArray *tableData;
+@property (weak, nonatomic) IBOutlet UIDatePicker *pickerView;
+@property (strong, nonatomic) IBOutlet UIBarButtonItem *doneButton;
+- (IBAction)doneAction:(id)sender;
 
 @end
