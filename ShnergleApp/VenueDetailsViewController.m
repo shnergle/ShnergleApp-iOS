@@ -47,16 +47,12 @@
         textField.placeholder = @"(Required)";
         [cell.contentView addSubview:textField];
     } else if (indexPath.row == 1) {
-        UILabel *textField = [[UILabel alloc] initWithFrame:CGRectMake(110, 6, 185, 30)];
-        textField.text = @"(Required)";
-        textField.textColor = [UIColor lightGrayColor];
-        textField.backgroundColor = [UIColor clearColor];
+        UITextField *textField = [[UITextField alloc] initWithFrame:CGRectMake(110, 10, 185, 30)];
+        textField.placeholder = @"(Required)";
         [cell.contentView addSubview:textField];
     } else if (indexPath.row == 2) {
-        UILabel *textField = [[UILabel alloc] initWithFrame:CGRectMake(110, 6, 185, 30)];
-        textField.text = @"(Required)";
-        textField.textColor = [UIColor lightGrayColor];
-        textField.backgroundColor = [UIColor clearColor];
+        UITextField *textField = [[UITextField alloc] initWithFrame:CGRectMake(110, 10, 185, 30)];
+        textField.placeholder = @"(Required)";
         [cell.contentView addSubview:textField];
     }
     return cell;
