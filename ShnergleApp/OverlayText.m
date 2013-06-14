@@ -89,7 +89,7 @@
     [self.tapGoing setEnabled:NO];
     [self.window makeToast:@"Yep! We're going!"
                   duration:1.0
-                  position:[NSValue valueWithCGPoint:CGPointMake(160, 245)]
+                  position:@"center"
                      image:[UIImage imageNamed:@"glass.png"]];
 
 
@@ -104,7 +104,7 @@
     [self.tapThinking setEnabled:NO];
     [self.window makeToast:@"Thinking about it..."
                 duration:1.0
-                position:[NSValue valueWithCGPoint:CGPointMake(160, 245)]
+                position:@"center"
                    image:[UIImage imageNamed:@"glass.png"]];
 
 }

@@ -32,15 +32,15 @@
 }
 
 - (IBAction)likeButtonPressed:(id)sender {
-#warning need to add the -fno-objc-arc compiler flag to Toast+UIView.m (see https://github.com/scalessec/Toast )
     
     NSString *newButtonLabel;
     
     if([self.likeButton.titleLabel.text isEqualToString:@"Like"]){
         
-        [self.view makeToast:@"Liked!"
-                    duration:1.0
-                    position:[NSValue valueWithCGPoint:CGPointMake(160, 245)]];
+        [self.view makeToast:@"Thinking about it..."
+                      duration:1.0
+                      position:@"center"
+                         image:[UIImage imageNamed:@"thumbs_up.png"]];
         
         newButtonLabel = @"Unlike";
 
