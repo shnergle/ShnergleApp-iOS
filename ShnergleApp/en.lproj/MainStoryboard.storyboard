@@ -2299,14 +2299,6 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                         <rect key="frame" x="0.0" y="20" width="320" height="548"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="OdT-KI-oB9">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
-                                <color key="backgroundColor" red="1" green="0.38823529411764707" blue="0.15294117647058825" alpha="1" colorSpace="deviceRGB"/>
-                                <color key="tintColor" red="0.99215692281723022" green="0.37254902720451355" blue="0.16470588743686676" alpha="1" colorSpace="deviceRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="568" id="jU1-eI-kiF"/>
-                                </constraints>
-                            </imageView>
                             <button contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="0Fe-ga-82h">
                                 <rect key="frame" x="74" y="354" width="175" height="46"/>
                                 <constraints>
@@ -2342,13 +2334,11 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                                 </constraints>
                             </imageView>
                         </subviews>
+                        <color key="backgroundColor" red="0.9636262059211731" green="0.3050902783870697" blue="0.037567220628261566" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="0Fe-ga-82h" firstAttribute="leading" secondItem="pvJ-ME-z3b" secondAttribute="leading" constant="74" id="DZp-gv-WOp"/>
-                            <constraint firstItem="OdT-KI-oB9" firstAttribute="top" secondItem="pvJ-ME-z3b" secondAttribute="top" id="G7I-RB-WxG"/>
                             <constraint firstAttribute="bottom" secondItem="0Fe-ga-82h" secondAttribute="bottom" constant="148" id="RWa-64-c1X"/>
                             <constraint firstItem="0Fe-ga-82h" firstAttribute="top" secondItem="rry-Gf-ZA7" secondAttribute="bottom" constant="52" id="S9Q-yU-OVb"/>
-                            <constraint firstItem="rry-Gf-ZA7" firstAttribute="centerX" secondItem="OdT-KI-oB9" secondAttribute="centerX" id="Z8p-BQ-rMM"/>
-                            <constraint firstItem="OdT-KI-oB9" firstAttribute="leading" secondItem="pvJ-ME-z3b" secondAttribute="leading" id="qTx-ng-Vqn"/>
                             <constraint firstItem="rry-Gf-ZA7" firstAttribute="centerX" secondItem="pvJ-ME-z3b" secondAttribute="centerX" id="wY3-4E-vEb"/>
                             <constraint firstItem="rry-Gf-ZA7" firstAttribute="top" secondItem="pvJ-ME-z3b" secondAttribute="top" constant="130" id="xkP-dm-L6A"/>
                         </constraints>
@@ -2398,7 +2388,6 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
             <relationships>
                 <relationship kind="action" name="sliderValueChanged:"/>
                 <relationship kind="action" name="tapArrow:"/>
-                <relationship kind="action" name="tapMenu:"/>
                 <relationship kind="outlet" name="checkInButton" candidateClass="UIBarButtonItem"/>
                 <relationship kind="outlet" name="crowdCollection" candidateClass="UICollectionView"/>
                 <relationship kind="outlet" name="distanceScroller" candidateClass="UISlider"/>
@@ -2526,6 +2515,7 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
         <class className="ShareViewController" superclassName="CustomBackViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/ShareViewController.h"/>
             <relationships>
+                <relationship kind="action" name="selectFriendsButtonAction:"/>
                 <relationship kind="outlet" name="friendLabel" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="image" candidateClass="UIImageView"/>
                 <relationship kind="outlet" name="nameList" candidateClass="UIButton"/>
@@ -2534,6 +2524,9 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
         </class>
         <class className="StaffEditViewController" superclassName="CustomBackViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/StaffEditViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="deleteStaff:"/>
+            </relationships>
         </class>
         <class className="StaffTypeViewController" superclassName="CustomBackViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/StaffTypeViewController.h"/>
@@ -2549,9 +2542,6 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
         </class>
         <class className="UICollectionViewFlowLayout" superclassName="UICollectionViewLayout">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/UICollectionViewFlowLayout.h"/>
-        </class>
-        <class className="UICollectionViewLayout" superclassName="NSObject">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/UICollectionViewLayout.h"/>
         </class>
         <class className="VenueCategoryViewController" superclassName="CustomBackViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/VenueCategoryViewController.h"/>
