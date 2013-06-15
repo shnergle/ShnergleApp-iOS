@@ -28,7 +28,7 @@
     self.navigationItem.title = @"Promotion";
     [self setRightBarButton:@"Publish" actionSelector:@selector(addVenue)];
 
-    _tableData = @[@"Title", @"Promotion Details", @"Passcode", @"Starts", @"Ends", @"Limit"];
+    _tableData = @[@"Title", @"", @"Passcode", @"Starts", @"Ends", @"Limit"];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -37,20 +37,29 @@
     if (indexPath.section == 0) {
         UITextField *textField = [[UITextField alloc] initWithFrame:CGRectMake(110, 10, 185, 30)];
         textField.delegate = self;
+        textField.backgroundColor = [UIColor clearColor];
         //textField.placeholder = @"(Required)";
         [cell.contentView addSubview:textField];
     } else if (indexPath.section == 1) {
         UITextView *textField = [[UITextView alloc] initWithFrame:CGRectMake(10, 35, 280, 100)];
         textField.delegate = self;
+        textField.backgroundColor = [UIColor clearColor];
         //textField.placeholder = @"(Required)";
         [cell.contentView addSubview:textField];
+        UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(10, 5, 280, 25)];
+        label.backgroundColor = [UIColor clearColor];
+        label.font = [UIFont fontWithName:cell.textLabel.font.fontName size:label.font.pointSize];
+        label.text = @"Promotion Details";
+        [cell.contentView addSubview:label];
     } else if (indexPath.section == 2) {
         UITextField *textField = [[UITextField alloc] initWithFrame:CGRectMake(110, 10, 185, 30)];
         textField.delegate = self;
+        textField.backgroundColor = [UIColor clearColor];
         //textField.placeholder = @"(Required)";
         [cell.contentView addSubview:textField];
     } else if (indexPath.section == 3) {
         UILabel *textField = [[UILabel alloc] initWithFrame:CGRectMake(110, 10, 185, 30)];
+        textField.backgroundColor = [UIColor clearColor];
         //UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(tapped)];
         //tap.delegate = self;
         //[textField addGestureRecognizer:tap];
@@ -59,11 +68,13 @@
         [cell.contentView addSubview:textField];
     } else if (indexPath.section == 4) {
         UILabel *textField = [[UILabel alloc] initWithFrame:CGRectMake(110, 10, 185, 30)];
+        textField.backgroundColor = [UIColor clearColor];
         //textField.delegate = self;
         //textField.placeholder = @"(Required)";
         [cell.contentView addSubview:textField];
     } else if (indexPath.section == 5) {
         UITextField *textField = [[UITextField alloc] initWithFrame:CGRectMake(110, 10, 185, 30)];
+        textField.backgroundColor = [UIColor clearColor];
         textField.keyboardType = UIKeyboardTypeNumberPad;
         //textField.delegate = self;
         //textField.placeholder = @"(Required)";
