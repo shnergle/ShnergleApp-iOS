@@ -32,11 +32,6 @@
                         <rect key="frame" x="0.0" y="20" width="320" height="548"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <view multipleTouchEnabled="YES" contentMode="scaleAspectFill" restorationIdentifier="" translatesAutoresizingMaskIntoConstraints="NO" id="jEV-Fr-dKK" customClass="GMSMapView">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="548"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                                <gestureRecognizers/>
-                            </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LIP-CL-Z0j" customClass="OverlayText">
                                 <rect key="frame" x="0.0" y="126" width="320" height="422"/>
                                 <subviews>
@@ -213,11 +208,9 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="jEV-Fr-dKK" firstAttribute="bottom" secondItem="3" secondAttribute="bottom" id="6IF-dP-TUP"/>
                             <constraint firstItem="LIP-CL-Z0j" firstAttribute="leading" secondItem="3" secondAttribute="leading" id="8aQ-rw-Za9"/>
                             <constraint firstItem="5nO-C1-XZo" firstAttribute="leading" secondItem="3" secondAttribute="leading" id="GNW-8o-GCv"/>
                             <constraint firstItem="Yep-ys-8YG" firstAttribute="leading" secondItem="3" secondAttribute="leading" id="GqB-D3-JGa"/>
-                            <constraint firstItem="jEV-Fr-dKK" firstAttribute="leading" secondItem="3" secondAttribute="leading" id="Hde-AL-Ogp"/>
                             <constraint firstItem="LIP-CL-Z0j" firstAttribute="bottom" secondItem="3" secondAttribute="bottom" id="P3A-rn-1MW"/>
                             <constraint firstItem="5nO-C1-XZo" firstAttribute="trailing" secondItem="3" secondAttribute="trailing" id="V5j-Oi-H31"/>
                             <constraint firstItem="Yep-ys-8YG" firstAttribute="bottom" secondItem="5nO-C1-XZo" secondAttribute="top" id="Vzy-bW-Qkf"/>
@@ -226,8 +219,6 @@
                             <constraint firstItem="LIP-CL-Z0j" firstAttribute="top" secondItem="3" secondAttribute="top" constant="126" id="fqJ-MI-gdQ"/>
                             <constraint firstItem="Yep-ys-8YG" firstAttribute="trailing" secondItem="3" secondAttribute="trailing" id="jXD-JI-rAV"/>
                             <constraint firstItem="5nO-C1-XZo" firstAttribute="top" secondItem="3" secondAttribute="top" id="lBl-Yw-d1N"/>
-                            <constraint firstItem="jEV-Fr-dKK" firstAttribute="top" secondItem="3" secondAttribute="top" id="pAf-G3-NWL"/>
-                            <constraint firstItem="jEV-Fr-dKK" firstAttribute="trailing" secondItem="3" secondAttribute="trailing" id="pfi-CY-9zH"/>
                         </constraints>
                     </view>
                     <extendedEdge key="edgesForExtendedLayout"/>
@@ -238,7 +229,6 @@
                         <outlet property="distanceScroller" destination="KE8-Yl-GlD" id="BVc-hx-Ghm"/>
                         <outlet property="distanceScrollerView" destination="Yep-ys-8YG" id="QWb-NX-1Xt"/>
                         <outlet property="drawerCloseButton" destination="3ru-jW-uGF" id="C3A-Gd-yDl"/>
-                        <outlet property="mapView" destination="jEV-Fr-dKK" id="GvI-xX-n96"/>
                         <outlet property="navBar" destination="5nO-C1-XZo" id="urY-Ys-s6F"/>
                         <outlet property="navBarMenuItem" destination="nJg-Cb-NLe" id="V9h-H5-9cv"/>
                         <outlet property="overlay" destination="LIP-CL-Z0j" id="hAE-fj-YQb"/>
@@ -2391,9 +2381,9 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="GBJ-CV-e6H"/>
+        <segue reference="Zho-BK-kL6"/>
+        <segue reference="ohm-kx-4nt"/>
         <segue reference="V1y-Vn-JKN"/>
-        <segue reference="wJZ-W6-KFM"/>
-        <segue reference="HHH-Gt-FIZ"/>
+        <segue reference="GBJ-CV-e6H"/>
     </inferredMetricsTieBreakers>
 </document>

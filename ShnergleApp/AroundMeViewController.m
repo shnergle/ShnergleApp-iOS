@@ -106,7 +106,6 @@
 
     [self menuButtonDecorations];
 
-    [self initMap];
 }
 
 - (void)viewDidAppear:(BOOL)animated {
@@ -159,6 +158,9 @@
 
 
     //self.overlay.layer.shouldRasterize = YES;
+
+    [self initMap];
+
 }
 
 - (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView {
@@ -313,9 +315,12 @@
 
 - (void)initMap {
     hasPositionLocked = NO;
-    self.mapView.myLocationEnabled = YES;
-    self.mapView.delegate = self;
-    [self.mapView addObserver:self forKeyPath:@"myLocation" options:NSKeyValueObservingOptionNew context:nil];
+    _mapView = [[GMSMapView alloc] initWithFrame:CGRectMake(0, 44, self.view.bounds.size.width, self.view.bounds.size.height - 139)];
+    _mapView.myLocationEnabled = YES;
+    _mapView.delegate = self;
+    [_mapView addObserver:self forKeyPath:@"myLocation" options:NSKeyValueObservingOptionNew context:nil];
+    [self.view addSubview:_mapView];
+    [self.view sendSubviewToBack:_mapView];
 }
 
 - (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context {
@@ -326,12 +331,21 @@
     if (!hasPositionLocked) {
         NSLog(@"the location observer is being run");
         if ([keyPath isEqualToString:@"myLocation"] && [object isKindOfClass:[GMSMapView class]]) {
-            [self.mapView animateToCameraPosition:[GMSCameraPosition cameraWithLatitude:self.mapView.myLocation.coordinate.latitude - 0.012
-                                                                              longitude:self.mapView.myLocation.coordinate.longitude
+            [_mapView animateToCameraPosition:[GMSCameraPosition cameraWithLatitude:_mapView.myLocation.coordinate.latitude - 0.010
+                                                                              longitude:_mapView.myLocation.coordinate.longitude
                                                                                    zoom:13]];
             hasPositionLocked = YES;
         }
     }
+}
+
+- (void)viewWillDisappear:(BOOL)animated {
+    [super viewWillDisappear:animated];
+    [_mapView removeObserver:self forKeyPath:@"myLocation" context:nil];
+    [_mapView clear] ;
+    [_mapView stopRendering] ;
+    [_mapView removeFromSuperview] ;
+    _mapView = nil ;
 }
 
 @end

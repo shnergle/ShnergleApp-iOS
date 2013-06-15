@@ -24,7 +24,7 @@
 @property (weak, nonatomic) IBOutlet UIButton *drawerCloseButton;
 @property (weak, nonatomic) IBOutlet OverlayText *distanceScrollerView;
 @property (weak, nonatomic) IBOutlet UISlider *distanceScroller;
-@property (weak, nonatomic) IBOutlet GMSMapView *mapView;
+@property (strong, nonatomic) GMSMapView *mapView;
 @property (weak, nonatomic) IBOutlet UICollectionView *crowdCollection;
 @property (weak, nonatomic) IBOutlet UINavigationBar *navBar;
 @property (weak, nonatomic) IBOutlet UINavigationItem *navBarMenuItem;
