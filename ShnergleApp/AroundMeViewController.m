@@ -242,7 +242,6 @@
 }
 
 - (BOOL)scrollViewShouldScrollToTop:(UIScrollView *)scrollView {
-    NSLog(@"Scrolled to top");
     return YES;
 }
 
@@ -285,16 +284,10 @@
 }
 
 - (void)tapMenu {
-    NSLog(@"menu triggered from button");
     [self.slidingViewController anchorTopViewTo:ECRight];
     crowdImagesHidden = NO;
     dropDownHidden = YES;
     [self drawerButtonImage:@"arrowDown.png"];
-}
-
-- (IBAction)tapMenu:(id)sender {
-    NSLog(@"triggering menu by swipe");
-    [self tapMenu];
 }
 
 - (void)drawerButtonImage:(NSString *)imagenamed {
@@ -329,7 +322,6 @@
 
     //Make sure it is only run once:
     if (!hasPositionLocked) {
-        NSLog(@"the location observer is being run");
         if ([keyPath isEqualToString:@"myLocation"] && [object isKindOfClass:[GMSMapView class]]) {
             [_mapView animateToCameraPosition:[GMSCameraPosition cameraWithLatitude:_mapView.myLocation.coordinate.latitude - 0.010
                                                                               longitude:_mapView.myLocation.coordinate.longitude

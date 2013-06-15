@@ -54,9 +54,9 @@
     [[[FBRequest alloc] initWithSession:appDelegate.session graphPath:@"me/photos" parameters:action HTTPMethod:@"POST"] startWithCompletionHandler:^(FBRequestConnection *connection,
                                                                                                                                                    id result,
                                                                                                                                                    NSError *error) {
-        NSLog(@"FBSHARE - connection: %@", connection);
-        NSLog(@"FBSHARE - result: %@", result);
-        NSLog(@"FBSHARE - error: %@", error);
+        NSLog(@"FBSHARE - PHOTO - connection: %@", connection);
+        NSLog(@"FBSHARE - PHOTO - result: %@", result);
+        NSLog(@"FBSHARE - PHOTO - error: %@", error);
         NSMutableDictionary<FBGraphObject> *action = [FBGraphObject graphObject];
         action[@"venue"] = @"http://samples.ogp.me/259837270824167";
         if (action[@"tags"] != nil) action[@"tags"] = selectedFriends;
@@ -66,9 +66,9 @@
         [[[FBRequest alloc] initForPostWithSession:appDelegate.session graphPath:@"me/shnergle:share" graphObject:action] startWithCompletionHandler:^(FBRequestConnection *connection,
                                                                                                                                                        id result,
                                                                                                                                                        NSError *error) {
-            NSLog(@"FBSHARE - connection: %@", connection);
-            NSLog(@"FBSHARE - result: %@", result);
-            NSLog(@"FBSHARE - error: %@", error);
+            NSLog(@"FBSHARE - POST - connection: %@", connection);
+            NSLog(@"FBSHARE - POST - result: %@", result);
+            NSLog(@"FBSHARE - POST - error: %@", error);
             [self.navigationController setNavigationBarHidden:YES animated:YES];
             UIViewController *aroundMe = [self.storyboard instantiateViewControllerWithIdentifier:@"AroundMe"];
             [self.navigationController pushViewController:aroundMe animated:YES];

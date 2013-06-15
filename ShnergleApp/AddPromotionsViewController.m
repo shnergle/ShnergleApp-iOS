@@ -26,7 +26,6 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    NSLog(@"start");
 	// Do any additional setup after loading the view.
     self.navigationItem.title = @"Promotion";
     [self setRightBarButton:@"Publish" actionSelector:@selector(addVenue)];

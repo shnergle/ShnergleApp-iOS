@@ -71,12 +71,6 @@
 
 - (void)tapMenu {
     [self.slidingViewController anchorTopViewTo:ECRight];
-    NSLog(@"tapMenu");
-}
-
-- (IBAction)tapMenu:(id)sender {
-    NSLog(@"triggering menu by swipe");
-    [self tapMenu];
 }
 
 - (IBAction)signOut:(id)sender {

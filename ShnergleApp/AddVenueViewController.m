@@ -141,7 +141,6 @@
     
     //Make sure it is only run once:
     if (!hasPositionLocked) {
-        NSLog(@"the location observer is being run");
         if ([keyPath isEqualToString:@"myLocation"] && [object isKindOfClass:[GMSMapView class]]) {
             [map animateToCameraPosition:[GMSCameraPosition cameraWithLatitude:map.myLocation.coordinate.latitude
                                                                               longitude:map.myLocation.coordinate.longitude

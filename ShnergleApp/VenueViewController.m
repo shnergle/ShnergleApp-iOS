@@ -291,8 +291,6 @@
             appDelegate.venueStatus = Manager;
             [self setHeaderTitle:titleHeader andSubtitle:@"Manager"];
             break;
-        default:
-            NSLog(@"clicked %d", buttonIndex);
     }
     [_overlayView didAppear];
 }

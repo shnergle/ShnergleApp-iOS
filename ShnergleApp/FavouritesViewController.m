@@ -80,12 +80,7 @@
     // Dispose of any resources that can be recreated.
 }
 
-- (IBAction)menuButtonTriggered:(id)sender {
-    [self.slidingViewController anchorTopViewTo:ECRight];
-}
-
 - (void)tapMenu {
-    NSLog(@"menu triggered from button");
     [self.slidingViewController anchorTopViewTo:ECRight];
 }
 

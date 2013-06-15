@@ -56,7 +56,6 @@
 
 - (IBAction)swipeDown:(id)sender {
     //[self setTabBarHidden:false animated:true];
-    NSLog(@"SwipeDown");
     /*if the box is already swiped down, ignore
        if(self.frame.origin.y > 200){
 
@@ -75,8 +74,6 @@
 
 - (IBAction)swipeUp:(id)sender {
     //[self setTabBarHidden:true animated:true];
-    NSLog(@"SwipeUP");
-
     [self showAnimated:50 animationDelay:0.2 animationDuration:0.5];
     isUp = YES;
 }
@@ -186,7 +183,6 @@
 }
 
 - (IBAction)tapPullerMenu:(id)sender {
-    NSLog(@"tapped");
     if (isUp) [self swipeDown:sender];
     else [self swipeUp:sender];
 }

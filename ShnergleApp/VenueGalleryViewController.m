@@ -77,9 +77,7 @@
         cView.backgroundColor = [UIColor blueColor];
         [_imageScrollView addSubview:cView];
         cRect.origin.x += cRect.size.width;
-        NSLog(@"image added at %f,%f", cRect.origin.x, cRect.origin.y);
     }
-    NSLog(@"subviews of scrollview:%d", _imageScrollView.subviews.count);
     _imageScrollView.contentSize = CGSizeMake(cRect.origin.x, _imageScrollView.bounds.size.height);
     _imageScrollView.contentOffset = CGPointMake(_imageScrollView.bounds.size.width * imageIndex, 1.0); //should be the center page in a 3 page setup
     [self.imageScrollView updateConstraints];

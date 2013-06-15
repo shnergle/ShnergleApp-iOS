@@ -43,7 +43,6 @@
 //-(void)createTitleButton;
 - (void)initMap;
 - (void)tapMenu;
-- (IBAction)tapMenu:(id)sender;
 
 - (void)hideOverlay;
 - (void)showOverlay;
