@@ -29,7 +29,6 @@
     [self setRightBarButton:@"Add" actionSelector:@selector(addVenue)];
 
     _tableData = @[@"Name", @"Category", @"Address 1", @"Address 2", @"City", @"Postcode", @"Work here?"];
-
 }
 
 - (void)addVenue {
@@ -99,7 +98,6 @@
         secondCellField.textColor = [UIColor blackColor];
     }
     [self initMap];
-
 }
 
 - (BOOL)textFieldShouldReturn:(UITextField *)textField {
@@ -124,7 +122,6 @@
     [super goBack];
 }
 
-
 - (void)initMap {
     hasPositionLocked = NO;
     map = [[GMSMapView alloc] initWithFrame:_mapView.bounds];
@@ -138,39 +135,38 @@
 - (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context {
     // How it works:
     // Whenever position changes, this method is run. It then changes the camera to point to the current position, minus a small latitude (to make the map position center in the top part of our Around Me view). The zoom level is an average level of detail for a few blocks.
-    
+
     //Make sure it is only run once:
     if (!hasPositionLocked) {
         if ([keyPath isEqualToString:@"myLocation"] && [object isKindOfClass:[GMSMapView class]]) {
             [map animateToCameraPosition:[GMSCameraPosition cameraWithLatitude:map.myLocation.coordinate.latitude
-                                                                              longitude:map.myLocation.coordinate.longitude
-                                                                                   zoom:13]];
-            
+                                                                     longitude:map.myLocation.coordinate.longitude
+                                                                          zoom:13]];
+
             [self mapView:map didTapAtCoordinate:map.myLocation.coordinate];
             venueCoord = map.myLocation.coordinate;
-            
+
             hasPositionLocked = YES;
         }
     }
 }
 
-- (void)mapView:(GMSMapView *)mapView
+- (void)       mapView:(GMSMapView *)mapView
     didTapAtCoordinate:(CLLocationCoordinate2D)coordinate {
     [mapView clear];
-     CLLocationCoordinate2D position = CLLocationCoordinate2DMake(coordinate.latitude, coordinate.longitude);
-     GMSMarker *marker = [GMSMarker markerWithPosition:position];
-     marker.title = @"Selected venue location";
-     marker.map = mapView;
-     
+    CLLocationCoordinate2D position = CLLocationCoordinate2DMake(coordinate.latitude, coordinate.longitude);
+    GMSMarker *marker = [GMSMarker markerWithPosition:position];
+    marker.title = @"Selected venue location";
+    marker.map = mapView;
 }
 
 - (void)viewWillDisappear:(BOOL)animated {
     [super viewWillDisappear:animated];
     [map removeObserver:self forKeyPath:@"myLocation" context:nil];
-    [map clear] ;
-    [map stopRendering] ;
-    [map removeFromSuperview] ;
-    map = nil ;
+    [map clear];
+    [map stopRendering];
+    [map removeFromSuperview];
+    map = nil;
 }
 
 @end

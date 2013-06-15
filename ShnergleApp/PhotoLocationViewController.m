@@ -63,10 +63,10 @@
 - (void)viewWillDisappear:(BOOL)animated {
     [super viewWillDisappear:animated];
     [map removeObserver:self forKeyPath:@"myLocation" context:nil];
-    [map clear] ;
-    [map stopRendering] ;
-    [map removeFromSuperview] ;
-    map = nil ;
+    [map clear];
+    [map stopRendering];
+    [map removeFromSuperview];
+    map = nil;
 }
 
 - (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context {

@@ -32,30 +32,22 @@
 }
 
 - (IBAction)likeButtonPressed:(id)sender {
-    
     NSString *newButtonLabel;
-    
-    if([self.likeButton.titleLabel.text isEqualToString:@"Like"]){
-        
+
+    if ([self.likeButton.titleLabel.text isEqualToString:@"Like"]) {
         [self.view makeToast:@"Liked it!"
-                      duration:1.0
-                      position:@"center"
-                         image:[UIImage imageNamed:@"thumbs_up.png"]];
-        
+                    duration:1.0
+                    position:@"center"
+                       image:[UIImage imageNamed:@"thumbs_up.png"]];
+
         newButtonLabel = @"Unlike";
-
-    }else{
+    } else {
         newButtonLabel = @"Like";
-        
     }
-    
-    
+
+
     [self.likeButton setTitle:newButtonLabel forState:UIControlStateNormal];
-    
-    
 }
-
-
 
 - (void)imageScrollerSetup {
     CGRect windowBounds = [[UIScreen mainScreen] bounds];

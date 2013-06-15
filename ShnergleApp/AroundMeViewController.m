@@ -105,7 +105,6 @@
 
 
     [self menuButtonDecorations];
-
 }
 
 - (void)viewDidAppear:(BOOL)animated {
@@ -160,7 +159,6 @@
     //self.overlay.layer.shouldRasterize = YES;
 
     [self initMap];
-
 }
 
 - (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView {
@@ -220,8 +218,6 @@
     selectedVenue = indexPath.row;
 }
 
-
-    
 - (void)showOverlay {
     [[self overlay] showAnimated:126 animationDelay:0.2 animationDuration:0.5];
 
@@ -324,8 +320,8 @@
     if (!hasPositionLocked) {
         if ([keyPath isEqualToString:@"myLocation"] && [object isKindOfClass:[GMSMapView class]]) {
             [_mapView animateToCameraPosition:[GMSCameraPosition cameraWithLatitude:_mapView.myLocation.coordinate.latitude - 0.010
-                                                                              longitude:_mapView.myLocation.coordinate.longitude
-                                                                                   zoom:13]];
+                                                                          longitude:_mapView.myLocation.coordinate.longitude
+                                                                               zoom:13]];
             hasPositionLocked = YES;
         }
     }
@@ -334,10 +330,10 @@
 - (void)viewWillDisappear:(BOOL)animated {
     [super viewWillDisappear:animated];
     [_mapView removeObserver:self forKeyPath:@"myLocation" context:nil];
-    [_mapView clear] ;
-    [_mapView stopRendering] ;
-    [_mapView removeFromSuperview] ;
-    _mapView = nil ;
+    [_mapView clear];
+    [_mapView stopRendering];
+    [_mapView removeFromSuperview];
+    _mapView = nil;
 }
 
 @end

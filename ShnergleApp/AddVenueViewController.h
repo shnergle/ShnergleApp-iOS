@@ -10,7 +10,7 @@
 #import "CustomBackViewController.h"
 #import <GoogleMaps/GoogleMaps.h>
 
-@interface AddVenueViewController : CustomBackViewController<UITableViewDataSource, UITableViewDelegate, UITextFieldDelegate,GMSMapViewDelegate>
+@interface AddVenueViewController : CustomBackViewController<UITableViewDataSource, UITableViewDelegate, UITextFieldDelegate, GMSMapViewDelegate>
 {
     UITableViewCell *secondCell;
     UILabel *secondCellField;

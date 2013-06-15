@@ -21,8 +21,7 @@
         UIViewController *vc = [caller.storyboard instantiateViewControllerWithIdentifier:@"Staff"];
         [caller.navigationController pushViewController:vc animated:YES];
         return;
-    }
-    else if (appDelegate.venueStatus == Staff) {
+    } else if (appDelegate.venueStatus == Staff) {
         UIViewController *vc = [caller.storyboard instantiateViewControllerWithIdentifier:@"viewconid"];
         [caller.navigationController pushViewController:vc animated:YES];
         return;
@@ -86,30 +85,27 @@
 - (IBAction)tappedGoing:(id)sender {
     NSLog(@"tappedGoing");
     int oldValue = [self.goingLabel.text intValue];
-    int newValue = oldValue +1;
+    int newValue = oldValue + 1;
     [self.goingLabel setFont:[UIFont fontWithName:self.goingLabel.font.fontName size:self.goingLabel.font.pointSize]];
-    [self.goingLabel setText:[NSString stringWithFormat:@"%d",newValue]];
+    [self.goingLabel setText:[NSString stringWithFormat:@"%d", newValue]];
     [self.tapGoing setEnabled:NO];
     [self.window makeToast:@"Yep! We're going!"
                   duration:1.0
                   position:@"center"
                      image:[UIImage imageNamed:@"glass.png"]];
-
-
 }
 
 - (IBAction)tappedThinking:(id)sender {
     NSLog(@"tapped Thinking");
     int oldValue = [self.thinkingLabel.text intValue];
-    int newValue = oldValue +1;
+    int newValue = oldValue + 1;
     [self.thinkingLabel setFont:[UIFont fontWithName:self.thinkingLabel.font.fontName size:self.thinkingLabel.font.pointSize]];
-    [self.thinkingLabel setText:[NSString stringWithFormat:@"%d",newValue]];
+    [self.thinkingLabel setText:[NSString stringWithFormat:@"%d", newValue]];
     [self.tapThinking setEnabled:NO];
     [self.window makeToast:@"Thinking about it..."
-                duration:1.0
-                position:@"center"
-                   image:[UIImage imageNamed:@"glass.png"]];
-
+                  duration:1.0
+                  position:@"center"
+                     image:[UIImage imageNamed:@"glass.png"]];
 }
 
 - (void)hideAnimated:(NSInteger)originalSize animationDuration:(double)animationDuration targetSize:(NSInteger)targetSize contentView:(UIView *)contentView {

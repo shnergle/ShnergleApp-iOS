@@ -52,8 +52,8 @@
     action[@"source"] = _image.image;
     action[@"message"] = @"caption";
     [[[FBRequest alloc] initWithSession:appDelegate.session graphPath:@"me/photos" parameters:action HTTPMethod:@"POST"] startWithCompletionHandler:^(FBRequestConnection *connection,
-                                                                                                                                                   id result,
-                                                                                                                                                   NSError *error) {
+                                                                                                                                                      id result,
+                                                                                                                                                      NSError *error) {
         NSLog(@"FBSHARE - PHOTO - connection: %@", connection);
         NSLog(@"FBSHARE - PHOTO - result: %@", result);
         NSLog(@"FBSHARE - PHOTO - error: %@", error);
@@ -66,14 +66,13 @@
         [[[FBRequest alloc] initForPostWithSession:appDelegate.session graphPath:@"me/shnergle:share" graphObject:action] startWithCompletionHandler:^(FBRequestConnection *connection,
                                                                                                                                                        id result,
                                                                                                                                                        NSError *error) {
-            NSLog(@"FBSHARE - POST - connection: %@", connection);
-            NSLog(@"FBSHARE - POST - result: %@", result);
-            NSLog(@"FBSHARE - POST - error: %@", error);
-            [self.navigationController setNavigationBarHidden:YES animated:YES];
-            UIViewController *aroundMe = [self.storyboard instantiateViewControllerWithIdentifier:@"AroundMe"];
-            [self.navigationController pushViewController:aroundMe animated:YES];
-        }];
-
+                NSLog(@"FBSHARE - POST - connection: %@", connection);
+                NSLog(@"FBSHARE - POST - result: %@", result);
+                NSLog(@"FBSHARE - POST - error: %@", error);
+                [self.navigationController setNavigationBarHidden:YES animated:YES];
+                UIViewController *aroundMe = [self.storyboard instantiateViewControllerWithIdentifier:@"AroundMe"];
+                [self.navigationController pushViewController:aroundMe animated:YES];
+            }];
     }];
 }
 
