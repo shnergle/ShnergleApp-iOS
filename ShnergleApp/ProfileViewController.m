@@ -52,7 +52,7 @@
     if (![self.slidingViewController.underLeftViewController isKindOfClass:[MenuViewController class]]) {
         self.slidingViewController.underLeftViewController  = [self.storyboard instantiateViewControllerWithIdentifier:@"AroundMeMenu"];
     }
-
+    [self.view addGestureRecognizer:self.slidingViewController.panGesture];
     [self.slidingViewController setAnchorRightRevealAmount:230.0f];
 
     // Shadow for sandwich system
