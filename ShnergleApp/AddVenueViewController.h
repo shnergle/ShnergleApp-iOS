@@ -16,9 +16,9 @@
     UILabel *secondCellField;
     bool hasPositionLocked;
     CLLocationCoordinate2D venueCoord;
-    
+    GMSMapView *map;
 }
-@property (weak, nonatomic) IBOutlet GMSMapView *mapView;
+@property (weak, nonatomic) IBOutlet UIView *mapView;
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (strong, nonatomic) NSArray *tableData;
 @property (weak, nonatomic) UISwitch *workSwitch;
