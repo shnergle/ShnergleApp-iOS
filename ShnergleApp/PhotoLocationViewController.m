@@ -19,6 +19,7 @@
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     self.navigationController.navigationBarHidden = NO;
+    [self initMap];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -47,6 +48,42 @@
 
 - (void)searchBarSearchButtonClicked:(UISearchBar *)searchBar {
     [searchBar resignFirstResponder];
+}
+
+- (void)initMap {
+    hasPositionLocked = NO;
+    map = [[GMSMapView alloc] initWithFrame:_mapView.bounds];
+    map.myLocationEnabled = YES;
+    map.delegate = self;
+    [map addObserver:self forKeyPath:@"myLocation" options:NSKeyValueObservingOptionNew context:nil];
+    [_mapView addSubview:map];
+    [_mapView sendSubviewToBack:map];
+}
+
+- (void)viewWillDisappear:(BOOL)animated {
+    [super viewWillDisappear:animated];
+    [map removeObserver:self forKeyPath:@"myLocation" context:nil];
+    [map clear] ;
+    [map stopRendering] ;
+    [map removeFromSuperview] ;
+    map = nil ;
+}
+
+- (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context {
+    // How it works:
+    // Whenever position changes, this method is run. It then changes the camera to point to the current position, minus a small latitude (to make the map position center in the top part of our Around Me view). The zoom level is an average level of detail for a few blocks.
+
+    //Make sure it is only run once:
+    if (!hasPositionLocked) {
+        NSLog(@"the location observer is being run");
+        if ([keyPath isEqualToString:@"myLocation"] && [object isKindOfClass:[GMSMapView class]]) {
+            [map animateToCameraPosition:[GMSCameraPosition cameraWithLatitude:map.myLocation.coordinate.latitude
+                                                                     longitude:map.myLocation.coordinate.longitude
+                                                                          zoom:13]];
+
+            hasPositionLocked = YES;
+        }
+    }
 }
 
 @end
