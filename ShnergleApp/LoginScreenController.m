@@ -14,6 +14,7 @@
 
 - (void)viewWillAppear:(BOOL)animated {
     [[self navigationController] setNavigationBarHidden:TRUE];
+    [self updateView];
 }
 
 - (void)viewDidLoad {

@@ -95,13 +95,15 @@
                 [self.navigationController setNavigationBarHidden:YES animated:YES];
                 //UIViewController *aroundMe = [self.storyboard instantiateViewControllerWithIdentifier:@"AroundMe"];
                 //[self.navigationController pushViewController:aroundMe animated:YES];
-                [self.navigationController popToRootViewControllerAnimated:YES];
 
             }];
          */
+        
+        [self.navigationController popToRootViewControllerAnimated:YES];
+
     }];
-     
-     
+    
+    
 }
 
 - (IBAction)selectFriendsButtonAction:(id)sender {
