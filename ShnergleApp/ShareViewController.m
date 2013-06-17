@@ -50,10 +50,7 @@
         NSLog(@"shared");
 
     }
-    // Go back to.. Why not around me?
-    // well that didn't work
-    //UIViewController *vc = [self.storyboard instantiateViewControllerWithIdentifier:@"AroundMe"];
-    [self.navigationController popToRootViewControllerAnimated:YES];
+    
     
 }
 
@@ -66,19 +63,26 @@
 - (void)shareOnFacebook {
     AppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
     NSMutableDictionary<FBGraphObject> *action = [FBGraphObject graphObject];
+    
+    
+    
+    /*
+     Temp solution, 17 June:
+     share the image, put venue details ([name] and facebook url, if exists in caption)
+     */
     action[@"source"] = _image.image;
-    action[@"message"] = @"caption";
+    action[@"message"] =  [NSString stringWithFormat:@"%@ @ mahiki https://www.facebook.com/mahiki?fref=ts",_textFieldname.text];
     [[[FBRequest alloc] initWithSession:appDelegate.session graphPath:@"me/photos" parameters:action HTTPMethod:@"POST"] startWithCompletionHandler:^(FBRequestConnection *connection,
                                                                                                                                                       id result,
                                                                                                                                                       NSError *error) {
         NSLog(@"FBSHARE - PHOTO - connection: %@", connection);
         NSLog(@"FBSHARE - PHOTO - result: %@", result);
         NSLog(@"FBSHARE - PHOTO - error: %@", error);
-        NSMutableDictionary<FBGraphObject> *action = [FBGraphObject graphObject];
+        /*NSMutableDictionary<FBGraphObject> *action = [FBGraphObject graphObject];
         action[@"venue"] = @"http://samples.ogp.me/259837270824167";
         if (action[@"tags"] != nil) action[@"tags"] = selectedFriends;
         if (action[@"message"] != nil) action[@"message"] = _textFieldname.text;
-        action[@"image"] = [NSString stringWithFormat:@"https://graph.facebook.com/%@", result[@"id"]];
+        action[@"image"] = [NSString stringWithFormat:@"https://www.facebook.com/photo.php?fbid=%@", result[@"id"]];
         action[@"fb:explicitly_shared"] = @"true";
         [[[FBRequest alloc] initForPostWithSession:appDelegate.session graphPath:@"me/shnergle:share" graphObject:action] startWithCompletionHandler:^(FBRequestConnection *connection,
                                                                                                                                                        id result,
@@ -86,11 +90,18 @@
                 NSLog(@"FBSHARE - POST - connection: %@", connection);
                 NSLog(@"FBSHARE - POST - result: %@", result);
                 NSLog(@"FBSHARE - POST - error: %@", error);
+            
+            
                 [self.navigationController setNavigationBarHidden:YES animated:YES];
-                UIViewController *aroundMe = [self.storyboard instantiateViewControllerWithIdentifier:@"AroundMe"];
-                [self.navigationController pushViewController:aroundMe animated:YES];
+                //UIViewController *aroundMe = [self.storyboard instantiateViewControllerWithIdentifier:@"AroundMe"];
+                //[self.navigationController pushViewController:aroundMe animated:YES];
+                [self.navigationController popToRootViewControllerAnimated:YES];
+
             }];
+         */
     }];
+     
+     
 }
 
 - (IBAction)selectFriendsButtonAction:(id)sender {
