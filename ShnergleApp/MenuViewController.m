@@ -63,6 +63,12 @@
     return cell;
 }
 
+/* We need two of these, one for results and one for the menu. Prrroooblem
+ 
+ -(UITableViewCell *)tableView1:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
+    
+}*/
+
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     return [_tableData[@(section)] count];
 }
@@ -116,20 +122,25 @@
     [[[PostRequest alloc] init] exec:@"user_searches/set" params:params delegate:self callback:@selector(postResponse:)];
     [textField resignFirstResponder];
     [self.searchResultsView show];
-    [self toggleCancelButton];
     return YES;
 }
 
+-(BOOL)textFieldShouldBeginEditing:(UITextField *)textField{
+    [self toggleCancelButton:false];
+    return YES;
+}
+
+
 - (IBAction)cancelButtonTapped:(id)sender {
     [self.searchResultsView hide];
-    [self toggleCancelButton];
+    [self toggleCancelButton:true];
     
 }
 
--(void)toggleCancelButton
+-(void)toggleCancelButton:(bool)hide
 {
     int newAlpha = 1;
-    if(self.cancelButton.alpha > 0)
+    if(hide)
         newAlpha = 0;
     [[UIApplication sharedApplication] beginIgnoringInteractionEvents];
     [UIView beginAnimations:nil context:nil];
