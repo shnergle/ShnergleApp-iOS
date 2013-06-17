@@ -106,7 +106,7 @@
                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                                 </view>
                                 <view contentMode="center" translatesAutoresizingMaskIntoConstraints="NO" id="276">
-                                    <rect key="frame" x="5" y="354" width="100" height="75"/>
+                                    <rect key="frame" x="109" y="354" width="100" height="75"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <subviews>
                                         <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="215">
@@ -134,7 +134,7 @@
                                                 <constraint firstAttribute="height" constant="21" id="248"/>
                                             </constraints>
                                             <attributedString key="attributedText">
-                                                <fragment content="Going">
+                                                <fragment content="Going?">
                                                     <attributes>
                                                         <color key="NSColor" cocoaTouchSystemColor="darkTextColor"/>
                                                         <font key="NSFont" size="11" name="Roboto-BoldCondensed"/>
@@ -211,7 +211,7 @@
                                     </constraints>
                                 </view>
                                 <view contentMode="center" translatesAutoresizingMaskIntoConstraints="NO" id="327">
-                                    <rect key="frame" x="110" y="354" width="100" height="75"/>
+                                    <rect key="frame" x="4" y="354" width="100" height="75"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <subviews>
                                         <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsLetterSpacingToFitWidth="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="260">
@@ -222,7 +222,7 @@
                                                 <constraint firstAttribute="height" constant="21" id="429"/>
                                             </constraints>
                                             <attributedString key="attributedText">
-                                                <fragment content="Thinking about it">
+                                                <fragment content="Thinking about it..">
                                                     <attributes>
                                                         <color key="NSColor" cocoaTouchSystemColor="darkTextColor"/>
                                                         <font key="NSFont" size="11" name="Roboto-BoldCondensed"/>
@@ -295,17 +295,17 @@
                                 <constraint firstItem="1174" firstAttribute="top" secondItem="1941" secondAttribute="top" constant="167" id="2065"/>
                                 <constraint firstItem="1186" firstAttribute="top" secondItem="1941" secondAttribute="top" constant="189" id="2071"/>
                                 <constraint firstItem="1186" firstAttribute="leading" secondItem="1941" secondAttribute="leading" constant="7" id="2075"/>
-                                <constraint firstItem="327" firstAttribute="leading" secondItem="1941" secondAttribute="leading" constant="110" id="2101"/>
+                                <constraint firstItem="327" firstAttribute="leading" secondItem="1941" secondAttribute="leading" constant="4" id="2101"/>
                                 <constraint firstItem="327" firstAttribute="top" secondItem="312" secondAttribute="top" id="2105"/>
-                                <constraint firstItem="276" firstAttribute="leading" secondItem="1941" secondAttribute="leading" constant="5" id="2115"/>
-                                <constraint firstAttribute="trailing" secondItem="276" secondAttribute="trailing" constant="215" id="2116"/>
+                                <constraint firstItem="276" firstAttribute="leading" secondItem="1941" secondAttribute="leading" constant="109" id="2115"/>
+                                <constraint firstAttribute="trailing" secondItem="276" secondAttribute="trailing" constant="111" id="2116"/>
                                 <constraint firstItem="276" firstAttribute="top" secondItem="327" secondAttribute="top" id="2117"/>
                                 <constraint firstItem="312" firstAttribute="centerY" secondItem="1941" secondAttribute="centerY" id="2120"/>
                                 <constraint firstItem="312" firstAttribute="trailing" secondItem="1174" secondAttribute="trailing" id="2144"/>
                                 <constraint firstItem="312" firstAttribute="leading" secondItem="1941" secondAttribute="leading" constant="215" id="2145"/>
                                 <constraint firstItem="312" firstAttribute="trailing" secondItem="1193" secondAttribute="trailing" id="2146"/>
                                 <constraint firstAttribute="width" constant="320" id="2156"/>
-                                <constraint firstItem="327" firstAttribute="centerX" secondItem="1941" secondAttribute="centerX" id="2199"/>
+                                <constraint firstItem="327" firstAttribute="centerX" secondItem="1941" secondAttribute="centerX" constant="-106" id="2199"/>
                                 <constraint firstAttribute="centerX" secondItem="hQT-9q-ZmQ" secondAttribute="centerX" id="GCn-7w-eeF"/>
                                 <constraint firstAttribute="centerX" secondItem="hQT-9q-ZmQ" secondAttribute="centerX" id="Gon-zi-if4"/>
                                 <constraint firstItem="hQT-9q-ZmQ" firstAttribute="top" secondItem="1186" secondAttribute="bottom" constant="10" id="M3A-gF-Mqw"/>
@@ -493,4 +493,38 @@
         <image name="puller_menu.png" width="98" height="45"/>
         <image name="share.png" width="235" height="60"/>
     </resources>
+    <classes>
+        <class className="GMSMapView" superclassName="UIView">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/GMSMapView.h"/>
+        </class>
+        <class className="NSLayoutConstraint" superclassName="NSObject">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/NSLayoutConstraint.h"/>
+        </class>
+        <class className="OverlayText" superclassName="UIView">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/OverlayText.h"/>
+            <relationships>
+                <relationship kind="action" name="share:"/>
+                <relationship kind="action" name="swipeDown:"/>
+                <relationship kind="action" name="swipeUp:"/>
+                <relationship kind="action" name="tap:"/>
+                <relationship kind="action" name="tapPromotion:"/>
+                <relationship kind="action" name="tapPullerMenu:"/>
+                <relationship kind="action" name="tappedGoing:"/>
+                <relationship kind="action" name="tappedThinking:"/>
+                <relationship kind="outlet" name="checkedInLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="commentButton" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="goingLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="offerContents" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="offerCount" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="offerHeadline" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="parentViewInside" candidateClass="UIView"/>
+                <relationship kind="outlet" name="postUpdateButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="shareButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="tapGoing" candidateClass="UITapGestureRecognizer"/>
+                <relationship kind="outlet" name="tapThinking" candidateClass="UITapGestureRecognizer"/>
+                <relationship kind="outlet" name="thinkingLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="venueMap" candidateClass="GMSMapView"/>
+            </relationships>
+        </class>
+    </classes>
 </document>
