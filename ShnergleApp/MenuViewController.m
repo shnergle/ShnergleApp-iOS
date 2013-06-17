@@ -122,25 +122,29 @@
     [[[PostRequest alloc] init] exec:@"user_searches/set" params:params delegate:self callback:@selector(postResponse:)];
     [textField resignFirstResponder];
     [self.searchResultsView show];
+    [self toggleCancelButton:true];
+
     return YES;
 }
 
 -(BOOL)textFieldShouldBeginEditing:(UITextField *)textField{
-    [self toggleCancelButton:false];
+    [self toggleCancelButton:true];
     return YES;
 }
 
 
 - (IBAction)cancelButtonTapped:(id)sender {
+    _bar.text = @"";
+    _bar.selected = NO;
     [self.searchResultsView hide];
-    [self toggleCancelButton:true];
+    [self toggleCancelButton:false];
     
 }
 
--(void)toggleCancelButton:(bool)hide
+-(void)toggleCancelButton:(bool)show
 {
     int newAlpha = 1;
-    if(hide)
+    if(show)
         newAlpha = 0;
     [[UIApplication sharedApplication] beginIgnoringInteractionEvents];
     [UIView beginAnimations:nil context:nil];
