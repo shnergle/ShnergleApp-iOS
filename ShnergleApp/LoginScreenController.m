@@ -142,10 +142,10 @@
     }];
 }
 
-- (void)viewDidUnload {
+- (void)viewDidDisappear:(BOOL)animated {
     self.buttonLoginLogout = nil;
 
-    [super viewDidUnload];
+    [super viewDidDisappear:animated];
 }
 
 - (void)didReceiveMemoryWarning {
