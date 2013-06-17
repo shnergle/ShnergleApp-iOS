@@ -143,9 +143,9 @@
 
 -(void)toggleCancelButton:(bool)show
 {
-    int newAlpha = 1;
+    int newAlpha = 0;
     if(show)
-        newAlpha = 0;
+        newAlpha = 1;
     [[UIApplication sharedApplication] beginIgnoringInteractionEvents];
     [UIView beginAnimations:nil context:nil];
     [UIView setAnimationDuration:0.5];
