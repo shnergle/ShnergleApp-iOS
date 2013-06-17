@@ -61,6 +61,8 @@
 		80A8AAF4175CD9690082AAB8 /* login-button-small-pressed@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 80A8AAED175CD9690082AAB8 /* login-button-small-pressed@2x.png */; };
 		80A8AAF5175CD9690082AAB8 /* login-button-small.png in Resources */ = {isa = PBXBuildFile; fileRef = 80A8AAEE175CD9690082AAB8 /* login-button-small.png */; };
 		80A8AAF6175CD9690082AAB8 /* login-button-small@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 80A8AAEF175CD9690082AAB8 /* login-button-small@2x.png */; };
+		80ABCC03176F2012002718A1 /* SearchResultsView.m in Sources */ = {isa = PBXBuildFile; fileRef = 80ABCC02176F2012002718A1 /* SearchResultsView.m */; };
+		80ABCC05176F2037002718A1 /* SearchResultsView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 80ABCC04176F2037002718A1 /* SearchResultsView.xib */; };
 		80B400E917540CCA00A377D9 /* Day_Highlight_menu.png in Resources */ = {isa = PBXBuildFile; fileRef = 80B400C317540CCA00A377D9 /* Day_Highlight_menu.png */; };
 		80B400EA17540CCA00A377D9 /* greenbutton.png in Resources */ = {isa = PBXBuildFile; fileRef = 80B400C417540CCA00A377D9 /* greenbutton.png */; };
 		80B400EB17540CCA00A377D9 /* greybutton.png in Resources */ = {isa = PBXBuildFile; fileRef = 80B400C517540CCA00A377D9 /* greybutton.png */; };
@@ -208,6 +210,9 @@
 		80A8AAED175CD9690082AAB8 /* login-button-small-pressed@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "login-button-small-pressed@2x.png"; sourceTree = "<group>"; };
 		80A8AAEE175CD9690082AAB8 /* login-button-small.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "login-button-small.png"; sourceTree = "<group>"; };
 		80A8AAEF175CD9690082AAB8 /* login-button-small@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "login-button-small@2x.png"; sourceTree = "<group>"; };
+		80ABCC01176F2012002718A1 /* SearchResultsView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchResultsView.h; sourceTree = "<group>"; };
+		80ABCC02176F2012002718A1 /* SearchResultsView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchResultsView.m; sourceTree = "<group>"; };
+		80ABCC04176F2037002718A1 /* SearchResultsView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SearchResultsView.xib; sourceTree = "<group>"; };
 		80B400C317540CCA00A377D9 /* Day_Highlight_menu.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Day_Highlight_menu.png; sourceTree = "<group>"; };
 		80B400C417540CCA00A377D9 /* greenbutton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = greenbutton.png; sourceTree = "<group>"; };
 		80B400C517540CCA00A377D9 /* greybutton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = greybutton.png; sourceTree = "<group>"; };
@@ -565,6 +570,9 @@
 				808330BC17565F9F00C183B9 /* SearchBar.xib */,
 				808330BF1756620000C183B9 /* SearchBarView.h */,
 				808330C01756620000C183B9 /* SearchBarView.m */,
+				80ABCC01176F2012002718A1 /* SearchResultsView.h */,
+				80ABCC02176F2012002718A1 /* SearchResultsView.m */,
+				80ABCC04176F2037002718A1 /* SearchResultsView.xib */,
 			);
 			name = Menu;
 			sourceTree = "<group>";
@@ -778,6 +786,7 @@
 				80A8AADF175CA6870082AAB8 /* Default-568h@2x.png in Resources */,
 				80A8AAE1175CA6900082AAB8 /* Default@2x.png in Resources */,
 				80A8AAE3175CAA380082AAB8 /* Default.png in Resources */,
+				80ABCC05176F2037002718A1 /* SearchResultsView.xib in Resources */,
 				CD84ECEF175CC10000A09FA6 /* AppIcon_114.png in Resources */,
 				CD84ECF1175CC10E00A09FA6 /* icon57.png in Resources */,
 				80A8AAE6175CD3ED0082AAB8 /* shnerglelogo_splash_screen.png in Resources */,
@@ -868,6 +877,7 @@
 				808F13D916FB6A5C00B66E6D /* AppDelegate.m in Sources */,
 				808F13E516FB6A5C00B66E6D /* AroundMeViewController.m in Sources */,
 				80B957D116FBB74F0044A505 /* CheckInViewController.m in Sources */,
+				80ABCC03176F2012002718A1 /* SearchResultsView.m in Sources */,
 				80B957D616FC65F90044A505 /* VenueViewController.m in Sources */,
 				805CE6D016FCBDC9002445C3 /* PhotoLocationViewController.m in Sources */,
 				8045AFC9170495CE002012D5 /* OverlayText.m in Sources */,

@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 #import <FacebookSDK/FacebookSDK.h>
 #import "SearchBarView.h"
+#import "SearchResultsView.h"
 
 @interface MenuViewController : UIViewController <UITableViewDataSource, UITableViewDelegate, UITextFieldDelegate>
 
@@ -17,5 +18,6 @@
 @property (strong, nonatomic) NSArray *tableSections;
 @property (strong, nonatomic) NSDictionary *tableData;
 @property (strong, nonatomic) UITableViewCell *profileCell;
+@property (weak, nonatomic) IBOutlet SearchResultsView *searchResultsView;
 
 @end

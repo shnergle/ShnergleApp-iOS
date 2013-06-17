@@ -104,6 +104,7 @@
     NSString *params = [NSString stringWithFormat:@"term=%@&facebook_id=%@", _bar.text, appDelegate.facebookId];
     [[[PostRequest alloc] init] exec:@"user_searches/set" params:params delegate:self callback:@selector(postResponse:)];
     [textField resignFirstResponder];
+    [self.searchResultsView show];
     return YES;
 }
 

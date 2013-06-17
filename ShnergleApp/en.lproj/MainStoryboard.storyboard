@@ -2244,6 +2244,11 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                                     <outlet property="delegate" destination="nGm-Na-jzU" id="9AU-ku-s4O"/>
                                 </connections>
                             </tableView>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Npj-sL-PXQ" customClass="SearchResultsView">
+                                <rect key="frame" x="320" y="44" width="320" height="504"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" red="0.34963060461956519" green="0.34963060461956519" blue="0.34963060461956519" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
@@ -2256,6 +2261,7 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                     <navigationItem key="navigationItem" id="ByG-qm-NZv"/>
                     <connections>
                         <outlet property="searchDisplayController" destination="aXG-dC-scz" id="8Zn-it-7mb"/>
+                        <outlet property="searchResultsView" destination="Npj-sL-PXQ" id="eoE-sk-yAs"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ap6-cl-UHS" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -2334,7 +2340,7 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                                 </constraints>
                             </imageView>
                         </subviews>
-                        <color key="backgroundColor" red="0.9636262059211731" green="0.3050902783870697" blue="0.037567220628261566" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" red="1" green="0.40000000000000002" blue="0.0" alpha="1" colorSpace="deviceRGB"/>
                         <constraints>
                             <constraint firstItem="0Fe-ga-82h" firstAttribute="leading" secondItem="pvJ-ME-z3b" secondAttribute="leading" constant="74" id="DZp-gv-WOp"/>
                             <constraint firstAttribute="bottom" secondItem="0Fe-ga-82h" secondAttribute="bottom" constant="148" id="RWa-64-c1X"/>
