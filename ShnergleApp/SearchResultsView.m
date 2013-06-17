@@ -15,29 +15,20 @@
     self = [super initWithFrame:frame];
     if (self) {
         // Initialization code
-        self = [[[NSBundle mainBundle] loadNibNamed:@"SearchResultsView" owner:self options:nil] objectAtIndex:0];
     }
     return self;
 }
 
+
 -(void)hide{
 
-self.frame = CGRectMake(self.frame.origin.x,
-                        self.frame.origin.y,
-                        self.frame.size.width,
-                        self.frame.size.height);
 
 [UIView animateWithDuration:0.5
                  animations:^{
-                     self.frame = CGRectMake(self.frame.origin.x,
+                     self.frame = CGRectMake(320,
                                              self.frame.origin.y,
                                              self.frame.size.width,
                                              self.frame.size.height);
-                 }   completion:^(BOOL finished) {
-                     self.frame = CGRectMake(320,
-                                                    self.frame.origin.y,
-                                                    self.frame.size.width,
-                                                    self.frame.size.height);
                  }];
 
 
@@ -45,18 +36,9 @@ self.frame = CGRectMake(self.frame.origin.x,
 
 -(void)show{
     
-    self.frame = CGRectMake(self.frame.origin.x,
-                            self.frame.origin.y,
-                            self.frame.size.width,
-                            self.frame.size.height);
     
     [UIView animateWithDuration:0.5
                      animations:^{
-                         self.frame = CGRectMake(self.frame.origin.x,
-                                                 self.frame.origin.y,
-                                                 self.frame.size.width,
-                                                 self.frame.size.height);
-                     }   completion:^(BOOL finished) {
                          self.frame = CGRectMake(0,
                                                  self.frame.origin.y,
                                                  self.frame.size.width,

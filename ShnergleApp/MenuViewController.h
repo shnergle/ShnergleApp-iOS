@@ -19,5 +19,7 @@
 @property (strong, nonatomic) NSDictionary *tableData;
 @property (strong, nonatomic) UITableViewCell *profileCell;
 @property (weak, nonatomic) IBOutlet SearchResultsView *searchResultsView;
+@property (weak, nonatomic) IBOutlet UIButton *cancelButton;
+- (IBAction)cancelButtonTapped:(id)sender;
 
 @end

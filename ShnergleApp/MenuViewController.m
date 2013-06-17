@@ -24,6 +24,17 @@
 
     _tableSections = @[@"Profile", @"Explore"];
     _tableData = @{@0: @[appDelegate.fullName], @1: @[@"Around Me", @"Following", @"Promotions", @"Quiet", @"Trending", @"Add Venue"]};
+    
+    [self initSearchResultsView];
+}
+
+-(void)initSearchResultsView{
+    NSArray *nibObjects = [[NSBundle mainBundle] loadNibNamed:@"SearchResultsView" owner:self options:nil];
+    self.searchResultsView = [nibObjects objectAtIndex:0];
+    
+    self.searchResultsView.frame = CGRectMake(320, 45, 320, 700);
+    [[self view] addSubview:self.searchResultsView];
+    self.cancelButton.alpha = 0;
 }
 
 - (void)postResponse:(NSString *)response {
@@ -105,7 +116,27 @@
     [[[PostRequest alloc] init] exec:@"user_searches/set" params:params delegate:self callback:@selector(postResponse:)];
     [textField resignFirstResponder];
     [self.searchResultsView show];
+    [self toggleCancelButton];
     return YES;
 }
 
+- (IBAction)cancelButtonTapped:(id)sender {
+    [self.searchResultsView hide];
+    [self toggleCancelButton];
+    
+}
+
+-(void)toggleCancelButton
+{
+    int newAlpha = 1;
+    if(self.cancelButton.alpha > 0)
+        newAlpha = 0;
+    [[UIApplication sharedApplication] beginIgnoringInteractionEvents];
+    [UIView beginAnimations:nil context:nil];
+    [UIView setAnimationDuration:0.5];
+    [UIView setAnimationDelegate:[UIApplication sharedApplication]];
+    [UIView setAnimationDidStopSelector:@selector(endIgnoringInteractionEvents)];
+    self.cancelButton.alpha = newAlpha;
+    [UIView commitAnimations];
+}
 @end
