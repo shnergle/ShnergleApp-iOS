@@ -22,6 +22,8 @@
     AppDelegate *appdelegate = [[UIApplication sharedApplication] delegate];
     self.navigationItem.title = appdelegate.fullName;
     self.userProfileImage3.profileID = appdelegate.facebookId;
+    self.userProfileImage2.profileID = appdelegate.facebookId;
+    self.userProfileImage1.profileID = appdelegate.facebookId;
     //self.userProfileImage2.profileID = appdelegate.facebookId;
     //self.userProfileImage1.profileID = appdelegate.facebookId;
     //AppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
@@ -34,7 +36,7 @@
     _favourites.layer.borderColor = [UIColor colorWithRed:134.0 / 255 green:134.0 / 255 blue:134.0 / 255 alpha:1].CGColor;
     _favourites.layer.borderWidth = 2;
     _scoutView.backgroundColor = [UIColor colorWithRed:34.0 / 255 green:148.0 / 255 blue:221.0 / 255 alpha:1];
-    _userProfileImage3.hidden = NO;
+    _userProfileImage3.hidden = YES;
     _userProfileImage3.layer.borderColor = [UIColor colorWithRed:255 green:255 blue:255 alpha:1].CGColor;
     _userProfileImage3.layer.borderWidth = 2;
     _userProfileImage2.layer.borderColor = [UIColor colorWithRed:255 green:255 blue:255 alpha:1].CGColor;
@@ -63,6 +65,29 @@
     //Remove shadows for navbar
     self.navigationController.navigationBar.clipsToBounds = YES;
     self.navBar.clipsToBounds = YES;
+    
+    //What level are you on?
+    NSMutableString *params = [[NSMutableString alloc] initWithString:@"facebook_id=549445495"];
+    [[[PostRequest alloc] init] exec:@"rankings/get" params:params delegate:self callback:@selector(postResponse:) type:@"string"];
+}
+
+//Level check:
+-(void)postResponse:(id)result
+{
+    NSLog(@"%@",result);
+    int res = [result integerValue];
+    switch (res) {
+        case 1:
+            _userProfileImage1.hidden = NO;
+            break;
+        case 2:
+            _userProfileImage2.hidden = NO;
+            break;
+        case 3:
+            _userProfileImage3.hidden = NO;
+        default:
+            break;
+    }
 }
 
 - (void)viewWillDisappear:(BOOL)animated {
