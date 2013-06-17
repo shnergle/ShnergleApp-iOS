@@ -38,6 +38,7 @@
         [self.view makeToast:@"Liked it!"
                     duration:0.5
                     position:@"center"
+                       title:@""
                        image:[UIImage imageNamed:@"thumbs_up.png"]];
 
         newButtonLabel = @"Unlike";

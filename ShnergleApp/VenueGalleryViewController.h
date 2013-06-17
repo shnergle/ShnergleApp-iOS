@@ -8,7 +8,6 @@
 
 #import <UIKit/UIKit.h>
 #import <Toast+UIView.h>
-#import <Toast+UIView.h>
 #import "CustomBackViewController.h"
 
 @interface VenueGalleryViewController : CustomBackViewController <UIAlertViewDelegate>

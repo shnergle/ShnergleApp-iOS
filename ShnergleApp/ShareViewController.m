@@ -37,13 +37,30 @@
 }
 
 - (void)share {
+    [self.view makeToastActivity];
+    
     self.navigationItem.rightBarButtonItem.enabled = NO;
     AppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
     if ([appDelegate.session.permissions indexOfObject:@"publish_actions"] == NSNotFound)
         [appDelegate.session requestNewPublishPermissions:@[@"publish_actions"] defaultAudience:FBSessionDefaultAudienceEveryone completionHandler:^(FBSession *session, NSError *error) {
             [self shareOnFacebook];
         }];
-    else [self shareOnFacebook];
+    else {
+        [self shareOnFacebook];
+        NSLog(@"shared");
+
+    }
+    // Go back to.. Why not around me?
+    // well that didn't work
+    //UIViewController *vc = [self.storyboard instantiateViewControllerWithIdentifier:@"AroundMe"];
+    [self.navigationController popToRootViewControllerAnimated:YES];
+    
+}
+
+-(void)viewDidDisappear:(BOOL)animated
+{
+    NSLog(@"Share view dissappeared (and spinner removed)");
+    [self.view hideToastActivity];
 }
 
 - (void)shareOnFacebook {

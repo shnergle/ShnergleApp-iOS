@@ -10,6 +10,7 @@
 #import <FacebookSDK/FBViewController.h>
 #import "GCPlaceholderTextView.h"
 #import "CustomBackViewController.h"
+#import <Toast+UIView.h>
 
 
 @interface ShareViewController : CustomBackViewController <FBViewControllerDelegate, UITextViewDelegate> {
