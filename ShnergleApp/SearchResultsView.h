@@ -10,6 +10,8 @@
 
 @interface SearchResultsView : UIView
 
+@property (weak, nonatomic) IBOutlet UITableView *resultsTableView;
+
 -(void)hide;
 -(void)show;
 @end

@@ -13,7 +13,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.navigationItem.title = @"Location";
-    _tableData = @[@"One"];
+    _tableData = @[@"Dummy Venue",@"Add new place"];
 }
 
 - (void)viewWillAppear:(BOOL)animated {

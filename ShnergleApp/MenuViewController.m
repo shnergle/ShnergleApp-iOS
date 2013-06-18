@@ -24,6 +24,11 @@
 
     _tableSections = @[@"Profile", @"Explore"];
     _tableData = @{@0: @[appDelegate.fullName], @1: @[@"Around Me", @"Following", @"Promotions", @"Quiet", @"Trending", @"Add Venue"]};
+    _searchResults = appDelegate.searchResults;
+    //tmp - give it an element
+    _searchResults = [[NSMutableArray alloc]initWithArray:@[@"result 1",@"result 2"]];
+    self.searchResultsView.resultsTableView.delegate = self;
+    self.searchResultsView.resultsTableView.dataSource = self;
     
     [self initSearchResultsView];
 }
@@ -39,9 +44,15 @@
 
 - (void)postResponse:(NSString *)response {
     NSLog(@"search response: %@", response);
+    if(response == nil) response = @"Sorry! No matches.";
+    
+    self.searchResults = [[NSMutableArray alloc]initWithArray:@[[NSString stringWithFormat:@"%@",response]]];
+    
+    [self.searchResultsView.resultsTableView reloadData];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    if(tableView == self.menuItemsTableView){
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:[NSString stringWithFormat:@"MyCell%d%d", indexPath.section, indexPath.item]];
     cell.textLabel.text = _tableData[@(indexPath.section)][indexPath.row];
     cell.textLabel.textColor = [UIColor whiteColor];
@@ -59,26 +70,46 @@
         noLabel.backgroundColor = [UIColor clearColor];
         cell.accessoryView = noLabel;
         cell.accessoryView.opaque = NO;
+    
     }
     return cell;
+    }else {
+        UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:[NSString stringWithFormat:@"ResultCell"]];
+        if(!cell){
+            cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:[NSString stringWithFormat:@"ResultCell"]];
+        }
+        cell.textLabel.text = [_searchResults objectAtIndex:indexPath.row];
+        cell.textLabel.textColor = [UIColor whiteColor];
+        cell.backgroundColor = [UIColor clearColor];
+        cell.textLabel.font = [UIFont fontWithName:@"Roboto" size:20];
+        return cell;
+    }
+
 }
 
-/* We need two of these, one for results and one for the menu. Prrroooblem
- 
- -(UITableViewCell *)tableView1:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
-    
-}*/
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return [_tableData[@(section)] count];
+    if(tableView == self.searchResultsView.resultsTableView){
+        return [_searchResults count];
+    }else{
+        return [_tableData[@(section)] count];
+    }
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    return [_tableData count];
+    if(tableView == self.searchResultsView.resultsTableView){
+        return 1;
+    }else{
+        return [_tableData count];
+    }
 }
 
 - (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
-    return _tableSections[section];
+    if(tableView == self.searchResultsView.resultsTableView){
+        return @"results";
+    }else{
+        return _tableSections[section];
+    }
 }
 
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
@@ -114,17 +145,24 @@
     } else {
         [self.presentingViewController.navigationController popViewControllerAnimated:NO];
     }
+     
 }
 
 - (BOOL)textFieldShouldReturn:(UITextField *)textField {
     AppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
     NSString *params = [NSString stringWithFormat:@"term=%@&facebook_id=%@", _bar.text, appDelegate.facebookId];
-    [[[PostRequest alloc] init] exec:@"user_searches/set" params:params delegate:self callback:@selector(postResponse:)];
+    [[[PostRequest alloc] init] exec:@"user_searches/set" params:params delegate:self callback:@selector(searchRegistered:)];
+    [[[PostRequest alloc] init] exec:@"venues/get" params:params delegate:self callback:@selector(postResponse:)];
     [textField resignFirstResponder];
     [self.searchResultsView show];
     [self toggleCancelButton:true];
 
     return YES;
+}
+
+-(void)searchRegistered:(id)response
+{
+    
 }
 
 -(BOOL)textFieldShouldBeginEditing:(UITextField *)textField{
@@ -136,6 +174,7 @@
 - (IBAction)cancelButtonTapped:(id)sender {
     _bar.text = @"";
     _bar.selected = NO;
+    [_bar resignFirstResponder];
     [self.searchResultsView hide];
     [self toggleCancelButton:false];
     

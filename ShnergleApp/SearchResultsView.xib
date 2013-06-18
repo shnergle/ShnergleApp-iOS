@@ -18,15 +18,34 @@
                     <color key="separatorColor" white="0.64011177009999998" alpha="1" colorSpace="calibratedWhite"/>
                     <color key="sectionIndexColor" red="0.80000007149999997" green="0.80000007149999997" blue="0.80000007149999997" alpha="1" colorSpace="deviceRGB"/>
                     <color key="sectionIndexTrackingBackgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    <connections>
+                        <outlet property="dataSource" destination="-1" id="IC2-VJ-khY"/>
+                        <outlet property="delegate" destination="-1" id="X3k-S4-Uti"/>
+                    </connections>
                 </tableView>
+                <tableViewCell contentMode="scaleToFill" fixedFrame="YES" selectionStyle="blue" indentationWidth="10" reuseIdentifier="ResultCell" translatesAutoresizingMaskIntoConstraints="NO" id="Z5u-El-CCv">
+                    <rect key="frame" x="-175" y="20" width="320" height="44"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    </view>
+                </tableViewCell>
             </subviews>
             <color key="backgroundColor" white="0.28740875910000002" alpha="1" colorSpace="calibratedWhite"/>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <connections>
+                <outlet property="resultsTableView" destination="xFU-QV-hTZ" id="NFF-It-i8E"/>
+            </connections>
         </view>
     </objects>
     <classes>
         <class className="SearchResultsView" superclassName="UIView">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/SearchResultsView.h"/>
+            <relationships>
+                <relationship kind="outlet" name="resultsTableView" candidateClass="UITableView"/>
+            </relationships>
         </class>
     </classes>
 </document>

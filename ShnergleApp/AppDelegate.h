@@ -35,6 +35,8 @@
 
 @property (strong, nonatomic) NSString *addVenueType;
 
+@property (strong, nonatomic) NSMutableArray *searchResults;
+
 
 typedef NS_ENUM (NSInteger, VENUE_STATUS) {
     Default,
