@@ -45,10 +45,9 @@
 - (void)postResponse:(NSString *)response {
     NSLog(@"search response: %@", response);
     if(response == nil) response = @"Sorry! No matches.";
+    _searchResults = [[NSMutableArray alloc]initWithArray:@[[NSString stringWithFormat:@"%@",response]]];
     
-    self.searchResults = [[NSMutableArray alloc]initWithArray:@[[NSString stringWithFormat:@"%@",response]]];
-    
-    [self.searchResultsView.resultsTableView reloadData];
+    [_searchResultsView.resultsTableView reloadData];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -172,8 +171,10 @@
 
 
 - (IBAction)cancelButtonTapped:(id)sender {
-    _bar.text = @"";
+    /* probably not in use because of resignFirstResponder below
+     _bar.text = @"";
     _bar.selected = NO;
+    */
     [_bar resignFirstResponder];
     [self.searchResultsView hide];
     [self toggleCancelButton:false];
