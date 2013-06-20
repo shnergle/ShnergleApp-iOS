@@ -37,7 +37,7 @@
     NSArray *nibObjects = [[NSBundle mainBundle] loadNibNamed:@"SearchResultsView" owner:self options:nil];
     self.searchResultsView = [nibObjects objectAtIndex:0];
     
-    self.searchResultsView.frame = CGRectMake(320, 45, 320, 700);
+    self.searchResultsView.frame = CGRectMake(320, 45, 320, self.searchResultsView.frame.size.height);
     [[self view] addSubview:self.searchResultsView];
     self.cancelButton.alpha = 0;
 }
@@ -118,20 +118,35 @@
 }
 
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
+    if(tableView == self.searchResultsView.resultsTableView){
+        return nil;
+    }
     UILabel *sectionLabel = [[UILabel alloc] init];
     sectionLabel.textColor = [UIColor colorWithRed:117 / 255. green:117 / 255. blue:117 / 255. alpha:1];
     sectionLabel.backgroundColor = [UIColor colorWithRed:29 / 255. green:29 / 255. blue:29 / 255. alpha:1];
     sectionLabel.font = [UIFont fontWithName:@"Roboto-Regular" size:12];
     sectionLabel.text = [NSString stringWithFormat:@"   %@", [self tableView:tableView titleForHeaderInSection:section]];
     return sectionLabel;
+    
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section {
+    if(tableView == self.searchResultsView.resultsTableView){
+        return 0.1;
+    }else{
     return [_tableData count] - 1 == section ? tableView.sectionFooterHeight : 0;
+    }
 }
 
 - (UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section {
     return [[UIView alloc] init];
+}
+
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if(tableView == self.searchResultsView.resultsTableView){
+        NSLog(@"%d",indexPath.row);
+    }
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
