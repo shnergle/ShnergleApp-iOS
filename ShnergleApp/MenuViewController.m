@@ -10,6 +10,7 @@
 #import "AppDelegate.h"
 #import "SearchBarView.h"
 #import "PostRequest.h"
+#import "VenueViewController.h"
 
 @implementation MenuViewController
 
@@ -145,7 +146,10 @@
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     if(tableView == self.searchResultsView.resultsTableView){
-        NSLog(@"%d",indexPath.row);
+        UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"MainStoryboard" bundle:nil];
+        VenueViewController *viewController= [storyboard instantiateViewControllerWithIdentifier:@"Venue"];
+        [viewController setTitle:[_searchResults objectAtIndex:indexPath.row]];
+        [self.navigationController pushViewController:viewController animated:YES];
     }
 }
 
