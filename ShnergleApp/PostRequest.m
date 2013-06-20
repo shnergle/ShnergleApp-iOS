@@ -42,7 +42,14 @@
     else {
         SBJsonParser *jsonParser = [[SBJsonParser alloc] init];
         NSString *string = [[NSString alloc] initWithData:response encoding:NSUTF8StringEncoding];
-        id jsonObjects = [jsonParser objectWithString:string];
+        //id jsonObjects = [jsonParser objectWithString:string];
+        NSArray *jsonObjects = [jsonParser objectWithString:string];
+        for(id obj in jsonObjects){
+            if([obj isKindOfClass:[NSArray class]])
+            if([obj count] > 1)
+            NSLog(@"\nVenue:%@",obj[1]);
+        }
+
         responseArg = jsonObjects;
     }
     NSMethodSignature *methodSig = [[responseObject class] instanceMethodSignatureForSelector:responseCallback];

@@ -26,7 +26,7 @@
     _tableData = @{@0: @[appDelegate.fullName], @1: @[@"Around Me", @"Following", @"Promotions", @"Quiet", @"Trending", @"Add Venue"]};
     _searchResults = appDelegate.searchResults;
     //tmp - give it an element
-    _searchResults = [[NSMutableArray alloc]initWithArray:@[@"result 1",@"result 2"]];
+    _searchResults = [[NSMutableArray alloc]init];
     self.searchResultsView.resultsTableView.delegate = self;
     self.searchResultsView.resultsTableView.dataSource = self;
     
@@ -42,10 +42,16 @@
     self.cancelButton.alpha = 0;
 }
 
-- (void)postResponse:(NSString *)response {
-    NSLog(@"search response: %@", response);
+- (void)postResponse:(id)response {
+    //NSLog(@"search response: %@", response);
     if(response == nil) response = @"Sorry! No matches.";
-    _searchResults = [[NSMutableArray alloc]initWithArray:@[[NSString stringWithFormat:@"%@",response]]];
+    if([response isKindOfClass:[NSArray class]]){
+        //_searchResults = [[NSMutableArray alloc]initWithArray:response];
+        for(id obj in response){
+            if([obj count] > 1)
+                [_searchResults addObject:obj[1]];
+        }
+    }
     
     [_searchResultsView.resultsTableView reloadData];
 }
@@ -171,10 +177,6 @@
 
 
 - (IBAction)cancelButtonTapped:(id)sender {
-    /* probably not in use because of resignFirstResponder below
-     _bar.text = @"";
-    _bar.selected = NO;
-    */
     [_bar resignFirstResponder];
     [self.searchResultsView hide];
     [self toggleCancelButton:false];
