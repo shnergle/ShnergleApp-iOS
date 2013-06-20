@@ -97,8 +97,8 @@
     [[self crowdCollection] setDelegate:self];
     //[self createTitleButton];
     AppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
-    appDelegate.images = @[@"112779_f520.jpg", @"fitnessfirst.jpg", @"2250.jpg", @"19.jpg", @"14.jpg", @"3149513443_970d5b7d66.jpg", @"29.jpg", @"1Shoreditch-Grind-Bar-Old-Street_jpg.jpg", @"2012-08-29T14-58-01_15.jpg",@"14fds.jpg"];
-    appDelegate.venueNames = @[@"liverpool street station", @"Fitness First", @"Carbon Bar", @"Blueberry Bar", @"Queen of Hoxton", @"Monmouth Coffee", @"TFL Bank Central Eastbound", @"Shoreditch Grind", @"Waterloo Station",@"TFL Bank Central Westbound"];
+    appDelegate.aroundImages = @[@"112779_f520.jpg", @"fitnessfirst.jpg", @"2250.jpg", @"19.jpg", @"14.jpg", @"3149513443_970d5b7d66.jpg", @"29.jpg", @"1Shoreditch-Grind-Bar-Old-Street_jpg.jpg", @"2012-08-29T14-58-01_15.jpg",@"14fds.jpg"];
+    appDelegate.aroundVenueNames = @[@"liverpool street station", @"Fitness First", @"Carbon Bar", @"Blueberry Bar", @"Queen of Hoxton", @"Monmouth Coffee", @"TFL Bank Central Eastbound", @"Shoreditch Grind", @"Waterloo Station",@"TFL Bank Central Westbound"];
 
     crowdImagesHidden = NO;
     dropDownHidden = YES;
@@ -167,7 +167,7 @@
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
     AppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
-    return [appDelegate.images count];
+    return [appDelegate.aroundImages count];
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
@@ -188,9 +188,9 @@
      */
     /* Here we can set the elements of the crowdItem (the cell) in the cellview */
     AppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
-    [[item crowdImage] setImage:[UIImage imageNamed:appDelegate.images[indexPath.item]]];
+    [[item crowdImage] setImage:[UIImage imageNamed:appDelegate.aroundImages[indexPath.item]]];
 
-    [[item venueName] setText:appDelegate.venueNames[indexPath.item]];
+    [[item venueName] setText:appDelegate.aroundVenueNames[indexPath.item]];
 
     item.venueName.font = [UIFont fontWithName:@"Roboto" size:11.0f];
 
@@ -209,7 +209,7 @@
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     AppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
     if ([segue.identifier isEqualToString:@"ToVenueSite"]) {
-        [segue.destinationViewController setTitle:appDelegate.venueNames[selectedVenue]];
+        [segue.destinationViewController setTitle:appDelegate.aroundVenueNames[selectedVenue]];
     }
 }
 

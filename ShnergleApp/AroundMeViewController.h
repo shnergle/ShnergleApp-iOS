@@ -19,6 +19,8 @@
     BOOL hasPositionLocked;
     BOOL pinDropped;
     CLLocationCoordinate2D pinDroppedLocation;
+    NSArray *venueNames;
+    NSArray *images;
 }
 //@property (weak, nonatomic) IBOutlet UIImageView *dropDownIndicator;
 @property (weak, nonatomic) IBOutlet UIButton *drawerCloseButton;
