@@ -129,7 +129,7 @@
 
         _overlayView.frame = CGRectMake(_overlayView.bounds.origin.x, screenHeight - 70, _overlayView.bounds.size.width, _overlayView.bounds.size.height);
         _overlayView.clipsToBounds = NO;
-        [self configureMapWithLat:-33.86 longitude:151.20];
+        [self configureMapWithLat:51.513930 longitude:-0.158198];
         [self.view addSubview:_overlayView];
         textViewOpen = true;
     }
@@ -252,6 +252,7 @@
     [promotionView setpromotionTitle:promotionTitle];
     [promotionView setpromotionBody:promotionBody];
     [promotionView setpromotionExpiry:promotionExpiry];
+    
     [self.navigationController pushViewController:promotionView animated:YES];
 }
 

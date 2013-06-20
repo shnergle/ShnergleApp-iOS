@@ -119,9 +119,7 @@
 }
 
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
-    if(tableView == self.searchResultsView.resultsTableView){
-        return nil;
-    }
+    
     UILabel *sectionLabel = [[UILabel alloc] init];
     sectionLabel.textColor = [UIColor colorWithRed:117 / 255. green:117 / 255. blue:117 / 255. alpha:1];
     sectionLabel.backgroundColor = [UIColor colorWithRed:29 / 255. green:29 / 255. blue:29 / 255. alpha:1];
