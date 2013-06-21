@@ -73,7 +73,6 @@
     appDelegate.images = @[@"1230.png",@"1645.jpg",@"1655.jpg",@"1700.jpg",@"1730.jpg",@"1745.jpg",@"1930.jpg",@"2012.jpg",@"2023.jpg",@"2035.jpg",@"2046.jpg",@"2105.jpg",@"2107.jpg",@"2108.jpg",@"2109.jpg",@"2115.jpg",@"2128.jpg",@"2146.jpg",@"2207.jpg",@"2210.jpg",@"2215.jpg",@"2223.jpg",@"2235.jpg",@"2250.jpg",@"2308.jpg",@"2336.jpg",@"2350.jpg",@"2353.jpg",@"0013.jpg",@"0030.jpg",@"0047.jpg",@"0050.jpg"];
 
 
-    
     promotionTitle = @"Tonights special offer";
     promotionExpiry = @"Expires at 11 pm";
     promotionBody = @"3-4-2 on tequila doubles!!";
