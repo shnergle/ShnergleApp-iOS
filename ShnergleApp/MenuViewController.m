@@ -45,7 +45,6 @@
 
 - (void)postResponse:(id)response {
     //NSLog(@"search response: %@", response);
-    if(response == nil) response = @"Sorry! No matches.";
     if([response isKindOfClass:[NSArray class]]){
         //_searchResults = [[NSMutableArray alloc]initWithArray:response];
         for(id obj in response){
@@ -133,7 +132,7 @@
     if(tableView == self.searchResultsView.resultsTableView){
         return 0.1;
     }else{
-    return [_tableData count] - 1 == section ? tableView.sectionFooterHeight : 0;
+        return [_tableData count] - 1 == section ? tableView.sectionFooterHeight : 0;
     }
 }
 

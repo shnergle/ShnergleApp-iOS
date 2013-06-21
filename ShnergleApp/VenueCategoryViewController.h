@@ -10,7 +10,8 @@
 
 @interface VenueCategoryViewController : CustomBackViewController <UITableViewDelegate, UITableViewDataSource>
 {
-    NSArray *categories;
+    NSMutableArray *categories;
 }
+@property (weak, nonatomic) IBOutlet UITableView *categoryTableView;
 
 @end

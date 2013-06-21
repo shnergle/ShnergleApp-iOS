@@ -8,6 +8,7 @@
 
 #import "VenueCategoryViewController.h"
 #import "AppDelegate.h"
+#import "PostRequest.h"
 
 @implementation VenueCategoryViewController
 
@@ -23,8 +24,27 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     self.navigationItem.title = @"Add Place";
-    categories = @[@"Hey", @"Ho", @"Let's", @"Go"];
+    categories = [[NSMutableArray alloc] init];
+    
+    AppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
+    NSString *params = [NSString stringWithFormat:@"facebook_id=%@", appDelegate.facebookId];
+    [[[PostRequest alloc]init]exec:@"categories/get" params:params delegate:self callback:@selector(postResponse:)];
+    
 }
+
+- (void)postResponse:(id)response {
+    //NSLog(@"search response: %@", response);
+    if([response isKindOfClass:[NSArray class]]){
+        //_searchResults = [[NSMutableArray alloc]initWithArray:response];
+        for(id obj in response){
+            if([obj count] > 1)
+                [categories addObject:obj[1]];
+        }
+    }
+    
+    [self.categoryTableView reloadData];
+}
+
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
