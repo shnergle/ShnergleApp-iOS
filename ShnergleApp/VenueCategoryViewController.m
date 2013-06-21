@@ -38,7 +38,7 @@
         //_searchResults = [[NSMutableArray alloc]initWithArray:response];
         for(id obj in response){
             if([obj count] > 1)
-                [categories addObject:obj[1]];
+                [categories addObject:obj];
         }
     }
     
@@ -62,15 +62,15 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell"];
-    cell.textLabel.text = categories[indexPath.row];
-    cell.imageView.image = [UIImage imageNamed:@"location_icon.png"];
+    cell.textLabel.text = categories[indexPath.row][1];
+    cell.imageView.image = [UIImage imageNamed:[NSString stringWithFormat:@"%@.png",categories[indexPath.row][0]]];
 
     return cell;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     AppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
-    appDelegate.addVenueType = categories[indexPath.row];
+    appDelegate.addVenueType = categories[indexPath.row][1];
     [self goBack];
 }
 

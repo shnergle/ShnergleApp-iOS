@@ -105,7 +105,7 @@
     [self.window makeToast:@"Thinking about it..."
                   duration:1.0
                   position:@"center"
-                     image:[UIImage imageNamed:@"glass.png"]];
+                     image:[UIImage imageNamed:@"11w.png"]];
 }
 
 - (void)hideAnimated:(NSInteger)originalSize animationDuration:(double)animationDuration targetSize:(NSInteger)targetSize contentView:(UIView *)contentView {
