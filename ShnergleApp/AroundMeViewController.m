@@ -158,6 +158,8 @@
     [self initMap];
 }
 
+
+
 - (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView {
     return 1;
 }
@@ -226,11 +228,15 @@
 }
 
 - (void)showDistanceScroller {
-    [[self distanceScrollerView] showAnimated:44 animationDelay:0.0 animationDuration:0.5];
+    if(self.distanceScroller.frame.origin.y < 0){
+        [[self distanceScrollerView] showAnimated:44 animationDelay:0.0 animationDuration:0.5];
+    }
 }
 
 - (void)hideDistanceScroller {
-    [[self distanceScrollerView]hideAnimated:44 animationDuration:0.8 targetSize:-64 contentView:[self distanceScrollerView]];
+    if(self.distanceScroller.frame.origin.y > -64){
+        [[self distanceScrollerView]hideAnimated:44 animationDuration:0.8 targetSize:-64 contentView:[self distanceScrollerView]];
+    }
 }
 
 - (BOOL)scrollViewShouldScrollToTop:(UIScrollView *)scrollView {
@@ -277,6 +283,8 @@
 
 - (void)tapMenu {
     [self.slidingViewController anchorTopViewTo:ECRight];
+    [self showOverlay];
+    [self hideDistanceScroller];
     crowdImagesHidden = NO;
     dropDownHidden = YES;
     [self drawerButtonImage:@"arrowDown.png"];
