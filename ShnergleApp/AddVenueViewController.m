@@ -79,6 +79,7 @@
         UISwitch *textField = [[UISwitch alloc] initWithFrame:CGRectMake(210, 8, 50, 30)];
         [textField addTarget:self action:@selector(segwayToWork) forControlEvents:UIControlEventValueChanged];
         [cell.contentView addSubview:textField];
+
         _workSwitch = textField;
     }
 
@@ -87,9 +88,9 @@
 
 -(void)textFieldDidBeginEditing:(UITextField *)textField{
     textField.placeholder = nil;
-    [textField updateConstraints];
-    NSLog(@"begin edit");
+    textField.text = @"";
 }
+
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     return _tableData.count;
