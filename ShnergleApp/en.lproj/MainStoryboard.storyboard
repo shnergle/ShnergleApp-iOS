@@ -29,14 +29,14 @@
             <objects>
                 <viewController storyboardIdentifier="AroundMe" useStoryboardIdentifierAsRestorationIdentifier="YES" id="2" userLabel="Around Me" customClass="AroundMeViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="3">
-                        <rect key="frame" x="0.0" y="20" width="320" height="460"/>
+                        <rect key="frame" x="0.0" y="20" width="320" height="548"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LIP-CL-Z0j" customClass="OverlayText">
-                                <rect key="frame" x="0.0" y="126" width="320" height="334"/>
+                                <rect key="frame" x="0.0" y="126" width="320" height="422"/>
                                 <subviews>
                                     <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="top" bounces="NO" alwaysBounceVertical="YES" minimumZoomScale="0.0" maximumZoomScale="0.0" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="NoU-2f-HS3">
-                                        <rect key="frame" x="0.0" y="35" width="320" height="299"/>
+                                        <rect key="frame" x="0.0" y="35" width="320" height="387"/>
                                         <color key="backgroundColor" red="0.9137254901960784" green="0.92156862745098034" blue="0.94117647058823528" alpha="1" colorSpace="calibratedRGB"/>
                                         <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="5" minimumInteritemSpacing="5" id="sQ4-wF-cWC">
                                             <size key="itemSize" width="152" height="112"/>
@@ -145,7 +145,7 @@
                                             <constraint firstAttribute="height" constant="21" id="xDF-Si-ToX"/>
                                         </constraints>
                                         <attributedString key="attributedText">
-                                            <fragment content=" 0.2    0.4    0.6    0.8    1.0     1.2    1.4     1.6     1.8     2.0">
+                                            <fragment content=" 0.2    0.4    0.6    0.8    1.0    1.2    1.4    1.6    1.8    2.0">
                                                 <attributes>
                                                     <color key="NSColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <font key="NSFont" size="11" name="Roboto-Regular"/>
@@ -173,9 +173,9 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="1" minValue="0.20000000000000001" maxValue="2" continuous="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KE8-Yl-GlD">
-                                        <rect key="frame" x="10" y="32" width="304" height="23"/>
+                                        <rect key="frame" x="10" y="32" width="300" height="23"/>
                                         <constraints>
-                                            <constraint firstAttribute="width" constant="300" id="tc0-O5-bJc"/>
+                                            <constraint firstAttribute="width" constant="296" id="tc0-O5-bJc"/>
                                         </constraints>
                                         <connections>
                                             <action selector="sliderValueChanged:" destination="2" eventType="valueChanged" id="lvx-9s-9eY"/>
@@ -188,7 +188,7 @@
                                     <constraint firstItem="KE8-Yl-GlD" firstAttribute="top" secondItem="Yep-ys-8YG" secondAttribute="top" constant="32" id="ONp-dS-zI2"/>
                                     <constraint firstItem="mRC-GB-AsM" firstAttribute="leading" secondItem="KE8-Yl-GlD" secondAttribute="leading" constant="-3" id="jg7-YR-qOt"/>
                                     <constraint firstItem="mRC-GB-AsM" firstAttribute="top" secondItem="Yep-ys-8YG" secondAttribute="top" constant="5" id="vFC-SM-5HP"/>
-                                    <constraint firstItem="KE8-Yl-GlD" firstAttribute="centerX" secondItem="Yep-ys-8YG" secondAttribute="centerX" constant="2" id="vkk-9o-DRA"/>
+                                    <constraint firstItem="KE8-Yl-GlD" firstAttribute="centerX" secondItem="Yep-ys-8YG" secondAttribute="centerX" id="vkk-9o-DRA"/>
                                     <constraint firstItem="ptr-GU-idP" firstAttribute="top" secondItem="Yep-ys-8YG" secondAttribute="top" constant="33" id="zuh-W3-YLg"/>
                                 </constraints>
                             </view>
@@ -243,11 +243,11 @@
             <objects>
                 <viewController id="EYE-5f-vkw" customClass="VenueCategoryViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="zAL-LD-lgL">
-                        <rect key="frame" x="0.0" y="64" width="320" height="416"/>
+                        <rect key="frame" x="0.0" y="64" width="320" height="504"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="F91-6j-iuL">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="416"/>
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="504"/>
                                 <color key="backgroundColor" red="0.9137254901960784" green="0.92156862745098034" blue="0.94117647058823528" alpha="1" colorSpace="calibratedRGB"/>
                                 <prototypes>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Cell" id="cdf-Dn-MVW">
@@ -289,15 +289,15 @@
             <objects>
                 <viewController id="0PX-8N-tNM" customClass="AddVenueViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="i1y-ck-Dxh">
-                        <rect key="frame" x="0.0" y="64" width="320" height="416"/>
+                        <rect key="frame" x="0.0" y="64" width="320" height="504"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JFV-gw-isO">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="103"/>
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="191"/>
                                 <color key="backgroundColor" white="0.6156763229927007" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="singleLineEtched" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" translatesAutoresizingMaskIntoConstraints="NO" id="YEy-1w-LuT" customClass="TPKeyboardAvoidingTableView">
-                                <rect key="frame" x="0.0" y="103" width="320" height="313"/>
+                                <rect key="frame" x="0.0" y="191" width="320" height="313"/>
                                 <color key="backgroundColor" red="0.91372549020000005" green="0.92156862750000001" blue="0.94117647059999998" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="313" id="8H1-rX-zEd"/>
@@ -405,7 +405,7 @@
             <objects>
                 <viewController storyboardIdentifier="VenueDetailsViewIdentifier" id="Zbe-LX-fgV" customClass="VenueDetailsViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="c6u-mz-3nl">
-                        <rect key="frame" x="0.0" y="20" width="320" height="460"/>
+                        <rect key="frame" x="0.0" y="20" width="320" height="548"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="singleLineEtched" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" translatesAutoresizingMaskIntoConstraints="NO" id="vq6-OI-ZZV">
@@ -482,11 +482,11 @@
             <objects>
                 <viewController id="PGA-7S-bvP" customClass="AddPromotionsViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="EEQ-e6-zJj">
-                        <rect key="frame" x="0.0" y="64" width="320" height="416"/>
+                        <rect key="frame" x="0.0" y="64" width="320" height="504"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="singleLineEtched" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" translatesAutoresizingMaskIntoConstraints="NO" id="oEV-7y-XaK" customClass="TPKeyboardAvoidingTableView">
-                                <rect key="frame" x="0.0" y="-44" width="320" height="504"/>
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="504"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" red="0.9137254901960784" green="0.92156862745098034" blue="0.94117647058823528" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
@@ -567,11 +567,11 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
             <objects>
                 <viewController storyboardIdentifier="Venue" id="rpF-0H-Qzy" userLabel="Venue" customClass="VenueViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="IVE-af-RYQ">
-                        <rect key="frame" x="0.0" y="64" width="320" height="416"/>
+                        <rect key="frame" x="0.0" y="64" width="320" height="504"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <collectionView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="top" indicatorStyle="white" minimumZoomScale="0.0" maximumZoomScale="0.0" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="p6Q-Ks-hgi">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="416"/>
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="504"/>
                                 <color key="backgroundColor" red="0.9137254901960784" green="0.92156862745098034" blue="0.94117647058823528" alpha="1" colorSpace="calibratedRGB"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="5" minimumInteritemSpacing="5" id="6jD-sx-Beu">
                                     <size key="itemSize" width="100" height="100"/>
@@ -788,7 +788,7 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
             <objects>
                 <viewController storyboardIdentifier="Staff" id="iKP-o3-IW3" userLabel="Staff" customClass="StaffViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="uEI-0H-D8P">
-                        <rect key="frame" x="0.0" y="20" width="320" height="460"/>
+                        <rect key="frame" x="0.0" y="20" width="320" height="548"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <collectionView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" minimumZoomScale="0.0" maximumZoomScale="0.0" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="s89-N5-RlY">
@@ -855,7 +855,7 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
             <objects>
                 <viewController id="pR2-rf-Aa8" customClass="StaffEditViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="brn-Fa-2ys">
-                        <rect key="frame" x="0.0" y="20" width="320" height="460"/>
+                        <rect key="frame" x="0.0" y="20" width="320" height="548"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="5n0-bT-QDd" customClass="FBProfilePictureView">
@@ -946,7 +946,7 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
             <objects>
                 <viewController id="hXY-Mt-hiA" customClass="StaffTypeViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="nyM-Cd-UKL">
-                        <rect key="frame" x="0.0" y="20" width="320" height="460"/>
+                        <rect key="frame" x="0.0" y="20" width="320" height="548"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="nfi-JV-gQf">
@@ -987,15 +987,15 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
             <objects>
                 <viewController storyboardIdentifier="PhotoLocationViewController" id="XrI-Qp-xcf" userLabel="Photo Location" customClass="PhotoLocationViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="wWP-cp-JQK">
-                        <rect key="frame" x="0.0" y="20" width="320" height="460"/>
+                        <rect key="frame" x="0.0" y="20" width="320" height="548"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" verticalHuggingPriority="1000" translatesAutoresizingMaskIntoConstraints="NO" id="5Kv-3Y-egL">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="244"/>
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="332"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                             </view>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="nbL-bv-q2j">
-                                <rect key="frame" x="0.0" y="244" width="320" height="216"/>
+                                <rect key="frame" x="0.0" y="332" width="320" height="216"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="216" id="YnF-jC-aI1"/>
@@ -1028,7 +1028,7 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                                 </connections>
                             </tableView>
                             <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="Bpv-zI-nMC">
-                                <rect key="frame" x="0.0" y="200" width="320" height="44"/>
+                                <rect key="frame" x="0.0" y="288" width="320" height="44"/>
                                 <textInputTraits key="textInputTraits"/>
                                 <connections>
                                     <outlet property="delegate" destination="XrI-Qp-xcf" id="fee-8w-sJv"/>
@@ -1088,11 +1088,11 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
             <objects>
                 <viewController storyboardIdentifier="ShareViewController" id="X6s-9K-8Ms" userLabel="Share" customClass="ShareViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="vOU-bV-1Mm">
-                        <rect key="frame" x="0.0" y="20" width="320" height="460"/>
+                        <rect key="frame" x="0.0" y="20" width="320" height="548"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xXT-6c-y6I">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="460"/>
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="548"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="W4X-1Y-Qg4">
                                         <rect key="frame" x="4" y="28" width="311" height="115"/>
@@ -1293,7 +1293,7 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
             <objects>
                 <viewController storyboardIdentifier="ProfileSlidingViewController" id="nhx-An-K1e" customClass="CustomSlidingViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="D1a-bH-XfX">
-                        <rect key="frame" x="0.0" y="20" width="320" height="460"/>
+                        <rect key="frame" x="0.0" y="20" width="320" height="548"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
@@ -1313,7 +1313,7 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
             <objects>
                 <viewController storyboardIdentifier="Profile" title="Profile Page" id="qgb-Kw-YNh" userLabel="Profile" customClass="ProfileViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="T3d-vY-Mf8">
-                        <rect key="frame" x="0.0" y="20" width="320" height="460"/>
+                        <rect key="frame" x="0.0" y="20" width="320" height="548"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <navigationBar contentMode="scaleToFill" barStyle="black" translatesAutoresizingMaskIntoConstraints="NO" id="uZw-Cy-fCl">
@@ -1330,7 +1330,7 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                                 </items>
                             </navigationBar>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HP1-zJ-Evb">
-                                <rect key="frame" x="0.0" y="44" width="320" height="416"/>
+                                <rect key="frame" x="0.0" y="44" width="320" height="504"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="d7K-2j-bO2">
                                         <rect key="frame" x="2" y="70" width="312" height="246"/>
@@ -1921,7 +1921,7 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
             <objects>
                 <viewController id="O8X-O7-5VA" userLabel="Favourites Sliding" customClass="CustomSlidingViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="3zF-Rl-p2R">
-                        <rect key="frame" x="0.0" y="20" width="320" height="460"/>
+                        <rect key="frame" x="0.0" y="20" width="320" height="548"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
@@ -1979,11 +1979,11 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
             <objects>
                 <viewController storyboardIdentifier="Favourites" id="Hxi-4h-Khl" userLabel="Favourites" customClass="FavouritesViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="6S5-MJ-Ufd">
-                        <rect key="frame" x="0.0" y="20" width="320" height="460"/>
+                        <rect key="frame" x="0.0" y="20" width="320" height="548"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <collectionView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" minimumZoomScale="0.0" maximumZoomScale="0.0" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="KpA-8g-IKJ">
-                                <rect key="frame" x="0.0" y="44" width="320" height="416"/>
+                                <rect key="frame" x="0.0" y="44" width="320" height="504"/>
                                 <color key="backgroundColor" red="0.9137254901960784" green="0.92156862745098034" blue="0.94117647058823528" alpha="1" colorSpace="calibratedRGB"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="5" minimumInteritemSpacing="5" id="l42-y3-f0e">
                                     <size key="itemSize" width="152" height="112"/>
@@ -2100,11 +2100,11 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
             <objects>
                 <viewController storyboardIdentifier="AroundMeMenu" id="nGm-Na-jzU" userLabel="Menu" customClass="MenuViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="2oN-RZ-QoM">
-                        <rect key="frame" x="0.0" y="20" width="320" height="460"/>
+                        <rect key="frame" x="0.0" y="20" width="320" height="548"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="OEo-Lu-Lqh">
-                                <rect key="frame" x="0.0" y="44" width="233" height="416"/>
+                                <rect key="frame" x="0.0" y="44" width="233" height="504"/>
                                 <color key="backgroundColor" white="1" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="233" id="qAg-de-od2"/>
@@ -2290,7 +2290,7 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
             <objects>
                 <viewController storyboardIdentifier="AroundMeSlidingViewController" id="agu-Bk-UBN" userLabel="Around Me Sliding" customClass="CustomSlidingViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Km9-Iy-bjO">
-                        <rect key="frame" x="0.0" y="20" width="320" height="460"/>
+                        <rect key="frame" x="0.0" y="20" width="320" height="548"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
@@ -2309,7 +2309,7 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
             <objects>
                 <viewController storyboardIdentifier="LoginScreenController" id="Elr-eK-1V1" userLabel="Login" customClass="LoginScreenController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="pvJ-ME-z3b">
-                        <rect key="frame" x="0.0" y="20" width="320" height="460"/>
+                        <rect key="frame" x="0.0" y="20" width="320" height="548"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="background.png" translatesAutoresizingMaskIntoConstraints="NO" id="6wr-nA-yH3">
@@ -2317,7 +2317,7 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <button contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="0Fe-ga-82h">
-                                <rect key="frame" x="74" y="266" width="175" height="46"/>
+                                <rect key="frame" x="74" y="354" width="175" height="46"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="175" id="CmZ-ty-hwG"/>
                                     <constraint firstAttribute="height" constant="46" id="wnb-bi-md8"/>
@@ -2345,7 +2345,7 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                                 </connections>
                             </button>
                             <imageView autoresizesSubviews="NO" userInteractionEnabled="NO" contentMode="scaleAspectFit" image="shnerglelogo_splash_screen.png" translatesAutoresizingMaskIntoConstraints="NO" id="rry-Gf-ZA7">
-                                <rect key="frame" x="10" y="130" width="300" height="84"/>
+                                <rect key="frame" x="10" y="130" width="300" height="172"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="300" id="i3F-yn-geA"/>
                                 </constraints>
@@ -2542,6 +2542,7 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
         <class className="ShareViewController" superclassName="CustomBackViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/ShareViewController.h"/>
             <relationships>
+                <relationship kind="action" name="selectFriendsButtonAction:"/>
                 <relationship kind="outlet" name="friendLabel" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="image" candidateClass="UIImageView"/>
                 <relationship kind="outlet" name="nameList" candidateClass="UIButton"/>
@@ -2568,6 +2569,9 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
         </class>
         <class className="UICollectionViewFlowLayout" superclassName="UICollectionViewLayout">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/UICollectionViewFlowLayout.h"/>
+        </class>
+        <class className="UICollectionViewLayout" superclassName="NSObject">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/UICollectionViewLayout.h"/>
         </class>
         <class className="VenueCategoryViewController" superclassName="CustomBackViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/VenueCategoryViewController.h"/>
@@ -2601,7 +2605,7 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>
-        <simulatedScreenMetrics key="destination"/>
+        <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
         <segue reference="Zho-BK-kL6"/>

@@ -85,6 +85,12 @@
     return cell;
 }
 
+-(void)textFieldDidBeginEditing:(UITextField *)textField{
+    textField.placeholder = nil;
+    [textField updateConstraints];
+    NSLog(@"begin edit");
+}
+
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     return _tableData.count;
 }
@@ -124,7 +130,7 @@
 
 - (void)initMap {
     hasPositionLocked = NO;
-    map = [[GMSMapView alloc] initWithFrame:_mapView.bounds];
+    map = [[GMSMapView alloc] initWithFrame:_mapView.frame];
     map.myLocationEnabled = YES;
     map.delegate = self;
     [map addObserver:self forKeyPath:@"myLocation" options:NSKeyValueObservingOptionNew context:nil];
