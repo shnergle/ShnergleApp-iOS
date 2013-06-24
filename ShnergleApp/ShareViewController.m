@@ -23,6 +23,13 @@
 
     AppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
     if (appDelegate.shareImage) _image.image = appDelegate.shareImage;
+    
+    
+    if(appDelegate.saveLocally){
+        [self.saveLocallySwitch setOn:TRUE];
+    }else{
+        [self.saveLocallySwitch setOn:FALSE];
+    }
 }
 
 - (void)didReceiveMemoryWarning {
@@ -39,6 +46,8 @@
 - (void)share {
     [self.view makeToastActivity];
     
+    
+    
     self.navigationItem.rightBarButtonItem.enabled = NO;
     AppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
     if ([appDelegate.session.permissions indexOfObject:@"publish_actions"] == NSNotFound)
@@ -50,7 +59,9 @@
         NSLog(@"shared");
 
     }
-    
+    if(self.saveLocallySwitch.on){
+        UIImageWriteToSavedPhotosAlbum(_image.image, nil, nil, nil);
+    }
     
 }
 

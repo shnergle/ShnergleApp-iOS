@@ -1210,6 +1210,21 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="glyphicons_087_log_book.png" translatesAutoresizingMaskIntoConstraints="NO" id="P6M-vA-TyX">
+                                                <rect key="frame" x="10" y="97" width="30" height="30"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            </imageView>
+                                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Save to camera roll" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ha1-YH-Fpq">
+                                                <rect key="frame" x="61" y="101" width="147" height="21"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="nkt-4B-Dwu">
+                                                <rect key="frame" x="216" y="101" width="79" height="27"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            </switch>
                                         </subviews>
                                         <color key="backgroundColor" red="0.89411764709999997" green="0.90196078430000004" blue="0.92941176469999998" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
@@ -1270,6 +1285,7 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                         <outlet property="friendLabel" destination="zTj-mw-Tzl" id="2Xk-n3-Z7s"/>
                         <outlet property="image" destination="iA1-kv-wSd" id="XQe-8H-AeI"/>
                         <outlet property="nameList" destination="peK-WU-kWy" id="XF3-Mr-Wba"/>
+                        <outlet property="saveLocallySwitch" destination="nkt-4B-Dwu" id="1Wq-AU-zx3"/>
                         <outlet property="textFieldname" destination="Ske-Xe-Yqg" id="yDT-FD-HIK"/>
                     </connections>
                 </viewController>
@@ -2376,6 +2392,7 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
         <image name="add_friend.png" width="89" height="89"/>
         <image name="arrowDown.png" width="42" height="42"/>
         <image name="background.png" width="640" height="1136"/>
+        <image name="glyphicons_087_log_book.png" width="22" height="24"/>
         <image name="greybutton03.png" width="157" height="60"/>
         <image name="login-button-small.png" width="151" height="43"/>
         <image name="mahiki.jpg" width="420" height="308"/>

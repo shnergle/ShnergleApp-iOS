@@ -25,6 +25,8 @@
 @property (strong, nonatomic) NSString *facebookId;
 @property (strong, nonatomic) NSString *appSecret;
 @property (strong, nonatomic) NSString *twitter;
+@property (nonatomic) bool saveLocally;
+
 
 @property (strong, nonatomic) NSArray *images;
 @property (strong, nonatomic) NSArray *timestamps;
