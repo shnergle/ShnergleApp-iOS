@@ -22,4 +22,5 @@
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (strong, nonatomic) NSArray *tableData;
 @property (weak, nonatomic) UISwitch *workSwitch;
+@property (strong, nonatomic)  NSMutableArray *userData;
 @end

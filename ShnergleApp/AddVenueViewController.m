@@ -13,7 +13,22 @@
 
 @end
 
+typedef enum {
+    Name,
+    Category,
+    Address1,
+    Address2,
+    City,
+    Postcode,
+    WorkHere
+    
+} Field;
+
+#define TextFieldTag 2
+
 @implementation AddVenueViewController
+
+
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
@@ -39,50 +54,54 @@
     // Dispose of any resources that can be recreated.
 }
 
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:[NSString stringWithFormat:@"Cell%d", indexPath.row ]];
+    if(cell == nil)
+        cell = [[UITableViewCell alloc] init];
+    
     cell.textLabel.text = _tableData[indexPath.row];
+    UITextField *textField = [[UITextField alloc] initWithFrame:CGRectMake(110, 10, 185, 30)];
+    textField.delegate = self;
+    textField.tag = indexPath.row;
+    
     if (indexPath.row == 0) {
-        UITextField *textField = [[UITextField alloc] initWithFrame:CGRectMake(110, 10, 185, 30)];
-        textField.delegate = self;
         textField.placeholder = @"(Required)";
         [cell.contentView addSubview:textField];
     } else if (indexPath.row == 1) {
-        UILabel *textField = [[UILabel alloc] initWithFrame:CGRectMake(110, 6, 185, 30)];
-        textField.text = @"(Required)";
-        textField.textColor = [UIColor lightGrayColor];
-        textField.backgroundColor = [UIColor clearColor];
-        [cell.contentView addSubview:textField];
-        secondCellField = textField;
+        UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(110, 6, 185, 30)];
+        label.text = @"(Required)";
+        label.textColor = [UIColor lightGrayColor];
+        label.backgroundColor = [UIColor clearColor];
+        [cell.contentView addSubview:label];
+        secondCellField = label;
         secondCell = cell;
     } else if (indexPath.row == 2) {
-        UITextField *textField = [[UITextField alloc] initWithFrame:CGRectMake(110, 10, 185, 30)];
-        textField.delegate = self;
         textField.placeholder = @"(Optional)";
         [cell.contentView addSubview:textField];
     } else if (indexPath.row == 3) {
-        UITextField *textField = [[UITextField alloc] initWithFrame:CGRectMake(110, 10, 185, 30)];
-        textField.delegate = self;
         textField.placeholder = @"(Optional)";
         [cell.contentView addSubview:textField];
     } else if (indexPath.row == 4) {
-        UITextField *textField = [[UITextField alloc] initWithFrame:CGRectMake(110, 10, 185, 30)];
-        textField.delegate = self;
         textField.placeholder = @"(Optional)";
         [cell.contentView addSubview:textField];
     } else if (indexPath.row == 5) {
-        UITextField *textField = [[UITextField alloc] initWithFrame:CGRectMake(110, 10, 185, 30)];
-        textField.delegate = self;
         textField.placeholder = @"(Optional)";
         [cell.contentView addSubview:textField];
     } else if (indexPath.row == 6) {
-        UISwitch *textField = [[UISwitch alloc] initWithFrame:CGRectMake(210, 8, 50, 30)];
-        [textField addTarget:self action:@selector(segwayToWork) forControlEvents:UIControlEventValueChanged];
-        [cell.contentView addSubview:textField];
-
-        _workSwitch = textField;
+        UISwitch *workSwitch = [[UISwitch alloc] initWithFrame:CGRectMake(210, 8, 50, 30)];
+        [workSwitch addTarget:self action:@selector(segwayToWork) forControlEvents:UIControlEventValueChanged];
+        [cell.contentView addSubview:workSwitch];
+        
+        _workSwitch = workSwitch;
     }
-
+    
+    
+    if(![[self.userData objectAtIndex:indexPath.row] isEqualToString:@""]){
+        NSLog(@"%@ at indexPath.row %d",[self.userData objectAtIndex:indexPath.row], indexPath.row);
+        textField.placeholder = nil;
+        textField.text = [self.userData objectAtIndex:indexPath.row];
+    }
     return cell;
 }
 
@@ -109,6 +128,7 @@
 
 - (BOOL)textFieldShouldReturn:(UITextField *)textField {
     [textField resignFirstResponder];
+    self.userData[textField.tag] = textField.text;
     return YES;
 }
 
@@ -174,6 +194,16 @@
     [map stopRendering];
     [map removeFromSuperview];
     map = nil;
+}
+
+-(NSMutableArray *)userData
+{
+    if(!_userData){
+        _userData = [[NSMutableArray alloc] initWithCapacity:[self.tableData count]];
+        for (int i = 0; i < [self.tableData count]; i++)
+            [_userData addObject:@""];
+    }
+    return _userData;
 }
 
 @end
