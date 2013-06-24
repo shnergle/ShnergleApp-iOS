@@ -228,13 +228,14 @@
 }
 
 - (void)showDistanceScroller {
-    if(self.distanceScroller.frame.origin.y < 0){
+    if(self.distanceScrollerView.bounds.origin.y < 44){
         [[self distanceScrollerView] showAnimated:44 animationDelay:0.0 animationDuration:0.5];
     }
 }
 
 - (void)hideDistanceScroller {
-    if(self.distanceScroller.frame.origin.y > -64){
+    if(self.distanceScrollerView.frame.origin.y > -64){
+        NSLog(@"y bounds value:%f",self.distanceScrollerView.bounds.origin.y);
         [[self distanceScrollerView]hideAnimated:44 animationDuration:0.8 targetSize:-64 contentView:[self distanceScrollerView]];
     }
 }
