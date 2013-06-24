@@ -72,6 +72,10 @@
     AppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
     appDelegate.images = @[@"1230.png",@"1645.jpg",@"1655.jpg",@"1700.jpg",@"1730.jpg",@"1745.jpg",@"1930.jpg",@"2012.jpg",@"2023.jpg",@"2035.jpg",@"2046.jpg",@"2105.jpg",@"2107.jpg",@"2108.jpg",@"2109.jpg",@"2115.jpg",@"2128.jpg",@"2146.jpg",@"2207.jpg",@"2210.jpg",@"2215.jpg",@"2223.jpg",@"2235.jpg",@"2250.jpg",@"2308.jpg",@"2336.jpg",@"2350.jpg",@"2353.jpg",@"0013.jpg",@"0030.jpg",@"0047.jpg",@"0050.jpg"];
 
+    appDelegate.timestamps = @[@"00:50",@"00:47",@"00:30",@"00:13",@"23:53",@"23:50",@"23:36",@"23:08",@"22:50",@"22:35",@"22:23",@"22:15",@"22:10",@"22:07",@"21:46",@"21:28",@"21:15",@"21:09",@"21:08",@"21:07",@"21:05",@"20:46",@"20:35",@"20:23",@"20:12",@"19:30",@"17:45",@"17:30",@"17:00",@"16:55",@"16:45",@"12:30",];
+    
+    #warning "demo venue images are reversed in code, don't worry about it. "
+    appDelegate.images = [[appDelegate.images reverseObjectEnumerator] allObjects];
 
     promotionTitle = @"Tonights special offer";
     promotionExpiry = @"Expires at 11 pm";
@@ -95,6 +99,9 @@
     AppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
     /* Here we can set the elements of the crowdItem (the cell) in the cellview */
     [[item crowdImage] setImage:[UIImage imageNamed:appDelegate.images[indexPath.item]]];
+    [[item venueName] setText:appDelegate.timestamps[indexPath.item]];
+    [[item venueName] setTextColor:[UIColor whiteColor]];
+    [[item venueName] setFont:[UIFont fontWithName:@"Roboto" size:11.0]];
     //[[item venueName] setText:appDelegate.venueNames[indexPath.item]];
 
 

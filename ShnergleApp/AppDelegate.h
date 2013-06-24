@@ -27,6 +27,7 @@
 @property (strong, nonatomic) NSString *twitter;
 
 @property (strong, nonatomic) NSArray *images;
+@property (strong, nonatomic) NSArray *timestamps;
 @property (strong, nonatomic) NSArray *venueNames;
 @property (strong, nonatomic) NSArray *aroundImages;
 @property (strong, nonatomic) NSArray *aroundVenueNames;

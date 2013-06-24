@@ -93,10 +93,10 @@
     [[self crowdCollection] setDataSource:self];
     [[self crowdCollection] setDelegate:self];
     //[self createTitleButton];
+    
     AppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
     appDelegate.aroundImages = @[@"112779_f520.jpg", @"fitnessfirst.jpg", @"2250.jpg", @"19.jpg", @"14.jpg", @"3149513443_970d5b7d66.jpg", @"29.jpg", @"1Shoreditch-Grind-Bar-Old-Street_jpg.jpg", @"2012-08-29T14-58-01_15.jpg",@"14fds.jpg"];
     appDelegate.aroundVenueNames = @[@"liverpool street station", @"Fitness First", @"Carbon Bar", @"Blueberry Bar", @"Queen of Hoxton", @"Monmouth Coffee", @"TFL Bank Central Eastbound", @"Shoreditch Grind", @"Waterloo Station",@"TFL Bank Central Westbound"];
-
     crowdImagesHidden = NO;
     dropDownHidden = YES;
 

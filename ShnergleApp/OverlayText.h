@@ -33,6 +33,9 @@
 @property (weak, nonatomic) IBOutlet UILabel *goingLabel;
 @property (weak, nonatomic) IBOutlet UILabel *thinkingLabel;
 @property (weak, nonatomic) IBOutlet UILabel *checkedInLabel;
+@property (weak, nonatomic) IBOutlet UIView *thinkingView;
+@property (weak, nonatomic) IBOutlet UIView *goingView;
+@property (weak, nonatomic) IBOutlet UIView *checkedInView;
 
 - (IBAction)tappedGoing:(id)sender;
 - (IBAction)tappedThinking:(id)sender;

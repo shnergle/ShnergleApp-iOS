@@ -89,6 +89,9 @@
     [self.goingLabel setFont:[UIFont fontWithName:self.goingLabel.font.fontName size:self.goingLabel.font.pointSize]];
     [self.goingLabel setText:[NSString stringWithFormat:@"%d", newValue]];
     [self.tapGoing setEnabled:NO];
+    [self.goingView setBackgroundColor:[UIColor darkGrayColor]];
+    [self.tapThinking setEnabled:NO];
+    [self.thinkingView setBackgroundColor:[UIColor colorWithRed:201/255.0 green:201/255.0 blue:201/255.0 alpha:1.0]];
     [self.window makeToast:@"Yep! We're going!"
                   duration:1.0
                   position:@"center"
@@ -102,6 +105,7 @@
     [self.thinkingLabel setFont:[UIFont fontWithName:self.thinkingLabel.font.fontName size:self.thinkingLabel.font.pointSize]];
     [self.thinkingLabel setText:[NSString stringWithFormat:@"%d", newValue]];
     [self.tapThinking setEnabled:NO];
+    [self.thinkingView setBackgroundColor:[UIColor darkGrayColor]];
     [self.window makeToast:@"Thinking about it..."
                   duration:1.0
                   position:@"center"
