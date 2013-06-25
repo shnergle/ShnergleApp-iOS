@@ -74,9 +74,12 @@
 
     appDelegate.timestamps = @[@"00:50",@"00:47",@"00:30",@"00:13",@"23:53",@"23:50",@"23:36",@"23:08",@"22:50",@"22:35",@"22:23",@"22:15",@"22:10",@"22:07",@"21:46",@"21:28",@"21:15",@"21:09",@"21:08",@"21:07",@"21:05",@"20:46",@"20:35",@"20:23",@"20:12",@"19:30",@"17:45",@"17:30",@"17:00",@"16:55",@"16:45",@"12:30",];
     
-    #warning "demo venue images are reversed in code, don't worry about it. "
+    
     appDelegate.images = [[appDelegate.images reverseObjectEnumerator] allObjects];
 
+    appDelegate.shareImage = [UIImage imageNamed:appDelegate.images[0] ];
+
+    
     promotionTitle = @"Tonight's special offer";
     promotionExpiry = @"Expires at 11 pm";
     promotionBody = @"3-4-2 on tequila doubles!!";
@@ -290,7 +293,7 @@
     }
 }
 
-- (void)         collectionView:(UICollectionView *)collectionView
+- (void)collectionView:(UICollectionView *)collectionView
     didHighlightItemAtIndexPath:(NSIndexPath *)indexPath {
     selectedImage = indexPath.row;
 }

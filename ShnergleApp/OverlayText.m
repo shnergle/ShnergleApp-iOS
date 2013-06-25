@@ -10,7 +10,6 @@
 #import "VenueViewController.h"
 #import "AppDelegate.h"
 
-#define TABBAR_HEIGHT (45)
 
 @implementation OverlayText
 
@@ -36,7 +35,7 @@
     CGFloat screenHeight = screenRect.size.height;
 
 
-    frame = CGRectMake(0, screenHeight - 70, self.frame.size.width, self.frame.size.height);
+    frame = CGRectMake(0, screenHeight - 80, self.frame.size.width, self.frame.size.height);
     self = [super initWithFrame:frame];
 
     if (self) {

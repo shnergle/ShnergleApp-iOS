@@ -28,6 +28,7 @@
 @property (nonatomic) bool saveLocally;
 
 
+
 @property (strong, nonatomic) NSArray *images;
 @property (strong, nonatomic) NSArray *timestamps;
 @property (strong, nonatomic) NSArray *venueNames;
