@@ -79,13 +79,18 @@ typedef enum {
         textField.placeholder = @"(Required)";
         [cell.contentView addSubview:textField];
     } else if (indexPath.row == Category) {
-        UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(110, 6, 185, 30)];
+        
+        UILabel *label = (UILabel *) [cell viewWithTag:indexPath.row+10];
+        if(!label){
+        label = [[UILabel alloc] initWithFrame:CGRectMake(110, 6, 185, 30)];
         label.text = @"(Required)";
+        label.tag = indexPath.row+10;
         label.textColor = [UIColor lightGrayColor];
         label.backgroundColor = [UIColor clearColor];
         [cell.contentView addSubview:label];
         secondCellField = label;
         secondCell = cell;
+        }
     } else if (indexPath.row == Address1) {
         textField.placeholder = @"(Optional)";
         [cell.contentView addSubview:textField];
