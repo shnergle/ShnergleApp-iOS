@@ -34,7 +34,7 @@
                     <nil key="highlightedColor"/>
                 </label>
                 <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" horizontalHuggingPriority="1" verticalHuggingPriority="1" horizontalCompressionResistancePriority="1" verticalCompressionResistancePriority="1" bounces="NO" showsHorizontalScrollIndicator="NO" bouncesZoom="NO" translatesAutoresizingMaskIntoConstraints="NO" id="811">
-                    <rect key="frame" x="0.0" y="160" width="320" height="358"/>
+                    <rect key="frame" x="0.0" y="160" width="320" height="387"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                     <subviews>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1941" userLabel="ParentViewInside">
@@ -100,164 +100,6 @@
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                                 </view>
-                                <view contentMode="center" translatesAutoresizingMaskIntoConstraints="NO" id="276" customClass="UIButton">
-                                    <rect key="frame" x="112" y="297" width="100" height="75"/>
-                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                    <subviews>
-                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="215">
-                                            <rect key="frame" x="25" y="0.0" width="50" height="49"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <constraints>
-                                                <constraint firstAttribute="height" constant="49" id="492"/>
-                                            </constraints>
-                                            <attributedString key="attributedText">
-                                                <fragment content="213">
-                                                    <attributes>
-                                                        <color key="NSColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                                        <font key="NSFont" size="30" name="Roboto-Regular"/>
-                                                        <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
-                                                    </attributes>
-                                                </fragment>
-                                            </attributedString>
-                                            <nil key="highlightedColor"/>
-                                        </label>
-                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsLetterSpacingToFitWidth="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="242">
-                                            <rect key="frame" x="-1" y="40" width="102" height="21"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <constraints>
-                                                <constraint firstAttribute="width" constant="102" id="247"/>
-                                                <constraint firstAttribute="height" constant="21" id="248"/>
-                                            </constraints>
-                                            <attributedString key="attributedText">
-                                                <fragment content="Going?">
-                                                    <attributes>
-                                                        <color key="NSColor" cocoaTouchSystemColor="darkTextColor"/>
-                                                        <font key="NSFont" size="11" name="Roboto-BoldCondensed"/>
-                                                        <font key="NSOriginalFont" size="11" name="Roboto-Regular"/>
-                                                        <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="truncatingTail" baseWritingDirection="natural"/>
-                                                    </attributes>
-                                                </fragment>
-                                            </attributedString>
-                                            <nil key="highlightedColor"/>
-                                        </label>
-                                    </subviews>
-                                    <gestureRecognizers/>
-                                    <constraints>
-                                        <constraint firstItem="215" firstAttribute="top" secondItem="276" secondAttribute="top" id="349"/>
-                                        <constraint firstItem="242" firstAttribute="centerX" secondItem="215" secondAttribute="centerX" id="477"/>
-                                        <constraint firstItem="242" firstAttribute="centerX" secondItem="276" secondAttribute="centerX" id="485"/>
-                                        <constraint firstItem="242" firstAttribute="top" secondItem="276" secondAttribute="top" constant="40" id="501"/>
-                                        <constraint firstAttribute="height" constant="75" id="608"/>
-                                    </constraints>
-                                    <connections>
-                                        <outletCollection property="gestureRecognizers" destination="Twh-rf-nuM" appends="YES" id="EIH-Cm-YKs"/>
-                                    </connections>
-                                </view>
-                                <view userInteractionEnabled="NO" contentMode="center" translatesAutoresizingMaskIntoConstraints="NO" id="312" customClass="UIButton">
-                                    <rect key="frame" x="218" y="297" width="94" height="75"/>
-                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                    <subviews>
-                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="226">
-                                            <rect key="frame" x="20" y="0.0" width="47" height="49"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <constraints>
-                                                <constraint firstAttribute="width" constant="47" id="228"/>
-                                                <constraint firstAttribute="height" constant="49" id="346"/>
-                                            </constraints>
-                                            <attributedString key="attributedText">
-                                                <fragment content="19">
-                                                    <attributes>
-                                                        <color key="NSColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                                        <font key="NSFont" size="30" name="Roboto-Regular"/>
-                                                        <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
-                                                    </attributes>
-                                                </fragment>
-                                            </attributedString>
-                                            <nil key="highlightedColor"/>
-                                        </label>
-                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsLetterSpacingToFitWidth="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="252">
-                                            <rect key="frame" x="-7" y="42" width="113" height="21"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <constraints>
-                                                <constraint firstAttribute="width" constant="113" id="268"/>
-                                                <constraint firstAttribute="height" constant="21" id="480"/>
-                                            </constraints>
-                                            <attributedString key="attributedText">
-                                                <fragment content="Checked in">
-                                                    <attributes>
-                                                        <color key="NSColor" cocoaTouchSystemColor="darkTextColor"/>
-                                                        <font key="NSFont" size="11" name="Roboto-BoldCondensed"/>
-                                                        <font key="NSOriginalFont" size="11" name="Roboto-Regular"/>
-                                                        <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="truncatingTail" baseWritingDirection="natural"/>
-                                                    </attributes>
-                                                </fragment>
-                                            </attributedString>
-                                            <nil key="highlightedColor"/>
-                                        </label>
-                                    </subviews>
-                                    <constraints>
-                                        <constraint firstItem="226" firstAttribute="centerX" secondItem="312" secondAttribute="centerX" constant="-3.5" id="471"/>
-                                        <constraint firstItem="252" firstAttribute="leading" secondItem="312" secondAttribute="leading" constant="-7" id="482"/>
-                                        <constraint firstItem="252" firstAttribute="top" secondItem="312" secondAttribute="top" constant="42" id="511"/>
-                                        <constraint firstItem="226" firstAttribute="top" secondItem="312" secondAttribute="top" id="518"/>
-                                        <constraint firstAttribute="height" constant="75" id="609"/>
-                                    </constraints>
-                                </view>
-                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="327" customClass="UIButton">
-                                    <rect key="frame" x="7" y="297" width="100" height="75"/>
-                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                    <subviews>
-                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsLetterSpacingToFitWidth="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="260">
-                                            <rect key="frame" x="-1" y="42" width="102" height="21"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <constraints>
-                                                <constraint firstAttribute="width" constant="102" id="341"/>
-                                                <constraint firstAttribute="height" constant="21" id="429"/>
-                                            </constraints>
-                                            <attributedString key="attributedText">
-                                                <fragment content="Thinking about it..">
-                                                    <attributes>
-                                                        <color key="NSColor" cocoaTouchSystemColor="darkTextColor"/>
-                                                        <font key="NSFont" size="11" name="Roboto-BoldCondensed"/>
-                                                        <font key="NSOriginalFont" size="11" name="Roboto-Regular"/>
-                                                        <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="truncatingTail" baseWritingDirection="natural"/>
-                                                    </attributes>
-                                                </fragment>
-                                            </attributedString>
-                                            <nil key="highlightedColor"/>
-                                        </label>
-                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="234">
-                                            <rect key="frame" x="34" y="0.0" width="47" height="49"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <constraints>
-                                                <constraint firstAttribute="width" constant="47" id="275"/>
-                                                <constraint firstAttribute="height" constant="49" id="344"/>
-                                            </constraints>
-                                            <attributedString key="attributedText">
-                                                <fragment content="45">
-                                                    <attributes>
-                                                        <color key="NSColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                                        <font key="NSFont" size="30" name="Roboto-Regular"/>
-                                                        <font key="NSOriginalFont" size="17" name="Roboto-Regular"/>
-                                                        <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
-                                                    </attributes>
-                                                </fragment>
-                                            </attributedString>
-                                            <nil key="highlightedColor"/>
-                                        </label>
-                                    </subviews>
-                                    <gestureRecognizers/>
-                                    <constraints>
-                                        <constraint firstItem="260" firstAttribute="centerX" secondItem="327" secondAttribute="centerX" id="461"/>
-                                        <constraint firstItem="234" firstAttribute="centerX" secondItem="260" secondAttribute="centerX" constant="7.5" id="474"/>
-                                        <constraint firstItem="260" firstAttribute="top" secondItem="327" secondAttribute="top" constant="42" id="513"/>
-                                        <constraint firstItem="234" firstAttribute="top" secondItem="327" secondAttribute="top" id="515"/>
-                                        <constraint firstAttribute="height" constant="75" id="610"/>
-                                    </constraints>
-                                    <connections>
-                                        <outletCollection property="gestureRecognizers" destination="YbD-8D-97K" appends="YES" id="Cvc-hK-14m"/>
-                                    </connections>
-                                </view>
                                 <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hQT-9q-ZmQ">
                                     <rect key="frame" x="91" y="272" width="105" height="18"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -273,6 +115,116 @@
                                         <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     </state>
                                 </button>
+                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="9JC-sc-VKz">
+                                    <rect key="frame" x="0.0" y="297" width="110" height="44"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <color key="backgroundColor" red="0.80000000000000004" green="0.0" blue="0.1218885363136657" alpha="1" colorSpace="calibratedRGB"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                    <state key="normal">
+                                        <attributedString key="attributedTitle">
+                                            <fragment content="Considering it">
+                                                <attributes>
+                                                    <color key="NSColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <font key="NSFont" size="15" name="Roboto-Regular"/>
+                                                </attributes>
+                                            </fragment>
+                                        </attributedString>
+                                    </state>
+                                    <connections>
+                                        <action selector="tappedThinking:" destination="1" eventType="touchUpInside" id="fy2-Hn-kXn"/>
+                                    </connections>
+                                </button>
+                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" ambiguous="YES" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="234">
+                                    <rect key="frame" x="31" y="341" width="47" height="49"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <constraints>
+                                        <constraint firstAttribute="width" constant="47" id="275"/>
+                                        <constraint firstAttribute="height" constant="49" id="344"/>
+                                    </constraints>
+                                    <attributedString key="attributedText">
+                                        <fragment content="45">
+                                            <attributes>
+                                                <color key="NSColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                <font key="NSFont" size="30" name="Roboto-Regular"/>
+                                                <font key="NSOriginalFont" size="17" name="Roboto-Regular"/>
+                                                <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
+                                            </attributes>
+                                        </fragment>
+                                    </attributedString>
+                                    <nil key="highlightedColor"/>
+                                    <color key="shadowColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                    <size key="shadowOffset" width="1" height="1"/>
+                                </label>
+                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="3sN-Qw-TVN">
+                                    <rect key="frame" x="110" y="297" width="100" height="44"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <color key="backgroundColor" red="1" green="0.92277879695155929" blue="0.012220570718419532" alpha="1" colorSpace="calibratedRGB"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                    <state key="normal">
+                                        <attributedString key="attributedTitle">
+                                            <fragment content="Going!">
+                                                <attributes>
+                                                    <color key="NSColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <font key="NSFont" size="15" name="Roboto-Regular"/>
+                                                </attributes>
+                                            </fragment>
+                                        </attributedString>
+                                    </state>
+                                    <connections>
+                                        <action selector="tappedGoing:" destination="1" eventType="touchUpInside" id="5Iz-ZD-fpD"/>
+                                    </connections>
+                                </button>
+                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" ambiguous="YES" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="215">
+                                    <rect key="frame" x="135" y="341" width="50" height="49"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="49" id="492"/>
+                                    </constraints>
+                                    <attributedString key="attributedText">
+                                        <fragment content="213">
+                                            <attributes>
+                                                <color key="NSColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                <font key="NSFont" size="30" name="Roboto-Regular"/>
+                                                <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
+                                            </attributes>
+                                        </fragment>
+                                    </attributedString>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                                <button opaque="NO" contentMode="scaleAspectFit" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="tailTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="52r-VY-WE5">
+                                    <rect key="frame" x="210" y="297" width="110" height="44"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <color key="backgroundColor" red="0.40000000000000002" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                    <state key="normal">
+                                        <attributedString key="attributedTitle">
+                                            <fragment content="Checked In">
+                                                <attributes>
+                                                    <color key="NSColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <font key="NSFont" size="15" name="Roboto-Regular"/>
+                                                </attributes>
+                                            </fragment>
+                                        </attributedString>
+                                    </state>
+                                </button>
+                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" ambiguous="YES" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="226">
+                                    <rect key="frame" x="237" y="341" width="47" height="49"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <constraints>
+                                        <constraint firstAttribute="width" constant="47" id="228"/>
+                                        <constraint firstAttribute="height" constant="49" id="346"/>
+                                    </constraints>
+                                    <attributedString key="attributedText">
+                                        <fragment content="19">
+                                            <attributes>
+                                                <color key="NSColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                <font key="NSFont" size="30" name="Roboto-Regular"/>
+                                                <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
+                                            </attributes>
+                                        </fragment>
+                                    </attributedString>
+                                    <nil key="highlightedColor"/>
+                                </label>
                             </subviews>
                             <color key="backgroundColor" white="1" alpha="0.0" colorSpace="custom" customColorSpace="calibratedWhite"/>
                             <constraints>
@@ -287,29 +239,13 @@
                                 <constraint firstItem="1174" firstAttribute="top" secondItem="1941" secondAttribute="top" constant="126" id="2065"/>
                                 <constraint firstItem="1186" firstAttribute="top" secondItem="1941" secondAttribute="top" constant="158" id="2071"/>
                                 <constraint firstItem="1186" firstAttribute="leading" secondItem="1941" secondAttribute="leading" constant="9" id="2075"/>
-                                <constraint firstItem="327" firstAttribute="leading" secondItem="1941" secondAttribute="leading" constant="7" id="2101"/>
-                                <constraint firstItem="327" firstAttribute="top" secondItem="312" secondAttribute="top" id="2105"/>
-                                <constraint firstItem="276" firstAttribute="leading" secondItem="1941" secondAttribute="leading" constant="112" id="2115"/>
-                                <constraint firstAttribute="trailing" secondItem="276" secondAttribute="trailing" constant="108" id="2116"/>
-                                <constraint firstItem="276" firstAttribute="top" secondItem="327" secondAttribute="top" id="2117"/>
-                                <constraint firstItem="312" firstAttribute="centerY" secondItem="1941" secondAttribute="centerY" constant="83.5" id="2120"/>
-                                <constraint firstItem="312" firstAttribute="trailing" secondItem="1174" secondAttribute="trailing" constant="-4" id="2144"/>
-                                <constraint firstItem="312" firstAttribute="leading" secondItem="1941" secondAttribute="leading" constant="218" id="2145"/>
-                                <constraint firstItem="312" firstAttribute="trailing" secondItem="1193" secondAttribute="trailing" constant="-3" id="2146"/>
                                 <constraint firstAttribute="width" constant="320" id="2156"/>
-                                <constraint firstItem="327" firstAttribute="centerX" secondItem="1941" secondAttribute="centerX" constant="-103" id="2199"/>
-                                <constraint firstItem="276" firstAttribute="top" secondItem="hQT-9q-ZmQ" secondAttribute="bottom" constant="8" id="4Jr-RX-PSB"/>
                                 <constraint firstItem="hQT-9q-ZmQ" firstAttribute="top" secondItem="1186" secondAttribute="bottom" constant="8" id="8TQ-bn-rqx"/>
                                 <constraint firstAttribute="centerX" secondItem="hQT-9q-ZmQ" secondAttribute="centerX" constant="16.5" id="GCn-7w-eeF"/>
                                 <constraint firstAttribute="centerX" secondItem="hQT-9q-ZmQ" secondAttribute="centerX" constant="16.5" id="Gon-zi-if4"/>
                                 <constraint firstItem="hQT-9q-ZmQ" firstAttribute="top" secondItem="1186" secondAttribute="bottom" constant="8" id="JkI-5h-pg3"/>
-                                <constraint firstItem="327" firstAttribute="top" secondItem="hQT-9q-ZmQ" secondAttribute="bottom" constant="8" id="KG1-OX-Ei2"/>
                                 <constraint firstItem="hQT-9q-ZmQ" firstAttribute="top" secondItem="1186" secondAttribute="bottom" constant="8" id="M3A-gF-Mqw"/>
-                                <constraint firstItem="327" firstAttribute="top" secondItem="1186" secondAttribute="bottom" constant="33" id="XGO-tb-gkg"/>
                                 <constraint firstItem="hQT-9q-ZmQ" firstAttribute="top" secondItem="1186" secondAttribute="bottom" constant="8" id="fsz-34-fR9"/>
-                                <constraint firstItem="312" firstAttribute="top" secondItem="hQT-9q-ZmQ" secondAttribute="bottom" constant="8" id="rqh-ES-yxd"/>
-                                <constraint firstItem="276" firstAttribute="top" secondItem="hQT-9q-ZmQ" secondAttribute="bottom" constant="8" id="yMT-WL-LpB"/>
-                                <constraint firstItem="312" firstAttribute="top" secondItem="1186" secondAttribute="bottom" constant="33" id="ysQ-jy-qyg"/>
                                 <constraint firstItem="hQT-9q-ZmQ" firstAttribute="top" secondItem="1186" secondAttribute="bottom" constant="8" id="zIe-mR-5X1"/>
                             </constraints>
                         </view>
@@ -425,9 +361,7 @@
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <connections>
                 <outlet property="checkedInLabel" destination="226" id="jnN-pz-CNx"/>
-                <outlet property="checkedInView" destination="312" id="mhw-tV-25F"/>
                 <outlet property="goingLabel" destination="215" id="D5h-2V-Ezh"/>
-                <outlet property="goingView" destination="276" id="nsy-TT-5AT"/>
                 <outlet property="offerContents" destination="717" id="1162"/>
                 <outlet property="offerCount" destination="188" id="1163"/>
                 <outlet property="offerHeadline" destination="692" id="1161"/>
@@ -438,7 +372,6 @@
                 <outlet property="tapGoing" destination="Twh-rf-nuM" id="C3o-Vt-c7Q"/>
                 <outlet property="tapThinking" destination="YbD-8D-97K" id="EOJ-aK-Lg8"/>
                 <outlet property="thinkingLabel" destination="234" id="QdS-8H-lZg"/>
-                <outlet property="thinkingView" destination="327" id="rxM-n3-kwn"/>
                 <outlet property="venueMap" destination="1046" id="1164"/>
                 <outletCollection property="gestureRecognizers" destination="11" appends="YES" id="1158"/>
                 <outletCollection property="gestureRecognizers" destination="14" appends="YES" id="1159"/>
