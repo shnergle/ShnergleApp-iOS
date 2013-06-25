@@ -9,6 +9,7 @@
 #import "VenueCategoryViewController.h"
 #import "AppDelegate.h"
 #import "PostRequest.h"
+#import <Toast+UIView.h>
 
 @implementation VenueCategoryViewController
 
@@ -23,6 +24,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    [self.view makeToastActivity];
     self.navigationItem.title = @"Add Place";
     categories = [[NSMutableArray alloc] init];
     
@@ -43,6 +45,7 @@
     }
     
     [self.categoryTableView reloadData];
+    [self.view hideToastActivity];
 }
 
 

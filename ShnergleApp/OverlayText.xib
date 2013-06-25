@@ -8,7 +8,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <view autoresizesSubviews="NO" opaque="NO" tag="5" contentMode="top" id="1" customClass="OverlayText">
-            <rect key="frame" x="0.0" y="0.0" width="320" height="550"/>
+            <rect key="frame" x="0.0" y="0.0" width="320" height="400"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <userGuides>
                 <userLayoutGuide location="161" affinity="minX"/>
@@ -33,12 +33,12 @@
                     </attributedString>
                     <nil key="highlightedColor"/>
                 </label>
-                <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" horizontalHuggingPriority="1" verticalHuggingPriority="1" horizontalCompressionResistancePriority="1" verticalCompressionResistancePriority="1" translatesAutoresizingMaskIntoConstraints="NO" id="811">
-                    <rect key="frame" x="-20" y="160" width="340" height="502"/>
+                <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" horizontalHuggingPriority="1" verticalHuggingPriority="1" horizontalCompressionResistancePriority="1" verticalCompressionResistancePriority="1" bounces="NO" showsHorizontalScrollIndicator="NO" bouncesZoom="NO" translatesAutoresizingMaskIntoConstraints="NO" id="811">
+                    <rect key="frame" x="0.0" y="160" width="320" height="358"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                     <subviews>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1941" userLabel="ParentViewInside">
-                            <rect key="frame" x="21" y="0.0" width="320" height="502"/>
+                            <rect key="frame" x="0.0" y="0.0" width="320" height="502"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <subviews>
                                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1193">
@@ -59,7 +59,7 @@
                                     <nil key="highlightedColor"/>
                                 </label>
                                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="750" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="5" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="269" translatesAutoresizingMaskIntoConstraints="NO" id="1186">
-                                    <rect key="frame" x="7" y="161" width="269" height="106"/>
+                                    <rect key="frame" x="9" y="158" width="269" height="106"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="106" id="1192"/>
@@ -78,7 +78,7 @@
                                     <nil key="highlightedColor"/>
                                 </label>
                                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1174">
-                                    <rect key="frame" x="7" y="129" width="311" height="39"/>
+                                    <rect key="frame" x="5" y="126" width="311" height="39"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="39" id="1339"/>
@@ -96,12 +96,12 @@
                                     <nil key="highlightedColor"/>
                                 </label>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1046" customClass="GMSMapView">
-                                    <rect key="frame" x="5" y="3" width="311" height="128"/>
+                                    <rect key="frame" x="4" y="0.0" width="311" height="128"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                                 </view>
                                 <view contentMode="center" translatesAutoresizingMaskIntoConstraints="NO" id="276">
-                                    <rect key="frame" x="113" y="300" width="100" height="75"/>
+                                    <rect key="frame" x="112" y="297" width="100" height="75"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <subviews>
                                         <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="215">
@@ -155,7 +155,7 @@
                                     </connections>
                                 </view>
                                 <view userInteractionEnabled="NO" contentMode="center" translatesAutoresizingMaskIntoConstraints="NO" id="312">
-                                    <rect key="frame" x="219" y="300" width="94" height="75"/>
+                                    <rect key="frame" x="218" y="297" width="94" height="75"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <subviews>
                                         <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="226">
@@ -206,7 +206,7 @@
                                     </constraints>
                                 </view>
                                 <view contentMode="center" translatesAutoresizingMaskIntoConstraints="NO" id="327">
-                                    <rect key="frame" x="8" y="300" width="100" height="75"/>
+                                    <rect key="frame" x="7" y="297" width="100" height="75"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <subviews>
                                         <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsLetterSpacingToFitWidth="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="260">
@@ -262,7 +262,7 @@
                                     </connections>
                                 </view>
                                 <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hQT-9q-ZmQ">
-                                    <rect key="frame" x="108" y="275" width="105" height="18"/>
+                                    <rect key="frame" x="91" y="272" width="105" height="18"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <constraints>
                                         <constraint firstAttribute="width" constant="105" id="5oh-S9-6Oh"/>
@@ -284,27 +284,27 @@
                                 <constraint firstItem="1174" firstAttribute="leading" secondItem="1193" secondAttribute="leading" constant="3" id="2031"/>
                                 <constraint firstItem="1046" firstAttribute="leading" secondItem="1174" secondAttribute="leading" constant="-2" id="2037"/>
                                 <constraint firstItem="1046" firstAttribute="trailing" secondItem="1174" secondAttribute="trailing" constant="-2" id="2039"/>
-                                <constraint firstItem="1046" firstAttribute="leading" secondItem="1941" secondAttribute="leading" constant="5" id="2043"/>
-                                <constraint firstItem="1046" firstAttribute="top" secondItem="1941" secondAttribute="top" constant="3" id="2052"/>
-                                <constraint firstAttribute="bottom" secondItem="1046" secondAttribute="bottom" constant="371" id="2057"/>
-                                <constraint firstItem="1174" firstAttribute="top" secondItem="1941" secondAttribute="top" constant="129" id="2065"/>
-                                <constraint firstItem="1186" firstAttribute="top" secondItem="1941" secondAttribute="top" constant="161" id="2071"/>
-                                <constraint firstItem="1186" firstAttribute="leading" secondItem="1941" secondAttribute="leading" constant="7" id="2075"/>
-                                <constraint firstItem="327" firstAttribute="leading" secondItem="1941" secondAttribute="leading" constant="8" id="2101"/>
+                                <constraint firstItem="1046" firstAttribute="leading" secondItem="1941" secondAttribute="leading" constant="4" id="2043"/>
+                                <constraint firstItem="1046" firstAttribute="top" secondItem="1941" secondAttribute="top" id="2052"/>
+                                <constraint firstAttribute="bottom" secondItem="1046" secondAttribute="bottom" constant="374" id="2057"/>
+                                <constraint firstItem="1174" firstAttribute="top" secondItem="1941" secondAttribute="top" constant="126" id="2065"/>
+                                <constraint firstItem="1186" firstAttribute="top" secondItem="1941" secondAttribute="top" constant="158" id="2071"/>
+                                <constraint firstItem="1186" firstAttribute="leading" secondItem="1941" secondAttribute="leading" constant="9" id="2075"/>
+                                <constraint firstItem="327" firstAttribute="leading" secondItem="1941" secondAttribute="leading" constant="7" id="2101"/>
                                 <constraint firstItem="327" firstAttribute="top" secondItem="312" secondAttribute="top" id="2105"/>
-                                <constraint firstItem="276" firstAttribute="leading" secondItem="1941" secondAttribute="leading" constant="113" id="2115"/>
-                                <constraint firstAttribute="trailing" secondItem="276" secondAttribute="trailing" constant="107" id="2116"/>
+                                <constraint firstItem="276" firstAttribute="leading" secondItem="1941" secondAttribute="leading" constant="112" id="2115"/>
+                                <constraint firstAttribute="trailing" secondItem="276" secondAttribute="trailing" constant="108" id="2116"/>
                                 <constraint firstItem="276" firstAttribute="top" secondItem="327" secondAttribute="top" id="2117"/>
-                                <constraint firstItem="312" firstAttribute="centerY" secondItem="1941" secondAttribute="centerY" constant="86.5" id="2120"/>
-                                <constraint firstItem="312" firstAttribute="trailing" secondItem="1174" secondAttribute="trailing" constant="-5" id="2144"/>
-                                <constraint firstItem="312" firstAttribute="leading" secondItem="1941" secondAttribute="leading" constant="219" id="2145"/>
-                                <constraint firstItem="312" firstAttribute="trailing" secondItem="1193" secondAttribute="trailing" constant="-2" id="2146"/>
+                                <constraint firstItem="312" firstAttribute="centerY" secondItem="1941" secondAttribute="centerY" constant="83.5" id="2120"/>
+                                <constraint firstItem="312" firstAttribute="trailing" secondItem="1174" secondAttribute="trailing" constant="-4" id="2144"/>
+                                <constraint firstItem="312" firstAttribute="leading" secondItem="1941" secondAttribute="leading" constant="218" id="2145"/>
+                                <constraint firstItem="312" firstAttribute="trailing" secondItem="1193" secondAttribute="trailing" constant="-3" id="2146"/>
                                 <constraint firstAttribute="width" constant="320" id="2156"/>
-                                <constraint firstItem="327" firstAttribute="centerX" secondItem="1941" secondAttribute="centerX" constant="-102" id="2199"/>
+                                <constraint firstItem="327" firstAttribute="centerX" secondItem="1941" secondAttribute="centerX" constant="-103" id="2199"/>
                                 <constraint firstItem="276" firstAttribute="top" secondItem="hQT-9q-ZmQ" secondAttribute="bottom" constant="8" id="4Jr-RX-PSB"/>
                                 <constraint firstItem="hQT-9q-ZmQ" firstAttribute="top" secondItem="1186" secondAttribute="bottom" constant="8" id="8TQ-bn-rqx"/>
-                                <constraint firstAttribute="centerX" secondItem="hQT-9q-ZmQ" secondAttribute="centerX" id="GCn-7w-eeF"/>
-                                <constraint firstAttribute="centerX" secondItem="hQT-9q-ZmQ" secondAttribute="centerX" id="Gon-zi-if4"/>
+                                <constraint firstAttribute="centerX" secondItem="hQT-9q-ZmQ" secondAttribute="centerX" constant="16.5" id="GCn-7w-eeF"/>
+                                <constraint firstAttribute="centerX" secondItem="hQT-9q-ZmQ" secondAttribute="centerX" constant="16.5" id="Gon-zi-if4"/>
                                 <constraint firstItem="hQT-9q-ZmQ" firstAttribute="top" secondItem="1186" secondAttribute="bottom" constant="8" id="JkI-5h-pg3"/>
                                 <constraint firstItem="327" firstAttribute="top" secondItem="hQT-9q-ZmQ" secondAttribute="bottom" constant="8" id="KG1-OX-Ei2"/>
                                 <constraint firstItem="hQT-9q-ZmQ" firstAttribute="top" secondItem="1186" secondAttribute="bottom" constant="8" id="M3A-gF-Mqw"/>
@@ -322,7 +322,7 @@
                         <constraint firstItem="1941" firstAttribute="top" secondItem="811" secondAttribute="top" id="94C-yX-Ypg"/>
                         <constraint firstItem="1941" firstAttribute="bottom" secondItem="811" secondAttribute="bottom" id="GEa-0x-zt3"/>
                         <constraint firstItem="1941" firstAttribute="trailing" secondItem="811" secondAttribute="trailing" id="cLa-nl-tYS"/>
-                        <constraint firstItem="1941" firstAttribute="leading" secondItem="811" secondAttribute="leading" constant="21" id="gxj-ia-oo8"/>
+                        <constraint firstItem="1941" firstAttribute="leading" secondItem="811" secondAttribute="leading" id="gxj-ia-oo8"/>
                     </constraints>
                 </scrollView>
                 <imageView contentMode="scaleAspectFit" image="puller_menu.png" translatesAutoresizingMaskIntoConstraints="NO" id="667">
@@ -335,13 +335,6 @@
                     <connections>
                         <outletCollection property="gestureRecognizers" destination="2164" appends="YES" id="2197"/>
                     </connections>
-                </imageView>
-                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" image="comment.png" translatesAutoresizingMaskIntoConstraints="NO" id="1069">
-                    <rect key="frame" x="183" y="31" width="117" height="30"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <constraints>
-                        <constraint firstAttribute="width" constant="117" id="1098"/>
-                    </constraints>
                 </imageView>
                 <imageView contentMode="scaleAspectFill" image="promotion.png" translatesAutoresizingMaskIntoConstraints="NO" id="636">
                     <rect key="frame" x="5" y="69" width="311" height="68"/>
@@ -392,12 +385,12 @@
                     <nil key="highlightedColor"/>
                 </label>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2173">
-                    <rect key="frame" x="20" y="31" width="117" height="30"/>
+                    <rect key="frame" x="92" y="26" width="136" height="35"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <accessibility key="accessibilityConfiguration" label=" "/>
                     <constraints>
-                        <constraint firstAttribute="width" constant="117" id="2181"/>
-                        <constraint firstAttribute="height" constant="30" id="2189"/>
+                        <constraint firstAttribute="width" constant="136" id="2181"/>
+                        <constraint firstAttribute="height" constant="35" id="2189"/>
                     </constraints>
                     <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                     <state key="normal" backgroundImage="share.png">
@@ -416,30 +409,26 @@
             <gestureRecognizers/>
             <constraints>
                 <constraint firstItem="667" firstAttribute="top" secondItem="1" secondAttribute="top" id="787"/>
-                <constraint firstAttribute="trailing" secondItem="1069" secondAttribute="trailing" constant="20" symbolic="YES" id="1924"/>
-                <constraint firstItem="1069" firstAttribute="top" secondItem="667" secondAttribute="bottom" constant="8" symbolic="YES" id="1925"/>
                 <constraint firstItem="692" firstAttribute="centerX" secondItem="667" secondAttribute="centerX" id="1927"/>
-                <constraint firstItem="636" firstAttribute="top" secondItem="1069" secondAttribute="bottom" constant="8" symbolic="YES" id="1928"/>
                 <constraint firstItem="692" firstAttribute="centerX" secondItem="636" secondAttribute="centerX" id="1931"/>
                 <constraint firstItem="717" firstAttribute="top" secondItem="1" secondAttribute="top" constant="98" id="1958"/>
                 <constraint firstItem="188" firstAttribute="centerX" secondItem="692" secondAttribute="centerX" id="2085"/>
                 <constraint firstItem="188" firstAttribute="top" secondItem="1" secondAttribute="top" constant="139" id="2090"/>
-                <constraint firstItem="2173" firstAttribute="leading" secondItem="1" secondAttribute="leading" constant="20" symbolic="YES" id="2175"/>
+                <constraint firstItem="2173" firstAttribute="leading" secondItem="1" secondAttribute="leading" constant="92" id="2175"/>
                 <constraint firstItem="692" firstAttribute="top" secondItem="1" secondAttribute="top" constant="72" id="2182"/>
-                <constraint firstItem="2173" firstAttribute="top" secondItem="667" secondAttribute="bottom" constant="8" symbolic="YES" id="2184"/>
+                <constraint firstItem="2173" firstAttribute="top" secondItem="667" secondAttribute="bottom" constant="3" id="2184"/>
                 <constraint firstItem="636" firstAttribute="top" secondItem="2173" secondAttribute="bottom" constant="8" symbolic="YES" id="2191"/>
                 <constraint firstItem="188" firstAttribute="centerX" secondItem="1" secondAttribute="centerX" id="2193"/>
                 <constraint firstAttribute="trailing" secondItem="717" secondAttribute="trailing" constant="20" symbolic="YES" id="2194"/>
                 <constraint firstItem="811" firstAttribute="top" secondItem="188" secondAttribute="bottom" id="7zP-kA-7f9"/>
-                <constraint firstItem="811" firstAttribute="leading" secondItem="1" secondAttribute="leading" constant="-20" id="aKQ-sL-svn"/>
-                <constraint firstItem="811" firstAttribute="bottom" secondItem="1" secondAttribute="bottom" id="amL-Pq-r0F"/>
+                <constraint firstItem="811" firstAttribute="leading" secondItem="1" secondAttribute="leading" id="aKQ-sL-svn"/>
+                <constraint firstItem="811" firstAttribute="bottom" secondItem="1" secondAttribute="bottom" constant="112" id="amL-Pq-r0F"/>
                 <constraint firstItem="811" firstAttribute="trailing" secondItem="1" secondAttribute="trailing" id="lWH-Yp-4zr"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <connections>
                 <outlet property="checkedInLabel" destination="226" id="jnN-pz-CNx"/>
                 <outlet property="checkedInView" destination="312" id="mhw-tV-25F"/>
-                <outlet property="commentButton" destination="1069" id="02T-pz-nNP"/>
                 <outlet property="goingLabel" destination="215" id="D5h-2V-Ezh"/>
                 <outlet property="goingView" destination="276" id="nsy-TT-5AT"/>
                 <outlet property="offerContents" destination="717" id="1162"/>
@@ -447,6 +436,7 @@
                 <outlet property="offerHeadline" destination="692" id="1161"/>
                 <outlet property="parentViewInside" destination="1941" id="FeK-bV-0Ku"/>
                 <outlet property="postUpdateButton" destination="hQT-9q-ZmQ" id="5hT-fc-Mxf"/>
+                <outlet property="scrollView" destination="811" id="2oc-m9-KOy"/>
                 <outlet property="shareButton" destination="2173" id="zMQ-Vt-2hx"/>
                 <outlet property="tapGoing" destination="Twh-rf-nuM" id="C3o-Vt-c7Q"/>
                 <outlet property="tapThinking" destination="YbD-8D-97K" id="EOJ-aK-Lg8"/>
@@ -496,9 +486,46 @@
         </tapGestureRecognizer>
     </objects>
     <resources>
-        <image name="comment.png" width="235" height="60"/>
         <image name="promotion.png" width="622" height="135"/>
         <image name="puller_menu.png" width="98" height="45"/>
         <image name="share.png" width="235" height="60"/>
     </resources>
+    <classes>
+        <class className="GMSMapView" superclassName="UIView">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/GMSMapView.h"/>
+        </class>
+        <class className="NSLayoutConstraint" superclassName="NSObject">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/NSLayoutConstraint.h"/>
+        </class>
+        <class className="OverlayText" superclassName="UIView">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/OverlayText.h"/>
+            <relationships>
+                <relationship kind="action" name="share:"/>
+                <relationship kind="action" name="swipeDown:"/>
+                <relationship kind="action" name="swipeUp:"/>
+                <relationship kind="action" name="tap:"/>
+                <relationship kind="action" name="tapPromotion:"/>
+                <relationship kind="action" name="tapPullerMenu:"/>
+                <relationship kind="action" name="tappedGoing:"/>
+                <relationship kind="action" name="tappedThinking:"/>
+                <relationship kind="outlet" name="checkedInLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="checkedInView" candidateClass="UIView"/>
+                <relationship kind="outlet" name="commentButton" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="goingLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="goingView" candidateClass="UIView"/>
+                <relationship kind="outlet" name="offerContents" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="offerCount" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="offerHeadline" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="parentViewInside" candidateClass="UIView"/>
+                <relationship kind="outlet" name="postUpdateButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="scrollView" candidateClass="UIScrollView"/>
+                <relationship kind="outlet" name="shareButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="tapGoing" candidateClass="UITapGestureRecognizer"/>
+                <relationship kind="outlet" name="tapThinking" candidateClass="UITapGestureRecognizer"/>
+                <relationship kind="outlet" name="thinkingLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="thinkingView" candidateClass="UIView"/>
+                <relationship kind="outlet" name="venueMap" candidateClass="GMSMapView"/>
+            </relationships>
+        </class>
+    </classes>
 </document>

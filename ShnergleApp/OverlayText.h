@@ -26,6 +26,7 @@
 @property (weak, nonatomic) IBOutlet GMSMapView *venueMap;
 @property (weak, nonatomic) IBOutlet UIButton *shareButton;
 @property (weak, nonatomic) IBOutlet UIImageView *commentButton;
+@property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
 
 @property (weak, nonatomic) IBOutlet UIButton *postUpdateButton;
 
