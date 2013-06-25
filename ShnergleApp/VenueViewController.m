@@ -253,7 +253,9 @@
     self.overlayView.offerCount.text = promotionExpiry;
     
     self.overlayView.offerCount.font = [UIFont fontWithName:@"Roboto" size:9];
+    self.overlayView.offerCount.textAlignment = NSTextAlignmentCenter;
     self.overlayView.offerHeadline.font = [UIFont fontWithName:@"Roboto" size:11];
+    self.overlayView.offerHeadline.textAlignment = NSTextAlignmentCenter;
     self.overlayView.offerContents.font = [UIFont fontWithName:@"Roboto" size:22];
     self.overlayView.offerContents.textColor = [UIColor whiteColor];
     self.overlayView.offerContents.textAlignment = NSTextAlignmentCenter;
