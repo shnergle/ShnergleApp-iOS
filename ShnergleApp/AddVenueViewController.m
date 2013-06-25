@@ -213,7 +213,7 @@ typedef enum {
     
     CALayer *topBorder = [CALayer layer];
     
-    topBorder.frame = CGRectMake(0.0f, self.mapView.bounds.origin.y + 190, self.mapView.frame.size.width
+    topBorder.frame = CGRectMake(0.0f, self.mapView.bounds.size.height - 1 , self.mapView.frame.size.width
                                  , 1.0f);
     //topBorder.frame = CGRectMake(0.0f, self.mapView.bounds.origin.x + 190, self.mapView.frame.size.height
       //                           , 1.0f);
