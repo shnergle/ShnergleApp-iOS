@@ -196,6 +196,15 @@ typedef enum {
     map = nil;
 }
 
+- (void)viewDidAppear:(BOOL)animated {
+    CALayer *bottomBorder = [CALayer layer];
+    
+    bottomBorder.frame = CGRectMake(0.0f, 70.0f, self.tableView.frame.size.width, 1.0f);
+    
+    bottomBorder.backgroundColor = [UIColor lightGrayColor].CGColor;
+}
+
+
 -(NSMutableArray *)userData
 {
     if(!_userData){
