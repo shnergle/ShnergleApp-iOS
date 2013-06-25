@@ -268,7 +268,9 @@
 
 - (void)viewDidDisappear:(BOOL)animated {
     [super viewDidDisappear:animated];
+    [self.overlayView.scrollView setContentOffset:CGPointZero animated:YES];
     self.navigationController.navigationBarHidden = NO;
+    
 }
 
 - (void)goToPromotionView {
