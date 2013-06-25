@@ -336,13 +336,6 @@
                         <outletCollection property="gestureRecognizers" destination="2164" appends="YES" id="2197"/>
                     </connections>
                 </imageView>
-                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" image="comment.png" translatesAutoresizingMaskIntoConstraints="NO" id="1069">
-                    <rect key="frame" x="183" y="31" width="117" height="30"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <constraints>
-                        <constraint firstAttribute="width" constant="117" id="1098"/>
-                    </constraints>
-                </imageView>
                 <imageView contentMode="scaleAspectFill" image="promotion.png" translatesAutoresizingMaskIntoConstraints="NO" id="636">
                     <rect key="frame" x="5" y="69" width="311" height="68"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -392,12 +385,12 @@
                     <nil key="highlightedColor"/>
                 </label>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2173">
-                    <rect key="frame" x="20" y="31" width="117" height="30"/>
+                    <rect key="frame" x="92" y="26" width="136" height="35"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <accessibility key="accessibilityConfiguration" label=" "/>
                     <constraints>
-                        <constraint firstAttribute="width" constant="117" id="2181"/>
-                        <constraint firstAttribute="height" constant="30" id="2189"/>
+                        <constraint firstAttribute="width" constant="136" id="2181"/>
+                        <constraint firstAttribute="height" constant="35" id="2189"/>
                     </constraints>
                     <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                     <state key="normal" backgroundImage="share.png">
@@ -416,17 +409,14 @@
             <gestureRecognizers/>
             <constraints>
                 <constraint firstItem="667" firstAttribute="top" secondItem="1" secondAttribute="top" id="787"/>
-                <constraint firstAttribute="trailing" secondItem="1069" secondAttribute="trailing" constant="20" symbolic="YES" id="1924"/>
-                <constraint firstItem="1069" firstAttribute="top" secondItem="667" secondAttribute="bottom" constant="8" symbolic="YES" id="1925"/>
                 <constraint firstItem="692" firstAttribute="centerX" secondItem="667" secondAttribute="centerX" id="1927"/>
-                <constraint firstItem="636" firstAttribute="top" secondItem="1069" secondAttribute="bottom" constant="8" symbolic="YES" id="1928"/>
                 <constraint firstItem="692" firstAttribute="centerX" secondItem="636" secondAttribute="centerX" id="1931"/>
                 <constraint firstItem="717" firstAttribute="top" secondItem="1" secondAttribute="top" constant="98" id="1958"/>
                 <constraint firstItem="188" firstAttribute="centerX" secondItem="692" secondAttribute="centerX" id="2085"/>
                 <constraint firstItem="188" firstAttribute="top" secondItem="1" secondAttribute="top" constant="139" id="2090"/>
-                <constraint firstItem="2173" firstAttribute="leading" secondItem="1" secondAttribute="leading" constant="20" symbolic="YES" id="2175"/>
+                <constraint firstItem="2173" firstAttribute="leading" secondItem="1" secondAttribute="leading" constant="92" id="2175"/>
                 <constraint firstItem="692" firstAttribute="top" secondItem="1" secondAttribute="top" constant="72" id="2182"/>
-                <constraint firstItem="2173" firstAttribute="top" secondItem="667" secondAttribute="bottom" constant="8" symbolic="YES" id="2184"/>
+                <constraint firstItem="2173" firstAttribute="top" secondItem="667" secondAttribute="bottom" constant="3" id="2184"/>
                 <constraint firstItem="636" firstAttribute="top" secondItem="2173" secondAttribute="bottom" constant="8" symbolic="YES" id="2191"/>
                 <constraint firstItem="188" firstAttribute="centerX" secondItem="1" secondAttribute="centerX" id="2193"/>
                 <constraint firstAttribute="trailing" secondItem="717" secondAttribute="trailing" constant="20" symbolic="YES" id="2194"/>
@@ -439,7 +429,6 @@
             <connections>
                 <outlet property="checkedInLabel" destination="226" id="jnN-pz-CNx"/>
                 <outlet property="checkedInView" destination="312" id="mhw-tV-25F"/>
-                <outlet property="commentButton" destination="1069" id="02T-pz-nNP"/>
                 <outlet property="goingLabel" destination="215" id="D5h-2V-Ezh"/>
                 <outlet property="goingView" destination="276" id="nsy-TT-5AT"/>
                 <outlet property="offerContents" destination="717" id="1162"/>
@@ -497,9 +486,46 @@
         </tapGestureRecognizer>
     </objects>
     <resources>
-        <image name="comment.png" width="235" height="60"/>
         <image name="promotion.png" width="622" height="135"/>
         <image name="puller_menu.png" width="98" height="45"/>
         <image name="share.png" width="235" height="60"/>
     </resources>
+    <classes>
+        <class className="GMSMapView" superclassName="UIView">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/GMSMapView.h"/>
+        </class>
+        <class className="NSLayoutConstraint" superclassName="NSObject">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/NSLayoutConstraint.h"/>
+        </class>
+        <class className="OverlayText" superclassName="UIView">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/OverlayText.h"/>
+            <relationships>
+                <relationship kind="action" name="share:"/>
+                <relationship kind="action" name="swipeDown:"/>
+                <relationship kind="action" name="swipeUp:"/>
+                <relationship kind="action" name="tap:"/>
+                <relationship kind="action" name="tapPromotion:"/>
+                <relationship kind="action" name="tapPullerMenu:"/>
+                <relationship kind="action" name="tappedGoing:"/>
+                <relationship kind="action" name="tappedThinking:"/>
+                <relationship kind="outlet" name="checkedInLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="checkedInView" candidateClass="UIView"/>
+                <relationship kind="outlet" name="commentButton" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="goingLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="goingView" candidateClass="UIView"/>
+                <relationship kind="outlet" name="offerContents" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="offerCount" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="offerHeadline" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="parentViewInside" candidateClass="UIView"/>
+                <relationship kind="outlet" name="postUpdateButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="scrollView" candidateClass="UIScrollView"/>
+                <relationship kind="outlet" name="shareButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="tapGoing" candidateClass="UITapGestureRecognizer"/>
+                <relationship kind="outlet" name="tapThinking" candidateClass="UITapGestureRecognizer"/>
+                <relationship kind="outlet" name="thinkingLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="thinkingView" candidateClass="UIView"/>
+                <relationship kind="outlet" name="venueMap" candidateClass="GMSMapView"/>
+            </relationships>
+        </class>
+    </classes>
 </document>
