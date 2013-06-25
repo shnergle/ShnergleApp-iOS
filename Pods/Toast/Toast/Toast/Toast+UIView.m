@@ -29,17 +29,17 @@ static const CGFloat CSToastFadeDuration        = 0.2;
 
 // shadow appearance
 static const CGFloat CSToastShadowOpacity       = 0.8;
-static const CGFloat CSToastShadowRadius        = 6.0;
+static const CGFloat CSToastShadowRadius        = 8.0;
 static const CGSize  CSToastShadowOffset        = { 4.0, 4.0 };
-static const BOOL    CSToastDisplayShadow       = YES;
+static const BOOL    CSToastDisplayShadow       = NO;
 
 // display duration and position
 static const CGFloat CSToastDefaultDuration     = 3.0;
-static const NSString * CSToastDefaultPosition  = @"bottom";
+static const NSString * CSToastDefaultPosition  = @"center";
 
 // image view size
-static const CGFloat CSToastImageViewWidth      = 80.0;
-static const CGFloat CSToastImageViewHeight     = 80.0;
+static const CGFloat CSToastImageViewWidth      = 50.0;
+static const CGFloat CSToastImageViewHeight     = 50.0;
 
 // activity
 static const CGFloat CSToastActivityWidth       = 100.0;
@@ -123,13 +123,13 @@ static const NSString * CSToastActivityViewKey  = @"CSToastActivityViewKey";
     
     UIView *activityView = [[[UIView alloc] initWithFrame:CGRectMake(0, 0, CSToastActivityWidth, CSToastActivityHeight)] autorelease];
     activityView.center = [self centerPointForPosition:position withToast:activityView];
-    activityView.backgroundColor = [[UIColor blackColor] colorWithAlphaComponent:CSToastOpacity];
+    activityView.backgroundColor = [[UIColor darkGrayColor] colorWithAlphaComponent:CSToastOpacity];
     activityView.alpha = 0.0;
     activityView.autoresizingMask = (UIViewAutoresizingFlexibleLeftMargin | UIViewAutoresizingFlexibleRightMargin | UIViewAutoresizingFlexibleTopMargin | UIViewAutoresizingFlexibleBottomMargin);
     activityView.layer.cornerRadius = CSToastCornerRadius;
     
     if (CSToastDisplayShadow) {
-        activityView.layer.shadowColor = [UIColor blackColor].CGColor;
+        activityView.layer.shadowColor = [UIColor darkGrayColor].CGColor;
         activityView.layer.shadowOpacity = CSToastShadowOpacity;
         activityView.layer.shadowRadius = CSToastShadowRadius;
         activityView.layer.shadowOffset = CSToastShadowOffset;
@@ -203,13 +203,13 @@ static const NSString * CSToastActivityViewKey  = @"CSToastActivityViewKey";
     wrapperView.layer.cornerRadius = CSToastCornerRadius;
     
     if (CSToastDisplayShadow) {
-        wrapperView.layer.shadowColor = [UIColor blackColor].CGColor;
+        wrapperView.layer.shadowColor = [UIColor darkGrayColor].CGColor;
         wrapperView.layer.shadowOpacity = CSToastShadowOpacity;
         wrapperView.layer.shadowRadius = CSToastShadowRadius;
         wrapperView.layer.shadowOffset = CSToastShadowOffset;
     }
 
-    wrapperView.backgroundColor = [[UIColor blackColor] colorWithAlphaComponent:CSToastOpacity];
+    wrapperView.backgroundColor = [[UIColor darkGrayColor] colorWithAlphaComponent:CSToastOpacity];
     
     if(image != nil) {
         imageView = [[[UIImageView alloc] initWithImage:image] autorelease];
