@@ -134,7 +134,7 @@
         CGFloat screenHeight = screenRect.size.height;
 
 
-        _overlayView.frame = CGRectMake(_overlayView.bounds.origin.x, screenHeight - 70, _overlayView.bounds.size.width, _overlayView.bounds.size.height);
+        _overlayView.frame = CGRectMake(_overlayView.bounds.origin.x, screenHeight - 80, _overlayView.bounds.size.width, screenHeight - 80);
         _overlayView.clipsToBounds = NO;
         [self configureMapWithLat:51.513930 longitude:-0.158198];
         [self.view addSubview:_overlayView];
@@ -243,14 +243,10 @@
     [alert show];
 }
 
-- (void)viewDidAppear:(BOOL)animated {
-    [super viewDidAppear:animated];
-    [self.overlayView setTabBarHidden:hidden
-                             animated:NO];
-    
-    self.overlayView.offerContents.text = promotionBody;
-    self.overlayView.offerHeadline.text = promotionTitle;
-    self.overlayView.offerCount.text = promotionExpiry;
+- (void)setPromoContentTo:(NSString *)promoContent promoHeadline:(NSString *)promoHeadline promoExpiry:(NSString *)promoExpiry {
+    self.overlayView.offerContents.text = promoContent;
+    self.overlayView.offerHeadline.text = promoHeadline;
+    self.overlayView.offerCount.text = promoExpiry;
     
     self.overlayView.offerCount.font = [UIFont fontWithName:@"Roboto" size:9];
     self.overlayView.offerCount.textAlignment = NSTextAlignmentCenter;
@@ -259,7 +255,14 @@
     self.overlayView.offerContents.font = [UIFont fontWithName:@"Roboto" size:22];
     self.overlayView.offerContents.textColor = [UIColor whiteColor];
     self.overlayView.offerContents.textAlignment = NSTextAlignmentCenter;
-    
+}
+
+- (void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
+    [self.overlayView setTabBarHidden:hidden
+                             animated:NO];
+
+    [self setPromoContentTo:promotionBody promoHeadline:promotionTitle promoExpiry:promotionExpiry];
     
 }
 
