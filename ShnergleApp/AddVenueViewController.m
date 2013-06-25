@@ -60,15 +60,25 @@ typedef enum {
     if(cell == nil)
         cell = [[UITableViewCell alloc] init];
     
+    
     cell.textLabel.text = _tableData[indexPath.row];
+    /*
     UITextField *textField = [[UITextField alloc] initWithFrame:CGRectMake(110, 10, 185, 30)];
     textField.delegate = self;
     textField.tag = indexPath.row;
+    */
     
-    if (indexPath.row == 0) {
+    UITextField *textField = (UITextField*) [cell viewWithTag:indexPath.row+1];
+    if (!textField) {
+        textField = [[UITextField alloc] initWithFrame:CGRectMake(110, 10, 185, 30)];
+        textField.tag = indexPath.row+1;
+        textField.delegate = self;
+    }
+    
+    if (indexPath.row == Name) {
         textField.placeholder = @"(Required)";
         [cell.contentView addSubview:textField];
-    } else if (indexPath.row == 1) {
+    } else if (indexPath.row == Category) {
         UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(110, 6, 185, 30)];
         label.text = @"(Required)";
         label.textColor = [UIColor lightGrayColor];
@@ -76,19 +86,19 @@ typedef enum {
         [cell.contentView addSubview:label];
         secondCellField = label;
         secondCell = cell;
-    } else if (indexPath.row == 2) {
+    } else if (indexPath.row == Address1) {
         textField.placeholder = @"(Optional)";
         [cell.contentView addSubview:textField];
-    } else if (indexPath.row == 3) {
+    } else if (indexPath.row == Address2) {
         textField.placeholder = @"(Optional)";
         [cell.contentView addSubview:textField];
-    } else if (indexPath.row == 4) {
+    } else if (indexPath.row == City) {
         textField.placeholder = @"(Optional)";
         [cell.contentView addSubview:textField];
-    } else if (indexPath.row == 5) {
+    } else if (indexPath.row == Postcode) {
         textField.placeholder = @"(Optional)";
         [cell.contentView addSubview:textField];
-    } else if (indexPath.row == 6) {
+    } else if (indexPath.row == WorkHere) {
         UISwitch *workSwitch = [[UISwitch alloc] initWithFrame:CGRectMake(210, 8, 50, 30)];
         [workSwitch addTarget:self action:@selector(segwayToWork) forControlEvents:UIControlEventValueChanged];
         [cell.contentView addSubview:workSwitch];
@@ -98,7 +108,7 @@ typedef enum {
     
     
     if(![[self.userData objectAtIndex:indexPath.row] isEqualToString:@""]){
-        NSLog(@"%@ at indexPath.row %d",[self.userData objectAtIndex:indexPath.row], indexPath.row);
+        //NSLog(@"%@ at indexPath.row %d",[self.userData objectAtIndex:indexPath.row], indexPath.row);
         textField.placeholder = nil;
         textField.text = [self.userData objectAtIndex:indexPath.row];
     }

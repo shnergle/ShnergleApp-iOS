@@ -77,7 +77,7 @@
     #warning "demo venue images are reversed in code, don't worry about it. "
     appDelegate.images = [[appDelegate.images reverseObjectEnumerator] allObjects];
 
-    promotionTitle = @"Tonights special offer";
+    promotionTitle = @"Tonight's special offer";
     promotionExpiry = @"Expires at 11 pm";
     promotionBody = @"3-4-2 on tequila doubles!!";
 
@@ -247,6 +247,20 @@
     [super viewDidAppear:animated];
     [self.overlayView setTabBarHidden:hidden
                              animated:NO];
+    
+    self.overlayView.offerContents.text = promotionBody;
+    self.overlayView.offerHeadline.text = promotionTitle;
+    self.overlayView.offerCount.text = promotionExpiry;
+    
+    self.overlayView.offerCount.font = [UIFont fontWithName:@"Roboto" size:9];
+    self.overlayView.offerCount.textAlignment = NSTextAlignmentCenter;
+    self.overlayView.offerHeadline.font = [UIFont fontWithName:@"Roboto" size:11];
+    self.overlayView.offerHeadline.textAlignment = NSTextAlignmentCenter;
+    self.overlayView.offerContents.font = [UIFont fontWithName:@"Roboto" size:22];
+    self.overlayView.offerContents.textColor = [UIColor whiteColor];
+    self.overlayView.offerContents.textAlignment = NSTextAlignmentCenter;
+    
+    
 }
 
 - (void)viewDidDisappear:(BOOL)animated {
