@@ -196,14 +196,32 @@ typedef enum {
     map = nil;
 }
 
-- (void)viewDidAppear:(BOOL)animated {
+
+
+- (void)addBorder{
     CALayer *bottomBorder = [CALayer layer];
     
-    bottomBorder.frame = CGRectMake(0.0f, 70.0f, self.tableView.frame.size.width, 1.0f);
+    bottomBorder.frame = CGRectMake(0.0f, 70.0f, self.mapView.frame.size.width, 1.0f);
     
     bottomBorder.backgroundColor = [UIColor lightGrayColor].CGColor;
 }
 
+- (void)viewDidAppear:(BOOL)animated {
+    NSLog(@"%f  %f", self.mapView.frame.size.height, self.mapView.bounds.size.height);
+    
+    [self addBorder];
+    
+    CALayer *topBorder = [CALayer layer];
+    
+    topBorder.frame = CGRectMake(0.0f, self.mapView.bounds.origin.y + 190, self.mapView.frame.size.width
+                                 , 1.0f);
+    //topBorder.frame = CGRectMake(0.0f, self.mapView.bounds.origin.x + 190, self.mapView.frame.size.height
+      //                           , 1.0f);
+    
+    topBorder.backgroundColor = [UIColor lightGrayColor].CGColor;
+    
+    [self.mapView.layer addSublayer:topBorder];
+}
 
 -(NSMutableArray *)userData
 {
