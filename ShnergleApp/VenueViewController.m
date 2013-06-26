@@ -312,8 +312,9 @@
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     AppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
     if ([segue.identifier isEqualToString:@"ToGallery"]) {
-        [segue.destinationViewController setTitle:self.navigationItem.title];
-        [(VenueGalleryViewController *)segue.destinationViewController setImages : appDelegate.images index : selectedImage];
+        [segue.destinationViewController setTitle:[NSString stringWithFormat:@"%@",titleHeader]];
+        //[(VenueGalleryViewController *)segue.destinationViewController setImages : appDelegate.images index : selectedImage];
+        [(VenueGalleryViewController *) segue.destinationViewController setImage:[UIImage imageNamed:appDelegate.images[selectedImage]] withAuthor:@"Stian" withComment:@"Untiss Untiss Untiss! #YOLO #SWAG" withTimestamp:appDelegate.timestamps[selectedImage]];
     }
 }
 

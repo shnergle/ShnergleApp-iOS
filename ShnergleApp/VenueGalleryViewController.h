@@ -12,16 +12,22 @@
 
 @interface VenueGalleryViewController : CustomBackViewController <UIAlertViewDelegate>
 {
-    NSArray *images;
-    NSInteger imageIndex;
+    UIImage *image;
+    NSString *timestamp;
+    NSString *comment;
+    NSString *author;
 }
 @property (weak, nonatomic) IBOutlet UIScrollView *imageScrollView;
+@property (weak, nonatomic) IBOutlet UIImageView *imageView;
+@property (weak, nonatomic) IBOutlet UILabel *commentLabel;
+@property (weak, nonatomic) IBOutlet UILabel *authorLabel;
 
 - (IBAction)flagButtonPressed:(id)sender;
 - (IBAction)likeButtonPressed:(id)sender;
 @property (weak, nonatomic) IBOutlet UIButton *likeButton;
 
-- (void)imageScrollerSetup;
+//- (void)imageScrollerSetup;
 - (void)setTitle:(NSString *)title;
-- (void)setImages:(NSArray *)img index:(NSInteger)index;
+//- (void)setImages:(NSArray *)img index:(NSInteger)index;
+- (void)setImage:(UIImage *)img withAuthor:(NSString *)user withComment:(NSString *)msg withTimestamp:(NSString*)time;
 @end

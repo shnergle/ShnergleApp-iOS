@@ -672,15 +672,15 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
             </objects>
             <point key="canvasLocation" x="-1342" y="872"/>
         </scene>
-        <!--Venue Gallery View Controller-->
+        <!--Venue Gallery View Controller - tit-->
         <scene sceneID="SP1-bN-fzb">
             <objects>
-                <viewController storyboardIdentifier="VenueGallery" id="PQb-UE-tQ8" customClass="VenueGalleryViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="VenueGallery" title="tit" id="PQb-UE-tQ8" customClass="VenueGalleryViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="0ht-SK-gFa">
                         <rect key="frame" x="0.0" y="64" width="320" height="416"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4Bj-Xy-ePL">
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4Bj-Xy-ePL">
                                 <rect key="frame" x="4" y="286" width="102" height="35"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="35" id="Nmm-qN-M9f"/>
@@ -695,7 +695,7 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                                     <action selector="likeButtonPressed:" destination="PQb-UE-tQ8" eventType="touchUpInside" id="MAF-FV-D7C"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JFo-V8-IX5">
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JFo-V8-IX5">
                                 <rect key="frame" x="109" y="286" width="102" height="35"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="102" id="Ptq-fm-Jkg"/>
@@ -709,7 +709,7 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                                     <segue destination="X6s-9K-8Ms" kind="push" id="V1y-Vn-JKN"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zpk-oQ-Ics">
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zpk-oQ-Ics">
                                 <rect key="frame" x="214" y="286" width="102" height="35"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="102" id="5OL-cK-yLr"/>
@@ -742,40 +742,34 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" directionalLockEnabled="YES" bounces="NO" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dSb-F6-Rh6">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="245"/>
-                                <color key="backgroundColor" red="0.69385834854014594" green="0.0" blue="0.0" alpha="0.0" colorSpace="calibratedRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="245" id="pA7-wS-Gd9"/>
-                                </constraints>
-                            </scrollView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Mmh-q9-BfF">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="240"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" red="0.91372555489999996" green="0.9215686917" blue="0.94117653369999998" alpha="1" colorSpace="deviceRGB"/>
                         <constraints>
                             <constraint firstItem="JFo-V8-IX5" firstAttribute="leading" secondItem="4Bj-Xy-ePL" secondAttribute="trailing" constant="3" id="2ga-Jz-L6r"/>
                             <constraint firstItem="9Po-tE-tg7" firstAttribute="leading" secondItem="0ht-SK-gFa" secondAttribute="leading" constant="2" id="4iZ-jJ-DBM"/>
-                            <constraint firstItem="dSb-F6-Rh6" firstAttribute="trailing" secondItem="0ht-SK-gFa" secondAttribute="trailing" id="8lD-VA-caf"/>
                             <constraint firstItem="JFo-V8-IX5" firstAttribute="top" secondItem="zpk-oQ-Ics" secondAttribute="top" id="D1x-8g-pHF"/>
-                            <constraint firstItem="dSb-F6-Rh6" firstAttribute="leading" secondItem="0ht-SK-gFa" secondAttribute="leading" id="IsV-fB-LpH"/>
                             <constraint firstItem="9Po-tE-tg7" firstAttribute="top" secondItem="diO-ua-hnK" secondAttribute="top" id="OPU-iT-5b4"/>
                             <constraint firstItem="zpk-oQ-Ics" firstAttribute="leading" secondItem="JFo-V8-IX5" secondAttribute="trailing" constant="3" id="R03-17-VeA"/>
-                            <constraint firstItem="dSb-F6-Rh6" firstAttribute="top" secondItem="0ht-SK-gFa" secondAttribute="top" id="RrS-bZ-dBf"/>
                             <constraint firstItem="9Po-tE-tg7" firstAttribute="baseline" secondItem="diO-ua-hnK" secondAttribute="baseline" id="gFU-gy-hmd"/>
                             <constraint firstItem="zpk-oQ-Ics" firstAttribute="bottom" secondItem="JFo-V8-IX5" secondAttribute="bottom" id="hoL-eN-lD4"/>
                             <constraint firstItem="4Bj-Xy-ePL" firstAttribute="top" secondItem="JFo-V8-IX5" secondAttribute="top" id="jSU-Zk-thU"/>
                             <constraint firstAttribute="bottom" secondItem="9Po-tE-tg7" secondAttribute="bottom" constant="137" id="qFx-xl-Rkw"/>
                             <constraint firstItem="diO-ua-hnK" firstAttribute="leading" secondItem="0ht-SK-gFa" secondAttribute="leading" constant="64" id="qGr-ZT-lgF"/>
-                            <constraint firstItem="JFo-V8-IX5" firstAttribute="centerX" secondItem="dSb-F6-Rh6" secondAttribute="centerX" id="t50-3O-TZ7"/>
                             <constraint firstItem="4Bj-Xy-ePL" firstAttribute="top" secondItem="0ht-SK-gFa" secondAttribute="top" constant="286" id="tWU-lf-BAf"/>
                             <constraint firstItem="JFo-V8-IX5" firstAttribute="bottom" secondItem="4Bj-Xy-ePL" secondAttribute="bottom" id="yo8-1f-1ZG"/>
                         </constraints>
                     </view>
                     <extendedEdge key="edgesForExtendedLayout"/>
                     <navigationItem key="navigationItem" id="be1-hQ-8nR"/>
-                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics"/>
                     <connections>
-                        <outlet property="imageScrollView" destination="dSb-F6-Rh6" id="Fe2-AF-djm"/>
+                        <outlet property="authorLabel" destination="9Po-tE-tg7" id="qbC-TV-6mG"/>
+                        <outlet property="commentLabel" destination="diO-ua-hnK" id="fkb-nJ-qgI"/>
+                        <outlet property="imageView" destination="Mmh-q9-BfF" id="As4-d5-9YW"/>
                         <outlet property="likeButton" destination="4Bj-Xy-ePL" id="wNQ-cn-6kS"/>
                     </connections>
                 </viewController>

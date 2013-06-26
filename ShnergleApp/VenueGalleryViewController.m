@@ -14,12 +14,22 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    [self imageScrollerSetup];
+    [self imageSetup];
+    
 }
-
+/*
 - (void)setImages:(NSArray *)img index:(NSInteger)index {
     images = img;
     imageIndex = index;
+}
+ */
+
+- (void)setImage:(UIImage *)img withAuthor:(NSString *)user withComment:(NSString *)msg withTimestamp:(NSString*)time
+{
+    image = img;
+    comment = msg;
+    timestamp = time;
+    author = user;
 }
 
 - (void)setTitle:(NSString *)title {
@@ -49,7 +59,7 @@
 
     [self.likeButton setTitle:newButtonLabel forState:UIControlStateNormal];
 }
-
+/*
 - (void)imageScrollerSetup {
     CGRect windowBounds = [[UIScreen mainScreen] bounds];
     _imageScrollView.bounds = CGRectMake(0, 0, windowBounds.size.width, 245);
@@ -76,7 +86,18 @@
     [self.imageScrollView updateConstraints];
     _imageScrollView.pagingEnabled = YES;
 }
+*/
 
+-(void)imageSetup{
+    self.imageView.image = image;
+    self.commentLabel.font = [UIFont fontWithName:@"Roboto" size:12];
+    self.commentLabel.lineBreakMode = NSLineBreakByWordWrapping;
+    self.commentLabel.text = [NSString stringWithFormat:@"%@ (%@)",comment,timestamp];
+    self.authorLabel.font = [UIFont fontWithName:@"Roboto-Bold" size:12];
+    self.authorLabel.lineBreakMode = NSLineBreakByCharWrapping;
+    self.authorLabel.text = author;
+    
+}
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
     if (buttonIndex != alertView.cancelButtonIndex) {
         NSLog(@"flag");
