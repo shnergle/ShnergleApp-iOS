@@ -30,6 +30,8 @@
 
 @property (weak, nonatomic) IBOutlet UIButton *postUpdateButton;
 @property (weak, nonatomic) IBOutlet UITextView *tonightContent;
+@property (weak, nonatomic) IBOutlet UITextField *tonightHeadline;
+@property (weak, nonatomic) IBOutlet UIButton *publishButton;
 
 @property (weak, nonatomic) IBOutlet UIView *parentViewInside;
 @property (weak, nonatomic) IBOutlet UILabel *goingLabel;

@@ -115,10 +115,23 @@
     
     [caller.navigationController pushViewController:vc animated:YES];
 }
+- (IBAction)publishTapped:(id)sender {
+    [self.tonightContent resignFirstResponder];
+    [self.tonightContent setEditable:NO];
+    [self.tonightContent setBackgroundColor:[UIColor clearColor]];
+    [self.tonightHeadline resignFirstResponder];
+    [self.tonightHeadline setEnabled:NO];
+    [self.tonightHeadline setBackgroundColor:[UIColor clearColor]];
+
+    [self.publishButton setHidden:YES];
+}
 
 - (IBAction)postUpdateTapped:(id)sender {
-    
+    [self.tonightContent setBackgroundColor:[self darkerColourForColour:self.scrollView.backgroundColor]];
+    [self.tonightHeadline setBackgroundColor:[self darkerColourForColour:self.scrollView.backgroundColor]];
+    [_publishButton setHidden:NO];
     self.tonightContent.editable = YES;
+    [self.tonightHeadline setEnabled:YES];
     [self.tonightContent becomeFirstResponder];
 }
 
@@ -205,6 +218,17 @@
         [_shareButton setBackgroundImage:[UIImage imageNamed:@"stafficon.png"] forState:UIControlStateNormal];
         _postUpdateButton.hidden = NO;
     }
+}
+
+- (UIColor *)darkerColourForColour:(UIColor *)c
+{
+    float r, g, b, a;
+    if ([c getRed:&r green:&g blue:&b alpha:&a])
+        return [UIColor colorWithRed:MAX(r - 0.1, 0.0)
+                               green:MAX(g - 0.1, 0.0)
+                                blue:MAX(b - 0.1, 0.0)
+                               alpha:0.2];
+    return nil;
 }
 
 @end
