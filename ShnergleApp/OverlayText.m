@@ -89,10 +89,9 @@
     [self.goingLabel setText:[NSString stringWithFormat:@"%d", newValue]];
     [self.goingLabel setTextAlignment:NSTextAlignmentCenter];
     [self.tapGoing setEnabled:NO];
-    [self.goingView setBackgroundColor:[UIColor darkGrayColor]];
     [self.thinkingView setEnabled:NO];
     [self.goingView setEnabled:NO];
-    [self.thinkingView setBackgroundColor:[UIColor colorWithRed:201/255.0 green:201/255.0 blue:201/255.0 alpha:1.0]];
+
     
 }
 
@@ -100,11 +99,10 @@
     NSLog(@"tapped Thinking");
     int oldValue = [self.thinkingLabel.text intValue];
     int newValue = oldValue + 1;
-    [self.thinkingLabel setTextAlignment:NSTextAlignmentCenter];
     [self.thinkingLabel setFont:[UIFont fontWithName:self.thinkingLabel.font.fontName size:self.thinkingLabel.font.pointSize]];
     [self.thinkingLabel setText:[NSString stringWithFormat:@"%d", newValue]];
     [self.thinkingView setEnabled:NO];
-    [self.thinkingView setBackgroundColor:[UIColor darkGrayColor]];
+    [self.thinkingLabel setTextAlignment:NSTextAlignmentCenter];
 
 }
 
