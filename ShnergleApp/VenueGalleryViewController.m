@@ -7,7 +7,7 @@
 //
 
 #import "VenueGalleryViewController.h"
-
+#import "AppDelegate.h"
 @implementation VenueGalleryViewController
 
 
@@ -97,11 +97,16 @@
     self.authorLabel.lineBreakMode = NSLineBreakByCharWrapping;
     self.authorLabel.text = author;
     
+    AppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
+    
+    appDelegate.shareImage = image;
+    
 }
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
     if (buttonIndex != alertView.cancelButtonIndex) {
         NSLog(@"flag");
     }
 }
+
 
 @end
