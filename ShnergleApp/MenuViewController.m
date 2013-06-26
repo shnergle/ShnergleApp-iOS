@@ -34,6 +34,11 @@
     [self initSearchResultsView];
 }
 
+-(void)viewDidDisappear:(BOOL)animated
+{
+    [_menuItemsTableView deselectRowAtIndexPath:[_menuItemsTableView indexPathForSelectedRow] animated:YES];
+}
+
 -(void)initSearchResultsView{
     NSArray *nibObjects = [[NSBundle mainBundle] loadNibNamed:@"SearchResultsView" owner:self options:nil];
     self.searchResultsView = [nibObjects objectAtIndex:0];
