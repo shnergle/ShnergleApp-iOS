@@ -34,9 +34,9 @@
 @property (weak, nonatomic) IBOutlet UILabel *goingLabel;
 @property (weak, nonatomic) IBOutlet UILabel *thinkingLabel;
 @property (weak, nonatomic) IBOutlet UILabel *checkedInLabel;
-@property (weak, nonatomic) IBOutlet UIView *thinkingView;
-@property (weak, nonatomic) IBOutlet UIView *goingView;
-@property (weak, nonatomic) IBOutlet UIView *checkedInView;
+@property (weak, nonatomic) IBOutlet UIButton *thinkingView;
+@property (weak, nonatomic) IBOutlet UIButton *goingView;
+@property (weak, nonatomic) IBOutlet UIButton *checkedInView;
 
 - (IBAction)tappedGoing:(id)sender;
 - (IBAction)tappedThinking:(id)sender;
@@ -46,6 +46,7 @@
 
 
 
+- (IBAction)postUpdateTapped:(id)sender;
 - (void)hideAnimated:(NSInteger)originalSize animationDuration:(double)animationDuration targetSize:(NSInteger)targetSize contentView:(UIView *)contentView;
 - (void)showAnimated:(NSInteger)targetSize animationDelay:(double)animationDelay animationDuration:(double)animationDuration;
 - (void)didAppear;

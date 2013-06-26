@@ -158,7 +158,7 @@
          
          */
 
-        _overlayView.frame = CGRectMake(_overlayView.bounds.origin.x, screenHeight - 80, _overlayView.bounds.size.width, screenHeight - 80);
+        _overlayView.frame = CGRectMake(_overlayView.bounds.origin.x, screenHeight - 80, _overlayView.bounds.size.width, screenHeight - 75);
         _overlayView.clipsToBounds = NO;
         [self configureMapWithLat:51.513930 longitude:-0.158198];
         [self.view addSubview:_overlayView];
@@ -314,7 +314,7 @@
     if ([segue.identifier isEqualToString:@"ToGallery"]) {
         [segue.destinationViewController setTitle:[NSString stringWithFormat:@"%@",titleHeader]];
         //[(VenueGalleryViewController *)segue.destinationViewController setImages : appDelegate.images index : selectedImage];
-        [(VenueGalleryViewController *) segue.destinationViewController setImage:[UIImage imageNamed:appDelegate.images[selectedImage]] withAuthor:@"Stian" withComment:@"Untiss Untiss Untiss! #YOLO #SWAG" withTimestamp:appDelegate.timestamps[selectedImage]];
+        [(VenueGalleryViewController *) segue.destinationViewController setImage:[UIImage imageNamed:appDelegate.images[selectedImage]] withAuthor:@"Stian Johansen filibombombom" withComment:@"Untiss Untiss Untiss! #YOLO #SWAG" withTimestamp:appDelegate.timestamps[selectedImage]];
     }
 }
 
