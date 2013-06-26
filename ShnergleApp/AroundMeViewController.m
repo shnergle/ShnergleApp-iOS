@@ -318,7 +318,7 @@
 
 - (void)initMap {
     hasPositionLocked = NO;
-    _mapView = [[GMSMapView alloc] initWithFrame:CGRectMake(0, 44, self.view.bounds.size.width, self.view.bounds.size.height - 119)];
+    _mapView = [[GMSMapView alloc] initWithFrame:CGRectMake(0, 44, self.view.bounds.size.width, self.view.bounds.size.height - 60)];
     _mapView.myLocationEnabled = YES;
     _mapView.delegate = self;
     [_mapView addObserver:self forKeyPath:@"myLocation" options:NSKeyValueObservingOptionNew context:nil];

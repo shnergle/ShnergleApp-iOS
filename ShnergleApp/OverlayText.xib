@@ -190,10 +190,10 @@
                                     <nil key="highlightedColor"/>
                                 </label>
                                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="234">
-                                    <rect key="frame" x="30" y="90" width="50" height="49"/>
+                                    <rect key="frame" x="4" y="90" width="101" height="49"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <constraints>
-                                        <constraint firstAttribute="width" constant="50" id="275"/>
+                                        <constraint firstAttribute="width" constant="101" id="275"/>
                                         <constraint firstAttribute="height" constant="49" id="344"/>
                                     </constraints>
                                     <attributedString key="attributedText">
@@ -223,7 +223,7 @@
                                     </connections>
                                 </button>
                                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="215">
-                                    <rect key="frame" x="131" y="89" width="50" height="49"/>
+                                    <rect key="frame" x="109" y="89" width="100" height="49"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="49" id="492"/>
@@ -233,7 +233,7 @@
                                             <attributes>
                                                 <color key="NSColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                 <font key="NSFont" size="30" name="Roboto-Regular"/>
-                                                <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
+                                                <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
                                             </attributes>
                                         </fragment>
                                     </attributedString>
@@ -247,10 +247,10 @@
                                     <state key="normal" backgroundImage="greenbutton.png"/>
                                 </button>
                                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="226">
-                                    <rect key="frame" x="241" y="90" width="50" height="49"/>
+                                    <rect key="frame" x="214" y="90" width="100" height="49"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <constraints>
-                                        <constraint firstAttribute="width" constant="50" id="228"/>
+                                        <constraint firstAttribute="width" constant="100" id="228"/>
                                         <constraint firstAttribute="height" constant="49" id="346"/>
                                     </constraints>
                                     <attributedString key="attributedText">
@@ -317,7 +317,7 @@
                                 <constraint firstItem="1186" firstAttribute="leading" secondItem="1941" secondAttribute="leading" constant="5" id="2075"/>
                                 <constraint firstAttribute="width" constant="320" id="2156"/>
                                 <constraint firstItem="636" firstAttribute="leading" secondItem="1193" secondAttribute="leading" id="0Ut-8i-6WK"/>
-                                <constraint firstItem="215" firstAttribute="leading" secondItem="fnV-Bn-jZG" secondAttribute="trailing" constant="26" id="2nK-XO-A68"/>
+                                <constraint firstItem="215" firstAttribute="leading" secondItem="fnV-Bn-jZG" secondAttribute="trailing" constant="4" id="2nK-XO-A68"/>
                                 <constraint firstItem="9JC-sc-VKz" firstAttribute="bottom" secondItem="3sN-Qw-TVN" secondAttribute="bottom" id="5d4-XY-zvZ"/>
                                 <constraint firstItem="717" firstAttribute="centerX" secondItem="188" secondAttribute="centerX" id="5il-Ep-sP1"/>
                                 <constraint firstItem="fnV-Bn-jZG" firstAttribute="leading" secondItem="1941" secondAttribute="leading" constant="25" id="651-Zf-OFY"/>
@@ -333,7 +333,7 @@
                                 <constraint firstItem="hQT-9q-ZmQ" firstAttribute="top" secondItem="1186" secondAttribute="bottom" constant="-221" id="JkI-5h-pg3"/>
                                 <constraint firstItem="9JC-sc-VKz" firstAttribute="trailing" secondItem="fnV-Bn-jZG" secondAttribute="trailing" id="LAT-Qt-o0m"/>
                                 <constraint firstItem="hQT-9q-ZmQ" firstAttribute="top" secondItem="1186" secondAttribute="bottom" constant="-221" id="M3A-gF-Mqw"/>
-                                <constraint firstItem="vh3-oi-ATO" firstAttribute="leading" secondItem="234" secondAttribute="trailing" constant="48" id="ORd-8g-PBt"/>
+                                <constraint firstItem="vh3-oi-ATO" firstAttribute="leading" secondItem="234" secondAttribute="trailing" constant="23" id="ORd-8g-PBt"/>
                                 <constraint firstItem="226" firstAttribute="baseline" secondItem="215" secondAttribute="baseline" constant="1" id="QAJ-dT-pcB"/>
                                 <constraint firstItem="3sN-Qw-TVN" firstAttribute="top" secondItem="XrZ-Ff-T5t" secondAttribute="top" constant="-4" id="QIW-aw-dMG"/>
                                 <constraint firstItem="636" firstAttribute="centerX" secondItem="692" secondAttribute="centerX" id="RmQ-dS-jtc"/>
@@ -347,10 +347,10 @@
                                 <constraint firstItem="188" firstAttribute="top" secondItem="692" secondAttribute="bottom" constant="20" id="ZW2-nP-ZvS"/>
                                 <constraint firstItem="3sN-Qw-TVN" firstAttribute="trailing" secondItem="vh3-oi-ATO" secondAttribute="trailing" id="bYj-QX-mMl"/>
                                 <constraint firstItem="1046" firstAttribute="top" secondItem="234" secondAttribute="bottom" constant="45" id="brV-Hc-vXW"/>
-                                <constraint firstItem="226" firstAttribute="leading" secondItem="vh3-oi-ATO" secondAttribute="trailing" constant="32" id="cw9-fE-tUe"/>
+                                <constraint firstItem="226" firstAttribute="leading" secondItem="vh3-oi-ATO" secondAttribute="trailing" constant="5" id="cw9-fE-tUe"/>
                                 <constraint firstItem="hQT-9q-ZmQ" firstAttribute="top" secondItem="1186" secondAttribute="bottom" constant="-221" id="fsz-34-fR9"/>
-                                <constraint firstItem="52r-VY-WE5" firstAttribute="centerX" secondItem="226" secondAttribute="centerX" constant="-2.5" id="hob-Xv-lda"/>
-                                <constraint firstItem="215" firstAttribute="centerX" secondItem="3sN-Qw-TVN" secondAttribute="centerX" constant="-3" id="jBD-Mz-VgO"/>
+                                <constraint firstItem="52r-VY-WE5" firstAttribute="centerX" secondItem="226" secondAttribute="centerX" id="hob-Xv-lda"/>
+                                <constraint firstItem="215" firstAttribute="centerX" secondItem="3sN-Qw-TVN" secondAttribute="centerX" id="jBD-Mz-VgO"/>
                                 <constraint firstItem="52r-VY-WE5" firstAttribute="bottom" secondItem="3sN-Qw-TVN" secondAttribute="bottom" id="jCB-1Y-b13"/>
                                 <constraint firstItem="XrZ-Ff-T5t" firstAttribute="trailing" secondItem="52r-VY-WE5" secondAttribute="trailing" constant="-8" id="jqw-IY-Odq"/>
                                 <constraint firstAttribute="trailing" secondItem="XrZ-Ff-T5t" secondAttribute="trailing" constant="14" id="kr2-Uk-uZf"/>
