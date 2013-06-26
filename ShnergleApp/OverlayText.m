@@ -9,7 +9,7 @@
 #import "OverlayText.h"
 #import "VenueViewController.h"
 #import "AppDelegate.h"
-
+#import "CheckInViewController.h"
 
 @implementation OverlayText
 
@@ -104,6 +104,16 @@
     [self.thinkingView setEnabled:NO];
     [self.thinkingLabel setTextAlignment:NSTextAlignmentCenter];
 
+}
+- (IBAction)tappedCheckedIn:(id)sender {
+    
+    UIViewController *caller = (UIViewController *)self.nextResponder.nextResponder;
+
+    UIStoryboard *storyb = [UIStoryboard storyboardWithName:@"MainStoryboard" bundle:nil];
+    UIViewController *vc = [storyb instantiateViewControllerWithIdentifier:@"CheckInViewController"];
+    
+    
+    [caller.navigationController pushViewController:vc animated:YES];
 }
 
 - (IBAction)postUpdateTapped:(id)sender {
