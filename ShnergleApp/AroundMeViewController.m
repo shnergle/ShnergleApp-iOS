@@ -104,17 +104,23 @@
     [self menuButtonDecorations];
 }
 
+- (void)addShadowLineRect:(CGRect)shadeRect ToView:(UIView *)view {
+    CALayer *topBorder = [CALayer layer];
+    
+    topBorder.frame = shadeRect;
+    
+    topBorder.backgroundColor = [UIColor lightGrayColor].CGColor;
+    
+    [view.layer addSublayer:topBorder];
+}
+
 - (void)viewDidAppear:(BOOL)animated {
     [self addShadowToDistanceSlider];
 
-    CALayer *topBorder = [CALayer layer];
-
-    topBorder.frame = CGRectMake(0.0f, self.overlay.bounds.origin.y + 35, self.overlay.frame.size.width, 1.0f);
-
-    topBorder.backgroundColor = [UIColor lightGrayColor].CGColor;
-
-    [self.overlay.layer addSublayer:topBorder];
+    [self addShadowLineRect:CGRectMake(0.0f, self.overlay.bounds.origin.y + 35, self.overlay.frame.size.width, 1.0f) ToView:self.overlay];
 }
+
+#warning "(AroundMeViewController) replace with addShadowLineRect: ToView:"
 
 - (void)addShadowToDistanceSlider {
     CALayer *bottomBorder = [CALayer layer];
@@ -150,9 +156,12 @@
 
     crowdImagesHidden = NO;
 
+    [self addShadowLineRect:CGRectMake(0.0f, self.overlay.bounds.origin.y + 35, self.overlay.frame.size.width, 1.0f) ToView:self.overlay];
+
     [self addShadowToDistanceSlider];
 
 
+    
     //self.overlay.layer.shouldRasterize = YES;
 
     [self initMap];

@@ -59,6 +59,9 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    
+    
     [self.checkInButton setTitleTextAttributes:
      @{UITextAttributeTextColor: [UIColor whiteColor],
        UITextAttributeTextShadowColor: [UIColor clearColor],
@@ -76,7 +79,6 @@
     
     
     appDelegate.images = [[appDelegate.images reverseObjectEnumerator] allObjects];
-
     appDelegate.shareImage = [UIImage imageNamed:appDelegate.images[0] ];
 
     
@@ -86,6 +88,19 @@
 
     [self displayTextView];
 }
+
+- (void)addShadowLineRect:(CGRect)shadeRect ToView:(UIView *)view {
+    CALayer *topBorder = [CALayer layer];
+    
+    topBorder.frame = shadeRect;
+    
+    topBorder.backgroundColor = [UIColor lightGrayColor].CGColor;
+    
+    [view.layer addSublayer:topBorder];
+}
+
+
+
 
 - (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView {
     return 1;
@@ -136,12 +151,21 @@
         CGRect screenRect = [[UIScreen mainScreen] bounds];
         CGFloat screenHeight = screenRect.size.height;
 
+        /*
+         
+         ~~~oOo O Oo o OoOo O Ooo o oooOOooOo~~~
+         ~~~.......Maaagic nuuummbers........~~~
+         
+         */
 
         _overlayView.frame = CGRectMake(_overlayView.bounds.origin.x, screenHeight - 80, _overlayView.bounds.size.width, screenHeight - 80);
         _overlayView.clipsToBounds = NO;
         [self configureMapWithLat:51.513930 longitude:-0.158198];
         [self.view addSubview:_overlayView];
         textViewOpen = true;
+        
+        [self addShadowLineRect:CGRectMake(0.0f, _overlayView.bounds.origin.y, _overlayView.bounds.size.width, 1.0f) ToView:_overlayView];
+        [self addShadowLineRect:CGRectMake(0.0f, _overlayView.bounds.origin.y+63, _overlayView.bounds.size.width, 1.0f) ToView:_overlayView];
     }
 }
 

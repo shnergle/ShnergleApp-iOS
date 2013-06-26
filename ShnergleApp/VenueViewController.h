@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "OverlayText.h"
 #import "CustomBackViewController.h"
+#import <QuartzCore/QuartzCore.h>
 
 @interface VenueViewController : CustomBackViewController<UICollectionViewDataSource, UICollectionViewDelegate, UIAlertViewDelegate> {
     NSString *promotionTitle;
