@@ -29,6 +29,7 @@
 @property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
 
 @property (weak, nonatomic) IBOutlet UIButton *postUpdateButton;
+@property (weak, nonatomic) IBOutlet UITextView *tonightContent;
 
 @property (weak, nonatomic) IBOutlet UIView *parentViewInside;
 @property (weak, nonatomic) IBOutlet UILabel *goingLabel;

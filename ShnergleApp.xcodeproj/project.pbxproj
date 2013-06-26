@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		1F95516217BB4B9FAB164196 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 92FD2BD9498A41EEBBD26F82 /* libPods.a */; };
+		80125D2E177B2BD000542A70 /* TPKeyboardAvoidingScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 80125D2D177B2BD000542A70 /* TPKeyboardAvoidingScrollView.m */; };
 		801D4ED4175DF1E1007212E0 /* highlight_distance_02_transparent.png in Resources */ = {isa = PBXBuildFile; fileRef = 801D4ED3175DF1E1007212E0 /* highlight_distance_02_transparent.png */; };
 		801D4ED6175DF337007212E0 /* highlight_distance_02_long.png in Resources */ = {isa = PBXBuildFile; fileRef = 801D4ED5175DF337007212E0 /* highlight_distance_02_long.png */; };
 		801D4EDD175E1FCF007212E0 /* highlight_distance_02_long@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 801D4EDA175E1FCF007212E0 /* highlight_distance_02_long@2x.png */; };
@@ -1223,6 +1224,8 @@
 
 /* Begin PBXFileReference section */
 		6199414049D54724BA967C32 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = SOURCE_ROOT; };
+		80125D2C177B2BD000542A70 /* TPKeyboardAvoidingScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TPKeyboardAvoidingScrollView.h; sourceTree = "<group>"; };
+		80125D2D177B2BD000542A70 /* TPKeyboardAvoidingScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TPKeyboardAvoidingScrollView.m; sourceTree = "<group>"; };
 		801D4ED3175DF1E1007212E0 /* highlight_distance_02_transparent.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = highlight_distance_02_transparent.png; sourceTree = "<group>"; };
 		801D4ED5175DF337007212E0 /* highlight_distance_02_long.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = highlight_distance_02_long.png; sourceTree = "<group>"; };
 		801D4EDA175E1FCF007212E0 /* highlight_distance_02_long@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "highlight_distance_02_long@2x.png"; sourceTree = "<group>"; };
@@ -3974,6 +3977,8 @@
 				CDBCDE7E1765245B0048478F /* CustomSlidingViewController.m */,
 				80376E321774ACD500524F54 /* TPKeyboardAvoidingTableView.h */,
 				80376E331774ACD500524F54 /* TPKeyboardAvoidingTableView.m */,
+				80125D2C177B2BD000542A70 /* TPKeyboardAvoidingScrollView.h */,
+				80125D2D177B2BD000542A70 /* TPKeyboardAvoidingScrollView.m */,
 			);
 			name = Helper;
 			sourceTree = "<group>";
@@ -5287,6 +5292,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				EEB706F5176A1C5B00EF05C5 /* AddPromotionsViewController.m in Sources */,
+				80125D2E177B2BD000542A70 /* TPKeyboardAvoidingScrollView.m in Sources */,
 				EEE9EAD11768ACF100B8530B /* VenueDetailsViewController.m in Sources */,
 				CD5024921768AED6003D3004 /* StaffTypeViewController.m in Sources */,
 				CDD8D95C1768A69C00BF3CAC /* StaffEditViewController.m in Sources */,

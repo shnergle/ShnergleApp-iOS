@@ -118,8 +118,8 @@
 
 - (IBAction)postUpdateTapped:(id)sender {
     
-    
-    
+    self.tonightContent.editable = YES;
+    [self.tonightContent becomeFirstResponder];
 }
 
 - (void)hideAnimated:(NSInteger)originalSize animationDuration:(double)animationDuration targetSize:(NSInteger)targetSize contentView:(UIView *)contentView {
