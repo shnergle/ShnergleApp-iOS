@@ -280,7 +280,7 @@
                                     <rect key="frame" x="120" y="146" width="15" height="15"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 </imageView>
-                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" usesAttributedText="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ieB-JS-QVm">
+                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" editable="NO" usesAttributedText="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ieB-JS-QVm">
                                     <rect key="frame" x="4" y="391" width="295" height="107"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -293,6 +293,7 @@
                                         </fragment>
                                     </attributedString>
                                     <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                    <dataDetectorType key="dataDetectorTypes" phoneNumber="YES" link="YES"/>
                                 </textView>
                                 <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="o08-tK-dph">
                                     <rect key="frame" x="92" y="501" width="134" height="30"/>
@@ -532,47 +533,4 @@
         <image name="puller_menu.png" width="98" height="45"/>
         <image name="share.png" width="235" height="60"/>
     </resources>
-    <classes>
-        <class className="GMSMapView" superclassName="UIView">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/GMSMapView.h"/>
-        </class>
-        <class className="NSLayoutConstraint" superclassName="NSObject">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/NSLayoutConstraint.h"/>
-        </class>
-        <class className="OverlayText" superclassName="UIView">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/OverlayText.h"/>
-            <relationships>
-                <relationship kind="action" name="postUpdateTapped:"/>
-                <relationship kind="action" name="swipeDown:"/>
-                <relationship kind="action" name="swipeUp:"/>
-                <relationship kind="action" name="tapPromotion:"/>
-                <relationship kind="action" name="tapPullerMenu:"/>
-                <relationship kind="action" name="tappedGoing:"/>
-                <relationship kind="action" name="tappedThinking:"/>
-                <relationship kind="outlet" name="checkedInLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="checkedInView" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="commentButton" candidateClass="UIImageView"/>
-                <relationship kind="outlet" name="goingLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="goingView" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="offerContents" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="offerCount" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="offerHeadline" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="parentViewInside" candidateClass="UIView"/>
-                <relationship kind="outlet" name="postUpdateButton" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="publishButton" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="scrollView" candidateClass="UIScrollView"/>
-                <relationship kind="outlet" name="shareButton" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="tapGoing" candidateClass="UITapGestureRecognizer"/>
-                <relationship kind="outlet" name="tapThinking" candidateClass="UITapGestureRecognizer"/>
-                <relationship kind="outlet" name="thinkingLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="thinkingView" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="tonightContent" candidateClass="UITextView"/>
-                <relationship kind="outlet" name="tonightHeadline" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="venueMap" candidateClass="GMSMapView"/>
-            </relationships>
-        </class>
-        <class className="TPKeyboardAvoidingScrollView" superclassName="UIScrollView">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/TPKeyboardAvoidingScrollView.h"/>
-        </class>
-    </classes>
 </document>
