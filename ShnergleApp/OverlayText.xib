@@ -281,7 +281,7 @@
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 </imageView>
                                 <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" usesAttributedText="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ieB-JS-QVm">
-                                    <rect key="frame" x="4" y="386" width="295" height="107"/>
+                                    <rect key="frame" x="4" y="391" width="295" height="107"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                     <attributedString key="attributedText">
@@ -313,7 +313,7 @@
                                     </connections>
                                 </button>
                                 <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="left" contentVerticalAlignment="center" usesAttributedText="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="yFV-32-GOh">
-                                    <rect key="frame" x="4" y="354" width="295" height="30"/>
+                                    <rect key="frame" x="4" y="359" width="295" height="30"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                     <constraints>
@@ -324,7 +324,7 @@
                                             <attributes>
                                                 <color key="NSColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                                                 <font key="NSFont" size="16" name="Roboto-Regular"/>
-                                                <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
+                                                <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" firstLineHeadIndent="3"/>
                                             </attributes>
                                         </fragment>
                                     </attributedString>
@@ -339,9 +339,9 @@
                                 <constraint firstItem="1046" firstAttribute="top" secondItem="1941" secondAttribute="top" constant="184" id="2052"/>
                                 <constraint firstAttribute="bottom" secondItem="1046" secondAttribute="bottom" constant="190" id="2057"/>
                                 <constraint firstAttribute="width" constant="320" id="2156"/>
-                                <constraint firstItem="o08-tK-dph" firstAttribute="top" secondItem="ieB-JS-QVm" secondAttribute="bottom" constant="8" symbolic="YES" id="0CT-Yt-JO5"/>
+                                <constraint firstItem="o08-tK-dph" firstAttribute="top" secondItem="ieB-JS-QVm" secondAttribute="bottom" constant="3" id="0CT-Yt-JO5"/>
                                 <constraint firstItem="636" firstAttribute="leading" secondItem="1193" secondAttribute="leading" id="0Ut-8i-6WK"/>
-                                <constraint firstItem="234" firstAttribute="leading" secondItem="yFV-32-GOh" secondAttribute="leading" id="1WF-lI-m6B"/>
+                                <constraint firstItem="234" firstAttribute="leading" secondItem="yFV-32-GOh" secondAttribute="leading" constant="2" id="1WF-lI-m6B"/>
                                 <constraint firstItem="o08-tK-dph" firstAttribute="leading" secondItem="hQT-9q-ZmQ" secondAttribute="leading" id="22O-l8-jhG"/>
                                 <constraint firstItem="215" firstAttribute="leading" secondItem="fnV-Bn-jZG" secondAttribute="trailing" constant="4" id="2nK-XO-A68"/>
                                 <constraint firstItem="ieB-JS-QVm" firstAttribute="leading" secondItem="9JC-sc-VKz" secondAttribute="leading" constant="-1" id="4TM-vf-2Se"/>
@@ -369,7 +369,7 @@
                                 <constraint firstItem="vh3-oi-ATO" firstAttribute="leading" secondItem="234" secondAttribute="trailing" constant="23" id="ORd-8g-PBt"/>
                                 <constraint firstItem="226" firstAttribute="baseline" secondItem="215" secondAttribute="baseline" constant="1" id="QAJ-dT-pcB"/>
                                 <constraint firstItem="3sN-Qw-TVN" firstAttribute="top" secondItem="XrZ-Ff-T5t" secondAttribute="top" constant="-4" id="QIW-aw-dMG"/>
-                                <constraint firstItem="hQT-9q-ZmQ" firstAttribute="top" secondItem="ieB-JS-QVm" secondAttribute="bottom" constant="8" symbolic="YES" id="QgQ-XK-3z7"/>
+                                <constraint firstItem="hQT-9q-ZmQ" firstAttribute="top" secondItem="ieB-JS-QVm" secondAttribute="bottom" constant="3" id="QgQ-XK-3z7"/>
                                 <constraint firstItem="636" firstAttribute="centerX" secondItem="692" secondAttribute="centerX" id="RmQ-dS-jtc"/>
                                 <constraint firstItem="vh3-oi-ATO" firstAttribute="leading" secondItem="fnV-Bn-jZG" secondAttribute="trailing" constant="23" id="SBM-G1-cme"/>
                                 <constraint firstItem="234" firstAttribute="leading" secondItem="636" secondAttribute="leading" id="SDB-jA-guB"/>
@@ -382,12 +382,12 @@
                                 <constraint firstItem="vh3-oi-ATO" firstAttribute="centerY" secondItem="fvc-pb-gaI" secondAttribute="centerY" id="XJP-Xy-fMv"/>
                                 <constraint firstItem="188" firstAttribute="top" secondItem="636" secondAttribute="bottom" constant="-23" id="XKA-gV-cs7"/>
                                 <constraint firstItem="fnV-Bn-jZG" firstAttribute="top" secondItem="9JC-sc-VKz" secondAttribute="top" constant="4" id="XMU-Dv-O2S"/>
-                                <constraint firstItem="yFV-32-GOh" firstAttribute="trailing" secondItem="ieB-JS-QVm" secondAttribute="trailing" constant="2" id="ZCc-De-5gZ"/>
+                                <constraint firstItem="yFV-32-GOh" firstAttribute="trailing" secondItem="ieB-JS-QVm" secondAttribute="trailing" id="ZCc-De-5gZ"/>
                                 <constraint firstItem="188" firstAttribute="top" secondItem="692" secondAttribute="bottom" constant="20" id="ZW2-nP-ZvS"/>
                                 <constraint firstItem="3sN-Qw-TVN" firstAttribute="trailing" secondItem="vh3-oi-ATO" secondAttribute="trailing" id="bYj-QX-mMl"/>
                                 <constraint firstItem="1046" firstAttribute="top" secondItem="234" secondAttribute="bottom" constant="45" id="brV-Hc-vXW"/>
                                 <constraint firstItem="226" firstAttribute="leading" secondItem="vh3-oi-ATO" secondAttribute="trailing" constant="5" id="cw9-fE-tUe"/>
-                                <constraint firstItem="ieB-JS-QVm" firstAttribute="top" secondItem="1046" secondAttribute="bottom" constant="31" id="dUa-tM-NW4"/>
+                                <constraint firstItem="ieB-JS-QVm" firstAttribute="top" secondItem="1046" secondAttribute="bottom" constant="36" id="dUa-tM-NW4"/>
                                 <constraint firstItem="anw-aD-f1q" firstAttribute="bottom" secondItem="fvc-pb-gaI" secondAttribute="bottom" id="ect-5I-xct"/>
                                 <constraint firstItem="717" firstAttribute="leading" secondItem="1941" secondAttribute="leading" constant="20" symbolic="YES" id="gqP-JE-ZoF"/>
                                 <constraint firstItem="52r-VY-WE5" firstAttribute="centerX" secondItem="226" secondAttribute="centerX" id="hob-Xv-lda"/>
@@ -395,7 +395,7 @@
                                 <constraint firstItem="52r-VY-WE5" firstAttribute="bottom" secondItem="3sN-Qw-TVN" secondAttribute="bottom" id="jCB-1Y-b13"/>
                                 <constraint firstItem="XrZ-Ff-T5t" firstAttribute="trailing" secondItem="52r-VY-WE5" secondAttribute="trailing" constant="-8" id="jqw-IY-Odq"/>
                                 <constraint firstAttribute="trailing" secondItem="XrZ-Ff-T5t" secondAttribute="trailing" constant="14" id="kr2-Uk-uZf"/>
-                                <constraint firstItem="ieB-JS-QVm" firstAttribute="leading" secondItem="yFV-32-GOh" secondAttribute="leading" constant="-1" id="nBL-LT-hpC"/>
+                                <constraint firstItem="ieB-JS-QVm" firstAttribute="leading" secondItem="yFV-32-GOh" secondAttribute="leading" id="nBL-LT-hpC"/>
                                 <constraint firstItem="636" firstAttribute="trailing" secondItem="1193" secondAttribute="trailing" id="q6t-G5-lR2"/>
                                 <constraint firstItem="ieB-JS-QVm" firstAttribute="top" secondItem="yFV-32-GOh" secondAttribute="bottom" constant="2" id="t1G-ew-aXA"/>
                                 <constraint firstItem="fvc-pb-gaI" firstAttribute="top" secondItem="215" secondAttribute="bottom" constant="8" symbolic="YES" id="tgR-3h-CZ7"/>
@@ -532,4 +532,47 @@
         <image name="puller_menu.png" width="98" height="45"/>
         <image name="share.png" width="235" height="60"/>
     </resources>
+    <classes>
+        <class className="GMSMapView" superclassName="UIView">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/GMSMapView.h"/>
+        </class>
+        <class className="NSLayoutConstraint" superclassName="NSObject">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/NSLayoutConstraint.h"/>
+        </class>
+        <class className="OverlayText" superclassName="UIView">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/OverlayText.h"/>
+            <relationships>
+                <relationship kind="action" name="postUpdateTapped:"/>
+                <relationship kind="action" name="swipeDown:"/>
+                <relationship kind="action" name="swipeUp:"/>
+                <relationship kind="action" name="tapPromotion:"/>
+                <relationship kind="action" name="tapPullerMenu:"/>
+                <relationship kind="action" name="tappedGoing:"/>
+                <relationship kind="action" name="tappedThinking:"/>
+                <relationship kind="outlet" name="checkedInLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="checkedInView" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="commentButton" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="goingLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="goingView" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="offerContents" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="offerCount" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="offerHeadline" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="parentViewInside" candidateClass="UIView"/>
+                <relationship kind="outlet" name="postUpdateButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="publishButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="scrollView" candidateClass="UIScrollView"/>
+                <relationship kind="outlet" name="shareButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="tapGoing" candidateClass="UITapGestureRecognizer"/>
+                <relationship kind="outlet" name="tapThinking" candidateClass="UITapGestureRecognizer"/>
+                <relationship kind="outlet" name="thinkingLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="thinkingView" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="tonightContent" candidateClass="UITextView"/>
+                <relationship kind="outlet" name="tonightHeadline" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="venueMap" candidateClass="GMSMapView"/>
+            </relationships>
+        </class>
+        <class className="TPKeyboardAvoidingScrollView" superclassName="UIScrollView">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/TPKeyboardAvoidingScrollView.h"/>
+        </class>
+    </classes>
 </document>

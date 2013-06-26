@@ -124,15 +124,30 @@
     [self.tonightHeadline setBackgroundColor:[UIColor clearColor]];
 
     [self.publishButton setHidden:YES];
+    
+    self.tonightContent.layer.borderWidth = 0.0f;
+    self.tonightHeadline.layer.borderWidth = 0.0f;
+    self.tonightHeadline.layer.cornerRadius = 0.0f;
+    self.tonightContent.layer.cornerRadius = 0.0f;
+    
 }
 
 - (IBAction)postUpdateTapped:(id)sender {
-    [self.tonightContent setBackgroundColor:[self darkerColourForColour:self.scrollView.backgroundColor]];
-    [self.tonightHeadline setBackgroundColor:[self darkerColourForColour:self.scrollView.backgroundColor]];
+    [self.tonightContent setBackgroundColor:[UIColor whiteColor]];
+    [self.tonightHeadline setBackgroundColor:[UIColor whiteColor]];
     [_publishButton setHidden:NO];
     self.tonightContent.editable = YES;
     [self.tonightHeadline setEnabled:YES];
     [self.tonightContent becomeFirstResponder];
+#warning "Formatting for input fields borders must be reset when exiting edit mode"
+    self.tonightHeadline.layer.borderColor = [[UIColor grayColor] CGColor];
+    self.tonightContent.layer.borderColor = [[UIColor grayColor] CGColor];
+    self.tonightContent.layer.borderWidth = 1.0f;
+    self.tonightHeadline.layer.borderWidth = 1.0f;
+    self.tonightHeadline.layer.cornerRadius = 5.0f;
+    self.tonightContent.layer.cornerRadius = 5.0f;
+    self.tonightHeadline.layer.masksToBounds = YES;
+    self.tonightContent.layer.masksToBounds = YES;
 }
 
 - (void)hideAnimated:(NSInteger)originalSize animationDuration:(double)animationDuration targetSize:(NSInteger)targetSize contentView:(UIView *)contentView {
@@ -219,7 +234,7 @@
         _postUpdateButton.hidden = NO;
     }
 }
-
+/*
 - (UIColor *)darkerColourForColour:(UIColor *)c
 {
     float r, g, b, a;
@@ -230,5 +245,5 @@
                                alpha:0.2];
     return nil;
 }
-
+*/
 @end
