@@ -139,7 +139,6 @@
     self.tonightContent.editable = YES;
     [self.tonightHeadline setEnabled:YES];
     [self.tonightContent becomeFirstResponder];
-#warning "Formatting for input fields borders must be reset when exiting edit mode"
     self.tonightHeadline.layer.borderColor = [[UIColor grayColor] CGColor];
     self.tonightContent.layer.borderColor = [[UIColor grayColor] CGColor];
     self.tonightContent.layer.borderWidth = 1.0f;
