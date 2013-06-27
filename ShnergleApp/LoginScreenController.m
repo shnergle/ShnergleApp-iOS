@@ -124,7 +124,9 @@
 - (void)getResponse:(id)response {
     AppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
     if (response) {
-        if (![((NSDictionary *)response)[@"twitter"] isEqual : @""]) appDelegate.twitter = ((NSDictionary *)response)[@"twitter"];
+        if (![((NSDictionary *)response)[@"twitter"] isEqual:@""]) appDelegate.twitter = ((NSDictionary *)response)[@"twitter"];
+        if ([((NSDictionary *)response)[@"save_locally"] isEqual:@1]) appDelegate.saveLocally = YES;
+        else appDelegate.saveLocally = NO;
         UIViewController *vc = [self.storyboard instantiateViewControllerWithIdentifier:@"AroundMeSlidingViewController"];
         [self.navigationController pushViewController:vc animated:YES];
     } else {
