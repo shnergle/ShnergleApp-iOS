@@ -11,6 +11,7 @@
 #import <CoreLocation/CoreLocation.h>
 #import "MenuViewController.h"
 #import "AppDelegate.h"
+#import <Toast+UIView.h>
 
 @implementation AroundMeViewController
 
@@ -198,9 +199,11 @@
     }
 }
 
-- (void)         collectionView:(UICollectionView *)collectionView
+- (void)collectionView:(UICollectionView *)collectionView
     didHighlightItemAtIndexPath:(NSIndexPath *)indexPath {
     selectedVenue = indexPath.row;
+    [self.view makeToastActivity];
+
 }
 
 - (void)showOverlay {
@@ -326,6 +329,12 @@
     [_mapView stopRendering];
     [_mapView removeFromSuperview];
     _mapView = nil;
+}
+
+-(void)viewDidDisappear:(BOOL)animated
+{
+    [self.view hideToastActivity];
+
 }
 
 @end
