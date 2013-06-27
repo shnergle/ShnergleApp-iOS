@@ -90,10 +90,10 @@
 
     [GMSServices provideAPIKey:@"AIzaSyBiJeQvT0FUQdGPMbOR8DFGdVbEtHMJe7c"];
     _appSecret = @"FCuf65iuOUDCjlbiyyer678Coutyc64v655478VGvgh76";
-    
+
 #warning "initialising default local share boolean. Get this from server instead"
     self.saveLocally = NO;
-    
+
     return YES;
 }
 

@@ -23,11 +23,11 @@
 
     AppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
     if (appDelegate.shareImage) _image.image = appDelegate.shareImage;
-    
-    
-    if(appDelegate.saveLocally){
+
+
+    if (appDelegate.saveLocally) {
         [self.saveLocallySwitch setOn:TRUE];
-    }else{
+    } else {
         [self.saveLocallySwitch setOn:FALSE];
     }
 }
@@ -45,9 +45,9 @@
 
 - (void)share {
     [self.view makeToastActivity];
-    
-    
-    
+
+
+
     self.navigationItem.rightBarButtonItem.enabled = NO;
     AppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
     if ([appDelegate.session.permissions indexOfObject:@"publish_actions"] == NSNotFound)
@@ -57,16 +57,13 @@
     else {
         [self shareOnFacebook];
         NSLog(@"shared");
-
     }
-    if(self.saveLocallySwitch.on){
+    if (self.saveLocallySwitch.on) {
         UIImageWriteToSavedPhotosAlbum(_image.image, nil, nil, nil);
     }
-    
 }
 
--(void)viewDidDisappear:(BOOL)animated
-{
+- (void)viewDidDisappear:(BOOL)animated {
     NSLog(@"Share view dissappeared (and spinner removed)");
     [self.view hideToastActivity];
 }
@@ -74,15 +71,15 @@
 - (void)shareOnFacebook {
     AppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
     NSMutableDictionary<FBGraphObject> *action = [FBGraphObject graphObject];
-    
-    
-    
+
+
+
     /*
-     Temp solution, 17 June:
-     share the image, put venue details ([name] and facebook url, if exists in caption)
+       Temp solution, 17 June:
+       share the image, put venue details ([name] and facebook url, if exists in caption)
      */
     action[@"source"] = _image.image;
-    action[@"message"] =  [NSString stringWithFormat:@"%@ @ mahiki https://www.facebook.com/mahiki?fref=ts",_textFieldname.text];
+    action[@"message"] =  [NSString stringWithFormat:@"%@ @ mahiki https://www.facebook.com/mahiki?fref=ts", _textFieldname.text];
     [[[FBRequest alloc] initWithSession:appDelegate.session graphPath:@"me/photos" parameters:action HTTPMethod:@"POST"] startWithCompletionHandler:^(FBRequestConnection *connection,
                                                                                                                                                       id result,
                                                                                                                                                       NSError *error) {
@@ -90,31 +87,28 @@
         NSLog(@"FBSHARE - PHOTO - result: %@", result);
         NSLog(@"FBSHARE - PHOTO - error: %@", error);
         /*NSMutableDictionary<FBGraphObject> *action = [FBGraphObject graphObject];
-        action[@"venue"] = @"http://samples.ogp.me/259837270824167";
-        if (action[@"tags"] != nil) action[@"tags"] = selectedFriends;
-        if (action[@"message"] != nil) action[@"message"] = _textFieldname.text;
-        action[@"image"] = [NSString stringWithFormat:@"https://www.facebook.com/photo.php?fbid=%@", result[@"id"]];
-        action[@"fb:explicitly_shared"] = @"true";
-        [[[FBRequest alloc] initForPostWithSession:appDelegate.session graphPath:@"me/shnergle:share" graphObject:action] startWithCompletionHandler:^(FBRequestConnection *connection,
+           action[@"venue"] = @"http://samples.ogp.me/259837270824167";
+           if (action[@"tags"] != nil) action[@"tags"] = selectedFriends;
+           if (action[@"message"] != nil) action[@"message"] = _textFieldname.text;
+           action[@"image"] = [NSString stringWithFormat:@"https://www.facebook.com/photo.php?fbid=%@", result[@"id"]];
+           action[@"fb:explicitly_shared"] = @"true";
+           [[[FBRequest alloc] initForPostWithSession:appDelegate.session graphPath:@"me/shnergle:share" graphObject:action] startWithCompletionHandler:^(FBRequestConnection *connection,
                                                                                                                                                        id result,
                                                                                                                                                        NSError *error) {
                 NSLog(@"FBSHARE - POST - connection: %@", connection);
                 NSLog(@"FBSHARE - POST - result: %@", result);
                 NSLog(@"FBSHARE - POST - error: %@", error);
-            
-            
+
+
                 [self.navigationController setNavigationBarHidden:YES animated:YES];
                 //UIViewController *aroundMe = [self.storyboard instantiateViewControllerWithIdentifier:@"AroundMe"];
                 //[self.navigationController pushViewController:aroundMe animated:YES];
 
             }];
          */
-        
-        [self.navigationController popToRootViewControllerAnimated:YES];
 
+        [self.navigationController popToRootViewControllerAnimated:YES];
     }];
-    
-    
 }
 
 - (IBAction)selectFriendsButtonAction:(id)sender {

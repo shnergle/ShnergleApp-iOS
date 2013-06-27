@@ -21,7 +21,6 @@ typedef enum {
     City,
     Postcode,
     WorkHere
-    
 } Field;
 
 #define TextFieldTag 2
@@ -54,42 +53,39 @@ typedef enum {
     // Dispose of any resources that can be recreated.
 }
 
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
-{
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:[NSString stringWithFormat:@"Cell%d", indexPath.row ]];
-    if(cell == nil)
-        cell = [[UITableViewCell alloc] init];
-    
-    
+    if (cell == nil) cell = [[UITableViewCell alloc] init];
+
+
     cell.textLabel.text = _tableData[indexPath.row];
     /*
-    UITextField *textField = [[UITextField alloc] initWithFrame:CGRectMake(110, 10, 185, 30)];
-    textField.delegate = self;
-    textField.tag = indexPath.row;
-    */
-    
-    UITextField *textField = (UITextField*) [cell viewWithTag:indexPath.row+1];
+       UITextField *textField = [[UITextField alloc] initWithFrame:CGRectMake(110, 10, 185, 30)];
+       textField.delegate = self;
+       textField.tag = indexPath.row;
+     */
+
+    UITextField *textField = (UITextField *)[cell viewWithTag:indexPath.row + 1];
     if (!textField) {
         textField = [[UITextField alloc] initWithFrame:CGRectMake(110, 10, 185, 30)];
-        textField.tag = indexPath.row+1;
+        textField.tag = indexPath.row + 1;
         textField.delegate = self;
     }
-    
+
     if (indexPath.row == Name) {
         textField.placeholder = @"(Required)";
         [cell.contentView addSubview:textField];
     } else if (indexPath.row == Category) {
-        
-        UILabel *label = (UILabel *) [cell viewWithTag:indexPath.row+10];
-        if(!label){
-        label = [[UILabel alloc] initWithFrame:CGRectMake(110, 6, 185, 30)];
-        label.text = @"(Required)";
-        label.tag = indexPath.row+10;
-        label.textColor = [UIColor lightGrayColor];
-        label.backgroundColor = [UIColor clearColor];
-        [cell.contentView addSubview:label];
-        secondCellField = label;
-        secondCell = cell;
+        UILabel *label = (UILabel *)[cell viewWithTag:indexPath.row + 10];
+        if (!label) {
+            label = [[UILabel alloc] initWithFrame:CGRectMake(110, 6, 185, 30)];
+            label.text = @"(Required)";
+            label.tag = indexPath.row + 10;
+            label.textColor = [UIColor lightGrayColor];
+            label.backgroundColor = [UIColor clearColor];
+            [cell.contentView addSubview:label];
+            secondCellField = label;
+            secondCell = cell;
         }
     } else if (indexPath.row == Address1) {
         textField.placeholder = @"(Optional)";
@@ -107,12 +103,12 @@ typedef enum {
         UISwitch *workSwitch = [[UISwitch alloc] initWithFrame:CGRectMake(210, 8, 50, 30)];
         [workSwitch addTarget:self action:@selector(segwayToWork) forControlEvents:UIControlEventValueChanged];
         [cell.contentView addSubview:workSwitch];
-        
+
         _workSwitch = workSwitch;
     }
-    
-    
-    if(![(self.userData)[indexPath.row] isEqualToString:@""]){
+
+
+    if (![(self.userData)[indexPath.row] isEqualToString : @""]) {
         //NSLog(@"%@ at indexPath.row %d",[self.userData objectAtIndex:indexPath.row], indexPath.row);
         textField.placeholder = nil;
         textField.text = (self.userData)[indexPath.row];
@@ -120,11 +116,10 @@ typedef enum {
     return cell;
 }
 
--(void)textFieldDidBeginEditing:(UITextField *)textField{
+- (void)textFieldDidBeginEditing:(UITextField *)textField {
     textField.placeholder = nil;
     textField.text = @"";
 }
-
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     return _tableData.count;
@@ -211,39 +206,37 @@ typedef enum {
     map = nil;
 }
 
-
-
-- (void)addBorder{
+- (void)addBorder {
     CALayer *bottomBorder = [CALayer layer];
-    
+
     bottomBorder.frame = CGRectMake(0.0f, 70.0f, self.mapView.frame.size.width, 1.0f);
-    
+
     bottomBorder.backgroundColor = [UIColor lightGrayColor].CGColor;
 }
 
 - (void)viewDidAppear:(BOOL)animated {
     NSLog(@"%f  %f", self.mapView.frame.size.height, self.mapView.bounds.size.height);
-    
+
     [self addBorder];
-    
+
     CALayer *topBorder = [CALayer layer];
-    
-    topBorder.frame = CGRectMake(0.0f, self.mapView.bounds.size.height - 1 , self.mapView.frame.size.width
+
+    topBorder.frame = CGRectMake(0.0f, self.mapView.bounds.size.height - 1, self.mapView.frame.size.width
                                  , 1.0f);
     //topBorder.frame = CGRectMake(0.0f, self.mapView.bounds.origin.x + 190, self.mapView.frame.size.height
-      //                           , 1.0f);
-    
+    //                           , 1.0f);
+
     topBorder.backgroundColor = [UIColor lightGrayColor].CGColor;
-    
+
     [self.mapView.layer addSublayer:topBorder];
 }
 
--(NSMutableArray *)userData
-{
-    if(!_userData){
+- (NSMutableArray *)userData {
+    if (!_userData) {
         _userData = [[NSMutableArray alloc] initWithCapacity:[self.tableData count]];
-        for (int i = 0; i < [self.tableData count]; i++)
+        for (int i = 0; i < [self.tableData count]; i++) {
             [_userData addObject:@""];
+        }
     }
     return _userData;
 }

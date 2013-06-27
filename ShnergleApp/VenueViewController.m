@@ -59,9 +59,9 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
-    
-    
+
+
+
     [self.checkInButton setTitleTextAttributes:
      @{UITextAttributeTextColor: [UIColor whiteColor],
        UITextAttributeTextShadowColor: [UIColor clearColor],
@@ -73,15 +73,15 @@
     [[self crowdCollectionV] setDataSource:self];
     [[self crowdCollectionV] setDelegate:self];
     AppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
-    appDelegate.images = @[@"1230.png",@"1645.jpg",@"1655.jpg",@"1700.jpg",@"1730.jpg",@"1745.jpg",@"1930.jpg",@"2012.jpg",@"2023.jpg",@"2035.jpg",@"2046.jpg",@"2105.jpg",@"2107.jpg",@"2108.jpg",@"2109.jpg",@"2115.jpg",@"2128.jpg",@"2146.jpg",@"2207.jpg",@"2210.jpg",@"2215.jpg",@"2223.jpg",@"2235.jpg",@"2250.jpg",@"2308.jpg",@"2336.jpg",@"2350.jpg",@"2353.jpg",@"0013.jpg",@"0030.jpg",@"0047.jpg",@"0050.jpg"];
+    appDelegate.images = @[@"1230.png", @"1645.jpg", @"1655.jpg", @"1700.jpg", @"1730.jpg", @"1745.jpg", @"1930.jpg", @"2012.jpg", @"2023.jpg", @"2035.jpg", @"2046.jpg", @"2105.jpg", @"2107.jpg", @"2108.jpg", @"2109.jpg", @"2115.jpg", @"2128.jpg", @"2146.jpg", @"2207.jpg", @"2210.jpg", @"2215.jpg", @"2223.jpg", @"2235.jpg", @"2250.jpg", @"2308.jpg", @"2336.jpg", @"2350.jpg", @"2353.jpg", @"0013.jpg", @"0030.jpg", @"0047.jpg", @"0050.jpg"];
 
-    appDelegate.timestamps = @[@"00:50",@"00:47",@"00:30",@"00:13",@"23:53",@"23:50",@"23:36",@"23:08",@"22:50",@"22:35",@"22:23",@"22:15",@"22:10",@"22:07",@"21:46",@"21:28",@"21:15",@"21:09",@"21:08",@"21:07",@"21:05",@"20:46",@"20:35",@"20:23",@"20:12",@"19:30",@"17:45",@"17:30",@"17:00",@"16:55",@"16:45",@"12:30",];
-    
-    
+    appDelegate.timestamps = @[@"00:50", @"00:47", @"00:30", @"00:13", @"23:53", @"23:50", @"23:36", @"23:08", @"22:50", @"22:35", @"22:23", @"22:15", @"22:10", @"22:07", @"21:46", @"21:28", @"21:15", @"21:09", @"21:08", @"21:07", @"21:05", @"20:46", @"20:35", @"20:23", @"20:12", @"19:30", @"17:45", @"17:30", @"17:00", @"16:55", @"16:45", @"12:30", ];
+
+
     appDelegate.images = [[appDelegate.images reverseObjectEnumerator] allObjects];
     appDelegate.shareImage = [UIImage imageNamed:appDelegate.images[0] ];
 
-    
+
     promotionTitle = @"Tonight's special offer";
     promotionExpiry = @"Expires at 11 pm";
     promotionBody = @"3-4-2 on tequila doubles!!";
@@ -91,16 +91,13 @@
 
 - (void)addShadowLineRect:(CGRect)shadeRect ToView:(UIView *)view {
     CALayer *topBorder = [CALayer layer];
-    
+
     topBorder.frame = shadeRect;
-    
+
     topBorder.backgroundColor = [UIColor lightGrayColor].CGColor;
-    
+
     [view.layer addSublayer:topBorder];
 }
-
-
-
 
 - (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView {
     return 1;
@@ -152,10 +149,10 @@
         CGFloat screenHeight = screenRect.size.height;
 
         /*
-         
-         ~~~oOo O Oo o OoOo O Ooo o oooOOooOo~~~
-         ~~~.......Maaagic nuuummbers........~~~
-         
+
+           ~~~oOo O Oo o OoOo O Ooo o oooOOooOo~~~
+           ~~~.......Maaagic nuuummbers........~~~
+
          */
 
         _overlayView.frame = CGRectMake(_overlayView.bounds.origin.x, screenHeight - 80, _overlayView.bounds.size.width, screenHeight - 75);
@@ -163,9 +160,9 @@
         [self configureMapWithLat:51.513930 longitude:-0.158198];
         [self.view addSubview:_overlayView];
         textViewOpen = true;
-        
+
         [self addShadowLineRect:CGRectMake(0.0f, _overlayView.bounds.origin.y, _overlayView.bounds.size.width, 1.0f) ToView:_overlayView];
-        [self addShadowLineRect:CGRectMake(0.0f, _overlayView.bounds.origin.y+63, _overlayView.bounds.size.width, 1.0f) ToView:_overlayView];
+        [self addShadowLineRect:CGRectMake(0.0f, _overlayView.bounds.origin.y + 63, _overlayView.bounds.size.width, 1.0f) ToView:_overlayView];
     }
 }
 
@@ -274,7 +271,7 @@
     self.overlayView.offerContents.text = promoContent;
     self.overlayView.offerHeadline.text = promoHeadline;
     self.overlayView.offerCount.text = promoExpiry;
-    
+
     self.overlayView.offerCount.font = [UIFont fontWithName:@"Roboto" size:9];
     self.overlayView.offerCount.textAlignment = NSTextAlignmentCenter;
     self.overlayView.offerHeadline.font = [UIFont fontWithName:@"Roboto" size:11];
@@ -290,14 +287,12 @@
                              animated:NO];
 
     [self setPromoContentTo:promotionBody promoHeadline:promotionTitle promoExpiry:promotionExpiry];
-    
 }
 
 - (void)viewDidDisappear:(BOOL)animated {
     [super viewDidDisappear:animated];
     [self.overlayView.scrollView setContentOffset:CGPointZero animated:YES];
     self.navigationController.navigationBarHidden = NO;
-    
 }
 
 - (void)goToPromotionView {
@@ -305,20 +300,20 @@
     [promotionView setpromotionTitle:promotionTitle];
     [promotionView setpromotionBody:promotionBody];
     [promotionView setpromotionExpiry:promotionExpiry];
-    
+
     [self.navigationController pushViewController:promotionView animated:YES];
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     AppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
     if ([segue.identifier isEqualToString:@"ToGallery"]) {
-        [segue.destinationViewController setTitle:[NSString stringWithFormat:@"%@",titleHeader]];
+        [segue.destinationViewController setTitle:[NSString stringWithFormat:@"%@", titleHeader]];
         //[(VenueGalleryViewController *)segue.destinationViewController setImages : appDelegate.images index : selectedImage];
-        [(VenueGalleryViewController *) segue.destinationViewController setImage:[UIImage imageNamed:appDelegate.images[selectedImage]] withAuthor:@"Stian Johansen filibombombom" withComment:@"Untiss Untiss Untiss! #YOLO #SWAG" withTimestamp:appDelegate.timestamps[selectedImage]];
+        [(VenueGalleryViewController *)segue.destinationViewController setImage :[UIImage imageNamed:appDelegate.images[selectedImage]] withAuthor : @"Stian Johansen filibombombom" withComment : @"Untiss Untiss Untiss! #YOLO #SWAG" withTimestamp : appDelegate.timestamps[selectedImage]];
     }
 }
 
-- (void)collectionView:(UICollectionView *)collectionView
+- (void)         collectionView:(UICollectionView *)collectionView
     didHighlightItemAtIndexPath:(NSIndexPath *)indexPath {
     selectedImage = indexPath.row;
 }

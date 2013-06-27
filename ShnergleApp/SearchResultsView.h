@@ -12,6 +12,6 @@
 
 @property (weak, nonatomic) IBOutlet UITableView *resultsTableView;
 
--(void)hide;
--(void)show;
+- (void)hide;
+- (void)show;
 @end

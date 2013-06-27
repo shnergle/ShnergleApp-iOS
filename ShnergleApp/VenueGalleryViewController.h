@@ -29,5 +29,5 @@
 //- (void)imageScrollerSetup;
 - (void)setTitle:(NSString *)title;
 //- (void)setImages:(NSArray *)img index:(NSInteger)index;
-- (void)setImage:(UIImage *)img withAuthor:(NSString *)user withComment:(NSString *)msg withTimestamp:(NSString*)time;
+- (void)setImage:(UIImage *)img withAuthor:(NSString *)user withComment:(NSString *)msg withTimestamp:(NSString *)time;
 @end

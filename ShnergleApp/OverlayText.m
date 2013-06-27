@@ -91,8 +91,6 @@
     [self.tapGoing setEnabled:NO];
     [self.thinkingView setEnabled:NO];
     [self.goingView setEnabled:NO];
-
-    
 }
 
 - (IBAction)tappedThinking:(id)sender {
@@ -103,18 +101,18 @@
     [self.thinkingLabel setText:[NSString stringWithFormat:@"%d", newValue]];
     [self.thinkingView setEnabled:NO];
     [self.thinkingLabel setTextAlignment:NSTextAlignmentCenter];
-
 }
+
 - (IBAction)tappedCheckedIn:(id)sender {
-    
     UIViewController *caller = (UIViewController *)self.nextResponder.nextResponder;
 
     UIStoryboard *storyb = [UIStoryboard storyboardWithName:@"MainStoryboard" bundle:nil];
     UIViewController *vc = [storyb instantiateViewControllerWithIdentifier:@"CheckInViewController"];
-    
-    
+
+
     [caller.navigationController pushViewController:vc animated:YES];
 }
+
 - (IBAction)publishTapped:(id)sender {
     [self.tonightContent resignFirstResponder];
     [self.tonightContent setEditable:NO];
@@ -124,12 +122,11 @@
     [self.tonightHeadline setBackgroundColor:[UIColor clearColor]];
 
     [self.publishButton setHidden:YES];
-    
+
     self.tonightContent.layer.borderWidth = 0.0f;
     self.tonightHeadline.layer.borderWidth = 0.0f;
     self.tonightHeadline.layer.cornerRadius = 0.0f;
     self.tonightContent.layer.cornerRadius = 0.0f;
-    
 }
 
 - (IBAction)postUpdateTapped:(id)sender {
@@ -168,8 +165,6 @@
                                        self.bounds.size.height);
     }];
 }
-
-
 
 - (void)showAnimated:(NSInteger)targetSize animationDelay:(double)animationDelay animationDuration:(double)animationDuration {
     [UIView animateWithDuration:animationDuration delay:animationDelay options:(UIViewAnimationOptions)UIViewAnimationCurveEaseOut
@@ -233,9 +228,10 @@
         _postUpdateButton.hidden = NO;
     }
 }
+
 /*
-- (UIColor *)darkerColourForColour:(UIColor *)c
-{
+   - (UIColor *)darkerColourForColour:(UIColor *)c
+   {
     float r, g, b, a;
     if ([c getRed:&r green:&g blue:&b alpha:&a])
         return [UIColor colorWithRed:MAX(r - 0.1, 0.0)
@@ -243,6 +239,6 @@
                                 blue:MAX(b - 0.1, 0.0)
                                alpha:0.2];
     return nil;
-}
-*/
+   }
+ */
 @end
