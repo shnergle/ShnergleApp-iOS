@@ -41,7 +41,7 @@
 
 -(void)initSearchResultsView{
     NSArray *nibObjects = [[NSBundle mainBundle] loadNibNamed:@"SearchResultsView" owner:self options:nil];
-    self.searchResultsView = [nibObjects objectAtIndex:0];
+    self.searchResultsView = nibObjects[0];
     
     self.searchResultsView.frame = CGRectMake(320, 45, 320, self.searchResultsView.frame.size.height);
     [[self view] addSubview:self.searchResultsView];
@@ -88,7 +88,7 @@
         if(!cell){
             cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:[NSString stringWithFormat:@"ResultCell"]];
         }
-        cell.textLabel.text = [_searchResults objectAtIndex:indexPath.row];
+        cell.textLabel.text = _searchResults[indexPath.row];
         cell.textLabel.textColor = [UIColor whiteColor];
         cell.backgroundColor = [UIColor clearColor];
         cell.textLabel.font = [UIFont fontWithName:@"Roboto" size:20];
@@ -150,7 +150,7 @@
     if(tableView == self.searchResultsView.resultsTableView){
         UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"MainStoryboard" bundle:nil];
         VenueViewController *viewController= [storyboard instantiateViewControllerWithIdentifier:@"Venue"];
-        [viewController setTitle:[_searchResults objectAtIndex:indexPath.row]];
+        [viewController setTitle:_searchResults[indexPath.row]];
         [self.navigationController pushViewController:viewController animated:YES];
     }
 }

@@ -112,10 +112,10 @@ typedef enum {
     }
     
     
-    if(![[self.userData objectAtIndex:indexPath.row] isEqualToString:@""]){
+    if(![(self.userData)[indexPath.row] isEqualToString:@""]){
         //NSLog(@"%@ at indexPath.row %d",[self.userData objectAtIndex:indexPath.row], indexPath.row);
         textField.placeholder = nil;
-        textField.text = [self.userData objectAtIndex:indexPath.row];
+        textField.text = (self.userData)[indexPath.row];
     }
     return cell;
 }
