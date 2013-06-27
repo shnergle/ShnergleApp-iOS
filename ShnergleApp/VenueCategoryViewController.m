@@ -62,8 +62,12 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell"];
-    cell.textLabel.text = categories[indexPath.row][1];
     cell.imageView.image = [UIImage imageNamed:[NSString stringWithFormat:@"%@.png", categories[indexPath.row][0]]];
+    UILabel *textView = [[UILabel alloc] initWithFrame:CGRectMake(50, 0, 270, cell.bounds.size.height)];
+    textView.text = categories[indexPath.row][1];
+    textView.font = [UIFont fontWithName:cell.textLabel.font.fontName size:20];
+    textView.backgroundColor = tableView.backgroundColor;
+    [cell addSubview:textView];
 
     return cell;
 }
