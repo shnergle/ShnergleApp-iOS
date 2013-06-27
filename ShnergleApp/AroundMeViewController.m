@@ -114,24 +114,6 @@
     [view.layer addSublayer:topBorder];
 }
 
-- (void)viewDidAppear:(BOOL)animated {
-    [self addShadowToDistanceSlider];
-
-    [self addShadowLineRect:CGRectMake(0.0f, self.overlay.bounds.origin.y + 35, self.overlay.frame.size.width, 1.0f) ToView:self.overlay];
-}
-
-#warning "(AroundMeViewController) replace with addShadowLineRect: ToView:"
-
-- (void)addShadowToDistanceSlider {
-    CALayer *bottomBorder = [CALayer layer];
-
-    bottomBorder.frame = CGRectMake(0.0f, 70.0f, self.distanceScrollerView.frame.size.width, 1.0f);
-
-    bottomBorder.backgroundColor = [UIColor lightGrayColor].CGColor;
-
-    [self.distanceScrollerView.layer addSublayer:bottomBorder];
-}
-
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     self.navigationItem.hidesBackButton = YES;
@@ -156,12 +138,10 @@
 
     crowdImagesHidden = NO;
 
+    [self addShadowLineRect:CGRectMake(0.0f, 70.0f, self.distanceScrollerView.frame.size.width, 1.0f) ToView:self.distanceScrollerView];
+
     [self addShadowLineRect:CGRectMake(0.0f, self.overlay.bounds.origin.y + 35, self.overlay.frame.size.width, 1.0f) ToView:self.overlay];
 
-    [self addShadowToDistanceSlider];
-
-
-    
     //self.overlay.layer.shouldRasterize = YES;
 
     [self initMap];
