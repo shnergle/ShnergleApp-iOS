@@ -25,6 +25,8 @@
     BOOL hidden;
 
     NSString *titleHeader;
+
+    BOOL following;
 }
 - (void)setTitle:(NSString *)title;
 - (void)viewDidAppear:(BOOL)animated;

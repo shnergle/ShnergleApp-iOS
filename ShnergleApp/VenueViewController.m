@@ -54,12 +54,24 @@
                                                 UIViewAutoresizingFlexibleTopMargin |
                                                 UIViewAutoresizingFlexibleBottomMargin);
 
+#warning UITapGestureRecognizer does not recognize taps
+    UITapGestureRecognizer *tapGestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapToFollow)];
+    [headerTitleSubtitleView addGestureRecognizer:tapGestureRecognizer];
+
     self.navigationItem.titleView = headerTitleSubtitleView;
+}
+
+- (void)tapToFollow {
+    if (following) {
+        [self setHeaderTitle:titleHeader andSubtitle:@"Following"];
+    } else {
+        [self setHeaderTitle:titleHeader andSubtitle:@"Tap to Follow"];
+    }
 }
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-
+    following = NO;
 
 
     [self.checkInButton setTitleTextAttributes:
@@ -75,11 +87,11 @@
     AppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
     appDelegate.images = @[@"1230.png", @"1645.jpg", @"1655.jpg", @"1700.jpg", @"1730.jpg", @"1745.jpg", @"1930.jpg", @"2012.jpg", @"2023.jpg", @"2035.jpg", @"2046.jpg", @"2105.jpg", @"2107.jpg", @"2108.jpg", @"2109.jpg", @"2115.jpg", @"2128.jpg", @"2146.jpg", @"2207.jpg", @"2210.jpg", @"2215.jpg", @"2223.jpg", @"2235.jpg", @"2250.jpg", @"2308.jpg", @"2336.jpg", @"2350.jpg", @"2353.jpg", @"0013.jpg", @"0030.jpg", @"0047.jpg", @"0050.jpg"];
 
-    appDelegate.timestamps = @[@"00:50", @"00:47", @"00:30", @"00:13", @"23:53", @"23:50", @"23:36", @"23:08", @"22:50", @"22:35", @"22:23", @"22:15", @"22:10", @"22:07", @"21:46", @"21:28", @"21:15", @"21:09", @"21:08", @"21:07", @"21:05", @"20:46", @"20:35", @"20:23", @"20:12", @"19:30", @"17:45", @"17:30", @"17:00", @"16:55", @"16:45", @"12:30", ];
+    appDelegate.timestamps = @[@"00:50", @"00:47", @"00:30", @"00:13", @"23:53", @"23:50", @"23:36", @"23:08", @"22:50", @"22:35", @"22:23", @"22:15", @"22:10", @"22:07", @"21:46", @"21:28", @"21:15", @"21:09", @"21:08", @"21:07", @"21:05", @"20:46", @"20:35", @"20:23", @"20:12", @"19:30", @"17:45", @"17:30", @"17:00", @"16:55", @"16:45", @"12:30"];
 
 
     appDelegate.images = [[appDelegate.images reverseObjectEnumerator] allObjects];
-    appDelegate.shareImage = [UIImage imageNamed:appDelegate.images[0] ];
+    appDelegate.shareImage = [UIImage imageNamed:appDelegate.images[0]];
 
 
     promotionTitle = @"Tonight's special offer";
@@ -263,7 +275,7 @@
     //AppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
     //[self setHeaderTitle:appDelegate.venueNames[indexPath.item]  andSubtitle:@"subtitle"];
 
-    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"TESTING" message:@"Please select status of venue in relation to thyself." delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"Normal", @"Following", @"Staff", @"Manager", nil];
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"TESTING" message:@"Please select status of venue in relation to thyself." delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"Normal", @"Staff", @"Manager", nil];
     [alert show];
 }
 
@@ -330,14 +342,10 @@
             [self setHeaderTitle:titleHeader andSubtitle:@"Tap to Follow"];
             break;
         case 2:
-            appDelegate.venueStatus = Following;
-            [self setHeaderTitle:titleHeader andSubtitle:@"Following"];
-            break;
-        case 3:
             appDelegate.venueStatus = Staff;
             [self setHeaderTitle:titleHeader andSubtitle:@"Staff"];
             break;
-        case 4:
+        case 3:
             appDelegate.venueStatus = Manager;
             [self setHeaderTitle:titleHeader andSubtitle:@"Manager"];
             break;
