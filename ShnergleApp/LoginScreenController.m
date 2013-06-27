@@ -14,7 +14,6 @@
 
 - (void)viewWillAppear:(BOOL)animated {
     [[self navigationController] setNavigationBarHidden:TRUE];
-    [self updateView];
 }
 
 - (void)viewDidLoad {
@@ -22,8 +21,6 @@
 
     [self.buttonLoginLogout setBackgroundImage:[UIImage imageNamed:@"login-button-small.png"] forState:UIControlStateNormal];
     [self.buttonLoginLogout setBackgroundImage:[UIImage imageNamed:@"login-button-small-pressed.png"] forState:UIControlStateHighlighted];
-
-    [self updateView];
 
     //HideNavBar
     [[self navigationController] setNavigationBarHidden:TRUE];
@@ -61,7 +58,7 @@
          ^(FBRequestConnection *connection,
            NSDictionary<FBGraphUser> *user,
            NSError *error) {
-            if (!error) {
+             if (!error) {
                 appDelegate.fullName = [NSString stringWithFormat:@"%@ %@", user.first_name, user.last_name];
                 appDelegate.facebookId = user.id;
                 appDelegate.email = user[@"email"];
@@ -132,9 +129,11 @@
     } else {
         [self alert];
     }
+    self.buttonLoginLogout.hidden = NO;
 }
 
 - (IBAction)buttonClickHandler:(id)sender {
+    self.buttonLoginLogout.hidden = YES;
     AppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
 
     if (appDelegate.session.state != FBSessionStateCreated) appDelegate.session = [[FBSession alloc] initWithAppID:nil permissions:@[@"email", @"user_birthday"] urlSchemeSuffix:nil tokenCacheStrategy:nil];
