@@ -42,6 +42,16 @@
     _userProfileImage2.layer.borderWidth = 2;
     _userProfileImage1.layer.borderColor = [UIColor colorWithRed:255 green:255 blue:255 alpha:1].CGColor;
     _userProfileImage1.layer.borderWidth = 2;
+    
+    AppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
+    //if (appDelegate.shareImage) _image.image = appDelegate.shareImage;
+    
+    
+    if(appDelegate.saveLocally){
+        [self.saveLocallySwitch setOn:FALSE];
+    }else{
+        [self.saveLocallySwitch setOn:TRUE];
+    }
 }
 
 - (void)viewWillAppear:(BOOL)animated {

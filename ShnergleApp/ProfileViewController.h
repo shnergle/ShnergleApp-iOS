@@ -30,6 +30,8 @@
 @property (weak, nonatomic) IBOutlet UIView *scoutView;
 @property (weak, nonatomic) IBOutlet UIView *shnerglerView;
 @property (weak, nonatomic) IBOutlet UIView *explorerView;
+@property (weak, nonatomic) IBOutlet UISwitch *saveLocallySwitch;
+
 
 - (IBAction)twitterSwitchAction:(id)sender;
 - (IBAction)signOut:(id)sender;
