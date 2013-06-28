@@ -37,7 +37,7 @@
     titleView2.adjustsFontSizeToFitWidth = YES;
     [headerTitleSubtitleView addSubview:titleView2];
 
-    CGRect subtitleFrame = CGRectMake(0, 24, 200, 44 - 24);
+    CGRect subtitleFrame = CGRectMake(0, 24, 200, 20);
     UILabel *subtitleView2 = [[UILabel alloc] initWithFrame:subtitleFrame];
     subtitleView2.backgroundColor = [UIColor clearColor];
     subtitleView2.font = [UIFont fontWithName:@"Roboto-Regular" size:12.0];
@@ -54,14 +54,15 @@
                                                 UIViewAutoresizingFlexibleTopMargin |
                                                 UIViewAutoresizingFlexibleBottomMargin);
 
-#warning UITapGestureRecognizer does not recognize taps
     UITapGestureRecognizer *tapGestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapToFollow)];
     [headerTitleSubtitleView addGestureRecognizer:tapGestureRecognizer];
 
     self.navigationItem.titleView = headerTitleSubtitleView;
+    self.navigationItem.titleView.userInteractionEnabled = YES;
 }
 
 - (void)tapToFollow {
+    following = !following;
     if (following) {
         [self setHeaderTitle:titleHeader andSubtitle:@"Following"];
     } else {
