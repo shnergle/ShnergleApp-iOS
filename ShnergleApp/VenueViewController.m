@@ -54,14 +54,15 @@
                                                 UIViewAutoresizingFlexibleTopMargin |
                                                 UIViewAutoresizingFlexibleBottomMargin);
 
-#warning UITapGestureRecognizer does not recognize taps
     UITapGestureRecognizer *tapGestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapToFollow)];
     [headerTitleSubtitleView addGestureRecognizer:tapGestureRecognizer];
 
     self.navigationItem.titleView = headerTitleSubtitleView;
+    self.navigationItem.titleView.userInteractionEnabled = YES;
 }
 
 - (void)tapToFollow {
+    following = !following;
     if (following) {
         [self setHeaderTitle:titleHeader andSubtitle:@"Following"];
     } else {
