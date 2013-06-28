@@ -46,6 +46,17 @@ typedef enum {
 }
 
 - (void)addVenue {
+    AppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
+    if(appDelegate.addVenueType)
+        _userData[Category+1] = appDelegate.addVenueType;
+    
+    if(_workSwitch.on){
+        [_userData addObjectsFromArray:appDelegate.venueDetailsContent];
+        NSLog(@"its on#");
+    }
+    for(id obj in _userData){
+        NSLog(@"%@",obj);
+    }
 }
 
 - (void)didReceiveMemoryWarning {
@@ -66,21 +77,22 @@ typedef enum {
      */
 
     UITextField *textField = (UITextField *)[cell viewWithTag:indexPath.row + 1];
-    if (!textField) {
+    
+    if (indexPath.row == Name) {
+        if (!textField) {
         textField = [[UITextField alloc] initWithFrame:CGRectMake(110, 10, 185, 30)];
         textField.tag = indexPath.row + 1;
         textField.delegate = self;
     }
 
-    if (indexPath.row == Name) {
         textField.placeholder = @"(Required)";
         [cell.contentView addSubview:textField];
     } else if (indexPath.row == Category) {
-        UILabel *label = (UILabel *)[cell viewWithTag:indexPath.row + 10];
+        UILabel *label = (UILabel *)[cell viewWithTag:indexPath.row + 1];
         if (!label) {
             label = [[UILabel alloc] initWithFrame:CGRectMake(110, 6, 185, 30)];
             label.text = @"(Required)";
-            label.tag = indexPath.row + 10;
+            label.tag = indexPath.row + 1;
             label.textColor = [UIColor lightGrayColor];
             label.backgroundColor = [UIColor clearColor];
             [cell.contentView addSubview:label];
@@ -88,18 +100,48 @@ typedef enum {
             secondCell = cell;
         }
     } else if (indexPath.row == Address1) {
+        if (!textField) {
+        textField = [[UITextField alloc] initWithFrame:CGRectMake(110, 10, 185, 30)];
+        textField.tag = indexPath.row + 1;
+        textField.delegate = self;
+    }
+
         textField.placeholder = @"(Optional)";
         [cell.contentView addSubview:textField];
     } else if (indexPath.row == Address2) {
+        if (!textField) {
+        textField = [[UITextField alloc] initWithFrame:CGRectMake(110, 10, 185, 30)];
+        textField.tag = indexPath.row + 1;
+        textField.delegate = self;
+    }
+
         textField.placeholder = @"(Optional)";
         [cell.contentView addSubview:textField];
     } else if (indexPath.row == City) {
+        if (!textField) {
+        textField = [[UITextField alloc] initWithFrame:CGRectMake(110, 10, 185, 30)];
+        textField.tag = indexPath.row + 1;
+        textField.delegate = self;
+    }
+
         textField.placeholder = @"(Optional)";
         [cell.contentView addSubview:textField];
     } else if (indexPath.row == Postcode) {
+        if (!textField) {
+        textField = [[UITextField alloc] initWithFrame:CGRectMake(110, 10, 185, 30)];
+        textField.tag = indexPath.row + 1;
+        textField.delegate = self;
+    }
+
         textField.placeholder = @"(Optional)";
         [cell.contentView addSubview:textField];
     } else if (indexPath.row == WorkHere) {
+        if (!textField) {
+        textField = [[UITextField alloc] initWithFrame:CGRectMake(110, 10, 185, 30)];
+        textField.tag = indexPath.row + 1;
+        textField.delegate = self;
+    }
+
         UISwitch *workSwitch = [[UISwitch alloc] initWithFrame:CGRectMake(210, 8, 50, 30)];
         [workSwitch addTarget:self action:@selector(segwayToWork) forControlEvents:UIControlEventValueChanged];
         [cell.contentView addSubview:workSwitch];
@@ -110,8 +152,8 @@ typedef enum {
 
     if (![(self.userData)[indexPath.row] isEqualToString : @""]) {
         //NSLog(@"%@ at indexPath.row %d",[self.userData objectAtIndex:indexPath.row], indexPath.row);
-        textField.placeholder = nil;
-        textField.text = (self.userData)[indexPath.row];
+        //textField.placeholder = nil;
+        //textField.text = (self.userData)[indexPath.row];
     }
     return cell;
 }
@@ -136,11 +178,14 @@ typedef enum {
     [self initMap];
 }
 
-- (BOOL)textFieldShouldReturn:(UITextField *)textField {
+- (BOOL)textFieldShouldReturn:(UITextField *)textField
+{
     [textField resignFirstResponder];
     self.userData[textField.tag] = textField.text;
+
     return YES;
 }
+
 
 - (void)segwayToWork {
     if (_workSwitch.on == YES) {
@@ -188,7 +233,7 @@ typedef enum {
     }
 }
 
-- (void)       mapView:(GMSMapView *)mapView
+- (void)mapView:(GMSMapView *)mapView
     didTapAtCoordinate:(CLLocationCoordinate2D)coordinate {
     [mapView clear];
     CLLocationCoordinate2D position = CLLocationCoordinate2DMake(coordinate.latitude, coordinate.longitude);

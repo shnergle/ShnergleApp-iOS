@@ -41,6 +41,7 @@
 @property (strong, nonatomic) NSString *topViewType;
 
 @property (strong, nonatomic) NSString *addVenueType;
+@property (strong, nonatomic) NSMutableArray *venueDetailsContent;
 
 @property (strong, nonatomic) NSMutableArray *searchResults;
 
