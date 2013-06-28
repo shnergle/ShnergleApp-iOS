@@ -37,7 +37,7 @@
     titleView2.adjustsFontSizeToFitWidth = YES;
     [headerTitleSubtitleView addSubview:titleView2];
 
-    CGRect subtitleFrame = CGRectMake(0, 24, 200, 44 - 24);
+    CGRect subtitleFrame = CGRectMake(0, 24, 200, 20);
     UILabel *subtitleView2 = [[UILabel alloc] initWithFrame:subtitleFrame];
     subtitleView2.backgroundColor = [UIColor clearColor];
     subtitleView2.font = [UIFont fontWithName:@"Roboto-Regular" size:12.0];
