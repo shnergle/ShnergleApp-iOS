@@ -9,6 +9,8 @@
 #import "ImageCache.h"
 #import "PostRequest.h"
 
+static NSCache *cache;
+
 @implementation ImageCache
 
 - (id)init {

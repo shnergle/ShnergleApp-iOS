@@ -12,7 +12,6 @@
 @interface ImageCache : NSObject {
     id responseObject;
     SEL responseCallback;
-    NSCache *cache;
     NSString *key;
     CrowdItem *item;
 }
