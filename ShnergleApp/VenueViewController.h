@@ -27,6 +27,9 @@
     NSString *titleHeader;
 
     BOOL following;
+    
+    double venueLat;
+    double venueLon;
 }
 - (void)setVenue:(NSDictionary *)venue;
 - (void)viewDidAppear:(BOOL)animated;

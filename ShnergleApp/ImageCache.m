@@ -8,7 +8,7 @@
 
 #import "ImageCache.h"
 #import "PostRequest.h"
-
+#import "AppDelegate.h"
 static NSCache *cache;
 
 @implementation ImageCache
@@ -24,12 +24,13 @@ static NSCache *cache;
 - (void)get:(NSString *)type identifier:(NSString *)type_id delegate:(id)object callback:(SEL)cb {
     responseObject = object;
     responseCallback = cb;
+    AppDelegate *appDelegate = [[UIApplication sharedApplication]delegate];
     key = [NSString stringWithFormat:@"%@/%@", type, type_id];
     if ([cache objectForKey:key] != NULL) {
         [self received:[cache objectForKey:key]];
     } else {
         NSString *path = @"images/get";
-        NSString *params = [NSString stringWithFormat:@"entity=%@&entity_id=%@", type, type_id];
+        NSString *params = [NSString stringWithFormat:@"entity=%@&entity_id=%@&facebook_id=%@", type, type_id,appDelegate.facebookId];
         [[[PostRequest alloc] init] exec:path params:params delegate:self callback:@selector(received:) type:@"image"];
     }
 }
