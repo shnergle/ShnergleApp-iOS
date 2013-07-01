@@ -8,6 +8,9 @@
 
 #import "AddVenueViewController.h"
 #import "AppDelegate.h"
+#import "PostRequest.h"
+#import <MapKit/MapKit.h>
+#import <Toast+UIView.h>
 
 @interface AddVenueViewController ()
 
@@ -23,7 +26,6 @@ typedef enum {
     WorkHere
 } Field;
 
-#define TextFieldTag 2
 
 @implementation AddVenueViewController
 
@@ -46,6 +48,7 @@ typedef enum {
 }
 
 - (void)addVenue {
+    [self.view makeToastActivity];
     AppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
     if(appDelegate.addVenueType)
         _userData[Category+1] = appDelegate.addVenueType;
@@ -57,11 +60,98 @@ typedef enum {
     for(id obj in _userData){
         NSLog(@"%@",obj);
     }
+    
+    
+    
+    NSMutableString *params = [[NSMutableString alloc]initWithString:@"facebook_id="];
+    [params appendString:appDelegate.facebookId];
+    [params appendString:@"&name="];
+    [params appendString:_userData[1]];
+#warning "category id hard coded to 1"
+    [params appendString:@"&category_id=1"];
+    [params appendString:@"&address="];
+    
+    
+    [[[CLGeocoder alloc]init] reverseGeocodeLocation:[[CLLocation alloc]initWithLatitude:marker.position.latitude longitude:marker.position.longitude] completionHandler:^(NSArray *placemark, NSError *error)
+     {
+         NSString *country;
+         if(error){
+             country = @"--";
+         } else {
+             country = [((CLPlacemark *) placemark.firstObject).ISOcountryCode lowercaseString];
+         }
+         
+         NSMutableString *params = [[NSMutableString alloc]initWithString:@"facebook_id="];
+         [params appendString:appDelegate.facebookId];
+         [params appendString:@"&name="];
+         [params appendString:_userData[1]];
+#warning "category id hard coded to 1"
+         [params appendString:@"&category_id=1"];
+         [params appendString:@"&address="];
+         [params appendString:[NSString stringWithFormat:@"%@, %@, %@, %@", _userData[3],_userData[4],_userData[5], _userData[6]]];
+#warning "country code hard coded to gb"
+         [params appendString:@"&country="];
+         [params appendString:country];
+         if(appDelegate.venueDetailsContent){
+         if(appDelegate.venueDetailsContent[0]){
+             [params appendString:@"&phone="];
+             [params appendString:appDelegate.venueDetailsContent[0]];
+         }
+         if(appDelegate.venueDetailsContent[1]){
+             [params appendString:@"&email="];
+             [params appendString:appDelegate.venueDetailsContent[1]];
+
+         }
+         if(appDelegate.venueDetailsContent[2]){
+             [params appendString:@"&website="];
+             [params appendString:appDelegate.venueDetailsContent[2]];
+
+         }
+         }
+         [params appendString:@"&lat="];
+         [params appendFormat:@"%f",marker.position.latitude];
+         [params appendString:@"&lon="];
+         [params appendFormat:@"%f",marker.position.longitude];
+         [params appendString:@"&timezone=0"];
+         
+         NSLog(@"%@",_userData);
+         NSLog(@"----------\n\n\n%@",appDelegate.venueDetailsContent);
+         NSLog(@"%@",params);
+         
+         
+         
+         
+         [[[PostRequest alloc]init]exec:@"venues/set" params:params delegate:self callback:@selector(didFinishAddingVenue:) type:@"string"];
+     } ] ;
+    
+    
+}
+
+-(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+-(void)didFinishAddingVenue: (NSString *)response
+{
+    [self.view hideToastActivity];
+
+    
+    if([response isEqual:@"true"]){
+        
+    }else{
+        NSLog(@"%@",response);
+        UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"Uh-oh.. Something went wrong.." message:nil delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
+        [alert show];
+    }
+    
+    [self.navigationController popViewControllerAnimated:YES];
+    
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -178,12 +268,11 @@ typedef enum {
     [self initMap];
 }
 
-- (BOOL)textFieldShouldReturn:(UITextField *)textField
+- (void)textFieldDidEndEditing:(UITextField *)textField
 {
     [textField resignFirstResponder];
     self.userData[textField.tag] = textField.text;
-
-    return YES;
+    NSLog(@"%@ is added to [%d]",textField.text,textField.tag);
 }
 
 
@@ -237,7 +326,7 @@ typedef enum {
     didTapAtCoordinate:(CLLocationCoordinate2D)coordinate {
     [mapView clear];
     CLLocationCoordinate2D position = CLLocationCoordinate2DMake(coordinate.latitude, coordinate.longitude);
-    GMSMarker *marker = [GMSMarker markerWithPosition:position];
+    marker = [GMSMarker markerWithPosition:position];
     marker.title = @"Selected venue location";
     marker.map = mapView;
 }
