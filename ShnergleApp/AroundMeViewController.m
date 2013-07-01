@@ -199,7 +199,7 @@
     //[[[PostRequest alloc]init]exec:@"images/get" params:[NSString stringWithFormat:@"entity=post&entity_id=0&facebook_id=%@",appDelegate.facebookId] delegate:self callback:@selector(didFinishDownloadingImages:forItem:) type:@"image" item:item];
     [[[ImageCache alloc]init]get:@"post" identifier:@"0" delegate:self callback:@selector(didFinishDownloadingImages:forItem:) item:item];
 
-    [[item venueName] setText:((NSDictionary *)appDelegate.aroundVenues[indexPath.item])[@"name"]];
+    [[item venueName] setText:appDelegate.aroundVenues[indexPath.item][@"name"]];
 
     item.venueName.font = [UIFont fontWithName:@"Roboto" size:11.0f];
 
@@ -222,7 +222,7 @@
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     AppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
     if ([segue.identifier isEqualToString:@"ToVenueSite"]) {
-        [(VenueViewController *)segue.destinationViewController setVenue : ((NSDictionary *)appDelegate.aroundVenues[selectedVenue])];
+        [(VenueViewController *)segue.destinationViewController setVenue : appDelegate.aroundVenues[selectedVenue]];
     }
 }
 
