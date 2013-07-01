@@ -197,7 +197,7 @@
      */
     /* Here we can set the elements of the crowdItem (the cell) in the cellview */
     AppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
-    [[[PostRequest alloc]init]exec:@"images/get" params:[NSString stringWithFormat:@"entity=post&entity_id=1&facebook_id=%@",appDelegate.facebookId] delegate:self callback:@selector(didFinishDownloadingImages:forItem:) type:@"image" item:item];
+    [[[PostRequest alloc]init]exec:@"images/get" params:[NSString stringWithFormat:@"entity=post&entity_id=0&facebook_id=%@",appDelegate.facebookId] delegate:self callback:@selector(didFinishDownloadingImages:forItem:) type:@"image" item:item];
 
     [[item venueName] setText:((NSDictionary *)appDelegate.aroundVenues[indexPath.item])[@"name"]];
 
@@ -217,6 +217,7 @@
 
 -(void)didFinishDownloadingImages:(UIImage *) response forItem:(CrowdItem *)item{
     [[item crowdImage] setImage:response];
+    NSLog(@"%@,  %@",item,response);
 
 }
 
