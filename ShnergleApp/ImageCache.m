@@ -9,13 +9,14 @@
 #import "ImageCache.h"
 #import "PostRequest.h"
 #import "AppDelegate.h"
+
 static NSCache *cache;
 
 @implementation ImageCache
 
 - (id)init {
     self = [super init];
-    if (self != nil) {
+    if (self != nil && cache != nil) {
         cache = [[NSCache alloc] init];
     }
     return self;
@@ -26,7 +27,7 @@ static NSCache *cache;
     responseCallback = cb;
     AppDelegate *appDelegate = [[UIApplication sharedApplication]delegate];
     key = [NSString stringWithFormat:@"%@/%@", type, type_id];
-    if ([cache objectForKey:key] != NULL) {
+    if ([cache objectForKey:key] != nil) {
         [self received:[cache objectForKey:key]];
     } else {
         NSString *path = @"images/get";
@@ -41,7 +42,7 @@ static NSCache *cache;
 }
 
 - (void)received:(UIImage *)response {
-    if ([cache objectForKey:key] == NULL) {
+    if ([cache objectForKey:key] == nil) {
         [cache setObject:response forKey:key];
     }
     NSMethodSignature *methodSig = [[responseObject class] instanceMethodSignatureForSelector:responseCallback];
