@@ -7,16 +7,22 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "CrowdItem.h"
 
 @interface PostRequest : NSObject <NSURLConnectionDelegate> {
     NSMutableData *response;
     id responseObject;
     SEL responseCallback;
     NSString *responseType;
+    CrowdItem *item;
 }
 
 - (BOOL)exec:(NSString *)path params:(NSString *)params delegate:(id)object callback:(SEL)cb;
 
 - (BOOL)exec:(NSString *)path params:(NSString *)params delegate:(id)object callback:(SEL)cb type:(NSString *)type;
+
+- (BOOL)exec:(NSString *)path params:(NSString *)params delegate:(id)object callback:(SEL)cb item:(CrowdItem *)tItem;
+
+- (BOOL)exec:(NSString *)path params:(NSString *)params delegate:(id)object callback:(SEL)cb type:(NSString *)type item:(CrowdItem *)tItem;
 
 @end
