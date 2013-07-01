@@ -19,7 +19,7 @@
     return self;
 }
 
-- (void)get:(NSString *)type id:(NSString *)type_id delegate:(id)object callback:(SEL)cb {
+- (void)get:(NSString *)type identifier:(NSString *)type_id delegate:(id)object callback:(SEL)cb {
     responseObject = object;
     responseCallback = cb;
     key = [NSString stringWithFormat:@"%@/%@", type, type_id];
@@ -32,6 +32,11 @@
     }
 }
 
+- (void)get:(NSString *)type identifier:(NSString *)type_id delegate:(id)object callback:(SEL)cb item:(CrowdItem *)tItem {
+    item = tItem;
+    [self get:type identifier:type_id delegate:object callback:cb];
+}
+
 - (void)received:(UIImage *)response {
     if ([cache objectForKey:key] == NULL) {
         [cache setObject:response forKey:key];
@@ -40,6 +45,7 @@
     NSInvocation *invocation = [NSInvocation invocationWithMethodSignature:methodSig];
     [invocation setSelector:responseCallback];
     [invocation setArgument:&response atIndex:2];
+    if (item) [invocation setArgument:&item atIndex:3];
     [invocation setTarget:responseObject];
     [invocation retainArguments];
     [invocation invoke];

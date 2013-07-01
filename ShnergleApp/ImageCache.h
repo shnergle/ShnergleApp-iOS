@@ -7,14 +7,18 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "CrowdItem.h"
 
 @interface ImageCache : NSObject {
     id responseObject;
     SEL responseCallback;
     NSCache *cache;
     NSString *key;
+    CrowdItem *item;
 }
 
-- (void)get:(NSString *)type id:(NSString *)type_id delegate:(id)object callback:(SEL)cb;
+- (void)get:(NSString *)type identifier:(NSString *)type_id delegate:(id)object callback:(SEL)cb;
+
+- (void)get:(NSString *)type identifier:(NSString *)type_id delegate:(id)object callback:(SEL)cb item:(CrowdItem *)tItem;
 
 @end
