@@ -74,7 +74,7 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     AppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
-    appDelegate.addVenueType = categories[indexPath.row][1];
+    appDelegate.addVenueType = categories[indexPath.row][@"type"];
     [self goBack];
 }
 

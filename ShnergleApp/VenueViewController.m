@@ -15,8 +15,8 @@
 @implementation VenueViewController
 
 
-- (void)setTitle:(NSString *)title {
-    titleHeader = title;
+- (void)setVenue:(NSDictionary *)venue {
+    titleHeader = venue[@"name"];
 }
 
 - (void)setHeaderTitle:(NSString *)headerTitle andSubtitle:(NSString *)headerSubtitle {

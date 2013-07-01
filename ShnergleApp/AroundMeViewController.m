@@ -13,6 +13,7 @@
 #import "AppDelegate.h"
 #import <Toast+UIView.h>
 #import "PostRequest.h"
+#import "VenueViewController.h"
 
 @implementation AroundMeViewController
 
@@ -196,8 +197,9 @@
      */
     /* Here we can set the elements of the crowdItem (the cell) in the cellview */
     AppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
-    [[item crowdImage] setImage:[UIImage imageNamed:appDelegate.aroundImages[indexPath.item]]];
-    [[item venueName] setText:appDelegate.aroundVenues[indexPath.item][@"name"]];
+    [[[PostRequest alloc]init]exec:@"images/get" params:[NSString stringWithFormat:@"entity=post&entity_id=1&facebook_id=%@",appDelegate.facebookId] delegate:self callback:@selector(didFinishDownloadingImages:forItem:) type:@"image" item:item];
+
+    [[item venueName] setText:((NSDictionary *)appDelegate.aroundVenues[indexPath.item])[@"name"]];
 
     item.venueName.font = [UIFont fontWithName:@"Roboto" size:11.0f];
 
@@ -213,10 +215,15 @@
     return item;
 }
 
+-(void)didFinishDownloadingImages:(UIImage *) response forItem:(CrowdItem *)item{
+    [[item crowdImage] setImage:response];
+
+}
+
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     AppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
     if ([segue.identifier isEqualToString:@"ToVenueSite"]) {
-        [segue.destinationViewController setTitle:appDelegate.aroundVenues[selectedVenue][@"name"]];
+        [(VenueViewController *)segue.destinationViewController setVenue:((NSDictionary *)appDelegate.aroundVenues[selectedVenue])];
     }
 }
 
