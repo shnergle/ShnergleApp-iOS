@@ -55,22 +55,7 @@ typedef enum {
     
     if(_workSwitch.on){
         [_userData addObjectsFromArray:appDelegate.venueDetailsContent];
-        NSLog(@"its on#");
     }
-    for(id obj in _userData){
-        NSLog(@"%@",obj);
-    }
-    
-    
-    
-    NSMutableString *params = [[NSMutableString alloc]initWithString:@"facebook_id="];
-    [params appendString:appDelegate.facebookId];
-    [params appendString:@"&name="];
-    [params appendString:_userData[1]];
-#warning "category id hard coded to 1"
-    [params appendString:@"&category_id=1"];
-    [params appendString:@"&address="];
-    
     
     [[[CLGeocoder alloc]init] reverseGeocodeLocation:[[CLLocation alloc]initWithLatitude:marker.position.latitude longitude:marker.position.longitude] completionHandler:^(NSArray *placemark, NSError *error)
      {
@@ -89,7 +74,6 @@ typedef enum {
          [params appendString:@"&category_id=1"];
          [params appendString:@"&address="];
          [params appendString:[NSString stringWithFormat:@"%@, %@, %@, %@", _userData[3],_userData[4],_userData[5], _userData[6]]];
-#warning "country code hard coded to gb"
          [params appendString:@"&country="];
          [params appendString:country];
          if(appDelegate.venueDetailsContent){
@@ -113,13 +97,6 @@ typedef enum {
          [params appendString:@"&lon="];
          [params appendFormat:@"%f",marker.position.longitude];
          [params appendString:@"&timezone=0"];
-         
-         NSLog(@"%@",_userData);
-         NSLog(@"----------\n\n\n%@",appDelegate.venueDetailsContent);
-         NSLog(@"%@",params);
-         
-         
-         
          
          [[[PostRequest alloc]init]exec:@"venues/set" params:params delegate:self callback:@selector(didFinishAddingVenue:) type:@"string"];
      } ] ;
