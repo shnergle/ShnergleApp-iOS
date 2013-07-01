@@ -121,7 +121,6 @@
 }
 
 -(void)didFinishLoadingVenues:(NSArray *)response{
-    NSLog(@"%@",response);
     AppDelegate *appDelegate = [[UIApplication sharedApplication]delegate];
     appDelegate.aroundVenues = response;
     [self.crowdCollection reloadData];
@@ -219,7 +218,6 @@
 
 -(void)didFinishDownloadingImages:(UIImage *) response forItem:(CrowdItem *)item{
     [[item crowdImage] setImage:response];
-    NSLog(@"%@,  %@",item,response);
 
 }
 
@@ -256,7 +254,6 @@
 
 - (void)hideDistanceScroller {
     if (self.distanceScrollerView.frame.origin.y > -64) {
-        NSLog(@"y bounds value:%f", self.distanceScrollerView.bounds.origin.y);
         [[self distanceScrollerView]hideAnimated:44 animationDuration:0.8 targetSize:-64 contentView:[self distanceScrollerView]];
     }
 }

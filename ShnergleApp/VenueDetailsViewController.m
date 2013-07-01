@@ -78,7 +78,6 @@
 {
     AppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
     appDelegate.venueDetailsContent[textField.tag] = textField.text;
-    NSLog(@"End editing. Added '%@' to [%d]",textField.text,textField.tag);
 }
 
 

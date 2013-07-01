@@ -55,7 +55,6 @@
         id jsonObjects = [jsonParser objectWithString:string];
         responseArg = jsonObjects;
     }
-    NSLog(@"\n\n\n\n%@\n\n\n\n",responseArg);
     NSMethodSignature *methodSig = [[responseObject class] instanceMethodSignatureForSelector:responseCallback];
     NSInvocation *invocation = [NSInvocation invocationWithMethodSignature:methodSig];
     [invocation setSelector:responseCallback];

@@ -18,7 +18,7 @@
 - (void)setVenue:(NSDictionary *)venue {
     titleHeader = venue[@"name"];
     venueLat = [(NSNumber *)venue[@"lat"] doubleValue];
-    venueLat = [(NSNumber *) venue[@"lon"] doubleValue];
+    venueLon = [(NSNumber *) venue[@"lon"] doubleValue];
 }
 
 - (void)setHeaderTitle:(NSString *)headerTitle andSubtitle:(NSString *)headerSubtitle {
