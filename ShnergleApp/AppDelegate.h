@@ -33,8 +33,7 @@
 @property (strong, nonatomic) NSArray *timestamps;
 @property (strong, nonatomic) NSArray *venueNames;
 @property (strong, nonatomic) NSArray *aroundImages;
-@property (strong, nonatomic) NSArray *aroundVenueNames;
-
+@property (strong, nonatomic) NSArray *aroundVenues;
 
 @property (strong, nonatomic) UIImage *shareImage;
 
