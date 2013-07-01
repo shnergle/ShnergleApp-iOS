@@ -175,7 +175,7 @@
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
     AppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
-    return [appDelegate.aroundVenues count];
+    return appDelegate.aroundVenues ? [appDelegate.aroundVenues count] : 0;
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
