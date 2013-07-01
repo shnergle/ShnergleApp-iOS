@@ -31,6 +31,16 @@
     return !![[NSURLConnection alloc] initWithRequest:urlRequest delegate:self];
 }
 
+- (BOOL)exec:(NSString *)path params:(NSString *)params delegate:(id)object callback:(SEL)cb item:(CrowdItem *)tItem {
+    item = tItem;
+    return [self exec:path params:params delegate:object callback:cb];
+}
+
+- (BOOL)exec:(NSString *)path params:(NSString *)params delegate:(id)object callback:(SEL)cb type:(NSString *)type item:(CrowdItem *)tItem {
+    item = tItem;
+    return [self exec:path params:params delegate:object callback:cb type:type];
+}
+
 - (void)connection:(NSURLConnection *)connection didReceiveData:(NSData *)data {
     [response appendData:data];
 }
@@ -49,6 +59,7 @@
     NSInvocation *invocation = [NSInvocation invocationWithMethodSignature:methodSig];
     [invocation setSelector:responseCallback];
     [invocation setArgument:&responseArg atIndex:2];
+    if (item) [invocation setArgument:&item atIndex:3];
     [invocation setTarget:responseObject];
     [invocation retainArguments];
     [invocation invoke];
