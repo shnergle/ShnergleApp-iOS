@@ -70,8 +70,8 @@ typedef enum {
          [params appendString:appDelegate.facebookId];
          [params appendString:@"&name="];
          [params appendString:_userData[1]];
-#warning "category id hard coded to 1"
-         [params appendString:@"&category_id=1"];
+         [params appendString:@"&category_id="];
+         [params appendString:appDelegate.addVenueTypeId];
          [params appendString:@"&address="];
          [params appendString:[NSString stringWithFormat:@"%@, %@, %@, %@", _userData[3],_userData[4],_userData[5], _userData[6]]];
          [params appendString:@"&country="];
