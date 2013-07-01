@@ -18,7 +18,7 @@
 - (void)setVenue:(NSDictionary *)venue {
     titleHeader = venue[@"name"];
     venueLat = [(NSNumber *)venue[@"lat"] doubleValue];
-    venueLon = [(NSNumber *) venue[@"lon"] doubleValue];
+    venueLon = [(NSNumber *)venue[@"lon"] doubleValue];
 }
 
 - (void)setHeaderTitle:(NSString *)headerTitle andSubtitle:(NSString *)headerSubtitle {
@@ -102,7 +102,7 @@
     promotionBody = @"3-4-2 on tequila doubles!!";
 
     [self displayTextView];
-    
+
     [self configureMapWithLat:venueLat longitude:venueLon];
 }
 
@@ -303,7 +303,6 @@
                              animated:NO];
 
     [self setPromoContentTo:promotionBody promoHeadline:promotionTitle promoExpiry:promotionExpiry];
-    
 }
 
 - (void)viewDidDisappear:(BOOL)animated {

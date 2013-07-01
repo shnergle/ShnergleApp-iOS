@@ -31,7 +31,7 @@ static NSCache *cache;
         [self received:[cache objectForKey:key]];
     } else {
         NSString *path = @"images/get";
-        NSString *params = [NSString stringWithFormat:@"entity=%@&entity_id=%@&facebook_id=%@", type, type_id,appDelegate.facebookId];
+        NSString *params = [NSString stringWithFormat:@"entity=%@&entity_id=%@&facebook_id=%@", type, type_id, appDelegate.facebookId];
         [[[PostRequest alloc] init] exec:path params:params delegate:self callback:@selector(received:) type:@"image"];
     }
 }

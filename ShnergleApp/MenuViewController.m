@@ -166,14 +166,14 @@
 }
 
 - (BOOL)textFieldShouldReturn:(UITextField *)textField {
-    if(textField.text.length > 1){
-    AppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
-    NSString *params = [NSString stringWithFormat:@"term=%@&facebook_id=%@", _bar.text, appDelegate.facebookId];
-    [[[PostRequest alloc] init] exec:@"user_searches/set" params:params delegate:self callback:@selector(searchRegistered:)];
-    [[[PostRequest alloc] init] exec:@"venues/get" params:params delegate:self callback:@selector(postResponse:)];
-    [textField resignFirstResponder];
-    [self.searchResultsView show];
-    [self toggleCancelButton:true];
+    if (textField.text.length > 1) {
+        AppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
+        NSString *params = [NSString stringWithFormat:@"term=%@&facebook_id=%@", _bar.text, appDelegate.facebookId];
+        [[[PostRequest alloc] init] exec:@"user_searches/set" params:params delegate:self callback:@selector(searchRegistered:)];
+        [[[PostRequest alloc] init] exec:@"venues/get" params:params delegate:self callback:@selector(postResponse:)];
+        [textField resignFirstResponder];
+        [self.searchResultsView show];
+        [self toggleCancelButton:true];
     }
     return YES;
 }

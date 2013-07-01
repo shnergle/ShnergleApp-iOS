@@ -100,27 +100,26 @@
 
     AppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
     appDelegate.aroundImages = @[@"112779_f520.jpg", @"fitnessfirst.jpg", @"2250.jpg", @"19.jpg", @"14.jpg", @"3149513443_970d5b7d66.jpg", @"29.jpg", @"1Shoreditch-Grind-Bar-Old-Street_jpg.jpg", @"2012-08-29T14-58-01_15.jpg", @"14fds.jpg"];
-    
+
 
     loading = YES;
-    
+
 
     //[NSThread detachNewThreadSelector:@selector(makeRequest) toTarget:self withObject:nil];
     [self makeRequest];
     crowdImagesHidden = NO;
     dropDownHidden = YES;
 
-    
+
     [self menuButtonDecorations];
 }
 
--(void)makeRequest
-{
+- (void)makeRequest {
     AppDelegate *appDelegate = [[UIApplication sharedApplication]delegate];
-        [[[PostRequest alloc] init]exec:@"venues/get" params:[NSString stringWithFormat:@"facebook_id=%@",appDelegate.facebookId] delegate:self callback:@selector(didFinishLoadingVenues:)];
+    [[[PostRequest alloc] init]exec:@"venues/get" params:[NSString stringWithFormat:@"facebook_id=%@", appDelegate.facebookId] delegate:self callback:@selector(didFinishLoadingVenues:)];
 }
 
--(void)didFinishLoadingVenues:(NSArray *)response{
+- (void)didFinishLoadingVenues:(NSArray *)response {
     AppDelegate *appDelegate = [[UIApplication sharedApplication]delegate];
     appDelegate.aroundVenues = response;
     [self.crowdCollection reloadData];
@@ -199,7 +198,7 @@
     AppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
     //[[[PostRequest alloc]init]exec:@"images/get" params:[NSString stringWithFormat:@"entity=post&entity_id=0&facebook_id=%@",appDelegate.facebookId] delegate:self callback:@selector(didFinishDownloadingImages:forItem:) type:@"image" item:item];
     [[[ImageCache alloc]init]get:@"post" identifier:@"0" delegate:self callback:@selector(didFinishDownloadingImages:forItem:) item:item];
-    
+
     [[item venueName] setText:((NSDictionary *)appDelegate.aroundVenues[indexPath.item])[@"name"]];
 
     item.venueName.font = [UIFont fontWithName:@"Roboto" size:11.0f];
@@ -216,23 +215,21 @@
     return item;
 }
 
--(void)didFinishDownloadingImages:(UIImage *) response forItem:(CrowdItem *)item{
+- (void)didFinishDownloadingImages:(UIImage *)response forItem:(CrowdItem *)item {
     [[item crowdImage] setImage:response];
-
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     AppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
     if ([segue.identifier isEqualToString:@"ToVenueSite"]) {
-        [(VenueViewController *)segue.destinationViewController setVenue:((NSDictionary *)appDelegate.aroundVenues[selectedVenue])];
+        [(VenueViewController *)segue.destinationViewController setVenue : ((NSDictionary *)appDelegate.aroundVenues[selectedVenue])];
     }
 }
 
-- (void)collectionView:(UICollectionView *)collectionView
+- (void)         collectionView:(UICollectionView *)collectionView
     didHighlightItemAtIndexPath:(NSIndexPath *)indexPath {
     selectedVenue = indexPath.row;
     [self.view makeToastActivity];
-
 }
 
 - (void)showOverlay {
@@ -359,10 +356,8 @@
     _mapView = nil;
 }
 
--(void)viewDidDisappear:(BOOL)animated
-{
+- (void)viewDidDisappear:(BOOL)animated {
     [self.view hideToastActivity];
-
 }
 
 @end

@@ -68,19 +68,15 @@
     return cell;
 }
 
--(BOOL)textFieldShouldReturn:(UITextField *)textField
-{
+- (BOOL)textFieldShouldReturn:(UITextField *)textField {
     [textField resignFirstResponder];
     return YES;
 }
 
--(void)textFieldDidEndEditing:(UITextField *)textField
-{
+- (void)textFieldDidEndEditing:(UITextField *)textField {
     AppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
     appDelegate.venueDetailsContent[textField.tag] = textField.text;
 }
-
-
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

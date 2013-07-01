@@ -58,7 +58,7 @@
          ^(FBRequestConnection *connection,
            NSDictionary<FBGraphUser> *user,
            NSError *error) {
-             if (!error) {
+            if (!error) {
                 appDelegate.fullName = [NSString stringWithFormat:@"%@ %@", user.first_name, user.last_name];
                 appDelegate.facebookId = user.id;
                 appDelegate.email = user[@"email"];
@@ -121,8 +121,8 @@
 - (void)getResponse:(id)response {
     AppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
     if (response) {
-        if (![((NSDictionary *)response)[@"twitter"] isEqual:@""]) appDelegate.twitter = ((NSDictionary *)response)[@"twitter"];
-        if ([((NSDictionary *)response)[@"save_locally"] isEqual:@1]) appDelegate.saveLocally = YES;
+        if (![((NSDictionary *)response)[@"twitter"] isEqual : @""]) appDelegate.twitter = ((NSDictionary *)response)[@"twitter"];
+        if ([((NSDictionary *)response)[@"save_locally"] isEqual : @1]) appDelegate.saveLocally = YES;
         else appDelegate.saveLocally = NO;
         UIViewController *vc = [self.storyboard instantiateViewControllerWithIdentifier:@"AroundMeSlidingViewController"];
         [self.navigationController pushViewController:vc animated:YES];

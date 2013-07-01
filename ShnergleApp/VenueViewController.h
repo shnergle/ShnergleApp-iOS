@@ -27,7 +27,7 @@
     NSString *titleHeader;
 
     BOOL following;
-    
+
     double venueLat;
     double venueLon;
 }
