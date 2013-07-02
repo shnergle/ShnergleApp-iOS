@@ -54,8 +54,26 @@
 }
 
 - (void)uploadToServer {
+    
+    //Create post
+    //upload image using id from post (not now)
+    //register in the "shared" db if shared on facebook
     AppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
-    [[[PostRequest alloc] init] exec:@"images/set" params:[NSString stringWithFormat:@"entity=post&entity_id=0&facebook_id=%@", appDelegate.facebookId] image:_image.image delegate:self callback:@selector(uploadedToServer:) type:@"string"];
+
+    NSMutableString *postParams = [[NSMutableString alloc]initWithString:[NSString stringWithFormat:@"venue_id=%@",appDelegate.activeVenue[@"id"]]];
+    [postParams appendFormat:@"caption=%@",_textFieldname.text];
+    //Set lat/lon if specified in the image metadata
+    [postParams appendFormat:@"facebook_id=%@",appDelegate.facebookId];
+    
+    [[[PostRequest alloc]init]exec:@"posts/set" params:postParams delegate:self callback:@selector(didFinishPost:) type:@"string"];
+    
+}
+
+-(void)didFinishPost:(NSString *)response{
+    if([response isEqual:@"true"]){
+        AppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
+        [[[PostRequest alloc] init] exec:@"images/set" params:[NSString stringWithFormat:@"entity=post&entity_id=0&facebook_id=%@", appDelegate.facebookId] image:_image.image delegate:self callback:@selector(uploadedToServer:) type:@"string"];
+    }
 }
 
 - (void)uploadedToServer:(NSString *)response {
@@ -176,5 +194,8 @@
     }
     return YES;
 }
+
+
+
 
 @end

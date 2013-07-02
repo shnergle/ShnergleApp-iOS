@@ -21,6 +21,8 @@
     venueLon = [(NSNumber *)venue[@"lon"] doubleValue];
     summaryContent = venue[@"tonight"];
     summaryHeadline = [NSString stringWithFormat:@"Tonight at %@",venue[@"name"]];
+    AppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
+    appDelegate.activeVenue = venue;
     NSLog(@"Set tonightContent to '%@'",venue[@"tonight"]);
 }
 
