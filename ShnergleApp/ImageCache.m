@@ -16,7 +16,7 @@ static NSCache *cache;
 
 - (id)init {
     self = [super init];
-    if (self != nil && cache != nil) {
+    if (self != nil && cache == nil) {
         cache = [[NSCache alloc] init];
     }
     return self;
