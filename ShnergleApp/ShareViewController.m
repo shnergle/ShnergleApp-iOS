@@ -108,8 +108,9 @@
        Temp solution, 17 June:
        share the image, put venue details ([name] and facebook url, if exists in caption)
      */
+#warning "whenever sharing, make sure that ActiveVenue is set in appDelegate. Now it is _only set when visiting the venue page_
     action[@"source"] = _image.image;
-    action[@"message"] =  [NSString stringWithFormat:@"%@ @ mahiki https://www.facebook.com/mahiki?fref=ts", _textFieldname.text];
+    action[@"message"] =  [NSString stringWithFormat:@"%@ @ %@", _textFieldname.text,appDelegate.activeVenue[@"name"]];
     [[[FBRequest alloc] initWithSession:appDelegate.session graphPath:@"me/photos" parameters:action HTTPMethod:@"POST"] startWithCompletionHandler:^(FBRequestConnection *connection,
                                                                                                                                                       id result,
                                                                                                                                                       NSError *error) {
