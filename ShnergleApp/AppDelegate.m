@@ -48,7 +48,6 @@
 }
 
 - (void)customiseNavBar {
-    NSLog(@"%@", [[UINavigationBar appearance] titleTextAttributes]);
     [[UINavigationBar appearance] setTitleTextAttributes:
      @{UITextAttributeTextColor: [UIColor colorWithRed:0 green:0 blue:0 alpha:1.0],
        UITextAttributeTextShadowColor: [UIColor clearColor],
