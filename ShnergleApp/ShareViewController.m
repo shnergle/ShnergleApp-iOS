@@ -26,11 +26,7 @@
     if (appDelegate.shareImage) _image.image = appDelegate.shareImage;
 
 
-    if (appDelegate.saveLocally) {
-        [self.saveLocallySwitch setOn:TRUE];
-    } else {
-        [self.saveLocallySwitch setOn:FALSE];
-    }
+    self.saveLocallySwitch.on = appDelegate.saveLocally;
 }
 
 - (void)didReceiveMemoryWarning {
