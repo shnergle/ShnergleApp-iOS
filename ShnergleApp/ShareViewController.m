@@ -9,6 +9,7 @@
 #import "ShareViewController.h"
 #import <FacebookSDK/FBFriendPickerViewController.h>
 #import "AppDelegate.h"
+#import "PostRequest.h"
 
 @implementation ShareViewController
 
@@ -46,26 +47,40 @@
 - (void)share {
     [self.view makeToastActivity];
 
+    [self uploadToServer];
 
 
-    self.navigationItem.rightBarButtonItem.enabled = NO;
-    AppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
-    if ([appDelegate.session.permissions indexOfObject:@"publish_actions"] == NSNotFound)
-        [appDelegate.session requestNewPublishPermissions:@[@"publish_actions"] defaultAudience:FBSessionDefaultAudienceEveryone completionHandler:^(FBSession *session, NSError *error) {
-            [self shareOnFacebook];
-        }];
-    else {
-        [self shareOnFacebook];
-        NSLog(@"shared");
-    }
-    if (self.saveLocallySwitch.on) {
-        UIImageWriteToSavedPhotosAlbum(_image.image, nil, nil, nil);
-    }
 }
 
 - (void)viewDidDisappear:(BOOL)animated {
     NSLog(@"Share view dissappeared (and spinner removed)");
     [self.view hideToastActivity];
+}
+
+- (void)uploadToServer {
+    AppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
+    [[[PostRequest alloc] init] exec:@"images/set" params:[NSString stringWithFormat:@"entity=post&entity_id=0&facebook_id=%@", appDelegate.facebookId] image:_image.image delegate:self callback:@selector(uploadedToServer:) type:@"string"];
+}
+
+- (void)uploadedToServer:(NSString *)response {
+    if ([response isEqual:@"true"]) {
+        self.navigationItem.rightBarButtonItem.enabled = NO;
+        AppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
+        if ([appDelegate.session.permissions indexOfObject:@"publish_actions"] == NSNotFound)
+            [appDelegate.session requestNewPublishPermissions:@[@"publish_actions"] defaultAudience:FBSessionDefaultAudienceEveryone completionHandler:^(FBSession *session, NSError *error) {
+                [self shareOnFacebook];
+            }];
+        else {
+            [self shareOnFacebook];
+            NSLog(@"shared");
+        }
+        if (self.saveLocallySwitch.on) {
+            UIImageWriteToSavedPhotosAlbum(_image.image, nil, nil, nil);
+        }
+    } else {
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Upload failed!" message:nil delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+        [alert show];
+    }
 }
 
 - (void)shareOnFacebook {
