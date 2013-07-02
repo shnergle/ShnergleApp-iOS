@@ -15,7 +15,7 @@
     NSString *promotionTitle;
     NSString *promotionBody;
     NSString *promotionExpiry;
-    NSInteger selectedImage;
+    NSInteger selectedPost;
 
     BOOL textViewOpen;
 
@@ -47,4 +47,5 @@
 @property (weak, nonatomic) OverlayText *overlayView;
 @property (weak, nonatomic) UIView *naviview;
 - (void)configureMapWithLat:(CLLocationDegrees)lat longitude:(CLLocationDegrees)lon;
+- (NSString *)getDateFromUnixFormat:(id)unixFormat;
 @end

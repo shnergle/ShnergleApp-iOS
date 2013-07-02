@@ -226,7 +226,7 @@
     }
 }
 
-- (void)         collectionView:(UICollectionView *)collectionView
+- (void)collectionView:(UICollectionView *)collectionView
     didHighlightItemAtIndexPath:(NSIndexPath *)indexPath {
     selectedVenue = indexPath.row;
     [self.view makeToastActivity];

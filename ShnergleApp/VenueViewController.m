@@ -12,6 +12,7 @@
 #import "VenueGalleryViewController.h"
 #import "AppDelegate.h"
 #import "PostRequest.h"
+#import "ImageCache.h"
 
 @implementation VenueViewController
 
@@ -23,7 +24,7 @@
     if(venue[@"tonight"]){
         summaryContent = venue[@"tonight"];
     }else{
-        summaryContent = @"";
+        summaryContent = @" ";
     }
     summaryHeadline = [NSString stringWithFormat:@"Tonight at %@",venue[@"name"]];
     AppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
@@ -138,14 +139,19 @@
     CrowdItem *item = [collectionView dequeueReusableCellWithReuseIdentifier:cellIdentifier forIndexPath:indexPath];
     AppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
     /* Here we can set the elements of the crowdItem (the cell) in the cellview */
-    //[[item crowdImage] setImage:[UIImage imageNamed:appDelegate.images[indexPath.item]]];
-    [[item venueName] setText:appDelegate.posts[indexPath.item][@"time"]];
+    
+    [[[ImageCache alloc]init]get:@"post" identifier:@"0" delegate:self callback:@selector(didFinishDownloadingImages:forItem:) item:item];
+    [[item venueName] setText:[self getDateFromUnixFormat:appDelegate.posts[indexPath.item][@"time"]]];
     NSLog(@"Setting a venue to: %@",appDelegate.posts[indexPath.item][@"time"]);
-    [[item venueName] setTextColor:[UIColor blackColor]];
+    [[item venueName] setTextColor:[UIColor whiteColor]];
     
 
 
     return item;
+}
+
+- (void)didFinishDownloadingImages:(UIImage *)response forItem:(CrowdItem *)item {
+    [[item crowdImage] setImage:response];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -312,14 +318,15 @@
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     AppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
     if ([segue.identifier isEqualToString:@"ToGallery"]) {
+#warning "image on gallery view still uses imageNamed, should use UIImage instead."
         [segue.destinationViewController setTitle:[NSString stringWithFormat:@"%@", titleHeader]];
-        //[(VenueGalleryViewController *)segue.destinationViewController setImage :[UIImage imageNamed:appDelegate.images[selectedImage]] withAuthor : @"Stian Johansen filibombombom" withComment : @"Untiss Untiss Untiss! #YOLO #SWAG" withTimestamp : appDelegate.posts[selectedImage]];
+        [(VenueGalleryViewController *)segue.destinationViewController setImage :[UIImage imageNamed:appDelegate.images[selectedPost]] withAuthor : [NSString stringWithFormat:@"%@",appDelegate.activeVenue[@"user_id"]] withComment : appDelegate.posts[selectedPost][@"caption"] withTimestamp : [self getDateFromUnixFormat:appDelegate.posts[selectedPost][@"time"]]];
     }
 }
 
-- (void)         collectionView:(UICollectionView *)collectionView
+- (void)collectionView:(UICollectionView *)collectionView
     didHighlightItemAtIndexPath:(NSIndexPath *)indexPath {
-    selectedImage = indexPath.row;
+    selectedPost = indexPath.row;
 }
 
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
@@ -343,6 +350,21 @@
             break;
     }
     [_overlayView didAppear];
+}
+
+- (NSString *)getDateFromUnixFormat:(id)unixFormat
+{
+    
+    NSString *input = [NSString stringWithFormat:@"%@",unixFormat];
+    NSDate *date = [NSDate dateWithTimeIntervalSince1970:[input intValue]];
+    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc]init];
+    [dateFormatter setDateFormat:@"hh:mm"];
+    [dateFormatter setTimeZone:[NSTimeZone timeZoneForSecondsFromGMT:0]];
+    //NSDate *date = [dateFormatter dateFromString:publicationDate];
+    NSString *dte=[dateFormatter stringFromDate:date];
+    
+    return dte;
+    
 }
 
 @end
