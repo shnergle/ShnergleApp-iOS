@@ -130,7 +130,7 @@
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
     AppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
-    return [appDelegate.posts count];
+    return appDelegate.posts ? [appDelegate.posts count] : 0;
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
@@ -274,8 +274,8 @@
                              animated:NO];
 
     [self setPromoContentTo:promotionBody promoHeadline:promotionTitle promoExpiry:promotionExpiry];
-    self.overlayView.summaryContentTextField.text = summaryContent;
-    self.overlayView.summaryHeadlineTextField.text = summaryHeadline;
+    self.overlayView.summaryContentTextField.text = summaryContent ? summaryContent : @"";
+    self.overlayView.summaryHeadlineTextField.text = summaryHeadline ? summaryHeadline : @"";
     
     
     AppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
