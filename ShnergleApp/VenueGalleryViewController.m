@@ -90,10 +90,10 @@
 
 - (void)imageSetup {
     self.imageView.image = image;
-    self.commentLabel.font = [UIFont fontWithName:@"Roboto" size:12];
+    self.commentLabel.font = [UIFont systemFontOfSize:12];
     self.commentLabel.lineBreakMode = NSLineBreakByWordWrapping;
     self.commentLabel.text = [NSString stringWithFormat:@"%@ (%@)", comment, timestamp];
-    self.authorLabel.font = [UIFont fontWithName:@"Roboto-Bold" size:12];
+    self.authorLabel.font = [UIFont boldSystemFontOfSize:12];
     self.authorLabel.lineBreakMode = NSLineBreakByCharWrapping;
     self.authorLabel.text = author;
 
