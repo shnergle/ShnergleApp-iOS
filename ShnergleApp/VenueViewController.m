@@ -172,6 +172,8 @@
 
            ~~~oOo O Oo o OoOo O Ooo o oooOOooOo~~~
            ~~~.......Maaagic nuuummbers........~~~
+         
+         
 
          */
 
@@ -191,7 +193,7 @@
 - (void)configureMapWithLat:(CLLocationDegrees)lat longitude:(CLLocationDegrees)lon {
     GMSCameraPosition *camera = [GMSCameraPosition cameraWithLatitude:lat
                                                             longitude:lon
-                                                                 zoom:13];
+                                                                 zoom:14];
     self.overlayView.venueMap.camera = camera;
 
     // Creates a marker in the center of the map.
