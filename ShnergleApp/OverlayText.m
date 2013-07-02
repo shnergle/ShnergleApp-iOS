@@ -114,36 +114,36 @@
 }
 
 - (IBAction)publishTapped:(id)sender {
-    [self.tonightContent resignFirstResponder];
-    [self.tonightContent setEditable:NO];
-    [self.tonightContent setBackgroundColor:[UIColor clearColor]];
-    [self.tonightHeadline resignFirstResponder];
-    [self.tonightHeadline setEnabled:NO];
-    [self.tonightHeadline setBackgroundColor:[UIColor clearColor]];
+    [self.summaryContentTextField resignFirstResponder];
+    [self.summaryContentTextField setEditable:NO];
+    [self.summaryContentTextField setBackgroundColor:[UIColor clearColor]];
+    [self.summaryHeadlineTextField resignFirstResponder];
+    [self.summaryHeadlineTextField setEnabled:NO];
+    [self.summaryHeadlineTextField setBackgroundColor:[UIColor clearColor]];
 
     [self.publishButton setHidden:YES];
 
-    self.tonightContent.layer.borderWidth = 0.0f;
-    self.tonightHeadline.layer.borderWidth = 0.0f;
-    self.tonightHeadline.layer.cornerRadius = 0.0f;
-    self.tonightContent.layer.cornerRadius = 0.0f;
+    self.summaryContentTextField.layer.borderWidth = 0.0f;
+    self.summaryHeadlineTextField.layer.borderWidth = 0.0f;
+    self.summaryHeadlineTextField.layer.cornerRadius = 0.0f;
+    self.summaryContentTextField.layer.cornerRadius = 0.0f;
 }
 
 - (IBAction)postUpdateTapped:(id)sender {
-    [self.tonightContent setBackgroundColor:[UIColor whiteColor]];
-    [self.tonightHeadline setBackgroundColor:[UIColor whiteColor]];
+    [self.summaryContentTextField setBackgroundColor:[UIColor whiteColor]];
+    [self.summaryHeadlineTextField setBackgroundColor:[UIColor whiteColor]];
     [_publishButton setHidden:NO];
-    self.tonightContent.editable = YES;
-    [self.tonightHeadline setEnabled:YES];
-    [self.tonightContent becomeFirstResponder];
-    self.tonightHeadline.layer.borderColor = [[UIColor grayColor] CGColor];
-    self.tonightContent.layer.borderColor = [[UIColor grayColor] CGColor];
-    self.tonightContent.layer.borderWidth = 1.0f;
-    self.tonightHeadline.layer.borderWidth = 1.0f;
-    self.tonightHeadline.layer.cornerRadius = 5.0f;
-    self.tonightContent.layer.cornerRadius = 5.0f;
-    self.tonightHeadline.layer.masksToBounds = YES;
-    self.tonightContent.layer.masksToBounds = YES;
+    self.summaryContentTextField.editable = YES;
+    [self.summaryHeadlineTextField setEnabled:YES];
+    [self.summaryContentTextField becomeFirstResponder];
+    self.summaryHeadlineTextField.layer.borderColor = [[UIColor grayColor] CGColor];
+    self.summaryContentTextField.layer.borderColor = [[UIColor grayColor] CGColor];
+    self.summaryContentTextField.layer.borderWidth = 1.0f;
+    self.summaryHeadlineTextField.layer.borderWidth = 1.0f;
+    self.summaryHeadlineTextField.layer.cornerRadius = 5.0f;
+    self.summaryContentTextField.layer.cornerRadius = 5.0f;
+    self.summaryHeadlineTextField.layer.masksToBounds = YES;
+    self.summaryContentTextField.layer.masksToBounds = YES;
 }
 
 - (void)hideAnimated:(NSInteger)originalSize animationDuration:(double)animationDuration targetSize:(NSInteger)targetSize contentView:(UIView *)contentView {

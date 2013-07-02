@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="4457.9" systemVersion="12E55" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
     <dependencies>
         <deployment defaultVersion="1536" identifier="iOS"/>
+        <development version="5000" identifier="xcode"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3682.9"/>
     </dependencies>
     <objects>
@@ -287,14 +288,7 @@
                                     <rect key="frame" x="4" y="391" width="295" height="107"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                    <attributedString key="attributedText">
-                                        <fragment content="DJ’s from 9pm – Chart, R&amp;B House, 00’s &amp; Retro Classics">
-                                            <attributes>
-                                                <font key="NSFont" size="14" name="HelveticaNeue"/>
-                                                <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
-                                            </attributes>
-                                        </fragment>
-                                    </attributedString>
+                                    <attributedString key="attributedText"/>
                                     <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                     <dataDetectorType key="dataDetectorTypes" phoneNumber="YES" link="YES"/>
                                 </textView>
@@ -306,7 +300,7 @@
                                         <attributedString key="attributedTitle">
                                             <fragment content="Done editing">
                                                 <attributes>
-                                                    <font key="NSFont" metaFont="toolTip"/>
+                                                    <font key="NSFont" metaFont="smallSystem"/>
                                                     <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
                                                 </attributes>
                                             </fragment>
@@ -475,12 +469,12 @@
                 <outlet property="publishButton" destination="o08-tK-dph" id="F74-8T-yik"/>
                 <outlet property="scrollView" destination="811" id="2oc-m9-KOy"/>
                 <outlet property="shareButton" destination="2173" id="zMQ-Vt-2hx"/>
+                <outlet property="summaryContentTextField" destination="ieB-JS-QVm" id="MtX-rN-IcX"/>
+                <outlet property="summaryHeadlineTextField" destination="yFV-32-GOh" id="eav-dy-XE9"/>
                 <outlet property="tapGoing" destination="Twh-rf-nuM" id="C3o-Vt-c7Q"/>
                 <outlet property="tapThinking" destination="YbD-8D-97K" id="EOJ-aK-Lg8"/>
                 <outlet property="thinkingLabel" destination="234" id="QdS-8H-lZg"/>
                 <outlet property="thinkingView" destination="9JC-sc-VKz" id="Txg-Bf-gWo"/>
-                <outlet property="tonightContent" destination="ieB-JS-QVm" id="21g-AT-tra"/>
-                <outlet property="tonightHeadline" destination="yFV-32-GOh" id="4yf-Vz-mZs"/>
                 <outlet property="venueMap" destination="1046" id="1164"/>
                 <outletCollection property="gestureRecognizers" destination="11" appends="YES" id="1158"/>
                 <outletCollection property="gestureRecognizers" destination="14" appends="YES" id="1159"/>

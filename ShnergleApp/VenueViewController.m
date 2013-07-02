@@ -19,6 +19,9 @@
     titleHeader = venue[@"name"];
     venueLat = [(NSNumber *)venue[@"lat"] doubleValue];
     venueLon = [(NSNumber *)venue[@"lon"] doubleValue];
+    summaryContent = venue[@"tonight"];
+    summaryHeadline = [NSString stringWithFormat:@"Tonight at %@",venue[@"name"]];
+    NSLog(@"Set tonightContent to '%@'",venue[@"tonight"]);
 }
 
 - (void)setHeaderTitle:(NSString *)headerTitle andSubtitle:(NSString *)headerSubtitle {
@@ -100,7 +103,7 @@
     promotionTitle = @"Tonight's special offer";
     promotionExpiry = @"Expires at 11 pm";
     promotionBody = @"3-4-2 on tequila doubles!!";
-
+    
     [self displayTextView];
 
     [self configureMapWithLat:venueLat longitude:venueLon];
@@ -303,6 +306,8 @@
                              animated:NO];
 
     [self setPromoContentTo:promotionBody promoHeadline:promotionTitle promoExpiry:promotionExpiry];
+    self.overlayView.summaryContentTextField.text = summaryContent;
+    self.overlayView.summaryHeadlineTextField.text = summaryHeadline;
 }
 
 - (void)viewDidDisappear:(BOOL)animated {

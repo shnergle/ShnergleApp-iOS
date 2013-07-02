@@ -30,6 +30,8 @@
 
     double venueLat;
     double venueLon;
+    NSString *summaryContent;
+    NSString *summaryHeadline;
 }
 - (void)setVenue:(NSDictionary *)venue;
 - (void)viewDidAppear:(BOOL)animated;
