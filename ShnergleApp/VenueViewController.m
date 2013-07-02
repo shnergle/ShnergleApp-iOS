@@ -320,7 +320,7 @@
     if ([segue.identifier isEqualToString:@"ToGallery"]) {
 #warning "image on gallery view still uses imageNamed, should use UIImage instead."
         [segue.destinationViewController setTitle:[NSString stringWithFormat:@"%@", titleHeader]];
-        [(VenueGalleryViewController *)segue.destinationViewController setImage :[UIImage imageNamed:appDelegate.images[selectedPost]] withAuthor : [NSString stringWithFormat:@"%@",appDelegate.activeVenue[@"user_id"]] withComment : appDelegate.posts[selectedPost][@"caption"] withTimestamp : [self getDateFromUnixFormat:appDelegate.posts[selectedPost][@"time"]]];
+        [(VenueGalleryViewController *)segue.destinationViewController setImage :[UIImage imageNamed:appDelegate.images[selectedPost]] withAuthor : [NSString stringWithFormat:@"%@",appDelegate.posts[selectedPost][@"user_id"]] withComment : appDelegate.posts[selectedPost][@"caption"] withTimestamp : [self getDateFromUnixFormat:appDelegate.posts[selectedPost][@"time"]]];
     }
 }
 
