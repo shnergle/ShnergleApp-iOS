@@ -19,11 +19,14 @@
     titleHeader = venue[@"name"];
     venueLat = [(NSNumber *)venue[@"lat"] doubleValue];
     venueLon = [(NSNumber *)venue[@"lon"] doubleValue];
-    summaryContent = venue[@"tonight"];
+    if(venue[@"tonight"]){
+        summaryContent = venue[@"tonight"];
+    }else{
+        summaryContent = @"";
+    }
     summaryHeadline = [NSString stringWithFormat:@"Tonight at %@",venue[@"name"]];
     AppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
     appDelegate.activeVenue = venue;
-    NSLog(@"Set tonightContent to '%@'",venue[@"tonight"]);
 }
 
 - (void)setHeaderTitle:(NSString *)headerTitle andSubtitle:(NSString *)headerSubtitle {

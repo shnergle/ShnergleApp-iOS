@@ -61,15 +61,16 @@
     AppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
 
     NSMutableString *postParams = [[NSMutableString alloc]initWithString:[NSString stringWithFormat:@"venue_id=%@",appDelegate.activeVenue[@"id"]]];
-    [postParams appendFormat:@"caption=%@",_textFieldname.text];
+    [postParams appendFormat:@"&caption=%@",_textFieldname.text];
     //Set lat/lon if specified in the image metadata
-    [postParams appendFormat:@"facebook_id=%@",appDelegate.facebookId];
-    
+    [postParams appendFormat:@"&facebook_id=%@",appDelegate.facebookId];
+    NSLog(@"%@",postParams);
     [[[PostRequest alloc]init]exec:@"posts/set" params:postParams delegate:self callback:@selector(didFinishPost:) type:@"string"];
     
 }
 
 -(void)didFinishPost:(NSString *)response{
+    NSLog(@"%@",response);
     if([response isEqual:@"true"]){
         AppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
         [[[PostRequest alloc] init] exec:@"images/set" params:[NSString stringWithFormat:@"entity=post&entity_id=0&facebook_id=%@", appDelegate.facebookId] image:_image.image delegate:self callback:@selector(uploadedToServer:) type:@"string"];
