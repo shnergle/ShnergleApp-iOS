@@ -41,7 +41,7 @@
 
     cell.textLabel.text = _tableData[indexPath.row];
     cell.textLabel.textColor = [UIColor blackColor];
-    cell.textLabel.font = [UIFont fontWithName:@"Roboto" size:20.0];
+    cell.textLabel.font = [UIFont systemFontOfSize:20.0];
 
     return cell;
 }

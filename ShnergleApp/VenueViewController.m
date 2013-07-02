@@ -38,7 +38,7 @@
     CGRect titleFrame = CGRectMake(0, 2, 200, 24);
     UILabel *titleView2 = [[UILabel alloc] initWithFrame:titleFrame];
     titleView2.backgroundColor = [UIColor clearColor];
-    titleView2.font = [UIFont fontWithName:@"Roboto-Regular" size:20.0];
+    titleView2.font = [UIFont systemFontOfSize:20.0];
     titleView2.textAlignment = NSTextAlignmentCenter;
     titleView2.textColor = [UIColor colorWithRed:0 green:0 blue:0 alpha:1.0];
     titleView2.shadowColor = [UIColor darkGrayColor];
@@ -50,7 +50,7 @@
     CGRect subtitleFrame = CGRectMake(0, 24, 200, 20);
     UILabel *subtitleView2 = [[UILabel alloc] initWithFrame:subtitleFrame];
     subtitleView2.backgroundColor = [UIColor clearColor];
-    subtitleView2.font = [UIFont fontWithName:@"Roboto-Regular" size:12.0];
+    subtitleView2.font = [UIFont systemFontOfSize:12.0];
     subtitleView2.textAlignment = NSTextAlignmentCenter;
     subtitleView2.textColor = [UIColor colorWithRed:51.0 / 250 green:140.0 / 250 blue:16.0 / 250 alpha:1.0];
     subtitleView2.shadowColor = [UIColor clearColor];
@@ -89,7 +89,7 @@
      @{UITextAttributeTextColor: [UIColor whiteColor],
        UITextAttributeTextShadowColor: [UIColor clearColor],
        UITextAttributeTextShadowOffset: [NSValue valueWithUIOffset:UIOffsetMake(0, 0)],
-       UITextAttributeFont: [UIFont fontWithName:@"Roboto" size:14.0]}
+       UITextAttributeFont: [UIFont systemFontOfSize:14.0]}
                                       forState:UIControlStateNormal];
 
     textViewOpen = false;
@@ -141,7 +141,7 @@
     [[item crowdImage] setImage:[UIImage imageNamed:appDelegate.images[indexPath.item]]];
     [[item venueName] setText:appDelegate.timestamps[indexPath.item]];
     [[item venueName] setTextColor:[UIColor whiteColor]];
-    [[item venueName] setFont:[UIFont fontWithName:@"Roboto" size:11.0]];
+    [[item venueName] setFont:[UIFont systemFontOfSize:11.0]];
     //[[item venueName] setText:appDelegate.venueNames[indexPath.item]];
 
 
@@ -298,11 +298,11 @@
     self.overlayView.offerHeadline.text = promoHeadline;
     self.overlayView.offerCount.text = promoExpiry;
 
-    self.overlayView.offerCount.font = [UIFont fontWithName:@"Roboto" size:9];
+    self.overlayView.offerCount.font = [UIFont systemFontOfSize:9];
     self.overlayView.offerCount.textAlignment = NSTextAlignmentCenter;
-    self.overlayView.offerHeadline.font = [UIFont fontWithName:@"Roboto" size:11];
+    self.overlayView.offerHeadline.font = [UIFont systemFontOfSize:11];
     self.overlayView.offerHeadline.textAlignment = NSTextAlignmentCenter;
-    self.overlayView.offerContents.font = [UIFont fontWithName:@"Roboto" size:22];
+    self.overlayView.offerContents.font = [UIFont systemFontOfSize:22];
     self.overlayView.offerContents.textColor = [UIColor whiteColor];
     self.overlayView.offerContents.textAlignment = NSTextAlignmentCenter;
 }

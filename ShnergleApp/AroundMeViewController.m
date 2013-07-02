@@ -29,7 +29,7 @@
      @{UITextAttributeTextColor: [UIColor whiteColor],
        UITextAttributeTextShadowColor: [UIColor clearColor],
        UITextAttributeTextShadowOffset: [NSValue valueWithUIOffset:UIOffsetMake(0, 0)],
-       UITextAttributeFont: [UIFont fontWithName:@"Roboto" size:14.0]}
+       UITextAttributeFont: [UIFont systemFontOfSize:14.0]}
                                       forState:UIControlStateNormal];
 }
 
@@ -201,7 +201,7 @@
 
     [[item venueName] setText:appDelegate.aroundVenues[indexPath.item][@"name"]];
 
-    item.venueName.font = [UIFont fontWithName:@"Roboto" size:11.0f];
+    item.venueName.font = [UIFont systemFontOfSize:11.0f];
 
     item.venueName.textColor = [UIColor whiteColor];
 

@@ -65,7 +65,7 @@
         cell.textLabel.text = _tableData[@(indexPath.section)][indexPath.row];
         cell.textLabel.textColor = [UIColor whiteColor];
         cell.backgroundColor = [UIColor clearColor];
-        cell.textLabel.font = [UIFont fontWithName:@"Roboto" size:20];
+        cell.textLabel.font = [UIFont systemFontOfSize:20];
         if (indexPath.section == 0) {
             cell.accessoryView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"profileicon.png"]];
             cell.accessoryView.bounds = CGRectMake(0, 0, 27, 19);
@@ -73,7 +73,7 @@
         } else if (indexPath.row == 1) {
             UILabel *noLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 20, 15)];
             noLabel.text = @"0";
-            noLabel.font = [UIFont fontWithName:@"Roboto" size:20];
+            noLabel.font = [UIFont systemFontOfSize:20];
             noLabel.textColor = [UIColor whiteColor];
             noLabel.backgroundColor = [UIColor clearColor];
             cell.accessoryView = noLabel;
@@ -88,7 +88,7 @@
         cell.textLabel.text = _searchResults[indexPath.row];
         cell.textLabel.textColor = [UIColor whiteColor];
         cell.backgroundColor = [UIColor clearColor];
-        cell.textLabel.font = [UIFont fontWithName:@"Roboto" size:20];
+        cell.textLabel.font = [UIFont systemFontOfSize:20];
         return cell;
     }
 }
@@ -121,7 +121,7 @@
     UILabel *sectionLabel = [[UILabel alloc] init];
     sectionLabel.textColor = [UIColor colorWithRed:117 / 255. green:117 / 255. blue:117 / 255. alpha:1];
     sectionLabel.backgroundColor = [UIColor colorWithRed:29 / 255. green:29 / 255. blue:29 / 255. alpha:1];
-    sectionLabel.font = [UIFont fontWithName:@"Roboto-Regular" size:12];
+    sectionLabel.font = [UIFont systemFontOfSize:12];
     sectionLabel.text = [NSString stringWithFormat:@"   %@", [self tableView:tableView titleForHeaderInSection:section]];
     return sectionLabel;
 }
