@@ -65,15 +65,14 @@
     //Set lat/lon if specified in the image metadata
     [postParams appendFormat:@"&facebook_id=%@",appDelegate.facebookId];
     NSLog(@"%@",postParams);
-    [[[PostRequest alloc]init]exec:@"posts/set" params:postParams delegate:self callback:@selector(didFinishPost:) type:@"string"];
+    [[[PostRequest alloc]init]exec:@"posts/set" params:postParams delegate:self callback:@selector(didFinishPost:) type:@"json"];
     
 }
 
--(void)didFinishPost:(NSString *)response{
-    NSLog(@"%@",response);
-    if([response isEqual:@"true"]){
+-(void)didFinishPost:(id)response{
+    if([response isKindOfClass:[NSNumber class]]){
         AppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
-        [[[PostRequest alloc] init] exec:@"images/set" params:[NSString stringWithFormat:@"entity=post&entity_id=0&facebook_id=%@", appDelegate.facebookId] image:_image.image delegate:self callback:@selector(uploadedToServer:) type:@"string"];
+        [[[PostRequest alloc] init] exec:@"images/set" params:[NSString stringWithFormat:@"entity=post&entity_id=%@&facebook_id=%@", [response stringValue], appDelegate.facebookId] image:_image.image delegate:self callback:@selector(uploadedToServer:) type:@"string"];
     }
 }
 

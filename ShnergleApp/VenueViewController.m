@@ -140,7 +140,7 @@
     AppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
     /* Here we can set the elements of the crowdItem (the cell) in the cellview */
     
-    [[[ImageCache alloc]init]get:@"post" identifier:@"0" delegate:self callback:@selector(didFinishDownloadingImages:forItem:) item:item];
+    [[[ImageCache alloc]init]get:@"post" identifier:[appDelegate.posts[indexPath.row][@"id"] stringValue] delegate:self callback:@selector(didFinishDownloadingImages:forItem:) item:item];
     [[item venueName] setText:[self getDateFromUnixFormat:appDelegate.posts[indexPath.item][@"time"]]];
     NSLog(@"Setting a venue to: %@",appDelegate.posts[indexPath.item][@"time"]);
     [[item venueName] setTextColor:[UIColor whiteColor]];
@@ -280,8 +280,8 @@
                              animated:NO];
 
     [self setPromoContentTo:promotionBody promoHeadline:promotionTitle promoExpiry:promotionExpiry];
-    self.overlayView.summaryContentTextField.text = summaryContent ? summaryContent : @"";
-    self.overlayView.summaryHeadlineTextField.text = summaryHeadline ? summaryHeadline : @"";
+    //self.overlayView.summaryContentTextField.text = summaryContent ? summaryContent : @"";
+    //self.overlayView.summaryHeadlineTextField.text = summaryHeadline ? summaryHeadline : @"";
     
     
     AppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
