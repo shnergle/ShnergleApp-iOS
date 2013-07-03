@@ -52,7 +52,7 @@
     if ([response isKindOfClass:[NSArray class]]) {
         //_searchResults = [[NSMutableArray alloc]initWithArray:response];
         for (id obj in response) {
-            if ([obj count] > 1) [_searchResults addObject:obj[1]];
+            if ([obj count] > 1) [_searchResults addObject:obj[@"name"]];
         }
     }
 
