@@ -97,10 +97,6 @@
     textViewOpen = false;
     [[self crowdCollectionV] setDataSource:self];
     [[self crowdCollectionV] setDelegate:self];
-    AppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
-    
-    
-
 
     //appDelegate.images = [[appDelegate.images reverseObjectEnumerator] allObjects];
     //appDelegate.shareImage = [UIImage imageNamed:appDelegate.images[0]];
