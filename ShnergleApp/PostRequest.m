@@ -81,7 +81,7 @@
 
 - (void)connectionDidFinishLoading:(NSURLConnection *)connection {
     id responseArg;
-    if ([responseType isEqual:@"image"]) responseArg = [UIImage imageWithData:response];
+    if ([responseType isEqual:@"image"]) @try {responseArg = [UIImage imageWithData:response];} @catch (NSException *e) {}
     else if ([responseType isEqual:@"string"]) responseArg = [[NSString alloc] initWithData:response encoding:NSUTF8StringEncoding];
     else {
         SBJsonParser *jsonParser = [[SBJsonParser alloc] init];
