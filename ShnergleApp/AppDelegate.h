@@ -26,7 +26,7 @@
 @property (strong, nonatomic) NSString *appSecret;
 @property (strong, nonatomic) NSString *twitter;
 @property (nonatomic) BOOL saveLocally;
-
+@property (nonatomic) BOOL optInTop5;
 
 
 @property (strong, nonatomic) NSArray *images;

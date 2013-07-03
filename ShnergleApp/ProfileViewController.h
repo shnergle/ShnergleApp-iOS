@@ -15,6 +15,7 @@
 
 //- (IBAction)authButtonAction:(id)sender;
 
+@property (weak, nonatomic) IBOutlet UISwitch *optInSwitch;
 @property (strong, nonatomic) IBOutlet FBProfilePictureView *userProfileImage3;
 @property (strong, nonatomic) IBOutlet FBProfilePictureView *userProfileImage1;
 @property (strong, nonatomic) IBOutlet FBProfilePictureView *userProfileImage2;
