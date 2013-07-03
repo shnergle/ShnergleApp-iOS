@@ -229,7 +229,7 @@
 
 - (void)collectionView:(UICollectionView *)collectionView
     didHighlightItemAtIndexPath:(NSIndexPath *)indexPath {
-    selectedVenue = indexPath.row;
+    selectedVenue = indexPath.item;
     [self.view makeToastActivity];
 }
 
