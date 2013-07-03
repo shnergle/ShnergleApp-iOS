@@ -120,6 +120,7 @@
 }
 
 - (void)didFinishLoadingVenues:(NSArray *)response {
+    NSLog(@"%@",response);
     AppDelegate *appDelegate = [[UIApplication sharedApplication]delegate];
     appDelegate.aroundVenues = response;
     [self.crowdCollection reloadData];
