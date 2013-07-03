@@ -47,14 +47,16 @@
     
     AppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
     
-    //if (appDelegate.shareImage) _image.image = appDelegate.shareImage;
-    
-    
-    if(appDelegate.saveLocally){
-        [self.saveLocallySwitch setOn:FALSE];
-    }else{
-        [self.saveLocallySwitch setOn:TRUE];
-    }
+    self.saveLocallySwitch.on = appDelegate.saveLocally;
+}
+
+- (IBAction)saveLocallyChange:(id)sender {
+    AppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
+    appDelegate.saveLocally = self.saveLocallySwitch.on;
+    [[[PostRequest alloc] init] exec:@"users/set" params:[NSString stringWithFormat:@"facebook_id=%@&save_locally=%@", appDelegate.facebookId, (self.saveLocallySwitch.on ? @"true" : @"false")] delegate:self callback:@selector(doNothing:)];
+}
+
+- (void)doNothing:(id)whoCares {
 }
 
 - (void)viewWillAppear:(BOOL)animated {
