@@ -359,7 +359,7 @@
     NSDate *date = [NSDate dateWithTimeIntervalSince1970:[input intValue]];
     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc]init];
     [dateFormatter setDateFormat:@"hh:mm"];
-    [dateFormatter setTimeZone:[NSTimeZone timeZoneForSecondsFromGMT:0]];
+    //[dateFormatter setTimeZone:[NSTimeZone timeZoneForSecondsFromGMT:0]];
     //NSDate *date = [dateFormatter dateFromString:publicationDate];
     NSString *dte=[dateFormatter stringFromDate:date];
     
