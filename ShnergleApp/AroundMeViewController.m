@@ -206,10 +206,10 @@
     item.venueName.textColor = [UIColor whiteColor];
 
     //Turn the indicator on or off:
-    if ([item.venueName.text isEqual:@"mahiki"]) { //just an example filter
-        item.promotionIndicator.hidden = YES;
-    } else {
+    if (appDelegate.aroundVenues[indexPath.item][@"promotion"] != nil) {
         item.promotionIndicator.hidden = NO;
+    } else {
+        item.promotionIndicator.hidden = YES;
     }
 
     return item;
