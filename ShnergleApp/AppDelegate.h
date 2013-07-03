@@ -36,6 +36,8 @@
 @property (strong, nonatomic) NSArray *aroundVenues;
 
 @property (strong, nonatomic) UIImage *shareImage;
+@property (strong, nonatomic) NSString *shareImageLat;
+@property (strong, nonatomic) NSString *shareImageLon;
 
 @property (strong, nonatomic) NSString *topViewType;
 

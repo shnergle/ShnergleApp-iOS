@@ -90,6 +90,7 @@
 
 - (void)imageSetup {
     self.imageView.image = image;
+    self.imageView.contentMode = UIViewContentModeCenter;
     self.commentLabel.font = [UIFont systemFontOfSize:12];
     self.commentLabel.lineBreakMode = NSLineBreakByWordWrapping;
     self.commentLabel.text = [NSString stringWithFormat:@"%@ (%@)", comment, timestamp];

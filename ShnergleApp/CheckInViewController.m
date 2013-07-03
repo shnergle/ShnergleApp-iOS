@@ -17,7 +17,7 @@
     imgPickerCam = [[UIImagePickerController alloc] init];
     imgPickerCam.delegate = self;
     [imgPickerCam setSourceType:UIImagePickerControllerSourceTypeCamera];
-    [self presentViewController:imgPickerCam animated:NO completion:NULL];
+    [self presentViewController:imgPickerCam animated:NO completion:nil];
 }
 
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info {

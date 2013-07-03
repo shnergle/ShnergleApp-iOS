@@ -330,6 +330,8 @@
     [_mapView addObserver:self forKeyPath:@"myLocation" options:NSKeyValueObservingOptionNew context:nil];
     [self.view addSubview:_mapView];
     [self.view sendSubviewToBack:_mapView];
+    
+
 }
 
 - (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context {
@@ -343,6 +345,9 @@
                                                                           longitude:_mapView.myLocation.coordinate.longitude
                                                                                zoom:13]];
             hasPositionLocked = YES;
+            AppDelegate *appDelegate = [[UIApplication sharedApplication]delegate];
+            appDelegate.shareImageLat = [NSString stringWithFormat:@"%f",self.mapView.myLocation.coordinate.latitude];
+            appDelegate.shareImageLat = [NSString stringWithFormat:@"%f",self.mapView.myLocation.coordinate.latitude];
         }
     }
 }
