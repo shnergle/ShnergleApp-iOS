@@ -14,7 +14,6 @@
 
 - (void)viewWillAppear:(BOOL)animated {
     [[self navigationController] setNavigationBarHidden:TRUE];
-    [self updateView];
 }
 
 - (void)viewDidLoad {
@@ -22,8 +21,6 @@
 
     [self.buttonLoginLogout setBackgroundImage:[UIImage imageNamed:@"login-button-small.png"] forState:UIControlStateNormal];
     [self.buttonLoginLogout setBackgroundImage:[UIImage imageNamed:@"login-button-small-pressed.png"] forState:UIControlStateHighlighted];
-
-    [self updateView];
 
     //HideNavBar
     [[self navigationController] setNavigationBarHidden:TRUE];
@@ -66,7 +63,6 @@
                 appDelegate.facebookId = user.id;
                 appDelegate.email = user[@"email"];
                 NSMutableString *params = [[NSMutableString alloc] initWithString:[NSString stringWithFormat:@"facebook_id=%@", appDelegate.facebookId]];
-                [params appendString:user.id];
                 [params appendString:@"&facebook="];
                 [params appendString:user.username];
                 [params appendString:@"&forename="];
@@ -125,14 +121,18 @@
     AppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
     if (response) {
         if (![((NSDictionary *)response)[@"twitter"] isEqual : @""]) appDelegate.twitter = ((NSDictionary *)response)[@"twitter"];
+        if ([((NSDictionary *)response)[@"save_locally"] isEqual : @1]) appDelegate.saveLocally = YES;
+        else appDelegate.saveLocally = NO;
         UIViewController *vc = [self.storyboard instantiateViewControllerWithIdentifier:@"AroundMeSlidingViewController"];
         [self.navigationController pushViewController:vc animated:YES];
     } else {
         [self alert];
     }
+    self.buttonLoginLogout.hidden = NO;
 }
 
 - (IBAction)buttonClickHandler:(id)sender {
+    self.buttonLoginLogout.hidden = YES;
     AppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
 
     if (appDelegate.session.state != FBSessionStateCreated) appDelegate.session = [[FBSession alloc] initWithAppID:nil permissions:@[@"email", @"user_birthday"] urlSchemeSuffix:nil tokenCacheStrategy:nil];

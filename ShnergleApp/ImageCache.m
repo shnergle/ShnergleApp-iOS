@@ -8,38 +8,48 @@
 
 #import "ImageCache.h"
 #import "PostRequest.h"
+#import "AppDelegate.h"
+
+static NSCache *cache;
 
 @implementation ImageCache
 
 - (id)init {
     self = [super init];
-    if (self != nil) {
+    if (self != nil && cache == nil) {
         cache = [[NSCache alloc] init];
     }
     return self;
 }
 
-- (void)get:(NSString *)type id:(NSString *)type_id delegate:(id)object callback:(SEL)cb {
+- (void)get:(NSString *)type identifier:(NSString *)type_id delegate:(id)object callback:(SEL)cb {
     responseObject = object;
     responseCallback = cb;
+    AppDelegate *appDelegate = [[UIApplication sharedApplication]delegate];
     key = [NSString stringWithFormat:@"%@/%@", type, type_id];
-    if ([cache objectForKey:key] != NULL) {
+    if ([cache objectForKey:key] != nil) {
         [self received:[cache objectForKey:key]];
     } else {
         NSString *path = @"images/get";
-        NSString *params = [NSString stringWithFormat:@"entity=%@&entity_id=%@", type, type_id];
+        NSString *params = [NSString stringWithFormat:@"entity=%@&entity_id=%@&facebook_id=%@", type, type_id, appDelegate.facebookId];
         [[[PostRequest alloc] init] exec:path params:params delegate:self callback:@selector(received:) type:@"image"];
     }
 }
 
+- (void)get:(NSString *)type identifier:(NSString *)type_id delegate:(id)object callback:(SEL)cb item:(CrowdItem *)tItem {
+    item = tItem;
+    [self get:type identifier:type_id delegate:object callback:cb];
+}
+
 - (void)received:(UIImage *)response {
-    if ([cache objectForKey:key] == NULL) {
+    if ([cache objectForKey:key] == nil) {
         [cache setObject:response forKey:key];
     }
     NSMethodSignature *methodSig = [[responseObject class] instanceMethodSignatureForSelector:responseCallback];
     NSInvocation *invocation = [NSInvocation invocationWithMethodSignature:methodSig];
     [invocation setSelector:responseCallback];
     [invocation setArgument:&response atIndex:2];
+    if (item) [invocation setArgument:&item atIndex:3];
     [invocation setTarget:responseObject];
     [invocation retainArguments];
     [invocation invoke];

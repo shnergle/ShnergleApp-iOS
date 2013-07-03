@@ -280,6 +280,14 @@ OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 
+## TPKeyboardAvoiding
+
+Free for commercial use and redistribution in any form. Credit is appreciated but not essential. Oh, and there aint no warranty!
+
+Michael Tyson, A Tasty Pixel  
+michael@atastypixel.com
+
+
 ## Toast
 
 Copyright (c) 2013 Charles Scalesse.

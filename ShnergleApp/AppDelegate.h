@@ -25,21 +25,26 @@
 @property (strong, nonatomic) NSString *facebookId;
 @property (strong, nonatomic) NSString *appSecret;
 @property (strong, nonatomic) NSString *twitter;
-@property (nonatomic) bool saveLocally;
+@property (nonatomic) BOOL saveLocally;
+
 
 
 @property (strong, nonatomic) NSArray *images;
-@property (strong, nonatomic) NSArray *timestamps;
+@property (strong, nonatomic) NSArray *posts;
 @property (strong, nonatomic) NSArray *venueNames;
 @property (strong, nonatomic) NSArray *aroundImages;
-@property (strong, nonatomic) NSArray *aroundVenueNames;
-
+@property (strong, nonatomic) NSArray *aroundVenues;
 
 @property (strong, nonatomic) UIImage *shareImage;
 
 @property (strong, nonatomic) NSString *topViewType;
 
 @property (strong, nonatomic) NSString *addVenueType;
+@property (strong, nonatomic) NSString *addVenueTypeId;
+@property (strong, nonatomic) NSMutableArray *venueDetailsContent;
+
+//The venue dictionary of the lat fetched venue (this is used for check ins as well!)
+@property (strong, nonatomic) NSDictionary *activeVenue;
 
 @property (strong, nonatomic) NSMutableArray *searchResults;
 

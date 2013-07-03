@@ -17,18 +17,62 @@
 }
 
 - (BOOL)exec:(NSString *)path params:(NSString *)params delegate:(id)object callback:(SEL)cb type:(NSString *)type {
-    NSString *urlString = [NSString stringWithFormat:@"http://shnergle-api.azurewebsites.net/%@", path];
+    NSString *urlString = [NSString stringWithFormat:@"http://shnergle-api.azurewebsites.net/v1/%@", path];
     AppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
     NSString *paramsString = [NSString stringWithFormat:@"app_secret=%@&%@", appDelegate.appSecret, params];
     NSURL *url = [[NSURL alloc] initWithString:urlString];
     NSMutableURLRequest *urlRequest = [NSMutableURLRequest requestWithURL:url];
     [urlRequest setHTTPMethod:@"POST"];
-    [urlRequest setHTTPBody:[paramsString dataUsingEncoding:NSISOLatin1StringEncoding]];
+    [urlRequest setHTTPBody:[paramsString dataUsingEncoding:NSUTF8StringEncoding]];
     response = [[NSMutableData alloc] init];
     responseObject = object;
     responseCallback = cb;
     responseType = type;
     return !![[NSURLConnection alloc] initWithRequest:urlRequest delegate:self];
+}
+
+- (BOOL)exec:(NSString *)path params:(NSString *)params image:(UIImage *)image delegate:(id)object callback:(SEL)cb {
+    return [self exec:path params:params image:(UIImage *)image delegate:object callback:cb type:@"json"];
+}
+
+- (BOOL)exec:(NSString *)path params:(NSString *)params image:(UIImage *)image delegate:(id)object callback:(SEL)cb type:(NSString *)type {
+    NSString *urlString = [NSString stringWithFormat:@"http://shnergle-api.azurewebsites.net/v1/%@", path];
+    AppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
+    NSString *paramsString = [NSString stringWithFormat:@"app_secret=%@&%@", appDelegate.appSecret, params];
+    NSString *boundary = @"This-string-cannot-be-part-of-the-content";
+	NSString *contentType = [NSString stringWithFormat:@"multipart/form-data; boundary=%@",boundary];
+    NSURL *url = [[NSURL alloc] initWithString:urlString];
+    NSMutableURLRequest *urlRequest = [NSMutableURLRequest requestWithURL:url];
+    [urlRequest addValue:contentType forHTTPHeaderField: @"Content-Type"];
+    [urlRequest setHTTPMethod:@"POST"];
+    NSMutableData *body = [NSMutableData data];
+    for (NSString *field in [paramsString componentsSeparatedByString:@"&"]) {
+        NSArray *splitField = [field componentsSeparatedByString:@"="];
+        [body appendData:[[NSString stringWithFormat:@"\r\n--%@\r\n",boundary] dataUsingEncoding:NSUTF8StringEncoding]];
+        [body appendData:[[NSString stringWithFormat:@"Content-Disposition: form-data; name=\"%@\"\r\n\r\n", splitField[0]] dataUsingEncoding:NSUTF8StringEncoding]];
+        [body appendData:[splitField[1] dataUsingEncoding:NSUTF8StringEncoding]];
+    }
+	[body appendData:[[NSString stringWithFormat:@"\r\n--%@\r\n",boundary] dataUsingEncoding:NSUTF8StringEncoding]];
+	[body appendData:[@"Content-Disposition: form-data; name=\"image\"; filename=\"image.jpg\"\r\n" dataUsingEncoding:NSUTF8StringEncoding]];
+	[body appendData:[@"Content-Type: application/octet-stream\r\n\r\n" dataUsingEncoding:NSUTF8StringEncoding]];
+	[body appendData:[NSData dataWithData:UIImageJPEGRepresentation(image, 0.9)]];
+	[body appendData:[[NSString stringWithFormat:@"\r\n--%@--\r\n", boundary] dataUsingEncoding:NSUTF8StringEncoding]];
+	[urlRequest setHTTPBody:body];
+    response = [[NSMutableData alloc] init];
+    responseObject = object;
+    responseCallback = cb;
+    responseType = type;
+    return !![[NSURLConnection alloc] initWithRequest:urlRequest delegate:self];
+}
+
+- (BOOL)exec:(NSString *)path params:(NSString *)params delegate:(id)object callback:(SEL)cb item:(CrowdItem *)tItem {
+    item = tItem;
+    return [self exec:path params:params delegate:object callback:cb];
+}
+
+- (BOOL)exec:(NSString *)path params:(NSString *)params delegate:(id)object callback:(SEL)cb type:(NSString *)type item:(CrowdItem *)tItem {
+    item = tItem;
+    return [self exec:path params:params delegate:object callback:cb type:type];
 }
 
 - (void)connection:(NSURLConnection *)connection didReceiveData:(NSData *)data {
@@ -37,25 +81,19 @@
 
 - (void)connectionDidFinishLoading:(NSURLConnection *)connection {
     id responseArg;
-    if ([responseType isEqual:@"image"]) responseArg = [UIImage imageWithData:response];
+    if ([responseType isEqual:@"image"]) @try {responseArg = [UIImage imageWithData:response];} @catch (NSException *e) {}
     else if ([responseType isEqual:@"string"]) responseArg = [[NSString alloc] initWithData:response encoding:NSUTF8StringEncoding];
     else {
         SBJsonParser *jsonParser = [[SBJsonParser alloc] init];
         NSString *string = [[NSString alloc] initWithData:response encoding:NSUTF8StringEncoding];
-        //id jsonObjects = [jsonParser objectWithString:string];
-        NSArray *jsonObjects = [jsonParser objectWithString:string];
-        for(id obj in jsonObjects){
-            if([obj isKindOfClass:[NSArray class]])
-            if([obj count] > 1)
-            NSLog(@"\nVenue:%@",obj[1]);
-        }
-
+        id jsonObjects = [jsonParser objectWithString:string];
         responseArg = jsonObjects;
     }
     NSMethodSignature *methodSig = [[responseObject class] instanceMethodSignatureForSelector:responseCallback];
     NSInvocation *invocation = [NSInvocation invocationWithMethodSignature:methodSig];
     [invocation setSelector:responseCallback];
     [invocation setArgument:&responseArg atIndex:2];
+    if (item) [invocation setArgument:&item atIndex:3];
     [invocation setTarget:responseObject];
     [invocation retainArguments];
     [invocation invoke];

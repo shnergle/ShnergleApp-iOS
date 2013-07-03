@@ -9,12 +9,13 @@
 #import <UIKit/UIKit.h>
 #import "OverlayText.h"
 #import "CustomBackViewController.h"
+#import <QuartzCore/QuartzCore.h>
 
 @interface VenueViewController : CustomBackViewController<UICollectionViewDataSource, UICollectionViewDelegate, UIAlertViewDelegate> {
     NSString *promotionTitle;
     NSString *promotionBody;
     NSString *promotionExpiry;
-    NSInteger selectedImage;
+    NSInteger selectedPost;
 
     BOOL textViewOpen;
 
@@ -24,8 +25,15 @@
     BOOL hidden;
 
     NSString *titleHeader;
+
+    BOOL following;
+
+    double venueLat;
+    double venueLon;
+    NSString *summaryContent;
+    NSString *summaryHeadline;
 }
-- (void)setTitle:(NSString *)title;
+- (void)setVenue:(NSDictionary *)venue;
 - (void)viewDidAppear:(BOOL)animated;
 - (void)viewWillAppear:(BOOL)animated;
 - (void)goToPromotionView;
@@ -39,4 +47,5 @@
 @property (weak, nonatomic) OverlayText *overlayView;
 @property (weak, nonatomic) UIView *naviview;
 - (void)configureMapWithLat:(CLLocationDegrees)lat longitude:(CLLocationDegrees)lon;
+- (NSString *)getDateFromUnixFormat:(id)unixFormat;
 @end

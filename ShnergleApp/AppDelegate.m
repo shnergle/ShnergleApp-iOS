@@ -52,7 +52,7 @@
      @{UITextAttributeTextColor: [UIColor colorWithRed:0 green:0 blue:0 alpha:1.0],
        UITextAttributeTextShadowColor: [UIColor clearColor],
        UITextAttributeTextShadowOffset: [NSValue valueWithUIOffset:UIOffsetMake(0, 0)],
-       UITextAttributeFont: [UIFont fontWithName:@"Roboto-Regular" size:20.0]}];
+       UITextAttributeFont: [UIFont systemFontOfSize:20.0]}];
 
     [[UINavigationBar appearance] setTintColor:[UIColor colorWithRed:233.0 / 255 green:235.0 / 255 blue:240.0 / 255 alpha:1.0]];
     [[UINavigationBar appearance] setBackgroundColor:[UIColor colorWithRed:233.0 / 255 green:235.0 / 255 blue:240.0 / 255 alpha:1.0]]; //ios 7
@@ -68,7 +68,7 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     [self customiseNavBar];
-    if ([[[[UIDevice currentDevice].systemVersion componentsSeparatedByString:@"."] objectAtIndex:0] intValue] > 6) [UIApplication sharedApplication].statusBarHidden = YES;
+    if ([[[UIDevice currentDevice].systemVersion componentsSeparatedByString:@"."][0] intValue] > 6) [UIApplication sharedApplication].statusBarHidden = YES;
     //self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     // Override point for customization after application launch.
     /*if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPhone) {
@@ -90,10 +90,7 @@
 
     [GMSServices provideAPIKey:@"AIzaSyBiJeQvT0FUQdGPMbOR8DFGdVbEtHMJe7c"];
     _appSecret = @"FCuf65iuOUDCjlbiyyer678Coutyc64v655478VGvgh76";
-    
-#warning "initialising default local share boolean. Get this from server instead"
-    self.saveLocally = NO;
-    
+
     return YES;
 }
 

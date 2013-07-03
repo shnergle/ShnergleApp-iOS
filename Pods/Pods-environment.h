@@ -16,7 +16,7 @@
 #define COCOAPODS_POD_AVAILABLE_Facebook_iOS_SDK
 #define COCOAPODS_VERSION_MAJOR_Facebook_iOS_SDK 3
 #define COCOAPODS_VERSION_MINOR_Facebook_iOS_SDK 5
-#define COCOAPODS_VERSION_PATCH_Facebook_iOS_SDK 2
+#define COCOAPODS_VERSION_PATCH_Facebook_iOS_SDK 3
 
 // GCPlaceholderTextView
 #define COCOAPODS_POD_AVAILABLE_GCPlaceholderTextView
@@ -35,6 +35,12 @@
 #define COCOAPODS_VERSION_MAJOR_SBJson 3
 #define COCOAPODS_VERSION_MINOR_SBJson 2
 #define COCOAPODS_VERSION_PATCH_SBJson 0
+
+// TPKeyboardAvoiding
+#define COCOAPODS_POD_AVAILABLE_TPKeyboardAvoiding
+#define COCOAPODS_VERSION_MAJOR_TPKeyboardAvoiding 1
+#define COCOAPODS_VERSION_MINOR_TPKeyboardAvoiding 0
+#define COCOAPODS_VERSION_PATCH_TPKeyboardAvoiding 0
 
 // Toast
 #define COCOAPODS_POD_AVAILABLE_Toast

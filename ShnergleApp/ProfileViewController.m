@@ -77,16 +77,15 @@
     //Remove shadows for navbar
     self.navigationController.navigationBar.clipsToBounds = YES;
     self.navBar.clipsToBounds = YES;
-    
+
     //What level are you on?
     NSMutableString *params = [[NSMutableString alloc] initWithString:@"facebook_id=549445495"];
     [[[PostRequest alloc] init] exec:@"rankings/get" params:params delegate:self callback:@selector(postResponse:) type:@"string"];
 }
 
 //Level check:
--(void)postResponse:(id)result
-{
-    NSLog(@"%@",result);
+- (void)postResponse:(id)result {
+    NSLog(@"%@", result);
     int res = [result integerValue];
     switch (res) {
         case 1:

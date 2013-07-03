@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="4457.6" systemVersion="12E55" targetRuntime="iOS.CocoaTouch" variant="6xAndEarlier" propertyAccessControl="none" useAutolayout="YES" initialViewController="Yrf-wA-f9e">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="4457.9" systemVersion="12E55" targetRuntime="iOS.CocoaTouch" variant="6xAndEarlier" propertyAccessControl="none" useAutolayout="YES" initialViewController="Yrf-wA-f9e">
     <dependencies>
         <deployment defaultVersion="1536" identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3682.6"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3682.9"/>
     </dependencies>
     <scenes>
         <!--Navigation Controller-->
@@ -52,26 +52,18 @@
                                                     <rect key="frame" x="0.0" y="0.0" width="152" height="112"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <subviews>
-                                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qu8-4s-JU3">
+                                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" translatesAutoresizingMaskIntoConstraints="NO" id="qu8-4s-JU3">
                                                             <rect key="frame" x="0.0" y="0.0" width="152" height="112"/>
                                                         </imageView>
-                                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="2" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="151" translatesAutoresizingMaskIntoConstraints="NO" id="4Wx-Ws-wdn">
+                                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Venue Name   0.2km" lineBreakMode="tailTruncation" numberOfLines="2" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="151" translatesAutoresizingMaskIntoConstraints="NO" id="4Wx-Ws-wdn">
                                                             <rect key="frame" x="0.0" y="78" width="151" height="34"/>
                                                             <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.5" colorSpace="calibratedRGB"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="width" constant="151" id="LHP-AR-xod"/>
                                                                 <constraint firstAttribute="height" constant="34" id="x4h-Qt-e8Q"/>
                                                             </constraints>
-                                                            <attributedString key="attributedText">
-                                                                <fragment content="Venue Name   0.2km">
-                                                                    <attributes>
-                                                                        <color key="NSColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                                        <font key="NSFont" size="6" name="Roboto-Light"/>
-                                                                        <font key="NSOriginalFont" size="6" name="Roboto-Light"/>
-                                                                        <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="truncatingTail" baseWritingDirection="natural" firstLineHeadIndent="5" headIndent="5"/>
-                                                                    </attributes>
-                                                                </fragment>
-                                                            </attributedString>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="6"/>
+                                                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                             <nil key="highlightedColor"/>
                                                             <size key="shadowOffset" width="0.0" height="0.0"/>
                                                         </label>
@@ -148,8 +140,8 @@
                                             <fragment content=" 0.2    0.4    0.6    0.8    1.0    1.2    1.4    1.6    1.8    2.0">
                                                 <attributes>
                                                     <color key="NSColor" cocoaTouchSystemColor="darkTextColor"/>
-                                                    <font key="NSFont" size="11" name="Roboto-Regular"/>
                                                     <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="11"/>
                                                 </attributes>
                                             </fragment>
                                         </attributedString>
@@ -165,8 +157,8 @@
                                             <fragment content="Distance">
                                                 <attributes>
                                                     <color key="NSColor" name="disabledControlTextColor" catalog="System" colorSpace="catalog"/>
-                                                    <font key="NSFont" size="11" name="Roboto-Regular"/>
                                                     <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="11"/>
                                                 </attributes>
                                             </fragment>
                                         </attributedString>
@@ -415,7 +407,7 @@
                                     <constraint firstAttribute="height" constant="548" id="Eak-yI-CRk"/>
                                 </constraints>
                                 <prototypes>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Cell0" id="R8h-pe-zgj">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Cell0" id="R8h-pe-zgj">
                                         <rect key="frame" x="0.0" y="46" width="320" height="45"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
@@ -424,7 +416,7 @@
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         </view>
                                     </tableViewCell>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Cell1" id="aca-NP-z7D">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Cell1" id="aca-NP-z7D">
                                         <rect key="frame" x="0.0" y="91" width="320" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
@@ -433,7 +425,7 @@
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         </view>
                                     </tableViewCell>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Cell2" id="sv7-NR-TG2">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Cell2" id="sv7-NR-TG2">
                                         <rect key="frame" x="0.0" y="135" width="320" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
@@ -442,7 +434,7 @@
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         </view>
                                     </tableViewCell>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Cell3" id="tFt-6G-o58">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Cell3" id="tFt-6G-o58">
                                         <rect key="frame" x="0.0" y="179" width="320" height="45"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
@@ -596,22 +588,14 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1Jd-l3-JP4">
+                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="1 hr 20 mins ago" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1Jd-l3-JP4">
                                                     <rect key="frame" x="0.0" y="79" width="100" height="21"/>
                                                     <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.5" colorSpace="calibratedRGB"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="21" id="i8O-fU-dYw"/>
                                                     </constraints>
-                                                    <attributedString key="attributedText">
-                                                        <fragment content="1 hr 20 mins ago">
-                                                            <attributes>
-                                                                <color key="NSColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                                                <font key="NSFont" size="9" name="Roboto-Medium"/>
-                                                                <font key="NSOriginalFont" size="10" name="Roboto-Medium"/>
-                                                                <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="truncatingTail" baseWritingDirection="natural" firstLineHeadIndent="5"/>
-                                                            </attributes>
-                                                        </fragment>
-                                                    </attributedString>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="6"/>
+                                                    <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                     <size key="shadowOffset" width="0.0" height="0.0"/>
                                                 </label>
@@ -672,21 +656,17 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
             </objects>
             <point key="canvasLocation" x="-1342" y="872"/>
         </scene>
-        <!--Venue Gallery View Controller-->
+        <!--Venue Gallery View Controller - tit-->
         <scene sceneID="SP1-bN-fzb">
             <objects>
-                <viewController storyboardIdentifier="VenueGallery" id="PQb-UE-tQ8" customClass="VenueGalleryViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="VenueGallery" title="tit" id="PQb-UE-tQ8" customClass="VenueGalleryViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="0ht-SK-gFa">
                         <rect key="frame" x="0.0" y="64" width="320" height="416"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4Bj-Xy-ePL">
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4Bj-Xy-ePL">
                                 <rect key="frame" x="4" y="286" width="102" height="35"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="35" id="Nmm-qN-M9f"/>
-                                    <constraint firstAttribute="width" constant="102" id="vUv-f9-gCR"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" name="Helvetica-Bold" family="Helvetica" pointSize="13"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="13"/>
                                 <state key="normal" title="Like" backgroundImage="greybutton03.png">
                                     <color key="titleColor" white="0.28740875912408759" alpha="1" colorSpace="calibratedWhite"/>
                                     <color key="titleShadowColor" white="0.69482778284671531" alpha="1" colorSpace="calibratedWhite"/>
@@ -695,12 +675,9 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                                     <action selector="likeButtonPressed:" destination="PQb-UE-tQ8" eventType="touchUpInside" id="MAF-FV-D7C"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JFo-V8-IX5">
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JFo-V8-IX5">
                                 <rect key="frame" x="109" y="286" width="102" height="35"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="102" id="Ptq-fm-Jkg"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" name="Helvetica-Bold" family="Helvetica" pointSize="13"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="13"/>
                                 <state key="normal" title="Share" backgroundImage="greybutton03.png">
                                     <color key="titleColor" white="0.28740875912408759" alpha="1" colorSpace="calibratedWhite"/>
                                     <color key="titleShadowColor" white="0.69482778284671531" alpha="1" colorSpace="calibratedWhite"/>
@@ -709,12 +686,9 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                                     <segue destination="X6s-9K-8Ms" kind="push" id="V1y-Vn-JKN"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zpk-oQ-Ics">
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zpk-oQ-Ics">
                                 <rect key="frame" x="214" y="286" width="102" height="35"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="102" id="5OL-cK-yLr"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" name="Helvetica-Bold" family="Helvetica" pointSize="13"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="13"/>
                                 <state key="normal" title="Flag for review" backgroundImage="greybutton03.png">
                                     <color key="titleColor" white="0.28740875912408759" alpha="1" colorSpace="calibratedWhite"/>
                                     <color key="titleShadowColor" white="0.69482778284671531" alpha="1" colorSpace="calibratedWhite"/>
@@ -723,59 +697,32 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                                     <action selector="flagButtonPressed:" destination="PQb-UE-tQ8" eventType="touchUpInside" id="Pbw-Sr-rni"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Stian J." lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="55" translatesAutoresizingMaskIntoConstraints="NO" id="9Po-tE-tg7">
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" fixedFrame="YES" text="Stian J." lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="55" translatesAutoresizingMaskIntoConstraints="NO" id="9Po-tE-tg7">
                                 <rect key="frame" x="2" y="248" width="55" height="31"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="55" id="mao-E6-toY"/>
-                                    <constraint firstAttribute="height" constant="31" id="tbR-5L-r9M"/>
-                                </constraints>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="12"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="The people in this place have funny hats. Also liked the balloons." lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="231" translatesAutoresizingMaskIntoConstraints="NO" id="diO-ua-hnK">
-                                <rect key="frame" x="64" y="248" width="231" height="31"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="231" id="rTC-68-aRJ"/>
-                                </constraints>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" fixedFrame="YES" text="The people in this place have funny hats. Also liked the balloons." lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="231" translatesAutoresizingMaskIntoConstraints="NO" id="diO-ua-hnK">
+                                <rect key="frame" x="64" y="245" width="231" height="31"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" directionalLockEnabled="YES" bounces="NO" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dSb-F6-Rh6">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="245"/>
-                                <color key="backgroundColor" red="0.69385834854014594" green="0.0" blue="0.0" alpha="0.0" colorSpace="calibratedRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="245" id="pA7-wS-Gd9"/>
-                                </constraints>
-                            </scrollView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Mmh-q9-BfF">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="240"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" red="0.91372555489999996" green="0.9215686917" blue="0.94117653369999998" alpha="1" colorSpace="deviceRGB"/>
-                        <constraints>
-                            <constraint firstItem="JFo-V8-IX5" firstAttribute="leading" secondItem="4Bj-Xy-ePL" secondAttribute="trailing" constant="3" id="2ga-Jz-L6r"/>
-                            <constraint firstItem="9Po-tE-tg7" firstAttribute="leading" secondItem="0ht-SK-gFa" secondAttribute="leading" constant="2" id="4iZ-jJ-DBM"/>
-                            <constraint firstItem="dSb-F6-Rh6" firstAttribute="trailing" secondItem="0ht-SK-gFa" secondAttribute="trailing" id="8lD-VA-caf"/>
-                            <constraint firstItem="JFo-V8-IX5" firstAttribute="top" secondItem="zpk-oQ-Ics" secondAttribute="top" id="D1x-8g-pHF"/>
-                            <constraint firstItem="dSb-F6-Rh6" firstAttribute="leading" secondItem="0ht-SK-gFa" secondAttribute="leading" id="IsV-fB-LpH"/>
-                            <constraint firstItem="9Po-tE-tg7" firstAttribute="top" secondItem="diO-ua-hnK" secondAttribute="top" id="OPU-iT-5b4"/>
-                            <constraint firstItem="zpk-oQ-Ics" firstAttribute="leading" secondItem="JFo-V8-IX5" secondAttribute="trailing" constant="3" id="R03-17-VeA"/>
-                            <constraint firstItem="dSb-F6-Rh6" firstAttribute="top" secondItem="0ht-SK-gFa" secondAttribute="top" id="RrS-bZ-dBf"/>
-                            <constraint firstItem="9Po-tE-tg7" firstAttribute="baseline" secondItem="diO-ua-hnK" secondAttribute="baseline" id="gFU-gy-hmd"/>
-                            <constraint firstItem="zpk-oQ-Ics" firstAttribute="bottom" secondItem="JFo-V8-IX5" secondAttribute="bottom" id="hoL-eN-lD4"/>
-                            <constraint firstItem="4Bj-Xy-ePL" firstAttribute="top" secondItem="JFo-V8-IX5" secondAttribute="top" id="jSU-Zk-thU"/>
-                            <constraint firstAttribute="bottom" secondItem="9Po-tE-tg7" secondAttribute="bottom" constant="137" id="qFx-xl-Rkw"/>
-                            <constraint firstItem="diO-ua-hnK" firstAttribute="leading" secondItem="0ht-SK-gFa" secondAttribute="leading" constant="64" id="qGr-ZT-lgF"/>
-                            <constraint firstItem="JFo-V8-IX5" firstAttribute="centerX" secondItem="dSb-F6-Rh6" secondAttribute="centerX" id="t50-3O-TZ7"/>
-                            <constraint firstItem="4Bj-Xy-ePL" firstAttribute="top" secondItem="0ht-SK-gFa" secondAttribute="top" constant="286" id="tWU-lf-BAf"/>
-                            <constraint firstItem="JFo-V8-IX5" firstAttribute="bottom" secondItem="4Bj-Xy-ePL" secondAttribute="bottom" id="yo8-1f-1ZG"/>
-                        </constraints>
                     </view>
                     <extendedEdge key="edgesForExtendedLayout"/>
                     <navigationItem key="navigationItem" id="be1-hQ-8nR"/>
-                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics"/>
                     <connections>
-                        <outlet property="imageScrollView" destination="dSb-F6-Rh6" id="Fe2-AF-djm"/>
+                        <outlet property="authorLabel" destination="9Po-tE-tg7" id="qbC-TV-6mG"/>
+                        <outlet property="commentLabel" destination="diO-ua-hnK" id="fkb-nJ-qgI"/>
+                        <outlet property="imageView" destination="Mmh-q9-BfF" id="As4-d5-9YW"/>
                         <outlet property="likeButton" destination="4Bj-Xy-ePL" id="wNQ-cn-6kS"/>
                     </connections>
                 </viewController>
@@ -1040,7 +987,7 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                                 <constraints>
                                     <constraint firstAttribute="height" constant="41" id="sm8-77-9T4"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="21"/>
                                 <color key="textColor" red="0.9137254901960784" green="0.92156862745098034" blue="0.94117647058823528" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -1296,7 +1243,7 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
         <!--Check In-->
         <scene sceneID="MvE-mu-x5f">
             <objects>
-                <viewController id="CuC-E9-ArH" userLabel="Check In" customClass="CheckInViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="CheckInViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="CuC-E9-ArH" userLabel="Check In" customClass="CheckInViewController" sceneMemberID="viewController">
                     <extendedEdge key="edgesForExtendedLayout"/>
                     <navigationItem key="navigationItem" title="Check in" id="Oqo-OR-Jkq"/>
                 </viewController>
@@ -1360,8 +1307,9 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                                                     <fragment content="Scout">
                                                         <attributes>
                                                             <color key="NSColor" cocoaTouchSystemColor="darkTextColor"/>
-                                                            <font key="NSFont" size="13" name="Roboto-BoldCondensed"/>
+                                                            <font key="NSFont" size="12" name="Helvetica"/>
                                                             <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
+                                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="13"/>
                                                         </attributes>
                                                     </fragment>
                                                 </attributedString>
@@ -1377,26 +1325,27 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                                                     <fragment content="8 Check Ins per month">
                                                         <attributes>
                                                             <color key="NSColor" cocoaTouchSystemColor="darkTextColor"/>
-                                                            <font key="NSFont" size="15" name="Roboto-BoldCondensed"/>
+                                                            <font key="NSFont" size="12" name="Helvetica"/>
                                                             <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
+                                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                                         </attributes>
                                                     </fragment>
                                                 </attributedString>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ItR-tc-cJA">
-                                                <rect key="frame" x="114" y="140" width="80" height="21"/>
+                                                <rect key="frame" x="115" y="139" width="90" height="21"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="width" constant="80" id="caa-W8-BWw"/>
+                                                    <constraint firstAttribute="width" constant="90" id="caa-W8-BWw"/>
                                                     <constraint firstAttribute="height" constant="21" id="ik3-xM-qgh"/>
                                                 </constraints>
                                                 <attributedString key="attributedText">
                                                     <fragment content="Shnergler">
                                                         <attributes>
                                                             <color key="NSColor" cocoaTouchSystemColor="darkTextColor"/>
-                                                            <font key="NSFont" size="13" name="Roboto-BoldCondensed"/>
-                                                            <font key="NSOriginalFont" size="13" name="Roboto-BoldCondensed"/>
+                                                            <font key="NSFont" size="12" name="Helvetica"/>
                                                             <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
+                                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="13"/>
                                                         </attributes>
                                                     </fragment>
                                                 </attributedString>
@@ -1412,26 +1361,27 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                                                     <fragment content="Reduce your Check Ins to 4 per month">
                                                         <attributes>
                                                             <color key="NSColor" cocoaTouchSystemColor="darkTextColor"/>
-                                                            <font key="NSFont" size="15" name="Roboto-BoldCondensed"/>
+                                                            <font key="NSFont" size="12" name="Helvetica"/>
                                                             <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
+                                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                                         </attributes>
                                                     </fragment>
                                                 </attributedString>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7Er-eZ-Aka">
-                                                <rect key="frame" x="22" y="139" width="86" height="21"/>
+                                                <rect key="frame" x="25" y="139" width="94" height="21"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="21" id="RK8-hh-q8X"/>
-                                                    <constraint firstAttribute="width" constant="86" id="ZGy-UG-LrD"/>
+                                                    <constraint firstAttribute="width" constant="94" id="ZGy-UG-LrD"/>
                                                 </constraints>
                                                 <attributedString key="attributedText">
                                                     <fragment content="Explorer">
                                                         <attributes>
                                                             <color key="NSColor" cocoaTouchSystemColor="darkTextColor"/>
-                                                            <font key="NSFont" size="13" name="Roboto-BoldCondensed"/>
-                                                            <font key="NSOriginalFont" size="12" name="Roboto-BoldCondensed"/>
+                                                            <font key="NSFont" size="12" name="Helvetica"/>
                                                             <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
+                                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="13"/>
                                                         </attributes>
                                                     </fragment>
                                                 </attributedString>
@@ -1447,8 +1397,9 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                                                     <fragment content="Increase your Check Ins to 10 per month ">
                                                         <attributes>
                                                             <color key="NSColor" cocoaTouchSystemColor="darkTextColor"/>
-                                                            <font key="NSFont" size="15" name="Roboto-BoldCondensed"/>
+                                                            <font key="NSFont" size="12" name="Helvetica"/>
                                                             <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
+                                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                                         </attributes>
                                                     </fragment>
                                                 </attributedString>
@@ -1472,8 +1423,8 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                                                     <fragment content="TOP 20%">
                                                         <attributes>
                                                             <color key="NSColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                                                            <font key="NSFont" size="14" name="Roboto-Bold"/>
                                                             <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
+                                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
                                                         </attributes>
                                                     </fragment>
                                                 </attributedString>
@@ -1496,8 +1447,8 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                                                     <fragment content="TOP 1%">
                                                         <attributes>
                                                             <color key="NSColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                                                            <font key="NSFont" size="14" name="Roboto-Bold"/>
                                                             <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
+                                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
                                                         </attributes>
                                                     </fragment>
                                                 </attributedString>
@@ -1520,8 +1471,8 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                                                     <fragment content="TOP 5%">
                                                         <attributes>
                                                             <color key="NSColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                                                            <font key="NSFont" size="14" name="Roboto-Bold"/>
                                                             <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
+                                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
                                                         </attributes>
                                                     </fragment>
                                                 </attributedString>
@@ -1535,7 +1486,7 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                                             <constraint firstItem="aov-cO-Uf2" firstAttribute="leading" secondItem="d7K-2j-bO2" secondAttribute="leading" constant="125" id="3bf-XQ-WAv"/>
                                             <constraint firstItem="vet-zr-ZTU" firstAttribute="centerX" secondItem="TKV-Hw-kaW" secondAttribute="centerX" constant="0.5" id="BzH-yi-fMF"/>
                                             <constraint firstAttribute="height" constant="246" id="D2V-72-Quo"/>
-                                            <constraint firstAttribute="bottom" secondItem="ItR-tc-cJA" secondAttribute="bottom" constant="85" id="DZA-n4-7f0"/>
+                                            <constraint firstAttribute="bottom" secondItem="ItR-tc-cJA" secondAttribute="bottom" constant="86" id="DZA-n4-7f0"/>
                                             <constraint firstItem="PZl-4S-Ut5" firstAttribute="top" secondItem="d7K-2j-bO2" secondAttribute="top" constant="165" id="G4y-fW-krt"/>
                                             <constraint firstItem="TKV-Hw-kaW" firstAttribute="leading" secondItem="d7K-2j-bO2" secondAttribute="leading" constant="115" id="GCg-hd-eJr"/>
                                             <constraint firstAttribute="bottom" secondItem="6aw-hx-FKb" secondAttribute="bottom" constant="106" id="Geh-3F-Kso"/>
@@ -1546,7 +1497,7 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                                             <constraint firstItem="u3a-ML-Adf" firstAttribute="centerY" secondItem="dJa-qt-Zm3" secondAttribute="centerY" id="LXU-tV-N9f"/>
                                             <constraint firstItem="9CC-oT-nGS" firstAttribute="centerX" secondItem="B8S-PQ-qb1" secondAttribute="centerX" constant="5" id="MqU-h6-WKw"/>
                                             <constraint firstItem="u3a-ML-Adf" firstAttribute="leading" secondItem="d7K-2j-bO2" secondAttribute="leading" constant="213" id="RJw-VS-CfJ"/>
-                                            <constraint firstItem="ItR-tc-cJA" firstAttribute="baseline" secondItem="2ve-HH-46t" secondAttribute="baseline" id="RjJ-hJ-5VS"/>
+                                            <constraint firstItem="ItR-tc-cJA" firstAttribute="baseline" secondItem="2ve-HH-46t" secondAttribute="baseline" constant="-1" id="RjJ-hJ-5VS"/>
                                             <constraint firstItem="vet-zr-ZTU" firstAttribute="centerX" secondItem="aov-cO-Uf2" secondAttribute="centerX" constant="-1" id="Shs-aN-vBo"/>
                                             <constraint firstItem="vet-zr-ZTU" firstAttribute="baseline" secondItem="9CC-oT-nGS" secondAttribute="baseline" id="UuE-NO-Oqi"/>
                                             <constraint firstAttribute="bottom" secondItem="B8S-PQ-qb1" secondAttribute="bottom" constant="148" id="VLP-7U-w9J"/>
@@ -1561,13 +1512,13 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                                             <constraint firstItem="B8S-PQ-qb1" firstAttribute="top" secondItem="d7K-2j-bO2" secondAttribute="top" constant="22" id="hnl-0v-KxC"/>
                                             <constraint firstItem="vet-zr-ZTU" firstAttribute="centerY" secondItem="d7K-2j-bO2" secondAttribute="centerY" id="jLD-Wk-R1h"/>
                                             <constraint firstItem="9CC-oT-nGS" firstAttribute="trailing" secondItem="6aw-hx-FKb" secondAttribute="trailing" constant="4" id="lcB-5B-6EB"/>
-                                            <constraint firstItem="7Er-eZ-Aka" firstAttribute="leading" secondItem="d7K-2j-bO2" secondAttribute="leading" constant="33" id="nEW-yq-enq"/>
+                                            <constraint firstItem="7Er-eZ-Aka" firstAttribute="leading" secondItem="d7K-2j-bO2" secondAttribute="leading" constant="25" id="nEW-yq-enq"/>
                                             <constraint firstItem="6ST-su-s4Y" firstAttribute="top" secondItem="vet-zr-ZTU" secondAttribute="top" id="nHU-9t-Lvo"/>
                                             <constraint firstItem="6aw-hx-FKb" firstAttribute="bottom" secondItem="TKV-Hw-kaW" secondAttribute="bottom" id="nP1-Yo-noC"/>
                                             <constraint firstItem="6ST-su-s4Y" firstAttribute="centerX" secondItem="h0v-Dh-fc8" secondAttribute="centerX" constant="-1" id="oNm-BG-Lmd"/>
-                                            <constraint firstItem="ItR-tc-cJA" firstAttribute="leading" secondItem="d7K-2j-bO2" secondAttribute="leading" constant="118" id="ozQ-Cv-1zx"/>
+                                            <constraint firstItem="ItR-tc-cJA" firstAttribute="leading" secondItem="d7K-2j-bO2" secondAttribute="leading" constant="115" id="ozQ-Cv-1zx"/>
                                             <constraint firstItem="dJa-qt-Zm3" firstAttribute="top" secondItem="PZl-4S-Ut5" secondAttribute="top" id="p2S-5A-8mM"/>
-                                            <constraint firstItem="ItR-tc-cJA" firstAttribute="top" secondItem="2ve-HH-46t" secondAttribute="top" id="pWK-kd-ndf"/>
+                                            <constraint firstItem="ItR-tc-cJA" firstAttribute="top" secondItem="2ve-HH-46t" secondAttribute="top" constant="-1" id="pWK-kd-ndf"/>
                                             <constraint firstItem="dJa-qt-Zm3" firstAttribute="leading" secondItem="d7K-2j-bO2" secondAttribute="leading" constant="103" id="piV-HY-is2"/>
                                             <constraint firstItem="9CC-oT-nGS" firstAttribute="trailing" secondItem="7Er-eZ-Aka" secondAttribute="trailing" id="rtu-Rj-88F"/>
                                             <constraint firstItem="oUU-4O-C2G" firstAttribute="bottom" secondItem="TKV-Hw-kaW" secondAttribute="bottom" id="suh-Bg-io5"/>
@@ -1577,7 +1528,7 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                                             <constraint firstItem="aov-cO-Uf2" firstAttribute="top" secondItem="d7K-2j-bO2" secondAttribute="top" id="yFM-jJ-WVB"/>
                                             <constraint firstItem="6ST-su-s4Y" firstAttribute="baseline" secondItem="vet-zr-ZTU" secondAttribute="baseline" id="yfI-hX-bgp"/>
                                             <constraint firstItem="vet-zr-ZTU" firstAttribute="top" secondItem="9CC-oT-nGS" secondAttribute="top" id="zUt-Sb-Bp8"/>
-                                            <constraint firstItem="6ST-su-s4Y" firstAttribute="centerX" secondItem="2ve-HH-46t" secondAttribute="centerX" id="zlh-51-r4f"/>
+                                            <constraint firstItem="6ST-su-s4Y" firstAttribute="centerX" secondItem="2ve-HH-46t" secondAttribute="centerX" constant="3.5" id="zlh-51-r4f"/>
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ho1-hg-V7U">
@@ -1593,8 +1544,8 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                                                     <fragment content="Total activity to date">
                                                         <attributes>
                                                             <color key="NSColor" cocoaTouchSystemColor="darkTextColor"/>
-                                                            <font key="NSFont" size="15" name="Roboto-BoldCondensed"/>
                                                             <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
+                                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                                         </attributes>
                                                     </fragment>
                                                 </attributedString>
@@ -1610,8 +1561,8 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                                                     <fragment content="Manage linked accounts">
                                                         <attributes>
                                                             <color key="NSColor" cocoaTouchSystemColor="darkTextColor"/>
-                                                            <font key="NSFont" size="15" name="Roboto-BoldCondensed"/>
                                                             <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
+                                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                                         </attributes>
                                                     </fragment>
                                                 </attributedString>
@@ -1634,8 +1585,8 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                                                     <fragment content="Twitter">
                                                         <attributes>
                                                             <color key="NSColor" cocoaTouchSystemColor="darkTextColor"/>
-                                                            <font key="NSFont" size="15" name="Roboto-BoldCondensed"/>
                                                             <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
+                                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                                         </attributes>
                                                     </fragment>
                                                 </attributedString>
@@ -1663,8 +1614,8 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                                                     <fragment content="Facebook">
                                                         <attributes>
                                                             <color key="NSColor" cocoaTouchSystemColor="darkTextColor"/>
-                                                            <font key="NSFont" size="15" name="Roboto-BoldCondensed"/>
                                                             <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
+                                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                                         </attributes>
                                                     </fragment>
                                                 </attributedString>
@@ -1689,8 +1640,8 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                                                             <fragment content="Check Ins">
                                                                 <attributes>
                                                                     <color key="NSColor" cocoaTouchSystemColor="darkTextColor"/>
-                                                                    <font key="NSFont" size="15" name="Roboto-BoldCondensed"/>
                                                                     <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
+                                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                                                 </attributes>
                                                             </fragment>
                                                         </attributedString>
@@ -1706,8 +1657,8 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                                                             <fragment content="56">
                                                                 <attributes>
                                                                     <color key="NSColor" cocoaTouchSystemColor="darkTextColor"/>
-                                                                    <font key="NSFont" size="56" name="Roboto-Regular"/>
                                                                     <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
+                                                                    <fontDescription key="fontDescription" type="system" pointSize="56"/>
                                                                 </attributes>
                                                             </fragment>
                                                         </attributedString>
@@ -1735,8 +1686,8 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                                                             <fragment content="23">
                                                                 <attributes>
                                                                     <color key="NSColor" cocoaTouchSystemColor="darkTextColor"/>
-                                                                    <font key="NSFont" size="56" name="Roboto-Regular"/>
                                                                     <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
+                                                                    <fontDescription key="fontDescription" type="system" pointSize="56"/>
                                                                 </attributes>
                                                             </fragment>
                                                         </attributedString>
@@ -1752,8 +1703,8 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                                                             <fragment content="Redeemed">
                                                                 <attributes>
                                                                     <color key="NSColor" cocoaTouchSystemColor="darkTextColor"/>
-                                                                    <font key="NSFont" size="15" name="Roboto-BoldCondensed"/>
                                                                     <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
+                                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                                                 </attributes>
                                                             </fragment>
                                                         </attributedString>
@@ -1781,8 +1732,8 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                                                             <fragment content="13">
                                                                 <attributes>
                                                                     <color key="NSColor" cocoaTouchSystemColor="darkTextColor"/>
-                                                                    <font key="NSFont" size="56" name="Roboto-Regular"/>
                                                                     <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
+                                                                    <fontDescription key="fontDescription" type="system" pointSize="56"/>
                                                                 </attributes>
                                                             </fragment>
                                                         </attributedString>
@@ -1797,8 +1748,8 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                                                             <fragment content="Favourites">
                                                                 <attributes>
                                                                     <color key="NSColor" cocoaTouchSystemColor="darkTextColor"/>
-                                                                    <font key="NSFont" size="15" name="Roboto-Regular"/>
                                                                     <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
+                                                                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                                                 </attributes>
                                                             </fragment>
                                                         </attributedString>
@@ -1927,8 +1878,8 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                                             <fragment content="So far you have checked in 5 times this month you need three more to maintain your status">
                                                 <attributes>
                                                     <color key="NSColor" red="0.058823533356189728" green="0.60784316062927246" blue="0.87843143939971924" alpha="1" colorSpace="deviceRGB"/>
-                                                    <font key="NSFont" size="14" name="Roboto-BoldCondensed"/>
                                                     <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
+                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
                                                 </attributes>
                                             </fragment>
                                         </attributedString>
@@ -1943,8 +1894,8 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                                             <fragment content="At the rate of two check-ins per week you represent the top 5%">
                                                 <attributes>
                                                     <color key="NSColor" cocoaTouchSystemColor="darkTextColor"/>
-                                                    <font key="NSFont" size="14" name="Roboto-BoldCondensed"/>
                                                     <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
+                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
                                                 </attributes>
                                             </fragment>
                                         </attributedString>
@@ -2027,8 +1978,8 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                                         <fragment content="Favourites">
                                             <attributes>
                                                 <color key="NSColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                                <font key="NSFont" size="20" name="Roboto-Regular"/>
                                                 <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                             </attributes>
                                         </fragment>
                                     </attributedString>
@@ -2097,8 +2048,7 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                                                         <fragment content="PINK">
                                                             <attributes>
                                                                 <color key="NSColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                                <font key="NSFont" size="6" name="Roboto-Light"/>
-                                                                <font key="NSOriginalFont" size="6" name="Roboto-Light"/>
+                                                                <font key="NSFont" size="12" name="Helvetica"/>
                                                                 <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="truncatingTail" baseWritingDirection="natural" firstLineHeadIndent="5" headIndent="5"/>
                                                             </attributes>
                                                         </fragment>

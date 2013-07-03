@@ -27,27 +27,24 @@
     [self.view makeToastActivity];
     self.navigationItem.title = @"Add Place";
     categories = [[NSMutableArray alloc] init];
-    
+
     AppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
     NSString *params = [NSString stringWithFormat:@"facebook_id=%@", appDelegate.facebookId];
     [[[PostRequest alloc]init]exec:@"categories/get" params:params delegate:self callback:@selector(postResponse:)];
-    
 }
 
 - (void)postResponse:(id)response {
     //NSLog(@"search response: %@", response);
-    if([response isKindOfClass:[NSArray class]]){
+    if ([response isKindOfClass:[NSArray class]]) {
         //_searchResults = [[NSMutableArray alloc]initWithArray:response];
-        for(id obj in response){
-            if([obj count] > 1)
-                [categories addObject:obj];
+        for (id obj in response) {
+            if ([obj count] > 1) [categories addObject:obj];
         }
     }
-    
+
     [self.categoryTableView reloadData];
     [self.view hideToastActivity];
 }
-
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
@@ -65,15 +62,20 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell"];
-    cell.textLabel.text = categories[indexPath.row][1];
-    cell.imageView.image = [UIImage imageNamed:[NSString stringWithFormat:@"%@.png",categories[indexPath.row][0]]];
+    cell.imageView.image = [UIImage imageNamed:[NSString stringWithFormat:@"%@.png", categories[indexPath.row][@"id"]]];
+    UILabel *textView = [[UILabel alloc] initWithFrame:CGRectMake(50, 0, 270, cell.bounds.size.height)];
+    textView.text = categories[indexPath.row][@"type"];
+    textView.font = [UIFont fontWithName:cell.textLabel.font.fontName size:20];
+    textView.backgroundColor = tableView.backgroundColor;
+    [cell addSubview:textView];
 
     return cell;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     AppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
-    appDelegate.addVenueType = categories[indexPath.row][1];
+    appDelegate.addVenueType = categories[indexPath.row][@"type"];
+    appDelegate.addVenueTypeId =  [NSString stringWithFormat:@"%@", categories[indexPath.row][@"id"]];
     [self goBack];
 }
 

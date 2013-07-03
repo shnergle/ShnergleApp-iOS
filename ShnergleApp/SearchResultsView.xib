@@ -11,7 +11,7 @@
             <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <tableView clipsSubviews="YES" contentMode="scaleToFill" horizontalCompressionResistancePriority="117" verticalCompressionResistancePriority="208" ambiguous="YES" alwaysBounceVertical="YES" style="plain" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="xFU-QV-hTZ">
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" horizontalCompressionResistancePriority="117" verticalCompressionResistancePriority="208" alwaysBounceVertical="YES" style="plain" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="xFU-QV-hTZ">
                     <rect key="frame" x="0.0" y="0.0" width="230" height="459"/>
                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -35,13 +35,14 @@
             </subviews>
             <color key="backgroundColor" white="0.28740875910000002" alpha="1" colorSpace="calibratedWhite"/>
             <constraints>
-                <constraint firstItem="Z5u-El-CCv" firstAttribute="trailing" secondItem="1" secondAttribute="trailing" id="42C-SC-1Lx"/>
-                <constraint firstItem="Z5u-El-CCv" firstAttribute="leading" secondItem="1" secondAttribute="leading" id="MQd-JS-HuJ"/>
+                <constraint firstItem="Z5u-El-CCv" firstAttribute="leading" secondItem="1" secondAttribute="leading" id="5rG-O4-vln"/>
+                <constraint firstItem="Z5u-El-CCv" firstAttribute="leading" secondItem="xFU-QV-hTZ" secondAttribute="leading" id="8ev-oi-SzH"/>
                 <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="xFU-QV-hTZ" secondAttribute="bottom" constant="21" id="NeI-kW-bN2"/>
-                <constraint firstItem="xFU-QV-hTZ" firstAttribute="top" secondItem="Z5u-El-CCv" secondAttribute="top" constant="-20" id="PiL-Y0-VHw"/>
-                <constraint firstItem="xFU-QV-hTZ" firstAttribute="leading" secondItem="Z5u-El-CCv" secondAttribute="leading" id="QvR-zD-dbm"/>
+                <constraint firstAttribute="bottom" secondItem="xFU-QV-hTZ" secondAttribute="bottom" constant="21" id="Rfj-Zc-QVh"/>
                 <constraint firstItem="xFU-QV-hTZ" firstAttribute="top" secondItem="1" secondAttribute="top" id="gXB-Uh-BUP"/>
-                <constraint firstAttribute="bottom" secondItem="Z5u-El-CCv" secondAttribute="bottom" constant="436" id="mJf-x0-HhW"/>
+                <constraint firstItem="Z5u-El-CCv" firstAttribute="top" secondItem="xFU-QV-hTZ" secondAttribute="top" id="mh9-My-AaK"/>
+                <constraint firstItem="Z5u-El-CCv" firstAttribute="trailing" secondItem="1" secondAttribute="trailing" id="uLJ-LM-hsI"/>
+                <constraint firstAttribute="bottom" secondItem="Z5u-El-CCv" secondAttribute="bottom" constant="436" id="viW-Fu-KQN"/>
                 <constraint firstAttribute="trailing" secondItem="xFU-QV-hTZ" secondAttribute="trailing" constant="90" id="wQ4-pw-yja"/>
             </constraints>
             <simulatedScreenMetrics key="simulatedDestinationMetrics"/>
@@ -50,15 +51,4 @@
             </connections>
         </view>
     </objects>
-    <classes>
-        <class className="NSLayoutConstraint" superclassName="NSObject">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/NSLayoutConstraint.h"/>
-        </class>
-        <class className="SearchResultsView" superclassName="UIView">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/SearchResultsView.h"/>
-            <relationships>
-                <relationship kind="outlet" name="resultsTableView" candidateClass="UITableView"/>
-            </relationships>
-        </class>
-    </classes>
 </document>

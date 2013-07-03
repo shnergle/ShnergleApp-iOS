@@ -7,6 +7,7 @@
 //
 
 #import "VenueDetailsViewController.h"
+#import "AppDelegate.h"
 
 @interface VenueDetailsViewController ()
 
@@ -27,6 +28,8 @@
     self.navigationItem.title = @"Venue Details";
     //[self setRightBarButton: [NSString @"Done"];
 
+    AppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
+    appDelegate.venueDetailsContent = [[NSMutableArray alloc]init];
     self.tableData = @[@"Phone", @"Email", @"Website"];
 }
 
@@ -44,18 +47,35 @@
     cell.textLabel.text = _tableData[indexPath.row];
     if (indexPath.row == 0) {
         UITextField *textField = [[UITextField alloc] initWithFrame:CGRectMake(110, 10, 185, 30)];
+        textField.tag = 0;
         textField.placeholder = @"(Required)";
+        textField.delegate = self;
         [cell.contentView addSubview:textField];
     } else if (indexPath.row == 1) {
         UITextField *textField = [[UITextField alloc] initWithFrame:CGRectMake(110, 10, 185, 30)];
+        textField.tag = 1;
         textField.placeholder = @"(Required)";
+        textField.delegate = self;
+
         [cell.contentView addSubview:textField];
     } else if (indexPath.row == 2) {
         UITextField *textField = [[UITextField alloc] initWithFrame:CGRectMake(110, 10, 185, 30)];
+        textField.tag = 2;
         textField.placeholder = @"(Required)";
+        textField.delegate = self;
         [cell.contentView addSubview:textField];
     }
     return cell;
+}
+
+- (BOOL)textFieldShouldReturn:(UITextField *)textField {
+    [textField resignFirstResponder];
+    return YES;
+}
+
+- (void)textFieldDidEndEditing:(UITextField *)textField {
+    AppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
+    appDelegate.venueDetailsContent[textField.tag] = textField.text;
 }
 
 - (void)didReceiveMemoryWarning {

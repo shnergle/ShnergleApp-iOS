@@ -9,8 +9,7 @@
 #import "OverlayText.h"
 #import "VenueViewController.h"
 #import "AppDelegate.h"
-
-#define TABBAR_HEIGHT (45)
+#import "CheckInViewController.h"
 
 @implementation OverlayText
 
@@ -36,7 +35,7 @@
     CGFloat screenHeight = screenRect.size.height;
 
 
-    frame = CGRectMake(0, screenHeight - 70, self.frame.size.width, self.frame.size.height);
+    frame = CGRectMake(0, screenHeight - 80, self.frame.size.width, self.frame.size.height);
     self = [super initWithFrame:frame];
 
     if (self) {
@@ -88,14 +87,10 @@
     int newValue = oldValue + 1;
     [self.goingLabel setFont:[UIFont fontWithName:self.goingLabel.font.fontName size:self.goingLabel.font.pointSize]];
     [self.goingLabel setText:[NSString stringWithFormat:@"%d", newValue]];
+    [self.goingLabel setTextAlignment:NSTextAlignmentCenter];
     [self.tapGoing setEnabled:NO];
-    [self.goingView setBackgroundColor:[UIColor darkGrayColor]];
-    [self.tapThinking setEnabled:NO];
-    [self.thinkingView setBackgroundColor:[UIColor colorWithRed:201/255.0 green:201/255.0 blue:201/255.0 alpha:1.0]];
-    [self.window makeToast:@"Yep! We're going!"
-                  duration:1.0
-                  position:@"center"
-                     image:[UIImage imageNamed:@"glass.png"]];
+    [self.thinkingView setEnabled:NO];
+    [self.goingView setEnabled:NO];
 }
 
 - (IBAction)tappedThinking:(id)sender {
@@ -104,12 +99,51 @@
     int newValue = oldValue + 1;
     [self.thinkingLabel setFont:[UIFont fontWithName:self.thinkingLabel.font.fontName size:self.thinkingLabel.font.pointSize]];
     [self.thinkingLabel setText:[NSString stringWithFormat:@"%d", newValue]];
-    [self.tapThinking setEnabled:NO];
-    [self.thinkingView setBackgroundColor:[UIColor darkGrayColor]];
-    [self.window makeToast:@"Thinking about it..."
-                  duration:1.0
-                  position:@"center"
-                     image:[UIImage imageNamed:@"11w.png"]];
+    [self.thinkingView setEnabled:NO];
+    [self.thinkingLabel setTextAlignment:NSTextAlignmentCenter];
+}
+
+- (IBAction)tappedCheckedIn:(id)sender {
+    UIViewController *caller = (UIViewController *)self.nextResponder.nextResponder;
+
+    UIStoryboard *storyb = [UIStoryboard storyboardWithName:@"MainStoryboard" bundle:nil];
+    UIViewController *vc = [storyb instantiateViewControllerWithIdentifier:@"CheckInViewController"];
+
+
+    [caller.navigationController pushViewController:vc animated:YES];
+}
+
+- (IBAction)publishTapped:(id)sender {
+    [self.summaryContentTextField resignFirstResponder];
+    [self.summaryContentTextField setEditable:NO];
+    [self.summaryContentTextField setBackgroundColor:[UIColor clearColor]];
+    [self.summaryHeadlineTextField resignFirstResponder];
+    [self.summaryHeadlineTextField setEnabled:NO];
+    [self.summaryHeadlineTextField setBackgroundColor:[UIColor clearColor]];
+
+    [self.publishButton setHidden:YES];
+
+    self.summaryContentTextField.layer.borderWidth = 0.0f;
+    self.summaryHeadlineTextField.layer.borderWidth = 0.0f;
+    self.summaryHeadlineTextField.layer.cornerRadius = 0.0f;
+    self.summaryContentTextField.layer.cornerRadius = 0.0f;
+}
+
+- (IBAction)postUpdateTapped:(id)sender {
+    [self.summaryContentTextField setBackgroundColor:[UIColor whiteColor]];
+    [self.summaryHeadlineTextField setBackgroundColor:[UIColor whiteColor]];
+    [_publishButton setHidden:NO];
+    self.summaryContentTextField.editable = YES;
+    [self.summaryHeadlineTextField setEnabled:YES];
+    [self.summaryContentTextField becomeFirstResponder];
+    self.summaryHeadlineTextField.layer.borderColor = [[UIColor grayColor] CGColor];
+    self.summaryContentTextField.layer.borderColor = [[UIColor grayColor] CGColor];
+    self.summaryContentTextField.layer.borderWidth = 1.0f;
+    self.summaryHeadlineTextField.layer.borderWidth = 1.0f;
+    self.summaryHeadlineTextField.layer.cornerRadius = 5.0f;
+    self.summaryContentTextField.layer.cornerRadius = 5.0f;
+    self.summaryHeadlineTextField.layer.masksToBounds = YES;
+    self.summaryContentTextField.layer.masksToBounds = YES;
 }
 
 - (void)hideAnimated:(NSInteger)originalSize animationDuration:(double)animationDuration targetSize:(NSInteger)targetSize contentView:(UIView *)contentView {
@@ -195,4 +229,16 @@
     }
 }
 
+/*
+   - (UIColor *)darkerColourForColour:(UIColor *)c
+   {
+    float r, g, b, a;
+    if ([c getRed:&r green:&g blue:&b alpha:&a])
+        return [UIColor colorWithRed:MAX(r - 0.1, 0.0)
+                               green:MAX(g - 0.1, 0.0)
+                                blue:MAX(b - 0.1, 0.0)
+                               alpha:0.2];
+    return nil;
+   }
+ */
 @end

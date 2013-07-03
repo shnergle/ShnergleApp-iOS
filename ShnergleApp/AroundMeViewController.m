@@ -11,6 +11,10 @@
 #import <CoreLocation/CoreLocation.h>
 #import "MenuViewController.h"
 #import "AppDelegate.h"
+#import <Toast+UIView.h>
+#import "PostRequest.h"
+#import "VenueViewController.h"
+#import "ImageCache.h"
 
 @implementation AroundMeViewController
 
@@ -25,7 +29,7 @@
      @{UITextAttributeTextColor: [UIColor whiteColor],
        UITextAttributeTextShadowColor: [UIColor clearColor],
        UITextAttributeTextShadowOffset: [NSValue valueWithUIOffset:UIOffsetMake(0, 0)],
-       UITextAttributeFont: [UIFont fontWithName:@"Roboto" size:14.0]}
+       UITextAttributeFont: [UIFont systemFontOfSize:14.0]}
                                       forState:UIControlStateNormal];
 }
 
@@ -93,10 +97,16 @@
     [[self crowdCollection] setDataSource:self];
     [[self crowdCollection] setDelegate:self];
     //[self createTitleButton];
-    
+
     AppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
-    appDelegate.aroundImages = @[@"112779_f520.jpg", @"fitnessfirst.jpg", @"2250.jpg", @"19.jpg", @"14.jpg", @"3149513443_970d5b7d66.jpg", @"29.jpg", @"1Shoreditch-Grind-Bar-Old-Street_jpg.jpg", @"2012-08-29T14-58-01_15.jpg",@"14fds.jpg"];
-    appDelegate.aroundVenueNames = @[@"liverpool street station", @"Fitness First", @"Carbon Bar", @"Blueberry Bar", @"Queen of Hoxton", @"Monmouth Coffee", @"TFL Bank Central Eastbound", @"Shoreditch Grind", @"Waterloo Station",@"TFL Bank Central Westbound"];
+    appDelegate.aroundImages = @[@"112779_f520.jpg", @"fitnessfirst.jpg", @"2250.jpg", @"19.jpg", @"14.jpg", @"3149513443_970d5b7d66.jpg", @"29.jpg", @"1Shoreditch-Grind-Bar-Old-Street_jpg.jpg", @"2012-08-29T14-58-01_15.jpg", @"14fds.jpg"];
+
+
+    loading = YES;
+
+
+    //[NSThread detachNewThreadSelector:@selector(makeRequest) toTarget:self withObject:nil];
+    [self makeRequest];
     crowdImagesHidden = NO;
     dropDownHidden = YES;
 
@@ -104,26 +114,26 @@
     [self menuButtonDecorations];
 }
 
-- (void)viewDidAppear:(BOOL)animated {
-    [self addShadowToDistanceSlider];
+- (void)makeRequest {
+    AppDelegate *appDelegate = [[UIApplication sharedApplication]delegate];
+    [[[PostRequest alloc] init]exec:@"venues/get" params:[NSString stringWithFormat:@"facebook_id=%@", appDelegate.facebookId] delegate:self callback:@selector(didFinishLoadingVenues:)];
+}
 
+- (void)didFinishLoadingVenues:(NSArray *)response {
+    AppDelegate *appDelegate = [[UIApplication sharedApplication]delegate];
+    appDelegate.aroundVenues = response;
+    [self.crowdCollection reloadData];
+    loading = NO;
+}
+
+- (void)addShadowLineRect:(CGRect)shadeRect ToView:(UIView *)view {
     CALayer *topBorder = [CALayer layer];
 
-    topBorder.frame = CGRectMake(0.0f, self.overlay.bounds.origin.y + 35, self.overlay.frame.size.width, 1.0f);
+    topBorder.frame = shadeRect;
 
     topBorder.backgroundColor = [UIColor lightGrayColor].CGColor;
 
-    [self.overlay.layer addSublayer:topBorder];
-}
-
-- (void)addShadowToDistanceSlider {
-    CALayer *bottomBorder = [CALayer layer];
-
-    bottomBorder.frame = CGRectMake(0.0f, 70.0f, self.distanceScrollerView.frame.size.width, 1.0f);
-
-    bottomBorder.backgroundColor = [UIColor lightGrayColor].CGColor;
-
-    [self.distanceScrollerView.layer addSublayer:bottomBorder];
+    [view.layer addSublayer:topBorder];
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -150,15 +160,14 @@
 
     crowdImagesHidden = NO;
 
-    [self addShadowToDistanceSlider];
+    [self addShadowLineRect:CGRectMake(0.0f, 70.0f, self.distanceScrollerView.frame.size.width, 1.0f) ToView:self.distanceScrollerView];
 
+    [self addShadowLineRect:CGRectMake(0.0f, self.overlay.bounds.origin.y + 35, self.overlay.frame.size.width, 1.0f) ToView:self.overlay];
 
     //self.overlay.layer.shouldRasterize = YES;
 
     [self initMap];
 }
-
-
 
 - (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView {
     return 1;
@@ -166,7 +175,7 @@
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
     AppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
-    return [appDelegate.aroundImages count];
+    return appDelegate.aroundVenues ? [appDelegate.aroundVenues count] : 0;
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
@@ -187,10 +196,12 @@
      */
     /* Here we can set the elements of the crowdItem (the cell) in the cellview */
     AppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
-    [[item crowdImage] setImage:[UIImage imageNamed:appDelegate.aroundImages[indexPath.item]]];
-    [[item venueName] setText:appDelegate.aroundVenueNames[indexPath.item]];
+    //[[[PostRequest alloc]init]exec:@"images/get" params:[NSString stringWithFormat:@"entity=post&entity_id=0&facebook_id=%@",appDelegate.facebookId] delegate:self callback:@selector(didFinishDownloadingImages:forItem:) type:@"image" item:item];
+    [[[ImageCache alloc]init]get:@"venue" identifier:[appDelegate.aroundVenues[indexPath.item][@"id"] stringValue] delegate:self callback:@selector(didFinishDownloadingImages:forItem:) item:item];
 
-    item.venueName.font = [UIFont fontWithName:@"Roboto" size:11.0f];
+    [[item venueName] setText:appDelegate.aroundVenues[indexPath.item][@"name"]];
+
+    item.venueName.font = [UIFont systemFontOfSize:11.0f];
 
     item.venueName.textColor = [UIColor whiteColor];
 
@@ -204,16 +215,21 @@
     return item;
 }
 
+- (void)didFinishDownloadingImages:(UIImage *)response forItem:(CrowdItem *)item {
+    [[item crowdImage] setImage:response];
+}
+
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     AppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
     if ([segue.identifier isEqualToString:@"ToVenueSite"]) {
-        [segue.destinationViewController setTitle:appDelegate.aroundVenueNames[selectedVenue]];
+        [(VenueViewController *)segue.destinationViewController setVenue : appDelegate.aroundVenues[selectedVenue]];
     }
 }
 
-- (void)         collectionView:(UICollectionView *)collectionView
+- (void)collectionView:(UICollectionView *)collectionView
     didHighlightItemAtIndexPath:(NSIndexPath *)indexPath {
     selectedVenue = indexPath.row;
+    [self.view makeToastActivity];
 }
 
 - (void)showOverlay {
@@ -228,14 +244,13 @@
 }
 
 - (void)showDistanceScroller {
-    if(self.distanceScrollerView.bounds.origin.y < 44){
+    if (self.distanceScrollerView.bounds.origin.y < 44) {
         [[self distanceScrollerView] showAnimated:44 animationDelay:0.0 animationDuration:0.5];
     }
 }
 
 - (void)hideDistanceScroller {
-    if(self.distanceScrollerView.frame.origin.y > -64){
-        NSLog(@"y bounds value:%f",self.distanceScrollerView.bounds.origin.y);
+    if (self.distanceScrollerView.frame.origin.y > -64) {
         [[self distanceScrollerView]hideAnimated:44 animationDuration:0.8 targetSize:-64 contentView:[self distanceScrollerView]];
     }
 }
@@ -309,7 +324,7 @@
 
 - (void)initMap {
     hasPositionLocked = NO;
-    _mapView = [[GMSMapView alloc] initWithFrame:CGRectMake(0, 44, self.view.bounds.size.width, self.view.bounds.size.height - 119)];
+    _mapView = [[GMSMapView alloc] initWithFrame:CGRectMake(0, 44, self.view.bounds.size.width, self.view.bounds.size.height - 60)];
     _mapView.myLocationEnabled = YES;
     _mapView.delegate = self;
     [_mapView addObserver:self forKeyPath:@"myLocation" options:NSKeyValueObservingOptionNew context:nil];
@@ -339,6 +354,10 @@
     [_mapView stopRendering];
     [_mapView removeFromSuperview];
     _mapView = nil;
+}
+
+- (void)viewDidDisappear:(BOOL)animated {
+    [self.view hideToastActivity];
 }
 
 @end
