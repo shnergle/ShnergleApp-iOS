@@ -13,6 +13,7 @@
 #import "AppDelegate.h"
 #import "PostRequest.h"
 #import "ImageCache.h"
+#import <NSDate+TimeAgo/NSDate+TimeAgo.h>
 
 @implementation VenueViewController
 
@@ -352,13 +353,18 @@
     
     NSString *input = [NSString stringWithFormat:@"%@",unixFormat];
     NSDate *date = [NSDate dateWithTimeIntervalSince1970:[input intValue]];
-    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc]init];
-    [dateFormatter setDateFormat:@"hh:mm"];
+    //NSDateFormatter *dateFormatter = [[NSDateFormatter alloc]init];
+    //[dateFormatter setDateFormat:@"hh:mm"];
     //[dateFormatter setTimeZone:[NSTimeZone timeZoneForSecondsFromGMT:0]];
     //NSDate *date = [dateFormatter dateFromString:publicationDate];
-    NSString *dte=[dateFormatter stringFromDate:date];
-    
-    return dte;
+    //NSString *dte=[dateFormatter stringFromDate:date];
+
+    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+    [dateFormatter setDateFormat:@"E"];
+    NSDateFormatter *timeFormatter = [[NSDateFormatter alloc] init];
+    [timeFormatter setDateFormat:@"hh:mm"];
+
+    return [date timeAgoWithLimit:86400 dateFormat:dateFormatter.dateStyle andTimeFormat:timeFormatter.dateStyle];
     
 }
 
