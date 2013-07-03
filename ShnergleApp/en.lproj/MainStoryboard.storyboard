@@ -1968,7 +1968,7 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                                     <constraint firstItem="UL8-cw-UNK" firstAttribute="leading" secondItem="xDq-dx-kAB" secondAttribute="leading" id="9ZQ-7C-Axc"/>
                                     <constraint firstItem="xDq-dx-kAB" firstAttribute="top" secondItem="HP1-zJ-Evb" secondAttribute="top" constant="-1" id="Cus-TX-JNp"/>
                                     <constraint firstItem="d7K-2j-bO2" firstAttribute="leading" secondItem="HP1-zJ-Evb" secondAttribute="leading" constant="4" id="G4I-sd-MeD"/>
-                                    <constraint firstAttribute="bottom" secondItem="ho1-hg-V7U" secondAttribute="bottom" constant="-142" id="N1q-wR-jXJ"/>
+                                    <constraint firstAttribute="bottom" secondItem="ho1-hg-V7U" secondAttribute="bottom" id="N1q-wR-jXJ"/>
                                     <constraint firstItem="UL8-cw-UNK" firstAttribute="top" secondItem="xDq-dx-kAB" secondAttribute="bottom" id="SjZ-eE-cBe"/>
                                     <constraint firstItem="xDq-dx-kAB" firstAttribute="leading" secondItem="HP1-zJ-Evb" secondAttribute="leading" constant="10" id="hEi-5O-ysV"/>
                                     <constraint firstItem="UL8-cw-UNK" firstAttribute="trailing" secondItem="xDq-dx-kAB" secondAttribute="trailing" constant="-14" id="hJn-z0-HKJ"/>
@@ -2577,10 +2577,14 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
             <source key="sourceIdentifier" type="project" relativePath="./Classes/OverlayText.h"/>
             <relationships>
                 <relationship kind="action" name="postUpdateTapped:"/>
+                <relationship kind="action" name="publishTapped:"/>
+                <relationship kind="action" name="share:"/>
                 <relationship kind="action" name="swipeDown:"/>
                 <relationship kind="action" name="swipeUp:"/>
+                <relationship kind="action" name="tap:"/>
                 <relationship kind="action" name="tapPromotion:"/>
                 <relationship kind="action" name="tapPullerMenu:"/>
+                <relationship kind="action" name="tappedCheckedIn:"/>
                 <relationship kind="action" name="tappedGoing:"/>
                 <relationship kind="action" name="tappedThinking:"/>
                 <relationship kind="outlet" name="checkedInLabel" candidateClass="UILabel"/>
@@ -2654,6 +2658,9 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
         </class>
         <class className="StaffEditViewController" superclassName="CustomBackViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/StaffEditViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="deleteStaff:"/>
+            </relationships>
         </class>
         <class className="StaffTypeViewController" superclassName="CustomBackViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/StaffTypeViewController.h"/>
