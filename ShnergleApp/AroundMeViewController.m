@@ -347,7 +347,9 @@
             hasPositionLocked = YES;
             AppDelegate *appDelegate = [[UIApplication sharedApplication]delegate];
             appDelegate.shareImageLat = [NSString stringWithFormat:@"%f",self.mapView.myLocation.coordinate.latitude];
-            appDelegate.shareImageLat = [NSString stringWithFormat:@"%f",self.mapView.myLocation.coordinate.latitude];
+            appDelegate.shareImageLon = [NSString stringWithFormat:@"%f",self.mapView.myLocation.coordinate.longitude];
+            NSLog(appDelegate.shareImageLat);
+            NSLog(appDelegate.shareImageLon);
         }
     }
 }
