@@ -24,11 +24,13 @@
     self.userProfileImage3.profileID = appdelegate.facebookId;
     self.userProfileImage2.profileID = appdelegate.facebookId;
     self.userProfileImage1.profileID = appdelegate.facebookId;
+    
     //self.userProfileImage2.profileID = appdelegate.facebookId;
     //self.userProfileImage1.profileID = appdelegate.facebookId;
     //AppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
     //if (appDelegate.twitter)
     //    _twitterSwitch.on = YES;
+    
     _checkInView.layer.borderColor = [UIColor colorWithRed:134.0 / 255 green:134.0 / 255 blue:134.0 / 255 alpha:1].CGColor;
     _checkInView.layer.borderWidth = 2;
     _redeemed.layer.borderColor = [UIColor colorWithRed:134.0 / 255 green:134.0 / 255 blue:134.0 / 255 alpha:1].CGColor;
@@ -42,6 +44,17 @@
     _userProfileImage2.layer.borderWidth = 2;
     _userProfileImage1.layer.borderColor = [UIColor colorWithRed:255 green:255 blue:255 alpha:1].CGColor;
     _userProfileImage1.layer.borderWidth = 2;
+    
+    AppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
+    
+    //if (appDelegate.shareImage) _image.image = appDelegate.shareImage;
+    
+    
+    if(appDelegate.saveLocally){
+        [self.saveLocallySwitch setOn:FALSE];
+    }else{
+        [self.saveLocallySwitch setOn:TRUE];
+    }
 }
 
 - (void)viewWillAppear:(BOOL)animated {

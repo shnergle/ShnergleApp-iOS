@@ -42,7 +42,7 @@ static NSCache *cache;
 }
 
 - (void)received:(UIImage *)response {
-    if ([cache objectForKey:key] == nil) {
+    if ([cache objectForKey:key] == nil && response != nil) {
         [cache setObject:response forKey:key];
     }
     NSMethodSignature *methodSig = [[responseObject class] instanceMethodSignatureForSelector:responseCallback];
