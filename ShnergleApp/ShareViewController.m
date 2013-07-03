@@ -56,8 +56,8 @@
 - (void)uploadToServer {
     
     //Create post
-    //upload image using id from post (not now)
-    //register in the "shared" db if shared on facebook
+    //upload image using id from post (not now and not here)
+    //register in the "shared" db if shared on facebook (not yet)
     AppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
 
     NSMutableString *postParams = [[NSMutableString alloc]initWithString:[NSString stringWithFormat:@"venue_id=%@",appDelegate.activeVenue[@"id"]]];
@@ -65,21 +65,23 @@
     //Set lat/lon if specified in the image metadata
     [postParams appendFormat:@"&facebook_id=%@",appDelegate.facebookId];
     NSLog(@"%@",postParams);
-    [[[PostRequest alloc]init]exec:@"posts/set" params:postParams delegate:self callback:@selector(didFinishPost:) type:@"json"];
-    
+    [[[PostRequest alloc]init]exec:@"posts/set" params:postParams delegate:self callback:@selector(didFinishPost:) type:@"string"];
+
 }
 
--(void)didFinishPost:(id)response{
-    if([response isKindOfClass:[NSNumber class]]){
+-(void)didFinishPost:(NSString *)response{
+    NSLog(@"%@",response);
         AppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
-        [[[PostRequest alloc] init] exec:@"images/set" params:[NSString stringWithFormat:@"entity=post&entity_id=%@&facebook_id=%@", [response stringValue], appDelegate.facebookId] image:_image.image delegate:self callback:@selector(uploadedToServer:) type:@"string"];
-    }
+        [[[PostRequest alloc] init] exec:@"images/set" params:[NSString stringWithFormat:@"entity=post&entity_id=%@&facebook_id=%@", response, appDelegate.facebookId] image:_image.image delegate:self callback:@selector(uploadedToServer:) type:@"string"];
 }
 
 - (void)uploadedToServer:(NSString *)response {
+    
+    NSLog(@"%@",response);
     if ([response isEqual:@"true"]) {
         self.navigationItem.rightBarButtonItem.enabled = NO;
         AppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
+        NSLog(@"89");
         if ([appDelegate.session.permissions indexOfObject:@"publish_actions"] == NSNotFound)
             [appDelegate.session requestNewPublishPermissions:@[@"publish_actions"] defaultAudience:FBSessionDefaultAudienceEveryone completionHandler:^(FBSession *session, NSError *error) {
                 [self shareOnFacebook];
@@ -98,6 +100,7 @@
 }
 
 - (void)shareOnFacebook {
+    NSLog(@"110");
     AppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
     NSMutableDictionary<FBGraphObject> *action = [FBGraphObject graphObject];
 
@@ -137,6 +140,7 @@
             }];
          */
 
+        NSLog(@"finished facebook share");
         [self.navigationController popToRootViewControllerAnimated:YES];
     }];
 }
