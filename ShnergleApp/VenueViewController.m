@@ -97,10 +97,6 @@
     textViewOpen = false;
     [[self crowdCollectionV] setDataSource:self];
     [[self crowdCollectionV] setDelegate:self];
-    AppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
-    
-    
-
 
     //appDelegate.images = [[appDelegate.images reverseObjectEnumerator] allObjects];
     //appDelegate.shareImage = [UIImage imageNamed:appDelegate.images[0]];
@@ -358,7 +354,7 @@
     NSDate *date = [NSDate dateWithTimeIntervalSince1970:[input intValue]];
     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc]init];
     [dateFormatter setDateFormat:@"hh:mm"];
-    [dateFormatter setTimeZone:[NSTimeZone timeZoneForSecondsFromGMT:0]];
+    //[dateFormatter setTimeZone:[NSTimeZone timeZoneForSecondsFromGMT:0]];
     //NSDate *date = [dateFormatter dateFromString:publicationDate];
     NSString *dte=[dateFormatter stringFromDate:date];
     
