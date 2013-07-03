@@ -64,9 +64,10 @@
     [postParams appendFormat:@"&caption=%@",_textFieldname.text];
     //Set lat/lon if specified in the image metadata
     [postParams appendFormat:@"&facebook_id=%@",appDelegate.facebookId];
-    [postParams appendFormat:@"&lat=%@",appDelegate.shareImageLat];
-    [postParams appendFormat:@"&lon=%@",appDelegate.shareImageLon];
-
+    if(appDelegate.shareImageLat != nil && appDelegate.shareImageLon != nil){
+        [postParams appendFormat:@"&lat=%@",appDelegate.shareImageLat];
+        [postParams appendFormat:@"&lon=%@",appDelegate.shareImageLon];
+    }
     NSLog(@"%@",postParams);
     [[[PostRequest alloc]init]exec:@"posts/set" params:postParams delegate:self callback:@selector(didFinishPost:) type:@"string"];
 
