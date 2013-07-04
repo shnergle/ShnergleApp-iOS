@@ -10,14 +10,13 @@
 #import "CustomBackViewController.h"
 #import <GoogleMaps/GoogleMaps.h>
 
-@interface PhotoLocationViewController : CustomBackViewController <UISearchBarDelegate, GMSMapViewDelegate> {
+@interface PhotoLocationViewController : CustomBackViewController <UISearchBarDelegate, GMSMapViewDelegate, UITableViewDelegate, UITableViewDataSource> {
     GMSMapView *map;
     BOOL hasPositionLocked;
 }
 
 @property (weak, nonatomic) IBOutlet UILabel *headline;
 @property (weak, nonatomic) IBOutlet UITableView *searchResultTable;
-@property (strong, nonatomic) NSArray *tableData;
 @property (weak, nonatomic) IBOutlet UIView *mapView;
 
 
