@@ -316,7 +316,7 @@
     AppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
     if ([segue.identifier isEqualToString:@"ToGallery"]) {
         [segue.destinationViewController setTitle:[NSString stringWithFormat:@"%@", titleHeader]];
-        [(VenueGalleryViewController *)segue.destinationViewController setImage :((CrowdItem *)sender).crowdImage.image withAuthor : [NSString stringWithFormat:@"%@",appDelegate.posts[selectedPost][@"user_id"]] withComment : appDelegate.posts[selectedPost][@"caption"] withTimestamp : [self getDateFromUnixFormat:appDelegate.posts[selectedPost][@"time"]]];
+        [(VenueGalleryViewController *)segue.destinationViewController setImage :((CrowdItem *)sender).crowdImage.image withAuthor : [NSString stringWithFormat:@"%@ %@",appDelegate.posts[selectedPost][@"forename"], [appDelegate.posts[selectedPost][@"surname"] substringToIndex:1]] withComment : appDelegate.posts[selectedPost][@"caption"] withTimestamp : [self getDateFromUnixFormat:appDelegate.posts[selectedPost][@"time"]]];
     }
 }
 
