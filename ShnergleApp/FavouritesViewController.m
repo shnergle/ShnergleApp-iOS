@@ -11,6 +11,9 @@
 #import "AppDelegate.h"
 #import "CrowdItem.h"
 #import "AppDelegate.h"
+#import "VenueViewController.h"
+#import "PostRequest.h"
+#import "ImageCache.h"
 
 @implementation FavouritesViewController {
 }
@@ -73,6 +76,20 @@
     //remove shadow from navbar
     self.navigationController.navigationBar.clipsToBounds = YES;
     self.navBar.clipsToBounds = YES;
+
+    [self makeRequest];
+}
+
+- (void)makeRequest {
+    AppDelegate *appDelegate = [[UIApplication sharedApplication]delegate];
+    [[[PostRequest alloc] init]exec:@"venue_favourites/get" params:[NSString stringWithFormat:@"facebook_id=%@", appDelegate.facebookId] delegate:self callback:@selector(didFinishLoadingVenues:)];
+}
+
+- (void)didFinishLoadingVenues:(NSArray *)response {
+    NSLog(@"%@",response);
+    AppDelegate *appDelegate = [[UIApplication sharedApplication]delegate];
+    appDelegate.aroundVenues = response;
+    [self.crowdCollection reloadData];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -91,7 +108,7 @@
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
     AppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
-    return [appDelegate.images count];
+    return [appDelegate.topViewType isEqual:@"Following"] ? [appDelegate.followingVenues count] : [appDelegate.images count];
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
@@ -112,9 +129,9 @@
      */
     /* Here we can set the elements of the crowdItem (the cell) in the cellview */
     AppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
-    [[item crowdImage] setImage:[UIImage imageNamed:appDelegate.images[indexPath.item]]];
+    [[[ImageCache alloc]init]get:@"venue" identifier:[appDelegate.aroundVenues[indexPath.item][@"id"] stringValue] delegate:self callback:@selector(didFinishDownloadingImages:forItem:) item:item];
 
-    [[item venueName] setText:appDelegate.venueNames[indexPath.item]];
+    [[item venueName] setText:([appDelegate.topViewType isEqual:@"Following"] ? appDelegate.followingVenues : appDelegate.venueNames)[indexPath.item][@"name"]];
 
     item.venueName.font = [UIFont systemFontOfSize:11.0f];
 
@@ -130,15 +147,20 @@
     return item;
 }
 
+- (void)didFinishDownloadingImages:(UIImage *)response forItem:(CrowdItem *)item {
+    [[item crowdImage] setImage:response];
+}
+
 - (void)         collectionView:(UICollectionView *)collectionView
     didHighlightItemAtIndexPath:(NSIndexPath *)indexPath {
-    selectedVenue = indexPath.row;
+    AppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
+    appDelegate.activeVenue = appDelegate.followingVenues[indexPath.row];
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     AppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
     if ([segue.identifier isEqualToString:@"ToVenueSite"]) {
-        [segue.destinationViewController setTitle:appDelegate.venueNames[selectedVenue]];
+        [(VenueViewController *)segue.destinationViewController setVenue : appDelegate.activeVenue];
     }
 }
 
