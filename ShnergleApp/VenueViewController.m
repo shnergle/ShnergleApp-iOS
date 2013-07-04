@@ -75,12 +75,19 @@
 }
 
 - (void)tapToFollow {
+    [self.view makeToastActivity];
+    AppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
     following = !following;
     if (following) {
         [self setHeaderTitle:titleHeader andSubtitle:@"Following"];
     } else {
         [self setHeaderTitle:titleHeader andSubtitle:@"Tap to Follow"];
     }
+    [[[PostRequest alloc] init] exec:@"venue_favourites/set" params:[NSString stringWithFormat:@"facebook_id=%@&venue_id=%@", appDelegate.facebookId, appDelegate.activeVenue[@"id"]] delegate:self callback:@selector(doNothing:) type:@"string"];
+}
+
+- (void)doNothing:(id)whoCares {
+    [self.view hideToastActivity];
 }
 
 - (void)viewDidLoad {
