@@ -104,6 +104,10 @@
 }
 
 - (void)shareOnFacebook {
+    if (!_fbSwitch.on) {
+        [self.navigationController popToRootViewControllerAnimated:YES];
+        return;
+    }
     AppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
     NSMutableDictionary<FBGraphObject> *action = [FBGraphObject graphObject];
 
