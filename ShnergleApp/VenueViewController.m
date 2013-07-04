@@ -359,12 +359,7 @@
     //NSDate *date = [dateFormatter dateFromString:publicationDate];
     //NSString *dte=[dateFormatter stringFromDate:date];
 
-    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
-    [dateFormatter setDateFormat:@"E"];
-    NSDateFormatter *timeFormatter = [[NSDateFormatter alloc] init];
-    [timeFormatter setDateFormat:@"hh:mm"];
-
-    return [date timeAgoWithLimit:86400 dateFormat:dateFormatter.dateStyle andTimeFormat:timeFormatter.dateStyle];
+    return [date timeAgoWithLimit:86400 dateFormat:NSDateFormatterNoStyle andTimeFormat:NSDateFormatterShortStyle];
     
 }
 
