@@ -221,6 +221,7 @@
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    [self.view makeToastActivity];
     AppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
     if ([segue.identifier isEqualToString:@"ToVenueSite"]) {
         [(VenueViewController *)segue.destinationViewController setVenue : appDelegate.aroundVenues[selectedVenue]];
@@ -230,7 +231,6 @@
 - (void)collectionView:(UICollectionView *)collectionView
     didHighlightItemAtIndexPath:(NSIndexPath *)indexPath {
     selectedVenue = indexPath.item;
-    [self.view makeToastActivity];
 }
 
 - (void)showOverlay {
@@ -284,7 +284,7 @@
     mapCircle.map = self.mapView;
 }
 
-- (void)       mapView:(GMSMapView *)mapView
+- (void)mapView:(GMSMapView *)mapView
     didTapAtCoordinate:(CLLocationCoordinate2D)coordinate {
     [self.mapView clear];
     /*
