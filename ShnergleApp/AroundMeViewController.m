@@ -224,10 +224,12 @@
     }
 }
 
-- (void)collectionView:(UICollectionView *)collectionView
-    didHighlightItemAtIndexPath:(NSIndexPath *)indexPath {
+- (BOOL)collectionView:(UICollectionView *)collectionView
+    shouldHighlightItemAtIndexPath:(NSIndexPath *)indexPath {
     selectedVenue = indexPath.item;
+    return YES;
 }
+
 
 - (void)showOverlay {
     [[self overlay] showAnimated:126 animationDelay:0.2 animationDuration:0.5];
@@ -358,10 +360,6 @@
     [_mapView stopRendering];
     [_mapView removeFromSuperview];
     _mapView = nil;
-}
-
-- (void)viewDidDisappear:(BOOL)animated {
-    [self.view hideToastActivity];
 }
 
 @end
