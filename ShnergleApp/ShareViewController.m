@@ -118,7 +118,7 @@
        share the image, put venue details ([name] and facebook url, if exists in caption)
      */
     action[@"source"] = _image.image;
-    action[@"message"] =  [NSString stringWithFormat:@"%@ @%@", _textFieldname.text, appDelegate.activeVenue[@"name"]];
+    action[@"message"] =  [NSString stringWithFormat:@"@[%@:%@]", selectedFriends[0][@"id"], selectedFriends[0][@"name"]];
     //action[@"place"] = @"http://samples.ogp.me/259837270824167";
     //action[@"tags"] = @[@"549445495",@"701732"];
     [[[FBRequest alloc] initWithSession:appDelegate.session graphPath:@"me/photos" parameters:action HTTPMethod:@"POST"] startWithCompletionHandler:^(FBRequestConnection *connection,id result,NSError *error) {
