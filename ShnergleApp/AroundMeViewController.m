@@ -224,10 +224,9 @@
     }
 }
 
-- (BOOL)collectionView:(UICollectionView *)collectionView
-    shouldHighlightItemAtIndexPath:(NSIndexPath *)indexPath {
+- (void)collectionView:(UICollectionView *)collectionView
+    didHighlightItemAtIndexPath:(NSIndexPath *)indexPath {
     selectedVenue = indexPath.item;
-    return YES;
 }
 
 
