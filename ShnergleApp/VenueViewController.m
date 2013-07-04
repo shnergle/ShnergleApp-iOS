@@ -140,7 +140,7 @@
     [[[ImageCache alloc]init]get:@"post" identifier:[appDelegate.posts[indexPath.row][@"id"] stringValue] delegate:self callback:@selector(didFinishDownloadingImages:forItem:) item:item];
     [[item venueName] setText:[self getDateFromUnixFormat:appDelegate.posts[indexPath.item][@"time"]]];
     [[item venueName] setTextColor:[UIColor whiteColor]];
-    [[item venueName] setFont:[UIFont fontWithName:@"Helvetica" size:11]];
+    [[item venueName] setFont:[UIFont systemFontOfSize:11]];
     
 
 

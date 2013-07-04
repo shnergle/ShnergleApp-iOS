@@ -119,9 +119,7 @@
      */
     action[@"source"] = _image.image;
     action[@"message"] =  [NSString stringWithFormat:@"%@ @ %@", _textFieldname.text,appDelegate.activeVenue[@"name"]];
-    [[[FBRequest alloc] initWithSession:appDelegate.session graphPath:@"me/photos" parameters:action HTTPMethod:@"POST"] startWithCompletionHandler:^(FBRequestConnection *connection,
-                                                                                                                                                      id result,
-                                                                                                                                                      NSError *error) {
+    [[[FBRequest alloc] initWithSession:appDelegate.session graphPath:@"me/photos" parameters:action HTTPMethod:@"POST"] startWithCompletionHandler:^(FBRequestConnection *connection,id result,NSError *error) {
         NSLog(@"FBSHARE - PHOTO - connection: %@", connection);
         NSLog(@"FBSHARE - PHOTO - result: %@", result);
         NSLog(@"FBSHARE - PHOTO - error: %@", error);
