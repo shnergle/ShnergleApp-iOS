@@ -10,6 +10,8 @@
 #import "AppDelegate.h"
 #import "PostRequest.h"
 #import "MenuViewController.h"
+#import <Toast/Toast+UIView.h>
+
 @implementation ProfileViewController
 
 - (void)viewDidLoad {
@@ -52,18 +54,21 @@
 }
 
 - (IBAction)optInChange:(id)sender {
+    [self.view makeToastActivity];
     AppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
     appDelegate.optInTop5 = self.optInSwitch.on;
     [[[PostRequest alloc] init] exec:@"users/set" params:[NSString stringWithFormat:@"facebook_id=%@&top5=%@", appDelegate.facebookId, (self.optInSwitch.on ? @"true" : @"false")] delegate:self callback:@selector(doNothing:)];
 }
 
 - (IBAction)saveLocallyChange:(id)sender {
+    [self.view makeToastActivity];
     AppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
     appDelegate.saveLocally = self.saveLocallySwitch.on;
     [[[PostRequest alloc] init] exec:@"users/set" params:[NSString stringWithFormat:@"facebook_id=%@&save_locally=%@", appDelegate.facebookId, (self.saveLocallySwitch.on ? @"true" : @"false")] delegate:self callback:@selector(doNothing:)];
 }
 
 - (void)doNothing:(id)whoCares {
+    [self.view hideToastActivity];
 }
 
 - (void)viewWillAppear:(BOOL)animated {

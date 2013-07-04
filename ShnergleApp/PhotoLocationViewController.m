@@ -7,13 +7,13 @@
 //
 
 #import "PhotoLocationViewController.h"
+#import "AppDelegate.h"
 
 @implementation PhotoLocationViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.navigationItem.title = @"Location";
-    _tableData = @[@"Dummy Venue", @"Add new place"];
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -28,10 +28,12 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return [_tableData count];
+    AppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
+    return [appDelegate.aroundVenues count];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    AppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
     UITableViewCell *cell = nil;
     cell = [tableView dequeueReusableCellWithIdentifier:@"Cell"];
 
@@ -39,11 +41,16 @@
         cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"Cell"];
     }
 
-    cell.textLabel.text = _tableData[indexPath.row];
+    cell.textLabel.text = appDelegate.aroundVenues[indexPath.row][@"name"];
     cell.textLabel.textColor = [UIColor blackColor];
     cell.textLabel.font = [UIFont systemFontOfSize:20.0];
 
     return cell;
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    AppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
+    appDelegate.activeVenue = appDelegate.aroundVenues[indexPath.row];
 }
 
 - (void)searchBarSearchButtonClicked:(UISearchBar *)searchBar {
