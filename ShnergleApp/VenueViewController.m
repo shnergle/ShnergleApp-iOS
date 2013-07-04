@@ -359,7 +359,7 @@
     //NSDate *date = [dateFormatter dateFromString:publicationDate];
     //NSString *dte=[dateFormatter stringFromDate:date];
 
-    return [date timeAgoWithLimit:86400 dateFormat:NSDateFormatterNoStyle andTimeFormat:NSDateFormatterShortStyle];
+    return [date timeAgoWithLimit:86400 dateFormat:NSDateFormatterShortStyle andTimeFormat:NSDateFormatterShortStyle];
     
 }
 
