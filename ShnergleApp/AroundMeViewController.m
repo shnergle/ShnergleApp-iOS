@@ -338,7 +338,7 @@
     //Make sure it is only run once:
     if (!hasPositionLocked) {
         if ([keyPath isEqualToString:@"myLocation"] && [object isKindOfClass:[GMSMapView class]]) {
-            [_mapView animateToCameraPosition:[GMSCameraPosition cameraWithLatitude:_mapView.myLocation.coordinate.latitude - 0.010
+            [_mapView animateToCameraPosition:[GMSCameraPosition cameraWithLatitude:_mapView.myLocation.coordinate.latitude - 0.014
                                                                           longitude:_mapView.myLocation.coordinate.longitude
                                                                                zoom:13]];
             hasPositionLocked = YES;
@@ -347,6 +347,9 @@
             appDelegate.shareImageLon = [NSString stringWithFormat:@"%f",self.mapView.myLocation.coordinate.longitude];
             NSLog(@"%@", appDelegate.shareImageLat);
             NSLog(@"%@", appDelegate.shareImageLon);
+            //initiate the area circle:
+            [self sliderValueChanged:nil];
+            
         }
     }
 }
