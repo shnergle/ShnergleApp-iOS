@@ -9,9 +9,7 @@
 #import <UIKit/UIKit.h>
 #import <ECSlidingViewController.h>
 @interface FavouritesViewController : UIViewController <UICollectionViewDataSource, UICollectionViewDelegate>
-{
-    NSInteger selectedVenue;
-}
+
 @property (weak, nonatomic) IBOutlet UINavigationBar *navBar;
 @property (weak, nonatomic) IBOutlet UINavigationItem *navBarItem;
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *checkInButton;

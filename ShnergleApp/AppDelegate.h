@@ -33,6 +33,7 @@
 @property (strong, nonatomic) NSArray *posts;
 @property (strong, nonatomic) NSArray *venueNames;
 @property (strong, nonatomic) NSArray *aroundVenues;
+@property (strong, nonatomic) NSArray *followingVenues;
 
 @property (strong, nonatomic) UIImage *shareImage;
 @property (strong, nonatomic) NSString *shareImageLat;
