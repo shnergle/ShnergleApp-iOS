@@ -18,7 +18,6 @@ static NSCache *cache;
     self = [super init];
     if (self != nil && cache == nil) {
         cache = [[NSCache alloc] init];
-        usedKeys = [[NSMutableArray alloc]init];
     }
     return self;
 }
@@ -28,13 +27,6 @@ static NSCache *cache;
     responseCallback = cb;
     AppDelegate *appDelegate = [[UIApplication sharedApplication]delegate];
     key = [NSString stringWithFormat:@"%@/%@", type, type_id];
-    if([usedKeys containsObject:key]){
-        NSLog(@"Key was there! returning..");
-        return;
-    }else{
-        [usedKeys addObject:key];
-        NSLog(@"adding key: %@",key);
-    }
     if ([cache objectForKey:key] != nil) {
         [self received:[cache objectForKey:key]];
     } else {
@@ -49,24 +41,15 @@ static NSCache *cache;
     [self get:type identifier:type_id delegate:object callback:cb];
 }
 
-- (void)get:(NSString *)type identifier:(NSString *)type_id delegate:(id)object callback:(SEL)cb indexPath:(NSIndexPath *)index;
-{
-    indexPath = index;
-    [self get:type identifier:type_id delegate:object callback:cb];
-}
-
 - (void)received:(UIImage *)response {
     if ([cache objectForKey:key] == nil && response != nil) {
         [cache setObject:response forKey:key];
     }
-    [usedKeys removeObject:key];
-    
     NSMethodSignature *methodSig = [[responseObject class] instanceMethodSignatureForSelector:responseCallback];
     NSInvocation *invocation = [NSInvocation invocationWithMethodSignature:methodSig];
     [invocation setSelector:responseCallback];
     [invocation setArgument:&response atIndex:2];
     if (item) [invocation setArgument:&item atIndex:3];
-    else if(indexPath) [invocation setArgument:&indexPath atIndex:3];
     [invocation setTarget:responseObject];
     [invocation retainArguments];
     [invocation invoke];

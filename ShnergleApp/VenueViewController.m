@@ -118,8 +118,6 @@
     [self displayTextView];
 
     [self configureMapWithLat:venueLat longitude:venueLon];
-    
-    myQueue = dispatch_queue_create("a", nil);
 }
 
 - (void)addShadowLineRect:(CGRect)shadeRect ToView:(UIView *)view {
@@ -146,38 +144,20 @@
     CrowdItem *item = [collectionView dequeueReusableCellWithReuseIdentifier:cellIdentifier forIndexPath:indexPath];
     AppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
     /* Here we can set the elements of the crowdItem (the cell) in the cellview */
-    item.crowdImage.image = nil;
-    [self addIndexPathToImageLoadingQueue:indexPath];
+    
+    [[[ImageCache alloc]init]get:@"post" identifier:[appDelegate.posts[indexPath.item][@"id"] stringValue] delegate:self callback:@selector(didFinishDownloadingImages:forItem:) item:item];
     [[item venueName] setText:[self getDateFromUnixFormat:appDelegate.posts[indexPath.item][@"time"]]];
     [[item venueName] setTextColor:[UIColor whiteColor]];
     [[item venueName] setFont:[UIFont systemFontOfSize:11]];
-        
+    
+    
+
+
     return item;
 }
 
--(void)addIndexPathToImageLoadingQueue:(NSIndexPath *)indexPath
-{
-    if(!indexPathsNeedingImages)
-        indexPathsNeedingImages = [NSMutableSet set];
-    AppDelegate *appDelegate = [[UIApplication sharedApplication]delegate];
-    dispatch_async(myQueue, ^{
-        [[[ImageCache alloc]init]get:@"post" identifier:[appDelegate.posts[indexPath.item][@"id"] stringValue] delegate:self callback:@selector(didFinishDownloadingImages:forIndexPath:) indexPath:indexPath];
-    });
-
-}
-
-- (void)didFinishDownloadingImages:(UIImage *)response forIndexPath:(NSIndexPath *)indexPath {
-    [response CGImage];
-    dispatch_async(dispatch_get_main_queue(), ^{
-        [self setImage:response forItemAtIndexPath:indexPath];
-    });
-    [indexPathsNeedingImages removeObject:indexPath];
-
-}
-
--(void)setImage:(UIImage *)image forItemAtIndexPath:(NSIndexPath*) indexPath{
-    CrowdItem *item = (CrowdItem *)[self.crowdCollectionV cellForItemAtIndexPath:indexPath];
-    item.crowdImage.image = image;
+- (void)didFinishDownloadingImages:(UIImage *)response forItem:(CrowdItem *)item {
+    [[item crowdImage] setImage:response];
 }
 
 - (void)didReceiveMemoryWarning {
