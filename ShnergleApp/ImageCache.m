@@ -36,9 +36,8 @@ static NSCache *cache;
     }
 }
 
-- (void)get:(NSString *)type identifier:(NSString *)type_id delegate:(id)object callback:(SEL)cb item:(CrowdItem *)tItem indexPath:(int)index {
+- (void)get:(NSString *)type identifier:(NSString *)type_id delegate:(id)object callback:(SEL)cb item:(CrowdItem *)tItem {
     item = tItem;
-    indexPath = index;
     [self get:type identifier:type_id delegate:object callback:cb];
 }
 
@@ -51,7 +50,6 @@ static NSCache *cache;
     [invocation setSelector:responseCallback];
     [invocation setArgument:&response atIndex:2];
     if (item) [invocation setArgument:&item atIndex:3];
-    if (indexPath) [invocation setArgument:&indexPath atIndex:4];
     [invocation setTarget:responseObject];
     [invocation retainArguments];
     [invocation invoke];
