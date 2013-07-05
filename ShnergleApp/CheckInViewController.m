@@ -23,7 +23,7 @@
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info {
     taken = YES;
     AppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
-    appDelegate.shareImage = [info[@"UIImagePickerControllerOriginalImage"] resizedImageToFitInSize:CGSizeMake(320, 320) scaleIfSmaller:YES];
+    appDelegate.shareImage = [info[@"UIImagePickerControllerOriginalImage"] resizedImageToFitInSize:CGSizeMake(200, 200) scaleIfSmaller:YES];
     info = nil;
     [imgPickerCam dismissViewControllerAnimated:NO completion:nil];
     UIViewController *vc = [self.storyboard instantiateViewControllerWithIdentifier:@"PhotoLocationViewController"];
