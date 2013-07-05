@@ -25,8 +25,6 @@
     if(venue[@"tonight"]){
         summaryContent = venue[@"tonight"];
         NSLog(@"set the summary to %@",venue[@"tonight"]);
-    }else{
-        summaryContent = @" ";
     }
     summaryHeadline = [NSString stringWithFormat:@"Tonight at %@",venue[@"name"]];
     AppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
@@ -95,6 +93,8 @@
     [super viewDidLoad];
     following = NO;
 
+    if(summaryContent == nil)
+        summaryContent = @"";
 
     [self.checkInButton setTitleTextAttributes:
      @{UITextAttributeTextColor: [UIColor whiteColor],
@@ -151,7 +151,6 @@
     [[item venueName] setFont:[UIFont systemFontOfSize:11]];
     
     
-
 
     return item;
 }
@@ -286,7 +285,7 @@
                              animated:NO];
 
     [self setPromoContentTo:promotionBody promoHeadline:promotionTitle promoExpiry:promotionExpiry];
-    self.overlayView.summaryContentTextField.text = summaryContent ;
+    self.overlayView.summaryContentTextField.text = @"";
     self.overlayView.summaryHeadlineTextField.text = summaryHeadline;
     
     
