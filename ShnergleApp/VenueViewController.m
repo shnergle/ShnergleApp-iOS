@@ -252,17 +252,6 @@
 
 }
 
-- (void)scrollViewWillBeginDragging:(UIScrollView *)scrollView {
-    startContentOffset = lastContentOffset = scrollView.contentOffset.y;
-}
-
-
-- (void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate {
-}
-
-- (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView {
-}
-
 - (BOOL)scrollViewShouldScrollToTop:(UIScrollView *)scrollView {
     [self showOverlay];
     return YES;
