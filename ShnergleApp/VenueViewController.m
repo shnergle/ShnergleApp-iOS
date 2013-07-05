@@ -145,12 +145,7 @@
     AppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
     /* Here we can set the elements of the crowdItem (the cell) in the cellview */
     
-<<<<<<< HEAD
-    item.tag = indexPath.item;
-    [[[ImageCache alloc]init]get:@"post" identifier:[appDelegate.posts[indexPath.item][@"id"] stringValue] delegate:self callback:@selector(didFinishDownloadingImages:forItem:atIndexPath:) item:item indexPath:indexPath.item];
-=======
     [[[ImageCache alloc]init]get:@"post" identifier:[appDelegate.posts[indexPath.item][@"id"] stringValue] delegate:self callback:@selector(didFinishDownloadingImages:forItem:) item:item];
->>>>>>> parent of 96192e5... sending indexpath with items
     [[item venueName] setText:[self getDateFromUnixFormat:appDelegate.posts[indexPath.item][@"time"]]];
     [[item venueName] setTextColor:[UIColor whiteColor]];
     [[item venueName] setFont:[UIFont systemFontOfSize:11]];
@@ -161,18 +156,8 @@
     return item;
 }
 
-<<<<<<< HEAD
-- (void)didFinishDownloadingImages:(UIImage *)response forItem:(CrowdItem *)item atIndexPath:(int)index{
-    CrowdItem *it = (CrowdItem *)[self.view viewWithTag:index];
-    if(it){
-        NSLog(@"setting image to crowdImage with tag '%d'",index);
-        it.crowdImage.image = response;
-        
-    }
-=======
 - (void)didFinishDownloadingImages:(UIImage *)response forItem:(CrowdItem *)item {
     [[item crowdImage] setImage:response];
->>>>>>> parent of 96192e5... sending indexpath with items
 }
 
 - (void)didReceiveMemoryWarning {
