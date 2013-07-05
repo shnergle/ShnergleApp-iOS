@@ -22,10 +22,8 @@
     titleHeader = venue[@"name"];
     venueLat = [(NSNumber *)venue[@"lat"] doubleValue];
     venueLon = [(NSNumber *)venue[@"lon"] doubleValue];
-    if(venue[@"tonight"]){
-        summaryContent = venue[@"tonight"];
+        summaryContent = [NSString stringWithFormat:@"%@",venue[@"tonight"]];
         NSLog(@"set the summary to %@",venue[@"tonight"]);
-    }
     summaryHeadline = [NSString stringWithFormat:@"Tonight at %@",venue[@"name"]];
     AppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
     appDelegate.activeVenue = venue;
@@ -93,7 +91,7 @@
     [super viewDidLoad];
     following = NO;
 
-    if(summaryContent == nil)
+    if(!summaryContent)
         summaryContent = @"";
 
     [self.checkInButton setTitleTextAttributes:
@@ -285,7 +283,7 @@
                              animated:NO];
 
     [self setPromoContentTo:promotionBody promoHeadline:promotionTitle promoExpiry:promotionExpiry];
-    self.overlayView.summaryContentTextField.text = @"";
+    self.overlayView.summaryContentTextField.text = summaryContent;
     self.overlayView.summaryHeadlineTextField.text = summaryHeadline;
     
     
