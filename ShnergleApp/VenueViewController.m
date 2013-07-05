@@ -145,7 +145,7 @@
     AppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
     /* Here we can set the elements of the crowdItem (the cell) in the cellview */
     
-    [[[ImageCache alloc]init]get:@"post" identifier:[appDelegate.posts[indexPath.row][@"id"] stringValue] delegate:self callback:@selector(didFinishDownloadingImages:forItem:) item:item];
+    [[[ImageCache alloc]init]get:@"post" identifier:[appDelegate.posts[indexPath.item][@"id"] stringValue] delegate:self callback:@selector(didFinishDownloadingImages:forItem:) item:item];
     [[item venueName] setText:[self getDateFromUnixFormat:appDelegate.posts[indexPath.item][@"time"]]];
     [[item venueName] setTextColor:[UIColor whiteColor]];
     [[item venueName] setFont:[UIFont systemFontOfSize:11]];
@@ -330,7 +330,7 @@
 
 - (void)collectionView:(UICollectionView *)collectionView
     didHighlightItemAtIndexPath:(NSIndexPath *)indexPath {
-    selectedPost = indexPath.row;
+    selectedPost = indexPath.item;
 }
 
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
