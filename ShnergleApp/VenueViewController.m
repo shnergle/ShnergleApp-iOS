@@ -145,19 +145,24 @@
     AppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
     /* Here we can set the elements of the crowdItem (the cell) in the cellview */
     
-    [[[ImageCache alloc]init]get:@"post" identifier:[appDelegate.posts[indexPath.item][@"id"] stringValue] delegate:self callback:@selector(didFinishDownloadingImages:forItem:) item:item];
+    item.tag = indexPath.item *100;
+    [[[ImageCache alloc]init]get:@"post" identifier:[appDelegate.posts[indexPath.item][@"id"] stringValue] delegate:self callback:@selector(didFinishDownloadingImages:forItem:atIndexPath:) item:item indexPath:indexPath.item];
     [[item venueName] setText:[self getDateFromUnixFormat:appDelegate.posts[indexPath.item][@"time"]]];
     [[item venueName] setTextColor:[UIColor whiteColor]];
     [[item venueName] setFont:[UIFont systemFontOfSize:11]];
+    [[item crowdImage]setImage:[UIImage imageNamed:@"AppIcon_114.png"]];
     
-    
-
 
     return item;
 }
 
-- (void)didFinishDownloadingImages:(UIImage *)response forItem:(CrowdItem *)item {
-    [[item crowdImage] setImage:response];
+- (void)didFinishDownloadingImages:(UIImage *)response forItem:(CrowdItem *)item atIndexPath:(int)index{
+    CrowdItem *it = (CrowdItem *)[self.view viewWithTag:index*100];
+    if(it){
+        NSLog(@"setting image to crowdImage with tag '%d'");
+        it.crowdImage.image = response;
+        
+    }
 }
 
 - (void)didReceiveMemoryWarning {

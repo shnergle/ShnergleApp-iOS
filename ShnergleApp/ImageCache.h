@@ -14,10 +14,11 @@
     SEL responseCallback;
     NSString *key;
     CrowdItem *item;
+    int indexPath;
 }
 
 - (void)get:(NSString *)type identifier:(NSString *)type_id delegate:(id)object callback:(SEL)cb;
 
-- (void)get:(NSString *)type identifier:(NSString *)type_id delegate:(id)object callback:(SEL)cb item:(CrowdItem *)tItem;
+- (void)get:(NSString *)type identifier:(NSString *)type_id delegate:(id)object callback:(SEL)cb item:(CrowdItem *)tItem indexPath:(int)index;
 
 @end

@@ -129,7 +129,7 @@
      */
     /* Here we can set the elements of the crowdItem (the cell) in the cellview */
     AppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
-    [[[ImageCache alloc]init]get:@"venue" identifier:[appDelegate.aroundVenues[indexPath.item][@"id"] stringValue] delegate:self callback:@selector(didFinishDownloadingImages:forItem:) item:item];
+    [[[ImageCache alloc]init]get:@"venue" identifier:[appDelegate.aroundVenues[indexPath.item][@"id"] stringValue] delegate:self callback:@selector(didFinishDownloadingImages:forItem:) item:item indexPath:indexPath.item];
 
     [[item venueName] setText:([appDelegate.topViewType isEqual:@"Following"] ? appDelegate.followingVenues : appDelegate.venueNames)[indexPath.item][@"name"]];
 
@@ -147,7 +147,7 @@
     return item;
 }
 
-- (void)didFinishDownloadingImages:(UIImage *)response forItem:(CrowdItem *)item {
+- (void)didFinishDownloadingImages:(UIImage *)response forItem:(CrowdItem *)item forIndexPath:(int)index{
     [[item crowdImage] setImage:response];
 }
 
