@@ -18,10 +18,6 @@
     NSInteger selectedPost;
 
     BOOL textViewOpen;
-
-    //Scrollhide
-    CGFloat startContentOffset;
-    CGFloat lastContentOffset;
     BOOL hidden;
 
     NSString *titleHeader;
