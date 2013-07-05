@@ -16,7 +16,7 @@
     NSString *promotionBody;
     NSString *promotionExpiry;
     NSInteger selectedPost;
-
+    
     BOOL textViewOpen;
 
     //Scrollhide
@@ -32,6 +32,11 @@
     double venueLon;
     NSString *summaryContent;
     NSString *summaryHeadline;
+    
+    dispatch_queue_t myQueue;
+    NSMutableSet *indexPathsNeedingImages;
+    
+    
 }
 - (void)setVenue:(NSDictionary *)venue;
 - (void)viewDidAppear:(BOOL)animated;

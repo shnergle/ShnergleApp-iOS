@@ -6,7 +6,6 @@
 //  Copyright (c) 2013 Shnergle. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
 #import "CrowdItem.h"
 
 @interface ImageCache : NSObject {
@@ -14,10 +13,14 @@
     SEL responseCallback;
     NSString *key;
     CrowdItem *item;
+    NSMutableArray *usedKeys;
+    NSIndexPath *indexPath;
 }
 
 - (void)get:(NSString *)type identifier:(NSString *)type_id delegate:(id)object callback:(SEL)cb;
 
 - (void)get:(NSString *)type identifier:(NSString *)type_id delegate:(id)object callback:(SEL)cb item:(CrowdItem *)tItem;
+- (void)get:(NSString *)type identifier:(NSString *)type_id delegate:(id)object callback:(SEL)cb indexPath:(NSIndexPath *)index;
+
 
 @end
