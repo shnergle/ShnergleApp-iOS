@@ -161,22 +161,15 @@
                                     </attributedString>
                                     <nil key="highlightedColor"/>
                                 </label>
-                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="234">
+                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="45" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="234">
                                     <rect key="frame" x="6" y="90" width="101" height="49"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <constraints>
                                         <constraint firstAttribute="width" constant="101" id="275"/>
                                         <constraint firstAttribute="height" constant="49" id="344"/>
                                     </constraints>
-                                    <attributedString key="attributedText">
-                                        <fragment content="45">
-                                            <attributes>
-                                                <color key="NSColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                                <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
-                                            </attributes>
-                                        </fragment>
-                                    </attributedString>
+                                    <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                     <nil key="highlightedColor"/>
                                     <color key="shadowColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                     <size key="shadowOffset" width="1" height="1"/>
@@ -195,21 +188,14 @@
                                         <action selector="tappedGoing:" destination="1" eventType="touchUpInside" id="5Iz-ZD-fpD"/>
                                     </connections>
                                 </button>
-                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="215">
+                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="213" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="215">
                                     <rect key="frame" x="111" y="89" width="100" height="49"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="49" id="492"/>
                                     </constraints>
-                                    <attributedString key="attributedText">
-                                        <fragment content="213">
-                                            <attributes>
-                                                <color key="NSColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                                <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
-                                            </attributes>
-                                        </fragment>
-                                    </attributedString>
+                                    <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                     <nil key="highlightedColor"/>
                                 </label>
                                 <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="tailTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="52r-VY-WE5">
@@ -224,22 +210,15 @@
                                         <action selector="tappedCheckedIn:" destination="1" eventType="touchUpInside" id="jrg-c4-9ii"/>
                                     </connections>
                                 </button>
-                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="226">
+                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="19" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="226">
                                     <rect key="frame" x="216" y="90" width="100" height="49"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <constraints>
                                         <constraint firstAttribute="width" constant="100" id="228"/>
                                         <constraint firstAttribute="height" constant="49" id="346"/>
                                     </constraints>
-                                    <attributedString key="attributedText">
-                                        <fragment content="19">
-                                            <attributes>
-                                                <color key="NSColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                                <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
-                                            </attributes>
-                                        </fragment>
-                                    </attributedString>
+                                    <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                     <nil key="highlightedColor"/>
                                 </label>
                                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XrZ-Ff-T5t">
@@ -525,4 +504,51 @@
         <image name="puller_menu.png" width="98" height="45"/>
         <image name="share.png" width="235" height="60"/>
     </resources>
+    <classes>
+        <class className="GMSMapView" superclassName="UIView">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/GMSMapView.h"/>
+        </class>
+        <class className="NSLayoutConstraint" superclassName="NSObject">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/NSLayoutConstraint.h"/>
+        </class>
+        <class className="OverlayText" superclassName="UIView">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/OverlayText.h"/>
+            <relationships>
+                <relationship kind="action" name="postUpdateTapped:"/>
+                <relationship kind="action" name="publishTapped:"/>
+                <relationship kind="action" name="share:"/>
+                <relationship kind="action" name="swipeDown:"/>
+                <relationship kind="action" name="swipeUp:"/>
+                <relationship kind="action" name="tap:"/>
+                <relationship kind="action" name="tapPromotion:"/>
+                <relationship kind="action" name="tapPullerMenu:"/>
+                <relationship kind="action" name="tappedCheckedIn:"/>
+                <relationship kind="action" name="tappedGoing:"/>
+                <relationship kind="action" name="tappedThinking:"/>
+                <relationship kind="outlet" name="checkedInLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="checkedInView" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="commentButton" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="goingLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="goingView" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="offerContents" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="offerCount" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="offerHeadline" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="parentViewInside" candidateClass="UIView"/>
+                <relationship kind="outlet" name="postUpdateButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="publishButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="scrollView" candidateClass="UIScrollView"/>
+                <relationship kind="outlet" name="shareButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="summaryContentTextField" candidateClass="UITextView"/>
+                <relationship kind="outlet" name="summaryHeadlineTextField" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="tapGoing" candidateClass="UITapGestureRecognizer"/>
+                <relationship kind="outlet" name="tapThinking" candidateClass="UITapGestureRecognizer"/>
+                <relationship kind="outlet" name="thinkingLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="thinkingView" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="venueMap" candidateClass="GMSMapView"/>
+            </relationships>
+        </class>
+        <class className="TPKeyboardAvoidingScrollView" superclassName="UIScrollView">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/TPKeyboardAvoidingScrollView.h"/>
+        </class>
+    </classes>
 </document>

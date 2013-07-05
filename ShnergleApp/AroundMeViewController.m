@@ -338,7 +338,7 @@
     //Make sure it is only run once:
     if (!hasPositionLocked) {
         if ([keyPath isEqualToString:@"myLocation"] && [object isKindOfClass:[GMSMapView class]]) {
-            [_mapView animateToCameraPosition:[GMSCameraPosition cameraWithLatitude:_mapView.myLocation.coordinate.latitude - 0.014
+            [_mapView animateToCameraPosition:[GMSCameraPosition cameraWithLatitude:_mapView.myLocation.coordinate.latitude - 0.015
                                                                           longitude:_mapView.myLocation.coordinate.longitude
                                                                                zoom:13]];
             hasPositionLocked = YES;

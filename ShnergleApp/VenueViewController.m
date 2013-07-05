@@ -24,6 +24,7 @@
     venueLon = [(NSNumber *)venue[@"lon"] doubleValue];
     if(venue[@"tonight"]){
         summaryContent = venue[@"tonight"];
+        NSLog(@"set the summary to %@",venue[@"tonight"]);
     }else{
         summaryContent = @" ";
     }
@@ -284,8 +285,8 @@
                              animated:NO];
 
     [self setPromoContentTo:promotionBody promoHeadline:promotionTitle promoExpiry:promotionExpiry];
-    //self.overlayView.summaryContentTextField.text = summaryContent ? summaryContent : @"";
-    //self.overlayView.summaryHeadlineTextField.text = summaryHeadline ? summaryHeadline : @"";
+    self.overlayView.summaryContentTextField.text = summaryContent ;
+    self.overlayView.summaryHeadlineTextField.text = summaryHeadline;
     
     
     AppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
