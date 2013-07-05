@@ -142,6 +142,7 @@
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     static NSString *cellIdentifier = @"Cell";
     CrowdItem *item = [collectionView dequeueReusableCellWithReuseIdentifier:cellIdentifier forIndexPath:indexPath];
+    if(!item){
     AppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
     /* Here we can set the elements of the crowdItem (the cell) in the cellview */
     
@@ -150,6 +151,7 @@
     [[item venueName] setTextColor:[UIColor whiteColor]];
     [[item venueName] setFont:[UIFont systemFontOfSize:11]];
     
+    }
 
 
     return item;
