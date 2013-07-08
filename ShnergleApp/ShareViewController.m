@@ -14,7 +14,6 @@
 @implementation ShareViewController
 
 #warning "implement a way of not re-shnergling"
-//@synthesize textFieldname;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -42,7 +41,6 @@
 
 - (void)share {
     [self.view makeToastActivity];
-    AppDelegate *appDelegate = [[UIApplication sharedApplication]delegate];
     appDelegate.didShare = @YES;
     [self uploadToServer];
 
