@@ -13,7 +13,7 @@
 
 @implementation ShareViewController
 
-
+#warning "implement a way of not re-shnergling"
 //@synthesize textFieldname;
 
 - (void)viewDidLoad {
@@ -50,7 +50,6 @@
 }
 
 - (void)viewDidDisappear:(BOOL)animated {
-    NSLog(@"Share view dissappeared (and spinner removed)");
     [self.view hideToastActivity];
 }
 
