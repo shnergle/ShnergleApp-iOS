@@ -162,8 +162,11 @@
 
 - (void)didFinishDownloadingImages:(UIImage *)response forItem:(CrowdItem *)item {
 
-    cellImages[@(item.index)] = response;
-    
+    if(response != nil){
+        cellImages[@(item.index)] = response;
+        NSIndexPath *indexPath = [NSIndexPath indexPathForItem:item.index inSection:0];
+        [self.crowdCollectionV reloadItemsAtIndexPaths:@[indexPath]];
+    }
 }
 
 
