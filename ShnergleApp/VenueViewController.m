@@ -10,7 +10,7 @@
 #import "CrowdItem.h"
 #import "PromotionView.h"
 #import "VenueGalleryViewController.h"
-#import "AppDelegate.h"
+
 #import "PostRequest.h"
 #import "ImageCache.h"
 #import <NSDate+TimeAgo/NSDate+TimeAgo.h>
@@ -25,7 +25,7 @@
         summaryContent = [NSString stringWithFormat:@"%@",venue[@"tonight"]];
         NSLog(@"set the summary to %@",venue[@"tonight"]);
     summaryHeadline = [NSString stringWithFormat:@"Tonight at %@",venue[@"name"]];
-    AppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
+    
     appDelegate.activeVenue = venue;
 }
 
@@ -73,7 +73,7 @@
 
 - (void)tapToFollow {
     [self.view makeToastActivity];
-    AppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
+    
     following = !following;
     if (following) {
         [self setHeaderTitle:titleHeader andSubtitle:@"Following"];
@@ -135,14 +135,14 @@
 }
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
-    AppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
+    
     return appDelegate.posts ? [appDelegate.posts count] : 0;
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     static NSString *cellIdentifier = @"Cell";
     CrowdItem *item = [collectionView dequeueReusableCellWithReuseIdentifier:cellIdentifier forIndexPath:indexPath];
-    AppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
+    
     /* Here we can set the elements of the crowdItem (the cell) in the cellview */
     item.index = indexPath.item;
     
@@ -235,7 +235,7 @@
     hidden = YES;
 
     self.navigationController.navigationBarHidden = NO;
-    //AppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
+    
     //[self setHeaderTitle:appDelegate.venueNames[indexPath.item]  andSubtitle:@"subtitle"];
 
     UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"TESTING" message:@"Please select status of venue in relation to thyself." delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"Normal", @"Staff", @"Manager", nil];
@@ -266,7 +266,7 @@
     self.overlayView.summaryHeadlineTextField.text = summaryHeadline;
     
     
-    AppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
+    
 
     NSMutableString *params = [[NSMutableString alloc]initWithString:@"venue_id="];
     [params appendFormat:@"%@&facebook_id=%@",appDelegate.activeVenue[@"id"],appDelegate.facebookId];
@@ -277,7 +277,7 @@
 -(void)didFinishDownloadingPosts: (id) response
 {
     NSLog(@"%@",response);
-    AppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
+    
     appDelegate.posts = response;
     [self.crowdCollectionV reloadData];
 }
@@ -298,7 +298,7 @@
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    AppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
+    
     if ([segue.identifier isEqualToString:@"ToGallery"]) {
         [segue.destinationViewController setTitle:[NSString stringWithFormat:@"%@", titleHeader]];
         [(VenueGalleryViewController *)segue.destinationViewController setImage :((CrowdItem *)sender).crowdImage.image withAuthor : [NSString stringWithFormat:@"%@ %@",appDelegate.posts[selectedPost][@"forename"], [appDelegate.posts[selectedPost][@"surname"] substringToIndex:1]] withComment : appDelegate.posts[selectedPost][@"caption"] withTimestamp : [self getDateFromUnixFormat:appDelegate.posts[selectedPost][@"time"]]];
@@ -311,7 +311,7 @@
 }
 
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
-    AppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
+    
     switch (buttonIndex) {
         case 0:
             appDelegate.venueStatus = None;

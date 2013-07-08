@@ -7,7 +7,6 @@
 //
 
 #import "VenueDetailsViewController.h"
-#import "AppDelegate.h"
 
 @interface VenueDetailsViewController ()
 
@@ -28,7 +27,6 @@
     self.navigationItem.title = @"Venue Details";
     //[self setRightBarButton: [NSString @"Done"];
 
-    AppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
     appDelegate.venueDetailsContent = [[NSMutableArray alloc]init];
     self.tableData = @[@"Phone", @"Email", @"Website"];
 }
@@ -74,7 +72,6 @@
 }
 
 - (void)textFieldDidEndEditing:(UITextField *)textField {
-    AppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
     appDelegate.venueDetailsContent[textField.tag] = textField.text;
 }
 

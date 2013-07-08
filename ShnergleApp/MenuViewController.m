@@ -7,7 +7,6 @@
 //
 
 #import "MenuViewController.h"
-#import "AppDelegate.h"
 #import "SearchBarView.h"
 #import "PostRequest.h"
 #import "VenueViewController.h"
@@ -21,7 +20,6 @@
     //load search bar
     UIView *searchBar = [[NSBundle mainBundle] loadNibNamed:@"SearchBar" owner:self options:nil][0];
     [self.view addSubview:searchBar];
-    AppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
 
     _tableSections = @[@"Profile", @"Explore"];
     _tableData = @{@0: @[appDelegate.fullName], @1: @[@"Around Me", @"Following", @"Promotions", @"Quiet", @"Trending", @"Add Venue"]};
@@ -148,7 +146,6 @@
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    AppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
     if ([segue.identifier isEqualToString:@"PromotionSegue"]) {
         appDelegate.topViewType = @"Promotions";
     } else if ([segue.identifier isEqualToString:@"QuietSegue"]) {
@@ -167,7 +164,6 @@
 
 - (BOOL)textFieldShouldReturn:(UITextField *)textField {
     if (textField.text.length > 1) {
-        AppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
         NSString *params = [NSString stringWithFormat:@"term=%@&facebook_id=%@", _bar.text, appDelegate.facebookId];
         [[[PostRequest alloc] init] exec:@"user_searches/set" params:params delegate:self callback:@selector(searchRegistered:)];
         [[[PostRequest alloc] init] exec:@"venues/get" params:params delegate:self callback:@selector(postResponse:)];

@@ -7,7 +7,7 @@
 //
 
 #import "PhotoLocationViewController.h"
-#import "AppDelegate.h"
+
 
 @implementation PhotoLocationViewController
 
@@ -28,12 +28,12 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    AppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
+    
     return [appDelegate.aroundVenues count];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    AppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
+    
     UITableViewCell *cell = nil;
     cell = [tableView dequeueReusableCellWithIdentifier:@"Cell"];
 
@@ -49,7 +49,7 @@
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    AppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
+    
     appDelegate.activeVenue = appDelegate.aroundVenues[indexPath.row];
 }
 

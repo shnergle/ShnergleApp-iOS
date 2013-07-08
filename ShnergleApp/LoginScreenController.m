@@ -7,7 +7,6 @@
 //
 
 #import "LoginScreenController.h"
-#import "AppDelegate.h"
 #import "PostRequest.h"
 
 @implementation LoginScreenController
@@ -24,7 +23,6 @@
 
     //HideNavBar
     [[self navigationController] setNavigationBarHidden:TRUE];
-    AppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
     if (!appDelegate.session.isOpen) {
         self.buttonLoginLogout.hidden = YES;
         // create a fresh session object
@@ -48,7 +46,6 @@
 }
 
 - (void)updateView {
-    AppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
     if (appDelegate.session.isOpen) {
         self.buttonLoginLogout.hidden = YES;
 
@@ -108,7 +105,6 @@
 }
 
 - (void)postResponse:(id)response {
-    AppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
     if ([response isEqual:@"true"]) {
         NSString *params = [NSString stringWithFormat:@"facebook_id=%@", appDelegate.facebookId];
         if (![[[PostRequest alloc] init] exec:@"users/get" params:params delegate:self callback:@selector(getResponse:)]) [self alert];
@@ -118,7 +114,6 @@
 }
 
 - (void)getResponse:(id)response {
-    AppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
     if (response) {
         if (![((NSDictionary *)response)[@"twitter"] isEqual : @""]) appDelegate.twitter = ((NSDictionary *)response)[@"twitter"];
         if ([((NSDictionary *)response)[@"save_locally"] isEqual : @1]) appDelegate.saveLocally = YES;
@@ -135,7 +130,6 @@
 
 - (IBAction)buttonClickHandler:(id)sender {
     self.buttonLoginLogout.hidden = YES;
-    AppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
 
     if (appDelegate.session.state != FBSessionStateCreated) appDelegate.session = [[FBSession alloc] initWithAppID:nil permissions:@[@"email", @"user_birthday"] urlSchemeSuffix:nil tokenCacheStrategy:nil];
     [appDelegate.session openWithCompletionHandler:^(FBSession *session,

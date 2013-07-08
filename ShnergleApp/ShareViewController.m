@@ -8,7 +8,7 @@
 
 #import "ShareViewController.h"
 #import <FacebookSDK/FBFriendPickerViewController.h>
-#import "AppDelegate.h"
+
 #import "PostRequest.h"
 
 @implementation ShareViewController
@@ -22,7 +22,7 @@
     self.textFieldname.placeholder = @"Write something..";
     _textFieldname.placeholderColor = [UIColor lightGrayColor];
 
-    AppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
+    
     if (appDelegate.shareImage) _image.image = appDelegate.shareImage;
 
 
@@ -58,7 +58,7 @@
     //Create post
     //upload image using id from post (not now and not here)
     //register in the "shared" db if shared on facebook (not yet)
-    AppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
+    
 
     NSMutableString *postParams = [[NSMutableString alloc]initWithString:[NSString stringWithFormat:@"venue_id=%@",appDelegate.activeVenue[@"id"]]];
     [postParams appendFormat:@"&caption=%@",_textFieldname.text];
@@ -75,7 +75,7 @@
 
 -(void)didFinishPost:(NSString *)response{
     NSLog(@"%@",response);
-        AppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
+        
         [[[PostRequest alloc] init] exec:@"images/set" params:[NSString stringWithFormat:@"entity=post&entity_id=%@&facebook_id=%@", response, appDelegate.facebookId] image:_image.image delegate:self callback:@selector(uploadedToServer:) type:@"string"];
 }
 
@@ -84,7 +84,7 @@
     NSLog(@"%@",response);
     if ([response isEqual:@"true"]) {
         self.navigationItem.rightBarButtonItem.enabled = NO;
-        AppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
+        
         NSLog(@"89");
         if ([appDelegate.session.permissions indexOfObject:@"publish_actions"] == NSNotFound)
             [appDelegate.session requestNewPublishPermissions:@[@"publish_actions"] defaultAudience:FBSessionDefaultAudienceEveryone completionHandler:^(FBSession *session, NSError *error) {
@@ -108,7 +108,7 @@
         [self.navigationController popToRootViewControllerAnimated:YES];
         return;
     }
-    AppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
+    
     NSMutableDictionary<FBGraphObject> *action = [FBGraphObject graphObject];
 
 
@@ -154,7 +154,7 @@
 }
 
 - (IBAction)selectFriendsButtonAction:(id)sender {
-    AppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
+    
     // Initialize the friend picker
     FBFriendPickerViewController *friendPickerController =
         [[FBFriendPickerViewController alloc] init];

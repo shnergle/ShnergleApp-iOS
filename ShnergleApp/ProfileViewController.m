@@ -7,7 +7,7 @@
 //
 
 #import "ProfileViewController.h"
-#import "AppDelegate.h"
+
 #import "PostRequest.h"
 #import "MenuViewController.h"
 #import <Toast/Toast+UIView.h>
@@ -21,15 +21,14 @@
 
     //[self setRightBarButton:@"Sign out" actionSelector:@selector(signOut)];
 
-    AppDelegate *appdelegate = [[UIApplication sharedApplication] delegate];
-    self.navigationItem.title = appdelegate.fullName;
-    self.userProfileImage3.profileID = appdelegate.facebookId;
-    self.userProfileImage2.profileID = appdelegate.facebookId;
-    self.userProfileImage1.profileID = appdelegate.facebookId;
+    self.navigationItem.title = appDelegate.fullName;
+    self.userProfileImage3.profileID = appDelegate.facebookId;
+    self.userProfileImage2.profileID = appDelegate.facebookId;
+    self.userProfileImage1.profileID = appDelegate.facebookId;
     
     //self.userProfileImage2.profileID = appdelegate.facebookId;
     //self.userProfileImage1.profileID = appdelegate.facebookId;
-    //AppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
+    
     //if (appDelegate.twitter)
     //    _twitterSwitch.on = YES;
     
@@ -47,7 +46,7 @@
     _userProfileImage1.layer.borderColor = [UIColor colorWithRed:255 green:255 blue:255 alpha:1].CGColor;
     _userProfileImage1.layer.borderWidth = 2;
     
-    AppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
+    
     
     self.saveLocallySwitch.on = appDelegate.saveLocally;
     self.optInSwitch.on = appDelegate.optInTop5;
@@ -55,14 +54,14 @@
 
 - (IBAction)optInChange:(id)sender {
     [self.view makeToastActivity];
-    AppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
+    
     appDelegate.optInTop5 = self.optInSwitch.on;
     [[[PostRequest alloc] init] exec:@"users/set" params:[NSString stringWithFormat:@"facebook_id=%@&top5=%@", appDelegate.facebookId, (self.optInSwitch.on ? @"true" : @"false")] delegate:self callback:@selector(doNothing:)];
 }
 
 - (IBAction)saveLocallyChange:(id)sender {
     [self.view makeToastActivity];
-    AppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
+    
     appDelegate.saveLocally = self.saveLocallySwitch.on;
     [[[PostRequest alloc] init] exec:@"users/set" params:[NSString stringWithFormat:@"facebook_id=%@&save_locally=%@", appDelegate.facebookId, (self.saveLocallySwitch.on ? @"true" : @"false")] delegate:self callback:@selector(doNothing:)];
 }
@@ -124,7 +123,7 @@
 }
 
 - (IBAction)signOut:(id)sender {
-    AppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
+    
     [appDelegate.session closeAndClearTokenInformation];
     [self.navigationController popToRootViewControllerAnimated:YES];
 }

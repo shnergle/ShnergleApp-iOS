@@ -10,7 +10,6 @@
 #import "CrowdItem.h"
 #import <CoreLocation/CoreLocation.h>
 #import "MenuViewController.h"
-#import "AppDelegate.h"
 #import <Toast+UIView.h>
 #import "PostRequest.h"
 #import "VenueViewController.h"
@@ -111,13 +110,11 @@
 }
 
 - (void)makeRequest {
-    AppDelegate *appDelegate = [[UIApplication sharedApplication]delegate];
     [[[PostRequest alloc] init]exec:@"venues/get" params:[NSString stringWithFormat:@"facebook_id=%@", appDelegate.facebookId] delegate:self callback:@selector(didFinishLoadingVenues:)];
 }
 
 - (void)didFinishLoadingVenues:(NSArray *)response {
     NSLog(@"%@",response);
-    AppDelegate *appDelegate = [[UIApplication sharedApplication]delegate];
     appDelegate.aroundVenues = response;
     [self.crowdCollection reloadData];
     loading = NO;
@@ -171,7 +168,6 @@
 }
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
-    AppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
     return appDelegate.aroundVenues ? [appDelegate.aroundVenues count] : 0;
 }
 
@@ -192,7 +188,6 @@
        //item.layer.shouldRasterize = YES;
      */
     /* Here we can set the elements of the crowdItem (the cell) in the cellview */
-    AppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
     //[[[PostRequest alloc]init]exec:@"images/get" params:[NSString stringWithFormat:@"entity=post&entity_id=0&facebook_id=%@",appDelegate.facebookId] delegate:self callback:@selector(didFinishDownloadingImages:forItem:) type:@"image" item:item];
     [[[ImageCache alloc]init]get:@"venue" identifier:[appDelegate.aroundVenues[indexPath.item][@"id"] stringValue] delegate:self callback:@selector(didFinishDownloadingImages:forItem:) item:item];
 
@@ -217,7 +212,6 @@
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    AppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
     if ([segue.identifier isEqualToString:@"ToVenueSite"]) {
         [(VenueViewController *)segue.destinationViewController setVenue : appDelegate.aroundVenues[selectedVenue]];
     }
@@ -342,7 +336,6 @@
                                                                           longitude:_mapView.myLocation.coordinate.longitude
                                                                                zoom:13]];
             hasPositionLocked = YES;
-            AppDelegate *appDelegate = [[UIApplication sharedApplication]delegate];
             appDelegate.shareImageLat = [NSString stringWithFormat:@"%f",self.mapView.myLocation.coordinate.latitude];
             appDelegate.shareImageLon = [NSString stringWithFormat:@"%f",self.mapView.myLocation.coordinate.longitude];
             NSLog(@"%@", appDelegate.shareImageLat);

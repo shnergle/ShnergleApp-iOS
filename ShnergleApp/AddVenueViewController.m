@@ -7,7 +7,6 @@
 //
 
 #import "AddVenueViewController.h"
-#import "AppDelegate.h"
 #import "PostRequest.h"
 #import <MapKit/MapKit.h>
 #import <Toast+UIView.h>
@@ -49,7 +48,6 @@ typedef enum {
 
 - (void)addVenue {
     [self.view makeToastActivity];
-    AppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
     if (appDelegate.addVenueType) _userData[Category + 1] = appDelegate.addVenueType;
 
     if (_workSwitch.on) {
@@ -227,7 +225,6 @@ typedef enum {
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     [self.navigationController setNavigationBarHidden:NO animated:YES];
-    AppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
     if (appDelegate.addVenueType != nil) {
         secondCellField.text = appDelegate.addVenueType;
         secondCellField.textColor = [UIColor blackColor];
@@ -253,7 +250,6 @@ typedef enum {
 }
 
 - (void)goBack {
-    AppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
     appDelegate.addVenueType = nil;
     [super goBack];
 }

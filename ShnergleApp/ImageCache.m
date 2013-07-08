@@ -8,7 +8,6 @@
 
 #import "ImageCache.h"
 #import "PostRequest.h"
-#import "AppDelegate.h"
 
 static NSCache *cache;
 
@@ -25,7 +24,6 @@ static NSCache *cache;
 - (void)get:(NSString *)type identifier:(NSString *)type_id delegate:(id)object callback:(SEL)cb {
     responseObject = object;
     responseCallback = cb;
-    AppDelegate *appDelegate = [[UIApplication sharedApplication]delegate];
     key = [NSString stringWithFormat:@"%@/%@", type, type_id];
     if ([cache objectForKey:key] != nil) {
         [self received:[cache objectForKey:key]];

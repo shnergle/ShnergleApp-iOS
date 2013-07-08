@@ -8,14 +8,13 @@
 
 #import "OverlayText.h"
 #import "VenueViewController.h"
-#import "AppDelegate.h"
+
 #import "CheckInViewController.h"
 
 @implementation OverlayText
 
 - (IBAction)share:(id)sender {
     UIViewController *caller = (UIViewController *)self.nextResponder.nextResponder;
-    AppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
     if (appDelegate.venueStatus == Manager) {
         UIViewController *vc = [caller.storyboard instantiateViewControllerWithIdentifier:@"Staff"];
         [caller.navigationController pushViewController:vc animated:YES];
@@ -222,7 +221,6 @@
 }
 
 - (void)didAppear {
-    AppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
     if (appDelegate.venueStatus == Manager) {
         [_shareButton setBackgroundImage:[UIImage imageNamed:@"stafficon.png"] forState:UIControlStateNormal];
         _postUpdateButton.hidden = NO;

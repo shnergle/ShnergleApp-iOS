@@ -8,9 +8,7 @@
 
 #import "FavouritesViewController.h"
 #import "MenuViewController.h"
-#import "AppDelegate.h"
 #import "CrowdItem.h"
-#import "AppDelegate.h"
 #import "VenueViewController.h"
 #import "PostRequest.h"
 #import "ImageCache.h"
@@ -54,7 +52,6 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    AppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
     if (appDelegate.topViewType) ((UINavigationItem *)self.navBar.items[0]).title = appDelegate.topViewType;
     [self menuButtonDecorations];
     [self decorateCheckInButton];
@@ -81,13 +78,11 @@
 }
 
 - (void)makeRequest {
-    AppDelegate *appDelegate = [[UIApplication sharedApplication]delegate];
     [[[PostRequest alloc] init]exec:@"venue_favourites/get" params:[NSString stringWithFormat:@"facebook_id=%@", appDelegate.facebookId] delegate:self callback:@selector(didFinishLoadingVenues:)];
 }
 
 - (void)didFinishLoadingVenues:(NSArray *)response {
     NSLog(@"%@",response);
-    AppDelegate *appDelegate = [[UIApplication sharedApplication]delegate];
     appDelegate.aroundVenues = response;
     [self.crowdCollection reloadData];
 }
@@ -107,7 +102,6 @@
 }
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
-    AppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
     return [appDelegate.topViewType isEqual:@"Following"] ? [appDelegate.followingVenues count] : [appDelegate.images count];
 }
 
@@ -128,7 +122,6 @@
        //item.layer.shouldRasterize = YES;
      */
     /* Here we can set the elements of the crowdItem (the cell) in the cellview */
-    AppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
     [[[ImageCache alloc]init]get:@"venue" identifier:[appDelegate.aroundVenues[indexPath.item][@"id"] stringValue] delegate:self callback:@selector(didFinishDownloadingImages:forItem:) item:item];
 
     [[item venueName] setText:([appDelegate.topViewType isEqual:@"Following"] ? appDelegate.followingVenues : appDelegate.venueNames)[indexPath.item][@"name"]];
@@ -153,12 +146,10 @@
 
 - (void)         collectionView:(UICollectionView *)collectionView
     didHighlightItemAtIndexPath:(NSIndexPath *)indexPath {
-    AppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
     appDelegate.activeVenue = appDelegate.followingVenues[indexPath.row];
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    AppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
     if ([segue.identifier isEqualToString:@"ToVenueSite"]) {
         [(VenueViewController *)segue.destinationViewController setVenue : appDelegate.activeVenue];
     }

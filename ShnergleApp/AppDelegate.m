@@ -6,7 +6,7 @@
 //  Copyright (c) 2013 Shnergle. All rights reserved.
 //
 
-#import "AppDelegate.h"
+
 #import "LoginScreenController.h"
 
 @implementation AppDelegate
