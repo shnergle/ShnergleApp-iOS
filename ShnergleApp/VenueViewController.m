@@ -104,9 +104,11 @@
                                       forState:UIControlStateNormal];
 
     textViewOpen = false;
-    [[self crowdCollectionV] setDataSource:self];
-    [[self crowdCollectionV] setDelegate:self];
+    self.crowdCollectionV.dataSource = self;
+    self.crowdCollectionV.delegate = self;
 
+    self.crowdCollectionV.alwaysBounceVertical = YES;
+    
     //appDelegate.images = [[appDelegate.images reverseObjectEnumerator] allObjects];
     //appDelegate.shareImage = [UIImage imageNamed:appDelegate.images[0]];
 
