@@ -41,6 +41,11 @@ static NSCache *cache;
     [self get:type identifier:type_id delegate:object callback:cb];
 }
 
+- (void)get:(NSString *)type identifier:(NSString *)type_id delegate:(id)object callback:(SEL)cb indexPath:(NSIndexPath *)index {
+    indexPath = index;
+    [self get:type identifier:type_id delegate:object callback:cb];
+}
+
 - (void)received:(UIImage *)response {
     if ([cache objectForKey:key] == nil && response != nil) {
         [cache setObject:response forKey:key];
@@ -50,6 +55,7 @@ static NSCache *cache;
     [invocation setSelector:responseCallback];
     [invocation setArgument:&response atIndex:2];
     if (item) [invocation setArgument:&item atIndex:3];
+    else if (indexPath) [invocation setArgument:&indexPath atIndex:3];
     [invocation setTarget:responseObject];
     [invocation retainArguments];
     [invocation invoke];

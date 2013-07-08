@@ -149,7 +149,7 @@
     item.crowdImage.image = cellImages[@(indexPath.item)];
     
     if(item.crowdImage.image == nil)
-        [[[ImageCache alloc]init]get:@"post" identifier:[appDelegate.posts[indexPath.item][@"id"] stringValue] delegate:self callback:@selector(didFinishDownloadingImages:forItem:) item:item];
+        [[[ImageCache alloc]init]get:@"post" identifier:[appDelegate.posts[indexPath.item][@"id"] stringValue] delegate:self callback:@selector(didFinishDownloadingImages:forIndex:) indexPath:indexPath];
     
     [[item venueName] setText:[self getDateFromUnixFormat:appDelegate.posts[indexPath.item][@"time"]]];
     [[item venueName] setTextColor:[UIColor whiteColor]];
@@ -160,12 +160,11 @@
     return item;
 }
 
-- (void)didFinishDownloadingImages:(UIImage *)response forItem:(CrowdItem *)item {
+- (void)didFinishDownloadingImages:(UIImage *)response forIndex:(NSIndexPath *)index {
 
     if(response != nil){
-        cellImages[@(item.index)] = response;
-        NSIndexPath *indexPath = [NSIndexPath indexPathForItem:item.index inSection:0];
-        [self.crowdCollectionV reloadItemsAtIndexPaths:@[indexPath]];
+        cellImages[@(index.item)] = response;
+        [self.crowdCollectionV reloadItemsAtIndexPaths:@[index]];
     }
 }
 
@@ -257,6 +256,7 @@
     [self showOverlay];
     return YES;
 }
+
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
