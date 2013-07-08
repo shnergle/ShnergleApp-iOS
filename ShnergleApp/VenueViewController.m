@@ -118,6 +118,15 @@
     [self displayTextView];
 
     [self configureMapWithLat:venueLat longitude:venueLon];
+    
+    refreshControl = [[UIRefreshControl alloc]init];
+    [refreshControl addTarget:self action:@selector(startRefresh:)
+             forControlEvents:UIControlEventValueChanged];
+    [self.crowdCollectionV addSubview:refreshControl];
+}
+
+-(void)startRefresh:(id)sender{
+    [self getPosts];
 }
 
 - (void)addShadowLineRect:(CGRect)shadeRect ToView:(UIView *)view {
@@ -232,7 +241,6 @@
        animated:YES];*/
 
     //self.navigationItem.hidesBackButton = NO;
-    hidden = YES;
 
     self.navigationController.navigationBarHidden = NO;
     //AppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
@@ -256,22 +264,25 @@
     self.overlayView.offerContents.textAlignment = NSTextAlignmentCenter;
 }
 
+- (void)getPosts {
+    AppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
+    
+    NSMutableString *params = [[NSMutableString alloc]initWithString:@"venue_id="];
+    [params appendFormat:@"%@&facebook_id=%@",appDelegate.activeVenue[@"id"],appDelegate.facebookId];
+    
+    [[[PostRequest alloc]init]exec:@"posts/get" params:params delegate:self callback:@selector(didFinishDownloadingPosts:)];
+}
+
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
-    [self.overlayView setTabBarHidden:hidden
-                             animated:NO];
 
+    [self.overlayView setTabBarHidden:YES animated:NO];
     [self setPromoContentTo:promotionBody promoHeadline:promotionTitle promoExpiry:promotionExpiry];
     self.overlayView.summaryContentTextField.text = summaryContent;
     self.overlayView.summaryHeadlineTextField.text = summaryHeadline;
     
     
-    AppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
-
-    NSMutableString *params = [[NSMutableString alloc]initWithString:@"venue_id="];
-    [params appendFormat:@"%@&facebook_id=%@",appDelegate.activeVenue[@"id"],appDelegate.facebookId];
-    
-    [[[PostRequest alloc]init]exec:@"posts/get" params:params delegate:self callback:@selector(didFinishDownloadingPosts:)];
+    [self getPosts];
 }
 
 -(void)didFinishDownloadingPosts: (id) response
@@ -280,6 +291,7 @@
     AppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
     appDelegate.posts = response;
     [self.crowdCollectionV reloadData];
+    [refreshControl endRefreshing];
 }
 
 - (void)viewDidDisappear:(BOOL)animated {

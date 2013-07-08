@@ -19,10 +19,6 @@
 
     BOOL textViewOpen;
 
-    //Scrollhide
-    CGFloat startContentOffset;
-    CGFloat lastContentOffset;
-    BOOL hidden;
 
     NSString *titleHeader;
 
@@ -34,6 +30,9 @@
     NSString *summaryHeadline;
     
     NSMutableDictionary *cellImages;
+    
+    UIRefreshControl *refreshControl;
+    
 }
 - (void)setVenue:(NSDictionary *)venue;
 - (void)viewDidAppear:(BOOL)animated;
