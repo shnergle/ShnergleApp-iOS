@@ -219,42 +219,7 @@
     self.overlayView.venueMap.userInteractionEnabled = FALSE;
 }
 
-// SCROLLHIDE
-- (void)hideOverlay {
-    if (hidden) return;
-
-    hidden = YES;
-
-    [self.overlayView setTabBarHidden:YES
-                             animated:YES];
-
-    /*[self.navigationController setNavigationBarHidden:YES
-       animated:YES];*/
-}
-
-- (void)showOverlay {
-    if (!hidden) return;
-
-    hidden = NO;
-
-    [self.overlayView setTabBarHidden:NO
-                             animated:YES];
-
-}
-
-- (void)scrollViewWillBeginDragging:(UIScrollView *)scrollView {
-    startContentOffset = lastContentOffset = scrollView.contentOffset.y;
-}
-
-
-- (void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate {
-}
-
-- (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView {
-}
-
 - (BOOL)scrollViewShouldScrollToTop:(UIScrollView *)scrollView {
-    [self showOverlay];
     return YES;
 }
 
