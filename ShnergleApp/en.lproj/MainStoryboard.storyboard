@@ -573,7 +573,7 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                                             <rect key="frame" x="0.0" y="0.0" width="100" height="100"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" translatesAutoresizingMaskIntoConstraints="NO" id="hoB-5l-wEl">
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" translatesAutoresizingMaskIntoConstraints="NO" id="hoB-5l-wEl">
                                                     <rect key="frame" x="0.0" y="0.0" width="100" height="100"/>
                                                     <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                                 </imageView>
@@ -2658,9 +2658,6 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
         </class>
         <class className="StaffEditViewController" superclassName="CustomBackViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/StaffEditViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="deleteStaff:"/>
-            </relationships>
         </class>
         <class className="StaffTypeViewController" superclassName="CustomBackViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/StaffTypeViewController.h"/>

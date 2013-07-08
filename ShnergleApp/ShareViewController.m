@@ -42,7 +42,8 @@
 
 - (void)share {
     [self.view makeToastActivity];
-
+    AppDelegate *appDelegate = [[UIApplication sharedApplication]delegate];
+    appDelegate.didShare = @YES;
     [self uploadToServer];
 
 

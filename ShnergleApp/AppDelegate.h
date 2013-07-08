@@ -50,6 +50,7 @@
 
 @property (strong, nonatomic) NSMutableArray *searchResults;
 
+@property (strong, nonatomic) id didShare;
 
 typedef NS_ENUM (NSInteger, VENUE_STATUS) {
     Default,
