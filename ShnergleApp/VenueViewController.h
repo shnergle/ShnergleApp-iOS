@@ -32,6 +32,8 @@
     double venueLon;
     NSString *summaryContent;
     NSString *summaryHeadline;
+    
+    NSMutableDictionary *cellImages;
 }
 - (void)setVenue:(NSDictionary *)venue;
 - (void)viewDidAppear:(BOOL)animated;

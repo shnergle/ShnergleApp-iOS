@@ -90,6 +90,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     following = NO;
+    
+    cellImages = [[NSMutableDictionary alloc]init];
 
     if(!summaryContent)
         summaryContent = @"";
@@ -142,8 +144,13 @@
     CrowdItem *item = [collectionView dequeueReusableCellWithReuseIdentifier:cellIdentifier forIndexPath:indexPath];
     AppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
     /* Here we can set the elements of the crowdItem (the cell) in the cellview */
+    item.index = indexPath.item;
     
-    [[[ImageCache alloc]init]get:@"post" identifier:[appDelegate.posts[indexPath.item][@"id"] stringValue] delegate:self callback:@selector(didFinishDownloadingImages:forItem:) item:item];
+    item.crowdImage.image = cellImages[@(indexPath.item)];
+    
+    if(item.crowdImage.image == nil)
+        [[[ImageCache alloc]init]get:@"post" identifier:[appDelegate.posts[indexPath.item][@"id"] stringValue] delegate:self callback:@selector(didFinishDownloadingImages:forItem:) item:item];
+    
     [[item venueName] setText:[self getDateFromUnixFormat:appDelegate.posts[indexPath.item][@"time"]]];
     [[item venueName] setTextColor:[UIColor whiteColor]];
     [[item venueName] setFont:[UIFont systemFontOfSize:11]];
@@ -154,8 +161,11 @@
 }
 
 - (void)didFinishDownloadingImages:(UIImage *)response forItem:(CrowdItem *)item {
-    [[item crowdImage] setImage:response];
+
+    cellImages[@(item.index)] = response;
+    
 }
+
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

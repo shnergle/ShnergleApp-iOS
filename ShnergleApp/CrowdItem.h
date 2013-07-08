@@ -13,5 +13,5 @@
 @property (weak, nonatomic) IBOutlet UIImageView *crowdImage;
 @property (weak, nonatomic) IBOutlet UILabel *venueName;
 @property (weak, nonatomic) IBOutlet UIImageView *promotionIndicator;
-
+@property (nonatomic) int index;
 @end
