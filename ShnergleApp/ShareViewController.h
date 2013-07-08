@@ -22,5 +22,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *friendLabel;
 @property (weak, nonatomic) IBOutlet UISwitch *saveLocallySwitch;
 @property (weak, nonatomic) IBOutlet GCPlaceholderTextView *textFieldname;
+
+-(void)doNotShnergleThis;
 //- (IBAction)cleartextfield:(id)sender;
 @end

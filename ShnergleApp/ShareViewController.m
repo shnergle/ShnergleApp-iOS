@@ -13,7 +13,7 @@
 
 @implementation ShareViewController
 
-
+#warning "implement a way of not re-shnergling"
 //@synthesize textFieldname;
 
 - (void)viewDidLoad {
@@ -42,14 +42,14 @@
 
 - (void)share {
     [self.view makeToastActivity];
-
+    AppDelegate *appDelegate = [[UIApplication sharedApplication]delegate];
+    appDelegate.didShare = @YES;
     [self uploadToServer];
 
 
 }
 
 - (void)viewDidDisappear:(BOOL)animated {
-    NSLog(@"Share view dissappeared (and spinner removed)");
     [self.view hideToastActivity];
 }
 

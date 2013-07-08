@@ -12,7 +12,12 @@
 @implementation LoginScreenController
 
 - (void)viewWillAppear:(BOOL)animated {
-    [[self navigationController] setNavigationBarHidden:TRUE];
+    [[self navigationController] setNavigationBarHidden:YES];
+    if(appDelegate.didShare != nil){
+        UIViewController *vc = [self.storyboard instantiateViewControllerWithIdentifier:@"AroundMeSlidingViewController"];
+        [self.navigationController pushViewController:vc animated:YES];
+    }
+    appDelegate.didShare = nil;
 }
 
 - (void)viewDidLoad {
@@ -22,7 +27,7 @@
     [self.buttonLoginLogout setBackgroundImage:[UIImage imageNamed:@"login-button-small-pressed.png"] forState:UIControlStateHighlighted];
 
     //HideNavBar
-    [[self navigationController] setNavigationBarHidden:TRUE];
+    [[self navigationController] setNavigationBarHidden:YES];
     if (!appDelegate.session.isOpen) {
         self.buttonLoginLogout.hidden = YES;
         // create a fresh session object

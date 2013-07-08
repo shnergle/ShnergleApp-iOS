@@ -9,4 +9,3 @@ pod 'Toast', '~> 2.0'
 pod 'UIImage-Resize', '~> 0.1'
 pod 'TPKeyboardAvoiding', '~> 1.0'
 pod 'NSDate+TimeAgo', '~> 1.0.2'
-

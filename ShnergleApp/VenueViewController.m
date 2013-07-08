@@ -104,12 +104,12 @@
                                       forState:UIControlStateNormal];
 
     textViewOpen = false;
-    [[self crowdCollectionV] setDataSource:self];
-    [[self crowdCollectionV] setDelegate:self];
+    self.crowdCollectionV.dataSource = self;
+    self.crowdCollectionV.delegate = self;
 
-    //appDelegate.images = [[appDelegate.images reverseObjectEnumerator] allObjects];
-    //appDelegate.shareImage = [UIImage imageNamed:appDelegate.images[0]];
-
+    self.crowdCollectionV.alwaysBounceVertical = YES;
+    
+    
 
     promotionTitle = @"";
     promotionExpiry = @"";
@@ -118,6 +118,15 @@
     [self displayTextView];
 
     [self configureMapWithLat:venueLat longitude:venueLon];
+    
+    refreshControl = [[UIRefreshControl alloc]init];
+    [refreshControl addTarget:self action:@selector(startRefresh:)
+             forControlEvents:UIControlEventValueChanged];
+    [self.crowdCollectionV addSubview:refreshControl];
+}
+
+-(void)startRefresh:(id)sender{
+    [self getPosts];
 }
 
 - (void)addShadowLineRect:(CGRect)shadeRect ToView:(UIView *)view {
@@ -161,7 +170,13 @@
 }
 
 - (void)didFinishDownloadingImages:(UIImage *)response forIndex:(NSIndexPath *)index {
-
+#warning bad hack in Venue page to get the appropriate image to share
+    if(index.item == 0)
+    {
+        appDelegate.shareImage = [ImageCache get:@"post" identifier:appDelegate.posts[0][@"id"]];
+    }
+    
+    
     if(response != nil){
         
         [self.crowdCollectionV reloadItemsAtIndexPaths:@[index]];
@@ -232,7 +247,6 @@
        animated:YES];*/
 
     //self.navigationItem.hidesBackButton = NO;
-    hidden = YES;
 
     self.navigationController.navigationBarHidden = NO;
     
@@ -256,22 +270,23 @@
     self.overlayView.offerContents.textAlignment = NSTextAlignmentCenter;
 }
 
+- (void)getPosts {    
+    NSMutableString *params = [[NSMutableString alloc]initWithString:@"venue_id="];
+    [params appendFormat:@"%@&facebook_id=%@",appDelegate.activeVenue[@"id"],appDelegate.facebookId];
+    
+    [[[PostRequest alloc]init]exec:@"posts/get" params:params delegate:self callback:@selector(didFinishDownloadingPosts:)];
+}
+
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
-    [self.overlayView setTabBarHidden:hidden
-                             animated:NO];
 
+    [self.overlayView setTabBarHidden:YES animated:NO];
     [self setPromoContentTo:promotionBody promoHeadline:promotionTitle promoExpiry:promotionExpiry];
     self.overlayView.summaryContentTextField.text = summaryContent;
     self.overlayView.summaryHeadlineTextField.text = summaryHeadline;
     
     
-    
-
-    NSMutableString *params = [[NSMutableString alloc]initWithString:@"venue_id="];
-    [params appendFormat:@"%@&facebook_id=%@",appDelegate.activeVenue[@"id"],appDelegate.facebookId];
-    
-    [[[PostRequest alloc]init]exec:@"posts/get" params:params delegate:self callback:@selector(didFinishDownloadingPosts:)];
+    [self getPosts];
 }
 
 -(void)didFinishDownloadingPosts: (id) response
@@ -280,6 +295,7 @@
     
     appDelegate.posts = response;
     [self.crowdCollectionV reloadData];
+    [refreshControl endRefreshing];
 }
 
 - (void)viewDidDisappear:(BOOL)animated {
