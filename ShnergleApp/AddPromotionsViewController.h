@@ -9,12 +9,10 @@
 #import <UIKit/UIKit.h>
 #import "CustomBackViewController.h"
 
-
 @interface AddPromotionsViewController : CustomBackViewController<UIGestureRecognizerDelegate, UITableViewDataSource, UITableViewDelegate, UITextFieldDelegate, UITextViewDelegate>
 {
     UIBarButtonItem *publishButton;
 }
-
 
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (strong, nonatomic) NSArray *tableData;

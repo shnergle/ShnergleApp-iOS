@@ -10,7 +10,6 @@
 
 @implementation VenueGalleryViewController
 
-
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
@@ -55,7 +54,6 @@
         newButtonLabel = @"Like";
     }
 
-
     [self.likeButton setTitle:newButtonLabel forState:UIControlStateNormal];
 }
 
@@ -69,7 +67,6 @@
         [imageViews addObject:imgV];
     }
     //UIScrollView *imageScrollView = [[UIScrollView alloc] initWithFrame:self.view.bounds];
-
 
     [self.view addSubview:_imageScrollView];  //This code assumes it's in a UIViewController
     CGRect cRect = _imageScrollView.bounds;
@@ -97,8 +94,6 @@
     self.authorLabel.font = [UIFont boldSystemFontOfSize:12];
     self.authorLabel.lineBreakMode = NSLineBreakByCharWrapping;
     self.authorLabel.text = author;
-
-    
 
     appDelegate.shareImage = image;
 }

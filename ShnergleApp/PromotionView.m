@@ -10,7 +10,6 @@
 #import "VenueViewController.h"
 #import "PromotionDetailView.h"
 
-
 @implementation PromotionView
 
 /*

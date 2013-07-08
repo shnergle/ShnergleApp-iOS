@@ -8,7 +8,6 @@
 
 #import "PhotoLocationViewController.h"
 
-
 @implementation PhotoLocationViewController
 
 - (void)viewDidLoad {
@@ -28,12 +27,10 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    
     return [appDelegate.aroundVenues count];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    
     UITableViewCell *cell = nil;
     cell = [tableView dequeueReusableCellWithIdentifier:@"Cell"];
 
@@ -49,7 +46,6 @@
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    
     appDelegate.activeVenue = appDelegate.aroundVenues[indexPath.row];
 }
 

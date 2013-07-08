@@ -19,5 +19,4 @@
 @property (weak, nonatomic) IBOutlet UITableView *searchResultTable;
 @property (weak, nonatomic) IBOutlet UIView *mapView;
 
-
 @end

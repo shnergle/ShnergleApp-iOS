@@ -17,15 +17,14 @@
 
 @implementation VenueViewController
 
-
 - (void)setVenue:(NSDictionary *)venue {
     titleHeader = venue[@"name"];
     venueLat = [(NSNumber *)venue[@"lat"] doubleValue];
     venueLon = [(NSNumber *)venue[@"lon"] doubleValue];
-        summaryContent = [NSString stringWithFormat:@"%@",venue[@"tonight"]];
-        NSLog(@"set the summary to %@",venue[@"tonight"]);
-    summaryHeadline = [NSString stringWithFormat:@"Tonight at %@",venue[@"name"]];
-    
+    summaryContent = [NSString stringWithFormat:@"%@", venue[@"tonight"]];
+    NSLog(@"set the summary to %@", venue[@"tonight"]);
+    summaryHeadline = [NSString stringWithFormat:@"Tonight at %@", venue[@"name"]];
+
     appDelegate.activeVenue = venue;
 }
 
@@ -73,7 +72,7 @@
 
 - (void)tapToFollow {
     [self.view makeToastActivity];
-    
+
     following = !following;
     if (following) {
         [self setHeaderTitle:titleHeader andSubtitle:@"Following"];
@@ -90,11 +89,10 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     following = NO;
-    
+
     cellImages = [[NSMutableDictionary alloc]init];
 
-    if(!summaryContent)
-        summaryContent = @"";
+    if (!summaryContent) summaryContent = @"";
 
     [self.checkInButton setTitleTextAttributes:
      @{UITextAttributeTextColor: [UIColor whiteColor],
@@ -108,24 +106,22 @@
     self.crowdCollectionV.delegate = self;
 
     self.crowdCollectionV.alwaysBounceVertical = YES;
-    
-    
 
     promotionTitle = @"";
     promotionExpiry = @"";
     promotionBody = @"";
-    
+
     [self displayTextView];
 
     [self configureMapWithLat:venueLat longitude:venueLon];
-    
+
     refreshControl = [[UIRefreshControl alloc]init];
     [refreshControl addTarget:self action:@selector(startRefresh:)
              forControlEvents:UIControlEventValueChanged];
     [self.crowdCollectionV addSubview:refreshControl];
 }
 
--(void)startRefresh:(id)sender{
+- (void)startRefresh:(id)sender {
     [self getPosts];
 }
 
@@ -144,46 +140,37 @@
 }
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
-    
     return appDelegate.posts ? [appDelegate.posts count] : 0;
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     static NSString *cellIdentifier = @"Cell";
     CrowdItem *item = [collectionView dequeueReusableCellWithReuseIdentifier:cellIdentifier forIndexPath:indexPath];
-    
+
     /* Here we can set the elements of the crowdItem (the cell) in the cellview */
     item.index = indexPath.item;
-    
+
     item.crowdImage.image = [ImageCache get:@"post" identifier:appDelegate.posts[indexPath.item][@"id"]];
-    
-    if(item.crowdImage.image == nil)
-        [[[ImageCache alloc]init]get:@"post" identifier:[appDelegate.posts[indexPath.item][@"id"] stringValue] delegate:self callback:@selector(didFinishDownloadingImages:forIndex:) indexPath:indexPath];
-    
+
+    if (item.crowdImage.image == nil) [[[ImageCache alloc]init]get:@"post" identifier:[appDelegate.posts[indexPath.item][@"id"] stringValue] delegate:self callback:@selector(didFinishDownloadingImages:forIndex:) indexPath:indexPath];
+
     [[item venueName] setText:[self getDateFromUnixFormat:appDelegate.posts[indexPath.item][@"time"]]];
     [[item venueName] setTextColor:[UIColor whiteColor]];
     [[item venueName] setFont:[UIFont systemFontOfSize:11]];
-    
-    
 
     return item;
 }
 
 - (void)didFinishDownloadingImages:(UIImage *)response forIndex:(NSIndexPath *)index {
 #warning bad hack in Venue page to get the appropriate image to share
-    if(index.item == 0)
-    {
+    if (index.item == 0) {
         appDelegate.shareImage = [ImageCache get:@"post" identifier:appDelegate.posts[0][@"id"]];
     }
-    
-    
-    if(response != nil){
-        
+
+    if (response != nil) {
         [self.crowdCollectionV reloadItemsAtIndexPaths:@[index]];
     }
 }
-
-
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
@@ -201,8 +188,6 @@
 
            ~~~oOo O Oo o OoOo O Ooo o oooOOooOo~~~
            ~~~.......Maaagic nuuummbers........~~~
-         
-         
 
          */
 
@@ -238,7 +223,6 @@
     return YES;
 }
 
-
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     //[super viewWillAppear:animated];
@@ -249,7 +233,7 @@
     //self.navigationItem.hidesBackButton = NO;
 
     self.navigationController.navigationBarHidden = NO;
-    
+
     //[self setHeaderTitle:appDelegate.venueNames[indexPath.item]  andSubtitle:@"subtitle"];
 
     UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"TESTING" message:@"Please select status of venue in relation to thyself." delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"Normal", @"Staff", @"Manager", nil];
@@ -270,10 +254,10 @@
     self.overlayView.offerContents.textAlignment = NSTextAlignmentCenter;
 }
 
-- (void)getPosts {    
+- (void)getPosts {
     NSMutableString *params = [[NSMutableString alloc]initWithString:@"venue_id="];
-    [params appendFormat:@"%@&facebook_id=%@",appDelegate.activeVenue[@"id"],appDelegate.facebookId];
-    
+    [params appendFormat:@"%@&facebook_id=%@", appDelegate.activeVenue[@"id"], appDelegate.facebookId];
+
     [[[PostRequest alloc]init]exec:@"posts/get" params:params delegate:self callback:@selector(didFinishDownloadingPosts:)];
 }
 
@@ -284,15 +268,13 @@
     [self setPromoContentTo:promotionBody promoHeadline:promotionTitle promoExpiry:promotionExpiry];
     self.overlayView.summaryContentTextField.text = summaryContent;
     self.overlayView.summaryHeadlineTextField.text = summaryHeadline;
-    
-    
+
     [self getPosts];
 }
 
--(void)didFinishDownloadingPosts: (id) response
-{
-    NSLog(@"%@",response);
-    
+- (void)didFinishDownloadingPosts:(id)response {
+    NSLog(@"%@", response);
+
     appDelegate.posts = response;
     [self.crowdCollectionV reloadData];
     [refreshControl endRefreshing];
@@ -314,20 +296,18 @@
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    
     if ([segue.identifier isEqualToString:@"ToGallery"]) {
         [segue.destinationViewController setTitle:[NSString stringWithFormat:@"%@", titleHeader]];
-        [(VenueGalleryViewController *)segue.destinationViewController setImage :((CrowdItem *)sender).crowdImage.image withAuthor : [NSString stringWithFormat:@"%@ %@",appDelegate.posts[selectedPost][@"forename"], [appDelegate.posts[selectedPost][@"surname"] substringToIndex:1]] withComment : appDelegate.posts[selectedPost][@"caption"] withTimestamp : [self getDateFromUnixFormat:appDelegate.posts[selectedPost][@"time"]]];
+        [(VenueGalleryViewController *)segue.destinationViewController setImage : ((CrowdItem *)sender).crowdImage.image withAuthor :[NSString stringWithFormat:@"%@ %@", appDelegate.posts[selectedPost][@"forename"], [appDelegate.posts[selectedPost][@"surname"] substringToIndex:1]] withComment : appDelegate.posts[selectedPost][@"caption"] withTimestamp :[self getDateFromUnixFormat:appDelegate.posts[selectedPost][@"time"]]];
     }
 }
 
-- (void)collectionView:(UICollectionView *)collectionView
+- (void)         collectionView:(UICollectionView *)collectionView
     didHighlightItemAtIndexPath:(NSIndexPath *)indexPath {
     selectedPost = indexPath.item;
 }
 
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
-    
     switch (buttonIndex) {
         case 0:
             appDelegate.venueStatus = None;
@@ -349,10 +329,8 @@
     [_overlayView didAppear];
 }
 
-- (NSString *)getDateFromUnixFormat:(id)unixFormat
-{
-    
-    NSString *input = [NSString stringWithFormat:@"%@",unixFormat];
+- (NSString *)getDateFromUnixFormat:(id)unixFormat {
+    NSString *input = [NSString stringWithFormat:@"%@", unixFormat];
     NSDate *date = [NSDate dateWithTimeIntervalSince1970:[input intValue]];
     //NSDateFormatter *dateFormatter = [[NSDateFormatter alloc]init];
     //[dateFormatter setDateFormat:@"hh:mm"];
@@ -361,7 +339,6 @@
     //NSString *dte=[dateFormatter stringFromDate:date];
 
     return [date timeAgoWithLimit:86400 dateFormat:NSDateFormatterShortStyle andTimeFormat:NSDateFormatterShortStyle];
-    
 }
 
 @end

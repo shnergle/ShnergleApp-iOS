@@ -25,13 +25,13 @@
     self.userProfileImage3.profileID = appDelegate.facebookId;
     self.userProfileImage2.profileID = appDelegate.facebookId;
     self.userProfileImage1.profileID = appDelegate.facebookId;
-    
+
     //self.userProfileImage2.profileID = appdelegate.facebookId;
     //self.userProfileImage1.profileID = appdelegate.facebookId;
-    
+
     //if (appDelegate.twitter)
     //    _twitterSwitch.on = YES;
-    
+
     _checkInView.layer.borderColor = [UIColor colorWithRed:134.0 / 255 green:134.0 / 255 blue:134.0 / 255 alpha:1].CGColor;
     _checkInView.layer.borderWidth = 2;
     _redeemed.layer.borderColor = [UIColor colorWithRed:134.0 / 255 green:134.0 / 255 blue:134.0 / 255 alpha:1].CGColor;
@@ -45,23 +45,21 @@
     _userProfileImage2.layer.borderWidth = 2;
     _userProfileImage1.layer.borderColor = [UIColor colorWithRed:255 green:255 blue:255 alpha:1].CGColor;
     _userProfileImage1.layer.borderWidth = 2;
-    
-    
-    
+
     self.saveLocallySwitch.on = appDelegate.saveLocally;
     self.optInSwitch.on = appDelegate.optInTop5;
 }
 
 - (IBAction)optInChange:(id)sender {
     [self.view makeToastActivity];
-    
+
     appDelegate.optInTop5 = self.optInSwitch.on;
     [[[PostRequest alloc] init] exec:@"users/set" params:[NSString stringWithFormat:@"facebook_id=%@&top5=%@", appDelegate.facebookId, (self.optInSwitch.on ? @"true" : @"false")] delegate:self callback:@selector(doNothing:)];
 }
 
 - (IBAction)saveLocallyChange:(id)sender {
     [self.view makeToastActivity];
-    
+
     appDelegate.saveLocally = self.saveLocallySwitch.on;
     [[[PostRequest alloc] init] exec:@"users/set" params:[NSString stringWithFormat:@"facebook_id=%@&save_locally=%@", appDelegate.facebookId, (self.saveLocallySwitch.on ? @"true" : @"false")] delegate:self callback:@selector(doNothing:)];
 }
@@ -123,7 +121,6 @@
 }
 
 - (IBAction)signOut:(id)sender {
-    
     [appDelegate.session closeAndClearTokenInformation];
     [self.navigationController popToRootViewControllerAnimated:YES];
 }
@@ -149,10 +146,8 @@
     SEL actionSelector = @selector(tapMenu);
     NSString *imageName = @"mainmenu_button.png";
 
-
     UIBarButtonItem *menuButton;
     menuButton = [self createLeftBarButton:imageName actionSelector:actionSelector];
-
 
     self.navBarItem.leftBarButtonItem = menuButton;
     self.navigationItem.leftBarButtonItem = menuButton;

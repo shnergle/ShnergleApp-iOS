@@ -28,7 +28,6 @@
     self.navigationItem.title = @"Add Place";
     categories = [[NSMutableArray alloc] init];
 
-    
     NSString *params = [NSString stringWithFormat:@"facebook_id=%@", appDelegate.facebookId];
     [[[PostRequest alloc]init]exec:@"categories/get" params:params delegate:self callback:@selector(postResponse:)];
 }
@@ -73,7 +72,6 @@
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    
     appDelegate.addVenueType = categories[indexPath.row][@"type"];
     appDelegate.addVenueTypeId =  [NSString stringWithFormat:@"%@", categories[indexPath.row][@"id"]];
     [self goBack];

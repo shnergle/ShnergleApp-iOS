@@ -13,7 +13,7 @@
 
 - (void)viewWillAppear:(BOOL)animated {
     [[self navigationController] setNavigationBarHidden:YES];
-    if(appDelegate.didShare != nil){
+    if (appDelegate.didShare != nil) {
         UIViewController *vc = [self.storyboard instantiateViewControllerWithIdentifier:@"AroundMeSlidingViewController"];
         [self.navigationController pushViewController:vc animated:YES];
     }
@@ -53,7 +53,6 @@
 - (void)updateView {
     if (appDelegate.session.isOpen) {
         self.buttonLoginLogout.hidden = YES;
-
 
         //login on server
         [[[FBRequest alloc] initWithSession:appDelegate.session graphPath:@"me"] startWithCompletionHandler:

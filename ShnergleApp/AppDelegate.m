@@ -6,11 +6,9 @@
 //  Copyright (c) 2013 Shnergle. All rights reserved.
 //
 
-
 #import "LoginScreenController.h"
 
 @implementation AppDelegate
-
 
 // FBSample logic
 // The native facebook application transitions back to an authenticating application when the user

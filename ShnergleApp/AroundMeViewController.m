@@ -17,7 +17,6 @@
 
 @implementation AroundMeViewController
 
-
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
 }
@@ -45,9 +44,6 @@
     UIImage *maxBarImage = [UIImage imageNamed:@"highlight_distance_02_transparent.png"];
     UIImage *thumbImage = [UIImage imageNamed:@"highlight_distance.png"];
     UIImage *minBarImage = [UIImage imageNamed:@"highlight_distance_02_long.png"];
-
-
-
 
     UIEdgeInsets insets = UIEdgeInsetsMake(0, 0, 0, 0);
     minBarImage = [minBarImage resizableImageWithCapInsets:insets];
@@ -78,10 +74,8 @@
     SEL actionSelector = @selector(tapMenu);
     NSString *imageName = @"mainmenu_button.png";
 
-
     UIBarButtonItem *menuButton;
     menuButton = [self createLeftBarButton:imageName actionSelector:actionSelector];
-
 
     self.navBarMenuItem.leftBarButtonItem = menuButton;
 }
@@ -99,12 +93,10 @@
 
     loading = YES;
 
-
     //[NSThread detachNewThreadSelector:@selector(makeRequest) toTarget:self withObject:nil];
     [self makeRequest];
     crowdImagesHidden = NO;
     dropDownHidden = YES;
-
 
     [self menuButtonDecorations];
 }
@@ -114,7 +106,7 @@
 }
 
 - (void)didFinishLoadingVenues:(NSArray *)response {
-    NSLog(@"%@",response);
+    NSLog(@"%@", response);
     appDelegate.aroundVenues = response;
     [self.crowdCollection reloadData];
     loading = NO;
@@ -217,11 +209,10 @@
     }
 }
 
-- (void)collectionView:(UICollectionView *)collectionView
+- (void)         collectionView:(UICollectionView *)collectionView
     didHighlightItemAtIndexPath:(NSIndexPath *)indexPath {
     selectedVenue = indexPath.item;
 }
-
 
 - (void)showOverlay {
     [[self overlay] showAnimated:126 animationDelay:0.2 animationDuration:0.5];
@@ -258,7 +249,6 @@
      */
     [self.mapView clear ];
 
-
     CLLocationCoordinate2D coord;
     if (pinDropped) {
         coord = pinDroppedLocation;
@@ -274,7 +264,7 @@
     mapCircle.map = self.mapView;
 }
 
-- (void)mapView:(GMSMapView *)mapView
+- (void)       mapView:(GMSMapView *)mapView
     didTapAtCoordinate:(CLLocationCoordinate2D)coordinate {
     [self.mapView clear];
     /*
@@ -321,8 +311,6 @@
     [_mapView addObserver:self forKeyPath:@"myLocation" options:NSKeyValueObservingOptionNew context:nil];
     [self.view addSubview:_mapView];
     [self.view sendSubviewToBack:_mapView];
-    
-
 }
 
 - (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context {
@@ -336,13 +324,12 @@
                                                                           longitude:_mapView.myLocation.coordinate.longitude
                                                                                zoom:13]];
             hasPositionLocked = YES;
-            appDelegate.shareImageLat = [NSString stringWithFormat:@"%f",self.mapView.myLocation.coordinate.latitude];
-            appDelegate.shareImageLon = [NSString stringWithFormat:@"%f",self.mapView.myLocation.coordinate.longitude];
+            appDelegate.shareImageLat = [NSString stringWithFormat:@"%f", self.mapView.myLocation.coordinate.latitude];
+            appDelegate.shareImageLon = [NSString stringWithFormat:@"%f", self.mapView.myLocation.coordinate.longitude];
             NSLog(@"%@", appDelegate.shareImageLat);
             NSLog(@"%@", appDelegate.shareImageLon);
             //initiate the area circle:
             [self sliderValueChanged:nil];
-            
         }
     }
 }

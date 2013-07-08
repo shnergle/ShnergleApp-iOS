@@ -11,7 +11,6 @@
 
 @implementation CheckInViewController
 
-
 - (void)takePhoto {
     imgPickerCam = [[UIImagePickerController alloc] init];
     imgPickerCam.delegate = self;

@@ -19,7 +19,6 @@
 
     BOOL textViewOpen;
 
-
     NSString *titleHeader;
 
     BOOL following;
@@ -28,11 +27,10 @@
     double venueLon;
     NSString *summaryContent;
     NSString *summaryHeadline;
-    
+
     NSMutableDictionary *cellImages;
-    
+
     UIRefreshControl *refreshControl;
-    
 }
 - (void)setVenue:(NSDictionary *)venue;
 - (void)viewDidAppear:(BOOL)animated;
@@ -40,7 +38,6 @@
 - (void)goToPromotionView;
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender;
 - (void)setHeaderTitle:(NSString *)headerTitle andSubtitle:(NSString *)headerSubtitle;
-
 
 @property (weak, nonatomic) IBOutlet UICollectionView *crowdCollectionV;
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *checkInButton;

@@ -33,7 +33,6 @@
     CGRect screenRect = [[UIScreen mainScreen] bounds];
     CGFloat screenHeight = screenRect.size.height;
 
-
     frame = CGRectMake(0, screenHeight - 80, self.frame.size.width, self.frame.size.height);
     self = [super initWithFrame:frame];
 
@@ -49,7 +48,6 @@
    {
    //self.frame = CGRectMake(self.frame.origin.x, 250, self.frame.size.width, self.frame.size.height);
    }*/
-
 
 - (IBAction)swipeDown:(id)sender {
     //[self setTabBarHidden:false animated:true];
@@ -107,7 +105,6 @@
 
     UIStoryboard *storyb = [UIStoryboard storyboardWithName:@"MainStoryboard" bundle:nil];
     UIViewController *vc = [storyb instantiateViewControllerWithIdentifier:@"CheckInViewController"];
-
 
     [caller.navigationController pushViewController:vc animated:YES];
 }
@@ -189,12 +186,10 @@
 
     UIView *contentView;
 
-
     contentView = self;
 
     CGRect screenRect = [[UIScreen mainScreen] bounds];
     CGFloat screenHeight = screenRect.size.height;
-
 
     if (hide) {
         NSInteger targetSize = screenHeight - 160;

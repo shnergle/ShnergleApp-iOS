@@ -12,7 +12,6 @@
 #import "CustomBackViewController.h"
 #import <Toast+UIView.h>
 
-
 @interface ShareViewController : CustomBackViewController <FBViewControllerDelegate, UITextViewDelegate> {
     id selectedFriends;
 }
@@ -23,6 +22,6 @@
 @property (weak, nonatomic) IBOutlet UISwitch *saveLocallySwitch;
 @property (weak, nonatomic) IBOutlet GCPlaceholderTextView *textFieldname;
 
--(void)doNotShnergleThis;
+- (void)doNotShnergleThis;
 //- (IBAction)cleartextfield:(id)sender;
 @end

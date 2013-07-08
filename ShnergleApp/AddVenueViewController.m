@@ -25,10 +25,7 @@ typedef enum {
     WorkHere
 } Field;
 
-
 @implementation AddVenueViewController
-
-
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
@@ -108,7 +105,6 @@ typedef enum {
 - (void)didFinishAddingVenue:(NSString *)response {
     [self.view hideToastActivity];
 
-
     if ([response isEqual:@"true"]) {
     } else {
         NSLog(@"%@", response);
@@ -122,7 +118,6 @@ typedef enum {
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:[NSString stringWithFormat:@"Cell%d", indexPath.row ]];
     if (cell == nil) cell = [[UITableViewCell alloc] init];
-
 
     cell.textLabel.text = _tableData[indexPath.row];
     /*
@@ -203,7 +198,6 @@ typedef enum {
 
         _workSwitch = workSwitch;
     }
-
 
     if (![(self.userData)[indexPath.row] isEqualToString : @""]) {
         //NSLog(@"%@ at indexPath.row %d",[self.userData objectAtIndex:indexPath.row], indexPath.row);

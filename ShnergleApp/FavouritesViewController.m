@@ -42,10 +42,8 @@
     SEL actionSelector = @selector(tapMenu);
     NSString *imageName = @"mainmenu_button.png";
 
-
     UIBarButtonItem *menuButton;
     menuButton = [self createLeftBarButton:imageName actionSelector:actionSelector];
-
 
     self.navBarItem.leftBarButtonItem = menuButton;
 }
@@ -82,7 +80,7 @@
 }
 
 - (void)didFinishLoadingVenues:(NSArray *)response {
-    NSLog(@"%@",response);
+    NSLog(@"%@", response);
     appDelegate.aroundVenues = response;
     [self.crowdCollection reloadData];
 }

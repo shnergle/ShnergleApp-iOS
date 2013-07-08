@@ -42,7 +42,6 @@
 - (IBAction)sliderValueChanged:(id)sender;
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *checkInButton;
 
-
 //-(void)createTitleButton;
 - (void)initMap;
 - (void)tapMenu;

@@ -12,7 +12,6 @@
 
 @class LoginScreenController;
 
-
 @interface AppDelegate : UIResponder <UIApplicationDelegate>
 
 @property (strong, nonatomic) UIViewController *viewcont;
@@ -27,7 +26,6 @@
 @property (strong, nonatomic) NSString *twitter;
 @property (nonatomic) BOOL saveLocally;
 @property (nonatomic) BOOL optInTop5;
-
 
 @property (strong, nonatomic) NSArray *images;
 @property (strong, nonatomic) NSArray *posts;

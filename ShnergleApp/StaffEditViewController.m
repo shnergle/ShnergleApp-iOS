@@ -6,7 +6,6 @@
 //  Copyright (c) 2013 Shnergle. All rights reserved.
 //
 
-
 #import "StaffEditViewController.h"
 
 @implementation StaffEditViewController
@@ -24,7 +23,7 @@
 
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
-    
+
     NSString *type = appDelegate.staffType;
     if (type == nil) type = @"Staff";
     secondCell.textLabel.text = [NSString stringWithFormat:@"Status: %@", type];
@@ -58,7 +57,6 @@
 }
 
 - (void)goBack {
-    
     appDelegate.addVenueType = nil;
     [super goBack];
 }
