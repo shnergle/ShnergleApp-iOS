@@ -52,7 +52,7 @@
     if ([response isKindOfClass:[NSArray class]]) {
         //_searchResults = [[NSMutableArray alloc]initWithArray:response];
         for (id obj in response) {
-            if ([obj count] > 1) [_searchResults addObject:obj[@"name"]];
+            if ([obj count] > 1) [_searchResults addObject:obj];
         }
     }
 
@@ -85,7 +85,7 @@
         if (!cell) {
             cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:[NSString stringWithFormat:@"ResultCell"]];
         }
-        cell.textLabel.text = _searchResults[indexPath.row];
+        cell.textLabel.text = _searchResults[indexPath.row][@"name"];
         cell.textLabel.textColor = [UIColor whiteColor];
         cell.backgroundColor = [UIColor clearColor];
         cell.textLabel.font = [UIFont systemFontOfSize:20];
@@ -142,7 +142,7 @@
     if (tableView == self.searchResultsView.resultsTableView) {
         UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"MainStoryboard" bundle:nil];
         VenueViewController *viewController = [storyboard instantiateViewControllerWithIdentifier:@"Venue"];
-        [viewController setTitle:_searchResults[indexPath.row]];
+        [viewController setVenue:_searchResults[indexPath.row]];
         [self.navigationController pushViewController:viewController animated:YES];
     }
 }
