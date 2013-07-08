@@ -36,10 +36,19 @@ static NSCache *cache;
     }
 }
 
++ (UIImage *)get:(NSString *)type identifier:(NSString *)type_id
+{
+    NSString *key = [NSString stringWithFormat:@"%@/%@", type, type_id];
+    
+    return (UIImage *)[cache objectForKey:key];
+}
+
 - (void)get:(NSString *)type identifier:(NSString *)type_id delegate:(id)object callback:(SEL)cb item:(CrowdItem *)tItem {
     item = tItem;
     [self get:type identifier:type_id delegate:object callback:cb];
 }
+
+
 
 - (void)get:(NSString *)type identifier:(NSString *)type_id delegate:(id)object callback:(SEL)cb indexPath:(NSIndexPath *)index {
     indexPath = index;
@@ -60,5 +69,7 @@ static NSCache *cache;
     [invocation retainArguments];
     [invocation invoke];
 }
+
+
 
 @end

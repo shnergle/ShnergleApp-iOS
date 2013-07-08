@@ -146,7 +146,7 @@
     /* Here we can set the elements of the crowdItem (the cell) in the cellview */
     item.index = indexPath.item;
     
-    item.crowdImage.image = cellImages[@(indexPath.item)];
+    item.crowdImage.image = [ImageCache get:@"post" identifier:appDelegate.posts[indexPath.item][@"id"]];
     
     if(item.crowdImage.image == nil)
         [[[ImageCache alloc]init]get:@"post" identifier:[appDelegate.posts[indexPath.item][@"id"] stringValue] delegate:self callback:@selector(didFinishDownloadingImages:forIndex:) indexPath:indexPath];
@@ -163,7 +163,7 @@
 - (void)didFinishDownloadingImages:(UIImage *)response forIndex:(NSIndexPath *)index {
 
     if(response != nil){
-        cellImages[@(index.item)] = response;
+        
         [self.crowdCollectionV reloadItemsAtIndexPaths:@[index]];
     }
 }
