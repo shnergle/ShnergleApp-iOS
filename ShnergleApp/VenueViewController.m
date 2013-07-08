@@ -109,9 +109,7 @@
 
     self.crowdCollectionV.alwaysBounceVertical = YES;
     
-    //appDelegate.images = [[appDelegate.images reverseObjectEnumerator] allObjects];
-    //appDelegate.shareImage = [UIImage imageNamed:appDelegate.images[0]];
-
+    
 
     promotionTitle = @"";
     promotionExpiry = @"";
@@ -172,7 +170,14 @@
 }
 
 - (void)didFinishDownloadingImages:(UIImage *)response forIndex:(NSIndexPath *)index {
-
+#warning bad hack in Venue page to get the appropriate image to share
+    if(index.item == 0)
+    {
+        AppDelegate *appDelegate = [[UIApplication sharedApplication]delegate];
+        appDelegate.shareImage = [ImageCache get:@"post" identifier:appDelegate.posts[0][@"id"]];
+    }
+    
+    
     if(response != nil){
         
         [self.crowdCollectionV reloadItemsAtIndexPaths:@[index]];
