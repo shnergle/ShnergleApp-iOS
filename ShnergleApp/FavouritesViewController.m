@@ -71,8 +71,6 @@
     //remove shadow from navbar
     self.navigationController.navigationBar.clipsToBounds = YES;
     self.navBar.clipsToBounds = YES;
-
-    [self makeRequest];
 }
 
 - (void)makeRequest {
@@ -101,6 +99,11 @@
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
     return [appDelegate.topViewType isEqual:@"Following"] ? [appDelegate.followingVenues count] : [appDelegate.images count];
+}
+
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    [self makeRequest];
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {

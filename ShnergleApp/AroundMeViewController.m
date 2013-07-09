@@ -94,7 +94,6 @@
     loading = YES;
 
     //[NSThread detachNewThreadSelector:@selector(makeRequest) toTarget:self withObject:nil];
-    [self makeRequest];
     crowdImagesHidden = NO;
     dropDownHidden = YES;
 
@@ -124,6 +123,7 @@
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
+    [self makeRequest];
     self.navigationItem.hidesBackButton = YES;
     //Make it hidden whenever we navigate back to the view as well.
     dropDownHidden = YES;
