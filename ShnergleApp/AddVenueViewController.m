@@ -92,9 +92,7 @@ typedef enum {
 - (void)didFinishAddingVenue:(NSString *)response {
     [self.view hideToastActivity];
 
-    if ([response isEqual:@"true"]) {
-    } else {
-        NSLog(@"%@", response);
+    if (![response isEqual:@"true"]) {
         UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"Uh-oh.. Something went wrong.." message:nil delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
         [alert show];
     }
@@ -206,7 +204,6 @@ typedef enum {
 - (void)textFieldDidEndEditing:(UITextField *)textField {
     [textField resignFirstResponder];
     self.userData[textField.tag] = textField.text;
-    NSLog(@"%@ is added to [%d]", textField.text, textField.tag);
 }
 
 - (void)segwayToWork {
@@ -276,8 +273,6 @@ typedef enum {
 }
 
 - (void)viewDidAppear:(BOOL)animated {
-    NSLog(@"%f  %f", self.mapView.frame.size.height, self.mapView.bounds.size.height);
-
     [self addBorder];
 
     CALayer *topBorder = [CALayer layer];

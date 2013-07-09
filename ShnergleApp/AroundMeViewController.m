@@ -97,7 +97,6 @@
 }
 
 - (void)didFinishLoadingVenues:(NSArray *)response {
-    NSLog(@"%@", response);
     appDelegate.aroundVenues = response;
     [self.crowdCollection reloadData];
     loading = NO;
@@ -284,8 +283,6 @@
             hasPositionLocked = YES;
             appDelegate.shareImageLat = [NSString stringWithFormat:@"%f", self.mapView.myLocation.coordinate.latitude];
             appDelegate.shareImageLon = [NSString stringWithFormat:@"%f", self.mapView.myLocation.coordinate.longitude];
-            NSLog(@"%@", appDelegate.shareImageLat);
-            NSLog(@"%@", appDelegate.shareImageLon);
             [self sliderValueChanged:nil];
         }
     }

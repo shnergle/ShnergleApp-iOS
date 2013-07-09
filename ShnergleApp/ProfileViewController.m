@@ -83,9 +83,7 @@
     [[[PostRequest alloc] init] exec:@"rankings/get" params:params delegate:self callback:@selector(postResponse:) type:@"string"];
 }
 
-//Level check:
 - (void)postResponse:(id)result {
-    NSLog(@"%@", result);
     int res = [result integerValue];
     switch (res) {
         case 1:

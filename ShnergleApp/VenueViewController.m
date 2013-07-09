@@ -22,7 +22,6 @@
     venueLat = [(NSNumber *)venue[@"lat"] doubleValue];
     venueLon = [(NSNumber *)venue[@"lon"] doubleValue];
     summaryContent = [NSString stringWithFormat:@"%@", venue[@"tonight"]];
-    NSLog(@"set the summary to %@", venue[@"tonight"]);
     summaryHeadline = [NSString stringWithFormat:@"Tonight at %@", venue[@"name"]];
 
     appDelegate.activeVenue = venue;

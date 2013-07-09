@@ -61,7 +61,6 @@
 }
 
 - (IBAction)tappedGoing:(id)sender {
-    NSLog(@"tappedGoing");
     int oldValue = [self.goingLabel.text intValue];
     int newValue = oldValue + 1;
     [self.goingLabel setFont:[UIFont fontWithName:self.goingLabel.font.fontName size:self.goingLabel.font.pointSize]];
@@ -73,7 +72,6 @@
 }
 
 - (IBAction)tappedThinking:(id)sender {
-    NSLog(@"tapped Thinking");
     int oldValue = [self.thinkingLabel.text intValue];
     int newValue = oldValue + 1;
     [self.thinkingLabel setFont:[UIFont fontWithName:self.thinkingLabel.font.fontName size:self.thinkingLabel.font.pointSize]];

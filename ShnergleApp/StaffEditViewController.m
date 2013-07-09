@@ -61,12 +61,12 @@
 }
 
 - (void)canCreatePromo {
-    NSLog(@"switch");
+    //switch
 }
 
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
     if (buttonIndex != alertView.cancelButtonIndex) {
-        NSLog(@"delete");
+        //delete
     }
 }
 

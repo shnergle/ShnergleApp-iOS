@@ -52,13 +52,10 @@
         [postParams appendFormat:@"&lat=%@", appDelegate.shareImageLat];
         [postParams appendFormat:@"&lon=%@", appDelegate.shareImageLon];
     }
-    NSLog(@"%@", postParams);
     [[[PostRequest alloc]init]exec:@"posts/set" params:postParams delegate:self callback:@selector(didFinishPost:) type:@"string"];
 }
 
 - (void)didFinishPost:(NSString *)response {
-    NSLog(@"%@", response);
-
     [[[PostRequest alloc] init] exec:@"images/set" params:[NSString stringWithFormat:@"entity=post&entity_id=%@&facebook_id=%@", response, appDelegate.facebookId] image:_image.image delegate:self callback:@selector(uploadedToServer:) type:@"string"];
 }
 
@@ -110,9 +107,6 @@
     //action[@"place"] = @"http://samples.ogp.me/259837270824167";
     //action[@"tags"] = @[@"549445495",@"701732"];
     [[[FBRequest alloc] initWithSession:appDelegate.session graphPath:@"me/photos" parameters:action HTTPMethod:@"POST"] startWithCompletionHandler:^(FBRequestConnection *connection, id result, NSError *error) {
-        NSLog(@"FBSHARE - PHOTO - connection: %@", connection);
-        NSLog(@"FBSHARE - PHOTO - result: %@", result);
-        NSLog(@"FBSHARE - PHOTO - error: %@", error);
         /*NSMutableDictionary<FBGraphObject> *action = [FBGraphObject graphObject];
            action[@"venue"] = @"http://samples.ogp.me/259837270824167";
            if (action[@"tags"] != nil) action[@"tags"] = selectedFriends;
@@ -122,9 +116,6 @@
            [[[FBRequest alloc] initForPostWithSession:appDelegate.session graphPath:@"me/shnergle:share" graphObject:action] startWithCompletionHandler:^(FBRequestConnection *connection,
                                                                                                                                                        id result,
                                                                                                                                                        NSError *error) {
-                NSLog(@"FBSHARE - POST - connection: %@", connection);
-                NSLog(@"FBSHARE - POST - result: %@", result);
-                NSLog(@"FBSHARE - POST - error: %@", error);
 
                 [self.navigationController setNavigationBarHidden:YES animated:YES];
                 //UIViewController *aroundMe = [self.storyboard instantiateViewControllerWithIdentifier:@"AroundMe"];
@@ -133,7 +124,6 @@
             }];
          */
 
-        NSLog(@"finished facebook share");
         [self.navigationController popToRootViewControllerAnimated:YES];
     }];
 }

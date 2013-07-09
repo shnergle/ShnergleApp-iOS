@@ -74,7 +74,6 @@
 }
 
 - (void)didFinishLoadingVenues:(NSArray *)response {
-    NSLog(@"%@", response);
     appDelegate.followingVenues = response;
     [self.crowdCollection reloadData];
 }
