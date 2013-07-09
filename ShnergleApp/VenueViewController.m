@@ -147,7 +147,6 @@
     static NSString *cellIdentifier = @"Cell";
     CrowdItem *item = [collectionView dequeueReusableCellWithReuseIdentifier:cellIdentifier forIndexPath:indexPath];
 
-    /* Here we can set the elements of the crowdItem (the cell) in the cellview */
     item.index = indexPath.item;
 
     item.crowdImage.image = [ImageCache get:@"post" identifier:appDelegate.posts[indexPath.item][@"id"]];
@@ -177,7 +176,6 @@
 - (void)displayTextView {
     if (!textViewOpen) {
         _overlayView = [[NSBundle mainBundle] loadNibNamed:@"OverlayText" owner:self options:nil][0];
-        //Get screen height:
         CGRect screenRect = [[UIScreen mainScreen] bounds];
         CGFloat screenHeight = screenRect.size.height;
 
