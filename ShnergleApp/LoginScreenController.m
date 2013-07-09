@@ -110,7 +110,6 @@
 
 - (void)postResponse:(id)response {
     if (response) {
-        NSLog(@"%@", (NSDictionary *)response);
         if (![((NSDictionary *)response)[@"twitter"] isEqual : @""]) appDelegate.twitter = ((NSDictionary *)response)[@"twitter"];
         if ([((NSDictionary *)response)[@"save_locally"] isEqual : @1]) appDelegate.saveLocally = YES;
         else appDelegate.saveLocally = NO;
