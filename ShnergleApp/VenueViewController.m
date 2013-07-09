@@ -88,7 +88,13 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    following = NO;
+    following = [[NSString stringWithFormat:@"%@", appDelegate.activeVenue[@"following"]] isEqual:@"0"] ? NO : YES;
+
+    if (following) {
+        [self setHeaderTitle:titleHeader andSubtitle:@"Following"];
+    } else {
+        [self setHeaderTitle:titleHeader andSubtitle:@"Tap to Follow"];
+    }
 
     cellImages = [[NSMutableDictionary alloc]init];
 
@@ -315,7 +321,6 @@
             break;
         case 1:
             appDelegate.venueStatus = Default;
-            [self setHeaderTitle:titleHeader andSubtitle:@"Tap to Follow"];
             break;
         case 2:
             appDelegate.venueStatus = Staff;
