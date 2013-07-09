@@ -13,7 +13,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.navigationItem.title = @"Location";
-    appDelegate.locationPickerVenues = appDelegate.aroundVenues;
+    appDelegate.locationPickerVenues = [NSMutableArray arrayWithArray:appDelegate.aroundVenues];
 }
 
 - (void)viewWillAppear:(BOOL)animated {
