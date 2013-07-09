@@ -97,7 +97,7 @@
                 [params appendString:@"&age="];
                 [params appendString:[NSString stringWithFormat:@"%d", age]];
 
-                if (![[[PostRequest alloc] init] exec:@"users/set" params:params delegate:self callback:@selector(postResponse:) type:@"string"]) [self alert];
+                if (![[[PostRequest alloc] init] exec:@"users/set" params:params delegate:self callback:@selector(postResponse:)]) [self alert];
             } else {
                 self.buttonLoginLogout.hidden = NO;
                 [self alert];
@@ -109,16 +109,8 @@
 }
 
 - (void)postResponse:(id)response {
-    if ([response isEqual:@"true"]) {
-        NSString *params = [NSString stringWithFormat:@"facebook_id=%@", appDelegate.facebookId];
-        if (![[[PostRequest alloc] init] exec:@"users/get" params:params delegate:self callback:@selector(getResponse:)]) [self alert];
-    } else {
-        [self alert];
-    }
-}
-
-- (void)getResponse:(id)response {
     if (response) {
+        NSLog(@"%@", (NSDictionary *)response);
         if (![((NSDictionary *)response)[@"twitter"] isEqual : @""]) appDelegate.twitter = ((NSDictionary *)response)[@"twitter"];
         if ([((NSDictionary *)response)[@"save_locally"] isEqual : @1]) appDelegate.saveLocally = YES;
         else appDelegate.saveLocally = NO;
