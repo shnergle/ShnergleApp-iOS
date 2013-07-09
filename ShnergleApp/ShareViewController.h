@@ -22,5 +22,4 @@
 @property (weak, nonatomic) IBOutlet UISwitch *saveLocallySwitch;
 @property (weak, nonatomic) IBOutlet GCPlaceholderTextView *textFieldname;
 
-- (void)doNotShnergleThis;
 @end
