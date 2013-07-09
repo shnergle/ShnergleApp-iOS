@@ -10,6 +10,7 @@
 #import "VenueViewController.h"
 
 #import "CheckInViewController.h"
+#import "PostRequest.h"
 
 @implementation OverlayText
 
@@ -103,7 +104,22 @@
     self.summaryHeadlineTextField.layer.borderWidth = 0.0f;
     self.summaryHeadlineTextField.layer.cornerRadius = 0.0f;
     self.summaryContentTextField.layer.cornerRadius = 0.0f;
+    
+[[[PostRequest alloc] init] exec:@"venues/set"
+                          params:[NSString stringWithFormat:
+                                  @"facebook_id=%@&venue_id=%@&tonight=%@",
+                                  appDelegate.facebookId,
+                                  appDelegate.activeVenue[@"id"],
+                                  self.summaryContentTextField.text] delegate:self
+                                    callback:@selector(doNothing:)
+                                    type:@"string"];
 }
+
+-(void)doNothing:(id)sender
+{
+    NSLog(@"Update sent to server.. Swwoooosh!");
+}
+
 
 - (IBAction)postUpdateTapped:(id)sender {
     [self.summaryContentTextField setBackgroundColor:[UIColor whiteColor]];
