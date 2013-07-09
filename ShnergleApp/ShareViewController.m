@@ -109,13 +109,14 @@
     NSMutableString *friends = [NSMutableString stringWithFormat:@""];
     if ([selectedFriends count] > 0) {
         [friends appendString:@" with"];
-        for (int i = 0; i < [selectedFriends count] - 1; i++) {
-            [friends appendFormat:@" %@", selectedFriends[i]];
+        [friends appendFormat:@" %@", selectedFriends[0][@"name"]];
+        for (int i = 1; i < [selectedFriends count] - 1; i++) {
+            [friends appendFormat:@", %@", selectedFriends[i][@"name"]];
         }
         if ([selectedFriends count] > 1) {
             [friends appendString:@" and"];
         }
-        [friends appendFormat:@" %@", selectedFriends[[selectedFriends count] - 1]];
+        [friends appendFormat:@" %@", selectedFriends[[selectedFriends count] - 1][@"name"]];
         [friends appendString:@"."];
     }
     action[@"message"] = [NSString stringWithFormat:@"%@ @%@%@", _textFieldname.text, appDelegate.activeVenue[@"name"], friends];
