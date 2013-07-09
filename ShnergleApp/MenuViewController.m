@@ -68,14 +68,6 @@
             cell.accessoryView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"profileicon.png"]];
             cell.accessoryView.bounds = CGRectMake(0, 0, 27, 19);
             _profileCell = cell;
-        } else if (indexPath.row == 1) {
-            UILabel *noLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 20, 15)];
-            noLabel.text = @"0";
-            noLabel.font = [UIFont systemFontOfSize:20];
-            noLabel.textColor = [UIColor whiteColor];
-            noLabel.backgroundColor = [UIColor clearColor];
-            cell.accessoryView = noLabel;
-            cell.accessoryView.opaque = NO;
         }
         return cell;
     } else {
