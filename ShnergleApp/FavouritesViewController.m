@@ -17,7 +17,6 @@
 }
 
 - (void)decorateCheckInButton {
-    //check in button
     [self.checkInButton setTitleTextAttributes:
      @{UITextAttributeTextColor: [UIColor whiteColor],
        UITextAttributeTextShadowColor: [UIColor clearColor],
@@ -56,19 +55,16 @@
     [[self crowdCollection] setDataSource:self];
     [[self crowdCollection] setDelegate:self];
 
-    //THE SANDWICH MENU SYSTEM (ECSlidingViewController)
     if (![self.slidingViewController.underLeftViewController isKindOfClass:[MenuViewController class]]) {
         self.slidingViewController.underLeftViewController  = [self.storyboard instantiateViewControllerWithIdentifier:@"AroundMeMenu"];
     }
     [self.view addGestureRecognizer:self.slidingViewController.panGesture];
     [self.slidingViewController setAnchorRightRevealAmount:230.0f];
 
-    // Shadow for sandwich system
     self.view.layer.shadowOpacity = 0.75f;
     self.view.layer.shadowRadius = 10.0f;
     self.view.layer.shadowColor = [UIColor blackColor].CGColor;
 
-    //remove shadow from navbar
     self.navigationController.navigationBar.clipsToBounds = YES;
     self.navBar.clipsToBounds = YES;
 }
@@ -83,16 +79,10 @@
     [self.crowdCollection reloadData];
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
-
 - (void)tapMenu {
     [self.slidingViewController anchorTopViewTo:ECRight];
 }
 
-//Copy from aroundMe
 - (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView {
     return 1;
 }
@@ -109,20 +99,6 @@
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     static NSString *cellIdentifier = @"FavCell";
     CrowdItem *item = [collectionView dequeueReusableCellWithReuseIdentifier:cellIdentifier forIndexPath:indexPath];
-
-    /*SHADOW AROUND OBJECTS*/
-    /*
-       item.layer.masksToBounds = NO;
-       item.layer.borderColor = [UIColor grayColor].CGColor;
-       item.layer.borderWidth = 1.5f;
-       item.layer.contentsScale = [UIScreen mainScreen].scale;
-       item.layer.shadowOpacity = 0.5f;
-       item.layer.shadowRadius = 3.0f;
-       item.layer.shadowOffset = CGSizeZero;
-       item.layer.shadowPath = [UIBezierPath bezierPathWithRect:item.bounds].CGPath;
-       //item.layer.shouldRasterize = YES;
-     */
-    /* Here we can set the elements of the crowdItem (the cell) in the cellview */
     [[[ImageCache alloc]init]get:@"venue" identifier:[appDelegate.followingVenues[indexPath.item][@"id"] stringValue] delegate:self callback:@selector(didFinishDownloadingImages:forItem:) item:item];
 
     [[item venueName] setText:([appDelegate.topViewType isEqual:@"Following"] ? appDelegate.followingVenues : appDelegate.venueNames)[indexPath.item][@"name"]];
@@ -131,8 +107,7 @@
 
     item.venueName.textColor = [UIColor whiteColor];
 
-    //Turn the indicator on or off:
-    if (appDelegate.followingVenues[indexPath.item][@"promotion"] != nil) { //just an example filter
+    if (appDelegate.followingVenues[indexPath.item][@"promotion"] != nil) {
         item.promotionIndicator.hidden = NO;
     } else {
         item.promotionIndicator.hidden = YES;

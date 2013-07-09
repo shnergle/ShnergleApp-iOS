@@ -15,16 +15,12 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view from its nib.
-
-    //load search bar
     UIView *searchBar = [[NSBundle mainBundle] loadNibNamed:@"SearchBar" owner:self options:nil][0];
     [self.view addSubview:searchBar];
 
     _tableSections = @[@"Profile", @"Explore"];
     _tableData = @{@0: @[appDelegate.fullName], @1: @[@"Around Me", @"Following", @"Promotions", @"Quiet", @"Trending", @"Add Venue"]};
     _searchResults = appDelegate.searchResults;
-    //tmp - give it an element
     _searchResults = [[NSMutableArray alloc]init];
     self.searchResultsView.resultsTableView.delegate = self;
     self.searchResultsView.resultsTableView.dataSource = self;
@@ -46,9 +42,7 @@
 }
 
 - (void)postResponse:(id)response {
-    //NSLog(@"search response: %@", response);
     if ([response isKindOfClass:[NSArray class]]) {
-        //_searchResults = [[NSMutableArray alloc]initWithArray:response];
         for (id obj in response) {
             if ([obj count] > 1) [_searchResults addObject:obj];
         }

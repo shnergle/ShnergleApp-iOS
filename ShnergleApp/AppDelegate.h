@@ -44,7 +44,7 @@
 @property (strong, nonatomic) NSString *addVenueTypeId;
 @property (strong, nonatomic) NSMutableArray *venueDetailsContent;
 
-//The venue dictionary of the lat fetched venue (this is used for check ins as well!)
+//The venue dictionary of the last fetched venue (this is used for check ins as well!)
 @property (strong, nonatomic) NSDictionary *activeVenue;
 
 @property (strong, nonatomic) NSMutableArray *searchResults;

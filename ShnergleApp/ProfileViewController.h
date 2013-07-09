@@ -13,8 +13,6 @@
 
 @interface ProfileViewController : UIViewController <UIActionSheetDelegate>
 
-//- (IBAction)authButtonAction:(id)sender;
-
 @property (weak, nonatomic) IBOutlet UISwitch *optInSwitch;
 @property (strong, nonatomic) IBOutlet FBProfilePictureView *userProfileImage3;
 @property (strong, nonatomic) IBOutlet FBProfilePictureView *userProfileImage1;
@@ -22,7 +20,6 @@
 @property (weak, nonatomic) IBOutlet UINavigationItem *navBarItem;
 @property (strong, nonatomic) IBOutlet UINavigationBar *navBar;
 
-//@property (strong, nonatomic) FBProfilePictureView *profilePictureView;
 @property (strong, nonatomic) IBOutlet UISwitch *twitterSwitch;
 @property (strong, nonatomic) NSArray *accounts;
 @property (weak, nonatomic) IBOutlet UIView *checkInView;
