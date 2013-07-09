@@ -90,12 +90,6 @@
     [super viewDidLoad];
     following = [[NSString stringWithFormat:@"%@", appDelegate.activeVenue[@"following"]] isEqual:@"0"] ? NO : YES;
 
-    if (following) {
-        [self setHeaderTitle:titleHeader andSubtitle:@"Following"];
-    } else {
-        [self setHeaderTitle:titleHeader andSubtitle:@"Tap to Follow"];
-    }
-
     cellImages = [[NSMutableDictionary alloc]init];
 
     if (!summaryContent) summaryContent = @"";
@@ -231,19 +225,16 @@
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
-    //[super viewWillAppear:animated];
-    //self.navigationItem.hidesBackButton = NO;
-    /*[self.navigationController setNavigationBarHidden:hidden
-       animated:YES];*/
-
-    //self.navigationItem.hidesBackButton = NO;
-
     self.navigationController.navigationBarHidden = NO;
 
-    //[self setHeaderTitle:appDelegate.venueNames[indexPath.item]  andSubtitle:@"subtitle"];
-
-    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"TESTING" message:@"Please select status of venue in relation to thyself." delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"Normal", @"Staff", @"Manager", nil];
-    [alert show];
+#warning hardcoded venue status
+    if ([appDelegate.activeVenue[@"id"] intValue] == 10003) {
+        [self setStatus:Manager];
+    } else if ([appDelegate.activeVenue[@"id"] intValue] == 10003) {
+        [self setStatus:Staff];
+    } else {
+        [self setStatus:Default];
+    }
 }
 
 - (void)setPromoContentTo:(NSString *)promoContent promoHeadline:(NSString *)promoHeadline promoExpiry:(NSString *)promoExpiry {
@@ -310,28 +301,29 @@
     }
 }
 
-- (void)         collectionView:(UICollectionView *)collectionView
-    didHighlightItemAtIndexPath:(NSIndexPath *)indexPath {
+- (void)collectionView:(UICollectionView *)collectionView didHighlightItemAtIndexPath:(NSIndexPath *)indexPath {
     selectedPost = indexPath.item;
 }
 
-- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
-    switch (buttonIndex) {
-        case 0:
-            appDelegate.venueStatus = None;
+- (void)setStatus:(VENUE_STATUS)status {
+    appDelegate.venueStatus = status;
+    switch (status) {
+        case None:
             [self goBack];
             break;
-        case 1:
-            appDelegate.venueStatus = Default;
+        case Default:
+        case Following:
+            if (following) {
+                [self setHeaderTitle:titleHeader andSubtitle:@"Following"];
+            } else {
+                [self setHeaderTitle:titleHeader andSubtitle:@"Tap to Follow"];
+            }
             break;
-        case 2:
-            appDelegate.venueStatus = Staff;
+        case Staff:
             [self setHeaderTitle:titleHeader andSubtitle:@"Staff"];
             break;
-        case 3:
-            appDelegate.venueStatus = Manager;
+        case Manager:
             [self setHeaderTitle:titleHeader andSubtitle:@"Manager"];
-            break;
     }
     [_overlayView didAppear];
 }
