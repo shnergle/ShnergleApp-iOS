@@ -16,14 +16,12 @@
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
-        // Custom initialization
     }
     return self;
 }
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
     [self.view makeToastActivity];
     self.navigationItem.title = @"Add Place";
     categories = [[NSMutableArray alloc] init];
@@ -33,9 +31,7 @@
 }
 
 - (void)postResponse:(id)response {
-    //NSLog(@"search response: %@", response);
     if ([response isKindOfClass:[NSArray class]]) {
-        //_searchResults = [[NSMutableArray alloc]initWithArray:response];
         for (id obj in response) {
             if ([obj count] > 1) [categories addObject:obj];
         }

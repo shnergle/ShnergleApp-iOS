@@ -172,10 +172,6 @@
     }
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
 
 - (void)displayTextView {
     if (!textViewOpen) {
@@ -194,8 +190,6 @@
     }
 }
 
-- (void)instantHideTextView {
-}
 
 - (void)configureMapWithLat:(CLLocationDegrees)lat longitude:(CLLocationDegrees)lon {
     GMSCameraPosition *camera = [GMSCameraPosition cameraWithLatitude:lat
@@ -262,7 +256,6 @@
 }
 
 - (void)didFinishDownloadingPosts:(id)response {
-    NSLog(@"%@", response);
 
     appDelegate.posts = response;
     [self.crowdCollectionV reloadData];

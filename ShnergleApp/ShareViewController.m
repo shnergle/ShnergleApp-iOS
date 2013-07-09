@@ -26,10 +26,6 @@
     self.saveLocallySwitch.on = appDelegate.saveLocally;
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
 
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
@@ -48,13 +44,9 @@
 }
 
 - (void)uploadToServer {
-    //Create post
-    //upload image using id from post (not now and not here)
-    //register in the "shared" db if shared on facebook (not yet)
 
     NSMutableString *postParams = [[NSMutableString alloc]initWithString:[NSString stringWithFormat:@"venue_id=%@", appDelegate.activeVenue[@"id"]]];
     [postParams appendFormat:@"&caption=%@", _textFieldname.text];
-    //Set lat/lon if specified in the image metadata
     [postParams appendFormat:@"&facebook_id=%@", appDelegate.facebookId];
     if (appDelegate.shareImageLat != nil && appDelegate.shareImageLon != nil) {
         [postParams appendFormat:@"&lat=%@", appDelegate.shareImageLat];
@@ -71,18 +63,15 @@
 }
 
 - (void)uploadedToServer:(NSString *)response {
-    NSLog(@"%@", response);
     if ([response isEqual:@"true"]) {
         self.navigationItem.rightBarButtonItem.enabled = NO;
 
-        NSLog(@"89");
         if ([appDelegate.session.permissions indexOfObject:@"publish_actions"] == NSNotFound)
             [appDelegate.session requestNewPublishPermissions:@[@"publish_actions"] defaultAudience:FBSessionDefaultAudienceEveryone completionHandler:^(FBSession *session, NSError *error) {
                 [self shareOnFacebook];
             }];
         else {
             [self shareOnFacebook];
-            NSLog(@"shared");
         }
         if (self.saveLocallySwitch.on) {
             UIImageWriteToSavedPhotosAlbum(_image.image, nil, nil, nil);
@@ -101,10 +90,6 @@
 
     NSMutableDictionary<FBGraphObject> *action = [FBGraphObject graphObject];
 
-    /*
-       Temp solution, 17 June:
-       share the image, put venue details ([name] and facebook url, if exists in caption)
-     */
     action[@"source"] = _image.image;
     NSMutableString *friends = [NSMutableString stringWithFormat:@""];
     if ([selectedFriends count] > 0) {
@@ -154,17 +139,12 @@
 }
 
 - (IBAction)selectFriendsButtonAction:(id)sender {
-    // Initialize the friend picker
     FBFriendPickerViewController *friendPickerController =
         [[FBFriendPickerViewController alloc] init];
-
-    // Configure the picker ...
     friendPickerController.title = @"Select Friends";
-    // Set this view controller as the friend picker delegate
     friendPickerController.delegate = self;
     friendPickerController.session = appDelegate.session;
 
-    // Fetch the data
     [friendPickerController loadData];
 
     [self presentViewController:friendPickerController

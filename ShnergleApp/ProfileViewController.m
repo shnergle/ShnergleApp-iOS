@@ -19,18 +19,11 @@
 
     [self menuButtonDecorations];
 
-    //[self setRightBarButton:@"Sign out" actionSelector:@selector(signOut)];
 
     self.navigationItem.title = appDelegate.fullName;
     self.userProfileImage3.profileID = appDelegate.facebookId;
     self.userProfileImage2.profileID = appDelegate.facebookId;
     self.userProfileImage1.profileID = appDelegate.facebookId;
-
-    //self.userProfileImage2.profileID = appdelegate.facebookId;
-    //self.userProfileImage1.profileID = appdelegate.facebookId;
-
-    //if (appDelegate.twitter)
-    //    _twitterSwitch.on = YES;
 
     _checkInView.layer.borderColor = [UIColor colorWithRed:134.0 / 255 green:134.0 / 255 blue:134.0 / 255 alpha:1].CGColor;
     _checkInView.layer.borderWidth = 2;

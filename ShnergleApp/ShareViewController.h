@@ -23,5 +23,4 @@
 @property (weak, nonatomic) IBOutlet GCPlaceholderTextView *textFieldname;
 
 - (void)doNotShnergleThis;
-//- (IBAction)cleartextfield:(id)sender;
 @end
