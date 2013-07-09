@@ -2845,19 +2845,70 @@
 		808F13CE16FB6A5C00B66E6D /* ShnergleApp */ = {
 			isa = PBXGroup;
 			children = (
+				EEB706F3176A1C3D00EF05C5 /* AddPromotionsViewController.h */,
+				EEB706F4176A1C3D00EF05C5 /* AddPromotionsViewController.m */,
+				806D277E1765CE92001E349D /* AddVenueViewController.h */,
+				806D277F1765CE92001E349D /* AddVenueViewController.m */,
 				808F13D716FB6A5C00B66E6D /* AppDelegate.h */,
 				808F13D816FB6A5C00B66E6D /* AppDelegate.m */,
-				CD3B655B175CBA22006A4151 /* Around Me */,
-				CD3B655E175CBB0E006A4151 /* Check In */,
-				CD3B6561175CBB44006A4151 /* Favourites */,
-				CDB8A25C1760B0AD00ABF7A8 /* Helper */,
-				CD3B6560175CBB3A006A4151 /* Login */,
+				808F13E316FB6A5C00B66E6D /* AroundMeViewController.h */,
+				808F13E416FB6A5C00B66E6D /* AroundMeViewController.m */,
+				80B957CF16FBB74F0044A505 /* CheckInViewController.h */,
+				80B957D016FBB74F0044A505 /* CheckInViewController.m */,
+				80B957B816FB7A910044A505 /* CrowdItem.h */,
+				CD3B655C175CBA72006A4151 /* CrowdItem.m */,
+				CD3703731760C8B600CFD249 /* CustomBackViewController.h */,
+				CD3703741760C8B600CFD249 /* CustomBackViewController.m */,
+				CDBCDE7D1765245B0048478F /* CustomSlidingViewController.h */,
+				CDBCDE7E1765245B0048478F /* CustomSlidingViewController.m */,
+				80DC1DF91760CAC2000AA6DF /* FavouritesViewController.h */,
+				80DC1DFA1760CAC2000AA6DF /* FavouritesViewController.m */,
+				CD7C1B0E175B424400902AA9 /* ImageCache.h */,
+				CD7C1B0F175B424400902AA9 /* ImageCache.m */,
+				EE8FF813172A9CFD0003A8E1 /* LoginScreenController.h */,
+				EE8FF814172A9CFD0003A8E1 /* LoginScreenController.m */,
 				808F13E016FB6A5C00B66E6D /* MainStoryboard.storyboard */,
-				CD3B655A175CB94A006A4151 /* Menu */,
-				CD3B655F175CBB29006A4151 /* Profile */,
-				CD3B6559175C9F19006A4151 /* Server */,
+				80B77D25173E938E00085A71 /* MenuViewController.h */,
+				80B77D26173E938E00085A71 /* MenuViewController.m */,
+				8045AFC7170495CD002012D5 /* OverlayText.h */,
+				8045AFC8170495CE002012D5 /* OverlayText.m */,
+				EE48E7251787300100C13F2A /* OverlayText.xib */,
+				805CE6CE16FCBDC9002445C3 /* PhotoLocationViewController.h */,
+				805CE6CF16FCBDC9002445C3 /* PhotoLocationViewController.m */,
+				CDB72C2C175A5F2B00018271 /* PostRequest.h */,
+				CDB72C2D175A5F2B00018271 /* PostRequest.m */,
+				EE0A806E1733D97300792AE4 /* ProfileViewController.h */,
+				EE0A806F1733D97300792AE4 /* ProfileViewController.m */,
+				80D6FF6917219DA8008A3AFD /* PromotionDetailView.h */,
+				80D6FF6A17219DA8008A3AFD /* PromotionDetailView.m */,
+				80D6FF6C17219E4F008A3AFD /* PromotionDetailView.xib */,
+				80D6FF6517219536008A3AFD /* PromotionView.h */,
+				80D6FF6617219536008A3AFD /* PromotionView.m */,
+				80D6FF63172191A4008A3AFD /* PromotionView.xib */,
+				808330BC17565F9F00C183B9 /* SearchBar.xib */,
+				808330BF1756620000C183B9 /* SearchBarView.h */,
+				808330C01756620000C183B9 /* SearchBarView.m */,
+				80ABCC01176F2012002718A1 /* SearchResultsView.h */,
+				80ABCC02176F2012002718A1 /* SearchResultsView.m */,
+				80ABCC04176F2037002718A1 /* SearchResultsView.xib */,
+				CDAD1D2D175E011100581713 /* ShareViewController.h */,
+				CDAD1D2E175E011100581713 /* ShareViewController.m */,
+				CDD8D95A1768A67900BF3CAC /* StaffEditViewController.h */,
+				CDD8D95B1768A67900BF3CAC /* StaffEditViewController.m */,
+				CD5024901768AE99003D3004 /* StaffTypeViewController.h */,
+				CD5024911768AE99003D3004 /* StaffTypeViewController.m */,
+				CD61F0A317688C06005EB276 /* StaffViewController.h */,
+				CD61F0A417688C06005EB276 /* StaffViewController.m */,
+				806D2781176627CC001E349D /* VenueCategoryViewController.h */,
+				806D2782176627CC001E349D /* VenueCategoryViewController.m */,
+				EEAFF0FE17677CBC00980DC1 /* VenueDetailsViewController.h */,
+				EEAFF0FF17677CBC00980DC1 /* VenueDetailsViewController.m */,
+				805AB9DF172A9AFA0056DCFB /* VenueGalleryViewController.h */,
+				805AB9E0172A9AFA0056DCFB /* VenueGalleryViewController.m */,
+				80B957D416FC65F90044A505 /* VenueViewController.h */,
+				80B957D516FC65F90044A505 /* VenueViewController.m */,
+				80B400BF17540CCA00A377D9 /* Images */,
 				808F13CF16FB6A5C00B66E6D /* Supporting Files */,
-				80D6FF6817219B4E008A3AFD /* Venue and Promotions */,
 			);
 			path = ShnergleApp;
 			sourceTree = "<group>";
@@ -2865,7 +2916,6 @@
 		808F13CF16FB6A5C00B66E6D /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				80B400BF17540CCA00A377D9 /* Image Elements */,
 				808F13D116FB6A5C00B66E6D /* InfoPlist.strings */,
 				808F13D416FB6A5C00B66E6D /* main.m */,
 				808F13D016FB6A5C00B66E6D /* ShnergleApp-Info.plist */,
@@ -2906,7 +2956,7 @@
 			path = "Pods/Facebook-iOS-SDK/src/FacebookSDKResources.bundle/FBLoginView/images";
 			sourceTree = SOURCE_ROOT;
 		};
-		80B400BF17540CCA00A377D9 /* Image Elements */ = {
+		80B400BF17540CCA00A377D9 /* Images */ = {
 			isa = PBXGroup;
 			children = (
 				80ABCC06176F68E5002718A1 /* background.png */,
@@ -2941,6 +2991,7 @@
 				80B400E417540CCA00A377D9 /* ticket.png */,
 				808CA3041733DCB400932A27 /* upArrow.png */,
 			);
+			name = Images;
 			path = "Image Elements";
 			sourceTree = "<group>";
 		};
@@ -2964,128 +3015,6 @@
 				80B400DB17540CCA00A377D9 /* stafficon.png */,
 			);
 			path = Icons;
-			sourceTree = "<group>";
-		};
-		80D6FF6817219B4E008A3AFD /* Venue and Promotions */ = {
-			isa = PBXGroup;
-			children = (
-				EEB706F3176A1C3D00EF05C5 /* AddPromotionsViewController.h */,
-				EEB706F4176A1C3D00EF05C5 /* AddPromotionsViewController.m */,
-				806D277E1765CE92001E349D /* AddVenueViewController.h */,
-				806D277F1765CE92001E349D /* AddVenueViewController.m */,
-				8045AFC7170495CD002012D5 /* OverlayText.h */,
-				8045AFC8170495CE002012D5 /* OverlayText.m */,
-				EE48E7251787300100C13F2A /* OverlayText.xib */,
-				80D6FF6917219DA8008A3AFD /* PromotionDetailView.h */,
-				80D6FF6A17219DA8008A3AFD /* PromotionDetailView.m */,
-				80D6FF6C17219E4F008A3AFD /* PromotionDetailView.xib */,
-				80D6FF6517219536008A3AFD /* PromotionView.h */,
-				80D6FF6617219536008A3AFD /* PromotionView.m */,
-				80D6FF63172191A4008A3AFD /* PromotionView.xib */,
-				CDD8D95A1768A67900BF3CAC /* StaffEditViewController.h */,
-				CDD8D95B1768A67900BF3CAC /* StaffEditViewController.m */,
-				CD5024901768AE99003D3004 /* StaffTypeViewController.h */,
-				CD5024911768AE99003D3004 /* StaffTypeViewController.m */,
-				CD61F0A317688C06005EB276 /* StaffViewController.h */,
-				CD61F0A417688C06005EB276 /* StaffViewController.m */,
-				806D2781176627CC001E349D /* VenueCategoryViewController.h */,
-				806D2782176627CC001E349D /* VenueCategoryViewController.m */,
-				EEAFF0FE17677CBC00980DC1 /* VenueDetailsViewController.h */,
-				EEAFF0FF17677CBC00980DC1 /* VenueDetailsViewController.m */,
-				805AB9DF172A9AFA0056DCFB /* VenueGalleryViewController.h */,
-				805AB9E0172A9AFA0056DCFB /* VenueGalleryViewController.m */,
-				80B957D416FC65F90044A505 /* VenueViewController.h */,
-				80B957D516FC65F90044A505 /* VenueViewController.m */,
-			);
-			name = "Venue and Promotions";
-			sourceTree = "<group>";
-		};
-		CD3B6559175C9F19006A4151 /* Server */ = {
-			isa = PBXGroup;
-			children = (
-				CD7C1B0E175B424400902AA9 /* ImageCache.h */,
-				CD7C1B0F175B424400902AA9 /* ImageCache.m */,
-				CDB72C2C175A5F2B00018271 /* PostRequest.h */,
-				CDB72C2D175A5F2B00018271 /* PostRequest.m */,
-			);
-			name = Server;
-			sourceTree = "<group>";
-		};
-		CD3B655A175CB94A006A4151 /* Menu */ = {
-			isa = PBXGroup;
-			children = (
-				80B77D25173E938E00085A71 /* MenuViewController.h */,
-				80B77D26173E938E00085A71 /* MenuViewController.m */,
-				808330BC17565F9F00C183B9 /* SearchBar.xib */,
-				808330BF1756620000C183B9 /* SearchBarView.h */,
-				808330C01756620000C183B9 /* SearchBarView.m */,
-				80ABCC01176F2012002718A1 /* SearchResultsView.h */,
-				80ABCC02176F2012002718A1 /* SearchResultsView.m */,
-				80ABCC04176F2037002718A1 /* SearchResultsView.xib */,
-			);
-			name = Menu;
-			sourceTree = "<group>";
-		};
-		CD3B655B175CBA22006A4151 /* Around Me */ = {
-			isa = PBXGroup;
-			children = (
-				808F13E316FB6A5C00B66E6D /* AroundMeViewController.h */,
-				808F13E416FB6A5C00B66E6D /* AroundMeViewController.m */,
-			);
-			name = "Around Me";
-			sourceTree = "<group>";
-		};
-		CD3B655E175CBB0E006A4151 /* Check In */ = {
-			isa = PBXGroup;
-			children = (
-				CDAD1D2D175E011100581713 /* ShareViewController.h */,
-				CDAD1D2E175E011100581713 /* ShareViewController.m */,
-				80B957CF16FBB74F0044A505 /* CheckInViewController.h */,
-				80B957D016FBB74F0044A505 /* CheckInViewController.m */,
-				805CE6CE16FCBDC9002445C3 /* PhotoLocationViewController.h */,
-				805CE6CF16FCBDC9002445C3 /* PhotoLocationViewController.m */,
-			);
-			name = "Check In";
-			sourceTree = "<group>";
-		};
-		CD3B655F175CBB29006A4151 /* Profile */ = {
-			isa = PBXGroup;
-			children = (
-				EE0A806E1733D97300792AE4 /* ProfileViewController.h */,
-				EE0A806F1733D97300792AE4 /* ProfileViewController.m */,
-			);
-			name = Profile;
-			sourceTree = "<group>";
-		};
-		CD3B6560175CBB3A006A4151 /* Login */ = {
-			isa = PBXGroup;
-			children = (
-				EE8FF813172A9CFD0003A8E1 /* LoginScreenController.h */,
-				EE8FF814172A9CFD0003A8E1 /* LoginScreenController.m */,
-			);
-			name = Login;
-			sourceTree = "<group>";
-		};
-		CD3B6561175CBB44006A4151 /* Favourites */ = {
-			isa = PBXGroup;
-			children = (
-				80DC1DF91760CAC2000AA6DF /* FavouritesViewController.h */,
-				80DC1DFA1760CAC2000AA6DF /* FavouritesViewController.m */,
-			);
-			name = Favourites;
-			sourceTree = "<group>";
-		};
-		CDB8A25C1760B0AD00ABF7A8 /* Helper */ = {
-			isa = PBXGroup;
-			children = (
-				80B957B816FB7A910044A505 /* CrowdItem.h */,
-				CD3B655C175CBA72006A4151 /* CrowdItem.m */,
-				CD3703731760C8B600CFD249 /* CustomBackViewController.h */,
-				CD3703741760C8B600CFD249 /* CustomBackViewController.m */,
-				CDBCDE7D1765245B0048478F /* CustomSlidingViewController.h */,
-				CDBCDE7E1765245B0048478F /* CustomSlidingViewController.m */,
-			);
-			name = Helper;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
