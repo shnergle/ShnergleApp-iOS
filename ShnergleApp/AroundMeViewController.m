@@ -341,6 +341,12 @@
     [_mapView stopRendering];
     [_mapView removeFromSuperview];
     _mapView = nil;
+    
+}
+-(void)viewDidDisappear:(BOOL)animated
+{
+    appDelegate.posts = nil;
+
 }
 
 @end

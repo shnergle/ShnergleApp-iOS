@@ -144,6 +144,10 @@
 - (void)didFinishDownloadingImages:(UIImage *)response forItem:(CrowdItem *)item {
     [[item crowdImage] setImage:response];
 }
+-(void)viewDidDisappear:(BOOL)animated
+{
+    appDelegate.posts = nil;
+}
 
 - (void)collectionView:(UICollectionView *)collectionView
     didHighlightItemAtIndexPath:(NSIndexPath *)indexPath {
