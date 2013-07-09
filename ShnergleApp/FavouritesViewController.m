@@ -142,7 +142,7 @@
     [[item crowdImage] setImage:response];
 }
 
-- (void)         collectionView:(UICollectionView *)collectionView
+- (void)collectionView:(UICollectionView *)collectionView
     didHighlightItemAtIndexPath:(NSIndexPath *)indexPath {
     appDelegate.activeVenue = appDelegate.followingVenues[indexPath.row];
 }
