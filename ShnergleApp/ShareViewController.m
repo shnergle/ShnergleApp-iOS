@@ -106,7 +106,19 @@
        share the image, put venue details ([name] and facebook url, if exists in caption)
      */
     action[@"source"] = _image.image;
-    action[@"message"] = [NSString stringWithFormat:@"%@ @%@", _textFieldname.text, appDelegate.activeVenue[@"name"]];
+    NSMutableString *friends = [NSMutableString stringWithFormat:@""];
+    if ([selectedFriends count] > 0) {
+        [friends appendString:@" with"];
+        for (int i = 0; i < [selectedFriends count] - 1; i++) {
+            [friends appendFormat:@" %@", selectedFriends[i]];
+        }
+        if ([selectedFriends count] > 1) {
+            [friends appendString:@" and"];
+        }
+        [friends appendFormat:@" %@", selectedFriends[[selectedFriends count] - 1]];
+        [friends appendString:@"."];
+    }
+    action[@"message"] = [NSString stringWithFormat:@"%@ @%@%@", _textFieldname.text, appDelegate.activeVenue[@"name"], friends];
     action[@"fb:explicitly_shared"] = @"true";
     //action[@"tags"] = selectedFriends;
     //action[@"place"] = @"http://samples.ogp.me/259837270824167";
