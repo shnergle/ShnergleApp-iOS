@@ -13,6 +13,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.navigationItem.title = @"Location";
+    appDelegate.locationPickerVenues = appDelegate.aroundVenues;
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -27,8 +28,10 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return [appDelegate.aroundVenues count];
+    return [appDelegate.locationPickerVenues count];
 }
+
+
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     UITableViewCell *cell = nil;
@@ -38,7 +41,7 @@
         cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"Cell"];
     }
 
-    cell.textLabel.text = appDelegate.aroundVenues[indexPath.row][@"name"];
+    cell.textLabel.text = appDelegate.locationPickerVenues[indexPath.row][@"name"];
     cell.textLabel.textColor = [UIColor blackColor];
     cell.textLabel.font = [UIFont systemFontOfSize:20.0];
 
@@ -46,10 +49,18 @@
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    appDelegate.activeVenue = appDelegate.aroundVenues[indexPath.row];
+    appDelegate.activeVenue = appDelegate.locationPickerVenues[indexPath.row];
 }
 
 - (void)searchBarSearchButtonClicked:(UISearchBar *)searchBar {
+    appDelegate.locationPickerVenues = nil;
+    appDelegate.locationPickerVenues = [[NSMutableArray alloc]init];
+    for(id obj in appDelegate.aroundVenues){
+        if([obj[@"name"] rangeOfString:self.searchBar.text options:NSCaseInsensitiveSearch].length > 0 ){
+            [appDelegate.locationPickerVenues addObject:obj];
+        }
+    }
+    [self.searchResultTable reloadData];
     [searchBar resignFirstResponder];
 }
 
