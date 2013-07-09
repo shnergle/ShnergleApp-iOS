@@ -297,10 +297,5 @@
     _mapView = nil;
     
 }
--(void)viewDidDisappear:(BOOL)animated
-{
-    appDelegate.posts = nil;
-
-}
 
 @end
