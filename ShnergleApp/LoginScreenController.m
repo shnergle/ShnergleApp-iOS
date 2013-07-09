@@ -26,22 +26,14 @@
     [self.buttonLoginLogout setBackgroundImage:[UIImage imageNamed:@"login-button-small.png"] forState:UIControlStateNormal];
     [self.buttonLoginLogout setBackgroundImage:[UIImage imageNamed:@"login-button-small-pressed.png"] forState:UIControlStateHighlighted];
 
-    //HideNavBar
     [[self navigationController] setNavigationBarHidden:YES];
     if (!appDelegate.session.isOpen) {
         self.buttonLoginLogout.hidden = YES;
-        // create a fresh session object
         appDelegate.session = [[FBSession alloc] initWithAppID:nil permissions:@[@"email", @"user_birthday"] urlSchemeSuffix:nil tokenCacheStrategy:nil];
-
-        // if we don't have a cached token, a call to open here would cause UX for login to
-        // occur; we don't want that to happen unless the user clicks the login button, and so
-        // we check here to make sure we have a token before calling open
         if (appDelegate.session.state == FBSessionStateCreatedTokenLoaded) {
-            // even though we had a cached token, we need to login to make the session usable
             [appDelegate.session openWithCompletionHandler:^(FBSession *session,
                                                              FBSessionState status,
                                                              NSError *error) {
-                // we recurse here, in order to update buttons and labels
                 [self updateView];
             }];
         } else {

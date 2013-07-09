@@ -27,14 +27,6 @@ typedef enum {
 
 @implementation AddVenueViewController
 
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-    if (self) {
-        // Custom initialization
-    }
-    return self;
-}
-
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.navigationItem.title = @"Add Place";
@@ -97,11 +89,6 @@ typedef enum {
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
-
 - (void)didFinishAddingVenue:(NSString *)response {
     [self.view hideToastActivity];
 
@@ -120,11 +107,6 @@ typedef enum {
     if (cell == nil) cell = [[UITableViewCell alloc] init];
 
     cell.textLabel.text = _tableData[indexPath.row];
-    /*
-       UITextField *textField = [[UITextField alloc] initWithFrame:CGRectMake(110, 10, 185, 30)];
-       textField.delegate = self;
-       textField.tag = indexPath.row;
-     */
 
     UITextField *textField = (UITextField *)[cell viewWithTag:indexPath.row + 1];
 
@@ -199,11 +181,6 @@ typedef enum {
         _workSwitch = workSwitch;
     }
 
-    if (![(self.userData)[indexPath.row] isEqualToString : @""]) {
-        //NSLog(@"%@ at indexPath.row %d",[self.userData objectAtIndex:indexPath.row], indexPath.row);
-        //textField.placeholder = nil;
-        //textField.text = (self.userData)[indexPath.row];
-    }
     return cell;
 }
 
@@ -259,10 +236,6 @@ typedef enum {
 }
 
 - (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context {
-    // How it works:
-    // Whenever position changes, this method is run. It then changes the camera to point to the current position, minus a small latitude (to make the map position center in the top part of our Around Me view). The zoom level is an average level of detail for a few blocks.
-
-    //Make sure it is only run once:
     if (!hasPositionLocked) {
         if ([keyPath isEqualToString:@"myLocation"] && [object isKindOfClass:[GMSMapView class]]) {
             [map animateToCameraPosition:[GMSCameraPosition cameraWithLatitude:map.myLocation.coordinate.latitude
@@ -277,8 +250,7 @@ typedef enum {
     }
 }
 
-- (void)       mapView:(GMSMapView *)mapView
-    didTapAtCoordinate:(CLLocationCoordinate2D)coordinate {
+- (void)mapView:(GMSMapView *)mapView didTapAtCoordinate:(CLLocationCoordinate2D)coordinate {
     [mapView clear];
     CLLocationCoordinate2D position = CLLocationCoordinate2DMake(coordinate.latitude, coordinate.longitude);
     marker = [GMSMarker markerWithPosition:position];
@@ -310,10 +282,7 @@ typedef enum {
 
     CALayer *topBorder = [CALayer layer];
 
-    topBorder.frame = CGRectMake(0.0f, self.mapView.bounds.size.height - 1, self.mapView.frame.size.width
-                                 , 1.0f);
-    //topBorder.frame = CGRectMake(0.0f, self.mapView.bounds.origin.x + 190, self.mapView.frame.size.height
-    //                           , 1.0f);
+    topBorder.frame = CGRectMake(0.0f, self.mapView.bounds.size.height - 1, self.mapView.frame.size.width, 1.0f);
 
     topBorder.backgroundColor = [UIColor lightGrayColor].CGColor;
 

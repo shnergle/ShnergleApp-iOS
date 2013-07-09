@@ -22,7 +22,6 @@
 }
 
 - (void)decorateCheckInButton {
-    //check in button
     [self.checkInButton setTitleTextAttributes:
      @{UITextAttributeTextColor: [UIColor whiteColor],
        UITextAttributeTextShadowColor: [UIColor clearColor],
@@ -32,12 +31,9 @@
 }
 
 - (void)toolbarDecorations {
-    //TOOLBAR Additions
     UIBarButtonItem *menuButton;
     menuButton = [self createLeftBarButton:@"arrow_west.png" actionSelector:@selector(goBack)];
     self.navigationItem.leftBarButtonItem = menuButton;
-
-    //[[self navigationItem] setBackBarButtonItem:menuButton];
 }
 
 - (void)decorateScroller {
@@ -53,7 +49,6 @@
     [self.distanceScroller setThumbImage:thumbImage forState:UIControlStateNormal];
 }
 
-//workaround to get the custom back button to work
 - (void)goBack {
     [self.navigationController popViewControllerAnimated:YES];
 }
@@ -86,14 +81,11 @@
     [self decorateScroller];
     [self toolbarDecorations];
 
-    //CROWD stuff
     [[self crowdCollection] setDataSource:self];
     [[self crowdCollection] setDelegate:self];
-    //[self createTitleButton];
 
     loading = YES;
 
-    //[NSThread detachNewThreadSelector:@selector(makeRequest) toTarget:self withObject:nil];
     crowdImagesHidden = NO;
     dropDownHidden = YES;
 
@@ -125,22 +117,16 @@
     [super viewWillAppear:animated];
     [self makeRequest];
     self.navigationItem.hidesBackButton = YES;
-    //Make it hidden whenever we navigate back to the view as well.
     dropDownHidden = YES;
     crowdImagesHidden = NO;
-    //THE SANDWICH MENU SYSTEM (ECSlidingViewController)
     if (![self.slidingViewController.underLeftViewController isKindOfClass:[MenuViewController class]]) {
         self.slidingViewController.underLeftViewController  = [self.storyboard instantiateViewControllerWithIdentifier:@"AroundMeMenu"];
     }
     [self.view addGestureRecognizer:self.slidingViewController.panGesture];
     [self.slidingViewController setAnchorRightRevealAmount:230.0f];
-
-    // Shadow for sandwich system
     self.view.layer.shadowOpacity = 0.75f;
     self.view.layer.shadowRadius = 10.0f;
     self.view.layer.shadowColor = [UIColor blackColor].CGColor;
-
-    //Remove shadows for navbar
     self.navigationController.navigationBar.clipsToBounds = YES;
     self.navBar.clipsToBounds = YES;
 
@@ -149,8 +135,6 @@
     [self addShadowLineRect:CGRectMake(0.0f, 70.0f, self.distanceScrollerView.frame.size.width, 1.0f) ToView:self.distanceScrollerView];
 
     [self addShadowLineRect:CGRectMake(0.0f, self.overlay.bounds.origin.y + 35, self.overlay.frame.size.width, 1.0f) ToView:self.overlay];
-
-    //self.overlay.layer.shouldRasterize = YES;
 
     [self initMap];
 }
@@ -167,20 +151,6 @@
     static NSString *cellIdentifier = @"Cell";
     CrowdItem *item = [collectionView dequeueReusableCellWithReuseIdentifier:cellIdentifier forIndexPath:indexPath];
 
-    /*SHADOW AROUND OBJECTS*/
-    /*
-       item.layer.masksToBounds = NO;
-       item.layer.borderColor = [UIColor grayColor].CGColor;
-       item.layer.borderWidth = 1.5f;
-       item.layer.contentsScale = [UIScreen mainScreen].scale;
-       item.layer.shadowOpacity = 0.5f;
-       item.layer.shadowRadius = 3.0f;
-       item.layer.shadowOffset = CGSizeZero;
-       item.layer.shadowPath = [UIBezierPath bezierPathWithRect:item.bounds].CGPath;
-       //item.layer.shouldRasterize = YES;
-     */
-    /* Here we can set the elements of the crowdItem (the cell) in the cellview */
-    //[[[PostRequest alloc]init]exec:@"images/get" params:[NSString stringWithFormat:@"entity=post&entity_id=0&facebook_id=%@",appDelegate.facebookId] delegate:self callback:@selector(didFinishDownloadingImages:forItem:) type:@"image" item:item];
     [[[ImageCache alloc]init]get:@"venue" identifier:[appDelegate.aroundVenues[indexPath.item][@"id"] stringValue] delegate:self callback:@selector(didFinishDownloadingImages:forItem:) item:item];
 
     [[item venueName] setText:appDelegate.aroundVenues[indexPath.item][@"name"]];
@@ -189,7 +159,6 @@
 
     item.venueName.textColor = [UIColor whiteColor];
 
-    //Turn the indicator on or off:
     if (appDelegate.aroundVenues[indexPath.item][@"promotion"] != nil) {
         item.promotionIndicator.hidden = NO;
     } else {
@@ -247,7 +216,7 @@
        given in self.distanceScroller.value (this is in metres)
        Would have to translate into coordinates?
      */
-    [self.mapView clear ];
+    [self.mapView clear];
 
     CLLocationCoordinate2D coord;
     if (pinDropped) {
@@ -256,7 +225,6 @@
         coord = self.mapView.myLocation.coordinate;
     }
 
-    //Creates a circle on the map with a radius in metres
     GMSCircle *mapCircle = [GMSCircle circleWithPosition:coord radius:self.distanceScroller.value * 1000];
     mapCircle.strokeColor = [UIColor orangeColor];
     mapCircle.strokeWidth = 5;
@@ -267,12 +235,6 @@
 - (void)       mapView:(GMSMapView *)mapView
     didTapAtCoordinate:(CLLocationCoordinate2D)coordinate {
     [self.mapView clear];
-    /*
-       CLLocationCoordinate2D position = CLLocationCoordinate2DMake(coordinate.latitude, coordinate.longitude);
-       GMSMarker *marker = [GMSMarker markerWithPosition:position];
-       marker.title = @"Dropped Pin";
-       marker.map = self.mapView;
-     */
     pinDropped = true;
     pinDroppedLocation = coordinate;
     [self sliderValueChanged:nil];
@@ -314,10 +276,6 @@
 }
 
 - (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context {
-    // How it works:
-    // Whenever position changes, this method is run. It then changes the camera to point to the current position, minus a small latitude (to make the map position center in the top part of our Arou nd Me view). The zoom level is an average level of detail for a few blocks.
-
-    //Make sure it is only run once:
     if (!hasPositionLocked) {
         if ([keyPath isEqualToString:@"myLocation"] && [object isKindOfClass:[GMSMapView class]]) {
             [_mapView animateToCameraPosition:[GMSCameraPosition cameraWithLatitude:_mapView.myLocation.coordinate.latitude - 0.015
@@ -328,7 +286,6 @@
             appDelegate.shareImageLon = [NSString stringWithFormat:@"%f", self.mapView.myLocation.coordinate.longitude];
             NSLog(@"%@", appDelegate.shareImageLat);
             NSLog(@"%@", appDelegate.shareImageLon);
-            //initiate the area circle:
             [self sliderValueChanged:nil];
         }
     }
