@@ -168,8 +168,8 @@
 }
 
 - (void)didFinishDownloadingImages:(UIImage *)response forIndex:(NSIndexPath *)index {
-#warning bad hack in Venue page to get the appropriate image to share
     if (index.item == 0) {
+        if(appDelegate.posts != nil)
         appDelegate.shareImage = [ImageCache get:@"post" identifier:appDelegate.posts[0][@"id"]];
     }
 
@@ -310,8 +310,7 @@
     }
 }
 
-- (void)         collectionView:(UICollectionView *)collectionView
-    didHighlightItemAtIndexPath:(NSIndexPath *)indexPath {
+- (void)collectionView:(UICollectionView *)collectionView didHighlightItemAtIndexPath: (NSIndexPath *)indexPath {
     selectedPost = indexPath.item;
 }
 
