@@ -130,9 +130,9 @@
 
     //Turn the indicator on or off:
     if (appDelegate.followingVenues[indexPath.item][@"promotion"] != nil) { //just an example filter
-        item.promotionIndicator.hidden = YES;
-    } else {
         item.promotionIndicator.hidden = NO;
+    } else {
+        item.promotionIndicator.hidden = YES;
     }
 
     return item;
