@@ -118,6 +118,10 @@
     [refreshControl addTarget:self action:@selector(startRefresh:)
              forControlEvents:UIControlEventValueChanged];
     [self.crowdCollectionV addSubview:refreshControl];
+    
+    [self.overlayView.scrollView setScrollsToTop:NO];
+    [self.crowdCollectionV setScrollsToTop:YES];
+
 }
 
 - (void)startRefresh:(id)sender {
