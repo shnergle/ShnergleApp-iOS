@@ -184,13 +184,6 @@
         CGRect screenRect = [[UIScreen mainScreen] bounds];
         CGFloat screenHeight = screenRect.size.height;
 
-        /*
-
-           ~~~oOo O Oo o OoOo O Ooo o oooOOooOo~~~
-           ~~~.......Maaagic nuuummbers........~~~
-
-         */
-
         _overlayView.frame = CGRectMake(_overlayView.bounds.origin.x, screenHeight - 80, _overlayView.bounds.size.width, screenHeight - 75);
         _overlayView.clipsToBounds = NO;
         [self.view addSubview:_overlayView];
@@ -210,7 +203,6 @@
                                                                  zoom:14];
     self.overlayView.venueMap.camera = camera;
 
-    // Creates a marker in the center of the map.
     GMSMarker *marker = [[GMSMarker alloc] init];
     marker.position = CLLocationCoordinate2DMake(lat, lon);
     marker.title = @"";
@@ -331,11 +323,6 @@
 - (NSString *)getDateFromUnixFormat:(id)unixFormat {
     NSString *input = [NSString stringWithFormat:@"%@", unixFormat];
     NSDate *date = [NSDate dateWithTimeIntervalSince1970:[input intValue]];
-    //NSDateFormatter *dateFormatter = [[NSDateFormatter alloc]init];
-    //[dateFormatter setDateFormat:@"hh:mm"];
-    //[dateFormatter setTimeZone:[NSTimeZone timeZoneForSecondsFromGMT:0]];
-    //NSDate *date = [dateFormatter dateFromString:publicationDate];
-    //NSString *dte=[dateFormatter stringFromDate:date];
 
     return [date timeAgoWithLimit:86400 dateFormat:NSDateFormatterShortStyle andTimeFormat:NSDateFormatterShortStyle];
 }

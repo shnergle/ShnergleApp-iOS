@@ -17,7 +17,6 @@
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
-        // Custom initialization
     }
     return self;
 }
@@ -25,7 +24,6 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.navigationItem.title = @"Venue Details";
-    //[self setRightBarButton: [NSString @"Done"];
 
     appDelegate.venueDetailsContent = [[NSMutableArray alloc]init];
     self.tableData = @[@"Phone", @"Email", @"Website"];
