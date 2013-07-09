@@ -76,12 +76,12 @@
 }
 
 - (void)makeRequest {
-    [[[PostRequest alloc] init]exec:@"venue_favourites/get" params:[NSString stringWithFormat:@"facebook_id=%@", appDelegate.facebookId] delegate:self callback:@selector(didFinishLoadingVenues:)];
+    [[[PostRequest alloc] init]exec:@"venues/get" params:[NSString stringWithFormat:@"facebook_id=%@&following_only=true", appDelegate.facebookId] delegate:self callback:@selector(didFinishLoadingVenues:)];
 }
 
 - (void)didFinishLoadingVenues:(NSArray *)response {
     NSLog(@"%@", response);
-    appDelegate.aroundVenues = response;
+    appDelegate.followingVenues = response;
     [self.crowdCollection reloadData];
 }
 
@@ -120,7 +120,7 @@
        //item.layer.shouldRasterize = YES;
      */
     /* Here we can set the elements of the crowdItem (the cell) in the cellview */
-    [[[ImageCache alloc]init]get:@"venue" identifier:[appDelegate.aroundVenues[indexPath.item][@"id"] stringValue] delegate:self callback:@selector(didFinishDownloadingImages:forItem:) item:item];
+    [[[ImageCache alloc]init]get:@"venue" identifier:[appDelegate.followingVenues[indexPath.item][@"id"] stringValue] delegate:self callback:@selector(didFinishDownloadingImages:forItem:) item:item];
 
     [[item venueName] setText:([appDelegate.topViewType isEqual:@"Following"] ? appDelegate.followingVenues : appDelegate.venueNames)[indexPath.item][@"name"]];
 
@@ -129,7 +129,7 @@
     item.venueName.textColor = [UIColor whiteColor];
 
     //Turn the indicator on or off:
-    if ([item.venueName.text isEqual:@"mahiki"]) { //just an example filter
+    if (appDelegate.followingVenues[indexPath.item][@"promotion"] != nil) { //just an example filter
         item.promotionIndicator.hidden = YES;
     } else {
         item.promotionIndicator.hidden = NO;
