@@ -162,13 +162,14 @@
 }
 
 - (void)didFinishDownloadingImages:(UIImage *)response forIndex:(NSIndexPath *)index {
+    if(appDelegate.posts != nil){
     if (index.item == 0) {
-        if(appDelegate.posts != nil)
         appDelegate.shareImage = [ImageCache get:@"post" identifier:appDelegate.posts[0][@"id"]];
     }
 
     if (response != nil) {
         [self.crowdCollectionV reloadItemsAtIndexPaths:@[index]];
+    }
     }
 }
 
