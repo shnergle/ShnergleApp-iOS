@@ -98,7 +98,11 @@
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     static NSString *cellIdentifier = @"FavCell";
     CrowdItem *item = [collectionView dequeueReusableCellWithReuseIdentifier:cellIdentifier forIndexPath:indexPath];
-    [[[ImageCache alloc]init]get:@"venue" identifier:[appDelegate.followingVenues[indexPath.item][@"id"] stringValue] delegate:self callback:@selector(didFinishDownloadingImages:forItem:) item:item];
+    
+    item.crowdImage.image = appDelegate.followingVenues[indexPath.item][@"id"];
+    
+    if(item.crowdImage.image == nil)
+        [[[ImageCache alloc]init]get:@"venue" identifier:[appDelegate.followingVenues[indexPath.item][@"id"] stringValue] delegate:self callback:@selector(didFinishDownloadingImages:forIndex:) indexPath:indexPath];
 
     [[item venueName] setText:([appDelegate.topViewType isEqual:@"Following"] ? appDelegate.followingVenues : appDelegate.venueNames)[indexPath.item][@"name"]];
 
@@ -115,8 +119,12 @@
     return item;
 }
 
-- (void)didFinishDownloadingImages:(UIImage *)response forItem:(CrowdItem *)item {
-    [[item crowdImage] setImage:response];
+- (void)didFinishDownloadingImages:(UIImage *)response forIndex:(NSIndexPath *)index {
+
+    if (response != nil) {
+        [self.crowdCollection reloadItemsAtIndexPaths:@[index]];
+    }
+    
 }
 -(void)viewDidDisappear:(BOOL)animated
 {

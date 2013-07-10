@@ -172,7 +172,6 @@
 }
 
 - (void)didFinishDownloadingImages:(UIImage *)response forIndex:(NSIndexPath *)index {
-    NSLog(@"downloaded image - indexPath: %@",index);
         if (response != nil) {
             [self.crowdCollection reloadItemsAtIndexPaths:@[index]];
         }
