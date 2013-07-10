@@ -23,7 +23,7 @@
                             <rect key="frame" x="0.0" y="0.0" width="320" height="545"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <subviews>
-                                <imageView contentMode="scaleAspectFill" image="promotion.png" translatesAutoresizingMaskIntoConstraints="NO" id="636">
+                                <imageView hidden="YES" contentMode="scaleAspectFill" image="promotion.png" translatesAutoresizingMaskIntoConstraints="NO" id="636">
                                     <rect key="frame" x="6" y="2" width="311" height="68"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <gestureRecognizers/>
@@ -305,6 +305,18 @@
                                     </attributedString>
                                     <textInputTraits key="textInputTraits" autocorrectionType="no" returnKeyType="done"/>
                                 </textField>
+                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="afh-Ob-Pnz">
+                                    <rect key="frame" x="6" y="14" width="310" height="44"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                    <state key="normal" title="Own this venue? Claim it." backgroundImage="greenbutton.png">
+                                        <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                    </state>
+                                    <state key="highlighted">
+                                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    </state>
+                                </button>
                             </subviews>
                             <color key="backgroundColor" white="1" alpha="0.0" colorSpace="custom" customColorSpace="calibratedWhite"/>
                             <constraints>
@@ -405,7 +417,7 @@
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <accessibility key="accessibilityConfiguration" label=" "/>
                     <constraints>
-                        <constraint firstAttribute="width" constant="110" id="2181"/>
+                        <constraint firstAttribute="width" constant="100" id="2181"/>
                         <constraint firstAttribute="height" constant="30" id="2189"/>
                     </constraints>
                     <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
@@ -483,7 +495,7 @@
                     </connections>
                 </button>
                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Analytics" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MLb-yG-muo">
-                    <rect key="frame" x="43" y="30" width="59" height="21"/>
+                    <rect key="frame" x="42" y="30" width="59" height="21"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <fontDescription key="fontDescription" type="boldSystem" pointSize="12"/>
                     <color key="textColor" red="0.26274511218070984" green="0.26274511218070984" blue="0.26666668057441711" alpha="1" colorSpace="deviceRGB"/>
@@ -498,7 +510,7 @@
             <gestureRecognizers/>
             <constraints>
                 <constraint firstItem="667" firstAttribute="top" secondItem="1" secondAttribute="top" id="787"/>
-                <constraint firstItem="2173" firstAttribute="leading" secondItem="1" secondAttribute="leading" constant="105" id="2175"/>
+                <constraint firstItem="2173" firstAttribute="leading" secondItem="1" secondAttribute="leading" constant="110" id="2175"/>
                 <constraint firstItem="2173" firstAttribute="top" secondItem="667" secondAttribute="bottom" constant="3" id="2184"/>
                 <constraint firstItem="667" firstAttribute="centerX" secondItem="2173" secondAttribute="centerX" id="1PP-FD-sc4"/>
                 <constraint firstItem="KHc-ve-3C3" firstAttribute="top" secondItem="1" secondAttribute="top" constant="26" id="ACM-rZ-i6N"/>
@@ -516,6 +528,8 @@
                 <outlet property="anaImage" destination="GL9-Pa-rl8" id="3Tx-cG-rqB"/>
                 <outlet property="anaLabel" destination="MLb-yG-muo" id="buP-wb-wDJ"/>
                 <outlet property="analyticsButton" destination="KHc-ve-3C3" id="4j0-PD-1mE"/>
+                <outlet property="analyticsImage" destination="GL9-Pa-rl8" id="Eql-Iq-J1p"/>
+                <outlet property="analyticsLabel" destination="MLb-yG-muo" id="CHb-ay-YVg"/>
                 <outlet property="checkedInLabel" destination="226" id="jnN-pz-CNx"/>
                 <outlet property="checkedInView" destination="52r-VY-WE5" id="lHg-8g-Jal"/>
                 <outlet property="goingLabel" destination="215" id="D5h-2V-Ezh"/>
@@ -531,8 +545,10 @@
                 <outlet property="shareImage" destination="PrS-Tp-JPR" id="g6x-23-EdC"/>
                 <outlet property="shareLabel" destination="khN-mT-sFq" id="r42-tE-X5l"/>
                 <outlet property="staffButton" destination="1WE-lv-x6u" id="7wZ-CR-aJI"/>
+
                 <outlet property="staffImage" destination="bD0-0H-bGn" id="PIG-O1-BNI"/>
                 <outlet property="staffLabel" destination="dXe-fc-b7U" id="tuF-Xx-Cer"/>
+
                 <outlet property="summaryContentTextField" destination="ieB-JS-QVm" id="MtX-rN-IcX"/>
                 <outlet property="summaryHeadlineTextField" destination="yFV-32-GOh" id="eav-dy-XE9"/>
                 <outlet property="tapGoing" destination="Twh-rf-nuM" id="C3o-Vt-c7Q"/>

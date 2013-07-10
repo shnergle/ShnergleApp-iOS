@@ -47,10 +47,10 @@
 
 
 
+
 @property (weak, nonatomic) IBOutlet UIButton *analyticsButton;
 @property (weak, nonatomic) IBOutlet UILabel *anaLabel;
 @property (weak, nonatomic) IBOutlet UIImageView *anaImage;
-
 
 
 @property (weak, nonatomic) IBOutlet UIButton *mainShareButton;

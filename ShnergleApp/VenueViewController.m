@@ -152,7 +152,7 @@
     CrowdItem *item = [collectionView dequeueReusableCellWithReuseIdentifier:cellIdentifier forIndexPath:indexPath];
 
     item.index = indexPath.item;
-
+    item.crowdImage.backgroundColor = [UIColor lightGrayColor];
     item.crowdImage.image = [ImageCache get:@"post" identifier:appDelegate.posts[indexPath.item][@"id"]];
 
     if (item.crowdImage.image == nil) [[[ImageCache alloc]init]get:@"post" identifier:[appDelegate.posts[indexPath.item][@"id"] stringValue] delegate:self callback:@selector(didFinishDownloadingImages:forIndex:) indexPath:indexPath];
@@ -205,7 +205,7 @@
     marker.title = @"";
     marker.snippet = @"";
     marker.map = self.overlayView.venueMap;
-    self.overlayView.venueMap.userInteractionEnabled = FALSE;
+    self.overlayView.venueMap.userInteractionEnabled = NO;
 }
 
 - (BOOL)scrollViewShouldScrollToTop:(UIScrollView *)scrollView {
