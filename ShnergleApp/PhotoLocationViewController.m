@@ -7,7 +7,7 @@
 //
 
 #import "PhotoLocationViewController.h"
-
+#import "ShareViewController.h"
 @implementation PhotoLocationViewController
 
 - (void)viewDidLoad {
@@ -85,6 +85,13 @@
 
             hasPositionLocked = YES;
         }
+    }
+}
+
+-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    if([segue.identifier isEqual:@"SegueToShare"]){
+        ((ShareViewController *)[segue destinationViewController]).shnergleThis = YES;
     }
 }
 
