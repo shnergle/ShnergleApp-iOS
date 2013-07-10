@@ -49,6 +49,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    appDelegate.followingVenues = @[];
     if (appDelegate.topViewType) ((UINavigationItem *)self.navBar.items[0]).title = appDelegate.topViewType;
     [self menuButtonDecorations];
     [self decorateCheckInButton];
@@ -99,7 +100,7 @@
     static NSString *cellIdentifier = @"FavCell";
     CrowdItem *item = [collectionView dequeueReusableCellWithReuseIdentifier:cellIdentifier forIndexPath:indexPath];
     
-    item.crowdImage.image = appDelegate.followingVenues[indexPath.item][@"id"];
+    item.crowdImage.image = [ImageCache get:@"venue" identifier:appDelegate.followingVenues[indexPath.item][@"id"]];
     
     if(item.crowdImage.image == nil)
         [[[ImageCache alloc]init]get:@"venue" identifier:[appDelegate.followingVenues[indexPath.item][@"id"] stringValue] delegate:self callback:@selector(didFinishDownloadingImages:forIndex:) indexPath:indexPath];
