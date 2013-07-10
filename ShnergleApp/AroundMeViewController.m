@@ -184,8 +184,7 @@
     }
 }
 
-- (void)         collectionView:(UICollectionView *)collectionView
-    didHighlightItemAtIndexPath:(NSIndexPath *)indexPath {
+- (void)collectionView:(UICollectionView *)collectionView didHighlightItemAtIndexPath:(NSIndexPath *)indexPath {
     selectedVenue = indexPath.item;
 }
 
@@ -238,8 +237,7 @@
     mapCircle.map = self.mapView;
 }
 
-- (void)       mapView:(GMSMapView *)mapView
-    didTapAtCoordinate:(CLLocationCoordinate2D)coordinate {
+- (void)mapView:(GMSMapView *)mapView didTapAtCoordinate:(CLLocationCoordinate2D)coordinate {
     [self.mapView clear];
     pinDropped = true;
     pinDroppedLocation = coordinate;
