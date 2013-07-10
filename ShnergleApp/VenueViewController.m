@@ -70,6 +70,9 @@
 }
 
 - (void)tapToFollow {
+    if (appDelegate.venueStatus != Default)
+        return;
+    
     [self.view makeToastActivity];
 
     following = !following;
