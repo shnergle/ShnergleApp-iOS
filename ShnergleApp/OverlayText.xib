@@ -401,11 +401,11 @@
                     </connections>
                 </imageView>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2173">
-                    <rect key="frame" x="102" y="26" width="117" height="30"/>
+                    <rect key="frame" x="105" y="26" width="110" height="30"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <accessibility key="accessibilityConfiguration" label=" "/>
                     <constraints>
-                        <constraint firstAttribute="width" constant="117" id="2181"/>
+                        <constraint firstAttribute="width" constant="110" id="2181"/>
                         <constraint firstAttribute="height" constant="30" id="2189"/>
                     </constraints>
                     <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
@@ -421,15 +421,15 @@
                     </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1WE-lv-x6u">
-                    <rect key="frame" x="227" y="26" width="117" height="30"/>
+                    <rect key="frame" x="220" y="26" width="100" height="30"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <accessibility key="accessibilityConfiguration" label=" "/>
                     <constraints>
-                        <constraint firstAttribute="width" constant="117" id="BXn-t6-IEj"/>
+                        <constraint firstAttribute="width" constant="100" id="BXn-t6-IEj"/>
                         <constraint firstAttribute="height" constant="30" id="GWe-aP-gyl"/>
                     </constraints>
                     <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                    <state key="normal" backgroundImage="stafficon.png">
+                    <state key="normal" backgroundImage="greybutton02.png">
                         <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
@@ -440,16 +440,27 @@
                         <action selector="share:" destination="1" eventType="touchUpInside" id="B5z-4T-Heh"/>
                     </connections>
                 </button>
+                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Staff" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dXe-fc-b7U">
+                    <rect key="frame" x="261" y="30" width="59" height="21"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <fontDescription key="fontDescription" type="boldSystem" pointSize="12"/>
+                    <color key="textColor" red="0.26274511220000002" green="0.26274511220000002" blue="0.26666668059999998" alpha="1" colorSpace="deviceRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="stafficon.png" translatesAutoresizingMaskIntoConstraints="NO" id="bD0-0H-bGn">
+                    <rect key="frame" x="231" y="26" width="32" height="26"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                </imageView>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KHc-ve-3C3">
-                    <rect key="frame" x="-4" y="20" width="98" height="39"/>
+                    <rect key="frame" x="0.0" y="26" width="100" height="30"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <accessibility key="accessibilityConfiguration" label=" "/>
                     <constraints>
-                        <constraint firstAttribute="width" constant="98" id="OVY-P3-7Vz"/>
-                        <constraint firstAttribute="height" constant="39" id="WM9-nF-X0p"/>
+                        <constraint firstAttribute="width" constant="100" id="OVY-P3-7Vz"/>
+                        <constraint firstAttribute="height" constant="30" id="WM9-nF-X0p"/>
                     </constraints>
                     <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                    <state key="normal" backgroundImage="analtyics_icon.png">
+                    <state key="normal" backgroundImage="greybutton02.png">
                         <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
@@ -460,20 +471,31 @@
                         <action selector="share:" destination="1" eventType="touchUpInside" id="jDh-c3-TPq"/>
                     </connections>
                 </button>
+                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="analtyics_icon.png" translatesAutoresizingMaskIntoConstraints="NO" id="GL9-Pa-rl8">
+                    <rect key="frame" x="7" y="28" width="32" height="26"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                </imageView>
+                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Analytics" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MLb-yG-muo">
+                    <rect key="frame" x="38" y="30" width="59" height="21"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <fontDescription key="fontDescription" type="boldSystem" pointSize="12"/>
+                    <color key="textColor" red="0.26274511218070984" green="0.26274511218070984" blue="0.26666668057441711" alpha="1" colorSpace="deviceRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
             </subviews>
             <color key="backgroundColor" red="0.91372549020000005" green="0.92156862750000001" blue="0.94117647059999998" alpha="1" colorSpace="calibratedRGB"/>
             <gestureRecognizers/>
             <constraints>
                 <constraint firstItem="667" firstAttribute="top" secondItem="1" secondAttribute="top" id="787"/>
-                <constraint firstItem="2173" firstAttribute="leading" secondItem="1" secondAttribute="leading" constant="102" id="2175"/>
+                <constraint firstItem="2173" firstAttribute="leading" secondItem="1" secondAttribute="leading" constant="105" id="2175"/>
                 <constraint firstItem="2173" firstAttribute="top" secondItem="667" secondAttribute="bottom" constant="3" id="2184"/>
                 <constraint firstItem="667" firstAttribute="centerX" secondItem="2173" secondAttribute="centerX" id="1PP-FD-sc4"/>
-                <constraint firstItem="KHc-ve-3C3" firstAttribute="top" secondItem="1" secondAttribute="top" constant="20" symbolic="YES" id="ACM-rZ-i6N"/>
+                <constraint firstItem="KHc-ve-3C3" firstAttribute="top" secondItem="1" secondAttribute="top" constant="26" id="ACM-rZ-i6N"/>
                 <constraint firstItem="811" firstAttribute="top" secondItem="1WE-lv-x6u" secondAttribute="bottom" constant="8" symbolic="YES" id="J3W-in-p7e"/>
                 <constraint firstItem="811" firstAttribute="leading" secondItem="1" secondAttribute="leading" id="aKQ-sL-svn"/>
-                <constraint firstItem="2173" firstAttribute="leading" secondItem="KHc-ve-3C3" secondAttribute="trailing" constant="8" symbolic="YES" id="aZf-Gg-66B"/>
+                <constraint firstItem="2173" firstAttribute="leading" secondItem="KHc-ve-3C3" secondAttribute="trailing" constant="5" id="aZf-Gg-66B"/>
                 <constraint firstItem="811" firstAttribute="bottom" secondItem="1" secondAttribute="bottom" constant="6" id="amL-Pq-r0F"/>
-                <constraint firstItem="1WE-lv-x6u" firstAttribute="leading" secondItem="2173" secondAttribute="trailing" constant="8" symbolic="YES" id="cBg-mh-oYn"/>
+                <constraint firstItem="1WE-lv-x6u" firstAttribute="leading" secondItem="2173" secondAttribute="trailing" constant="5" id="cBg-mh-oYn"/>
                 <constraint firstItem="811" firstAttribute="trailing" secondItem="1" secondAttribute="trailing" id="lWH-Yp-4zr"/>
                 <constraint firstItem="1WE-lv-x6u" firstAttribute="baseline" secondItem="2173" secondAttribute="baseline" id="o6Y-uy-Wmy"/>
                 <constraint firstItem="811" firstAttribute="top" secondItem="2173" secondAttribute="bottom" constant="8" symbolic="YES" id="zmr-NJ-k0Z"/>
