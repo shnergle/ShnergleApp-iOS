@@ -7,6 +7,7 @@
 //
 
 #import "VenueGalleryViewController.h"
+#import "PostRequest.h"
 
 @implementation VenueGalleryViewController
 
@@ -17,11 +18,12 @@
 
 
 
-- (void)setImage:(UIImage *)img withAuthor:(NSString *)user withComment:(NSString *)msg withTimestamp:(NSString *)time {
+- (void)setImage:(UIImage *)img withAuthor:(NSString *)user withComment:(NSString *)msg withTimestamp:(NSString *)time withId:(NSString *)post_id {
     image = img;
     comment = msg;
     timestamp = time;
     author = user;
+    postId = post_id;
 }
 
 - (void)setTitle:(NSString *)title {
@@ -66,9 +68,18 @@
 }
 
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
+    [self.view makeToastActivity];
     if (buttonIndex != alertView.cancelButtonIndex) {
-        //flag
+        if (appDelegate.venueStatus == Manager) {
+            [[[PostRequest alloc] init] exec:@"posts/set" params:[NSString stringWithFormat:@"facebook_id=%@&post_id=%@&hide=true", appDelegate.facebookId, postId] delegate:self callback:@selector(doNothing:) type:@"string"];
+        } else {
+            [[[PostRequest alloc] init] exec:@"post_reports/set" params:[NSString stringWithFormat:@"facebook_id=%@&post_id=%@", appDelegate.facebookId, postId] delegate:self callback:@selector(doNothing:) type:@"string"];
+        }
     }
+}
+
+- (void)doNothing:(id)whoCares {
+    [self.view hideToastActivity];
 }
 
 @end
