@@ -225,6 +225,7 @@
     AppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
     if (appDelegate.venueStatus == Manager) {
         [_shareButton setBackgroundImage:[UIImage imageNamed:@"stafficon.png"] forState:UIControlStateNormal];
+        [_shareButton setBackgroundImage:[UIImage imageNamed:@"Analytics.png"] forState:UIControlStateNormal];
         _postUpdateButton.hidden = NO;
     }
 }
