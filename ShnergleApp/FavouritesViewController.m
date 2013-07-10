@@ -126,10 +126,7 @@
     }
     
 }
--(void)viewDidDisappear:(BOOL)animated
-{
-    appDelegate.posts = nil;
-}
+
 
 - (void)collectionView:(UICollectionView *)collectionView
     didHighlightItemAtIndexPath:(NSIndexPath *)indexPath {

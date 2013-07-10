@@ -10,7 +10,6 @@
 #import "CrowdItem.h"
 #import "PromotionView.h"
 #import "VenueGalleryViewController.h"
-
 #import "PostRequest.h"
 #import "ImageCache.h"
 #import <NSDate+TimeAgo/NSDate+TimeAgo.h>
@@ -32,7 +31,6 @@
     UIView *headerTitleSubtitleView = [[UILabel alloc] initWithFrame:headerTitleSubtitleFrame];
     headerTitleSubtitleView.backgroundColor = [UIColor clearColor];
     headerTitleSubtitleView.autoresizesSubviews = YES;
-
     CGRect titleFrame = CGRectMake(0, 2, 200, 24);
     UILabel *titleView2 = [[UILabel alloc] initWithFrame:titleFrame];
     titleView2.backgroundColor = [UIColor clearColor];
