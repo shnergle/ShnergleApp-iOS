@@ -78,7 +78,7 @@
     } else {
         [self setHeaderTitle:titleHeader andSubtitle:@"Tap to Follow"];
     }
-    [[[PostRequest alloc] init] exec:@"venue_favourites/set" params:[NSString stringWithFormat:@"facebook_id=%@&venue_id=%@&following=%@", appDelegate.facebookId, appDelegate.activeVenue[@"id"], (following ? @"true" : @"false")] delegate:self callback:@selector(doNothing:) type:@"string"];
+    [[[PostRequest alloc] init] exec:@"venue_followers/set" params:[NSString stringWithFormat:@"facebook_id=%@&venue_id=%@&following=%@", appDelegate.facebookId, appDelegate.activeVenue[@"id"], (following ? @"true" : @"false")] delegate:self callback:@selector(doNothing:) type:@"string"];
 }
 
 - (void)doNothing:(id)whoCares {
