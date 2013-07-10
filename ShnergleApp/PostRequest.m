@@ -8,8 +8,6 @@
 
 #import "PostRequest.h"
 
-#import <SBJson/SBJson.h>
-
 @implementation PostRequest
 
 - (BOOL)exec:(NSString *)path params:(NSString *)params delegate:(id)object callback:(SEL)cb {
@@ -84,12 +82,7 @@
     if ([responseType isEqual:@"image"]) @try {responseArg = [UIImage imageWithData:response]; } @catch (NSException *e) {
         }
     else if ([responseType isEqual:@"string"]) responseArg = [[NSString alloc] initWithData:response encoding:NSUTF8StringEncoding];
-    else {
-        SBJsonParser *jsonParser = [[SBJsonParser alloc] init];
-        NSString *string = [[NSString alloc] initWithData:response encoding:NSUTF8StringEncoding];
-        id jsonObjects = [jsonParser objectWithString:string];
-        responseArg = jsonObjects;
-    }
+    else responseArg = [NSJSONSerialization JSONObjectWithData:response options:NSJSONReadingAllowFragments error:nil];
     NSMethodSignature *methodSig = [[responseObject class] instanceMethodSignatureForSelector:responseCallback];
     NSInvocation *invocation = [NSInvocation invocationWithMethodSignature:methodSig];
     [invocation setSelector:responseCallback];
