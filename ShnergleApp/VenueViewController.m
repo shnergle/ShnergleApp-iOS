@@ -205,7 +205,7 @@
     marker.title = @"";
     marker.snippet = @"";
     marker.map = self.overlayView.venueMap;
-    self.overlayView.venueMap.userInteractionEnabled = FALSE;
+    self.overlayView.venueMap.userInteractionEnabled = NO;
 }
 
 - (BOOL)scrollViewShouldScrollToTop:(UIScrollView *)scrollView {
