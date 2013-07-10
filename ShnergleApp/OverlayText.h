@@ -41,6 +41,11 @@
 @property (weak, nonatomic) IBOutlet UIButton *goingView;
 @property (weak, nonatomic) IBOutlet UIButton *checkedInView;
 
+@property (weak, nonatomic) IBOutlet UIButton *staffButton;
+@property (weak, nonatomic) IBOutlet UIButton *analyticsButton;
+@property (weak, nonatomic) IBOutlet UIButton *mainShareButton;
+
+
 - (IBAction)tappedGoing:(id)sender;
 - (IBAction)tappedThinking:(id)sender;
 

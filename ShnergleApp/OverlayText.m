@@ -22,7 +22,6 @@
         return;
     } else if (appDelegate.venueStatus == Staff) {
         UIViewController *vc = [caller.storyboard instantiateViewControllerWithIdentifier:@"viewconid"];
-        [caller.navigationController pushViewController:vc animated:YES];
         return;
     }
 
@@ -213,6 +212,8 @@
 - (void)didAppear {
     if (appDelegate.venueStatus == Manager) {
         _postUpdateButton.hidden = NO;
+        self.analyticsButton.hidden = NO;
+        self.staffButton.hidden = NO;
     }
 }
 
