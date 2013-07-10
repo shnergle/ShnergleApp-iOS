@@ -7,12 +7,11 @@
 //
 
 #import <FacebookSDK/FacebookSDK.h>
-#import "SearchBarView.h"
 #import "SearchResultsView.h"
 
 @interface MenuViewController : UIViewController <UITableViewDataSource, UITableViewDelegate, UITextFieldDelegate>
 
-@property (weak, nonatomic) IBOutlet SearchBarView *searchBar;
+@property (weak, nonatomic) IBOutlet UIView *searchBar;
 @property (weak, nonatomic) IBOutlet UITextField *bar;
 @property (strong, nonatomic) NSArray *tableSections;
 @property (strong, nonatomic) NSDictionary *tableData;

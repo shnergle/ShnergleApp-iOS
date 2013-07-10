@@ -7,7 +7,6 @@
 //
 
 #import "MenuViewController.h"
-#import "SearchBarView.h"
 #import "PostRequest.h"
 #import "VenueViewController.h"
 
