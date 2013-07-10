@@ -212,7 +212,6 @@
 
 - (void)didAppear {
     if (appDelegate.venueStatus == Manager) {
-        [_shareButton setBackgroundImage:[UIImage imageNamed:@"stafficon.png"] forState:UIControlStateNormal];
         _postUpdateButton.hidden = NO;
     }
 }
