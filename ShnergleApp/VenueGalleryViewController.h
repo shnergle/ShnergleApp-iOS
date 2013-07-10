@@ -16,6 +16,7 @@
     NSString *timestamp;
     NSString *comment;
     NSString *author;
+    NSString *postId;
 }
 @property (weak, nonatomic) IBOutlet UIScrollView *imageScrollView;
 @property (weak, nonatomic) IBOutlet UIImageView *imageView;
@@ -29,5 +30,5 @@
 //- (void)imageScrollerSetup;
 - (void)setTitle:(NSString *)title;
 //- (void)setImages:(NSArray *)img index:(NSInteger)index;
-- (void)setImage:(UIImage *)img withAuthor:(NSString *)user withComment:(NSString *)msg withTimestamp:(NSString *)time;
+- (void)setImage:(UIImage *)img withAuthor:(NSString *)user withComment:(NSString *)msg withTimestamp:(NSString *)time withId:(NSString *)post_id;
 @end
