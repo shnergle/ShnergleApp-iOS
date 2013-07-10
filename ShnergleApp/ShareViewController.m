@@ -50,8 +50,6 @@
     [postParams appendFormat:@"&caption=%@", _textFieldname.text];
     [postParams appendFormat:@"&facebook_id=%@", appDelegate.facebookId];
     if (appDelegate.shareImageLat != nil && appDelegate.shareImageLon != nil) {
-        [postParams appendFormat:@"&lat=%@", appDelegate.shareImageLat];
-        [postParams appendFormat:@"&lon=%@", appDelegate.shareImageLon];
     }
     [[[PostRequest alloc]init]exec:@"posts/set" params:postParams delegate:self callback:@selector(didFinishPost:) type:@"string"];
     }
