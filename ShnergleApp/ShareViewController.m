@@ -45,6 +45,8 @@
 
 - (void)uploadToServer {
 
+    if(self.shnergleThis){
+    //Upload to Shnergle
     NSMutableString *postParams = [[NSMutableString alloc]initWithString:[NSString stringWithFormat:@"venue_id=%@", appDelegate.activeVenue[@"id"]]];
     [postParams appendFormat:@"&caption=%@", _textFieldname.text];
     [postParams appendFormat:@"&facebook_id=%@", appDelegate.facebookId];
@@ -53,6 +55,16 @@
         [postParams appendFormat:@"&lon=%@", appDelegate.shareImageLon];
     }
     [[[PostRequest alloc]init]exec:@"posts/set" params:postParams delegate:self callback:@selector(didFinishPost:) type:@"string"];
+    }
+    //Share to Facebook
+    if ([appDelegate.session.permissions indexOfObject:@"publish_actions"] == NSNotFound)
+        [appDelegate.session requestNewPublishPermissions:@[@"publish_actions"] defaultAudience:FBSessionDefaultAudienceEveryone completionHandler:^(FBSession *session, NSError *error) {
+            [self shareOnFacebook];
+        }];
+    else {
+        [self shareOnFacebook];
+    }
+    
 }
 
 - (void)didFinishPost:(NSString *)response {
@@ -63,13 +75,7 @@
     if ([response isEqual:@"true"]) {
         self.navigationItem.rightBarButtonItem.enabled = NO;
 
-        if ([appDelegate.session.permissions indexOfObject:@"publish_actions"] == NSNotFound)
-            [appDelegate.session requestNewPublishPermissions:@[@"publish_actions"] defaultAudience:FBSessionDefaultAudienceEveryone completionHandler:^(FBSession *session, NSError *error) {
-                [self shareOnFacebook];
-            }];
-        else {
-            [self shareOnFacebook];
-        }
+        
         if (self.saveLocallySwitch.on) {
             UIImageWriteToSavedPhotosAlbum(_image.image, nil, nil, nil);
         }
