@@ -216,9 +216,9 @@
     self.navigationController.navigationBarHidden = NO;
 
 #warning hardcoded venue status
-    if ([appDelegate.activeVenue[@"id"] intValue] == 10003) {
+    if ([appDelegate.activeVenue[@"id"] intValue] == 1) {
         [self setStatus:Manager];
-    } else if ([appDelegate.activeVenue[@"id"] intValue] == 10003) {
+    } else if ([appDelegate.activeVenue[@"id"] intValue] == 2) {
         [self setStatus:Staff];
     } else {
         [self setStatus:Default];
