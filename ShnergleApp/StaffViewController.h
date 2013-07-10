@@ -11,5 +11,4 @@
 
 @interface StaffViewController : CustomBackViewController <UICollectionViewDataSource, UICollectionViewDelegate>
 
-
 @end

@@ -7,13 +7,17 @@
 //
 
 #import "LoginScreenController.h"
-#import "AppDelegate.h"
 #import "PostRequest.h"
 
 @implementation LoginScreenController
 
 - (void)viewWillAppear:(BOOL)animated {
-    [[self navigationController] setNavigationBarHidden:TRUE];
+    [[self navigationController] setNavigationBarHidden:YES];
+    if (appDelegate.didShare != nil) {
+        UIViewController *vc = [self.storyboard instantiateViewControllerWithIdentifier:@"AroundMeSlidingViewController"];
+        [self.navigationController pushViewController:vc animated:YES];
+    }
+    appDelegate.didShare = nil;
 }
 
 - (void)viewDidLoad {
@@ -22,23 +26,14 @@
     [self.buttonLoginLogout setBackgroundImage:[UIImage imageNamed:@"login-button-small.png"] forState:UIControlStateNormal];
     [self.buttonLoginLogout setBackgroundImage:[UIImage imageNamed:@"login-button-small-pressed.png"] forState:UIControlStateHighlighted];
 
-    //HideNavBar
-    [[self navigationController] setNavigationBarHidden:TRUE];
-    AppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
+    [[self navigationController] setNavigationBarHidden:YES];
     if (!appDelegate.session.isOpen) {
         self.buttonLoginLogout.hidden = YES;
-        // create a fresh session object
         appDelegate.session = [[FBSession alloc] initWithAppID:nil permissions:@[@"email", @"user_birthday"] urlSchemeSuffix:nil tokenCacheStrategy:nil];
-
-        // if we don't have a cached token, a call to open here would cause UX for login to
-        // occur; we don't want that to happen unless the user clicks the login button, and so
-        // we check here to make sure we have a token before calling open
         if (appDelegate.session.state == FBSessionStateCreatedTokenLoaded) {
-            // even though we had a cached token, we need to login to make the session usable
             [appDelegate.session openWithCompletionHandler:^(FBSession *session,
                                                              FBSessionState status,
                                                              NSError *error) {
-                // we recurse here, in order to update buttons and labels
                 [self updateView];
             }];
         } else {
@@ -48,10 +43,8 @@
 }
 
 - (void)updateView {
-    AppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
     if (appDelegate.session.isOpen) {
         self.buttonLoginLogout.hidden = YES;
-
 
         //login on server
         [[[FBRequest alloc] initWithSession:appDelegate.session graphPath:@"me"] startWithCompletionHandler:
@@ -96,7 +89,7 @@
                 [params appendString:@"&age="];
                 [params appendString:[NSString stringWithFormat:@"%d", age]];
 
-                if (![[[PostRequest alloc] init] exec:@"users/set" params:params delegate:self callback:@selector(postResponse:) type:@"string"]) [self alert];
+                if (![[[PostRequest alloc] init] exec:@"users/set" params:params delegate:self callback:@selector(postResponse:)]) [self alert];
             } else {
                 self.buttonLoginLogout.hidden = NO;
                 [self alert];
@@ -108,17 +101,6 @@
 }
 
 - (void)postResponse:(id)response {
-    AppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
-    if ([response isEqual:@"true"]) {
-        NSString *params = [NSString stringWithFormat:@"facebook_id=%@", appDelegate.facebookId];
-        if (![[[PostRequest alloc] init] exec:@"users/get" params:params delegate:self callback:@selector(getResponse:)]) [self alert];
-    } else {
-        [self alert];
-    }
-}
-
-- (void)getResponse:(id)response {
-    AppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
     if (response) {
         if (![((NSDictionary *)response)[@"twitter"] isEqual : @""]) appDelegate.twitter = ((NSDictionary *)response)[@"twitter"];
         if ([((NSDictionary *)response)[@"save_locally"] isEqual : @1]) appDelegate.saveLocally = YES;
@@ -135,7 +117,6 @@
 
 - (IBAction)buttonClickHandler:(id)sender {
     self.buttonLoginLogout.hidden = YES;
-    AppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
 
     if (appDelegate.session.state != FBSessionStateCreated) appDelegate.session = [[FBSession alloc] initWithAppID:nil permissions:@[@"email", @"user_birthday"] urlSchemeSuffix:nil tokenCacheStrategy:nil];
     [appDelegate.session openWithCompletionHandler:^(FBSession *session,

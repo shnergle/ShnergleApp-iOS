@@ -13,11 +13,13 @@
 @interface PhotoLocationViewController : CustomBackViewController <UISearchBarDelegate, GMSMapViewDelegate, UITableViewDelegate, UITableViewDataSource> {
     GMSMapView *map;
     BOOL hasPositionLocked;
+    NSMutableArray *results;
+    NSArray *resultsFiltered;
 }
 
 @property (weak, nonatomic) IBOutlet UILabel *headline;
 @property (weak, nonatomic) IBOutlet UITableView *searchResultTable;
 @property (weak, nonatomic) IBOutlet UIView *mapView;
-
+@property (weak, nonatomic) IBOutlet UISearchBar *searchBar;
 
 @end

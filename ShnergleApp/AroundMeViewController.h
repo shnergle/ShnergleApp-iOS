@@ -10,7 +10,7 @@
 #import <GoogleMaps/GoogleMaps.h>
 #import "OverlayText.h"
 #import <ECSlidingViewController.h>
-#import <QuartzCore/QuartzCore.h> // shadow and border
+#import <QuartzCore/QuartzCore.h>
 
 @interface AroundMeViewController : UIViewController<UICollectionViewDataSource, UICollectionViewDelegate, GMSMapViewDelegate> {
     NSInteger selectedVenue;
@@ -23,7 +23,6 @@
     NSArray *images;
     BOOL loading;
 }
-//@property (weak, nonatomic) IBOutlet UIImageView *dropDownIndicator;
 @property (weak, nonatomic) IBOutlet UIButton *drawerCloseButton;
 @property (weak, nonatomic) IBOutlet OverlayText *distanceScrollerView;
 @property (weak, nonatomic) IBOutlet UISlider *distanceScroller;
@@ -35,18 +34,12 @@
 - (void)       mapView:(GMSMapView *)mapView
     didTapAtCoordinate:(CLLocationCoordinate2D)coordinate;
 @property (weak, nonatomic) IBOutlet OverlayText *overlay;
-//@property(nonatomic, retain) UIView *titleView;
-//@property (weak, nonatomic) IBOutlet UILabel *titleLabel;
-//@property (weak, nonatomic) IBOutlet DropDownMenu *dropDownMenu;
 - (BOOL)scrollViewShouldScrollToTop:(UIScrollView *)scrollView;
 - (IBAction)sliderValueChanged:(id)sender;
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *checkInButton;
 
-
-//-(void)createTitleButton;
 - (void)initMap;
 - (void)tapMenu;
-
 - (void)hideOverlay;
 - (void)showOverlay;
 - (void)showDistanceScroller;

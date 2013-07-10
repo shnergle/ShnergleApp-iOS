@@ -7,7 +7,6 @@
 //
 
 #import "MenuViewController.h"
-#import "AppDelegate.h"
 #import "SearchBarView.h"
 #import "PostRequest.h"
 #import "VenueViewController.h"
@@ -16,17 +15,12 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view from its nib.
-
-    //load search bar
     UIView *searchBar = [[NSBundle mainBundle] loadNibNamed:@"SearchBar" owner:self options:nil][0];
     [self.view addSubview:searchBar];
-    AppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
 
     _tableSections = @[@"Profile", @"Explore"];
     _tableData = @{@0: @[appDelegate.fullName], @1: @[@"Around Me", @"Following", @"Promotions", @"Quiet", @"Trending", @"Add Venue"]};
     _searchResults = appDelegate.searchResults;
-    //tmp - give it an element
     _searchResults = [[NSMutableArray alloc]init];
     self.searchResultsView.resultsTableView.delegate = self;
     self.searchResultsView.resultsTableView.dataSource = self;
@@ -48,11 +42,9 @@
 }
 
 - (void)postResponse:(id)response {
-    //NSLog(@"search response: %@", response);
     if ([response isKindOfClass:[NSArray class]]) {
-        //_searchResults = [[NSMutableArray alloc]initWithArray:response];
         for (id obj in response) {
-            if ([obj count] > 1) [_searchResults addObject:obj[@"name"]];
+            if ([obj count] > 1) [_searchResults addObject:obj];
         }
     }
 
@@ -70,14 +62,6 @@
             cell.accessoryView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"profileicon.png"]];
             cell.accessoryView.bounds = CGRectMake(0, 0, 27, 19);
             _profileCell = cell;
-        } else if (indexPath.row == 1) {
-            UILabel *noLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 20, 15)];
-            noLabel.text = @"0";
-            noLabel.font = [UIFont systemFontOfSize:20];
-            noLabel.textColor = [UIColor whiteColor];
-            noLabel.backgroundColor = [UIColor clearColor];
-            cell.accessoryView = noLabel;
-            cell.accessoryView.opaque = NO;
         }
         return cell;
     } else {
@@ -85,7 +69,7 @@
         if (!cell) {
             cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:[NSString stringWithFormat:@"ResultCell"]];
         }
-        cell.textLabel.text = _searchResults[indexPath.row];
+        cell.textLabel.text = _searchResults[indexPath.row][@"name"];
         cell.textLabel.textColor = [UIColor whiteColor];
         cell.backgroundColor = [UIColor clearColor];
         cell.textLabel.font = [UIFont systemFontOfSize:20];
@@ -142,13 +126,12 @@
     if (tableView == self.searchResultsView.resultsTableView) {
         UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"MainStoryboard" bundle:nil];
         VenueViewController *viewController = [storyboard instantiateViewControllerWithIdentifier:@"Venue"];
-        [viewController setTitle:_searchResults[indexPath.row]];
+        [viewController setVenue:_searchResults[indexPath.row]];
         [self.navigationController pushViewController:viewController animated:YES];
     }
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    AppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
     if ([segue.identifier isEqualToString:@"PromotionSegue"]) {
         appDelegate.topViewType = @"Promotions";
     } else if ([segue.identifier isEqualToString:@"QuietSegue"]) {
@@ -167,7 +150,6 @@
 
 - (BOOL)textFieldShouldReturn:(UITextField *)textField {
     if (textField.text.length > 1) {
-        AppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
         NSString *params = [NSString stringWithFormat:@"term=%@&facebook_id=%@", _bar.text, appDelegate.facebookId];
         [[[PostRequest alloc] init] exec:@"user_searches/set" params:params delegate:self callback:@selector(searchRegistered:)];
         [[[PostRequest alloc] init] exec:@"venues/get" params:params delegate:self callback:@selector(postResponse:)];

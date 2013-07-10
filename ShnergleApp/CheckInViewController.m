@@ -7,11 +7,9 @@
 //
 
 #import "CheckInViewController.h"
-#import "AppDelegate.h"
 #import <UIImage+Resize.h>
 
 @implementation CheckInViewController
-
 
 - (void)takePhoto {
     imgPickerCam = [[UIImagePickerController alloc] init];
@@ -22,7 +20,6 @@
 
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info {
     taken = YES;
-    AppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
     appDelegate.shareImage = [info[@"UIImagePickerControllerOriginalImage"] resizedImageToFitInSize:CGSizeMake(200, 200) scaleIfSmaller:YES];
     info = nil;
     [imgPickerCam dismissViewControllerAnimated:NO completion:nil];
@@ -47,11 +44,6 @@
     if (!taken) {
         [self takePhoto];
     }
-}
-
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
 
 @end

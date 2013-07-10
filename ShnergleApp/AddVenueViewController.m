@@ -7,7 +7,6 @@
 //
 
 #import "AddVenueViewController.h"
-#import "AppDelegate.h"
 #import "PostRequest.h"
 #import <MapKit/MapKit.h>
 #import <Toast+UIView.h>
@@ -26,18 +25,7 @@ typedef enum {
     WorkHere
 } Field;
 
-
 @implementation AddVenueViewController
-
-
-
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-    if (self) {
-        // Custom initialization
-    }
-    return self;
-}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -49,7 +37,6 @@ typedef enum {
 
 - (void)addVenue {
     [self.view makeToastActivity];
-    AppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
     if (appDelegate.addVenueType) _userData[Category + 1] = appDelegate.addVenueType;
 
     if (_workSwitch.on) {
@@ -102,18 +89,10 @@ typedef enum {
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
-
 - (void)didFinishAddingVenue:(NSString *)response {
     [self.view hideToastActivity];
 
-
-    if ([response isEqual:@"true"]) {
-    } else {
-        NSLog(@"%@", response);
+    if (![response isEqual:@"true"]) {
         UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"Uh-oh.. Something went wrong.." message:nil delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
         [alert show];
     }
@@ -125,13 +104,7 @@ typedef enum {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:[NSString stringWithFormat:@"Cell%d", indexPath.row ]];
     if (cell == nil) cell = [[UITableViewCell alloc] init];
 
-
     cell.textLabel.text = _tableData[indexPath.row];
-    /*
-       UITextField *textField = [[UITextField alloc] initWithFrame:CGRectMake(110, 10, 185, 30)];
-       textField.delegate = self;
-       textField.tag = indexPath.row;
-     */
 
     UITextField *textField = (UITextField *)[cell viewWithTag:indexPath.row + 1];
 
@@ -206,12 +179,6 @@ typedef enum {
         _workSwitch = workSwitch;
     }
 
-
-    if (![(self.userData)[indexPath.row] isEqualToString : @""]) {
-        //NSLog(@"%@ at indexPath.row %d",[self.userData objectAtIndex:indexPath.row], indexPath.row);
-        //textField.placeholder = nil;
-        //textField.text = (self.userData)[indexPath.row];
-    }
     return cell;
 }
 
@@ -227,7 +194,6 @@ typedef enum {
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     [self.navigationController setNavigationBarHidden:NO animated:YES];
-    AppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
     if (appDelegate.addVenueType != nil) {
         secondCellField.text = appDelegate.addVenueType;
         secondCellField.textColor = [UIColor blackColor];
@@ -238,7 +204,6 @@ typedef enum {
 - (void)textFieldDidEndEditing:(UITextField *)textField {
     [textField resignFirstResponder];
     self.userData[textField.tag] = textField.text;
-    NSLog(@"%@ is added to [%d]", textField.text, textField.tag);
 }
 
 - (void)segwayToWork {
@@ -253,7 +218,6 @@ typedef enum {
 }
 
 - (void)goBack {
-    AppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
     appDelegate.addVenueType = nil;
     [super goBack];
 }
@@ -269,10 +233,6 @@ typedef enum {
 }
 
 - (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context {
-    // How it works:
-    // Whenever position changes, this method is run. It then changes the camera to point to the current position, minus a small latitude (to make the map position center in the top part of our Around Me view). The zoom level is an average level of detail for a few blocks.
-
-    //Make sure it is only run once:
     if (!hasPositionLocked) {
         if ([keyPath isEqualToString:@"myLocation"] && [object isKindOfClass:[GMSMapView class]]) {
             [map animateToCameraPosition:[GMSCameraPosition cameraWithLatitude:map.myLocation.coordinate.latitude
@@ -287,8 +247,7 @@ typedef enum {
     }
 }
 
-- (void)       mapView:(GMSMapView *)mapView
-    didTapAtCoordinate:(CLLocationCoordinate2D)coordinate {
+- (void)mapView:(GMSMapView *)mapView didTapAtCoordinate:(CLLocationCoordinate2D)coordinate {
     [mapView clear];
     CLLocationCoordinate2D position = CLLocationCoordinate2DMake(coordinate.latitude, coordinate.longitude);
     marker = [GMSMarker markerWithPosition:position];
@@ -314,16 +273,11 @@ typedef enum {
 }
 
 - (void)viewDidAppear:(BOOL)animated {
-    NSLog(@"%f  %f", self.mapView.frame.size.height, self.mapView.bounds.size.height);
-
     [self addBorder];
 
     CALayer *topBorder = [CALayer layer];
 
-    topBorder.frame = CGRectMake(0.0f, self.mapView.bounds.size.height - 1, self.mapView.frame.size.width
-                                 , 1.0f);
-    //topBorder.frame = CGRectMake(0.0f, self.mapView.bounds.origin.x + 190, self.mapView.frame.size.height
-    //                           , 1.0f);
+    topBorder.frame = CGRectMake(0.0f, self.mapView.bounds.size.height - 1, self.mapView.frame.size.width, 1.0f);
 
     topBorder.backgroundColor = [UIColor lightGrayColor].CGColor;
 

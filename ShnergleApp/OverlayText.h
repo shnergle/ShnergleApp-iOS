@@ -47,8 +47,6 @@
 @property (weak, nonatomic) IBOutlet UITapGestureRecognizer *tapGoing;
 @property (weak, nonatomic) IBOutlet UITapGestureRecognizer *tapThinking;
 
-
-
 - (IBAction)postUpdateTapped:(id)sender;
 - (void)hideAnimated:(NSInteger)originalSize animationDuration:(double)animationDuration targetSize:(NSInteger)targetSize contentView:(UIView *)contentView;
 - (void)showAnimated:(NSInteger)targetSize animationDelay:(double)animationDelay animationDuration:(double)animationDuration;

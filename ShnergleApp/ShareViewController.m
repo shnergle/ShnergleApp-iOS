@@ -8,13 +8,12 @@
 
 #import "ShareViewController.h"
 #import <FacebookSDK/FBFriendPickerViewController.h>
-#import "AppDelegate.h"
+
 #import "PostRequest.h"
 
 @implementation ShareViewController
 
-
-//@synthesize textFieldname;
+#warning "implement a way of not re-shnergling"
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -22,17 +21,11 @@
     self.textFieldname.placeholder = @"Write something..";
     _textFieldname.placeholderColor = [UIColor lightGrayColor];
 
-    AppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
     if (appDelegate.shareImage) _image.image = appDelegate.shareImage;
-
 
     self.saveLocallySwitch.on = appDelegate.saveLocally;
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
 
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
@@ -42,57 +35,40 @@
 
 - (void)share {
     [self.view makeToastActivity];
-
+    appDelegate.didShare = @YES;
     [self uploadToServer];
-
-
 }
 
 - (void)viewDidDisappear:(BOOL)animated {
-    NSLog(@"Share view dissappeared (and spinner removed)");
     [self.view hideToastActivity];
 }
 
 - (void)uploadToServer {
-    
-    //Create post
-    //upload image using id from post (not now and not here)
-    //register in the "shared" db if shared on facebook (not yet)
-    AppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
 
-    NSMutableString *postParams = [[NSMutableString alloc]initWithString:[NSString stringWithFormat:@"venue_id=%@",appDelegate.activeVenue[@"id"]]];
-    [postParams appendFormat:@"&caption=%@",_textFieldname.text];
-    //Set lat/lon if specified in the image metadata
-    [postParams appendFormat:@"&facebook_id=%@",appDelegate.facebookId];
-    if(appDelegate.shareImageLat != nil && appDelegate.shareImageLon != nil){
-        [postParams appendFormat:@"&lat=%@",appDelegate.shareImageLat];
-        [postParams appendFormat:@"&lon=%@",appDelegate.shareImageLon];
+    NSMutableString *postParams = [[NSMutableString alloc]initWithString:[NSString stringWithFormat:@"venue_id=%@", appDelegate.activeVenue[@"id"]]];
+    [postParams appendFormat:@"&caption=%@", _textFieldname.text];
+    [postParams appendFormat:@"&facebook_id=%@", appDelegate.facebookId];
+    if (appDelegate.shareImageLat != nil && appDelegate.shareImageLon != nil) {
+        [postParams appendFormat:@"&lat=%@", appDelegate.shareImageLat];
+        [postParams appendFormat:@"&lon=%@", appDelegate.shareImageLon];
     }
-    NSLog(@"%@",postParams);
     [[[PostRequest alloc]init]exec:@"posts/set" params:postParams delegate:self callback:@selector(didFinishPost:) type:@"string"];
-
 }
 
--(void)didFinishPost:(NSString *)response{
-    NSLog(@"%@",response);
-        AppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
-        [[[PostRequest alloc] init] exec:@"images/set" params:[NSString stringWithFormat:@"entity=post&entity_id=%@&facebook_id=%@", response, appDelegate.facebookId] image:_image.image delegate:self callback:@selector(uploadedToServer:) type:@"string"];
+- (void)didFinishPost:(NSString *)response {
+    [[[PostRequest alloc] init] exec:@"images/set" params:[NSString stringWithFormat:@"entity=post&entity_id=%@&facebook_id=%@", response, appDelegate.facebookId] image:_image.image delegate:self callback:@selector(uploadedToServer:) type:@"string"];
 }
 
 - (void)uploadedToServer:(NSString *)response {
-    
-    NSLog(@"%@",response);
     if ([response isEqual:@"true"]) {
         self.navigationItem.rightBarButtonItem.enabled = NO;
-        AppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
-        NSLog(@"89");
+
         if ([appDelegate.session.permissions indexOfObject:@"publish_actions"] == NSNotFound)
             [appDelegate.session requestNewPublishPermissions:@[@"publish_actions"] defaultAudience:FBSessionDefaultAudienceEveryone completionHandler:^(FBSession *session, NSError *error) {
                 [self shareOnFacebook];
             }];
         else {
             [self shareOnFacebook];
-            NSLog(@"shared");
         }
         if (self.saveLocallySwitch.on) {
             UIImageWriteToSavedPhotosAlbum(_image.image, nil, nil, nil);
@@ -108,25 +84,30 @@
         [self.navigationController popToRootViewControllerAnimated:YES];
         return;
     }
-    AppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
+
     NSMutableDictionary<FBGraphObject> *action = [FBGraphObject graphObject];
 
-
-
-    /*
-       Temp solution, 17 June:
-       share the image, put venue details ([name] and facebook url, if exists in caption)
-     */
     action[@"source"] = _image.image;
-    action[@"message"] =  [NSString stringWithFormat:@"@[%@:%@]", selectedFriends[0][@"id"], selectedFriends[0][@"name"]];
+    NSMutableString *friends = [NSMutableString stringWithFormat:@""];
+    if ([selectedFriends count] > 0) {
+        [friends appendString:@" with"];
+        //[friends appendFormat:@" @[%@", selectedFriends[0][@"name"]];
+        [friends appendFormat:@" @[100000519003410:adam.schakaki]"];
+        for (int i = 1; i < [selectedFriends count] - 1; i++) {
+            [friends appendFormat:@", %@", selectedFriends[i][@"name"]];
+        }
+        if ([selectedFriends count] > 1) {
+            [friends appendString:@" and"];
+        }
+        [friends appendFormat:@" %@", selectedFriends[[selectedFriends count] - 1][@"name"]];
+        [friends appendString:@"."];
+    }
+    action[@"message"] = [NSString stringWithFormat:@"%@ @%@%@", _textFieldname.text, appDelegate.activeVenue[@"name"], friends];
     action[@"fb:explicitly_shared"] = @"true";
-    action[@"tags"] = selectedFriends;
+    //action[@"tags"] = selectedFriends;
     //action[@"place"] = @"http://samples.ogp.me/259837270824167";
     //action[@"tags"] = @[@"549445495",@"701732"];
-    [[[FBRequest alloc] initWithSession:appDelegate.session graphPath:@"me/photos" parameters:action HTTPMethod:@"POST"] startWithCompletionHandler:^(FBRequestConnection *connection,id result,NSError *error) {
-        NSLog(@"FBSHARE - PHOTO - connection: %@", connection);
-        NSLog(@"FBSHARE - PHOTO - result: %@", result);
-        NSLog(@"FBSHARE - PHOTO - error: %@", error);
+    [[[FBRequest alloc] initWithSession:appDelegate.session graphPath:@"me/photos" parameters:action HTTPMethod:@"POST"] startWithCompletionHandler:^(FBRequestConnection *connection, id result, NSError *error) {
         /*NSMutableDictionary<FBGraphObject> *action = [FBGraphObject graphObject];
            action[@"venue"] = @"http://samples.ogp.me/259837270824167";
            if (action[@"tags"] != nil) action[@"tags"] = selectedFriends;
@@ -136,10 +117,6 @@
            [[[FBRequest alloc] initForPostWithSession:appDelegate.session graphPath:@"me/shnergle:share" graphObject:action] startWithCompletionHandler:^(FBRequestConnection *connection,
                                                                                                                                                        id result,
                                                                                                                                                        NSError *error) {
-                NSLog(@"FBSHARE - POST - connection: %@", connection);
-                NSLog(@"FBSHARE - POST - result: %@", result);
-                NSLog(@"FBSHARE - POST - error: %@", error);
-
 
                 [self.navigationController setNavigationBarHidden:YES animated:YES];
                 //UIViewController *aroundMe = [self.storyboard instantiateViewControllerWithIdentifier:@"AroundMe"];
@@ -148,24 +125,17 @@
             }];
          */
 
-        NSLog(@"finished facebook share");
         [self.navigationController popToRootViewControllerAnimated:YES];
     }];
 }
 
 - (IBAction)selectFriendsButtonAction:(id)sender {
-    AppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
-    // Initialize the friend picker
     FBFriendPickerViewController *friendPickerController =
         [[FBFriendPickerViewController alloc] init];
-
-    // Configure the picker ...
     friendPickerController.title = @"Select Friends";
-    // Set this view controller as the friend picker delegate
     friendPickerController.delegate = self;
     friendPickerController.session = appDelegate.session;
 
-    // Fetch the data
     [friendPickerController loadData];
 
     [self presentViewController:friendPickerController
@@ -207,8 +177,5 @@
     }
     return YES;
 }
-
-
-
 
 @end

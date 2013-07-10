@@ -6,7 +6,6 @@
 //  Copyright (c) 2013 Shnergle. All rights reserved.
 //
 
-#import "AppDelegate.h"
 #import "StaffTypeViewController.h"
 
 @implementation StaffTypeViewController
@@ -28,14 +27,12 @@
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    AppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
     appDelegate.staffType = indexPath.row == 0 ? @"Manager" : @"Staff";
     [self goBack];
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
 
 @end

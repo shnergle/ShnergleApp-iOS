@@ -8,14 +8,14 @@
 
 #import "OverlayText.h"
 #import "VenueViewController.h"
-#import "AppDelegate.h"
+
 #import "CheckInViewController.h"
+#import "PostRequest.h"
 
 @implementation OverlayText
 
 - (IBAction)share:(id)sender {
     UIViewController *caller = (UIViewController *)self.nextResponder.nextResponder;
-    AppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
     if (appDelegate.venueStatus == Manager) {
         UIViewController *vc = [caller.storyboard instantiateViewControllerWithIdentifier:@"Staff"];
         [caller.navigationController pushViewController:vc animated:YES];
@@ -34,7 +34,6 @@
     CGRect screenRect = [[UIScreen mainScreen] bounds];
     CGFloat screenHeight = screenRect.size.height;
 
-
     frame = CGRectMake(0, screenHeight - 80, self.frame.size.width, self.frame.size.height);
     self = [super initWithFrame:frame];
 
@@ -44,25 +43,7 @@
     return self;
 }
 
-/* Only override drawRect: if you perform custom drawing.
-   // An empty implementation adversely affects performance during animation.
-   - (void)drawRect:(CGRect)rect
-   {
-   //self.frame = CGRectMake(self.frame.origin.x, 250, self.frame.size.width, self.frame.size.height);
-   }*/
-
-
 - (IBAction)swipeDown:(id)sender {
-    //[self setTabBarHidden:false animated:true];
-    /*if the box is already swiped down, ignore
-       if(self.frame.origin.y > 200){
-
-       }else if(self.frame.origin.y < 200){
-       self.frame = CGRectMake(self.frame.origin.x, 200, self.frame.size.width, self.frame.size.height);
-       }else{
-       self.frame = CGRectMake(self.frame.origin.x, 390, self.frame.size.width, self.frame.size.height);
-       }
-     */
     CGRect screenRect = [[UIScreen mainScreen] bounds];
     CGFloat screenHeight = screenRect.size.height;
 
@@ -71,7 +52,6 @@
 }
 
 - (IBAction)swipeUp:(id)sender {
-    //[self setTabBarHidden:true animated:true];
     [self showAnimated:50 animationDelay:0.2 animationDuration:0.5];
     isUp = YES;
 }
@@ -82,7 +62,6 @@
 }
 
 - (IBAction)tappedGoing:(id)sender {
-    NSLog(@"tappedGoing");
     int oldValue = [self.goingLabel.text intValue];
     int newValue = oldValue + 1;
     [self.goingLabel setFont:[UIFont fontWithName:self.goingLabel.font.fontName size:self.goingLabel.font.pointSize]];
@@ -94,7 +73,6 @@
 }
 
 - (IBAction)tappedThinking:(id)sender {
-    NSLog(@"tapped Thinking");
     int oldValue = [self.thinkingLabel.text intValue];
     int newValue = oldValue + 1;
     [self.thinkingLabel setFont:[UIFont fontWithName:self.thinkingLabel.font.fontName size:self.thinkingLabel.font.pointSize]];
@@ -108,7 +86,6 @@
 
     UIStoryboard *storyb = [UIStoryboard storyboardWithName:@"MainStoryboard" bundle:nil];
     UIViewController *vc = [storyb instantiateViewControllerWithIdentifier:@"CheckInViewController"];
-
 
     [caller.navigationController pushViewController:vc animated:YES];
 }
@@ -127,7 +104,22 @@
     self.summaryHeadlineTextField.layer.borderWidth = 0.0f;
     self.summaryHeadlineTextField.layer.cornerRadius = 0.0f;
     self.summaryContentTextField.layer.cornerRadius = 0.0f;
+    
+[[[PostRequest alloc] init] exec:@"venues/set"
+                          params:[NSString stringWithFormat:
+                                  @"facebook_id=%@&venue_id=%@&tonight=%@",
+                                  appDelegate.facebookId,
+                                  appDelegate.activeVenue[@"id"],
+                                  self.summaryContentTextField.text] delegate:self
+                                    callback:@selector(doNothing:)
+                                    type:@"string"];
 }
+
+-(void)doNothing:(id)sender
+{
+    NSLog(@"Update sent to server.. Swwoooosh!");
+}
+
 
 - (IBAction)postUpdateTapped:(id)sender {
     [self.summaryContentTextField setBackgroundColor:[UIColor whiteColor]];
@@ -169,19 +161,18 @@
 - (void)showAnimated:(NSInteger)targetSize animationDelay:(double)animationDelay animationDuration:(double)animationDuration {
     [UIView animateWithDuration:animationDuration delay:animationDelay options:(UIViewAnimationOptions)UIViewAnimationCurveEaseOut
                      animations:^{
-        //contentView.frame = self.bounds;
 
         self.frame = CGRectMake(self.bounds.origin.x,
                                 targetSize,
                                 self.bounds.size.width,
-                                self.bounds.size.height /*TABBAR_HEIGHT*/);
+                                self.bounds.size.height);
     }
 
                      completion:^(BOOL finished) {
         self.frame = CGRectMake(self.bounds.origin.x,
                                 targetSize,
                                 self.bounds.size.width,
-                                self.bounds.size.height /*TABBAR_HEIGHT*/);
+                                self.bounds.size.height);
     }];
 }
 
@@ -190,12 +181,10 @@
 
     UIView *contentView;
 
-
     contentView = self;
 
     CGRect screenRect = [[UIScreen mainScreen] bounds];
     CGFloat screenHeight = screenRect.size.height;
-
 
     if (hide) {
         NSInteger targetSize = screenHeight - 160;
@@ -222,7 +211,6 @@
 }
 
 - (void)didAppear {
-    AppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
     if (appDelegate.venueStatus == Manager) {
         [_shareButton setBackgroundImage:[UIImage imageNamed:@"stafficon.png"] forState:UIControlStateNormal];
         [_shareButton setBackgroundImage:[UIImage imageNamed:@"Analytics.png"] forState:UIControlStateNormal];
@@ -230,16 +218,4 @@
     }
 }
 
-/*
-   - (UIColor *)darkerColourForColour:(UIColor *)c
-   {
-    float r, g, b, a;
-    if ([c getRed:&r green:&g blue:&b alpha:&a])
-        return [UIColor colorWithRed:MAX(r - 0.1, 0.0)
-                               green:MAX(g - 0.1, 0.0)
-                                blue:MAX(b - 0.1, 0.0)
-                               alpha:0.2];
-    return nil;
-   }
- */
 @end

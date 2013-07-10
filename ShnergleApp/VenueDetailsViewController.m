@@ -7,7 +7,6 @@
 //
 
 #import "VenueDetailsViewController.h"
-#import "AppDelegate.h"
 
 @interface VenueDetailsViewController ()
 
@@ -18,7 +17,6 @@
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
-        // Custom initialization
     }
     return self;
 }
@@ -26,9 +24,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.navigationItem.title = @"Venue Details";
-    //[self setRightBarButton: [NSString @"Done"];
 
-    AppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
     appDelegate.venueDetailsContent = [[NSMutableArray alloc]init];
     self.tableData = @[@"Phone", @"Email", @"Website"];
 }
@@ -74,13 +70,11 @@
 }
 
 - (void)textFieldDidEndEditing:(UITextField *)textField {
-    AppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
     appDelegate.venueDetailsContent[textField.tag] = textField.text;
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
 
 @end

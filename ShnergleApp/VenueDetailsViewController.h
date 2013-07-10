@@ -14,5 +14,4 @@
 @property (weak, nonatomic) IBOutlet UITableView *tableView2;
 @property (strong, nonatomic) NSArray *tableData;
 
-
 @end
