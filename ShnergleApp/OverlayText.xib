@@ -432,10 +432,6 @@
                         <action selector="share:" destination="1" eventType="touchUpInside" id="2187"/>
                     </connections>
                 </button>
-                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="112-group.png" translatesAutoresizingMaskIntoConstraints="NO" id="PrS-Tp-JPR">
-                    <rect key="frame" x="121" y="26" width="30" height="30"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                </imageView>
                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Share" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="khN-mT-sFq">
                     <rect key="frame" x="144" y="30" width="66" height="21"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -443,6 +439,10 @@
                     <color key="textColor" red="0.26274511220000002" green="0.26274511220000002" blue="0.26666668059999998" alpha="1" colorSpace="deviceRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
+                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="112-group.png" translatesAutoresizingMaskIntoConstraints="NO" id="PrS-Tp-JPR">
+                    <rect key="frame" x="121" y="26" width="30" height="30"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                </imageView>
                 <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1WE-lv-x6u">
                     <rect key="frame" x="215" y="26" width="100" height="30"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -494,10 +494,6 @@
                         <action selector="share:" destination="1" eventType="touchUpInside" id="jDh-c3-TPq"/>
                     </connections>
                 </button>
-                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="analtyics_icon.png" translatesAutoresizingMaskIntoConstraints="NO" id="GL9-Pa-rl8">
-                    <rect key="frame" x="12" y="26" width="30" height="30"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                </imageView>
                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Analytics" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MLb-yG-muo">
                     <rect key="frame" x="42" y="30" width="59" height="21"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -505,6 +501,10 @@
                     <color key="textColor" red="0.26274511218070984" green="0.26274511218070984" blue="0.26666668057441711" alpha="1" colorSpace="deviceRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
+                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="analtyics_icon.png" translatesAutoresizingMaskIntoConstraints="NO" id="GL9-Pa-rl8">
+                    <rect key="frame" x="10" y="26" width="30" height="30"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                </imageView>
             </subviews>
             <color key="backgroundColor" red="0.91372549020000005" green="0.92156862750000001" blue="0.94117647059999998" alpha="1" colorSpace="calibratedRGB"/>
             <gestureRecognizers/>
@@ -525,9 +525,9 @@
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <connections>
+                <outlet property="anaImage" destination="GL9-Pa-rl8" id="3Tx-cG-rqB"/>
+                <outlet property="anaLabel" destination="MLb-yG-muo" id="buP-wb-wDJ"/>
                 <outlet property="analyticsButton" destination="KHc-ve-3C3" id="4j0-PD-1mE"/>
-                <outlet property="analyticsImage" destination="GL9-Pa-rl8" id="Eql-Iq-J1p"/>
-                <outlet property="analyticsLabel" destination="MLb-yG-muo" id="CHb-ay-YVg"/>
                 <outlet property="checkedInLabel" destination="226" id="jnN-pz-CNx"/>
                 <outlet property="checkedInView" destination="52r-VY-WE5" id="lHg-8g-Jal"/>
                 <outlet property="goingLabel" destination="215" id="D5h-2V-Ezh"/>
@@ -540,9 +540,11 @@
                 <outlet property="postUpdateButton" destination="hQT-9q-ZmQ" id="5hT-fc-Mxf"/>
                 <outlet property="publishButton" destination="o08-tK-dph" id="F74-8T-yik"/>
                 <outlet property="scrollView" destination="811" id="2oc-m9-KOy"/>
+                <outlet property="shareImage" destination="PrS-Tp-JPR" id="g6x-23-EdC"/>
+                <outlet property="shareLabel" destination="khN-mT-sFq" id="r42-tE-X5l"/>
                 <outlet property="staffButton" destination="1WE-lv-x6u" id="7wZ-CR-aJI"/>
-                <outlet property="staffImage" destination="bD0-0H-bGn" id="1Ge-qV-1fF"/>
-                <outlet property="staffLabel" destination="dXe-fc-b7U" id="466-Pv-Erq"/>
+                <outlet property="staffImage" destination="bD0-0H-bGn" id="PIG-O1-BNI"/>
+                <outlet property="staffLabel" destination="dXe-fc-b7U" id="tuF-Xx-Cer"/>
                 <outlet property="summaryContentTextField" destination="ieB-JS-QVm" id="MtX-rN-IcX"/>
                 <outlet property="summaryHeadlineTextField" destination="yFV-32-GOh" id="eav-dy-XE9"/>
                 <outlet property="tapGoing" destination="Twh-rf-nuM" id="C3o-Vt-c7Q"/>

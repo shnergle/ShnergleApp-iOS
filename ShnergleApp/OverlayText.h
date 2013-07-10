@@ -44,10 +44,18 @@
 @property (weak, nonatomic) IBOutlet UIButton *staffButton;
 @property (weak, nonatomic) IBOutlet UILabel *staffLabel;
 @property (weak, nonatomic) IBOutlet UIImageView *staffImage;
+
+
+
+
 @property (weak, nonatomic) IBOutlet UIButton *analyticsButton;
-@property (weak, nonatomic) IBOutlet UILabel *analyticsLabel;
-@property (weak, nonatomic) IBOutlet UIImageView *analyticsImage;
+@property (weak, nonatomic) IBOutlet UILabel *anaLabel;
+@property (weak, nonatomic) IBOutlet UIImageView *anaImage;
+
+
 @property (weak, nonatomic) IBOutlet UIButton *mainShareButton;
+@property (weak, nonatomic) IBOutlet UILabel *shareLabel;
+@property (weak, nonatomic) IBOutlet UIImageView *shareImage;
 
 
 - (IBAction)tappedGoing:(id)sender;
