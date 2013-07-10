@@ -10,7 +10,6 @@
 #import "CrowdItem.h"
 #import "PromotionView.h"
 #import "VenueGalleryViewController.h"
-
 #import "PostRequest.h"
 #import "ImageCache.h"
 #import <NSDate+TimeAgo/NSDate+TimeAgo.h>
@@ -32,7 +31,6 @@
     UIView *headerTitleSubtitleView = [[UILabel alloc] initWithFrame:headerTitleSubtitleFrame];
     headerTitleSubtitleView.backgroundColor = [UIColor clearColor];
     headerTitleSubtitleView.autoresizesSubviews = YES;
-
     CGRect titleFrame = CGRectMake(0, 2, 200, 24);
     UILabel *titleView2 = [[UILabel alloc] initWithFrame:titleFrame];
     titleView2.backgroundColor = [UIColor clearColor];
@@ -70,6 +68,9 @@
 }
 
 - (void)tapToFollow {
+    if (appDelegate.venueStatus != Default)
+        return;
+    
     [self.view makeToastActivity];
 
     following = !following;
@@ -243,7 +244,7 @@
     NSMutableString *params = [[NSMutableString alloc]initWithString:@"venue_id="];
     [params appendFormat:@"%@&facebook_id=%@", appDelegate.activeVenue[@"id"], appDelegate.facebookId];
 
-    //[[[PostRequest alloc]init]exec:@"posts/get" params:params delegate:self callback:@selector(didFinishDownloadingPosts:)];
+    [[[PostRequest alloc]init]exec:@"posts/get" params:params delegate:self callback:@selector(didFinishDownloadingPosts:)];
 }
 
 - (void)viewDidAppear:(BOOL)animated {
@@ -268,7 +269,6 @@
     [super viewDidDisappear:animated];
     [self.overlayView.scrollView setContentOffset:CGPointZero animated:YES];
     self.navigationController.navigationBarHidden = NO;
-#warning "setting posts to nil has issues, 'NSInvalidArgumentException'"
     //appDelegate.posts = nil;
 
 }
