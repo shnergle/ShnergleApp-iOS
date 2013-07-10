@@ -243,7 +243,7 @@
     NSMutableString *params = [[NSMutableString alloc]initWithString:@"venue_id="];
     [params appendFormat:@"%@&facebook_id=%@", appDelegate.activeVenue[@"id"], appDelegate.facebookId];
 
-    //[[[PostRequest alloc]init]exec:@"posts/get" params:params delegate:self callback:@selector(didFinishDownloadingPosts:)];
+    [[[PostRequest alloc]init]exec:@"posts/get" params:params delegate:self callback:@selector(didFinishDownloadingPosts:)];
 }
 
 - (void)viewDidAppear:(BOOL)animated {
@@ -268,7 +268,6 @@
     [super viewDidDisappear:animated];
     [self.overlayView.scrollView setContentOffset:CGPointZero animated:YES];
     self.navigationController.navigationBarHidden = NO;
-#warning "setting posts to nil has issues, 'NSInvalidArgumentException'"
     //appDelegate.posts = nil;
 
 }

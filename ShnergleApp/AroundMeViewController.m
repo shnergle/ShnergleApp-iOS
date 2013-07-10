@@ -149,8 +149,12 @@
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     static NSString *cellIdentifier = @"Cell";
     CrowdItem *item = [collectionView dequeueReusableCellWithReuseIdentifier:cellIdentifier forIndexPath:indexPath];
-
-    [[[ImageCache alloc]init]get:@"venue" identifier:[appDelegate.aroundVenues[indexPath.item][@"id"] stringValue] delegate:self callback:@selector(didFinishDownloadingImages:forItem:) item:item];
+    item.crowdImage.backgroundColor = [UIColor lightGrayColor];
+    
+    item.crowdImage.image = [ImageCache get:@"venue" identifier:appDelegate.aroundVenues[indexPath.item][@"id"]];
+    
+    if(item.crowdImage.image == nil)
+        [[[ImageCache alloc]init]get:@"venue" identifier:[appDelegate.aroundVenues[indexPath.item][@"id"] stringValue] delegate:self callback:@selector(didFinishDownloadingImages:forIndex:) indexPath:indexPath];
 
     [[item venueName] setText:appDelegate.aroundVenues[indexPath.item][@"name"]];
 
@@ -167,8 +171,12 @@
     return item;
 }
 
-- (void)didFinishDownloadingImages:(UIImage *)response forItem:(CrowdItem *)item {
-    [[item crowdImage] setImage:response];
+- (void)didFinishDownloadingImages:(UIImage *)response forIndex:(NSIndexPath *)index {
+    NSLog(@"downloaded image - indexPath: %@",index);
+        if (response != nil) {
+            [self.crowdCollection reloadItemsAtIndexPaths:@[index]];
+        }
+
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
