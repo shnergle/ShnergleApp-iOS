@@ -6,9 +6,7 @@
 //  Copyright (c) 2013 Shnergle. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
 #import <GoogleMaps/GoogleMaps.h>
-#import <Toast+UIView.h>
 
 @interface OverlayText : UIView {
     BOOL isUp;

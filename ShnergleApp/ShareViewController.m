@@ -7,8 +7,7 @@
 //
 
 #import "ShareViewController.h"
-#import <FacebookSDK/FBFriendPickerViewController.h>
-
+#import <FacebookSDK/FacebookSDK.h>
 #import "PostRequest.h"
 
 @implementation ShareViewController

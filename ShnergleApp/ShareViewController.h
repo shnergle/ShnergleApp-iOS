@@ -6,8 +6,6 @@
 //  Copyright (c) 2013 Shnergle. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
-#import <FacebookSDK/FBViewController.h>
 #import "GCPlaceholderTextView.h"
 #import "CustomBackViewController.h"
 #import <Toast+UIView.h>

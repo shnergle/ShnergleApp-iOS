@@ -6,7 +6,6 @@
 //  Copyright (c) 2013 Shnergle. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
 #import <Toast+UIView.h>
 #import "CustomBackViewController.h"
 
@@ -27,8 +26,6 @@
 - (IBAction)likeButtonPressed:(id)sender;
 @property (weak, nonatomic) IBOutlet UIButton *likeButton;
 
-//- (void)imageScrollerSetup;
 - (void)setTitle:(NSString *)title;
-//- (void)setImages:(NSArray *)img index:(NSInteger)index;
 - (void)setImage:(UIImage *)img withAuthor:(NSString *)user withComment:(NSString *)msg withTimestamp:(NSString *)time withId:(NSString *)post_id;
 @end

@@ -6,7 +6,6 @@
 //  Copyright (c) 2013 Shnergle. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
 #import "CrowdItem.h"
 
 @interface ImageCache : NSObject {

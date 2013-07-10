@@ -10,7 +10,6 @@
 
 @implementation SearchResultsView
 
-
 - (void)hide {
     [UIView animateWithDuration:0.5
                      animations:^{
@@ -30,6 +29,5 @@
                                 self.frame.size.height);
     }];
 }
-
 
 @end

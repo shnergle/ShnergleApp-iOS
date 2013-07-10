@@ -8,9 +8,9 @@
 
 #import "OverlayText.h"
 #import "VenueViewController.h"
-
 #import "CheckInViewController.h"
 #import "PostRequest.h"
+#import <Toast+UIView.h>
 
 @implementation OverlayText
 

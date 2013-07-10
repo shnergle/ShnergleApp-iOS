@@ -8,10 +8,6 @@
 
 #import "VenueDetailsViewController.h"
 
-@interface VenueDetailsViewController ()
-
-@end
-
 @implementation VenueDetailsViewController
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {

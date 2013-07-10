@@ -6,8 +6,8 @@
 //  Copyright (c) 2013 Shnergle. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
-#import <ECSlidingViewController.h>
+#import <ECSlidingViewController/ECSlidingViewController.h>
+
 @interface FavouritesViewController : UIViewController <UICollectionViewDataSource, UICollectionViewDelegate>
 
 @property (weak, nonatomic) IBOutlet UINavigationBar *navBar;

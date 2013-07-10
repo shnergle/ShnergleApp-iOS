@@ -8,12 +8,7 @@
 
 #import "AddVenueViewController.h"
 #import "PostRequest.h"
-#import <MapKit/MapKit.h>
 #import <Toast+UIView.h>
-
-@interface AddVenueViewController ()
-
-@end
 
 typedef enum {
     Name,

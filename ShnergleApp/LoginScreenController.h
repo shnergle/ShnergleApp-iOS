@@ -6,8 +6,6 @@
 //  Copyright (c) 2013 Shnergle. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
-
 @interface LoginScreenController : UIViewController
 
 @property (strong, nonatomic) IBOutlet UIButton *buttonLoginLogout;
