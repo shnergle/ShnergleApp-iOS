@@ -101,7 +101,7 @@
     CrowdItem *item = [collectionView dequeueReusableCellWithReuseIdentifier:cellIdentifier forIndexPath:indexPath];
     
     item.crowdImage.image = [ImageCache get:@"venue" identifier:appDelegate.followingVenues[indexPath.item][@"id"]];
-    
+    item.crowdImage.backgroundColor = [UIColor lightGrayColor];
     if(item.crowdImage.image == nil)
         [[[ImageCache alloc]init]get:@"venue" identifier:[appDelegate.followingVenues[indexPath.item][@"id"] stringValue] delegate:self callback:@selector(didFinishDownloadingImages:forIndex:) indexPath:indexPath];
 
