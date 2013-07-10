@@ -13,7 +13,6 @@
 
 @implementation ShareViewController
 
-#warning "implement a way of not re-shnergling"
 
 - (void)viewDidLoad {
     [super viewDidLoad];
