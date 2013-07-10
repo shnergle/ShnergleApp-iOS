@@ -215,6 +215,11 @@
         self.analyticsButton.hidden = NO;
         self.staffButton.hidden = NO;
     }
+    else
+    {
+        self.analyticsButton.hidden = YES;
+        self.staffButton.hidden = YES;
+    }
 }
 
 @end
