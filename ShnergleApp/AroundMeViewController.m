@@ -146,11 +146,10 @@
     static NSString *cellIdentifier = @"Cell";
     CrowdItem *item = [collectionView dequeueReusableCellWithReuseIdentifier:cellIdentifier forIndexPath:indexPath];
     item.crowdImage.backgroundColor = [UIColor lightGrayColor];
-    
+
     item.crowdImage.image = [ImageCache get:@"venue" identifier:appDelegate.aroundVenues[indexPath.item][@"id"]];
-    
-    if(item.crowdImage.image == nil)
-        [[[ImageCache alloc]init]get:@"venue" identifier:[appDelegate.aroundVenues[indexPath.item][@"id"] stringValue] delegate:self callback:@selector(didFinishDownloadingImages:forIndex:) indexPath:indexPath];
+
+    if (item.crowdImage.image == nil) [[[ImageCache alloc]init]get:@"venue" identifier:[appDelegate.aroundVenues[indexPath.item][@"id"] stringValue] delegate:self callback:@selector(didFinishDownloadingImages:forIndex:) indexPath:indexPath];
 
     [[item venueName] setText:appDelegate.aroundVenues[indexPath.item][@"name"]];
 
@@ -168,10 +167,9 @@
 }
 
 - (void)didFinishDownloadingImages:(UIImage *)response forIndex:(NSIndexPath *)index {
-        if (response != nil) {
-            [self.crowdCollection reloadItemsAtIndexPaths:@[index]];
-        }
-
+    if (response != nil) {
+        [self.crowdCollection reloadItemsAtIndexPaths:@[index]];
+    }
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
@@ -220,30 +218,29 @@
     } else {
         coord = self.mapView.myLocation.coordinate;
     }
-    
+
     GMSCircle *mapCircle = [GMSCircle circleWithPosition:coord radius:self.distanceScroller.value * 1000];
     mapCircle.strokeColor = [UIColor orangeColor];
     mapCircle.strokeWidth = 5;
-    
+
     /*
-     =00ooo00oOOoOoOoo
-     =Adam's and Stian's magical coordinate substitution principle
-     =ooOoOO000OOo00oOoo
+       =00ooo00oOOoOoOoo
+       =Adam's and Stian's magical coordinate substitution principle
+       =ooOoOO000OOo00oOoo
      */
     CGFloat screenDistance = [self.mapView.projection pointsForMeters:(self.distanceScroller.value * 1000) atCoordinate:coord];
     CGPoint screenCenter = [self.mapView.projection pointForCoordinate:coord];
     CGPoint screenPoint = CGPointMake(screenCenter.x - screenDistance, screenCenter.y);
     CLLocationCoordinate2D realPoint = [self.mapView.projection coordinateForPoint:screenPoint];
     CGFloat distanceInDegrees = coord.longitude - realPoint.longitude;
-    
+
     /*
-     oo..
+       oo..
      */
-    
+
     [[[PostRequest alloc] init] exec:@"venues/get" params:[NSString stringWithFormat:@"my_lat=%f&my_lon=%f&distance=%f", coord.latitude, coord.longitude, distanceInDegrees] delegate:self callback:@selector(didFinishLoadingVenues:)];
-    
+
     mapCircle.map = self.mapView;
-    
 }
 
 - (void)mapView:(GMSMapView *)mapView didTapAtCoordinate:(CLLocationCoordinate2D)coordinate {
@@ -309,7 +306,6 @@
     [_mapView stopRendering];
     [_mapView removeFromSuperview];
     _mapView = nil;
-    
 }
 
 @end

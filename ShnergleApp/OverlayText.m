@@ -100,20 +100,18 @@
     self.summaryHeadlineTextField.layer.borderWidth = 0.0f;
     self.summaryHeadlineTextField.layer.cornerRadius = 0.0f;
     self.summaryContentTextField.layer.cornerRadius = 0.0f;
-    
-[[[PostRequest alloc] init] exec:@"venues/set"
-                          params:[NSString stringWithFormat:
-                                  @"venue_id=%@&tonight=%@",
-                                  appDelegate.activeVenue[@"id"],
-                                  self.summaryContentTextField.text] delegate:self
-                                    callback:@selector(doNothing:)
-                                    type:@"string"];
+
+    [[[PostRequest alloc] init] exec:@"venues/set"
+                              params:[NSString stringWithFormat:
+                                      @"venue_id=%@&tonight=%@",
+                                      appDelegate.activeVenue[@"id"],
+                                      self.summaryContentTextField.text] delegate:self
+                            callback:@selector(doNothing:)
+                                type:@"string"];
 }
 
--(void)doNothing:(id)sender
-{
+- (void)doNothing:(id)sender {
 }
-
 
 - (IBAction)postUpdateTapped:(id)sender {
     [self.summaryContentTextField setBackgroundColor:[UIColor whiteColor]];
@@ -155,7 +153,6 @@
 - (void)showAnimated:(NSInteger)targetSize animationDelay:(double)animationDelay animationDuration:(double)animationDuration {
     [UIView animateWithDuration:animationDuration delay:animationDelay options:(UIViewAnimationOptions)UIViewAnimationCurveEaseOut
                      animations:^{
-
         self.frame = CGRectMake(self.bounds.origin.x,
                                 targetSize,
                                 self.bounds.size.width,
@@ -215,9 +212,7 @@
 
         self.staffImage.hidden = NO;
         self.staffLabel.hidden = NO;
-    }
-    else
-    {
+    } else {
         self.analyticsButton.hidden = YES;
 
         self.staffButton.hidden = YES;
@@ -229,4 +224,3 @@
 }
 
 @end
-

@@ -116,7 +116,7 @@ typedef enum {
             label = [[UILabel alloc] initWithFrame:CGRectMake(110, 6, 185, 30)];
             label.text = @"(Required)";
             label.tag = indexPath.row + 1;
-            label.textColor = [UIColor colorWithRed:201/255. green:201/255. blue:201/255. alpha:1];
+            label.textColor = [UIColor colorWithRed:201 / 255. green:201 / 255. blue:201 / 255. alpha:1];
             label.backgroundColor = [UIColor clearColor];
             [cell.contentView addSubview:label];
             secondCellField = label;
@@ -287,8 +287,7 @@ typedef enum {
     return _userData;
 }
 
--(BOOL)textFieldShouldReturn:(UITextField *)textField
-{
+- (BOOL)textFieldShouldReturn:(UITextField *)textField {
     [textField resignFirstResponder];
     return YES;
 }

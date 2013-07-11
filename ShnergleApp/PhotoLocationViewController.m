@@ -49,8 +49,8 @@
 - (void)searchBarSearchButtonClicked:(UISearchBar *)searchBar {
     appDelegate.locationPickerVenues = nil;
     appDelegate.locationPickerVenues = [[NSMutableArray alloc]init];
-    for(id obj in appDelegate.aroundVenues){
-        if([obj[@"name"] rangeOfString:self.searchBar.text options:NSCaseInsensitiveSearch].length > 0 ){
+    for (id obj in appDelegate.aroundVenues) {
+        if ([obj[@"name"] rangeOfString:self.searchBar.text options:NSCaseInsensitiveSearch].length > 0) {
             [appDelegate.locationPickerVenues addObject:obj];
         }
     }
@@ -89,9 +89,8 @@
     }
 }
 
--(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
-{
-    if([segue.identifier isEqual:@"SegueToShare"]){
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    if ([segue.identifier isEqual:@"SegueToShare"]) {
         ((ShareViewController *)[segue destinationViewController]).shnergleThis = YES;
     }
 }

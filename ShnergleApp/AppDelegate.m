@@ -32,8 +32,8 @@
 
     @try {
         [[UINavigationBar appearance] setTintColor:[UIColor colorWithRed:233.0 / 255 green:235.0 / 255 blue:240.0 / 255 alpha:1.0]];
+    } @catch (NSException *exception) {
     }
-    @catch (NSException *exception) {}
     [[UINavigationBar appearance] setBackgroundColor:[UIColor colorWithRed:233.0 / 255 green:235.0 / 255 blue:240.0 / 255 alpha:1.0]]; //ios 7
 
     [[UIBarButtonItem appearanceWhenContainedIn:[UINavigationBar class], nil] setTitleTextAttributes:@{UITextAttributeTextColor: [UIColor blackColor]} forState:UIControlStateNormal];

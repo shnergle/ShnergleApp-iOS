@@ -68,9 +68,8 @@
 }
 
 - (void)tapToFollow {
-    if (appDelegate.venueStatus != Default)
-        return;
-    
+    if (appDelegate.venueStatus != Default) return;
+
     [self.view makeToastActivity];
 
     following = !following;
@@ -119,10 +118,9 @@
     [refreshControl addTarget:self action:@selector(startRefresh:)
              forControlEvents:UIControlEventValueChanged];
     [self.crowdCollectionV addSubview:refreshControl];
-    
+
     [self.overlayView.scrollView setScrollsToTop:NO];
     [self.crowdCollectionV setScrollsToTop:YES];
-
 }
 
 - (void)startRefresh:(id)sender {
@@ -165,17 +163,16 @@
 }
 
 - (void)didFinishDownloadingImages:(UIImage *)response forIndex:(NSIndexPath *)index {
-    if(appDelegate.posts != nil){
-    if (index.item == 0) {
-        appDelegate.shareImage = [ImageCache get:@"post" identifier:appDelegate.posts[0][@"id"]];
-    }
+    if (appDelegate.posts != nil) {
+        if (index.item == 0) {
+            appDelegate.shareImage = [ImageCache get:@"post" identifier:appDelegate.posts[0][@"id"]];
+        }
 
-    if (response != nil) {
-        [self.crowdCollectionV reloadItemsAtIndexPaths:@[index]];
-    }
+        if (response != nil) {
+            [self.crowdCollectionV reloadItemsAtIndexPaths:@[index]];
+        }
     }
 }
-
 
 - (void)displayTextView {
     if (!textViewOpen) {
@@ -192,7 +189,6 @@
         [self addShadowLineRect:CGRectMake(0.0f, _overlayView.bounds.origin.y + 63, _overlayView.bounds.size.width, 1.0f) ToView:_overlayView];
     }
 }
-
 
 - (void)configureMapWithLat:(CLLocationDegrees)lat longitude:(CLLocationDegrees)lon {
     GMSCameraPosition *camera = [GMSCameraPosition cameraWithLatitude:lat
@@ -269,7 +265,6 @@
     [self.overlayView.scrollView setContentOffset:CGPointZero animated:YES];
     self.navigationController.navigationBarHidden = NO;
     //appDelegate.posts = nil;
-
 }
 
 - (void)goToPromotionView {
@@ -284,11 +279,11 @@
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     if ([segue.identifier isEqualToString:@"ToGallery"]) {
         [segue.destinationViewController setTitle:[NSString stringWithFormat:@"%@", titleHeader]];
-        [(VenueGalleryViewController *)segue.destinationViewController setImage : ((CrowdItem *)sender).crowdImage.image withAuthor :[NSString stringWithFormat:@"%@ %@", appDelegate.posts[selectedPost][@"forename"], [appDelegate.posts[selectedPost][@"surname"] substringToIndex:1]] withComment : appDelegate.posts[selectedPost][@"caption"] withTimestamp :[self getDateFromUnixFormat:appDelegate.posts[selectedPost][@"time"]] withId:[appDelegate.posts[selectedPost][@"id"] stringValue]];
+        [(VenueGalleryViewController *)segue.destinationViewController setImage : ((CrowdItem *)sender).crowdImage.image withAuthor :[NSString stringWithFormat:@"%@ %@", appDelegate.posts[selectedPost][@"forename"], [appDelegate.posts[selectedPost][@"surname"] substringToIndex:1]] withComment : appDelegate.posts[selectedPost][@"caption"] withTimestamp :[self getDateFromUnixFormat:appDelegate.posts[selectedPost][@"time"]] withId :[appDelegate.posts[selectedPost][@"id"] stringValue]];
     }
 }
 
-- (void)collectionView:(UICollectionView *)collectionView didHighlightItemAtIndexPath: (NSIndexPath *)indexPath {
+- (void)collectionView:(UICollectionView *)collectionView didHighlightItemAtIndexPath:(NSIndexPath *)indexPath {
     selectedPost = indexPath.item;
 }
 
