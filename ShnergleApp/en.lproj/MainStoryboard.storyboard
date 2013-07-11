@@ -640,7 +640,7 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                         <barButtonItem key="rightBarButtonItem" title="Check In" id="j8H-eV-cm2">
                             <color key="tintColor" red="0.40000000000000002" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                             <connections>
-                                <segue destination="CuC-E9-ArH" kind="push" id="msd-v0-Rw7"/>
+                                <segue destination="CuC-E9-ArH" kind="push" identifier="CheckInFromVenue" id="msd-v0-Rw7"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -1088,7 +1088,7 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                         <viewControllerLayoutGuide type="bottom" id="O4L-3V-75G"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="vOU-bV-1Mm">
-                        <rect key="frame" x="0.0" y="64" width="320" height="416"/>
+                        <rect key="frame" x="0.0" y="20" width="320" height="548"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xXT-6c-y6I">
@@ -2536,9 +2536,9 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="GBJ-CV-e6H"/>
         <segue reference="fjC-0F-Or5"/>
-        <segue reference="wJZ-W6-KFM"/>
+        <segue reference="Zho-BK-kL6"/>
         <segue reference="msd-v0-Rw7"/>
+        <segue reference="GBJ-CV-e6H"/>
     </inferredMetricsTieBreakers>
 </document>
