@@ -62,6 +62,9 @@
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
+
+    [self.view makeToastActivity];
+
     [self menuButtonDecorations];
     self.navigationItem.hidesBackButton = YES;
 
@@ -98,6 +101,7 @@
     _followingLabel.text = [result[@"following"] stringValue];
     _redeemedLabel.text = [result[@"redemptions"] stringValue];
     _checkInLabel.text = [result[@"posts"] stringValue];
+    [self.view hideToastActivity];
 }
 
 - (void)tapMenu {
