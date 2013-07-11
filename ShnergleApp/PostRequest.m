@@ -36,7 +36,7 @@
 - (BOOL)exec:(NSString *)path params:(NSString *)params image:(UIImage *)image delegate:(id)object callback:(SEL)cb type:(NSString *)type {
     NSString *urlString = [NSString stringWithFormat:@"http://shnergle-api.azurewebsites.net/v1/%@", path];
 
-    NSString *paramsString = [NSString stringWithFormat:@"app_secret=%@&%@", appDelegate.appSecret, params];
+    NSString *paramsString = [NSString stringWithFormat:@"app_secret=%@&facebook_id=%@&%@", appDelegate.appSecret, appDelegate.facebookId, params];
     NSString *boundary = @"This-string-cannot-be-part-of-the-content";
     NSString *contentType = [NSString stringWithFormat:@"multipart/form-data; boundary=%@", boundary];
     NSURL *url = [[NSURL alloc] initWithString:urlString];
