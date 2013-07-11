@@ -28,11 +28,6 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     appDelegate.staffType = indexPath.row == 0 ? @"Manager" : @"Staff";
-    [self goBack];
-}
-
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
 }
 
 @end

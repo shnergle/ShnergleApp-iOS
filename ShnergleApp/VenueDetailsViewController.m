@@ -10,13 +10,6 @@
 
 @implementation VenueDetailsViewController
 
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-    if (self) {
-    }
-    return self;
-}
-
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.navigationItem.title = @"Venue Details";
@@ -67,10 +60,6 @@
 
 - (void)textFieldDidEndEditing:(UITextField *)textField {
     appDelegate.venueDetailsContent[textField.tag] = textField.text;
-}
-
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
 }
 
 @end

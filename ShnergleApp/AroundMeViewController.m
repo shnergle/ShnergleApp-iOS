@@ -17,10 +17,6 @@
 
 @implementation AroundMeViewController
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-}
-
 - (void)decorateCheckInButton {
     [self.checkInButton setTitleTextAttributes:
      @{UITextAttributeTextColor: [UIColor whiteColor],

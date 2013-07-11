@@ -29,10 +29,6 @@
     secondCell.textLabel.text = [NSString stringWithFormat:@"Status: %@", type];
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-}
-
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     return 2;
 }
