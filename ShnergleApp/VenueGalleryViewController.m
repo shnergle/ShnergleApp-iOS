@@ -34,21 +34,19 @@
 }
 
 - (IBAction)likeButtonPressed:(id)sender {
-    NSString *newButtonLabel;
 
-    if ([self.likeButton.titleLabel.text isEqualToString:@"Like"]) {
-        [self.view makeToast:@"Liked it!"
-                    duration:0.5
-                    position:@"center"
-                       title:@""
-                       image:[UIImage imageNamed:@"glyphicons_343_thumbs_up.png"]];
+    [[[PostRequest alloc] init] exec:@"post_likes/set" params:[NSString stringWithFormat:@"post_id=%@", postId] delegate:self callback:@selector(likedPostFinished:)];
 
-        newButtonLabel = @"Unlike";
-    } else {
-        newButtonLabel = @"Like";
-    }
+}
 
-    [self.likeButton setTitle:newButtonLabel forState:UIControlStateNormal];
+-(void)likedPostFinished:(id)response
+{
+    [self.view makeToast:@"Liked it!"
+                duration:0.5
+                position:@"center"
+                   title:@""
+                   image:[UIImage imageNamed:@"glyphicons_343_thumbs_up.png"]];
+
 }
 
 - (void)imageSetup {
@@ -77,6 +75,7 @@
 
 - (void)doNothing:(id)whoCares {
     [self.view hideToastActivity];
+    
 }
 
 @end
