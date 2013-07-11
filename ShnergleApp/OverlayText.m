@@ -24,7 +24,7 @@
     }
 
     UIViewController *vc = [caller.storyboard instantiateViewControllerWithIdentifier:@"ShareViewController"];
-    ((ShareViewController *)vc).shareVenue = YES;
+    appDelegate.shareVenue = YES;
     [caller.navigationController pushViewController:vc animated:YES];
 }
 

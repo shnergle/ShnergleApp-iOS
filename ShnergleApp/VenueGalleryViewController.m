@@ -8,7 +8,6 @@
 
 #import "VenueGalleryViewController.h"
 #import "PostRequest.h"
-#import "ShareViewController.h"
 
 @implementation VenueGalleryViewController
 
@@ -80,7 +79,7 @@
 {
     if([segue.identifier isEqual:@"sharePostSegue"])
     {
-        ((ShareViewController *)segue.destinationViewController).shareVenue = NO;
+        appDelegate.shareVenue = NO;
     }
 }
 

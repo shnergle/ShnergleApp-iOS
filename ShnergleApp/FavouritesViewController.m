@@ -12,7 +12,6 @@
 #import "VenueViewController.h"
 #import "PostRequest.h"
 #import "ImageCache.h"
-#import "ShareViewController.h"
 
 @implementation FavouritesViewController {
 }
@@ -136,7 +135,7 @@
         [(VenueViewController *)segue.destinationViewController setVenue : appDelegate.activeVenue];
     }else if([segue.identifier isEqualToString:@"CheckInFromFollowing"])
     {
-        ((ShareViewController *)segue.destinationViewController).shareVenue = NO;
+        appDelegate.shareVenue = NO;
     }
 }
 

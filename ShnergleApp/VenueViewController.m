@@ -13,7 +13,6 @@
 #import "PostRequest.h"
 #import "ImageCache.h"
 #import <NSDate+TimeAgo/NSDate+TimeAgo.h>
-#import "ShareViewController.h"
 
 @implementation VenueViewController
 
@@ -286,7 +285,7 @@
         [(VenueGalleryViewController *)segue.destinationViewController setImage : ((CrowdItem *)sender).crowdImage.image withAuthor :[NSString stringWithFormat:@"%@ %@", appDelegate.posts[selectedPost][@"forename"], [appDelegate.posts[selectedPost][@"surname"] substringToIndex:1]] withComment : appDelegate.posts[selectedPost][@"caption"] withTimestamp :[self getDateFromUnixFormat:appDelegate.posts[selectedPost][@"time"]] withId :[appDelegate.posts[selectedPost][@"id"] stringValue]];
     }else if([segue.identifier isEqualToString:@"CheckInFromVenue"])
     {
-        ((ShareViewController *)segue.destinationViewController).shareVenue = NO;
+        appDelegate.shareVenue = NO;
     }
 }
 

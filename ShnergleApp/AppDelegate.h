@@ -33,6 +33,8 @@
 @property (strong, nonatomic) NSArray *followingVenues;
 @property (strong, nonatomic) NSMutableArray *locationPickerVenues;
 
+@property (nonatomic) BOOL shareVenue;
+
 @property (strong, nonatomic) UIImage *shareImage;
 @property (strong,nonatomic) NSString *shareActivePostId;
 @property (strong, nonatomic) NSString *shareImageLat;

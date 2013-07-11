@@ -142,10 +142,10 @@
 
         [self.navigationController popToRootViewControllerAnimated:YES];
     }];
-    if(self.shareVenue){
-    [[[PostRequest alloc]init]exec:@"venue_shares/set" params:[NSString stringWithFormat:@"venue_id=%@&media=1",appDelegate.activeVenue[@"id"]] delegate:self callback:@selector(doNothing:) type:@"string"];
+    if(appDelegate.shareVenue){
+    [[[PostRequest alloc]init]exec:@"venue_shares/set" params:[NSString stringWithFormat:@"venue_id=%@&media_id=1",appDelegate.activeVenue[@"id"]] delegate:self callback:@selector(doNothing:) type:@"string"];
     }else{
-        [[[PostRequest alloc]init]exec:@"post_shares/set" params:[NSString stringWithFormat:@"post_id=%@&media=1", post_id] delegate:self callback:@selector(doNothing:) type:@"string"];
+        [[[PostRequest alloc]init]exec:@"post_shares/set" params:[NSString stringWithFormat:@"post_id=%@&media_id=1", post_id] delegate:self callback:@selector(doNothing:) type:@"string"];
 
     }
     

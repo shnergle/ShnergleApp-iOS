@@ -14,7 +14,6 @@
 #import "PostRequest.h"
 #import "VenueViewController.h"
 #import "ImageCache.h"
-#import "ShareViewController.h"
 
 @implementation AroundMeViewController
 
@@ -178,7 +177,7 @@
         [(VenueViewController *)segue.destinationViewController setVenue : appDelegate.aroundVenues[selectedVenue]];
     }else if([segue.identifier isEqualToString:@"CheckInFromAroundMe"])
     {
-        ((ShareViewController *)segue.destinationViewController).shareVenue = NO;
+       appDelegate.shareVenue = NO;
     }
 }
 
