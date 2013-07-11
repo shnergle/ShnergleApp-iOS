@@ -121,9 +121,8 @@
 
     [self.overlayView.scrollView setScrollsToTop:NO];
     [self.crowdCollectionV setScrollsToTop:YES];
-    
-    [[[PostRequest alloc]init]exec:@"venue_views/set" params:[NSString stringWithFormat:@"venue_id=%@",appDelegate.activeVenue[@"id"]] delegate:self callback:@selector(doNothing:) type:@"string"];
 
+    [[[PostRequest alloc]init]exec:@"venue_views/set" params:[NSString stringWithFormat:@"venue_id=%@", appDelegate.activeVenue[@"id"]] delegate:self callback:@selector(doNothing:) type:@"string"];
 }
 
 - (void)startRefresh:(id)sender {
@@ -283,8 +282,7 @@
     if ([segue.identifier isEqualToString:@"ToGallery"]) {
         [segue.destinationViewController setTitle:[NSString stringWithFormat:@"%@", titleHeader]];
         [(VenueGalleryViewController *)segue.destinationViewController setImage : ((CrowdItem *)sender).crowdImage.image withAuthor :[NSString stringWithFormat:@"%@ %@", appDelegate.posts[selectedPost][@"forename"], [appDelegate.posts[selectedPost][@"surname"] substringToIndex:1]] withComment : appDelegate.posts[selectedPost][@"caption"] withTimestamp :[self getDateFromUnixFormat:appDelegate.posts[selectedPost][@"time"]] withId :[appDelegate.posts[selectedPost][@"id"] stringValue]];
-    }else if([segue.identifier isEqualToString:@"CheckInFromVenue"])
-    {
+    } else if ([segue.identifier isEqualToString:@"CheckInFromVenue"]) {
         appDelegate.shareVenue = NO;
     }
 }

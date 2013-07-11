@@ -50,23 +50,22 @@
         [[[PostRequest alloc]init]exec:@"posts/set" params:postParams delegate:self callback:@selector(didFinishPost:) type:@"string"];
     } else {
         post_id = appDelegate.shareActivePostId;
-    //Share to Facebook
-    if ([appDelegate.session.permissions indexOfObject:@"publish_actions"] == NSNotFound)
-        [appDelegate.session requestNewPublishPermissions:@[@"publish_actions"] defaultAudience:FBSessionDefaultAudienceEveryone completionHandler:^(FBSession *session, NSError *error) {
+        //Share to Facebook
+        if ([appDelegate.session.permissions indexOfObject:@"publish_actions"] == NSNotFound)
+            [appDelegate.session requestNewPublishPermissions:@[@"publish_actions"] defaultAudience:FBSessionDefaultAudienceEveryone completionHandler:^(FBSession *session, NSError *error) {
+                [self shareOnFacebook];
+            }];
+        else {
             [self shareOnFacebook];
-        }];
-    else {
-        [self shareOnFacebook];
+        }
     }
-    }
-    
 }
 
 - (void)didFinishPost:(NSString *)response {
     [[[PostRequest alloc] init] exec:@"images/set" params:[NSString stringWithFormat:@"entity=post&entity_id=%@", response] image:_image.image delegate:self callback:@selector(uploadedToServer:) type:@"string"];
-    
+
     post_id = response;
-    
+
     //Share to Facebook
     if ([appDelegate.session.permissions indexOfObject:@"publish_actions"] == NSNotFound)
         [appDelegate.session requestNewPublishPermissions:@[@"publish_actions"] defaultAudience:FBSessionDefaultAudienceEveryone completionHandler:^(FBSession *session, NSError *error) {
@@ -75,8 +74,6 @@
     else {
         [self shareOnFacebook];
     }
-
-    
 }
 
 - (void)uploadedToServer:(NSString *)response {
@@ -138,23 +135,18 @@
 
             }];
          */
-        
+
 
         [self.navigationController popToRootViewControllerAnimated:YES];
     }];
-    if(appDelegate.shareVenue){
-    [[[PostRequest alloc]init]exec:@"venue_shares/set" params:[NSString stringWithFormat:@"venue_id=%@&media_id=1",appDelegate.activeVenue[@"id"]] delegate:self callback:@selector(doNothing:) type:@"string"];
-    }else{
+    if (appDelegate.shareVenue) {
+        [[[PostRequest alloc]init]exec:@"venue_shares/set" params:[NSString stringWithFormat:@"venue_id=%@&media_id=1", appDelegate.activeVenue[@"id"]] delegate:self callback:@selector(doNothing:) type:@"string"];
+    } else {
         [[[PostRequest alloc]init]exec:@"post_shares/set" params:[NSString stringWithFormat:@"post_id=%@&media_id=1", post_id] delegate:self callback:@selector(doNothing:) type:@"string"];
-
     }
-    
-    
 }
 
--(void)doNothing:(id)response
-{
-    
+- (void)doNothing:(id)response {
 }
 
 - (IBAction)selectFriendsButtonAction:(id)sender {

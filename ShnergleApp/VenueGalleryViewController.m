@@ -14,8 +14,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self imageSetup];
-    [[[PostRequest alloc]init]exec:@"post_views/set" params:[NSString stringWithFormat:@"post_id=%@",appDelegate.shareActivePostId] delegate:self callback:@selector(doNothing:) type:@"string"];
-
+    [[[PostRequest alloc]init]exec:@"post_views/set" params:[NSString stringWithFormat:@"post_id=%@", appDelegate.shareActivePostId] delegate:self callback:@selector(doNothing:) type:@"string"];
 }
 
 - (void)setImage:(UIImage *)img withAuthor:(NSString *)user withComment:(NSString *)msg withTimestamp:(NSString *)time withId:(NSString *)post_id {
@@ -36,19 +35,15 @@
 }
 
 - (IBAction)likeButtonPressed:(id)sender {
-
     [[[PostRequest alloc] init] exec:@"post_likes/set" params:[NSString stringWithFormat:@"post_id=%@", postId] delegate:self callback:@selector(likedPostFinished:)];
-
 }
 
--(void)likedPostFinished:(id)response
-{
+- (void)likedPostFinished:(id)response {
     [self.view makeToast:@"Liked it!"
                 duration:0.5
                 position:@"center"
                    title:@""
                    image:[UIImage imageNamed:@"glyphicons_343_thumbs_up.png"]];
-
 }
 
 - (void)imageSetup {
@@ -75,17 +70,14 @@
     }
 }
 
--(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
-{
-    if([segue.identifier isEqual:@"sharePostSegue"])
-    {
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    if ([segue.identifier isEqual:@"sharePostSegue"]) {
         appDelegate.shareVenue = NO;
     }
 }
 
 - (void)doNothing:(id)whoCares {
     [self.view hideToastActivity];
-    
 }
 
 @end
