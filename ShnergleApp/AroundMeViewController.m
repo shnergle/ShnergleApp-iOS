@@ -92,10 +92,6 @@
     [self menuButtonDecorations];
 }
 
-- (void)makeRequest {
-    [[[PostRequest alloc] init]exec:@"venues/get" params:[NSString stringWithFormat:@"facebook_id=%@", appDelegate.facebookId] delegate:self callback:@selector(didFinishLoadingVenues:)];
-}
-
 - (void)didFinishLoadingVenues:(NSArray *)response {
     appDelegate.aroundVenues = response;
     [self.crowdCollection reloadData];
@@ -114,7 +110,6 @@
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
-    [self makeRequest];
     self.navigationItem.hidesBackButton = YES;
     dropDownHidden = YES;
     crowdImagesHidden = NO;
@@ -216,11 +211,6 @@
 }
 
 - (IBAction)sliderValueChanged:(id)sender {
-    /*
-       Here we can query the database for venues within the radius
-       given in self.distanceScroller.value (this is in metres)
-       Would have to translate into coordinates?
-     */
     [self.mapView clear];
 
     CLLocationCoordinate2D coord;
@@ -229,12 +219,18 @@
     } else {
         coord = self.mapView.myLocation.coordinate;
     }
-
+    
     GMSCircle *mapCircle = [GMSCircle circleWithPosition:coord radius:self.distanceScroller.value * 1000];
     mapCircle.strokeColor = [UIColor orangeColor];
     mapCircle.strokeWidth = 5;
 
+    CGFloat distanceInDegrees = [self.mapView.projection pointsForMeters:self.distanceScroller.value * 1000 atCoordinate:coord];
+    [[[PostRequest alloc] init]exec:@"venues/get" params:[NSString stringWithFormat:@"facebook_id=%@&my_lat=%f&my_lon=%f&distance=%f", appDelegate.facebookId, coord.latitude, coord.longitude, distanceInDegrees] delegate:self callback:@selector(didFinishLoadingVenues:)];
+
+    
+    
     mapCircle.map = self.mapView;
+    
 }
 
 - (void)mapView:(GMSMapView *)mapView didTapAtCoordinate:(CLLocationCoordinate2D)coordinate {
