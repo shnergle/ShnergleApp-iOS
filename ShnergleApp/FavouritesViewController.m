@@ -71,7 +71,7 @@
 }
 
 - (void)makeRequest {
-    [[[PostRequest alloc] init]exec:@"venues/get" params:[NSString stringWithFormat:@"facebook_id=%@&following_only=true", appDelegate.facebookId] delegate:self callback:@selector(didFinishLoadingVenues:)];
+    [[[PostRequest alloc] init]exec:@"venues/get" params:@"following_only=true" delegate:self callback:@selector(didFinishLoadingVenues:)];
 }
 
 - (void)didFinishLoadingVenues:(NSArray *)response {

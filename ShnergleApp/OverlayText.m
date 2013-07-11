@@ -106,8 +106,7 @@
     
 [[[PostRequest alloc] init] exec:@"venues/set"
                           params:[NSString stringWithFormat:
-                                  @"facebook_id=%@&venue_id=%@&tonight=%@",
-                                  appDelegate.facebookId,
+                                  @"venue_id=%@&tonight=%@",
                                   appDelegate.activeVenue[@"id"],
                                   self.summaryContentTextField.text] delegate:self
                                     callback:@selector(doNothing:)
