@@ -14,6 +14,7 @@
 #import "PostRequest.h"
 #import "VenueViewController.h"
 #import "ImageCache.h"
+#import "ShareViewController.h"
 
 @implementation AroundMeViewController
 
@@ -175,6 +176,9 @@
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     if ([segue.identifier isEqualToString:@"ToVenueSite"]) {
         [(VenueViewController *)segue.destinationViewController setVenue : appDelegate.aroundVenues[selectedVenue]];
+    }else if([segue.identifier isEqualToString:@"CheckInFromAroundMe"])
+    {
+        ((ShareViewController *)segue.destinationViewController).shareVenue = NO;
     }
 }
 

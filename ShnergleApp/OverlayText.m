@@ -11,6 +11,7 @@
 #import "CheckInViewController.h"
 #import "PostRequest.h"
 #import <Toast+UIView.h>
+#import "ShareViewController.h"
 
 @implementation OverlayText
 
@@ -23,6 +24,7 @@
     }
 
     UIViewController *vc = [caller.storyboard instantiateViewControllerWithIdentifier:@"ShareViewController"];
+    ((ShareViewController *)vc).shareVenue = YES;
     [caller.navigationController pushViewController:vc animated:YES];
 }
 

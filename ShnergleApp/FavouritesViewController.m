@@ -12,6 +12,7 @@
 #import "VenueViewController.h"
 #import "PostRequest.h"
 #import "ImageCache.h"
+#import "ShareViewController.h"
 
 @implementation FavouritesViewController {
 }
@@ -133,6 +134,9 @@
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     if ([segue.identifier isEqualToString:@"ToVenueSite"]) {
         [(VenueViewController *)segue.destinationViewController setVenue : appDelegate.activeVenue];
+    }else if([segue.identifier isEqualToString:@"CheckInFromFollowing"])
+    {
+        ((ShareViewController *)segue.destinationViewController).shareVenue = NO;
     }
 }
 
