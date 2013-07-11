@@ -8,12 +8,15 @@
 
 #import "VenueGalleryViewController.h"
 #import "PostRequest.h"
+#import "ShareViewController.h"
 
 @implementation VenueGalleryViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self imageSetup];
+    [[[PostRequest alloc]init]exec:@"post_views/set" params:[NSString stringWithFormat:@"post_id=%@",appDelegate.shareActivePostId] delegate:self callback:@selector(doNothing:) type:@"string"];
+
 }
 
 - (void)setImage:(UIImage *)img withAuthor:(NSString *)user withComment:(NSString *)msg withTimestamp:(NSString *)time withId:(NSString *)post_id {
@@ -63,13 +66,21 @@
 }
 
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
-    [self.view makeToastActivity];
     if (buttonIndex != alertView.cancelButtonIndex) {
+        [self.view makeToastActivity];
         if (appDelegate.venueStatus == Manager) {
             [[[PostRequest alloc] init] exec:@"posts/set" params:[NSString stringWithFormat:@"post_id=%@&hide=true", postId] delegate:self callback:@selector(doNothing:) type:@"string"];
         } else {
             [[[PostRequest alloc] init] exec:@"post_reports/set" params:[NSString stringWithFormat:@"post_id=%@", postId] delegate:self callback:@selector(doNothing:) type:@"string"];
         }
+    }
+}
+
+-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    if([segue.identifier isEqual:@"sharePostSegue"])
+    {
+        ((ShareViewController *)segue.destinationViewController).shareVenue = NO;
     }
 }
 

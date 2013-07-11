@@ -12,9 +12,11 @@
 
 @interface ShareViewController : CustomBackViewController <FBViewControllerDelegate, UITextViewDelegate> {
     id selectedFriends;
+    NSString *post_id;
 }
 
-@property (nonatomic) bool shnergleThis;
+@property (nonatomic) BOOL shnergleThis;
+@property (nonatomic) BOOL shareVenue;
 @property (weak, nonatomic) IBOutlet UISwitch *fbSwitch;
 @property (weak, nonatomic) IBOutlet UIImageView *image;
 @property (weak, nonatomic) IBOutlet UIButton *nameList;

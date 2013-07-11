@@ -121,6 +121,9 @@
 
     [self.overlayView.scrollView setScrollsToTop:NO];
     [self.crowdCollectionV setScrollsToTop:YES];
+    
+    [[[PostRequest alloc]init]exec:@"venue_views/set" params:[NSString stringWithFormat:@"venue_id=%@",appDelegate.activeVenue[@"id"]] delegate:self callback:@selector(doNothing:) type:@"string"];
+
 }
 
 - (void)startRefresh:(id)sender {
@@ -285,6 +288,7 @@
 
 - (void)collectionView:(UICollectionView *)collectionView didHighlightItemAtIndexPath:(NSIndexPath *)indexPath {
     selectedPost = indexPath.item;
+    appDelegate.shareActivePostId = appDelegate.posts[selectedPost][@"id"];
 }
 
 - (void)setStatus:(VENUE_STATUS)status {
