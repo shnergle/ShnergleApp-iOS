@@ -1600,38 +1600,24 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ho1-hg-V7U">
                                         <rect key="frame" x="3" y="304" width="313" height="342"/>
                                         <subviews>
-                                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="reI-HU-QFh">
+                                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Total activity to date" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="reI-HU-QFh">
                                                 <rect key="frame" x="3" y="9" width="167" height="21"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="167" id="2CW-6T-Hwk"/>
                                                     <constraint firstAttribute="height" constant="21" id="MVL-HM-cOa"/>
                                                 </constraints>
-                                                <attributedString key="attributedText">
-                                                    <fragment content="Total activity to date">
-                                                        <attributes>
-                                                            <color key="NSColor" cocoaTouchSystemColor="darkTextColor"/>
-                                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
-                                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                                                        </attributes>
-                                                    </fragment>
-                                                </attributedString>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3F8-dh-TCs">
+                                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Manage linked accounts" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3F8-dh-TCs">
                                                 <rect key="frame" x="7" y="124" width="193" height="21"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="21" id="kiE-36-QXb"/>
                                                     <constraint firstAttribute="width" constant="193" id="xx6-Z5-RDT"/>
                                                 </constraints>
-                                                <attributedString key="attributedText">
-                                                    <fragment content="Manage linked accounts">
-                                                        <attributes>
-                                                            <color key="NSColor" cocoaTouchSystemColor="darkTextColor"/>
-                                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
-                                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                                                        </attributes>
-                                                    </fragment>
-                                                </attributedString>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" image="twitter-bird-white-on-blue.png" translatesAutoresizingMaskIntoConstraints="NO" id="5i0-JZ-HpY">
@@ -1641,21 +1627,14 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                                                     <constraint firstAttribute="height" constant="40" id="FbA-0Z-Pqk"/>
                                                 </constraints>
                                             </imageView>
-                                            <label hidden="YES" opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gJ1-F0-r4G">
+                                            <label hidden="YES" opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Twitter" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gJ1-F0-r4G">
                                                 <rect key="frame" x="57" y="199" width="64" height="21"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="21" id="LLk-Py-2cx"/>
                                                     <constraint firstAttribute="width" constant="64" id="bFD-fV-vTs"/>
                                                 </constraints>
-                                                <attributedString key="attributedText">
-                                                    <fragment content="Twitter">
-                                                        <attributes>
-                                                            <color key="NSColor" cocoaTouchSystemColor="darkTextColor"/>
-                                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
-                                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                                                        </attributes>
-                                                    </fragment>
-                                                </attributedString>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <switch hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="f4K-tX-UWy">
@@ -1670,21 +1649,14 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                                                     <constraint firstAttribute="height" constant="40" id="He2-eo-n7Q"/>
                                                 </constraints>
                                             </imageView>
-                                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mc9-vJ-eG8">
-                                                <rect key="frame" x="57" y="156" width="75" height="21"/>
+                                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Facebook" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mc9-vJ-eG8">
+                                                <rect key="frame" x="57" y="156" width="121" height="21"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="width" constant="75" id="739-4T-n7a"/>
+                                                    <constraint firstAttribute="width" constant="121" id="739-4T-n7a"/>
                                                     <constraint firstAttribute="height" constant="21" id="VJS-NJ-R8Q"/>
                                                 </constraints>
-                                                <attributedString key="attributedText">
-                                                    <fragment content="Facebook">
-                                                        <attributes>
-                                                            <color key="NSColor" cocoaTouchSystemColor="darkTextColor"/>
-                                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
-                                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                                                        </attributes>
-                                                    </fragment>
-                                                </attributedString>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <switch opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="G5B-44-FjK">
@@ -1834,55 +1806,33 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                                                     <constraint firstItem="C41-aV-eej" firstAttribute="trailing" secondItem="wCf-21-3l1" secondAttribute="trailing" id="mN7-2h-Nmw"/>
                                                 </constraints>
                                             </view>
-                                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sAt-h0-qjm">
-                                                <rect key="frame" x="5" y="243" width="193" height="21"/>
+                                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Account Settings" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sAt-h0-qjm">
+                                                <rect key="frame" x="7" y="240" width="193" height="21"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="193" id="hHg-1A-eqb"/>
                                                     <constraint firstAttribute="height" constant="21" id="rXs-hf-NMc"/>
                                                 </constraints>
-                                                <attributedString key="attributedText">
-                                                    <fragment content="Account Settings">
-                                                        <attributes>
-                                                            <color key="NSColor" cocoaTouchSystemColor="darkTextColor"/>
-                                                            <font key="NSFont" size="15" name="Roboto-BoldCondensed"/>
-                                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
-                                                        </attributes>
-                                                    </fragment>
-                                                </attributedString>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="168" translatesAutoresizingMaskIntoConstraints="NO" id="GwA-0R-rfu">
-                                                <rect key="frame" x="44" y="258" width="168" height="55"/>
+                                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Save images to camera roll" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="9" translatesAutoresizingMaskIntoConstraints="NO" id="GwA-0R-rfu">
+                                                <rect key="frame" x="44" y="270" width="184" height="21"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="height" constant="55" id="dHQ-8v-h56"/>
-                                                    <constraint firstAttribute="width" constant="168" id="oN8-NZ-5Di"/>
+                                                    <constraint firstAttribute="height" constant="21" id="dHQ-8v-h56"/>
+                                                    <constraint firstAttribute="width" constant="184" id="oN8-NZ-5Di"/>
                                                 </constraints>
-                                                <attributedString key="attributedText">
-                                                    <fragment content="Save images to camera roll">
-                                                        <attributes>
-                                                            <color key="NSColor" cocoaTouchSystemColor="darkTextColor"/>
-                                                            <font key="NSFont" size="15" name="Roboto-BoldCondensed"/>
-                                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
-                                                        </attributes>
-                                                    </fragment>
-                                                </attributedString>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ccN-SN-iHZ">
+                                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Show me in the top 5 customers" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="9" translatesAutoresizingMaskIntoConstraints="NO" id="ccN-SN-iHZ">
                                                 <rect key="frame" x="46" y="312" width="184" height="21"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="21" id="5Mp-c9-PkX"/>
                                                     <constraint firstAttribute="width" constant="184" id="9vR-BX-ZJK"/>
                                                 </constraints>
-                                                <attributedString key="attributedText">
-                                                    <fragment content="Show me in the top 5%">
-                                                        <attributes>
-                                                            <color key="NSColor" cocoaTouchSystemColor="darkTextColor"/>
-                                                            <font key="NSFont" size="15" name="Roboto-BoldCondensed"/>
-                                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
-                                                        </attributes>
-                                                    </fragment>
-                                                </attributedString>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="LfG-bg-yfB">
@@ -1924,7 +1874,7 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                                             <constraint firstItem="eOV-wf-yYN" firstAttribute="leading" secondItem="RtN-HM-Qtz" secondAttribute="leading" id="5jU-o4-kF1"/>
                                             <constraint firstItem="GKX-LD-Xt5" firstAttribute="top" secondItem="wHE-cF-94Z" secondAttribute="top" id="67C-eZ-Y3c"/>
                                             <constraint firstItem="zN9-Dk-DAR" firstAttribute="bottom" secondItem="ho1-hg-V7U" secondAttribute="bottom" constant="-154" id="7l0-mt-cGI"/>
-                                            <constraint firstItem="LfG-bg-yfB" firstAttribute="leading" secondItem="GwA-0R-rfu" secondAttribute="trailing" constant="14" id="82p-d9-4IR"/>
+                                            <constraint firstItem="LfG-bg-yfB" firstAttribute="leading" secondItem="GwA-0R-rfu" secondAttribute="trailing" constant="-2" id="82p-d9-4IR"/>
                                             <constraint firstItem="GwA-0R-rfu" firstAttribute="leading" secondItem="RtN-HM-Qtz" secondAttribute="trailing" constant="7" id="8nL-9Z-3RH"/>
                                             <constraint firstItem="RtN-HM-Qtz" firstAttribute="top" secondItem="eOV-wf-yYN" secondAttribute="bottom" constant="6" id="9Sb-Md-ur8"/>
                                             <constraint firstAttribute="bottom" secondItem="mc9-vJ-eG8" secondAttribute="bottom" constant="165" id="ANj-el-KhO"/>
@@ -1937,12 +1887,12 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                                             <constraint firstAttribute="bottom" secondItem="f4K-tX-UWy" secondAttribute="bottom" constant="119" id="Ihw-N1-lgx"/>
                                             <constraint firstItem="mc9-vJ-eG8" firstAttribute="leading" secondItem="zN9-Dk-DAR" secondAttribute="trailing" constant="8" symbolic="YES" id="JEu-1y-4Vk"/>
                                             <constraint firstItem="GKX-LD-Xt5" firstAttribute="leading" secondItem="ho1-hg-V7U" secondAttribute="leading" constant="106" id="JXC-AV-AfP"/>
-                                            <constraint firstItem="G5B-44-FjK" firstAttribute="leading" secondItem="mc9-vJ-eG8" secondAttribute="trailing" constant="98" id="KYV-vW-AOm"/>
+                                            <constraint firstItem="G5B-44-FjK" firstAttribute="leading" secondItem="mc9-vJ-eG8" secondAttribute="trailing" constant="52" id="KYV-vW-AOm"/>
                                             <constraint firstItem="ccN-SN-iHZ" firstAttribute="top" secondItem="LfG-bg-yfB" secondAttribute="bottom" constant="23" id="MyU-mv-pwS"/>
                                             <constraint firstItem="RtN-HM-Qtz" firstAttribute="leading" secondItem="3F8-dh-TCs" secondAttribute="leading" id="OPz-86-xqD"/>
                                             <constraint firstItem="GKX-LD-Xt5" firstAttribute="bottom" secondItem="wHE-cF-94Z" secondAttribute="bottom" id="OTv-1u-SxG"/>
                                             <constraint firstAttribute="trailing" secondItem="7GK-nU-Mra" secondAttribute="trailing" constant="4" id="Orp-Mu-GkM"/>
-                                            <constraint firstItem="GwA-0R-rfu" firstAttribute="top" secondItem="zN9-Dk-DAR" secondAttribute="bottom" constant="70" id="P5X-BV-hY8"/>
+                                            <constraint firstItem="GwA-0R-rfu" firstAttribute="top" secondItem="zN9-Dk-DAR" secondAttribute="bottom" constant="82" id="P5X-BV-hY8"/>
                                             <constraint firstAttribute="trailing" secondItem="wHE-cF-94Z" secondAttribute="trailing" constant="209" id="RvH-Rt-zgR"/>
                                             <constraint firstItem="f4K-tX-UWy" firstAttribute="centerY" secondItem="gJ1-F0-r4G" secondAttribute="centerY" id="Sm7-Yh-7wp"/>
                                             <constraint firstItem="gJ1-F0-r4G" firstAttribute="leading" secondItem="5i0-JZ-HpY" secondAttribute="trailing" constant="8" symbolic="YES" id="V5k-PH-MgD"/>
@@ -1957,10 +1907,10 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                                             <constraint firstItem="3F8-dh-TCs" firstAttribute="leading" secondItem="ho1-hg-V7U" secondAttribute="leading" constant="7" id="ooE-go-5l0"/>
                                             <constraint firstItem="ccN-SN-iHZ" firstAttribute="leading" secondItem="RtN-HM-Qtz" secondAttribute="trailing" constant="9" id="xQa-lZ-e7g"/>
                                             <constraint firstAttribute="bottom" secondItem="5i0-JZ-HpY" secondAttribute="bottom" constant="114" id="yIr-t7-ZSE"/>
-                                            <constraint firstItem="sAt-h0-qjm" firstAttribute="top" secondItem="zN9-Dk-DAR" secondAttribute="bottom" constant="55" id="zUg-7c-vbo"/>
+                                            <constraint firstItem="sAt-h0-qjm" firstAttribute="top" secondItem="zN9-Dk-DAR" secondAttribute="bottom" constant="52" id="zUg-7c-vbo"/>
                                             <constraint firstItem="GKX-LD-Xt5" firstAttribute="centerX" secondItem="ho1-hg-V7U" secondAttribute="centerX" id="zVN-Dc-0Jx"/>
                                             <constraint firstItem="5i0-JZ-HpY" firstAttribute="leading" secondItem="ho1-hg-V7U" secondAttribute="leading" constant="6" id="zgr-ij-Vu3"/>
-                                            <constraint firstItem="sAt-h0-qjm" firstAttribute="leading" secondItem="ho1-hg-V7U" secondAttribute="leading" constant="5" id="zzc-xD-4be"/>
+                                            <constraint firstItem="sAt-h0-qjm" firstAttribute="leading" secondItem="ho1-hg-V7U" secondAttribute="leading" constant="7" id="zzc-xD-4be"/>
                                         </constraints>
                                     </view>
                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="297" translatesAutoresizingMaskIntoConstraints="NO" id="xDq-dx-kAB">
