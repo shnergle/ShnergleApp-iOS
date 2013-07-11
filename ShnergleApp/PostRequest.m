@@ -90,6 +90,7 @@
     if (item) [invocation setArgument:&item atIndex:3];
     [invocation setTarget:responseObject];
     [invocation retainArguments];
+    NSLog(@"%@",responseArg);
     [invocation invoke];
 }
 
