@@ -79,7 +79,7 @@
     } else {
         [self setHeaderTitle:titleHeader andSubtitle:@"Tap to Follow"];
     }
-    [[[PostRequest alloc] init] exec:@"venue_followers/set" params:[NSString stringWithFormat:@"facebook_id=%@&venue_id=%@&following=%@", appDelegate.facebookId, appDelegate.activeVenue[@"id"], (following ? @"true" : @"false")] delegate:self callback:@selector(doNothing:) type:@"string"];
+    [[[PostRequest alloc] init] exec:@"venue_followers/set" params:[NSString stringWithFormat:@"venue_id=%@&following=%@", appDelegate.activeVenue[@"id"], (following ? @"true" : @"false")] delegate:self callback:@selector(doNothing:) type:@"string"];
 }
 
 - (void)doNothing:(id)whoCares {
@@ -242,7 +242,7 @@
 
 - (void)getPosts {
     NSMutableString *params = [[NSMutableString alloc]initWithString:@"venue_id="];
-    [params appendFormat:@"%@&facebook_id=%@", appDelegate.activeVenue[@"id"], appDelegate.facebookId];
+    [params appendString:appDelegate.activeVenue[@"id"]];
 
     [[[PostRequest alloc]init]exec:@"posts/get" params:params delegate:self callback:@selector(didFinishDownloadingPosts:)];
 }

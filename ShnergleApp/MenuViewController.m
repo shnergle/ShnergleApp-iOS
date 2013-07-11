@@ -149,7 +149,7 @@
 
 - (BOOL)textFieldShouldReturn:(UITextField *)textField {
     if (textField.text.length > 1) {
-        NSString *params = [NSString stringWithFormat:@"term=%@&facebook_id=%@", _bar.text, appDelegate.facebookId];
+        NSString *params = [NSString stringWithFormat:@"term=%@", _bar.text];
         [[[PostRequest alloc] init] exec:@"user_searches/set" params:params delegate:self callback:@selector(searchRegistered:)];
         [[[PostRequest alloc] init] exec:@"venues/get" params:params delegate:self callback:@selector(postResponse:)];
         [textField resignFirstResponder];

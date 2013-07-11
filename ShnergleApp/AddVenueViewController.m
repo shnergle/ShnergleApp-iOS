@@ -47,9 +47,7 @@ typedef enum {
             country = [((CLPlacemark *)placemark.firstObject).ISOcountryCode lowercaseString];
         }
 
-        NSMutableString *params = [[NSMutableString alloc]initWithString:@"facebook_id="];
-        [params appendString:appDelegate.facebookId];
-        [params appendString:@"&name="];
+        NSMutableString *params = [[NSMutableString alloc]initWithString:@"name="];
         [params appendString:_userData[1]];
         [params appendString:@"&category_id="];
         [params appendString:appDelegate.addVenueTypeId];

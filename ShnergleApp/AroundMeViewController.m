@@ -96,6 +96,7 @@
     appDelegate.aroundVenues = response;
     [self.crowdCollection reloadData];
     loading = NO;
+    [self.overlay hideToastActivity];
 }
 
 - (void)addShadowLineRect:(CGRect)shadeRect ToView:(UIView *)view {
@@ -211,8 +212,8 @@
 }
 
 - (IBAction)sliderValueChanged:(id)sender {
+    [self.overlay makeToastActivity];
     [self.mapView clear];
-
     CLLocationCoordinate2D coord;
     if (pinDropped) {
         coord = pinDroppedLocation;
@@ -224,14 +225,22 @@
     mapCircle.strokeColor = [UIColor orangeColor];
     mapCircle.strokeWidth = 5;
     
+    /*
+     =00ooo00oOOoOoOoo
+     =Adam's and Stian's magical coordinate substitution principle
+     =ooOoOO000OOo00oOoo
+     */
     CGFloat screenDistance = [self.mapView.projection pointsForMeters:(self.distanceScroller.value * 1000) atCoordinate:coord];
     CGPoint screenCenter = [self.mapView.projection pointForCoordinate:coord];
     CGPoint screenPoint = CGPointMake(screenCenter.x - screenDistance, screenCenter.y);
     CLLocationCoordinate2D realPoint = [self.mapView.projection coordinateForPoint:screenPoint];
     CGFloat distanceInDegrees = coord.longitude - realPoint.longitude;
     
-    [[[PostRequest alloc] init]exec:@"venues/get" params:[NSString stringWithFormat:@"facebook_id=%@&my_lat=%f&my_lon=%f&distance=%f", appDelegate.facebookId, coord.latitude, coord.longitude, distanceInDegrees] delegate:self callback:@selector(didFinishLoadingVenues:)];
-
+    /*
+     oo..
+     */
+    
+    [[[PostRequest alloc] init] exec:@"venues/get" params:[NSString stringWithFormat:@"my_lat=%f&my_lon=%f&distance=%f", coord.latitude, coord.longitude, distanceInDegrees] delegate:self callback:@selector(didFinishLoadingVenues:)];
     
     mapCircle.map = self.mapView;
     
