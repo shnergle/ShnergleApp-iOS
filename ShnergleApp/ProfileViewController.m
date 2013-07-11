@@ -78,11 +78,11 @@
     self.navigationController.navigationBar.clipsToBounds = YES;
     self.navBar.clipsToBounds = YES;
 
-    [[[PostRequest alloc] init] exec:@"rankings/get" params:@"" delegate:self callback:@selector(postResponse:) type:@"string"];
+    [[[PostRequest alloc] init] exec:@"rankings/get" params:@"" delegate:self callback:@selector(postResponse:)];
 }
 
-- (void)postResponse:(id)result {
-    int res = [result integerValue];
+- (void)postResponse:(NSDictionary *)result {
+    int res = [result[@"level"] intValue];
     switch (res) {
         case 1:
             _userProfileImage1.hidden = NO;
@@ -95,10 +95,9 @@
         default:
             break;
     }
-}
-
-- (void)viewWillDisappear:(BOOL)animated {
-    [super viewWillDisappear:animated];
+    _followingLabel.text = [result[@"following"] stringValue];
+    _redeemedLabel.text = [result[@"redemptions"] stringValue];
+    _checkInLabel.text = [result[@"posts"] stringValue];
 }
 
 - (void)tapMenu {

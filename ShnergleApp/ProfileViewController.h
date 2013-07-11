@@ -12,6 +12,9 @@
 
 @interface ProfileViewController : UIViewController <UIActionSheetDelegate>
 
+@property (weak, nonatomic) IBOutlet UILabel *checkInLabel;
+@property (weak, nonatomic) IBOutlet UILabel *redeemedLabel;
+@property (weak, nonatomic) IBOutlet UILabel *followingLabel;
 @property (weak, nonatomic) IBOutlet UISwitch *optInSwitch;
 @property (strong, nonatomic) IBOutlet FBProfilePictureView *userProfileImage3;
 @property (strong, nonatomic) IBOutlet FBProfilePictureView *userProfileImage1;

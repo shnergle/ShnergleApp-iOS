@@ -1786,9 +1786,10 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                                                             <constraint firstAttribute="height" constant="21" id="oBG-tm-LWI"/>
                                                         </constraints>
                                                         <attributedString key="attributedText">
-                                                            <fragment content="Favourites">
+                                                            <fragment content="Following">
                                                                 <attributes>
                                                                     <color key="NSColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                                    <font key="NSFont" size="12" name="Helvetica"/>
                                                                     <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
                                                                     <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                                                 </attributes>
@@ -1979,13 +1980,16 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                     <extendedEdge key="edgesForExtendedLayout"/>
                     <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="lightContent"/>
                     <connections>
+                        <outlet property="checkInLabel" destination="lvZ-Xo-ozX" id="flb-W6-KFr"/>
                         <outlet property="checkInView" destination="wHE-cF-94Z" id="OjQ-zN-VFG"/>
                         <outlet property="explorerView" destination="6aw-hx-FKb" id="EoE-nT-QKr"/>
                         <outlet property="favourites" destination="7GK-nU-Mra" id="0Pb-8F-lHv"/>
+                        <outlet property="followingLabel" destination="C41-aV-eej" id="haP-Ky-V8Z"/>
                         <outlet property="navBar" destination="uZw-Cy-fCl" id="pOT-Jm-73w"/>
                         <outlet property="navBarItem" destination="zZz-2u-Qxt" id="9gp-T7-ZNS"/>
                         <outlet property="optInSwitch" destination="8Vi-ig-4Kl" id="hec-JU-UKc"/>
                         <outlet property="redeemed" destination="GKX-LD-Xt5" id="hR8-Rt-1nP"/>
+                        <outlet property="redeemedLabel" destination="B6N-VF-klk" id="Ckt-Xq-aob"/>
                         <outlet property="saveLocallySwitch" destination="LfG-bg-yfB" id="bHp-4p-gX4"/>
                         <outlet property="scoutView" destination="oUU-4O-C2G" id="thm-UD-aEQ"/>
                         <outlet property="shnerglerView" destination="TKV-Hw-kaW" id="JV9-LM-LSK"/>
