@@ -259,7 +259,6 @@
 }
 
 - (void)didFinishDownloadingPosts:(id)response {
-    NSLog(@"%@",response);
     appDelegate.posts = response;
     [self.crowdCollectionV reloadData];
     [refreshControl endRefreshing];

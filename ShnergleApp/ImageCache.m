@@ -30,7 +30,6 @@ static NSCache *cache;
     } else {
         NSString *path = @"images/get";
         NSString *params = [NSString stringWithFormat:@"entity=%@&entity_id=%@", type, type_id];
-        NSLog(@"params: %@",params);
         [[[PostRequest alloc] init] exec:path params:params delegate:self callback:@selector(received:) type:@"image"];
     }
 }

@@ -115,7 +115,6 @@
 
 -(void)doNothing:(id)sender
 {
-    NSLog(@"Update sent to server.. Swwoooosh!");
 }
 
 
