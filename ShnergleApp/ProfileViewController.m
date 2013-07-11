@@ -46,14 +46,14 @@
     [self.view makeToastActivity];
 
     appDelegate.optInTop5 = self.optInSwitch.on;
-    [[[PostRequest alloc] init] exec:@"users/set" params:[NSString stringWithFormat:@"facebook_id=%@&top5=%@", appDelegate.facebookId, (self.optInSwitch.on ? @"true" : @"false")] delegate:self callback:@selector(doNothing:)];
+    [[[PostRequest alloc] init] exec:@"users/set" params:[NSString stringWithFormat:@"top5=%@", (self.optInSwitch.on ? @"true" : @"false")] delegate:self callback:@selector(doNothing:)];
 }
 
 - (IBAction)saveLocallyChange:(id)sender {
     [self.view makeToastActivity];
 
     appDelegate.saveLocally = self.saveLocallySwitch.on;
-    [[[PostRequest alloc] init] exec:@"users/set" params:[NSString stringWithFormat:@"facebook_id=%@&save_locally=%@", appDelegate.facebookId, (self.saveLocallySwitch.on ? @"true" : @"false")] delegate:self callback:@selector(doNothing:)];
+    [[[PostRequest alloc] init] exec:@"users/set" params:[NSString stringWithFormat:@"save_locally=%@", (self.saveLocallySwitch.on ? @"true" : @"false")] delegate:self callback:@selector(doNothing:)];
 }
 
 - (void)doNothing:(id)whoCares {
@@ -78,8 +78,7 @@
     self.navigationController.navigationBar.clipsToBounds = YES;
     self.navBar.clipsToBounds = YES;
 
-    NSMutableString *params = [[NSMutableString alloc] initWithString:@"facebook_id=549445495"];
-    [[[PostRequest alloc] init] exec:@"rankings/get" params:params delegate:self callback:@selector(postResponse:) type:@"string"];
+    [[[PostRequest alloc] init] exec:@"rankings/get" params:@"" delegate:self callback:@selector(postResponse:) type:@"string"];
 }
 
 - (void)postResponse:(id)result {

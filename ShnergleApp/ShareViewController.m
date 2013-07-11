@@ -47,7 +47,6 @@
     //Upload to Shnergle
     NSMutableString *postParams = [[NSMutableString alloc]initWithString:[NSString stringWithFormat:@"venue_id=%@", appDelegate.activeVenue[@"id"]]];
     [postParams appendFormat:@"&caption=%@", _textFieldname.text];
-    [postParams appendFormat:@"&facebook_id=%@", appDelegate.facebookId];
     if (appDelegate.shareImageLat != nil && appDelegate.shareImageLon != nil) {
     }
     [[[PostRequest alloc]init]exec:@"posts/set" params:postParams delegate:self callback:@selector(didFinishPost:) type:@"string"];
@@ -64,7 +63,7 @@
 }
 
 - (void)didFinishPost:(NSString *)response {
-    [[[PostRequest alloc] init] exec:@"images/set" params:[NSString stringWithFormat:@"entity=post&entity_id=%@&facebook_id=%@", response, appDelegate.facebookId] image:_image.image delegate:self callback:@selector(uploadedToServer:) type:@"string"];
+    [[[PostRequest alloc] init] exec:@"images/set" params:[NSString stringWithFormat:@"entity=post&entity_id=%@", response] image:_image.image delegate:self callback:@selector(uploadedToServer:) type:@"string"];
 }
 
 - (void)uploadedToServer:(NSString *)response {

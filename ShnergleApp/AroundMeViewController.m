@@ -225,7 +225,7 @@
     mapCircle.strokeWidth = 5;
 
     CGFloat distanceInDegrees = [self.mapView.projection pointsForMeters:self.distanceScroller.value * 1000 atCoordinate:coord];
-    [[[PostRequest alloc] init]exec:@"venues/get" params:[NSString stringWithFormat:@"facebook_id=%@&my_lat=%f&my_lon=%f&distance=%f", appDelegate.facebookId, coord.latitude, coord.longitude, distanceInDegrees] delegate:self callback:@selector(didFinishLoadingVenues:)];
+    [[[PostRequest alloc] init]exec:@"venues/get" params:[NSString stringWithFormat:@"my_lat=%f&my_lon=%f&distance=%f", coord.latitude, coord.longitude, distanceInDegrees] delegate:self callback:@selector(didFinishLoadingVenues:)];
 
     
     
