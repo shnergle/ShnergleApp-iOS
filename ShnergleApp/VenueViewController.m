@@ -238,7 +238,7 @@
 
 - (void)getPosts {
     NSMutableString *params = [[NSMutableString alloc]initWithString:@"venue_id="];
-    [params appendString:appDelegate.activeVenue[@"id"]];
+    [params appendString:[appDelegate.activeVenue[@"id"] stringValue]];
 
     [[[PostRequest alloc]init]exec:@"posts/get" params:params delegate:self callback:@selector(didFinishDownloadingPosts:)];
 }
