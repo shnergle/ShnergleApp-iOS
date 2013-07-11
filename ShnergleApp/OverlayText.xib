@@ -306,7 +306,7 @@
                                     <textInputTraits key="textInputTraits" autocorrectionType="no" returnKeyType="done"/>
                                 </textField>
                                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="afh-Ob-Pnz">
-                                    <rect key="frame" x="6" y="14" width="310" height="44"/>
+                                    <rect key="frame" x="7" y="14" width="310" height="44"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                     <state key="normal" title="Own this venue? Claim it." backgroundImage="greenbutton.png">
@@ -525,6 +525,7 @@
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <connections>
+                <outlet property="OwnVenueButton" destination="afh-Ob-Pnz" id="vUD-u1-drX"/>
                 <outlet property="anaImage" destination="GL9-Pa-rl8" id="3Tx-cG-rqB"/>
                 <outlet property="anaLabel" destination="MLb-yG-muo" id="buP-wb-wDJ"/>
                 <outlet property="analyticsButton" destination="KHc-ve-3C3" id="4j0-PD-1mE"/>
