@@ -16,8 +16,6 @@
     [self imageSetup];
 }
 
-
-
 - (void)setImage:(UIImage *)img withAuthor:(NSString *)user withComment:(NSString *)msg withTimestamp:(NSString *)time withId:(NSString *)post_id {
     image = img;
     comment = msg;
@@ -52,7 +50,6 @@
 
     [self.likeButton setTitle:newButtonLabel forState:UIControlStateNormal];
 }
-
 
 - (void)imageSetup {
     self.imageView.image = image;
