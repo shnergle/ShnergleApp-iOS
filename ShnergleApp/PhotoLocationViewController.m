@@ -13,21 +13,14 @@
 @implementation PhotoLocationViewController
 
 - (void)viewDidLoad {
+    if(appDelegate.backFromShareView || appDelegate.activeVenue){
+        
+    }else{
     [super viewDidLoad];
     self.navigationItem.title = @"Location";
     appDelegate.locationPickerVenues = nil;
     [self.searchResultTable makeToastActivity];
-}
--(void)viewDidAppear:(BOOL)animated
-{
-    if(appDelegate.backFromShareView){
-        appDelegate.backFromShareView = NO;
-        [self goBack];
-    }else if(appDelegate.activeVenue){
-        UIViewController *vc = [self.storyboard instantiateViewControllerWithIdentifier:@"ShareViewController"];
-        [self.navigationController pushViewController:vc animated:YES];
     }
-
 }
 
 - (void)didFinishLoadingVenues:(NSArray *)response {
@@ -38,9 +31,21 @@
 }
 
 - (void)viewWillAppear:(BOOL)animated {
+    
+    NSLog(@"%c",appDelegate.backFromShareView);
+    if(appDelegate.backFromShareView){
+        appDelegate.backFromShareView = NO;
+        [self goBack];
+    }else if(appDelegate.activeVenue){
+        self.navigationController.navigationBarHidden = NO;
+
+        UIViewController *vc = [self.storyboard instantiateViewControllerWithIdentifier:@"ShareViewController"];
+        [self.navigationController pushViewController:vc animated:YES];
+    }else{
     [super viewWillAppear:animated];
     self.navigationController.navigationBarHidden = NO;
     [self initMap];
+    }
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
