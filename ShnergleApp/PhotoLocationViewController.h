@@ -12,6 +12,8 @@
 @interface PhotoLocationViewController : CustomBackViewController <UISearchBarDelegate, GMSMapViewDelegate, UITableViewDelegate, UITableViewDataSource> {
     GMSMapView *map;
     BOOL hasPositionLocked;
+    CLLocationCoordinate2D coord;
+    NSArray *locationPickerVenuesImmutable;
 }
 
 @property (weak, nonatomic) IBOutlet UILabel *headline;
