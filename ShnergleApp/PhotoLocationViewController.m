@@ -16,6 +16,11 @@
     [super viewDidLoad];
     self.navigationItem.title = @"Location";
     appDelegate.locationPickerVenues = nil;
+    if(appDelegate.activeVenue){
+        UIViewController *vc = [self.storyboard instantiateViewControllerWithIdentifier:@"ShareViewController"];
+        [self.navigationController pushViewController:vc animated:YES];
+    }
+
     [self.searchResultTable makeToastActivity];
 }
 
@@ -109,5 +114,6 @@
         ((ShareViewController *)[segue destinationViewController]).shnergleThis = YES;
     }
 }
+
 
 @end

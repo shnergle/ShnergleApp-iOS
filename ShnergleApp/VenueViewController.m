@@ -12,6 +12,7 @@
 #import "VenueGalleryViewController.h"
 #import "PostRequest.h"
 #import "ImageCache.h"
+#import "PhotoLocationViewController.h"
 #import <NSDate+TimeAgo/NSDate+TimeAgo.h>
 
 @implementation VenueViewController
@@ -283,6 +284,7 @@
         [segue.destinationViewController setTitle:[NSString stringWithFormat:@"%@", titleHeader]];
         [(VenueGalleryViewController *)segue.destinationViewController setImage : ((CrowdItem *)sender).crowdImage.image withAuthor :[NSString stringWithFormat:@"%@ %@", appDelegate.posts[selectedPost][@"forename"], [appDelegate.posts[selectedPost][@"surname"] substringToIndex:1]] withComment : appDelegate.posts[selectedPost][@"caption"] withTimestamp :[self getDateFromUnixFormat:appDelegate.posts[selectedPost][@"time"]] withId :[appDelegate.posts[selectedPost][@"id"] stringValue]];
     } else if ([segue.identifier isEqualToString:@"CheckInFromVenue"]) {
+        ((PhotoLocationViewController *)((UIViewController *)segue.destinationViewController).nextResponder).specificVenue = appDelegate.activeVenue;
         appDelegate.shareVenue = NO;
     }
 }
