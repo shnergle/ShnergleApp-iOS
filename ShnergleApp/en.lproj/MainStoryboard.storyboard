@@ -1348,111 +1348,63 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="d7K-2j-bO2">
                                         <rect key="frame" x="4" y="75" width="312" height="246"/>
                                         <subviews>
-                                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2ve-HH-46t">
+                                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Scout" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2ve-HH-46t">
                                                 <rect key="frame" x="207" y="137" width="80" height="21"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="80" id="ee0-oK-cNI"/>
                                                 </constraints>
-                                                <attributedString key="attributedText">
-                                                    <fragment content="Scout">
-                                                        <attributes>
-                                                            <color key="NSColor" cocoaTouchSystemColor="darkTextColor"/>
-                                                            <font key="NSFont" size="12" name="Helvetica"/>
-                                                            <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
-                                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="13"/>
-                                                        </attributes>
-                                                    </fragment>
-                                                </attributedString>
+                                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="82" translatesAutoresizingMaskIntoConstraints="NO" id="u3a-ML-Adf">
-                                                <rect key="frame" x="214" y="165" width="82" height="70"/>
+                                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="8 Check Ins per month" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="82" translatesAutoresizingMaskIntoConstraints="NO" id="u3a-ML-Adf">
+                                                <rect key="frame" x="212" y="164" width="82" height="70"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="82" id="YH6-Dx-FOR"/>
                                                     <constraint firstAttribute="height" constant="70" id="sS2-tH-jmO"/>
                                                 </constraints>
-                                                <attributedString key="attributedText">
-                                                    <fragment content="8 Check Ins per month">
-                                                        <attributes>
-                                                            <color key="NSColor" cocoaTouchSystemColor="darkTextColor"/>
-                                                            <font key="NSFont" size="12" name="Helvetica"/>
-                                                            <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
-                                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                                                        </attributes>
-                                                    </fragment>
-                                                </attributedString>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ItR-tc-cJA">
+                                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Shnergler" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ItR-tc-cJA">
                                                 <rect key="frame" x="105" y="137" width="90" height="21"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="90" id="caa-W8-BWw"/>
                                                     <constraint firstAttribute="height" constant="21" id="ik3-xM-qgh"/>
                                                 </constraints>
-                                                <attributedString key="attributedText">
-                                                    <fragment content="Shnergler">
-                                                        <attributes>
-                                                            <color key="NSColor" cocoaTouchSystemColor="darkTextColor"/>
-                                                            <font key="NSFont" size="12" name="Helvetica"/>
-                                                            <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
-                                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="13"/>
-                                                        </attributes>
-                                                    </fragment>
-                                                </attributedString>
+                                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="92" translatesAutoresizingMaskIntoConstraints="NO" id="PZl-4S-Ut5">
-                                                <rect key="frame" x="3" y="162" width="92" height="72"/>
+                                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Reduce your Check Ins to 4 per month" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="92" translatesAutoresizingMaskIntoConstraints="NO" id="PZl-4S-Ut5">
+                                                <rect key="frame" x="2" y="161" width="92" height="72"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="72" id="LCP-Hk-YEh"/>
                                                     <constraint firstAttribute="width" constant="92" id="k94-em-94R"/>
                                                 </constraints>
-                                                <attributedString key="attributedText">
-                                                    <fragment content="Reduce your Check Ins to 4 per month">
-                                                        <attributes>
-                                                            <color key="NSColor" cocoaTouchSystemColor="darkTextColor"/>
-                                                            <font key="NSFont" size="12" name="Helvetica"/>
-                                                            <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
-                                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                                                        </attributes>
-                                                    </fragment>
-                                                </attributedString>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7Er-eZ-Aka">
+                                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Explorer" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7Er-eZ-Aka">
                                                 <rect key="frame" x="4" y="138" width="94" height="21"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="21" id="RK8-hh-q8X"/>
                                                     <constraint firstAttribute="width" constant="94" id="ZGy-UG-LrD"/>
                                                 </constraints>
-                                                <attributedString key="attributedText">
-                                                    <fragment content="Explorer">
-                                                        <attributes>
-                                                            <color key="NSColor" cocoaTouchSystemColor="darkTextColor"/>
-                                                            <font key="NSFont" size="12" name="Helvetica"/>
-                                                            <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
-                                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="13"/>
-                                                        </attributes>
-                                                    </fragment>
-                                                </attributedString>
+                                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="92" translatesAutoresizingMaskIntoConstraints="NO" id="dJa-qt-Zm3">
-                                                <rect key="frame" x="109" y="164" width="92" height="72"/>
+                                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Increase your Check Ins to 10 per month " textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="92" translatesAutoresizingMaskIntoConstraints="NO" id="dJa-qt-Zm3">
+                                                <rect key="frame" x="108" y="163" width="92" height="72"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="92" id="2lj-Aa-kKV"/>
                                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="92" id="52D-0c-7cM"/>
                                                 </constraints>
-                                                <attributedString key="attributedText">
-                                                    <fragment content="Increase your Check Ins to 10 per month ">
-                                                        <attributes>
-                                                            <color key="NSColor" cocoaTouchSystemColor="darkTextColor"/>
-                                                            <font key="NSFont" size="12" name="Helvetica"/>
-                                                            <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
-                                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                                                        </attributes>
-                                                    </fragment>
-                                                </attributedString>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6aw-hx-FKb">
@@ -1537,7 +1489,7 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                                             <constraint firstItem="vet-zr-ZTU" firstAttribute="centerX" secondItem="TKV-Hw-kaW" secondAttribute="centerX" constant="4.5" id="BzH-yi-fMF"/>
                                             <constraint firstAttribute="height" constant="246" id="D2V-72-Quo"/>
                                             <constraint firstAttribute="bottom" secondItem="ItR-tc-cJA" secondAttribute="bottom" constant="88" id="DZA-n4-7f0"/>
-                                            <constraint firstItem="PZl-4S-Ut5" firstAttribute="top" secondItem="d7K-2j-bO2" secondAttribute="top" constant="162" id="G4y-fW-krt"/>
+                                            <constraint firstItem="PZl-4S-Ut5" firstAttribute="top" secondItem="d7K-2j-bO2" secondAttribute="top" constant="161" id="G4y-fW-krt"/>
                                             <constraint firstItem="TKV-Hw-kaW" firstAttribute="leading" secondItem="d7K-2j-bO2" secondAttribute="leading" constant="105" id="GCg-hd-eJr"/>
                                             <constraint firstAttribute="bottom" secondItem="6aw-hx-FKb" secondAttribute="bottom" constant="106" id="Geh-3F-Kso"/>
                                             <constraint firstItem="oUU-4O-C2G" firstAttribute="top" secondItem="d7K-2j-bO2" secondAttribute="top" constant="47" id="JDc-XL-8uS"/>
@@ -1546,7 +1498,7 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                                             <constraint firstAttribute="bottom" secondItem="aov-cO-Uf2" secondAttribute="bottom" constant="170" id="KD8-xB-nt2"/>
                                             <constraint firstItem="u3a-ML-Adf" firstAttribute="centerY" secondItem="dJa-qt-Zm3" secondAttribute="centerY" id="LXU-tV-N9f"/>
                                             <constraint firstItem="9CC-oT-nGS" firstAttribute="centerX" secondItem="B8S-PQ-qb1" secondAttribute="centerX" constant="-1" id="MqU-h6-WKw"/>
-                                            <constraint firstItem="u3a-ML-Adf" firstAttribute="leading" secondItem="d7K-2j-bO2" secondAttribute="leading" constant="214" id="RJw-VS-CfJ"/>
+                                            <constraint firstItem="u3a-ML-Adf" firstAttribute="leading" secondItem="d7K-2j-bO2" secondAttribute="leading" constant="212" id="RJw-VS-CfJ"/>
                                             <constraint firstItem="ItR-tc-cJA" firstAttribute="baseline" secondItem="2ve-HH-46t" secondAttribute="baseline" id="RjJ-hJ-5VS"/>
                                             <constraint firstItem="vet-zr-ZTU" firstAttribute="centerX" secondItem="aov-cO-Uf2" secondAttribute="centerX" constant="4.5" id="Shs-aN-vBo"/>
                                             <constraint firstItem="vet-zr-ZTU" firstAttribute="baseline" secondItem="9CC-oT-nGS" secondAttribute="baseline" constant="-1" id="UuE-NO-Oqi"/>
@@ -1558,7 +1510,7 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                                             <constraint firstItem="TKV-Hw-kaW" firstAttribute="trailing" secondItem="vet-zr-ZTU" secondAttribute="trailing" constant="-1" id="cFg-B8-Qdv"/>
                                             <constraint firstItem="9CC-oT-nGS" firstAttribute="leading" secondItem="6aw-hx-FKb" secondAttribute="leading" constant="4" id="dAG-fl-0BF"/>
                                             <constraint firstItem="oUU-4O-C2G" firstAttribute="leading" secondItem="d7K-2j-bO2" secondAttribute="leading" constant="204" id="gGy-WO-pb0"/>
-                                            <constraint firstItem="9CC-oT-nGS" firstAttribute="centerX" secondItem="PZl-4S-Ut5" secondAttribute="centerX" constant="1.5" id="hCc-7B-JzS"/>
+                                            <constraint firstItem="9CC-oT-nGS" firstAttribute="centerX" secondItem="PZl-4S-Ut5" secondAttribute="centerX" constant="2.5" id="hCc-7B-JzS"/>
                                             <constraint firstItem="B8S-PQ-qb1" firstAttribute="top" secondItem="d7K-2j-bO2" secondAttribute="top" constant="22" id="hnl-0v-KxC"/>
                                             <constraint firstItem="vet-zr-ZTU" firstAttribute="centerY" secondItem="d7K-2j-bO2" secondAttribute="centerY" id="jLD-Wk-R1h"/>
                                             <constraint firstItem="9CC-oT-nGS" firstAttribute="trailing" secondItem="6aw-hx-FKb" secondAttribute="trailing" constant="-3" id="lcB-5B-6EB"/>
@@ -1569,7 +1521,7 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                                             <constraint firstItem="ItR-tc-cJA" firstAttribute="leading" secondItem="d7K-2j-bO2" secondAttribute="leading" constant="105" id="ozQ-Cv-1zx"/>
                                             <constraint firstItem="dJa-qt-Zm3" firstAttribute="top" secondItem="PZl-4S-Ut5" secondAttribute="top" constant="2" id="p2S-5A-8mM"/>
                                             <constraint firstItem="ItR-tc-cJA" firstAttribute="top" secondItem="2ve-HH-46t" secondAttribute="top" id="pWK-kd-ndf"/>
-                                            <constraint firstItem="dJa-qt-Zm3" firstAttribute="leading" secondItem="d7K-2j-bO2" secondAttribute="leading" constant="109" id="piV-HY-is2"/>
+                                            <constraint firstItem="dJa-qt-Zm3" firstAttribute="leading" secondItem="d7K-2j-bO2" secondAttribute="leading" constant="108" id="piV-HY-is2"/>
                                             <constraint firstItem="9CC-oT-nGS" firstAttribute="trailing" secondItem="7Er-eZ-Aka" secondAttribute="trailing" constant="-6" id="rtu-Rj-88F"/>
                                             <constraint firstItem="oUU-4O-C2G" firstAttribute="bottom" secondItem="TKV-Hw-kaW" secondAttribute="bottom" id="suh-Bg-io5"/>
                                             <constraint firstItem="6ST-su-s4Y" firstAttribute="trailing" secondItem="oUU-4O-C2G" secondAttribute="trailing" constant="-2" id="tQl-qn-gXm"/>
@@ -1652,46 +1604,31 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wHE-cF-94Z">
                                                 <rect key="frame" x="4" y="38" width="100" height="75"/>
                                                 <subviews>
-                                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="O35-G2-0P4">
-                                                        <rect key="frame" x="9" y="54" width="84" height="21"/>
+                                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Check Ins" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="O35-G2-0P4">
+                                                        <rect key="frame" x="5" y="54" width="84" height="21"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" constant="84" id="5P3-Tn-Ggd"/>
                                                             <constraint firstAttribute="height" constant="21" id="ePX-cF-rRX"/>
                                                         </constraints>
-                                                        <attributedString key="attributedText">
-                                                            <fragment content="Check Ins">
-                                                                <attributes>
-                                                                    <color key="NSColor" cocoaTouchSystemColor="darkTextColor"/>
-                                                                    <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
-                                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                                                                </attributes>
-                                                            </fragment>
-                                                        </attributedString>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="lvZ-Xo-ozX">
-                                                        <rect key="frame" x="7" y="-5" width="78" height="74"/>
+                                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="lvZ-Xo-ozX">
+                                                        <rect key="frame" x="7" y="-9" width="78" height="74"/>
                                                         <constraints>
-                                                            <constraint firstAttribute="height" constant="73" id="MDD-h5-ECR"/>
+                                                            <constraint firstAttribute="height" constant="74" id="MDD-h5-ECR"/>
                                                             <constraint firstAttribute="width" constant="78" id="lRI-2E-Ruj"/>
                                                         </constraints>
-                                                        <attributedString key="attributedText">
-                                                            <fragment content="0">
-                                                                <attributes>
-                                                                    <color key="NSColor" cocoaTouchSystemColor="darkTextColor"/>
-                                                                    <font key="NSFont" size="64" name="Helvetica"/>
-                                                                    <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="truncatingTail" baseWritingDirection="natural"/>
-                                                                    <fontDescription key="fontDescription" type="system" pointSize="56"/>
-                                                                </attributes>
-                                                            </fragment>
-                                                        </attributedString>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="64"/>
+                                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                 </subviews>
                                                 <color key="backgroundColor" red="0.89411764709999997" green="0.90196078430000004" blue="0.92941176469999998" alpha="1" colorSpace="calibratedRGB"/>
                                                 <constraints>
-                                                    <constraint firstItem="O35-G2-0P4" firstAttribute="leading" secondItem="wHE-cF-94Z" secondAttribute="leading" constant="9" id="3BK-Cg-sGu"/>
-                                                    <constraint firstItem="lvZ-Xo-ozX" firstAttribute="top" secondItem="wHE-cF-94Z" secondAttribute="top" constant="-5" id="ECh-i8-nvy"/>
+                                                    <constraint firstItem="O35-G2-0P4" firstAttribute="leading" secondItem="wHE-cF-94Z" secondAttribute="leading" constant="5" id="3BK-Cg-sGu"/>
+                                                    <constraint firstItem="lvZ-Xo-ozX" firstAttribute="top" secondItem="wHE-cF-94Z" secondAttribute="top" constant="-9" id="ECh-i8-nvy"/>
                                                     <constraint firstItem="lvZ-Xo-ozX" firstAttribute="leading" secondItem="wHE-cF-94Z" secondAttribute="leading" constant="7" id="K8D-de-c9k"/>
                                                     <constraint firstItem="O35-G2-0P4" firstAttribute="bottom" secondItem="wHE-cF-94Z" secondAttribute="bottom" id="kpx-9F-26k"/>
                                                 </constraints>
@@ -1699,86 +1636,55 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GKX-LD-Xt5">
                                                 <rect key="frame" x="106" y="38" width="101" height="75"/>
                                                 <subviews>
-                                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="B6N-VF-klk">
-                                                        <rect key="frame" x="8" y="-11" width="86" height="77"/>
+                                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="B6N-VF-klk">
+                                                        <rect key="frame" x="7" y="-12" width="86" height="77"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="77" id="7lN-6g-N28"/>
                                                             <constraint firstAttribute="width" constant="86" id="DNv-t2-4xE"/>
                                                         </constraints>
-                                                        <attributedString key="attributedText">
-                                                            <fragment content="0">
-                                                                <attributes>
-                                                                    <color key="NSColor" cocoaTouchSystemColor="darkTextColor"/>
-                                                                    <font key="NSFont" size="64" name="Helvetica"/>
-                                                                    <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="truncatingTail" baseWritingDirection="natural"/>
-                                                                    <fontDescription key="fontDescription" type="system" pointSize="56"/>
-                                                                </attributes>
-                                                            </fragment>
-                                                        </attributedString>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="64"/>
+                                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="X6T-vE-tC0">
-                                                        <rect key="frame" x="6" y="53" width="89" height="21"/>
+                                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Redeemed" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="X6T-vE-tC0">
+                                                        <rect key="frame" x="4" y="54" width="89" height="21"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" constant="89" id="C0k-YT-fmW"/>
                                                             <constraint firstAttribute="height" constant="21" id="acq-eQ-1Xf"/>
                                                         </constraints>
-                                                        <attributedString key="attributedText">
-                                                            <fragment content="Redeemed">
-                                                                <attributes>
-                                                                    <color key="NSColor" cocoaTouchSystemColor="darkTextColor"/>
-                                                                    <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
-                                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                                                                </attributes>
-                                                            </fragment>
-                                                        </attributedString>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                 </subviews>
                                                 <color key="backgroundColor" red="0.89411764709999997" green="0.90196078430000004" blue="0.92941176469999998" alpha="1" colorSpace="calibratedRGB"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="bottom" secondItem="X6T-vE-tC0" secondAttribute="bottom" constant="1" id="Lcp-rs-GVd"/>
-                                                    <constraint firstItem="X6T-vE-tC0" firstAttribute="centerX" secondItem="GKX-LD-Xt5" secondAttribute="centerX" id="Ux5-qe-P9A"/>
-                                                    <constraint firstItem="X6T-vE-tC0" firstAttribute="centerX" secondItem="B6N-VF-klk" secondAttribute="centerX" id="qbe-z9-d7i"/>
-                                                    <constraint firstItem="B6N-VF-klk" firstAttribute="top" secondItem="GKX-LD-Xt5" secondAttribute="top" constant="-11" id="ry4-cz-oYb"/>
+                                                    <constraint firstAttribute="bottom" secondItem="X6T-vE-tC0" secondAttribute="bottom" id="Lcp-rs-GVd"/>
+                                                    <constraint firstItem="X6T-vE-tC0" firstAttribute="centerX" secondItem="GKX-LD-Xt5" secondAttribute="centerX" constant="-2" id="Ux5-qe-P9A"/>
+                                                    <constraint firstItem="X6T-vE-tC0" firstAttribute="centerX" secondItem="B6N-VF-klk" secondAttribute="centerX" constant="-1.5" id="qbe-z9-d7i"/>
+                                                    <constraint firstItem="B6N-VF-klk" firstAttribute="top" secondItem="GKX-LD-Xt5" secondAttribute="top" constant="-12" id="ry4-cz-oYb"/>
                                                 </constraints>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7GK-nU-Mra">
                                                 <rect key="frame" x="209" y="38" width="100" height="75"/>
                                                 <subviews>
-                                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="C41-aV-eej">
-                                                        <rect key="frame" x="9" y="-12" width="83" height="80"/>
+                                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="C41-aV-eej">
+                                                        <rect key="frame" x="9" y="-14" width="83" height="80"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" constant="83" id="2jx-B5-CdF"/>
                                                             <constraint firstAttribute="height" constant="80" id="kGP-5c-E8y"/>
                                                         </constraints>
-                                                        <attributedString key="attributedText">
-                                                            <fragment content="0">
-                                                                <attributes>
-                                                                    <color key="NSColor" cocoaTouchSystemColor="darkTextColor"/>
-                                                                    <font key="NSFont" size="64" name="Helvetica"/>
-                                                                    <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="truncatingTail" baseWritingDirection="natural"/>
-                                                                    <fontDescription key="fontDescription" type="system" pointSize="56"/>
-                                                                </attributes>
-                                                            </fragment>
-                                                        </attributedString>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="64"/>
+                                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wCf-21-3l1">
-                                                        <rect key="frame" x="9" y="53" width="83" height="21"/>
+                                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Following" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wCf-21-3l1">
+                                                        <rect key="frame" x="9" y="54" width="83" height="21"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="21" id="oBG-tm-LWI"/>
                                                         </constraints>
-                                                        <attributedString key="attributedText">
-                                                            <fragment content="Following">
-                                                                <attributes>
-                                                                    <color key="NSColor" cocoaTouchSystemColor="darkTextColor"/>
-                                                                    <font key="NSFont" size="12" name="Helvetica"/>
-                                                                    <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
-                                                                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                                                </attributes>
-                                                            </fragment>
-                                                        </attributedString>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                 </subviews>
@@ -1786,8 +1692,8 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                                                 <constraints>
                                                     <constraint firstItem="wCf-21-3l1" firstAttribute="centerX" secondItem="7GK-nU-Mra" secondAttribute="centerX" id="BlS-hk-tkK"/>
                                                     <constraint firstItem="C41-aV-eej" firstAttribute="leading" secondItem="wCf-21-3l1" secondAttribute="leading" id="KAh-cr-zW0"/>
-                                                    <constraint firstAttribute="bottom" secondItem="wCf-21-3l1" secondAttribute="bottom" constant="1" id="URD-vC-ffq"/>
-                                                    <constraint firstItem="C41-aV-eej" firstAttribute="top" secondItem="7GK-nU-Mra" secondAttribute="top" constant="-12" id="jh2-JD-GUf"/>
+                                                    <constraint firstAttribute="bottom" secondItem="wCf-21-3l1" secondAttribute="bottom" id="URD-vC-ffq"/>
+                                                    <constraint firstItem="C41-aV-eej" firstAttribute="top" secondItem="7GK-nU-Mra" secondAttribute="top" constant="-14" id="jh2-JD-GUf"/>
                                                     <constraint firstItem="C41-aV-eej" firstAttribute="trailing" secondItem="wCf-21-3l1" secondAttribute="trailing" id="mN7-2h-Nmw"/>
                                                 </constraints>
                                             </view>
@@ -1898,39 +1804,23 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                                             <constraint firstItem="sAt-h0-qjm" firstAttribute="leading" secondItem="ho1-hg-V7U" secondAttribute="leading" constant="7" id="zzc-xD-4be"/>
                                         </constraints>
                                     </view>
-                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="297" translatesAutoresizingMaskIntoConstraints="NO" id="xDq-dx-kAB">
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="So far you have checked in 5 times this month you need three more to maintain your status" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="297" translatesAutoresizingMaskIntoConstraints="NO" id="xDq-dx-kAB">
                                         <rect key="frame" x="10" y="-1" width="297" height="32"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="32" id="eXn-XK-mvj"/>
                                             <constraint firstAttribute="width" constant="297" id="wOP-fI-H7A"/>
                                         </constraints>
-                                        <attributedString key="attributedText">
-                                            <fragment content="So far you have checked in 5 times this month you need three more to maintain your status">
-                                                <attributes>
-                                                    <color key="NSColor" red="0.058823533356189728" green="0.60784316062927246" blue="0.87843143939971924" alpha="1" colorSpace="deviceRGB"/>
-                                                    <font key="NSFont" size="12" name="Helvetica"/>
-                                                    <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
-                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
-                                                </attributes>
-                                            </fragment>
-                                        </attributedString>
+                                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                        <color key="textColor" red="0.058823533356189728" green="0.60784316062927246" blue="0.87843143939971924" alpha="1" colorSpace="deviceRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="283" translatesAutoresizingMaskIntoConstraints="NO" id="UL8-cw-UNK">
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="At the rate of two check-ins per week you represent the top 5%" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="283" translatesAutoresizingMaskIntoConstraints="NO" id="UL8-cw-UNK">
                                         <rect key="frame" x="10" y="31" width="283" height="36"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="36" id="0KC-oo-T1l"/>
                                         </constraints>
-                                        <attributedString key="attributedText">
-                                            <fragment content="At the rate of two check-ins per week you represent the top 5%">
-                                                <attributes>
-                                                    <color key="NSColor" cocoaTouchSystemColor="darkTextColor"/>
-                                                    <font key="NSFont" size="12" name="Helvetica"/>
-                                                    <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
-                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
-                                                </attributes>
-                                            </fragment>
-                                        </attributedString>
+                                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
@@ -2473,9 +2363,9 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="fjC-0F-Or5"/>
-        <segue reference="wJZ-W6-KFM"/>
-        <segue reference="msd-v0-Rw7"/>
         <segue reference="GBJ-CV-e6H"/>
+        <segue reference="Zho-BK-kL6"/>
+        <segue reference="ohm-kx-4nt"/>
+        <segue reference="fjC-0F-Or5"/>
     </inferredMetricsTieBreakers>
 </document>
