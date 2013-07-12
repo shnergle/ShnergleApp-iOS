@@ -13,6 +13,14 @@ static NSCache *cache;
 
 @implementation ImageCache
 
+- (id)init {
+    self = [super init];
+    if (self != nil && cache == nil) {
+        cache = [[NSCache alloc] init];
+    }
+    return self;
+}
+
 - (void)get:(NSString *)type identifier:(NSString *)type_id delegate:(id)object callback:(SEL)cb {
     responseObject = object;
     responseCallback = cb;
