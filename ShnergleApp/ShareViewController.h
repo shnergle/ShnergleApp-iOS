@@ -20,7 +20,6 @@
 @property (weak, nonatomic) IBOutlet UIImageView *image;
 @property (weak, nonatomic) IBOutlet UIButton *nameList;
 @property (weak, nonatomic) IBOutlet UILabel *friendLabel;
-@property (weak, nonatomic) IBOutlet UISwitch *saveLocallySwitch;
 @property (weak, nonatomic) IBOutlet GCPlaceholderTextView *textFieldname;
 
 @end

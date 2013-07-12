@@ -20,6 +20,9 @@
 
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info {
     taken = YES;
+    if (appDelegate.saveLocally) {
+        UIImageWriteToSavedPhotosAlbum(info[@"UIImagePickerControllerOriginalImage"], nil, nil, nil);
+    }
     appDelegate.shareImage = [info[@"UIImagePickerControllerOriginalImage"] resizedImageToFitInSize:CGSizeMake(200, 200) scaleIfSmaller:YES];
     info = nil;
     [imgPickerCam dismissViewControllerAnimated:NO completion:nil];

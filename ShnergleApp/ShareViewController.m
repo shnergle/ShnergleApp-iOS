@@ -12,7 +12,6 @@
 
 @implementation ShareViewController
 
-
 - (void)viewDidLoad {
     [super viewDidLoad];
 
@@ -20,8 +19,6 @@
     _textFieldname.placeholderColor = [UIColor lightGrayColor];
 
     if (appDelegate.shareImage) _image.image = appDelegate.shareImage;
-
-    self.saveLocallySwitch.on = appDelegate.saveLocally;
 }
 
 - (void)viewDidAppear:(BOOL)animated {
@@ -79,11 +76,6 @@
 - (void)uploadedToServer:(NSString *)response {
     if ([response isEqual:@"true"]) {
         self.navigationItem.rightBarButtonItem.enabled = NO;
-
-
-        if (self.saveLocallySwitch.on) {
-            UIImageWriteToSavedPhotosAlbum(_image.image, nil, nil, nil);
-        }
     } else {
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Upload failed!" message:nil delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
         [alert show];
