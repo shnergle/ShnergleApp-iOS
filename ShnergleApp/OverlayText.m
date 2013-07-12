@@ -31,7 +31,7 @@
     UIViewController *caller = (UIViewController *)self.nextResponder.nextResponder;
     UIViewController *vc = [caller.storyboard instantiateViewControllerWithIdentifier:@"Staff"];
     [caller.navigationController pushViewController:vc animated:YES];
-        return;
+    return;
 }
 
 - (id)initWithFrame:(CGRect)frame {
