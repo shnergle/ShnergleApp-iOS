@@ -277,7 +277,7 @@
                                         <attributedString key="attributedTitle">
                                             <fragment content="Done editing">
                                                 <attributes>
-                                                    <font key="NSFont" metaFont="smallSystem"/>
+                                                    <font key="NSFont" metaFont="toolTip"/>
                                                     <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
                                                 </attributes>
                                             </fragment>
@@ -460,7 +460,7 @@
                         <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
                     <connections>
-                        <action selector="share:" destination="1" eventType="touchUpInside" id="B5z-4T-Heh"/>
+                        <action selector="staff:" destination="1" eventType="touchUpInside" id="a2v-Eu-kg2"/>
                     </connections>
                 </button>
                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Staff" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dXe-fc-b7U">
@@ -491,7 +491,7 @@
                         <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
                     <connections>
-                        <action selector="share:" destination="1" eventType="touchUpInside" id="jDh-c3-TPq"/>
+                        <action selector="analytics:" destination="1" eventType="touchUpInside" id="8LP-2Z-VYN"/>
                     </connections>
                 </button>
                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Analytics" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MLb-yG-muo">

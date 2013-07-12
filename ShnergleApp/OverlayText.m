@@ -17,15 +17,21 @@
 
 - (IBAction)share:(id)sender {
     UIViewController *caller = (UIViewController *)self.nextResponder.nextResponder;
-    if (appDelegate.venueStatus == Manager) {
-        UIViewController *vc = [caller.storyboard instantiateViewControllerWithIdentifier:@"Staff"];
-        [caller.navigationController pushViewController:vc animated:YES];
-        return;
-    }
-
     UIViewController *vc = [caller.storyboard instantiateViewControllerWithIdentifier:@"ShareViewController"];
     appDelegate.shareVenue = YES;
     [caller.navigationController pushViewController:vc animated:YES];
+}
+
+- (IBAction)analytics:(id)sender {
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Nahhhh ...." message:nil delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+    [alert show];
+}
+
+- (IBAction)staff:(id)sender {
+    UIViewController *caller = (UIViewController *)self.nextResponder.nextResponder;
+    UIViewController *vc = [caller.storyboard instantiateViewControllerWithIdentifier:@"Staff"];
+    [caller.navigationController pushViewController:vc animated:YES];
+        return;
 }
 
 - (id)initWithFrame:(CGRect)frame {
