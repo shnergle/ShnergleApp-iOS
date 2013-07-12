@@ -127,6 +127,8 @@
 
     [self addShadowLineRect:CGRectMake(0.0f, self.overlay.bounds.origin.y + 35, self.overlay.frame.size.width, 1.0f) ToView:self.overlay];
 
+    appDelegate.activeVenue = nil;
+
     [self initMap];
 }
 
