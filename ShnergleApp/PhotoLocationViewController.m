@@ -16,12 +16,14 @@
     [super viewDidLoad];
     self.navigationItem.title = @"Location";
     appDelegate.locationPickerVenues = nil;
-    
     [self.searchResultTable makeToastActivity];
 }
 -(void)viewDidAppear:(BOOL)animated
 {
-    if(appDelegate.activeVenue){
+    if(appDelegate.backFromShareView){
+        appDelegate.backFromShareView = NO;
+        [self goBack];
+    }else if(appDelegate.activeVenue){
         UIViewController *vc = [self.storyboard instantiateViewControllerWithIdentifier:@"ShareViewController"];
         [self.navigationController pushViewController:vc animated:YES];
     }

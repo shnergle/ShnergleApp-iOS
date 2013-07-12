@@ -40,6 +40,7 @@
 @property (strong, nonatomic) NSString *shareImageLat;
 @property (strong, nonatomic) NSString *shareImageLon;
 
+@property (nonatomic) BOOL backFromShareView;
 @property (strong, nonatomic) NSString *topViewType;
 
 @property (strong, nonatomic) NSString *addVenueType;

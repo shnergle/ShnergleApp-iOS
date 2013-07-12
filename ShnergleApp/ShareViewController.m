@@ -42,8 +42,6 @@
         //Upload to Shnergle
         NSMutableString *postParams = [[NSMutableString alloc]initWithString:[NSString stringWithFormat:@"venue_id=%@", appDelegate.activeVenue[@"id"]]];
         [postParams appendFormat:@"&caption=%@", _textFieldname.text];
-        if (appDelegate.shareImageLat != nil && appDelegate.shareImageLon != nil) {
-        }
         [[[PostRequest alloc]init]exec:@"posts/set" params:postParams delegate:self callback:@selector(didFinishPost:) type:@"string"];
     } else {
         post_id = appDelegate.shareActivePostId;
