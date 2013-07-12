@@ -31,7 +31,7 @@
 @property (weak, nonatomic) IBOutlet UINavigationBar *navBar;
 @property (weak, nonatomic) IBOutlet UINavigationItem *navBarMenuItem;
 - (IBAction)tapArrow:(id)sender;
-- (void)       mapView:(GMSMapView *)mapView
+- (void)mapView:(GMSMapView *)mapView
     didTapAtCoordinate:(CLLocationCoordinate2D)coordinate;
 @property (weak, nonatomic) IBOutlet OverlayText *overlay;
 - (BOOL)scrollViewShouldScrollToTop:(UIScrollView *)scrollView;

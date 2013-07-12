@@ -12,6 +12,7 @@
 #import "VenueGalleryViewController.h"
 #import "PostRequest.h"
 #import "ImageCache.h"
+#import "PhotoLocationViewController.h"
 #import <NSDate+TimeAgo/NSDate+TimeAgo.h>
 
 @implementation VenueViewController
@@ -214,10 +215,9 @@
     [super viewWillAppear:animated];
     self.navigationController.navigationBarHidden = NO;
 
-#warning hardcoded venue status
-    if ([appDelegate.activeVenue[@"id"] intValue] == 3) {
+    if ([appDelegate.activeVenue[@"manager"] intValue] == 1) {
         [self setStatus:Manager];
-    } else if ([appDelegate.activeVenue[@"id"] intValue] == 4) {
+    } else if ([appDelegate.activeVenue[@"staff"] intValue] == 1) {
         [self setStatus:Staff];
     } else {
         [self setStatus:Default];
@@ -283,6 +283,7 @@
         [segue.destinationViewController setTitle:[NSString stringWithFormat:@"%@", titleHeader]];
         [(VenueGalleryViewController *)segue.destinationViewController setImage : ((CrowdItem *)sender).crowdImage.image withAuthor :[NSString stringWithFormat:@"%@ %@", appDelegate.posts[selectedPost][@"forename"], [appDelegate.posts[selectedPost][@"surname"] substringToIndex:1]] withComment : appDelegate.posts[selectedPost][@"caption"] withTimestamp :[self getDateFromUnixFormat:appDelegate.posts[selectedPost][@"time"]] withId :[appDelegate.posts[selectedPost][@"id"] stringValue]];
     } else if ([segue.identifier isEqualToString:@"CheckInFromVenue"]) {
+        ((PhotoLocationViewController *)((UIViewController *)segue.destinationViewController).nextResponder).specificVenue = appDelegate.activeVenue;
         appDelegate.shareVenue = NO;
     }
 }
