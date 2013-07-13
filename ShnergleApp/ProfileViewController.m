@@ -10,6 +10,7 @@
 #import "PostRequest.h"
 #import "MenuViewController.h"
 #import <Toast/Toast+UIView.h>
+#import <ECSlidingViewController.h>
 
 @implementation ProfileViewController
 
@@ -17,7 +18,6 @@
     [super viewDidLoad];
 
     [self menuButtonDecorations];
-
 
     self.navigationItem.title = appDelegate.fullName;
     self.userProfileImage3.profileID = appDelegate.facebookId;

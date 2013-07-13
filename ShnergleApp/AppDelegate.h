@@ -6,16 +6,11 @@
 //  Copyright (c) 2013 Shnergle. All rights reserved.
 //
 
-#import <GoogleMaps/GoogleMaps.h>
 #import <FacebookSDK/FacebookSDK.h>
-
-@class LoginScreenController;
 
 @interface AppDelegate : UIResponder <UIApplicationDelegate>
 
-@property (strong, nonatomic) UIViewController *viewcont;
 @property (strong, nonatomic) UIWindow *window;
-@property (strong, nonatomic) LoginScreenController *viewController;
 
 @property (strong, nonatomic) FBSession *session;
 @property (strong, nonatomic) NSString *fullName;
@@ -26,9 +21,7 @@
 @property (nonatomic) BOOL saveLocally;
 @property (nonatomic) BOOL optInTop5;
 
-@property (strong, nonatomic) NSArray *images;
 @property (strong, nonatomic) NSArray *posts;
-@property (strong, nonatomic) NSArray *venueNames;
 @property (strong, nonatomic) NSArray *aroundVenues;
 @property (strong, nonatomic) NSArray *followingVenues;
 @property (strong, nonatomic) NSMutableArray *locationPickerVenues;
@@ -37,8 +30,6 @@
 
 @property (strong, nonatomic) UIImage *shareImage;
 @property (strong, nonatomic) NSString *shareActivePostId;
-@property (strong, nonatomic) NSString *shareImageLat;
-@property (strong, nonatomic) NSString *shareImageLon;
 
 @property (nonatomic) BOOL backFromShareView;
 @property (strong, nonatomic) NSString *topViewType;
@@ -47,7 +38,6 @@
 @property (strong, nonatomic) NSString *addVenueTypeId;
 @property (strong, nonatomic) NSMutableArray *venueDetailsContent;
 
-//The venue dictionary of the last fetched venue (this is used for check ins as well!)
 @property (strong, nonatomic) NSDictionary *activeVenue;
 
 @property (strong, nonatomic) NSMutableArray *searchResults;
@@ -56,10 +46,8 @@
 
 typedef NS_ENUM (NSInteger, VENUE_STATUS) {
     Default,
-    Following,
     Staff,
-    Manager,
-    None
+    Manager
 };
 
 @property (nonatomic) VENUE_STATUS venueStatus;

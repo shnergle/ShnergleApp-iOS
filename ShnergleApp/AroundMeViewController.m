@@ -14,6 +14,7 @@
 #import "PostRequest.h"
 #import "VenueViewController.h"
 #import "ImageCache.h"
+#import <ECSlidingViewController/ECSlidingViewController.h>
 
 @implementation AroundMeViewController
 
@@ -292,8 +293,6 @@
                                                                           longitude:_mapView.myLocation.coordinate.longitude
                                                                                zoom:13]];
             hasPositionLocked = YES;
-            appDelegate.shareImageLat = [NSString stringWithFormat:@"%f", self.mapView.myLocation.coordinate.latitude];
-            appDelegate.shareImageLon = [NSString stringWithFormat:@"%f", self.mapView.myLocation.coordinate.longitude];
             [self sliderValueChanged:nil];
         }
     }

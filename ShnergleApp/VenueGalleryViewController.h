@@ -6,7 +6,6 @@
 //  Copyright (c) 2013 Shnergle. All rights reserved.
 //
 
-#import <Toast+UIView.h>
 #import "CustomBackViewController.h"
 
 @interface VenueGalleryViewController : CustomBackViewController <UIAlertViewDelegate>

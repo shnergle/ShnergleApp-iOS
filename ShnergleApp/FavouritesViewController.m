@@ -12,6 +12,7 @@
 #import "VenueViewController.h"
 #import "PostRequest.h"
 #import "ImageCache.h"
+#import <ECSlidingViewController/ECSlidingViewController.h>
 
 @implementation FavouritesViewController {
 }
@@ -88,7 +89,7 @@
 }
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
-    return [appDelegate.topViewType isEqual:@"Following"] ? [appDelegate.followingVenues count] : [appDelegate.images count];
+    return [appDelegate.topViewType isEqual:@"Following"] ? [appDelegate.followingVenues count] : 0;
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -104,7 +105,7 @@
     item.crowdImage.backgroundColor = [UIColor lightGrayColor];
     if (item.crowdImage.image == nil) [[[ImageCache alloc]init]get:@"venue" identifier:[appDelegate.followingVenues[indexPath.item][@"id"] stringValue] delegate:self callback:@selector(didFinishDownloadingImages:forIndex:) indexPath:indexPath];
 
-    [[item venueName] setText:([appDelegate.topViewType isEqual:@"Following"] ? appDelegate.followingVenues : appDelegate.venueNames)[indexPath.item][@"name"]];
+    [[item venueName] setText:appDelegate.followingVenues[indexPath.item][@"name"]];
 
     item.venueName.font = [UIFont systemFontOfSize:11.0f];
 

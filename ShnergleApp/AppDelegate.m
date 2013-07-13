@@ -7,6 +7,7 @@
 //
 
 #import "LoginScreenController.h"
+#import <GoogleMaps/GoogleMaps.h>
 
 @implementation AppDelegate
 

@@ -14,6 +14,7 @@
 #import "ImageCache.h"
 #import "PhotoLocationViewController.h"
 #import <NSDate+TimeAgo/NSDate+TimeAgo.h>
+#import <Toast/Toast+UIView.h>
 
 @implementation VenueViewController
 
@@ -296,11 +297,7 @@
 - (void)setStatus:(VENUE_STATUS)status {
     appDelegate.venueStatus = status;
     switch (status) {
-        case None:
-            [self goBack];
-            break;
         case Default:
-        case Following:
             if (following) {
                 [self setHeaderTitle:titleHeader andSubtitle:@"Following"];
             } else {

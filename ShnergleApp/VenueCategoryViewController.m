@@ -8,7 +8,7 @@
 
 #import "VenueCategoryViewController.h"
 #import "PostRequest.h"
-#import <Toast+UIView.h>
+#import <Toast/Toast+UIView.h>
 
 @implementation VenueCategoryViewController
 

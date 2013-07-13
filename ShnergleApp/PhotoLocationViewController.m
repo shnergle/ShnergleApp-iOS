@@ -9,6 +9,7 @@
 #import "PhotoLocationViewController.h"
 #import "ShareViewController.h"
 #import "PostRequest.h"
+#import <Toast/Toast+UIView.h>
 
 @implementation PhotoLocationViewController
 

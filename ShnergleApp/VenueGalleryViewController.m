@@ -8,6 +8,7 @@
 
 #import "VenueGalleryViewController.h"
 #import "PostRequest.h"
+#import <Toast/Toast+UIView.h>
 
 @implementation VenueGalleryViewController
 

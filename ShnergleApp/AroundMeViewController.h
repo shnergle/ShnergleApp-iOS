@@ -6,11 +6,8 @@
 //  Copyright (c) 2013 Shnergle. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
 #import <GoogleMaps/GoogleMaps.h>
 #import "OverlayText.h"
-#import <ECSlidingViewController.h>
-#import <QuartzCore/QuartzCore.h>
 
 @interface AroundMeViewController : UIViewController<UICollectionViewDataSource, UICollectionViewDelegate, GMSMapViewDelegate> {
     NSInteger selectedVenue;

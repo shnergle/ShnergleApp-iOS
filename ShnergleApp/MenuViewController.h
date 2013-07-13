@@ -6,7 +6,6 @@
 //  Copyright (c) 2013 Shnergle. All rights reserved.
 //
 
-#import <FacebookSDK/FacebookSDK.h>
 #import "SearchResultsView.h"
 
 @interface MenuViewController : UIViewController <UITableViewDataSource, UITableViewDelegate, UITextFieldDelegate>
