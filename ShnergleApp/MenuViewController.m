@@ -17,12 +17,12 @@
     UIView *searchBar = [[NSBundle mainBundle] loadNibNamed:@"SearchBar" owner:self options:nil][0];
     [self.view addSubview:searchBar];
 
-    self.tableSections = @[@"Profile", @"Explore"];
-    self.tableData = @[@[appDelegate.fullName], @[@"Around Me", @"Following", @"Promotions", @"Quiet", @"Trending", @"Add Venue"]];
-    self.searchResults = appDelegate.searchResults;
-    self.searchResults = [[NSMutableArray alloc]init];
-    self.searchResultsView.resultsTableView.delegate = self;
-    self.searchResultsView.resultsTableView.dataSource = self;
+    tableSections = @[@"Profile", @"Explore"];
+    tableData = @[@[appDelegate.fullName], @[@"Around Me", @"Following", @"Promotions", @"Quiet", @"Trending", @"Add Venue"]];
+    searchResults = appDelegate.searchResults;
+    searchResults = [[NSMutableArray alloc]init];
+    searchResultsView.resultsTableView.delegate = self;
+    searchResultsView.resultsTableView.dataSource = self;
 
     [self initSearchResultsView];
 }
@@ -33,34 +33,34 @@
 
 - (void)initSearchResultsView {
     NSArray *nibObjects = [[NSBundle mainBundle] loadNibNamed:@"SearchResultsView" owner:self options:nil];
-    self.searchResultsView = nibObjects[0];
+    searchResultsView = nibObjects[0];
 
-    self.searchResultsView.frame = CGRectMake(320, 45, 320, self.searchResultsView.frame.size.height);
-    [[self view] addSubview:self.searchResultsView];
+    searchResultsView.frame = CGRectMake(320, 45, 320, searchResultsView.frame.size.height);
+    [[self view] addSubview:searchResultsView];
     self.cancelButton.alpha = 0;
 }
 
 - (void)postResponse:(id)response {
     if ([response isKindOfClass:[NSArray class]]) {
         for (id obj in response) {
-            if ([obj count] > 1) [self.searchResults addObject:obj];
+            if ([obj count] > 1) [searchResults addObject:obj];
         }
     }
 
-    [self.searchResultsView.resultsTableView reloadData];
+    [searchResultsView.resultsTableView reloadData];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     if (tableView == self.menuItemsTableView) {
         UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:[NSString stringWithFormat:@"MyCell%d%d", indexPath.section, indexPath.item]];
-        cell.textLabel.text = self.tableData[indexPath.section][indexPath.row];
+        cell.textLabel.text = tableData[indexPath.section][indexPath.row];
         cell.textLabel.textColor = [UIColor whiteColor];
         cell.backgroundColor = [UIColor clearColor];
         cell.textLabel.font = [UIFont systemFontOfSize:20];
         if (indexPath.section == 0) {
             cell.accessoryView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"profileicon.png"]];
             cell.accessoryView.bounds = CGRectMake(0, 0, 27, 19);
-            self.profileCell = cell;
+            profileCell = cell;
         }
         return cell;
     } else {
@@ -68,7 +68,7 @@
         if (!cell) {
             cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:[NSString stringWithFormat:@"ResultCell"]];
         }
-        cell.textLabel.text = self.searchResults[indexPath.row][@"name"];
+        cell.textLabel.text = searchResults[indexPath.row][@"name"];
         cell.textLabel.textColor = [UIColor whiteColor];
         cell.backgroundColor = [UIColor clearColor];
         cell.textLabel.font = [UIFont systemFontOfSize:20];
@@ -77,26 +77,26 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    if (tableView == self.searchResultsView.resultsTableView) {
-        return [self.searchResults count];
+    if (tableView == searchResultsView.resultsTableView) {
+        return [searchResults count];
     } else {
-        return [self.tableData[section] count];
+        return [tableData[section] count];
     }
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    if (tableView == self.searchResultsView.resultsTableView) {
+    if (tableView == searchResultsView.resultsTableView) {
         return 1;
     } else {
-        return [self.tableData count];
+        return [tableData count];
     }
 }
 
 - (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
-    if (tableView == self.searchResultsView.resultsTableView) {
-        return @"results";
+    if (tableView == searchResultsView.resultsTableView) {
+        return @"Results";
     } else {
-        return self.tableSections[section];
+        return tableSections[section];
     }
 }
 
@@ -110,10 +110,10 @@
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section {
-    if (tableView == self.searchResultsView.resultsTableView) {
+    if (tableView == searchResultsView.resultsTableView) {
         return 0.1;
     } else {
-        return [self.tableData count] - 1 == section ? tableView.sectionFooterHeight : 0;
+        return [tableData count] - 1 == section ? tableView.sectionFooterHeight : 0;
     }
 }
 
@@ -122,10 +122,10 @@
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    if (tableView == self.searchResultsView.resultsTableView) {
+    if (tableView == searchResultsView.resultsTableView) {
         UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"MainStoryboard" bundle:nil];
         VenueViewController *viewController = [storyboard instantiateViewControllerWithIdentifier:@"Venue"];
-        [viewController setVenue:self.searchResults[indexPath.row]];
+        [viewController setVenue:searchResults[indexPath.row]];
         [self.navigationController pushViewController:viewController animated:YES];
     }
 }
@@ -141,7 +141,7 @@
         appDelegate.topViewType = @"Following";
     }
     if ([segue.identifier isEqualToString:@"ProfileSegue"]) {
-        self.profileCell.selected = NO;
+        profileCell.selected = NO;
     } else {
         [self.presentingViewController.navigationController popViewControllerAnimated:NO];
     }
@@ -153,7 +153,7 @@
         [[[PostRequest alloc] init] exec:@"user_searches/set" params:params delegate:self callback:@selector(searchRegistered:)];
         [[[PostRequest alloc] init] exec:@"venues/get" params:params delegate:self callback:@selector(postResponse:)];
         [textField resignFirstResponder];
-        [self.searchResultsView show];
+        [searchResultsView show];
         [self toggleCancelButton:true];
     }
     return YES;
@@ -169,7 +169,7 @@
 
 - (IBAction)cancelButtonTapped:(id)sender {
     [self.bar resignFirstResponder];
-    [self.searchResultsView hide];
+    [searchResultsView hide];
     [self toggleCancelButton:false];
 }
 

@@ -17,10 +17,10 @@
     CLLocationCoordinate2D venueCoord;
     GMSMapView *map;
     GMSMarker *marker;
+    NSArray *tableData;
+    UISwitch *workSwitch;
 }
 @property (weak, nonatomic) IBOutlet UIView *mapView;
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
-@property (strong, nonatomic) NSArray *tableData;
-@property (weak, nonatomic) UISwitch *workSwitch;
-@property (strong, nonatomic)  NSMutableArray *userData;
+@property (strong, nonatomic) NSMutableArray *userData;
 @end

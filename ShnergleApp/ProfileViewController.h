@@ -22,7 +22,6 @@
 @property (strong, nonatomic) IBOutlet UINavigationBar *navBar;
 
 @property (strong, nonatomic) IBOutlet UISwitch *twitterSwitch;
-@property (strong, nonatomic) NSArray *accounts;
 @property (weak, nonatomic) IBOutlet UIView *checkInView;
 @property (weak, nonatomic) IBOutlet UIView *redeemed;
 @property (weak, nonatomic) IBOutlet UIView *favourites;

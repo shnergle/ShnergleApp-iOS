@@ -27,14 +27,14 @@ typedef enum {
     self.navigationItem.title = @"Add Place";
     [self setRightBarButton:@"Add" actionSelector:@selector(addVenue)];
 
-    self.tableData = @[@"Name", @"Category", @"Address 1", @"Address 2", @"City", @"Postcode", @"Work here?"];
+    tableData = @[@"Name", @"Category", @"Address 1", @"Address 2", @"City", @"Postcode", @"Work here?"];
 }
 
 - (void)addVenue {
     [self.view makeToastActivity];
     if (appDelegate.addVenueType) self.userData[Category + 1] = appDelegate.addVenueType;
 
-    if (self.workSwitch.on) {
+    if (workSwitch.on) {
         [self.userData addObjectsFromArray:appDelegate.venueDetailsContent];
     }
 
@@ -97,7 +97,7 @@ typedef enum {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:[NSString stringWithFormat:@"Cell%d", indexPath.row ]];
     if (cell == nil) cell = [[UITableViewCell alloc] init];
 
-    cell.textLabel.text = self.tableData[indexPath.row];
+    cell.textLabel.text = tableData[indexPath.row];
 
     UITextField *textField = (UITextField *)[cell viewWithTag:indexPath.row + 1];
 
@@ -165,11 +165,9 @@ typedef enum {
             textField.delegate = self;
         }
 
-        UISwitch *workSwitch = [[UISwitch alloc] initWithFrame:CGRectMake(210, 8, 50, 30)];
+        workSwitch = [[UISwitch alloc] initWithFrame:CGRectMake(210, 8, 50, 30)];
         [workSwitch addTarget:self action:@selector(segwayToWork) forControlEvents:UIControlEventValueChanged];
         [cell.contentView addSubview:workSwitch];
-
-        self.workSwitch = workSwitch;
     }
 
     return cell;
@@ -181,7 +179,7 @@ typedef enum {
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return self.tableData.count;
+    return tableData.count;
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -200,7 +198,7 @@ typedef enum {
 }
 
 - (void)segwayToWork {
-    if (self.workSwitch.on == YES) {
+    if (workSwitch.on == YES) {
         UIViewController *vc = [self.storyboard instantiateViewControllerWithIdentifier:@"VenueDetailsViewIdentifier"];
         [self.navigationController pushViewController:vc animated:YES];
     }
@@ -279,8 +277,8 @@ typedef enum {
 
 - (NSMutableArray *)userData {
     if (!self.userData) {
-        self.userData = [[NSMutableArray alloc] initWithCapacity:[self.tableData count]];
-        for (int i = 0; i < [self.tableData count]; i++) {
+        self.userData = [[NSMutableArray alloc] initWithCapacity:[tableData count]];
+        for (int i = 0; i < [tableData count]; i++) {
             [self.userData addObject:@""];
         }
     }

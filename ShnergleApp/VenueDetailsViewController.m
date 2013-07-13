@@ -15,7 +15,7 @@
     self.navigationItem.title = @"Venue Details";
 
     appDelegate.venueDetailsContent = [[NSMutableArray alloc]init];
-    self.tableData = @[@"Phone", @"Email", @"Website"];
+    tableData = @[@"Phone", @"Email", @"Website"];
 }
 
 - (void)viewDidAppear:(BOOL)animated {
@@ -24,12 +24,12 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return self.tableData.count;
+    return tableData.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:[NSString stringWithFormat:@"Cell%d", indexPath.row ]];
-    cell.textLabel.text = self.tableData[indexPath.row];
+    cell.textLabel.text = tableData[indexPath.row];
     if (indexPath.row == 0) {
         UITextField *textField = [[UITextField alloc] initWithFrame:CGRectMake(110, 10, 185, 30)];
         textField.tag = 0;

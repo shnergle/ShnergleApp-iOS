@@ -9,16 +9,19 @@
 #import "SearchResultsView.h"
 
 @interface MenuViewController : UIViewController <UITableViewDataSource, UITableViewDelegate, UITextFieldDelegate>
+{
+    NSArray *tableSections;
+    NSArray *tableData;
+    NSMutableArray *searchResults;
+    UITableViewCell *profileCell;
+    SearchResultsView *searchResultsView;
+}
 
 @property (weak, nonatomic) IBOutlet UIView *searchBar;
 @property (weak, nonatomic) IBOutlet UITextField *bar;
-@property (strong, nonatomic) NSArray *tableSections;
-@property (strong, nonatomic) NSArray *tableData;
-@property (strong, nonatomic) NSMutableArray *searchResults;
+
 @property (weak, nonatomic) IBOutlet UITableView *menuItemsTableView;
 
-@property (strong, nonatomic) UITableViewCell *profileCell;
-@property (weak, nonatomic) IBOutlet SearchResultsView *searchResultsView;
 @property (weak, nonatomic) IBOutlet UIButton *cancelButton;
 - (IBAction)cancelButtonTapped:(id)sender;
 
