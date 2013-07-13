@@ -80,12 +80,12 @@
 
 - (void)initMap {
     hasPositionLocked = NO;
-    map = [[GMSMapView alloc] initWithFrame:_mapView.bounds];
+    map = [[GMSMapView alloc] initWithFrame:self.mapView.bounds];
     map.myLocationEnabled = YES;
     map.delegate = self;
     [map addObserver:self forKeyPath:@"myLocation" options:NSKeyValueObservingOptionNew context:nil];
-    [_mapView addSubview:map];
-    [_mapView sendSubviewToBack:map];
+    [self.mapView addSubview:map];
+    [self.mapView sendSubviewToBack:map];
 }
 
 - (void)viewWillDisappear:(BOOL)animated {

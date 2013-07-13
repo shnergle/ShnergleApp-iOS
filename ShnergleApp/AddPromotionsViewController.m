@@ -15,12 +15,12 @@
     self.navigationItem.title = @"Promotion";
     [self setRightBarButton:@"Publish" actionSelector:@selector(addVenue)];
 
-    _tableData = @[@"Title", @"", @"Passcode", @"Starts", @"Ends", @"Limit"];
+    self.tableData = @[@"Title", @"", @"Passcode", @"Starts", @"Ends", @"Limit"];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell"];
-    cell.textLabel.text = _tableData[indexPath.section];
+    cell.textLabel.text = self.tableData[indexPath.section];
     if (indexPath.section == 0) {
         UITextField *textField = [[UITextField alloc] initWithFrame:CGRectMake(110, 10, 185, 30)];
         textField.delegate = self;
@@ -122,7 +122,7 @@
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    return _tableData.count;
+    return self.tableData.count;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {

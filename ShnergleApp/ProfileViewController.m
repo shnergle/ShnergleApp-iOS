@@ -24,19 +24,19 @@
     self.userProfileImage2.profileID = appDelegate.facebookId;
     self.userProfileImage1.profileID = appDelegate.facebookId;
 
-    _checkInView.layer.borderColor = [UIColor colorWithRed:134.0 / 255 green:134.0 / 255 blue:134.0 / 255 alpha:1].CGColor;
-    _checkInView.layer.borderWidth = 2;
-    _redeemed.layer.borderColor = [UIColor colorWithRed:134.0 / 255 green:134.0 / 255 blue:134.0 / 255 alpha:1].CGColor;
-    _redeemed.layer.borderWidth = 2;
-    _favourites.layer.borderColor = [UIColor colorWithRed:134.0 / 255 green:134.0 / 255 blue:134.0 / 255 alpha:1].CGColor;
-    _favourites.layer.borderWidth = 2;
-    _userProfileImage3.hidden = YES;
-    _userProfileImage3.layer.borderColor = [UIColor colorWithRed:255 green:255 blue:255 alpha:1].CGColor;
-    _userProfileImage3.layer.borderWidth = 2;
-    _userProfileImage2.layer.borderColor = [UIColor colorWithRed:255 green:255 blue:255 alpha:1].CGColor;
-    _userProfileImage2.layer.borderWidth = 2;
-    _userProfileImage1.layer.borderColor = [UIColor colorWithRed:255 green:255 blue:255 alpha:1].CGColor;
-    _userProfileImage1.layer.borderWidth = 2;
+    self.checkInView.layer.borderColor = [UIColor colorWithRed:134.0 / 255 green:134.0 / 255 blue:134.0 / 255 alpha:1].CGColor;
+    self.checkInView.layer.borderWidth = 2;
+    self.redeemed.layer.borderColor = [UIColor colorWithRed:134.0 / 255 green:134.0 / 255 blue:134.0 / 255 alpha:1].CGColor;
+    self.redeemed.layer.borderWidth = 2;
+    self.favourites.layer.borderColor = [UIColor colorWithRed:134.0 / 255 green:134.0 / 255 blue:134.0 / 255 alpha:1].CGColor;
+    self.favourites.layer.borderWidth = 2;
+    self.userProfileImage3.hidden = YES;
+    self.userProfileImage3.layer.borderColor = [UIColor colorWithRed:255 green:255 blue:255 alpha:1].CGColor;
+    self.userProfileImage3.layer.borderWidth = 2;
+    self.userProfileImage2.layer.borderColor = [UIColor colorWithRed:255 green:255 blue:255 alpha:1].CGColor;
+    self.userProfileImage2.layer.borderWidth = 2;
+    self.userProfileImage1.layer.borderColor = [UIColor colorWithRed:255 green:255 blue:255 alpha:1].CGColor;
+    self.userProfileImage1.layer.borderWidth = 2;
 
     self.saveLocallySwitch.on = appDelegate.saveLocally;
     self.optInSwitch.on = appDelegate.optInTop5;
@@ -88,19 +88,19 @@
     int res = [result[@"level"] intValue];
     switch (res) {
         case 1:
-            _userProfileImage1.hidden = NO;
+            self.userProfileImage1.hidden = NO;
             break;
         case 2:
-            _userProfileImage2.hidden = NO;
+            self.userProfileImage2.hidden = NO;
             break;
         case 3:
-            _userProfileImage3.hidden = NO;
+            self.userProfileImage3.hidden = NO;
         default:
             break;
     }
-    _followingLabel.text = [result[@"following"] stringValue];
-    _redeemedLabel.text = [result[@"redemptions"] stringValue];
-    _checkInLabel.text = [result[@"posts"] stringValue];
+    self.followingLabel.text = [result[@"following"] stringValue];
+    self.redeemedLabel.text = [result[@"redemptions"] stringValue];
+    self.checkInLabel.text = [result[@"posts"] stringValue];
     [self.view hideToastActivity];
 }
 

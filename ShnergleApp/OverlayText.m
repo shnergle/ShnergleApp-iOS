@@ -124,7 +124,7 @@
 - (IBAction)postUpdateTapped:(id)sender {
     [self.summaryContentTextField setBackgroundColor:[UIColor whiteColor]];
     [self.summaryHeadlineTextField setBackgroundColor:[UIColor whiteColor]];
-    [_publishButton setHidden:NO];
+    [self.publishButton setHidden:NO];
     self.summaryContentTextField.editable = YES;
     [self.summaryHeadlineTextField setEnabled:YES];
     [self.summaryContentTextField becomeFirstResponder];
@@ -211,7 +211,7 @@
 
 - (void)didAppear {
     if (appDelegate.venueStatus == Manager) {
-        _postUpdateButton.hidden = NO;
+        self.postUpdateButton.hidden = NO;
         self.analyticsButton.hidden = NO;
 
         self.staffButton.hidden = NO;

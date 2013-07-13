@@ -180,17 +180,17 @@
 
 - (void)displayTextView {
     if (!textViewOpen) {
-        _overlayView = [[NSBundle mainBundle] loadNibNamed:@"OverlayText" owner:self options:nil][0];
+        self.overlayView = [[NSBundle mainBundle] loadNibNamed:@"OverlayText" owner:self options:nil][0];
         CGRect screenRect = [[UIScreen mainScreen] bounds];
         CGFloat screenHeight = screenRect.size.height;
 
-        _overlayView.frame = CGRectMake(_overlayView.bounds.origin.x, screenHeight - 80, _overlayView.bounds.size.width, screenHeight - 75);
-        _overlayView.clipsToBounds = NO;
-        [self.view addSubview:_overlayView];
+        self.overlayView.frame = CGRectMake(self.overlayView.bounds.origin.x, screenHeight - 80, self.overlayView.bounds.size.width, screenHeight - 75);
+        self.overlayView.clipsToBounds = NO;
+        [self.view addSubview:self.overlayView];
         textViewOpen = true;
 
-        [self addShadowLineRect:CGRectMake(0.0f, _overlayView.bounds.origin.y, _overlayView.bounds.size.width, 1.0f) ToView:_overlayView];
-        [self addShadowLineRect:CGRectMake(0.0f, _overlayView.bounds.origin.y + 63, _overlayView.bounds.size.width, 1.0f) ToView:_overlayView];
+        [self addShadowLineRect:CGRectMake(0.0f, self.overlayView.bounds.origin.y, self.overlayView.bounds.size.width, 1.0f) ToView:self.overlayView];
+        [self addShadowLineRect:CGRectMake(0.0f, self.overlayView.bounds.origin.y + 63, self.overlayView.bounds.size.width, 1.0f) ToView:self.overlayView];
     }
 }
 
@@ -310,7 +310,7 @@
         case Manager:
             [self setHeaderTitle:titleHeader andSubtitle:@"Manager"];
     }
-    [_overlayView didAppear];
+    [self.overlayView didAppear];
 }
 
 - (NSString *)getDateFromUnixFormat:(id)unixFormat {
