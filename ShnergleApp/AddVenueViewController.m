@@ -226,9 +226,7 @@ typedef enum {
 - (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context {
     if (!hasPositionLocked) {
         if ([keyPath isEqualToString:@"myLocation"] && [object isKindOfClass:[GMSMapView class]]) {
-            [map animateToCameraPosition:[GMSCameraPosition cameraWithLatitude:map.myLocation.coordinate.latitude
-                                                                     longitude:map.myLocation.coordinate.longitude
-                                                                          zoom:13]];
+            [map animateToCameraPosition:[GMSCameraPosition cameraWithLatitude:map.myLocation.coordinate.latitude longitude:map.myLocation.coordinate.longitude zoom:13]];
 
             [self mapView:map didTapAtCoordinate:map.myLocation.coordinate];
             venueCoord = map.myLocation.coordinate;

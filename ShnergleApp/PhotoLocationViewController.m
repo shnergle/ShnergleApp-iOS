@@ -19,16 +19,15 @@
     appDelegate.locationPickerVenues = nil;
     [self.searchResultTable makeToastActivity];
 }
--(void)viewDidAppear:(BOOL)animated
-{
-    if(appDelegate.backFromShareView){
+
+- (void)viewDidAppear:(BOOL)animated {
+    if (appDelegate.backFromShareView) {
         appDelegate.backFromShareView = NO;
         [self goBack];
-    }else if(appDelegate.activeVenue){
+    } else if (appDelegate.activeVenue) {
         UIViewController *vc = [self.storyboard instantiateViewControllerWithIdentifier:@"ShareViewController"];
         [self.navigationController pushViewController:vc animated:YES];
     }
-
 }
 
 - (void)didFinishLoadingVenues:(NSArray *)response {
@@ -107,9 +106,7 @@
             CLLocationCoordinate2D realPoint = [map.projection coordinateForPoint:screenPoint];
             CGFloat distanceInDegrees = coord.longitude - realPoint.longitude;
             [[[PostRequest alloc] init] exec:@"venues/get" params:[NSString stringWithFormat:@"my_lat=%f&my_lon=%f&distance=%f", coord.latitude, coord.longitude, distanceInDegrees] delegate:self callback:@selector(didFinishLoadingVenues:)];
-            [map animateToCameraPosition:[GMSCameraPosition cameraWithLatitude:map.myLocation.coordinate.latitude
-                                                                     longitude:map.myLocation.coordinate.longitude
-                                                                          zoom:13]];
+            [map animateToCameraPosition:[GMSCameraPosition cameraWithLatitude:map.myLocation.coordinate.latitude longitude:map.myLocation.coordinate.longitude zoom:13]];
 
             hasPositionLocked = YES;
         }
@@ -121,6 +118,5 @@
         ((ShareViewController *)[segue destinationViewController]).shnergleThis = YES;
     }
 }
-
 
 @end

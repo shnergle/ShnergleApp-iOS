@@ -289,9 +289,7 @@
 - (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context {
     if (!hasPositionLocked) {
         if ([keyPath isEqualToString:@"myLocation"] && [object isKindOfClass:[GMSMapView class]]) {
-            [map animateToCameraPosition:[GMSCameraPosition cameraWithLatitude:map.myLocation.coordinate.latitude - 0.015
-                                                                          longitude:map.myLocation.coordinate.longitude
-                                                                               zoom:13]];
+            [map animateToCameraPosition:[GMSCameraPosition cameraWithLatitude:map.myLocation.coordinate.latitude - 0.015 longitude:map.myLocation.coordinate.longitude zoom:13]];
             hasPositionLocked = YES;
             [self sliderValueChanged:nil];
         }
