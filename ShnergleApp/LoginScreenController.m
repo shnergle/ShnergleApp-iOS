@@ -85,8 +85,7 @@
                                                        toDate:now
                                                       options:0];
                 NSInteger age = [ageComponents year];
-                [params appendString:@"&age="];
-                [params appendString:[NSString stringWithFormat:@"%d", age]];
+                [params appendFormat:@"&age=%d", age];
 
                 if (![[[PostRequest alloc] init] exec:@"users/set" params:params delegate:self callback:@selector(postResponse:)]) [self alert];
             } else {

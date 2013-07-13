@@ -64,10 +64,7 @@
         }
         return cell;
     } else {
-        UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:[NSString stringWithFormat:@"ResultCell"]];
-        if (!cell) {
-            cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:[NSString stringWithFormat:@"ResultCell"]];
-        }
+        UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"ResultCell"];
         cell.textLabel.text = searchResults[indexPath.row][@"name"];
         cell.textLabel.textColor = [UIColor whiteColor];
         cell.backgroundColor = [UIColor clearColor];

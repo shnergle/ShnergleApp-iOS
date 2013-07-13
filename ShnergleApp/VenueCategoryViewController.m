@@ -43,7 +43,7 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell"];
-    cell.imageView.image = [UIImage imageNamed:[NSString stringWithFormat:@"%@.png", categories[indexPath.row][@"id"]]];
+    cell.imageView.image = [UIImage imageNamed:[categories[indexPath.row][@"id"] stringValue]];
     UILabel *textView = [[UILabel alloc] initWithFrame:CGRectMake(50, 0, 270, cell.bounds.size.height)];
     textView.text = categories[indexPath.row][@"type"];
     textView.font = [UIFont fontWithName:cell.textLabel.font.fontName size:20];
@@ -55,7 +55,7 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     appDelegate.addVenueType = categories[indexPath.row][@"type"];
-    appDelegate.addVenueTypeId =  [NSString stringWithFormat:@"%@", categories[indexPath.row][@"id"]];
+    appDelegate.addVenueTypeId = [categories[indexPath.row][@"id"] stringValue];
     [self goBack];
 }
 

@@ -281,7 +281,7 @@
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     if ([segue.identifier isEqualToString:@"ToGallery"]) {
-        [segue.destinationViewController setTitle:[NSString stringWithFormat:@"%@", titleHeader]];
+        [segue.destinationViewController setTitle:titleHeader];
         [(VenueGalleryViewController *)segue.destinationViewController setImage : ((CrowdItem *)sender).crowdImage.image withAuthor :[NSString stringWithFormat:@"%@ %@", appDelegate.posts[selectedPost][@"forename"], [appDelegate.posts[selectedPost][@"surname"] substringToIndex:1]] withComment : appDelegate.posts[selectedPost][@"caption"] withTimestamp :[self getDateFromUnixFormat:appDelegate.posts[selectedPost][@"time"]] withId :[appDelegate.posts[selectedPost][@"id"] stringValue]];
     } else if ([segue.identifier isEqualToString:@"CheckInFromVenue"]) {
         appDelegate.shareVenue = NO;
@@ -313,9 +313,7 @@
 }
 
 - (NSString *)getDateFromUnixFormat:(id)unixFormat {
-    NSString *input = [NSString stringWithFormat:@"%@", unixFormat];
-    NSDate *date = [NSDate dateWithTimeIntervalSince1970:[input intValue]];
-
+    NSDate *date = [NSDate dateWithTimeIntervalSince1970:[unixFormat intValue]];
     return [date timeAgoWithLimit:86400 dateFormat:NSDateFormatterShortStyle andTimeFormat:NSDateFormatterShortStyle];
 }
 
