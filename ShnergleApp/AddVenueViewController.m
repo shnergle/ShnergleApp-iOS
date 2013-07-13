@@ -85,7 +85,7 @@ typedef enum {
 - (void)didFinishAddingVenue:(NSString *)response {
     [self.view hideToastActivity];
 
-    if (![response isEqual:@"true"]) {
+    if (![@"true" isEqualToString:response]) {
         UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"Uh-oh.. Something went wrong.." message:nil delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
         [alert show];
     }

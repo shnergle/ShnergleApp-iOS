@@ -73,7 +73,7 @@
 }
 
 - (void)uploadedToServer:(NSString *)response {
-    if ([response isEqual:@"true"]) {
+    if ([@"true" isEqualToString:response]) {
         self.navigationItem.rightBarButtonItem.enabled = NO;
     } else {
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Upload failed!" message:nil delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];

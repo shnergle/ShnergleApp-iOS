@@ -89,7 +89,7 @@
 }
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
-    return [appDelegate.topViewType isEqual:@"Following"] ? [appDelegate.followingVenues count] : 0;
+    return [@"Following" isEqualToString:appDelegate.topViewType] ? [appDelegate.followingVenues count] : 0;
 }
 
 - (void)viewWillAppear:(BOOL)animated {

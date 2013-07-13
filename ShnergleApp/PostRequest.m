@@ -69,9 +69,9 @@
 
 - (void)connectionDidFinishLoading:(NSURLConnection *)connection {
     id responseArg;
-    if ([responseType isEqual:@"image"]) @try {responseArg = [UIImage imageWithData:response]; } @catch (NSException *e) {
+    if ([@"image" isEqualToString:responseType]) @try {responseArg = [UIImage imageWithData:response]; } @catch (NSException *e) {
         }
-    else if ([responseType isEqual:@"string"]) responseArg = [[NSString alloc] initWithData:response encoding:NSUTF8StringEncoding];
+    else if ([@"string" isEqualToString:responseType]) responseArg = [[NSString alloc] initWithData:response encoding:NSUTF8StringEncoding];
     else responseArg = [NSJSONSerialization JSONObjectWithData:response options:NSJSONReadingAllowFragments error:nil];
     NSMethodSignature *methodSig = [[responseObject class] instanceMethodSignatureForSelector:responseCallback];
     NSInvocation *invocation = [NSInvocation invocationWithMethodSignature:methodSig];

@@ -114,7 +114,7 @@
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    if ([segue.identifier isEqual:@"SegueToShare"]) {
+    if ([@"SegueToShare" isEqualToString:segue.identifier]) {
         ((ShareViewController *)[segue destinationViewController]).shnergleThis = YES;
     }
 }

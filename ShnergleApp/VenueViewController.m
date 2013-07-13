@@ -89,7 +89,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    following = [[NSString stringWithFormat:@"%@", appDelegate.activeVenue[@"following"]] isEqual:@"0"] ? NO : YES;
+    following = [appDelegate.activeVenue[@"following"] intValue] == 0 ? NO : YES;
 
     cellImages = [[NSMutableDictionary alloc]init];
 
