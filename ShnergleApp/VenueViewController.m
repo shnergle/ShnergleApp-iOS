@@ -20,8 +20,8 @@
 
 - (void)setVenue:(NSDictionary *)venue {
     titleHeader = venue[@"name"];
-    venueLat = [(NSNumber *)venue[@"lat"] doubleValue];
-    venueLon = [(NSNumber *)venue[@"lon"] doubleValue];
+    venueLat = [venue[@"lat"] doubleValue];
+    venueLon = [venue[@"lon"] doubleValue];
     summaryContent = [NSString stringWithFormat:@"%@", venue[@"tonight"]];
     summaryHeadline = [NSString stringWithFormat:@"Tonight at %@", venue[@"name"]];
 
