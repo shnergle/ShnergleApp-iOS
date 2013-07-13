@@ -13,7 +13,7 @@
 @property (weak, nonatomic) IBOutlet UIView *searchBar;
 @property (weak, nonatomic) IBOutlet UITextField *bar;
 @property (strong, nonatomic) NSArray *tableSections;
-@property (strong, nonatomic) NSDictionary *tableData;
+@property (strong, nonatomic) NSArray *tableData;
 @property (strong, nonatomic) NSMutableArray *searchResults;
 @property (weak, nonatomic) IBOutlet UITableView *menuItemsTableView;
 

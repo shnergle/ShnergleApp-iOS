@@ -18,7 +18,7 @@
     [self.view addSubview:searchBar];
 
     self.tableSections = @[@"Profile", @"Explore"];
-    self.tableData = @{@0: @[appDelegate.fullName], @1: @[@"Around Me", @"Following", @"Promotions", @"Quiet", @"Trending", @"Add Venue"]};
+    self.tableData = @[@[appDelegate.fullName], @[@"Around Me", @"Following", @"Promotions", @"Quiet", @"Trending", @"Add Venue"]];
     self.searchResults = appDelegate.searchResults;
     self.searchResults = [[NSMutableArray alloc]init];
     self.searchResultsView.resultsTableView.delegate = self;
@@ -53,7 +53,7 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     if (tableView == self.menuItemsTableView) {
         UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:[NSString stringWithFormat:@"MyCell%d%d", indexPath.section, indexPath.item]];
-        cell.textLabel.text = self.tableData[@(indexPath.section)][indexPath.row];
+        cell.textLabel.text = self.tableData[indexPath.section][indexPath.row];
         cell.textLabel.textColor = [UIColor whiteColor];
         cell.backgroundColor = [UIColor clearColor];
         cell.textLabel.font = [UIFont systemFontOfSize:20];
@@ -80,7 +80,7 @@
     if (tableView == self.searchResultsView.resultsTableView) {
         return [self.searchResults count];
     } else {
-        return [self.tableData[@(section)] count];
+        return [self.tableData[section] count];
     }
 }
 
