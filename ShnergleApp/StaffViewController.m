@@ -7,6 +7,8 @@
 //
 
 #import "StaffViewController.h"
+#import "PostRequest.h"
+#import <Toast/Toast+UIView.h>
 
 @implementation StaffViewController
 
@@ -14,6 +16,16 @@
     [super viewWillAppear:animated];
     [self.navigationController setNavigationBarHidden:NO animated:YES];
     self.navigationItem.title = @"Staff";
+    [self.view makeToastActivity];
+    NSMutableString *params = [[NSMutableString alloc]initWithString:@"venue_id="];
+    [params appendString:[appDelegate.activeVenue[@"id"] stringValue]];
+    [[[PostRequest alloc] init] exec:@"venue_staff/get" params:params delegate:self callback:@selector(didFinishDownloadingStaff:)];
+}
+
+- (void)didFinishDownloadingStaff:(id)response {
+    appDelegate.staff = response;
+    [self.collectionView reloadData];
+    [self.view hideToastActivity];
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
@@ -21,7 +33,7 @@
 }
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
-    return 5;
+    return [appDelegate.staff count];
 }
 
 @end
