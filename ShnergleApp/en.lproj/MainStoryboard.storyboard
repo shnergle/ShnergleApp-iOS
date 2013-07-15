@@ -40,7 +40,7 @@
                                 <rect key="frame" x="0.0" y="126" width="320" height="422"/>
                                 <subviews>
                                     <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="top" bounces="NO" alwaysBounceVertical="YES" minimumZoomScale="0.0" maximumZoomScale="0.0" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="NoU-2f-HS3">
-                                        <rect key="frame" x="0.0" y="35" width="320" height="387"/>
+                                        <rect key="frame" x="0.0" y="43" width="320" height="379"/>
                                         <color key="backgroundColor" red="0.9137254901960784" green="0.92156862745098034" blue="0.94117647058823528" alpha="1" colorSpace="calibratedRGB"/>
                                         <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="5" minimumInteritemSpacing="5" id="sQ4-wF-cWC">
                                             <size key="itemSize" width="152" height="112"/>
@@ -103,10 +103,10 @@
                                         </cells>
                                     </collectionView>
                                     <button opaque="NO" alpha="0.80000000000000004" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3ru-jW-uGF">
-                                        <rect key="frame" x="139" y="0.0" width="25" height="25"/>
+                                        <rect key="frame" x="139" y="0.0" width="35" height="35"/>
                                         <constraints>
-                                            <constraint firstAttribute="width" constant="25" id="M2P-kL-wDg"/>
-                                            <constraint firstAttribute="height" constant="25" id="V69-bP-h5v"/>
+                                            <constraint firstAttribute="width" constant="35" id="M2P-kL-wDg"/>
+                                            <constraint firstAttribute="height" constant="35" id="V69-bP-h5v"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="boldSystem" size="button"/>
                                         <state key="normal" image="arrowDown.png">
@@ -125,7 +125,7 @@
                                 <color key="backgroundColor" red="0.0099566915760869179" green="0.0099566915760869179" blue="0.0099566915760869179" alpha="0.0" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstItem="NoU-2f-HS3" firstAttribute="leading" secondItem="LIP-CL-Z0j" secondAttribute="leading" id="DBV-E3-4bg"/>
-                                    <constraint firstItem="NoU-2f-HS3" firstAttribute="top" secondItem="LIP-CL-Z0j" secondAttribute="top" constant="35" id="LDZ-Lt-N45"/>
+                                    <constraint firstItem="NoU-2f-HS3" firstAttribute="top" secondItem="LIP-CL-Z0j" secondAttribute="top" constant="43" id="LDZ-Lt-N45"/>
                                     <constraint firstItem="NoU-2f-HS3" firstAttribute="bottom" secondItem="LIP-CL-Z0j" secondAttribute="bottom" id="Tz4-Vv-4Ue"/>
                                     <constraint firstItem="3ru-jW-uGF" firstAttribute="top" secondItem="LIP-CL-Z0j" secondAttribute="top" id="Xkd-o6-Keb"/>
                                     <constraint firstItem="NoU-2f-HS3" firstAttribute="trailing" secondItem="LIP-CL-Z0j" secondAttribute="trailing" id="jpF-wx-umT"/>
@@ -796,19 +796,19 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                                             <rect key="frame" x="0.0" y="0.0" width="320" height="50"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="AB4-sL-7JI" customClass="FBProfilePictureView">
+                                                <view tag="3" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="AB4-sL-7JI" customClass="FBProfilePictureView">
                                                     <rect key="frame" x="10" y="0.0" width="50" height="50"/>
                                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                                                 </view>
-                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Name Surname" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9Eh-tm-J94">
+                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" tag="1" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Name Surname" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9Eh-tm-J94">
                                                     <rect key="frame" x="65" y="5" width="235" height="21"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Type - Promotions enabled" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hox-qt-aPx">
+                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" tag="2" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Type - Promotions enabled" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hox-qt-aPx">
                                                     <rect key="frame" x="65" y="25" width="235" height="21"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>

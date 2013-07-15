@@ -20,6 +20,8 @@
 
 @property (weak, nonatomic) IBOutlet UILabel *offerHeadline;
 @property (weak, nonatomic) IBOutlet UILabel *offerContents;
+@property (weak, nonatomic) IBOutlet UIButton *claimVenueButton;
+- (IBAction)tappedClaimVenue:(id)sender;
 @property (weak, nonatomic) IBOutlet UILabel *offerCount;
 @property (weak, nonatomic) IBOutlet GMSMapView *venueMap;
 @property (weak, nonatomic) IBOutlet UIButton *shareButton;

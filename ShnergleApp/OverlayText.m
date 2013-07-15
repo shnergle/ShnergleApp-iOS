@@ -40,7 +40,13 @@
 
     frame = CGRectMake(0, screenHeight - 80, self.frame.size.width, self.frame.size.height);
     self = [super initWithFrame:frame];
-
+    
+    // Not Official - Official - Verified Layouts //
+    if(appDelegate.activeVenue[@"official"])
+    {
+        NSLog(@"This Venue is Official");
+    }
+    
     if (self) {
         isUp = NO;
     }
@@ -222,7 +228,6 @@
         self.staffLabel.hidden = NO;
     } else {
         self.analyticsButton.hidden = YES;
-
         self.staffButton.hidden = YES;
         self.anaImage.hidden = YES;
         self.anaLabel.hidden = YES;
@@ -231,4 +236,9 @@
     }
 }
 
+- (IBAction)tappedClaimVenue:(id)sender {
+    NSLog(@"%@",appDelegate.activeVenue[@"id"]);
+    [[[PostRequest alloc]init]exec:@"venues/set" params:[NSString stringWithFormat:@"venue_id=%@&official=1",appDelegate.activeVenue[@"id"]] delegate:self callback:@selector(doNothing:)];
+    
+}
 @end
