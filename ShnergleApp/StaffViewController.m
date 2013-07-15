@@ -33,7 +33,7 @@
 }
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
-    return [appDelegate.staff count];
+    return [appDelegate.staff[@"staff"] count] + [appDelegate.staff[@"manager"] count];
 }
 
 @end
