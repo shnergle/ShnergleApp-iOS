@@ -21,6 +21,7 @@
     self.navigationItem.title = @"Location";
     appDelegate.locationPickerVenues = nil;
     [self.searchResultTable makeToastActivity];
+    }
 }
 
 - (void)viewDidAppear:(BOOL)animated {
