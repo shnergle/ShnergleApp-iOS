@@ -18,15 +18,17 @@
 - (IBAction)tapPromotion:(id)sender;
 - (IBAction)tapPullerMenu:(id)sender;
 
-@property (weak, nonatomic) IBOutlet UILabel *offerHeadline;
-@property (weak, nonatomic) IBOutlet UILabel *offerContents;
+@property (weak, nonatomic) IBOutlet UILabel *promotionHeadline;
+@property (weak, nonatomic) IBOutlet UILabel *promotionContents;
+@property (weak, nonatomic) IBOutlet UIImageView *promotionImage;
 @property (weak, nonatomic) IBOutlet UIButton *claimVenueButton;
 - (IBAction)tappedClaimVenue:(id)sender;
-@property (weak, nonatomic) IBOutlet UILabel *offerCount;
+@property (weak, nonatomic) IBOutlet UILabel *promotionCount;
 @property (weak, nonatomic) IBOutlet GMSMapView *venueMap;
 @property (weak, nonatomic) IBOutlet UIButton *shareButton;
 @property (weak, nonatomic) IBOutlet UIImageView *commentButton;
 @property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *intentionConstraints;
 
 @property (weak, nonatomic) IBOutlet UIButton *postUpdateButton;
 @property (weak, nonatomic) IBOutlet UITextView *summaryContentTextField;
