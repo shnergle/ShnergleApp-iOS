@@ -42,7 +42,7 @@
         ((UILabel *) [cell viewWithTag:2]).text = @"Manager";
     }
     ((UILabel *) [cell viewWithTag:1]).text = appDelegate.staff[type][number][@"name"];
-    ((FBProfilePictureView *) [cell viewWithTag:0]).profileID = [appDelegate.staff[type][number][@"facebook_id"] stringValue];
+    ((FBProfilePictureView *) [cell viewWithTag:3]).profileID = [NSString stringWithFormat:@"%@", appDelegate.staff[type][number][@"facebook_id"]];
     return cell;
 }
 
