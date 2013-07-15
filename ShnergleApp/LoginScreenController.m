@@ -98,11 +98,11 @@
     }
 }
 
-- (void)postResponse:(id)response {
-    if (response) {
-        if (![@"" isEqualToString:((NSDictionary *)response)[@"twitter"]]) appDelegate.twitter = ((NSDictionary *)response)[@"twitter"];
-        appDelegate.saveLocally = [((NSDictionary *)response)[@"save_locally"] intValue] == 1;
-        appDelegate.optInTop5 = [((NSDictionary *)response)[@"top5"] intValue] == 1;
+- (void)postResponse:(NSDictionary *)response {
+    if (response != nil) {
+        if (![@"" isEqualToString:response[@"twitter"]]) appDelegate.twitter = ((NSDictionary *)response)[@"twitter"];
+        appDelegate.saveLocally = [response[@"save_locally"] intValue] == 1;
+        appDelegate.optInTop5 = [response[@"top5"] intValue] == 1;
         UIViewController *vc = [self.storyboard instantiateViewControllerWithIdentifier:@"AroundMeSlidingViewController"];
         [self.navigationController pushViewController:vc animated:YES];
     } else {
