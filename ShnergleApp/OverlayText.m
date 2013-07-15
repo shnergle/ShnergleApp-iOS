@@ -222,7 +222,6 @@
         self.staffLabel.hidden = NO;
     } else {
         self.analyticsButton.hidden = YES;
-
         self.staffButton.hidden = YES;
         self.anaImage.hidden = YES;
         self.anaLabel.hidden = YES;
@@ -231,4 +230,9 @@
     }
 }
 
+- (IBAction)tappedClaimVenue:(id)sender {
+    NSLog(@"%@",appDelegate.activeVenue[@"id"]);
+    [[[PostRequest alloc]init]exec:@"venues/set" params:[NSString stringWithFormat:@"venue_id=%@&official=1",appDelegate.activeVenue[@"id"]] delegate:self callback:@selector(doNothing:)];
+    
+}
 @end

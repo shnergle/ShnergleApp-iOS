@@ -316,6 +316,9 @@
                                     <state key="highlighted">
                                         <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     </state>
+                                    <connections>
+                                        <action selector="tappedClaimVenue:" destination="1" eventType="touchUpInside" id="hhj-XZ-REC"/>
+                                    </connections>
                                 </button>
                             </subviews>
                             <color key="backgroundColor" white="1" alpha="0.0" colorSpace="custom" customColorSpace="calibratedWhite"/>
@@ -530,6 +533,7 @@
                 <outlet property="analyticsButton" destination="KHc-ve-3C3" id="4j0-PD-1mE"/>
                 <outlet property="checkedInLabel" destination="226" id="jnN-pz-CNx"/>
                 <outlet property="checkedInView" destination="52r-VY-WE5" id="lHg-8g-Jal"/>
+                <outlet property="claimVenueButton" destination="afh-Ob-Pnz" id="cdR-5r-Of2"/>
                 <outlet property="goingLabel" destination="215" id="D5h-2V-Ezh"/>
                 <outlet property="goingView" destination="3sN-Qw-TVN" id="dNM-XS-SK8"/>
                 <outlet property="mainShareButton" destination="2173" id="O8Y-9T-uZf"/>

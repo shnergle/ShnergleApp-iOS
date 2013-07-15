@@ -126,7 +126,7 @@
 
     [self addShadowLineRect:CGRectMake(0.0f, 70.0f, self.distanceScrollerView.frame.size.width, 1.0f) ToView:self.distanceScrollerView];
 
-    [self addShadowLineRect:CGRectMake(0.0f, self.overlay.bounds.origin.y + 35, self.overlay.frame.size.width, 1.0f) ToView:self.overlay];
+    [self addShadowLineRect:CGRectMake(0.0f, self.overlay.bounds.origin.y + (35+8), self.overlay.frame.size.width, 1.0f) ToView:self.overlay];
 
     appDelegate.activeVenue = nil;
 
