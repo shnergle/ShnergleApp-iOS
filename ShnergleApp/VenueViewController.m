@@ -226,17 +226,17 @@
 }
 
 - (void)setPromoContentTo:(NSString *)promoContent promoHeadline:(NSString *)promoHeadline promoExpiry:(NSString *)promoExpiry {
-    overlayView.offerContents.text = promoContent;
-    overlayView.offerHeadline.text = promoHeadline;
-    overlayView.offerCount.text = promoExpiry;
+    overlayView.promotionContents.text = promoContent;
+    overlayView.promotionHeadline.text = promoHeadline;
+    overlayView.promotionCount.text = promoExpiry;
 
-    overlayView.offerCount.font = [UIFont systemFontOfSize:9];
-    overlayView.offerCount.textAlignment = NSTextAlignmentCenter;
-    overlayView.offerHeadline.font = [UIFont systemFontOfSize:11];
-    overlayView.offerHeadline.textAlignment = NSTextAlignmentCenter;
-    overlayView.offerContents.font = [UIFont systemFontOfSize:22];
-    overlayView.offerContents.textColor = [UIColor whiteColor];
-    overlayView.offerContents.textAlignment = NSTextAlignmentCenter;
+    overlayView.promotionCount.font = [UIFont systemFontOfSize:9];
+    overlayView.promotionCount.textAlignment = NSTextAlignmentCenter;
+    overlayView.promotionHeadline.font = [UIFont systemFontOfSize:11];
+    overlayView.promotionHeadline.textAlignment = NSTextAlignmentCenter;
+    overlayView.promotionContents.font = [UIFont systemFontOfSize:22];
+    overlayView.promotionContents.textColor = [UIColor whiteColor];
+    overlayView.promotionContents.textAlignment = NSTextAlignmentCenter;
 }
 
 - (void)getPosts {
@@ -253,7 +253,35 @@
     [self setPromoContentTo:promotionBody promoHeadline:promotionTitle promoExpiry:promotionExpiry];
     overlayView.summaryContentTextField.text = summaryContent;
     overlayView.summaryHeadlineTextField.text = summaryHeadline;
+    NSLog(@"Official status: %@ type: %@",appDelegate.activeVenue[@"official"],[appDelegate.activeVenue[@"official"] class]);
+    
+    overlayView.promotionImage.hidden = YES;
+    overlayView.promotionHeadline.hidden = YES;
+    overlayView.promotionContents.hidden = YES;
+    overlayView.promotionCount.hidden = YES;
+    overlayView.claimVenueButton.hidden = YES;
+    overlayView.summaryContentTextField.hidden = YES;
+    overlayView.summaryHeadlineTextField.hidden = YES;
+    
+    
+    if([appDelegate.activeVenue[@"verified"] intValue] == 1)
+    {
+        overlayView.promotionImage.hidden = NO;
+        overlayView.promotionHeadline.hidden = NO;
+        overlayView.promotionContents.hidden = NO;
+        overlayView.promotionCount.hidden = NO;
+        overlayView.claimVenueButton.hidden = YES;
+        overlayView.summaryContentTextField.hidden = NO;
+        overlayView.summaryHeadlineTextField.hidden = NO;
+    }else if([appDelegate.activeVenue[@"official"] intValue] == 0)
+    {
+        overlayView.claimVenueButton.hidden = NO;
+        
+    }else if([appDelegate.activeVenue[@"official"] intValue] == 1)
+    {
+    }
 
+    
     [self getPosts];
 }
 

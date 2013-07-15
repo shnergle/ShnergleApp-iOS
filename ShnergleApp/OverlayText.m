@@ -40,12 +40,7 @@
 
     frame = CGRectMake(0, screenHeight - 80, self.frame.size.width, self.frame.size.height);
     self = [super initWithFrame:frame];
-    
-    // Not Official - Official - Verified Layouts //
-    if(appDelegate.activeVenue[@"official"])
-    {
-        NSLog(@"This Venue is Official");
-    }
+        
     
     if (self) {
         isUp = NO;
