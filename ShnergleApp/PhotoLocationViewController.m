@@ -9,6 +9,7 @@
 #import "PhotoLocationViewController.h"
 #import "ShareViewController.h"
 #import "PostRequest.h"
+#import <Toast/Toast+UIView.h>
 
 @implementation PhotoLocationViewController
 
@@ -20,6 +21,15 @@
     self.navigationItem.title = @"Location";
     appDelegate.locationPickerVenues = nil;
     [self.searchResultTable makeToastActivity];
+}
+
+- (void)viewDidAppear:(BOOL)animated {
+    if (appDelegate.backFromShareView) {
+        appDelegate.backFromShareView = NO;
+        [self goBack];
+    } else if (appDelegate.activeVenue) {
+        UIViewController *vc = [self.storyboard instantiateViewControllerWithIdentifier:@"ShareViewController"];
+        [self.navigationController pushViewController:vc animated:YES];
     }
 }
 
@@ -84,12 +94,12 @@
 
 - (void)initMap {
     hasPositionLocked = NO;
-    map = [[GMSMapView alloc] initWithFrame:_mapView.bounds];
+    map = [[GMSMapView alloc] initWithFrame:self.mapView.bounds];
     map.myLocationEnabled = YES;
     map.delegate = self;
     [map addObserver:self forKeyPath:@"myLocation" options:NSKeyValueObservingOptionNew context:nil];
-    [_mapView addSubview:map];
-    [_mapView sendSubviewToBack:map];
+    [self.mapView addSubview:map];
+    [self.mapView sendSubviewToBack:map];
 }
 
 - (void)viewWillDisappear:(BOOL)animated {
@@ -111,9 +121,7 @@
             CLLocationCoordinate2D realPoint = [map.projection coordinateForPoint:screenPoint];
             CGFloat distanceInDegrees = coord.longitude - realPoint.longitude;
             [[[PostRequest alloc] init] exec:@"venues/get" params:[NSString stringWithFormat:@"my_lat=%f&my_lon=%f&distance=%f", coord.latitude, coord.longitude, distanceInDegrees] delegate:self callback:@selector(didFinishLoadingVenues:)];
-            [map animateToCameraPosition:[GMSCameraPosition cameraWithLatitude:map.myLocation.coordinate.latitude
-                                                                     longitude:map.myLocation.coordinate.longitude
-                                                                          zoom:13]];
+            [map animateToCameraPosition:[GMSCameraPosition cameraWithLatitude:map.myLocation.coordinate.latitude longitude:map.myLocation.coordinate.longitude zoom:13]];
 
             hasPositionLocked = YES;
         }
@@ -121,10 +129,9 @@
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    if ([segue.identifier isEqual:@"SegueToShare"]) {
+    if ([@"SegueToShare" isEqualToString:segue.identifier]) {
         ((ShareViewController *)[segue destinationViewController]).shnergleThis = YES;
     }
 }
-
 
 @end

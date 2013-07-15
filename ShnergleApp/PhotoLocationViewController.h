@@ -21,6 +21,4 @@
 @property (weak, nonatomic) IBOutlet UIView *mapView;
 @property (weak, nonatomic) IBOutlet UISearchBar *searchBar;
 
-@property (weak, nonatomic) NSDictionary *specificVenue;
-
 @end

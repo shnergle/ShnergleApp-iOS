@@ -69,7 +69,7 @@
     int oldValue = [self.goingLabel.text intValue];
     int newValue = oldValue + 1;
     [self.goingLabel setFont:[UIFont fontWithName:self.goingLabel.font.fontName size:self.goingLabel.font.pointSize]];
-    [self.goingLabel setText:[NSString stringWithFormat:@"%d", newValue]];
+    [self.goingLabel setText:[@(newValue) stringValue]];
     [self.goingLabel setTextAlignment:NSTextAlignmentCenter];
     [self.tapGoing setEnabled:NO];
     [self.thinkingView setEnabled:NO];
@@ -80,7 +80,7 @@
     int oldValue = [self.thinkingLabel.text intValue];
     int newValue = oldValue + 1;
     [self.thinkingLabel setFont:[UIFont fontWithName:self.thinkingLabel.font.fontName size:self.thinkingLabel.font.pointSize]];
-    [self.thinkingLabel setText:[NSString stringWithFormat:@"%d", newValue]];
+    [self.thinkingLabel setText:[@(newValue) stringValue]];
     [self.thinkingView setEnabled:NO];
     [self.thinkingLabel setTextAlignment:NSTextAlignmentCenter];
 }
@@ -124,7 +124,7 @@
 - (IBAction)postUpdateTapped:(id)sender {
     [self.summaryContentTextField setBackgroundColor:[UIColor whiteColor]];
     [self.summaryHeadlineTextField setBackgroundColor:[UIColor whiteColor]];
-    [_publishButton setHidden:NO];
+    [self.publishButton setHidden:NO];
     self.summaryContentTextField.editable = YES;
     [self.summaryHeadlineTextField setEnabled:YES];
     [self.summaryContentTextField becomeFirstResponder];
@@ -211,7 +211,7 @@
 
 - (void)didAppear {
     if (appDelegate.venueStatus == Manager) {
-        _postUpdateButton.hidden = NO;
+        self.postUpdateButton.hidden = NO;
         self.analyticsButton.hidden = NO;
 
         self.staffButton.hidden = NO;

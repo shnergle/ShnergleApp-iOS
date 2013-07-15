@@ -14,13 +14,14 @@
 #import "ImageCache.h"
 #import "PhotoLocationViewController.h"
 #import <NSDate+TimeAgo/NSDate+TimeAgo.h>
+#import <Toast/Toast+UIView.h>
 
 @implementation VenueViewController
 
 - (void)setVenue:(NSDictionary *)venue {
     titleHeader = venue[@"name"];
-    venueLat = [(NSNumber *)venue[@"lat"] doubleValue];
-    venueLon = [(NSNumber *)venue[@"lon"] doubleValue];
+    venueLat = [venue[@"lat"] doubleValue];
+    venueLon = [venue[@"lon"] doubleValue];
     summaryContent = [NSString stringWithFormat:@"%@", venue[@"tonight"]];
     summaryHeadline = [NSString stringWithFormat:@"Tonight at %@", venue[@"name"]];
 
@@ -88,7 +89,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    following = [[NSString stringWithFormat:@"%@", appDelegate.activeVenue[@"following"]] isEqual:@"0"] ? NO : YES;
+    following = [appDelegate.activeVenue[@"following"] intValue] == 0 ? NO : YES;
 
     cellImages = [[NSMutableDictionary alloc]init];
 
@@ -120,7 +121,7 @@
              forControlEvents:UIControlEventValueChanged];
     [self.crowdCollectionV addSubview:refreshControl];
 
-    [self.overlayView.scrollView setScrollsToTop:NO];
+    [overlayView.scrollView setScrollsToTop:NO];
     [self.crowdCollectionV setScrollsToTop:YES];
 
     [[[PostRequest alloc]init]exec:@"venue_views/set" params:[NSString stringWithFormat:@"venue_id=%@", appDelegate.activeVenue[@"id"]] delegate:self callback:@selector(doNothing:) type:@"string"];
@@ -179,17 +180,17 @@
 
 - (void)displayTextView {
     if (!textViewOpen) {
-        _overlayView = [[NSBundle mainBundle] loadNibNamed:@"OverlayText" owner:self options:nil][0];
+        overlayView = [[NSBundle mainBundle] loadNibNamed:@"OverlayText" owner:self options:nil][0];
         CGRect screenRect = [[UIScreen mainScreen] bounds];
         CGFloat screenHeight = screenRect.size.height;
 
-        _overlayView.frame = CGRectMake(_overlayView.bounds.origin.x, screenHeight - 80, _overlayView.bounds.size.width, screenHeight - 75);
-        _overlayView.clipsToBounds = NO;
-        [self.view addSubview:_overlayView];
+        overlayView.frame = CGRectMake(overlayView.bounds.origin.x, screenHeight - 80, overlayView.bounds.size.width, screenHeight - 75);
+        overlayView.clipsToBounds = NO;
+        [self.view addSubview:overlayView];
         textViewOpen = true;
 
-        [self addShadowLineRect:CGRectMake(0.0f, _overlayView.bounds.origin.y, _overlayView.bounds.size.width, 1.0f) ToView:_overlayView];
-        [self addShadowLineRect:CGRectMake(0.0f, _overlayView.bounds.origin.y + 63, _overlayView.bounds.size.width, 1.0f) ToView:_overlayView];
+        [self addShadowLineRect:CGRectMake(0.0f, overlayView.bounds.origin.y, overlayView.bounds.size.width, 1.0f) ToView:overlayView];
+        [self addShadowLineRect:CGRectMake(0.0f, overlayView.bounds.origin.y + 63, overlayView.bounds.size.width, 1.0f) ToView:overlayView];
     }
 }
 
@@ -197,14 +198,14 @@
     GMSCameraPosition *camera = [GMSCameraPosition cameraWithLatitude:lat
                                                             longitude:lon
                                                                  zoom:14];
-    self.overlayView.venueMap.camera = camera;
+    overlayView.venueMap.camera = camera;
 
     GMSMarker *marker = [[GMSMarker alloc] init];
     marker.position = CLLocationCoordinate2DMake(lat, lon);
     marker.title = @"";
     marker.snippet = @"";
-    marker.map = self.overlayView.venueMap;
-    self.overlayView.venueMap.userInteractionEnabled = NO;
+    marker.map = overlayView.venueMap;
+    overlayView.venueMap.userInteractionEnabled = NO;
 }
 
 - (BOOL)scrollViewShouldScrollToTop:(UIScrollView *)scrollView {
@@ -215,10 +216,9 @@
     [super viewWillAppear:animated];
     self.navigationController.navigationBarHidden = NO;
 
-#warning hardcoded venue status
-    if ([appDelegate.activeVenue[@"id"] intValue] == 3) {
+    if ([appDelegate.activeVenue[@"manager"] intValue] == 1) {
         [self setStatus:Manager];
-    } else if ([appDelegate.activeVenue[@"id"] intValue] == 4) {
+    } else if ([appDelegate.activeVenue[@"staff"] intValue] == 1) {
         [self setStatus:Staff];
     } else {
         [self setStatus:Default];
@@ -226,17 +226,17 @@
 }
 
 - (void)setPromoContentTo:(NSString *)promoContent promoHeadline:(NSString *)promoHeadline promoExpiry:(NSString *)promoExpiry {
-    self.overlayView.offerContents.text = promoContent;
-    self.overlayView.offerHeadline.text = promoHeadline;
-    self.overlayView.offerCount.text = promoExpiry;
+    overlayView.offerContents.text = promoContent;
+    overlayView.offerHeadline.text = promoHeadline;
+    overlayView.offerCount.text = promoExpiry;
 
-    self.overlayView.offerCount.font = [UIFont systemFontOfSize:9];
-    self.overlayView.offerCount.textAlignment = NSTextAlignmentCenter;
-    self.overlayView.offerHeadline.font = [UIFont systemFontOfSize:11];
-    self.overlayView.offerHeadline.textAlignment = NSTextAlignmentCenter;
-    self.overlayView.offerContents.font = [UIFont systemFontOfSize:22];
-    self.overlayView.offerContents.textColor = [UIColor whiteColor];
-    self.overlayView.offerContents.textAlignment = NSTextAlignmentCenter;
+    overlayView.offerCount.font = [UIFont systemFontOfSize:9];
+    overlayView.offerCount.textAlignment = NSTextAlignmentCenter;
+    overlayView.offerHeadline.font = [UIFont systemFontOfSize:11];
+    overlayView.offerHeadline.textAlignment = NSTextAlignmentCenter;
+    overlayView.offerContents.font = [UIFont systemFontOfSize:22];
+    overlayView.offerContents.textColor = [UIColor whiteColor];
+    overlayView.offerContents.textAlignment = NSTextAlignmentCenter;
 }
 
 - (void)getPosts {
@@ -249,10 +249,10 @@
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
 
-    [self.overlayView setTabBarHidden:YES animated:NO];
+    [overlayView setTabBarHidden:YES animated:NO];
     [self setPromoContentTo:promotionBody promoHeadline:promotionTitle promoExpiry:promotionExpiry];
-    self.overlayView.summaryContentTextField.text = summaryContent;
-    self.overlayView.summaryHeadlineTextField.text = summaryHeadline;
+    overlayView.summaryContentTextField.text = summaryContent;
+    overlayView.summaryHeadlineTextField.text = summaryHeadline;
 
     [self getPosts];
 }
@@ -265,7 +265,7 @@
 
 - (void)viewDidDisappear:(BOOL)animated {
     [super viewDidDisappear:animated];
-    [self.overlayView.scrollView setContentOffset:CGPointZero animated:YES];
+    [overlayView.scrollView setContentOffset:CGPointZero animated:YES];
     self.navigationController.navigationBarHidden = NO;
     //appDelegate.posts = nil;
 }
@@ -281,10 +281,9 @@
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     if ([segue.identifier isEqualToString:@"ToGallery"]) {
-        [segue.destinationViewController setTitle:[NSString stringWithFormat:@"%@", titleHeader]];
+        [segue.destinationViewController setTitle:titleHeader];
         [(VenueGalleryViewController *)segue.destinationViewController setImage : ((CrowdItem *)sender).crowdImage.image withAuthor :[NSString stringWithFormat:@"%@ %@", appDelegate.posts[selectedPost][@"forename"], [appDelegate.posts[selectedPost][@"surname"] substringToIndex:1]] withComment : appDelegate.posts[selectedPost][@"caption"] withTimestamp :[self getDateFromUnixFormat:appDelegate.posts[selectedPost][@"time"]] withId :[appDelegate.posts[selectedPost][@"id"] stringValue]];
     } else if ([segue.identifier isEqualToString:@"CheckInFromVenue"]) {
-        ((PhotoLocationViewController *)((UIViewController *)segue.destinationViewController).nextResponder).specificVenue = appDelegate.activeVenue;
         appDelegate.shareVenue = NO;
     }
 }
@@ -297,11 +296,7 @@
 - (void)setStatus:(VENUE_STATUS)status {
     appDelegate.venueStatus = status;
     switch (status) {
-        case None:
-            [self goBack];
-            break;
         case Default:
-        case Following:
             if (following) {
                 [self setHeaderTitle:titleHeader andSubtitle:@"Following"];
             } else {
@@ -314,13 +309,11 @@
         case Manager:
             [self setHeaderTitle:titleHeader andSubtitle:@"Manager"];
     }
-    [_overlayView didAppear];
+    [overlayView didAppear];
 }
 
 - (NSString *)getDateFromUnixFormat:(id)unixFormat {
-    NSString *input = [NSString stringWithFormat:@"%@", unixFormat];
-    NSDate *date = [NSDate dateWithTimeIntervalSince1970:[input intValue]];
-
+    NSDate *date = [NSDate dateWithTimeIntervalSince1970:[unixFormat intValue]];
     return [date timeAgoWithLimit:86400 dateFormat:NSDateFormatterShortStyle andTimeFormat:NSDateFormatterShortStyle];
 }
 

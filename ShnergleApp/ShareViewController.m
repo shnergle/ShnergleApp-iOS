@@ -9,6 +9,7 @@
 #import "ShareViewController.h"
 #import <FacebookSDK/FacebookSDK.h>
 #import "PostRequest.h"
+#import <Toast/Toast+UIView.h>
 
 @implementation ShareViewController
 
@@ -16,9 +17,9 @@
     [super viewDidLoad];
 
     self.textFieldname.placeholder = @"Write something..";
-    _textFieldname.placeholderColor = [UIColor lightGrayColor];
+    self.textFieldname.placeholderColor = [UIColor lightGrayColor];
 
-    if (appDelegate.shareImage) _image.image = appDelegate.shareImage;
+    if (appDelegate.shareImage) self.image.image = appDelegate.shareImage;
 }
 
 - (void)viewDidAppear:(BOOL)animated {
@@ -41,7 +42,7 @@
     if (self.shnergleThis) {
         //Upload to Shnergle
         NSMutableString *postParams = [[NSMutableString alloc]initWithString:[NSString stringWithFormat:@"venue_id=%@", appDelegate.activeVenue[@"id"]]];
-        [postParams appendFormat:@"&caption=%@", _textFieldname.text];
+        [postParams appendFormat:@"&caption=%@", self.textFieldname.text];
         [[[PostRequest alloc]init]exec:@"posts/set" params:postParams delegate:self callback:@selector(didFinishPost:) type:@"string"];
     } else {
         post_id = appDelegate.shareActivePostId;
@@ -57,7 +58,7 @@
 }
 
 - (void)didFinishPost:(NSString *)response {
-    [[[PostRequest alloc] init] exec:@"images/set" params:[NSString stringWithFormat:@"entity=post&entity_id=%@", response] image:_image.image delegate:self callback:@selector(uploadedToServer:) type:@"string"];
+    [[[PostRequest alloc] init] exec:@"images/set" params:[NSString stringWithFormat:@"entity=post&entity_id=%@", response] image:self.image.image delegate:self callback:@selector(uploadedToServer:) type:@"string"];
 
     post_id = response;
 
@@ -72,7 +73,7 @@
 }
 
 - (void)uploadedToServer:(NSString *)response {
-    if ([response isEqual:@"true"]) {
+    if ([@"true" isEqualToString:response]) {
         self.navigationItem.rightBarButtonItem.enabled = NO;
     } else {
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Upload failed!" message:nil delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
@@ -81,15 +82,15 @@
 }
 
 - (void)shareOnFacebook {
-    if (!_fbSwitch.on) {
+    if (!self.fbSwitch.on) {
         [self.navigationController popToRootViewControllerAnimated:YES];
         return;
     }
 
     NSMutableDictionary<FBGraphObject> *action = [FBGraphObject graphObject];
 
-    action[@"source"] = _image.image;
-    NSMutableString *friends = [NSMutableString stringWithFormat:@""];
+    action[@"source"] = self.image.image;
+    NSMutableString *friends = [NSMutableString stringWithString:@""];
     if ([selectedFriends count] > 0) {
         [friends appendString:@" with"];
         [friends appendFormat:@" @[%@", selectedFriends[0][@"name"]];
@@ -102,7 +103,7 @@
         [friends appendFormat:@" %@", selectedFriends[[selectedFriends count] - 1][@"name"]];
         [friends appendString:@"."];
     }
-    action[@"message"] = [NSString stringWithFormat:@"%@ @%@%@", _textFieldname.text, appDelegate.activeVenue[@"name"], friends];
+    action[@"message"] = [NSString stringWithFormat:@"%@ @%@%@", self.textFieldname.text, appDelegate.activeVenue[@"name"], friends];
     action[@"fb:explicitly_shared"] = @"true";
     //action[@"tags"] = selectedFriends;
     //action[@"place"] = @"http://samples.ogp.me/259837270824167";
@@ -111,7 +112,7 @@
         /*NSMutableDictionary<FBGraphObject> *action = [FBGraphObject graphObject];
            action[@"venue"] = @"http://samples.ogp.me/259837270824167";
            if (action[@"tags"] != nil) action[@"tags"] = selectedFriends;
-           if (action[@"message"] != nil) action[@"message"] = _textFieldname.text;
+           if (action[@"message"] != nil) action[@"message"] = self.textFieldname.text;
            action[@"image"] = [NSString stringWithFormat:@"https://www.facebook.com/photo.php?fbid=%@", result[@"id"]];
            action[@"fb:explicitly_shared"] = @"true";
            [[[FBRequest alloc] initForPostWithSession:appDelegate.session graphPath:@"me/shnergle:share" graphObject:action] startWithCompletionHandler:^(FBRequestConnection *connection,
@@ -161,19 +162,19 @@
     selectedFriends = fpc.selection;
     switch ([selectedFriends count]) {
         case 0:
-            _friendLabel.text = @"";
+            self.friendLabel.text = @"";
             break;
         case 1:
-            _friendLabel.text = [NSString stringWithFormat:@"With %@", [selectedFriends[0] name]];
+            self.friendLabel.text = [NSString stringWithFormat:@"With %@", [selectedFriends[0] name]];
             break;
         case 2:
-            _friendLabel.text = [NSString stringWithFormat:@"With %@ and %@", [selectedFriends[0] name], [selectedFriends[1] name]];
+            self.friendLabel.text = [NSString stringWithFormat:@"With %@ and %@", [selectedFriends[0] name], [selectedFriends[1] name]];
             break;
         case 3:
-            _friendLabel.text = [NSString stringWithFormat:@"With %@, %@ and %@", [selectedFriends[0] name], [selectedFriends[1] name], [selectedFriends[2] name]];
+            self.friendLabel.text = [NSString stringWithFormat:@"With %@, %@ and %@", [selectedFriends[0] name], [selectedFriends[1] name], [selectedFriends[2] name]];
             break;
         default:
-            _friendLabel.text = [NSString stringWithFormat:@"With %@, %@ and %d other", [selectedFriends[0] name], [selectedFriends[1] name], [selectedFriends count] - 2];
+            self.friendLabel.text = [NSString stringWithFormat:@"With %@, %@ and %d other", [selectedFriends[0] name], [selectedFriends[1] name], [selectedFriends count] - 2];
             break;
     }
     [self dismissViewControllerAnimated:YES completion:nil];

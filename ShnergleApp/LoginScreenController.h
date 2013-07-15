@@ -10,8 +10,6 @@
 
 @property (strong, nonatomic) IBOutlet UIButton *buttonLoginLogout;
 
-@property (strong, nonatomic) NSMutableData *response;
-
 - (IBAction)buttonClickHandler:(id)sender;
 - (void)updateView;
 

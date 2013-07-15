@@ -6,11 +6,8 @@
 //  Copyright (c) 2013 Shnergle. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
 #import <GoogleMaps/GoogleMaps.h>
 #import "OverlayText.h"
-#import <ECSlidingViewController.h>
-#import <QuartzCore/QuartzCore.h>
 
 @interface AroundMeViewController : UIViewController<UICollectionViewDataSource, UICollectionViewDelegate, GMSMapViewDelegate> {
     NSInteger selectedVenue;
@@ -22,11 +19,11 @@
     NSArray *venueNames;
     NSArray *images;
     BOOL loading;
+    GMSMapView *map;
 }
 @property (weak, nonatomic) IBOutlet UIButton *drawerCloseButton;
 @property (weak, nonatomic) IBOutlet OverlayText *distanceScrollerView;
 @property (weak, nonatomic) IBOutlet UISlider *distanceScroller;
-@property (strong, nonatomic) GMSMapView *mapView;
 @property (weak, nonatomic) IBOutlet UICollectionView *crowdCollection;
 @property (weak, nonatomic) IBOutlet UINavigationBar *navBar;
 @property (weak, nonatomic) IBOutlet UINavigationItem *navBarMenuItem;

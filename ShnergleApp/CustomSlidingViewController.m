@@ -12,7 +12,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.topViewController = [self.storyboard instantiateViewControllerWithIdentifier:_mainController];
+    self.topViewController = [self.storyboard instantiateViewControllerWithIdentifier:self.mainController];
 }
 
 - (void)viewWillAppear:(BOOL)animated {

@@ -7,6 +7,7 @@
 //
 
 #import "LoginScreenController.h"
+#import <GoogleMaps/GoogleMaps.h>
 
 @implementation AppDelegate
 
@@ -49,7 +50,7 @@
     [self customiseNavBar];
 
     [GMSServices provideAPIKey:@"AIzaSyBiJeQvT0FUQdGPMbOR8DFGdVbEtHMJe7c"];
-    _appSecret = @"FCuf65iuOUDCjlbiyyer678Coutyc64v655478VGvgh76";
+    self.appSecret = @"FCuf65iuOUDCjlbiyyer678Coutyc64v655478VGvgh76";
 
     return YES;
 }

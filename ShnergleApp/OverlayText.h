@@ -43,24 +43,19 @@
 @property (weak, nonatomic) IBOutlet UILabel *staffLabel;
 @property (weak, nonatomic) IBOutlet UIImageView *staffImage;
 
-
-
-
 @property (weak, nonatomic) IBOutlet UIButton *analyticsButton;
 @property (weak, nonatomic) IBOutlet UILabel *anaLabel;
 @property (weak, nonatomic) IBOutlet UIImageView *anaImage;
-
 
 @property (weak, nonatomic) IBOutlet UIButton *mainShareButton;
 @property (weak, nonatomic) IBOutlet UILabel *shareLabel;
 @property (weak, nonatomic) IBOutlet UIImageView *shareImage;
 
+@property (weak, nonatomic) IBOutlet UITapGestureRecognizer *tapGoing;
+@property (weak, nonatomic) IBOutlet UITapGestureRecognizer *tapThinking;
 
 - (IBAction)tappedGoing:(id)sender;
 - (IBAction)tappedThinking:(id)sender;
-
-@property (weak, nonatomic) IBOutlet UITapGestureRecognizer *tapGoing;
-@property (weak, nonatomic) IBOutlet UITapGestureRecognizer *tapThinking;
 
 - (IBAction)postUpdateTapped:(id)sender;
 - (void)hideAnimated:(NSInteger)originalSize animationDuration:(double)animationDuration targetSize:(NSInteger)targetSize contentView:(UIView *)contentView;

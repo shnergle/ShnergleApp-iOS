@@ -6,7 +6,6 @@
 //  Copyright (c) 2013 Shnergle. All rights reserved.
 //
 
-#import <Toast+UIView.h>
 #import "CustomBackViewController.h"
 
 @interface VenueGalleryViewController : CustomBackViewController <UIAlertViewDelegate>
@@ -17,7 +16,6 @@
     NSString *author;
     NSString *postId;
 }
-@property (weak, nonatomic) IBOutlet UIScrollView *imageScrollView;
 @property (weak, nonatomic) IBOutlet UIImageView *imageView;
 @property (weak, nonatomic) IBOutlet UILabel *commentLabel;
 @property (weak, nonatomic) IBOutlet UILabel *authorLabel;

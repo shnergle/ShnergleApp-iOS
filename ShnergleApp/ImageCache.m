@@ -36,13 +36,7 @@ static NSCache *cache;
 
 + (UIImage *)get:(NSString *)type identifier:(NSString *)type_id {
     NSString *key = [NSString stringWithFormat:@"%@/%@", type, type_id];
-
     return (UIImage *)[cache objectForKey:key];
-}
-
-- (void)get:(NSString *)type identifier:(NSString *)type_id delegate:(id)object callback:(SEL)cb item:(CrowdItem *)tItem {
-    item = tItem;
-    [self get:type identifier:type_id delegate:object callback:cb];
 }
 
 - (void)get:(NSString *)type identifier:(NSString *)type_id delegate:(id)object callback:(SEL)cb indexPath:(NSIndexPath *)index {
@@ -58,8 +52,7 @@ static NSCache *cache;
     NSInvocation *invocation = [NSInvocation invocationWithMethodSignature:methodSig];
     [invocation setSelector:responseCallback];
     [invocation setArgument:&response atIndex:2];
-    if (item) [invocation setArgument:&item atIndex:3];
-    else if (indexPath) [invocation setArgument:&indexPath atIndex:3];
+    if (indexPath) [invocation setArgument:&indexPath atIndex:3];
     [invocation setTarget:responseObject];
     [invocation retainArguments];
     [invocation invoke];

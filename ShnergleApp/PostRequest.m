@@ -63,31 +63,20 @@
     return !![[NSURLConnection alloc] initWithRequest:urlRequest delegate:self];
 }
 
-- (BOOL)exec:(NSString *)path params:(NSString *)params delegate:(id)object callback:(SEL)cb item:(CrowdItem *)tItem {
-    item = tItem;
-    return [self exec:path params:params delegate:object callback:cb];
-}
-
-- (BOOL)exec:(NSString *)path params:(NSString *)params delegate:(id)object callback:(SEL)cb type:(NSString *)type item:(CrowdItem *)tItem {
-    item = tItem;
-    return [self exec:path params:params delegate:object callback:cb type:type];
-}
-
 - (void)connection:(NSURLConnection *)connection didReceiveData:(NSData *)data {
     [response appendData:data];
 }
 
 - (void)connectionDidFinishLoading:(NSURLConnection *)connection {
     id responseArg;
-    if ([responseType isEqual:@"image"]) @try {responseArg = [UIImage imageWithData:response]; } @catch (NSException *e) {
+    if ([@"image" isEqualToString:responseType]) @try {responseArg = [UIImage imageWithData:response]; } @catch (NSException *e) {
         }
-    else if ([responseType isEqual:@"string"]) responseArg = [[NSString alloc] initWithData:response encoding:NSUTF8StringEncoding];
+    else if ([@"string" isEqualToString:responseType]) responseArg = [[NSString alloc] initWithData:response encoding:NSUTF8StringEncoding];
     else responseArg = [NSJSONSerialization JSONObjectWithData:response options:NSJSONReadingAllowFragments error:nil];
     NSMethodSignature *methodSig = [[responseObject class] instanceMethodSignatureForSelector:responseCallback];
     NSInvocation *invocation = [NSInvocation invocationWithMethodSignature:methodSig];
     [invocation setSelector:responseCallback];
     [invocation setArgument:&responseArg atIndex:2];
-    if (item) [invocation setArgument:&item atIndex:3];
     [invocation setTarget:responseObject];
     [invocation retainArguments];
     NSLog(@"%@", responseArg);

@@ -8,6 +8,7 @@
 
 #import "VenueGalleryViewController.h"
 #import "PostRequest.h"
+#import <Toast/Toast+UIView.h>
 
 @implementation VenueGalleryViewController
 
@@ -71,7 +72,7 @@
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    if ([segue.identifier isEqual:@"sharePostSegue"]) {
+    if ([@"sharePostSegue" isEqualToString:segue.identifier]) {
         appDelegate.shareVenue = NO;
     }
 }

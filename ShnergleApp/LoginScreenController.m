@@ -85,8 +85,7 @@
                                                        toDate:now
                                                       options:0];
                 NSInteger age = [ageComponents year];
-                [params appendString:@"&age="];
-                [params appendString:[NSString stringWithFormat:@"%d", age]];
+                [params appendFormat:@"&age=%d", age];
 
                 if (![[[PostRequest alloc] init] exec:@"users/set" params:params delegate:self callback:@selector(postResponse:)]) [self alert];
             } else {
@@ -101,11 +100,9 @@
 
 - (void)postResponse:(id)response {
     if (response) {
-        if (![((NSDictionary *)response)[@"twitter"] isEqual : @""]) appDelegate.twitter = ((NSDictionary *)response)[@"twitter"];
-        if ([((NSDictionary *)response)[@"save_locally"] isEqual : @1]) appDelegate.saveLocally = YES;
-        else appDelegate.saveLocally = NO;
-        if ([((NSDictionary *)response)[@"top5"] isEqual : @1]) appDelegate.optInTop5 = YES;
-        else appDelegate.optInTop5 = NO;
+        if (![@"" isEqualToString:((NSDictionary *)response)[@"twitter"]]) appDelegate.twitter = ((NSDictionary *)response)[@"twitter"];
+        appDelegate.saveLocally = [((NSDictionary *)response)[@"save_locally"] intValue] == 1;
+        appDelegate.optInTop5 = [((NSDictionary *)response)[@"top5"] intValue] == 1;
         UIViewController *vc = [self.storyboard instantiateViewControllerWithIdentifier:@"AroundMeSlidingViewController"];
         [self.navigationController pushViewController:vc animated:YES];
     } else {

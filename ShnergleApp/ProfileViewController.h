@@ -8,7 +8,6 @@
 
 #import <FacebookSDK/FacebookSDK.h>
 #import "CustomBackViewController.h"
-#import <ECSlidingViewController.h>
 
 @interface ProfileViewController : UIViewController <UIActionSheetDelegate>
 
@@ -23,7 +22,6 @@
 @property (strong, nonatomic) IBOutlet UINavigationBar *navBar;
 
 @property (strong, nonatomic) IBOutlet UISwitch *twitterSwitch;
-@property (strong, nonatomic) NSArray *accounts;
 @property (weak, nonatomic) IBOutlet UIView *checkInView;
 @property (weak, nonatomic) IBOutlet UIView *redeemed;
 @property (weak, nonatomic) IBOutlet UIView *favourites;
@@ -31,9 +29,6 @@
 @property (weak, nonatomic) IBOutlet UIView *shnerglerView;
 @property (weak, nonatomic) IBOutlet UIView *explorerView;
 @property (weak, nonatomic) IBOutlet UISwitch *saveLocallySwitch;
-
-
-
 
 - (IBAction)twitterSwitchAction:(id)sender;
 - (IBAction)signOut:(id)sender;

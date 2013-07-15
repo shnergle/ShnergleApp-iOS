@@ -14,6 +14,7 @@
 #import "PostRequest.h"
 #import "VenueViewController.h"
 #import "ImageCache.h"
+#import <ECSlidingViewController/ECSlidingViewController.h>
 
 @implementation AroundMeViewController
 
@@ -211,12 +212,12 @@
 
 - (IBAction)sliderValueChanged:(id)sender {
     [self.overlay makeToastActivity];
-    [self.mapView clear];
+    [map clear];
     CLLocationCoordinate2D coord;
     if (pinDropped) {
         coord = pinDroppedLocation;
     } else {
-        coord = self.mapView.myLocation.coordinate;
+        coord = map.myLocation.coordinate;
     }
 
     GMSCircle *mapCircle = [GMSCircle circleWithPosition:coord radius:self.distanceScroller.value * 1000];
@@ -228,10 +229,10 @@
        =Adam's and Stian's magical coordinate substitution principle
        =ooOoOO000OOo00oOoo
      */
-    CGFloat screenDistance = [self.mapView.projection pointsForMeters:(self.distanceScroller.value * 1000) atCoordinate:coord];
-    CGPoint screenCenter = [self.mapView.projection pointForCoordinate:coord];
+    CGFloat screenDistance = [map.projection pointsForMeters:(self.distanceScroller.value * 1000) atCoordinate:coord];
+    CGPoint screenCenter = [map.projection pointForCoordinate:coord];
     CGPoint screenPoint = CGPointMake(screenCenter.x - screenDistance, screenCenter.y);
-    CLLocationCoordinate2D realPoint = [self.mapView.projection coordinateForPoint:screenPoint];
+    CLLocationCoordinate2D realPoint = [map.projection coordinateForPoint:screenPoint];
     CGFloat distanceInDegrees = coord.longitude - realPoint.longitude;
 
     /*
@@ -240,11 +241,11 @@
 
     [[[PostRequest alloc] init] exec:@"venues/get" params:[NSString stringWithFormat:@"my_lat=%f&my_lon=%f&distance=%f", coord.latitude, coord.longitude, distanceInDegrees] delegate:self callback:@selector(didFinishLoadingVenues:)];
 
-    mapCircle.map = self.mapView;
+    mapCircle.map = map;
 }
 
 - (void)mapView:(GMSMapView *)mapView didTapAtCoordinate:(CLLocationCoordinate2D)coordinate {
-    [self.mapView clear];
+    [map clear];
     pinDropped = true;
     pinDroppedLocation = coordinate;
     [self sliderValueChanged:nil];
@@ -277,23 +278,19 @@
 
 - (void)initMap {
     hasPositionLocked = NO;
-    _mapView = [[GMSMapView alloc] initWithFrame:CGRectMake(0, 44, self.view.bounds.size.width, self.view.bounds.size.height - 60)];
-    _mapView.myLocationEnabled = YES;
-    _mapView.delegate = self;
-    [_mapView addObserver:self forKeyPath:@"myLocation" options:NSKeyValueObservingOptionNew context:nil];
-    [self.view addSubview:_mapView];
-    [self.view sendSubviewToBack:_mapView];
+    map = [[GMSMapView alloc] initWithFrame:CGRectMake(0, 44, self.view.bounds.size.width, self.view.bounds.size.height - 60)];
+    map.myLocationEnabled = YES;
+    map.delegate = self;
+    [map addObserver:self forKeyPath:@"myLocation" options:NSKeyValueObservingOptionNew context:nil];
+    [self.view addSubview:map];
+    [self.view sendSubviewToBack:map];
 }
 
 - (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context {
     if (!hasPositionLocked) {
         if ([keyPath isEqualToString:@"myLocation"] && [object isKindOfClass:[GMSMapView class]]) {
-            [_mapView animateToCameraPosition:[GMSCameraPosition cameraWithLatitude:_mapView.myLocation.coordinate.latitude - 0.015
-                                                                          longitude:_mapView.myLocation.coordinate.longitude
-                                                                               zoom:13]];
+            [map animateToCameraPosition:[GMSCameraPosition cameraWithLatitude:map.myLocation.coordinate.latitude - 0.015 longitude:map.myLocation.coordinate.longitude zoom:13]];
             hasPositionLocked = YES;
-            appDelegate.shareImageLat = [NSString stringWithFormat:@"%f", self.mapView.myLocation.coordinate.latitude];
-            appDelegate.shareImageLon = [NSString stringWithFormat:@"%f", self.mapView.myLocation.coordinate.longitude];
             [self sliderValueChanged:nil];
         }
     }
@@ -301,11 +298,11 @@
 
 - (void)viewWillDisappear:(BOOL)animated {
     [super viewWillDisappear:animated];
-    [_mapView removeObserver:self forKeyPath:@"myLocation" context:nil];
-    [_mapView clear];
-    [_mapView stopRendering];
-    [_mapView removeFromSuperview];
-    _mapView = nil;
+    [map removeObserver:self forKeyPath:@"myLocation" context:nil];
+    [map clear];
+    [map stopRendering];
+    [map removeFromSuperview];
+    map = nil;
 }
 
 @end

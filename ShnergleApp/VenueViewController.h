@@ -6,10 +6,8 @@
 //  Copyright (c) 2013 Shnergle. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
 #import "OverlayText.h"
 #import "CustomBackViewController.h"
-#import <QuartzCore/QuartzCore.h>
 
 @interface VenueViewController : CustomBackViewController<UICollectionViewDataSource, UICollectionViewDelegate, UIAlertViewDelegate> {
     NSString *promotionTitle;
@@ -31,6 +29,8 @@
     NSMutableDictionary *cellImages;
 
     UIRefreshControl *refreshControl;
+
+    OverlayText *overlayView;
 }
 - (void)setVenue:(NSDictionary *)venue;
 - (void)viewDidAppear:(BOOL)animated;
@@ -42,8 +42,6 @@
 @property (weak, nonatomic) IBOutlet UICollectionView *crowdCollectionV;
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *checkInButton;
 
-@property (weak, nonatomic) OverlayText *overlayView;
-@property (weak, nonatomic) UIView *naviview;
 - (void)configureMapWithLat:(CLLocationDegrees)lat longitude:(CLLocationDegrees)lon;
 - (NSString *)getDateFromUnixFormat:(id)unixFormat;
 @end

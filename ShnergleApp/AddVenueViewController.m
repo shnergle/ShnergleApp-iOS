@@ -27,15 +27,15 @@ typedef enum {
     self.navigationItem.title = @"Add Place";
     [self setRightBarButton:@"Add" actionSelector:@selector(addVenue)];
 
-    _tableData = @[@"Name", @"Category", @"Address 1", @"Address 2", @"City", @"Postcode", @"Work here?"];
+    tableData = @[@"Name", @"Category", @"Address 1", @"Address 2", @"City", @"Postcode", @"Work here?"];
 }
 
 - (void)addVenue {
     [self.view makeToastActivity];
-    if (appDelegate.addVenueType) _userData[Category + 1] = appDelegate.addVenueType;
+    if (appDelegate.addVenueType) self.userData[Category + 1] = appDelegate.addVenueType;
 
-    if (_workSwitch.on) {
-        [_userData addObjectsFromArray:appDelegate.venueDetailsContent];
+    if (workSwitch.on) {
+        [self.userData addObjectsFromArray:appDelegate.venueDetailsContent];
     }
 
     [[[CLGeocoder alloc]init] reverseGeocodeLocation:[[CLLocation alloc]initWithLatitude:marker.position.latitude longitude:marker.position.longitude] completionHandler:^(NSArray *placemark, NSError *error)
@@ -48,11 +48,11 @@ typedef enum {
         }
 
         NSMutableString *params = [[NSMutableString alloc]initWithString:@"name="];
-        [params appendString:_userData[1]];
+        [params appendString:self.userData[1]];
         [params appendString:@"&category_id="];
         [params appendString:appDelegate.addVenueTypeId];
         [params appendString:@"&address="];
-        [params appendString:[NSString stringWithFormat:@"%@, %@, %@, %@", _userData[3], _userData[4], _userData[5], _userData[6]]];
+        [params appendString:[NSString stringWithFormat:@"%@, %@, %@, %@", self.userData[3], self.userData[4], self.userData[5], self.userData[6]]];
         [params appendString:@"&country="];
         [params appendString:country];
         if (appDelegate.venueDetailsContent) {
@@ -85,7 +85,7 @@ typedef enum {
 - (void)didFinishAddingVenue:(NSString *)response {
     [self.view hideToastActivity];
 
-    if (![response isEqual:@"true"]) {
+    if (![@"true" isEqualToString:response]) {
         UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"Uh-oh.. Something went wrong.." message:nil delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
         [alert show];
     }
@@ -97,7 +97,7 @@ typedef enum {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:[NSString stringWithFormat:@"Cell%d", indexPath.row ]];
     if (cell == nil) cell = [[UITableViewCell alloc] init];
 
-    cell.textLabel.text = _tableData[indexPath.row];
+    cell.textLabel.text = tableData[indexPath.row];
 
     UITextField *textField = (UITextField *)[cell viewWithTag:indexPath.row + 1];
 
@@ -165,11 +165,9 @@ typedef enum {
             textField.delegate = self;
         }
 
-        UISwitch *workSwitch = [[UISwitch alloc] initWithFrame:CGRectMake(210, 8, 50, 30)];
+        workSwitch = [[UISwitch alloc] initWithFrame:CGRectMake(210, 8, 50, 30)];
         [workSwitch addTarget:self action:@selector(segwayToWork) forControlEvents:UIControlEventValueChanged];
         [cell.contentView addSubview:workSwitch];
-
-        _workSwitch = workSwitch;
     }
 
     return cell;
@@ -181,7 +179,7 @@ typedef enum {
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return _tableData.count;
+    return tableData.count;
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -200,7 +198,7 @@ typedef enum {
 }
 
 - (void)segwayToWork {
-    if (_workSwitch.on == YES) {
+    if (workSwitch.on == YES) {
         UIViewController *vc = [self.storyboard instantiateViewControllerWithIdentifier:@"VenueDetailsViewIdentifier"];
         [self.navigationController pushViewController:vc animated:YES];
     }
@@ -217,20 +215,18 @@ typedef enum {
 
 - (void)initMap {
     hasPositionLocked = NO;
-    map = [[GMSMapView alloc] initWithFrame:_mapView.frame];
+    map = [[GMSMapView alloc] initWithFrame:self.mapView.frame];
     map.myLocationEnabled = YES;
     map.delegate = self;
     [map addObserver:self forKeyPath:@"myLocation" options:NSKeyValueObservingOptionNew context:nil];
-    [_mapView addSubview:map];
-    [_mapView sendSubviewToBack:map];
+    [self.mapView addSubview:map];
+    [self.mapView sendSubviewToBack:map];
 }
 
 - (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context {
     if (!hasPositionLocked) {
         if ([keyPath isEqualToString:@"myLocation"] && [object isKindOfClass:[GMSMapView class]]) {
-            [map animateToCameraPosition:[GMSCameraPosition cameraWithLatitude:map.myLocation.coordinate.latitude
-                                                                     longitude:map.myLocation.coordinate.longitude
-                                                                          zoom:13]];
+            [map animateToCameraPosition:[GMSCameraPosition cameraWithLatitude:map.myLocation.coordinate.latitude longitude:map.myLocation.coordinate.longitude zoom:13]];
 
             [self mapView:map didTapAtCoordinate:map.myLocation.coordinate];
             venueCoord = map.myLocation.coordinate;
@@ -278,13 +274,13 @@ typedef enum {
 }
 
 - (NSMutableArray *)userData {
-    if (!_userData) {
-        _userData = [[NSMutableArray alloc] initWithCapacity:[self.tableData count]];
-        for (int i = 0; i < [self.tableData count]; i++) {
-            [_userData addObject:@""];
+    if (!self.userData) {
+        self.userData = [[NSMutableArray alloc] initWithCapacity:[tableData count]];
+        for (int i = 0; i < [tableData count]; i++) {
+            [self.userData addObject:@""];
         }
     }
-    return _userData;
+    return self.userData;
 }
 
 - (BOOL)textFieldShouldReturn:(UITextField *)textField {
