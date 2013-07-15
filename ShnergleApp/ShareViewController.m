@@ -93,7 +93,6 @@
     NSMutableString *friends = [NSMutableString stringWithString:@""];
     if ([selectedFriends count] > 0) {
         [friends appendString:@" with"];
-        [friends appendFormat:@" @[%@", selectedFriends[0][@"name"]];
         for (int i = 1; i < [selectedFriends count] - 1; i++) {
             [friends appendFormat:@", %@", selectedFriends[i][@"name"]];
         }
