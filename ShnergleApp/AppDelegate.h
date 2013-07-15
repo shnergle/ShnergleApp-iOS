@@ -52,7 +52,7 @@ typedef NS_ENUM (NSInteger, VENUE_STATUS) {
 
 @property (nonatomic) VENUE_STATUS venueStatus;
 
-@property (strong, nonatomic) NSArray *staff;
+@property (strong, nonatomic) NSDictionary *staff;
 @property (strong, nonatomic) NSString *staffType;
 
 @end
