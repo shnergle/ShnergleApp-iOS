@@ -29,7 +29,21 @@
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
-    return [collectionView dequeueReusableCellWithReuseIdentifier:@"Cell" forIndexPath:indexPath];
+    UICollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"Cell" forIndexPath:indexPath];
+    int number;
+    NSString *type;
+    if (indexPath.item >= [appDelegate.staff[@"managers"] count]) {
+        number = indexPath.item - [appDelegate.staff[@"managers"] count];
+        type = @"staff";
+        ((UILabel *) [cell viewWithTag:2]).text = [NSString stringWithFormat:@"Staff - Promotions %@", (appDelegate.staff[type][number][@"promo_perm"] ? @"enabled" : @"disabled")];
+    } else {
+        number = indexPath.item;
+        type = @"managers";
+        ((UILabel *) [cell viewWithTag:2]).text = @"Manager";
+    }
+    ((UILabel *) [cell viewWithTag:1]).text = appDelegate.staff[type][number][@"name"];
+    ((FBProfilePictureView *) [cell viewWithTag:0]).profileID = [appDelegate.staff[type][number][@"facebook_id"] stringValue];
+    return cell;
 }
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
