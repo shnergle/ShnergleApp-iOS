@@ -29,6 +29,7 @@
 @property (weak, nonatomic) IBOutlet UIImageView *commentButton;
 @property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *intentionConstraints;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *intentionHeightConstraints;
 
 @property (weak, nonatomic) IBOutlet UIButton *postUpdateButton;
 @property (weak, nonatomic) IBOutlet UITextView *summaryContentTextField;
@@ -48,8 +49,8 @@
 @property (weak, nonatomic) IBOutlet UIImageView *staffImage;
 
 @property (weak, nonatomic) IBOutlet UIButton *analyticsButton;
-@property (weak, nonatomic) IBOutlet UILabel *anaLabel;
-@property (weak, nonatomic) IBOutlet UIImageView *anaImage;
+@property (weak, nonatomic) IBOutlet UILabel *analyticsLabel;
+@property (weak, nonatomic) IBOutlet UIImageView *analyticsImage;
 
 @property (weak, nonatomic) IBOutlet UIButton *mainShareButton;
 @property (weak, nonatomic) IBOutlet UILabel *shareLabel;
