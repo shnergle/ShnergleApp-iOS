@@ -14,9 +14,7 @@
 @implementation PhotoLocationViewController
 
 - (void)viewDidLoad {
-    if(appDelegate.backFromShareView || appDelegate.activeVenue){
-        
-    }else{
+    if(!appDelegate.backFromShareView && !appDelegate.activeVenue){
     [super viewDidLoad];
     self.navigationItem.title = @"Location";
     appDelegate.locationPickerVenues = nil;
