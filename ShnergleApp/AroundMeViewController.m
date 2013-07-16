@@ -131,6 +131,7 @@
     appDelegate.activeVenue = nil;
 
     [self initMap];
+
 }
 
 - (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView {
@@ -173,7 +174,7 @@
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     if ([segue.identifier isEqualToString:@"ToVenueSite"]) {
-        [(VenueViewController *)segue.destinationViewController setVenue : appDelegate.aroundVenues[selectedVenue]];
+        appDelegate.activeVenue = appDelegate.aroundVenues[selectedVenue];
     } else if ([segue.identifier isEqualToString:@"CheckInFromAroundMe"]) {
         appDelegate.shareVenue = NO;
     }

@@ -32,7 +32,6 @@
 
     OverlayText *overlayView;
 }
-- (void)setVenue:(NSDictionary *)venue;
 - (void)viewDidAppear:(BOOL)animated;
 - (void)viewWillAppear:(BOOL)animated;
 - (void)goToPromotionView;

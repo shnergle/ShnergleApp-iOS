@@ -132,9 +132,7 @@
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    if ([segue.identifier isEqualToString:@"ToVenueSite"]) {
-        [(VenueViewController *)segue.destinationViewController setVenue : appDelegate.activeVenue];
-    } else if ([segue.identifier isEqualToString:@"CheckInFromFollowing"]) {
+    if ([segue.identifier isEqualToString:@"CheckInFromFollowing"]) {
         appDelegate.shareVenue = NO;
     }
 }
