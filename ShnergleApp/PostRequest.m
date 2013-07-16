@@ -16,12 +16,12 @@
 
 - (BOOL)exec:(NSString *)path params:(NSString *)params delegate:(id)object callback:(SEL)cb type:(NSString *)type {
     NSString *urlString = [NSString stringWithFormat:@"http://shnergle-api.azurewebsites.net/v1/%@", path];
-
     NSString *paramsString = [NSString stringWithFormat:@"app_secret=%@&facebook_id=%@&%@", appDelegate.appSecret, appDelegate.facebookId, params];
     NSURL *url = [[NSURL alloc] initWithString:urlString];
     NSMutableURLRequest *urlRequest = [NSMutableURLRequest requestWithURL:url];
     [urlRequest setHTTPMethod:@"POST"];
     [urlRequest setHTTPBody:[paramsString dataUsingEncoding:NSUTF8StringEncoding]];
+    if ([@"image" isEqualToString:type]) [urlRequest setTimeoutInterval:5];
     response = [[NSMutableData alloc] init];
     responseObject = object;
     responseCallback = cb;
@@ -35,7 +35,6 @@
 
 - (BOOL)exec:(NSString *)path params:(NSString *)params image:(UIImage *)image delegate:(id)object callback:(SEL)cb type:(NSString *)type {
     NSString *urlString = [NSString stringWithFormat:@"http://shnergle-api.azurewebsites.net/v1/%@", path];
-
     NSString *paramsString = [NSString stringWithFormat:@"app_secret=%@&facebook_id=%@&%@", appDelegate.appSecret, appDelegate.facebookId, params];
     NSString *boundary = @"This-string-cannot-be-part-of-the-content";
     NSString *contentType = [NSString stringWithFormat:@"multipart/form-data; boundary=%@", boundary];
@@ -44,7 +43,7 @@
     [urlRequest addValue:contentType forHTTPHeaderField:@"Content-Type"];
     [urlRequest setHTTPMethod:@"POST"];
     NSMutableData *body = [NSMutableData data];
-    for (NSString *field in [paramsString componentsSeparatedByString : @"&"]) {
+    for (NSString *field in [paramsString componentsSeparatedByString:@"&"]) {
         NSArray *splitField = [field componentsSeparatedByString:@"="];
         [body appendData:[[NSString stringWithFormat:@"\r\n--%@\r\n", boundary] dataUsingEncoding:NSUTF8StringEncoding]];
         [body appendData:[[NSString stringWithFormat:@"Content-Disposition: form-data; name=\"%@\"\r\n\r\n", splitField[0]] dataUsingEncoding:NSUTF8StringEncoding]];
