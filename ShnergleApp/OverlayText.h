@@ -48,8 +48,8 @@
 @property (weak, nonatomic) IBOutlet UIImageView *staffImage;
 
 @property (weak, nonatomic) IBOutlet UIButton *analyticsButton;
-@property (weak, nonatomic) IBOutlet UILabel *anaLabel;
-@property (weak, nonatomic) IBOutlet UIImageView *anaImage;
+@property (weak, nonatomic) IBOutlet UILabel *analyticsLabel;
+@property (weak, nonatomic) IBOutlet UIImageView *analyticsImage;
 
 @property (weak, nonatomic) IBOutlet UIButton *mainShareButton;
 @property (weak, nonatomic) IBOutlet UILabel *shareLabel;

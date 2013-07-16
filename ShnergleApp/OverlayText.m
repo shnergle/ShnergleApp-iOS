@@ -216,16 +216,16 @@
         self.analyticsButton.hidden = NO;
 
         self.staffButton.hidden = NO;
-        self.anaImage.hidden = NO;
-        self.anaLabel.hidden = NO;
+        self.analyticsImage.hidden = NO;
+        self.analyticsLabel.hidden = NO;
 
         self.staffImage.hidden = NO;
         self.staffLabel.hidden = NO;
     } else {
         self.analyticsButton.hidden = YES;
         self.staffButton.hidden = YES;
-        self.anaImage.hidden = YES;
-        self.anaLabel.hidden = YES;
+        self.analyticsImage.hidden = YES;
+        self.analyticsLabel.hidden = YES;
         self.staffImage.hidden = YES;
         self.staffLabel.hidden = YES;
     }

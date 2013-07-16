@@ -264,6 +264,7 @@
     overlayView.summaryHeadlineTextField.hidden = YES;
     
     
+    
     if([appDelegate.activeVenue[@"verified"] intValue] == 1)
     {
         overlayView.promotionImage.hidden = NO;
