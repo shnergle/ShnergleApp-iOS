@@ -175,6 +175,7 @@
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     if ([segue.identifier isEqualToString:@"ToVenueSite"]) {
         appDelegate.activeVenue = appDelegate.aroundVenues[selectedVenue];
+        [((VenueViewController *)[segue destinationViewController]) setVenueInfo];
     } else if ([segue.identifier isEqualToString:@"CheckInFromAroundMe"]) {
         appDelegate.shareVenue = NO;
     }

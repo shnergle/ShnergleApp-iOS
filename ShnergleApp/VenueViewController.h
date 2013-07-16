@@ -37,7 +37,7 @@
 - (void)goToPromotionView;
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender;
 - (void)setHeaderTitle:(NSString *)headerTitle andSubtitle:(NSString *)headerSubtitle;
-
+-(void)setVenueInfo;
 @property (weak, nonatomic) IBOutlet UICollectionView *crowdCollectionV;
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *checkInButton;
 

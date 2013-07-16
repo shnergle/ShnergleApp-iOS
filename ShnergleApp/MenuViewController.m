@@ -127,7 +127,7 @@
     return [[UIView alloc] init];
 }
 
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+- (void)tableView:(UITableView *)tableView didHighlightRowAtIndexPath:(NSIndexPath *)indexPath {
     if (tableView == searchResultsView.resultsTableView) {
         UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"MainStoryboard" bundle:nil];
         VenueViewController *viewController = [storyboard instantiateViewControllerWithIdentifier:@"Venue"];
@@ -139,6 +139,8 @@
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    NSLog(@"\n\nACTIVE VENUE:%@ \n\n",appDelegate.activeVenue);
+    [((VenueViewController *)[segue destinationViewController]) setVenueInfo];
     if ([segue.identifier isEqualToString:@"PromotionSegue"]) {
         appDelegate.topViewType = @"Promotions";
     } else if ([segue.identifier isEqualToString:@"QuietSegue"]) {

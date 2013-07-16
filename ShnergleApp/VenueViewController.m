@@ -18,6 +18,15 @@
 
 @implementation VenueViewController
 
+- (void)setVenueInfo
+{
+    titleHeader = appDelegate.activeVenue[@"name"];
+    venueLat = [appDelegate.activeVenue[@"lat"] doubleValue];
+    venueLon = [appDelegate.activeVenue[@"lon"] doubleValue];
+    summaryContent = [NSString stringWithFormat:@"%@", appDelegate.activeVenue[@"tonight"]];
+    summaryHeadline = [NSString stringWithFormat:@"Tonight at %@", appDelegate.activeVenue[@"name"]];
+
+}
 
 - (void)setHeaderTitle:(NSString *)headerTitle andSubtitle:(NSString *)headerSubtitle {
     CGRect headerTitleSubtitleFrame = CGRectMake(0, 0, 200, 44);
@@ -116,13 +125,6 @@
     [self.crowdCollectionV setScrollsToTop:YES];
 
     [[[PostRequest alloc]init]exec:@"venue_views/set" params:[NSString stringWithFormat:@"venue_id=%@", appDelegate.activeVenue[@"id"]] delegate:self callback:@selector(doNothing:) type:@"string"];
-    
-    titleHeader = appDelegate.activeVenue[@"name"];
-    venueLat = [appDelegate.activeVenue[@"lat"] doubleValue];
-    venueLon = [appDelegate.activeVenue[@"lon"] doubleValue];
-    summaryContent = [NSString stringWithFormat:@"%@", appDelegate.activeVenue[@"tonight"]];
-    summaryHeadline = [NSString stringWithFormat:@"Tonight at %@", appDelegate.activeVenue[@"name"]];
-
 }
 
 - (void)startRefresh:(id)sender {
