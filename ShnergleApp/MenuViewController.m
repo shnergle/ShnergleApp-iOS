@@ -133,6 +133,8 @@
         VenueViewController *viewController = [storyboard instantiateViewControllerWithIdentifier:@"Venue"];
         [viewController setVenue:searchResults[indexPath.row]];
         [self.navigationController pushViewController:viewController animated:YES];
+    } else if (indexPath.section == 0 && indexPath.row != 0) {
+        appDelegate.activeVenue = appDelegate.ownVenues[indexPath.row - 1];
     }
 }
 
