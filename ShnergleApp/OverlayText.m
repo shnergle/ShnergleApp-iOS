@@ -211,7 +211,40 @@
 }
 
 - (void)didAppear {
-    if (appDelegate.venueStatus == Manager) {
+    
+    self.promotionImage.hidden = YES;
+    self.promotionHeadline.hidden = YES;
+    self.promotionContents.hidden = YES;
+    self.promotionCount.hidden = YES;
+    self.claimVenueButton.hidden = YES;
+    self.summaryContentTextField.hidden = YES;
+    self.summaryHeadlineTextField.hidden = YES;
+    self.postUpdateButton.hidden = YES;
+    self.publishButton.hidden = YES;
+    
+    
+    if([appDelegate.activeVenue[@"verified"] intValue] == 1)
+    {
+        self.promotionImage.hidden = NO;
+        self.promotionHeadline.hidden = NO;
+        self.promotionContents.hidden = NO;
+        self.promotionCount.hidden = NO;
+        self.claimVenueButton.hidden = YES;
+        self.summaryContentTextField.hidden = NO;
+        self.summaryHeadlineTextField.hidden = NO;
+        self.postUpdateButton.hidden = YES;
+        self.publishButton.hidden = YES;
+    }else if([appDelegate.activeVenue[@"official"] intValue] == 0)
+    {
+        self.claimVenueButton.hidden = NO;
+        
+    }else if([appDelegate.activeVenue[@"official"] intValue] == 1)
+    {
+        self.intentionHeightConstraints.constant = -10;
+    }
+
+    
+    if (appDelegate.venueStatus == Manager && [appDelegate.activeVenue[@"verified"] intValue] == 1) {
         self.postUpdateButton.hidden = NO;
         self.analyticsButton.hidden = NO;
 

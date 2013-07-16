@@ -49,7 +49,8 @@
 typedef NS_ENUM (NSInteger, VENUE_STATUS) {
     Default,
     Staff,
-    Manager
+    Manager,
+    UnverifiedManager
 };
 
 @property (nonatomic) VENUE_STATUS venueStatus;

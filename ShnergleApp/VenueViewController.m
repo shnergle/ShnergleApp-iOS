@@ -216,11 +216,13 @@
     [super viewWillAppear:animated];
     self.navigationController.navigationBarHidden = NO;
 
-    if ([appDelegate.activeVenue[@"manager"] intValue] == 1) {
-        [self setStatus:Manager];
+    if ([appDelegate.activeVenue[@"manager"] intValue] == 1 && [appDelegate.activeVenue[@"verified"] intValue] == 0) {
+        [self setStatus:UnverifiedManager];
     } else if ([appDelegate.activeVenue[@"staff"] intValue] == 1) {
         [self setStatus:Staff];
-    } else {
+    } else if([appDelegate.activeVenue[@"manager"] intValue] == 1 && [appDelegate.activeVenue[@"verified"] intValue] == 1){
+        [self setStatus:Manager];
+    }else {
         [self setStatus:Default];
     }
 }
@@ -255,37 +257,7 @@
     overlayView.summaryHeadlineTextField.text = summaryHeadline;
     NSLog(@"Official status: %@ type: %@",appDelegate.activeVenue[@"official"],[appDelegate.activeVenue[@"official"] class]);
     
-    overlayView.promotionImage.hidden = YES;
-    overlayView.promotionHeadline.hidden = YES;
-    overlayView.promotionContents.hidden = YES;
-    overlayView.promotionCount.hidden = YES;
-    overlayView.claimVenueButton.hidden = YES;
-    overlayView.summaryContentTextField.hidden = YES;
-    overlayView.summaryHeadlineTextField.hidden = YES;
-    overlayView.postUpdateButton.hidden = YES;
-    overlayView.publishButton.hidden = YES;
     
-    
-    if([appDelegate.activeVenue[@"verified"] intValue] == 1)
-    {
-        overlayView.promotionImage.hidden = NO;
-        overlayView.promotionHeadline.hidden = NO;
-        overlayView.promotionContents.hidden = NO;
-        overlayView.promotionCount.hidden = NO;
-        overlayView.claimVenueButton.hidden = YES;
-        overlayView.summaryContentTextField.hidden = NO;
-        overlayView.summaryHeadlineTextField.hidden = NO;
-        overlayView.postUpdateButton.hidden = YES;
-        overlayView.publishButton.hidden = YES;
-    }else if([appDelegate.activeVenue[@"official"] intValue] == 0)
-    {
-        overlayView.claimVenueButton.hidden = NO;
-        
-    }else if([appDelegate.activeVenue[@"official"] intValue] == 1)
-    {
-        overlayView.intentionHeightConstraints.constant = -10;
-    }
-
     
     [self getPosts];
 }
@@ -341,6 +313,9 @@
             break;
         case Manager:
             [self setHeaderTitle:titleHeader andSubtitle:@"Manager"];
+            break;
+        case UnverifiedManager:
+            [self setHeaderTitle:titleHeader andSubtitle:@"Manager (unverified)"];
     }
     [overlayView didAppear];
 }
