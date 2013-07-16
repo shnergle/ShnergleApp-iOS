@@ -15,7 +15,7 @@
 }
 
 - (BOOL)exec:(NSString *)path params:(NSString *)params delegate:(id)object callback:(SEL)cb type:(NSString *)type {
-    NSString *urlString = [NSString stringWithFormat:@"http://shnergle-api2.azurewebsites.net/v1/%@", path];
+    NSString *urlString = [NSString stringWithFormat:@"http://shnergle-api.azurewebsites.net/v1/%@", path];
 
     NSString *paramsString = [NSString stringWithFormat:@"app_secret=%@&facebook_id=%@&%@", appDelegate.appSecret, appDelegate.facebookId, params];
     NSURL *url = [[NSURL alloc] initWithString:urlString];
@@ -34,7 +34,7 @@
 }
 
 - (BOOL)exec:(NSString *)path params:(NSString *)params image:(UIImage *)image delegate:(id)object callback:(SEL)cb type:(NSString *)type {
-    NSString *urlString = [NSString stringWithFormat:@"http://shnergle-api2.azurewebsites.net/v1/%@", path];
+    NSString *urlString = [NSString stringWithFormat:@"http://shnergle-api.azurewebsites.net/v1/%@", path];
 
     NSString *paramsString = [NSString stringWithFormat:@"app_secret=%@&facebook_id=%@&%@", appDelegate.appSecret, appDelegate.facebookId, params];
     NSString *boundary = @"This-string-cannot-be-part-of-the-content";
