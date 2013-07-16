@@ -254,7 +254,15 @@
 
         self.staffImage.hidden = NO;
         self.staffLabel.hidden = NO;
-    } else {
+    } else if(appDelegate.venueStatus == Staff && [appDelegate.activeVenue[@"verified"] intValue] == 1){
+        self.analyticsButton.hidden = NO;
+        self.analyticsImage.hidden = NO;
+        self.analyticsLabel.hidden = NO;
+        self.analyticsShareConstraints.constant = -40;
+        self.staffButton.hidden = YES;
+        self.staffImage.hidden = YES;
+        self.staffLabel.hidden = YES;
+    }else{
         self.analyticsButton.hidden = YES;
         self.staffButton.hidden = YES;
         self.analyticsImage.hidden = YES;
