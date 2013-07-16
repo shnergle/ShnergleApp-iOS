@@ -283,6 +283,7 @@
         
     }else if([appDelegate.activeVenue[@"official"] intValue] == 1)
     {
+        overlayView.intentionHeightConstraints.constant = -10;
     }
 
     
