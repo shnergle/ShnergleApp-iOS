@@ -139,7 +139,6 @@
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    NSLog(@"\n\nACTIVE VENUE:%@ \n\n",appDelegate.activeVenue);
     [((VenueViewController *)[segue destinationViewController]) setVenueInfo];
     if ([segue.identifier isEqualToString:@"PromotionSegue"]) {
         appDelegate.topViewType = @"Promotions";
