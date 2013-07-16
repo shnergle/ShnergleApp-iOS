@@ -291,7 +291,7 @@
                                     </connections>
                                 </button>
                                 <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="left" contentVerticalAlignment="center" usesAttributedText="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="yFV-32-GOh">
-                                    <rect key="frame" x="4" y="359" width="295" height="30"/>
+                                    <rect key="frame" x="4" y="359" width="294" height="30"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                     <constraints>
@@ -309,8 +309,11 @@
                                     <textInputTraits key="textInputTraits" autocorrectionType="no" returnKeyType="done"/>
                                 </textField>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="afh-Ob-Pnz">
-                                    <rect key="frame" x="7" y="6" width="310" height="60"/>
+                                    <rect key="frame" x="7" y="6" width="310" height="40"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="40" id="vGO-Un-XL5"/>
+                                    </constraints>
                                     <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                     <state key="normal" title="Own this venue? Claim it." backgroundImage="greenbutton.png">
                                         <color key="titleColor" red="0.9960784912109375" green="0.99215692281723022" blue="0.99215692281723022" alpha="1" colorSpace="deviceRGB"/>
@@ -360,7 +363,7 @@
                                 <constraint firstItem="XrZ-Ff-T5t" firstAttribute="baseline" secondItem="vh3-oi-ATO" secondAttribute="baseline" id="HoQ-Np-J9I"/>
                                 <constraint firstItem="o08-tK-dph" firstAttribute="bottom" secondItem="hQT-9q-ZmQ" secondAttribute="bottom" id="IMT-Rw-E4m"/>
                                 <constraint firstItem="anw-aD-f1q" firstAttribute="top" secondItem="fvc-pb-gaI" secondAttribute="top" id="Ksq-RP-ezi"/>
-                                <constraint firstItem="717" firstAttribute="centerY" secondItem="afh-Ob-Pnz" secondAttribute="centerY" id="KzK-Wp-TpJ"/>
+                                <constraint firstItem="717" firstAttribute="centerY" secondItem="afh-Ob-Pnz" secondAttribute="centerY" constant="10.5" id="KzK-Wp-TpJ"/>
                                 <constraint firstItem="636" firstAttribute="top" secondItem="1941" secondAttribute="top" constant="2" id="L8C-iO-4b1"/>
                                 <constraint firstItem="9JC-sc-VKz" firstAttribute="trailing" secondItem="fnV-Bn-jZG" secondAttribute="trailing" id="LAT-Qt-o0m"/>
                                 <constraint firstItem="52r-VY-WE5" firstAttribute="bottom" secondItem="3sN-Qw-TVN" secondAttribute="bottom" id="Mhx-9W-KYi"/>
@@ -391,7 +394,7 @@
                                 <constraint firstItem="anw-aD-f1q" firstAttribute="bottom" secondItem="fvc-pb-gaI" secondAttribute="bottom" id="ect-5I-xct"/>
                                 <constraint firstItem="717" firstAttribute="leading" secondItem="1941" secondAttribute="leading" constant="20" symbolic="YES" id="gqP-JE-ZoF"/>
                                 <constraint firstItem="215" firstAttribute="centerX" secondItem="3sN-Qw-TVN" secondAttribute="centerX" id="jBD-Mz-VgO"/>
-                                <constraint firstItem="215" firstAttribute="top" secondItem="afh-Ob-Pnz" secondAttribute="bottom" priority="10" constant="31" id="lyA-w4-vIT"/>
+                                <constraint firstItem="215" firstAttribute="top" secondItem="afh-Ob-Pnz" secondAttribute="bottom" priority="10" constant="43" id="lyA-w4-vIT"/>
                                 <constraint firstItem="ieB-JS-QVm" firstAttribute="leading" secondItem="yFV-32-GOh" secondAttribute="leading" id="nBL-LT-hpC"/>
                                 <constraint firstItem="afh-Ob-Pnz" firstAttribute="trailing" secondItem="636" secondAttribute="trailing" id="nul-95-5tI"/>
                                 <constraint firstItem="636" firstAttribute="trailing" secondItem="1193" secondAttribute="trailing" id="q6t-G5-lR2"/>
