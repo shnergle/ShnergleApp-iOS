@@ -262,7 +262,8 @@
     overlayView.claimVenueButton.hidden = YES;
     overlayView.summaryContentTextField.hidden = YES;
     overlayView.summaryHeadlineTextField.hidden = YES;
-    
+    overlayView.postUpdateButton.hidden = YES;
+    overlayView.publishButton.hidden = YES;
     
     
     if([appDelegate.activeVenue[@"verified"] intValue] == 1)
@@ -274,6 +275,8 @@
         overlayView.claimVenueButton.hidden = YES;
         overlayView.summaryContentTextField.hidden = NO;
         overlayView.summaryHeadlineTextField.hidden = NO;
+        overlayView.postUpdateButton.hidden = YES;
+        overlayView.publishButton.hidden = YES;
     }else if([appDelegate.activeVenue[@"official"] intValue] == 0)
     {
         overlayView.claimVenueButton.hidden = NO;
