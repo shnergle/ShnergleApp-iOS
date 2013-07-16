@@ -945,6 +945,9 @@
 		EE8FF815172A9CFD0003A8E1 /* LoginScreenController.m in Sources */ = {isa = PBXBuildFile; fileRef = EE8FF814172A9CFD0003A8E1 /* LoginScreenController.m */; };
 		EEB706F5176A1C5B00EF05C5 /* AddPromotionsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EEB706F4176A1C3D00EF05C5 /* AddPromotionsViewController.m */; };
 		EEE9EAD11768ACF100B8530B /* VenueDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EEAFF0FF17677CBC00980DC1 /* VenueDetailsViewController.m */; };
+		EEF8C4B417943C7200DDE026 /* arrow_east.png in Resources */ = {isa = PBXBuildFile; fileRef = EEF8C4B317943C7200DDE026 /* arrow_east.png */; };
+		EEF8C4B71794453800DDE026 /* ScoreViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EEF8C4B61794453800DDE026 /* ScoreViewController.m */; };
+		EEF8C4B81794453800DDE026 /* ScoreViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EEF8C4B61794453800DDE026 /* ScoreViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -1930,6 +1933,9 @@
 		EEAFF0FF17677CBC00980DC1 /* VenueDetailsViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VenueDetailsViewController.m; sourceTree = "<group>"; };
 		EEB706F3176A1C3D00EF05C5 /* AddPromotionsViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AddPromotionsViewController.h; sourceTree = "<group>"; };
 		EEB706F4176A1C3D00EF05C5 /* AddPromotionsViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AddPromotionsViewController.m; sourceTree = "<group>"; };
+		EEF8C4B317943C7200DDE026 /* arrow_east.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = arrow_east.png; sourceTree = "<group>"; };
+		EEF8C4B51794453800DDE026 /* ScoreViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ScoreViewController.h; sourceTree = "<group>"; };
+		EEF8C4B61794453800DDE026 /* ScoreViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ScoreViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -2907,6 +2913,8 @@
 				80B957D516FC65F90044A505 /* VenueViewController.m */,
 				80B400BF17540CCA00A377D9 /* Images */,
 				808F13CF16FB6A5C00B66E6D /* Supporting Files */,
+				EEF8C4B51794453800DDE026 /* ScoreViewController.h */,
+				EEF8C4B61794453800DDE026 /* ScoreViewController.m */,
 			);
 			path = ShnergleApp;
 			sourceTree = "<group>";
@@ -3004,6 +3012,7 @@
 				80B400D517540CCA00A377D9 /* 299-ticket@2x.png */,
 				80B400D617540CCA00A377D9 /* add_friend.png */,
 				80B400D717540CCA00A377D9 /* analtyics_icon.png */,
+				EEF8C4B317943C7200DDE026 /* arrow_east.png */,
 				80B400CD17540CCA00A377D9 /* arrow_west.png */,
 				80B4010B1754B12900A377D9 /* arrowDown.png */,
 				80B4010C1754B12A00A377D9 /* arrowUp.png */,
@@ -3361,6 +3370,7 @@
 				80376D7617748F1500524F54 /* glyphicons_370_globe_af.png in Resources */,
 				80376AE317748F1500524F54 /* glyphicons_040_stats@2x.png in Resources */,
 				80376CB817748F1500524F54 /* glyphicons_275_fast_food.png in Resources */,
+				EEF8C4B417943C7200DDE026 /* arrow_east.png in Resources */,
 				80376D2C17748F1500524F54 /* glyphicons_333_bell.png in Resources */,
 				80376B9817748F1500524F54 /* glyphicons_131_inbox_plus.png in Resources */,
 				80376CAD17748F1500524F54 /* glyphicons_269_keyboard_wired@2x.png in Resources */,
@@ -4080,6 +4090,7 @@
 				EE8FF815172A9CFD0003A8E1 /* LoginScreenController.m in Sources */,
 				80B77D28173E938E00085A71 /* MenuViewController.m in Sources */,
 				EE0A80711733D97300792AE4 /* ProfileViewController.m in Sources */,
+				EEF8C4B71794453800DDE026 /* ScoreViewController.m in Sources */,
 				CDB72C2E175A5F2B00018271 /* PostRequest.m in Sources */,
 				CD7C1B10175B424400902AA9 /* ImageCache.m in Sources */,
 				CD3B655D175CBA72006A4151 /* CrowdItem.m in Sources */,
@@ -4097,6 +4108,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				808F13FA16FB6A5C00B66E6D /* ShnergleAppTests.m in Sources */,
+				EEF8C4B81794453800DDE026 /* ScoreViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
