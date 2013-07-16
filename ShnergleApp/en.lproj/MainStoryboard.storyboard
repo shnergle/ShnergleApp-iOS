@@ -2217,6 +2217,17 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                                             <segue destination="0PX-8N-tNM" kind="push" id="1nI-j0-QaW"/>
                                         </connections>
                                     </tableViewCell>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" indentationWidth="10" reuseIdentifier="MyCellVenue" id="pY0-TW-hUf">
+                                        <rect key="frame" x="0.0" y="330" width="233" height="44"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="pY0-TW-hUf" id="6XR-Uc-dEz">
+                                            <rect key="frame" x="-1" y="0.0" width="235" height="43"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <segue destination="rpF-0H-Qzy" kind="push" id="mMx-sI-unJ"/>
+                                        </connections>
+                                    </tableViewCell>
                                 </prototypes>
                                 <sections/>
                                 <connections>
@@ -2366,9 +2377,9 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
+        <segue reference="mMx-sI-unJ"/>
         <segue reference="GBJ-CV-e6H"/>
-        <segue reference="Zho-BK-kL6"/>
-        <segue reference="ohm-kx-4nt"/>
         <segue reference="fjC-0F-Or5"/>
+        <segue reference="ohm-kx-4nt"/>
     </inferredMetricsTieBreakers>
 </document>
