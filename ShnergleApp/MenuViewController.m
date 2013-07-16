@@ -52,12 +52,18 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     if (tableView == self.menuItemsTableView) {
-        UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:[NSString stringWithFormat:@"MyCell%d%d", indexPath.section, indexPath.item]];
-        cell.textLabel.text = tableData[indexPath.section][indexPath.row];
+        UITableViewCell *cell;
+        if (indexPath.section == 0 && indexPath.row != 0) {
+            cell = [tableView dequeueReusableCellWithIdentifier:@"MyCellVenue"];
+            cell.textLabel.text = appDelegate.ownVenues[indexPath.row - 1][@"name"];
+        } else {
+            cell = [tableView dequeueReusableCellWithIdentifier:[NSString stringWithFormat:@"MyCell%d%d", indexPath.section, indexPath.item]];
+            cell.textLabel.text = tableData[indexPath.section][indexPath.row];
+        }
         cell.textLabel.textColor = [UIColor whiteColor];
         cell.backgroundColor = [UIColor clearColor];
         cell.textLabel.font = [UIFont systemFontOfSize:20];
-        if (indexPath.section == 0) {
+        if (indexPath.section == 0 && indexPath.row == 0) {
             cell.accessoryView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"profileicon.png"]];
             cell.accessoryView.bounds = CGRectMake(0, 0, 27, 19);
             profileCell = cell;
@@ -77,7 +83,10 @@
     if (tableView == searchResultsView.resultsTableView) {
         return [searchResults count];
     } else {
-        return [tableData[section] count];
+        if (section != 0)
+            return [tableData[section] count];
+        else
+            return [tableData[section] count] + [appDelegate.ownVenues count];
     }
 }
 
@@ -124,6 +133,8 @@
         VenueViewController *viewController = [storyboard instantiateViewControllerWithIdentifier:@"Venue"];
         appDelegate.activeVenue = searchResults[indexPath.row];
         [self.navigationController pushViewController:viewController animated:YES];
+    } else if (indexPath.section == 0 && indexPath.row != 0) {
+        appDelegate.activeVenue = appDelegate.ownVenues[indexPath.row - 1];
     }
 }
 
