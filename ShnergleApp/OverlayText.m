@@ -258,7 +258,7 @@
         self.analyticsButton.hidden = NO;
         self.analyticsImage.hidden = NO;
         self.analyticsLabel.hidden = NO;
-        self.analyticsShareConstraints.constant = -40;
+        self.analyticsLeftConstraints.constant = 65;
         self.staffButton.hidden = YES;
         self.staffImage.hidden = YES;
         self.staffLabel.hidden = YES;
