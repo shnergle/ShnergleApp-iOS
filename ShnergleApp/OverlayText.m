@@ -293,12 +293,12 @@
 //Silent Warning: time intervals are wrong. they use 24 hrs from yesterday same time until now
 -(int)fromTime
 {
-    return (int)[[[NSDate alloc] init]timeIntervalSince1970] - 86400;
+    return (int)[[[NSDate alloc] init] timeIntervalSince1970] - 86400;
 
 }
 -(int)untilTime
 {
-    return (int)[[[NSDate alloc] init]timeIntervalSince1970];
+    return (int)[[[NSDate alloc] init] timeIntervalSince1970];
 
 }
 
