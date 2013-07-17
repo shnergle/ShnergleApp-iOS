@@ -21,22 +21,22 @@
     tableData = @[@[appDelegate.fullName], @[@"Around Me", @"Following", @"Promotions", @"Quiet", @"Trending", @"Add Place"]];
     searchResults = appDelegate.searchResults;
     searchResults = [[NSMutableArray alloc] init];
-    searchResultsView.resultsTableView.delegate = self;
-    searchResultsView.resultsTableView.dataSource = self;
+    self.searchResultsView.resultsTableView.delegate = self;
+    self.searchResultsView.resultsTableView.dataSource = self;
 
-    [self initSearchResultsView];
+    [self initsearchResultsView];
 }
 
 - (void)viewDidDisappear:(BOOL)animated {
     [self.menuItemsTableView deselectRowAtIndexPath:[self.menuItemsTableView indexPathForSelectedRow] animated:YES];
 }
 
-- (void)initSearchResultsView {
+- (void)initsearchResultsView {
     NSArray *nibObjects = [[NSBundle mainBundle] loadNibNamed:@"SearchResultsView" owner:self options:nil];
-    searchResultsView = nibObjects[0];
+    self.searchResultsView = nibObjects[0];
 
-    searchResultsView.frame = CGRectMake(320, 45, 320, searchResultsView.frame.size.height);
-    [[self view] addSubview:searchResultsView];
+    self.searchResultsView.frame = CGRectMake(320, 45, 320, self.searchResultsView.frame.size.height);
+    [[self view] addSubview:self.searchResultsView];
     self.cancelButton.alpha = 0;
 }
 
@@ -47,7 +47,7 @@
         }
     }
 
-    [searchResultsView.resultsTableView reloadData];
+    [self.self.searchResultsView.resultsTableView reloadData];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -71,6 +71,9 @@
         return cell;
     } else {
         UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"ResultCell"];
+        if (!cell) {
+            cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:@"ResultCell"];
+        }
         cell.textLabel.text = searchResults[indexPath.row][@"name"];
         cell.textLabel.textColor = [UIColor whiteColor];
         cell.backgroundColor = [UIColor clearColor];
@@ -80,7 +83,7 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    if (tableView == searchResultsView.resultsTableView) {
+    if (tableView == self.searchResultsView.resultsTableView) {
         return [searchResults count];
     } else {
         if (section != 0)
@@ -91,7 +94,7 @@
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    if (tableView == searchResultsView.resultsTableView) {
+    if (tableView == self.searchResultsView.resultsTableView) {
         return 1;
     } else {
         return [tableData count];
@@ -99,7 +102,7 @@
 }
 
 - (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
-    if (tableView == searchResultsView.resultsTableView) {
+    if (tableView == self.searchResultsView.resultsTableView) {
         return @"Results";
     } else {
         return tableSections[section];
@@ -116,7 +119,7 @@
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section {
-    if (tableView == searchResultsView.resultsTableView) {
+    if (tableView == self.searchResultsView.resultsTableView) {
         return 0.1;
     } else {
         return [tableData count] - 1 == section ? tableView.sectionFooterHeight : 0;
@@ -128,7 +131,7 @@
 }
 
 - (void)tableView:(UITableView *)tableView didHighlightRowAtIndexPath:(NSIndexPath *)indexPath {
-    if (tableView == searchResultsView.resultsTableView) {
+    if (tableView == self.searchResultsView.resultsTableView) {
         UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"MainStoryboard" bundle:nil];
         VenueViewController *viewController = [storyboard instantiateViewControllerWithIdentifier:@"Venue"];
         appDelegate.activeVenue = searchResults[indexPath.row];
@@ -163,7 +166,7 @@
         [[[PostRequest alloc] init] exec:@"user_searches/set" params:params delegate:self callback:@selector(searchRegistered:)];
         [[[PostRequest alloc] init] exec:@"venues/get" params:params delegate:self callback:@selector(postResponse:)];
         [textField resignFirstResponder];
-        [searchResultsView show];
+        [self.searchResultsView show];
         [self toggleCancelButton:true];
     }
     return YES;
@@ -179,7 +182,7 @@
 
 - (IBAction)cancelButtonTapped:(id)sender {
     [self.bar resignFirstResponder];
-    [searchResultsView hide];
+    [self.searchResultsView hide];
     [self toggleCancelButton:false];
 }
 
