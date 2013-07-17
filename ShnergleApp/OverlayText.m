@@ -70,7 +70,7 @@
     [self.tapGoing setEnabled:NO];
     [self.thinkingView setEnabled:NO];
     [self.goingView setEnabled:NO];
-    [[[PostRequest alloc]init]exec:@"venue_rsvps/set" params:[NSString stringWithFormat:@"venue_id=%@&going=%@&from_time=%d&until_time=%d",appDelegate.activeVenue[@"id"],@"true",[self fromTime],[self untilTime]] delegate:self callback:@selector(didIntent)];
+    [[[PostRequest alloc]init]exec:@"venue_rsvps/set" params:[NSString stringWithFormat:@"venue_id=%@&going=%@&from_time=%d&until_time=%d",appDelegate.activeVenue[@"id"],@"true",[self fromTime],[self untilTime]] delegate:self callback:@selector(didIntent:)];
 
 }
 
