@@ -75,7 +75,7 @@
     [self.tapGoing setEnabled:NO];
     [self.thinkingView setEnabled:NO];
     [self.goingView setEnabled:NO];
-    [[[PostRequest alloc]init]exec:@"venue_rsvps/set" params:[NSString stringWithFormat:@"venue_id=%@&going=%@",appDelegate.activeVenue[@"id"],@"true"] delegate:self callback:@selector(didFinishGettingRsvps:)];
+    [[[PostRequest alloc] init] exec:@"venue_rsvps/set" params:[NSString stringWithFormat:@"venue_id=%@&going=%@",appDelegate.activeVenue[@"id"],@"true"] delegate:self callback:@selector(didFinishGettingRsvps:)];
 
 }
 
@@ -87,7 +87,7 @@
     [self.thinkingView setEnabled:NO];
     [self.thinkingLabel setTextAlignment:NSTextAlignmentCenter];
     
-    [[[PostRequest alloc]init]exec:@"venue_rsvps/set" params:[NSString stringWithFormat:@"venue_id=%@&maybe=%@&from_time=%d&until_time=%d",appDelegate.activeVenue[@"id"],@"true",[self fromTime],[self untilTime]] delegate:self callback:@selector(didFinishGettingRsvps:)];
+    [[[PostRequest alloc] init] exec:@"venue_rsvps/set" params:[NSString stringWithFormat:@"venue_id=%@&maybe=%@&from_time=%d&until_time=%d",appDelegate.activeVenue[@"id"],@"true",[self fromTime],[self untilTime]] delegate:self callback:@selector(didFinishGettingRsvps:)];
 
     
 }
@@ -280,7 +280,7 @@
 - (void)didAppear {
     
     [self venueLayoutConfig];
-    [[[PostRequest alloc]init]exec:@"venue_rsvps/get" params:[NSString stringWithFormat:@"venue_id=%@&from_time=%d&until_time=%d",appDelegate.activeVenue[@"id"],[self fromTime],[self untilTime]] delegate:self callback:@selector(didFinishGettingRsvps:)];
+    [[[PostRequest alloc] init] exec:@"venue_rsvps/get" params:[NSString stringWithFormat:@"venue_id=%@&from_time=%d&until_time=%d",appDelegate.activeVenue[@"id"],[self fromTime],[self untilTime]] delegate:self callback:@selector(didFinishGettingRsvps:)];
     
 }
 
@@ -293,12 +293,12 @@
 //Silent Warning: time intervals are wrong. they use 24 hrs from yesterday same time until now
 -(int)fromTime
 {
-    return (int)[[[NSDate alloc] init]timeIntervalSince1970] - 86400;
+    return (int)[[[NSDate alloc] init] timeIntervalSince1970] - 86400;
 
 }
 -(int)untilTime
 {
-    return (int)[[[NSDate alloc] init]timeIntervalSince1970];
+    return (int)[[[NSDate alloc] init] timeIntervalSince1970];
 
 }
 
