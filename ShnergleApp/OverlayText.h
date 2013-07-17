@@ -30,6 +30,7 @@
 @property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *intentionConstraints;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *intentionHeightConstraints;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *analyticsShareConstraints;
 
 @property (weak, nonatomic) IBOutlet UIButton *postUpdateButton;
 @property (weak, nonatomic) IBOutlet UITextView *summaryContentTextField;

@@ -38,7 +38,7 @@ typedef enum {
         [self.userData addObjectsFromArray:appDelegate.venueDetailsContent];
     }
 
-    [[[CLGeocoder alloc]init] reverseGeocodeLocation:[[CLLocation alloc]initWithLatitude:marker.position.latitude longitude:marker.position.longitude] completionHandler:^(NSArray *placemark, NSError *error)
+    [[[CLGeocoder alloc] init] reverseGeocodeLocation:[[CLLocation alloc] initWithLatitude:marker.position.latitude longitude:marker.position.longitude] completionHandler:^(NSArray *placemark, NSError *error)
     {
         NSString *country;
         if (error) {
@@ -47,7 +47,7 @@ typedef enum {
             country = [((CLPlacemark *)placemark.firstObject).ISOcountryCode lowercaseString];
         }
 
-        NSMutableString *params = [[NSMutableString alloc]initWithString:@"name="];
+        NSMutableString *params = [[NSMutableString alloc] initWithString:@"name="];
         [params appendString:self.userData[1]];
         [params appendString:@"&category_id="];
         [params appendString:appDelegate.addVenueTypeId];
@@ -75,7 +75,7 @@ typedef enum {
         [params appendFormat:@"%f", marker.position.longitude];
         [params appendString:@"&timezone=0"];
 
-        [[[PostRequest alloc]init]exec:@"venues/set" params:params delegate:self callback:@selector(didFinishAddingVenue:) type:@"string"];
+        [[[PostRequest alloc] init] exec:@"venues/set" params:params delegate:self callback:@selector(didFinishAddingVenue:) type:@"string"];
     } ];
 }
 
@@ -86,7 +86,7 @@ typedef enum {
     [self.view hideToastActivity];
 
     if (![@"true" isEqualToString:response]) {
-        UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"Uh-oh.. Something went wrong.." message:nil delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Uh-oh.. Something went wrong.." message:nil delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
         [alert show];
     }
 

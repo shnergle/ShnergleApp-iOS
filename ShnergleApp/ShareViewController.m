@@ -41,9 +41,9 @@
 - (void)uploadToServer {
     if (self.shnergleThis) {
         //Upload to Shnergle
-        NSMutableString *postParams = [[NSMutableString alloc]initWithString:[NSString stringWithFormat:@"venue_id=%@", appDelegate.activeVenue[@"id"]]];
+        NSMutableString *postParams = [[NSMutableString alloc] initWithString:[NSString stringWithFormat:@"venue_id=%@", appDelegate.activeVenue[@"id"]]];
         [postParams appendFormat:@"&caption=%@", self.textFieldname.text];
-        [[[PostRequest alloc]init]exec:@"posts/set" params:postParams delegate:self callback:@selector(didFinishPost:) type:@"string"];
+        [[[PostRequest alloc] init] exec:@"posts/set" params:postParams delegate:self callback:@selector(didFinishPost:) type:@"string"];
     } else {
         post_id = appDelegate.shareActivePostId;
         //Share to Facebook
@@ -129,9 +129,9 @@
         [self.navigationController popToRootViewControllerAnimated:YES];
     }];
     if (appDelegate.shareVenue) {
-        [[[PostRequest alloc]init]exec:@"venue_shares/set" params:[NSString stringWithFormat:@"venue_id=%@&media_id=1", appDelegate.activeVenue[@"id"]] delegate:self callback:@selector(doNothing:) type:@"string"];
+        [[[PostRequest alloc] init] exec:@"venue_shares/set" params:[NSString stringWithFormat:@"venue_id=%@&media_id=1", appDelegate.activeVenue[@"id"]] delegate:self callback:@selector(doNothing:) type:@"string"];
     } else {
-        [[[PostRequest alloc]init]exec:@"post_shares/set" params:[NSString stringWithFormat:@"post_id=%@&media_id=1", post_id] delegate:self callback:@selector(doNothing:) type:@"string"];
+        [[[PostRequest alloc] init] exec:@"post_shares/set" params:[NSString stringWithFormat:@"post_id=%@&media_id=1", post_id] delegate:self callback:@selector(doNothing:) type:@"string"];
     }
 }
 

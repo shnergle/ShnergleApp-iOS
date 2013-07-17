@@ -18,9 +18,9 @@
     [self.view addSubview:searchBar];
 
     tableSections = @[@"Profile", @"Explore"];
-    tableData = @[@[appDelegate.fullName], @[@"Around Me", @"Following", @"Promotions", @"Quiet", @"Trending", @"Add Venue"]];
+    tableData = @[@[appDelegate.fullName], @[@"Around Me", @"Following", @"Promotions", @"Quiet", @"Trending", @"Add Place"]];
     searchResults = appDelegate.searchResults;
-    searchResults = [[NSMutableArray alloc]init];
+    searchResults = [[NSMutableArray alloc] init];
     searchResultsView.resultsTableView.delegate = self;
     searchResultsView.resultsTableView.dataSource = self;
 
@@ -139,8 +139,8 @@
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    NSLog(@"\n\nACTIVE VENUE:%@ \n\n",appDelegate.activeVenue);
-    [((VenueViewController *)[segue destinationViewController]) setVenueInfo];
+    if ([[segue destinationViewController] isKindOfClass:[VenueViewController class]])
+        [((VenueViewController *)[segue destinationViewController]) setVenueInfo];
     if ([segue.identifier isEqualToString:@"PromotionSegue"]) {
         appDelegate.topViewType = @"Promotions";
     } else if ([segue.identifier isEqualToString:@"QuietSegue"]) {

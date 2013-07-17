@@ -58,7 +58,7 @@
     [menuButtonTmp setBackgroundImage:menuButtonImg forState:UIControlStateNormal];
     [menuButtonTmp addTarget:self action:actionSelector forControlEvents:UIControlEventTouchUpInside];
 
-    UIBarButtonItem *menuButton = [[UIBarButtonItem alloc]initWithCustomView:menuButtonTmp];
+    UIBarButtonItem *menuButton = [[UIBarButtonItem alloc] initWithCustomView:menuButtonTmp];
     return menuButton;
 }
 
@@ -149,7 +149,7 @@
 
     item.crowdImage.image = [ImageCache get:@"venue" identifier:appDelegate.aroundVenues[indexPath.item][@"id"]];
 
-    if (item.crowdImage.image == nil) [[[ImageCache alloc]init]get:@"venue" identifier:[appDelegate.aroundVenues[indexPath.item][@"id"] stringValue] delegate:self callback:@selector(didFinishDownloadingImages:forIndex:) indexPath:indexPath];
+    if (item.crowdImage.image == nil) [[[ImageCache alloc] init] get:@"venue" identifier:[appDelegate.aroundVenues[indexPath.item][@"id"] stringValue] delegate:self callback:@selector(didFinishDownloadingImages:forIndex:) indexPath:indexPath];
 
     [[item venueName] setText:appDelegate.aroundVenues[indexPath.item][@"name"]];
 
@@ -204,7 +204,7 @@
 
 - (void)hideDistanceScroller {
     if (self.distanceScrollerView.frame.origin.y > -64) {
-        [[self distanceScrollerView]hideAnimated:44 animationDuration:0.8 targetSize:-64 contentView:[self distanceScrollerView]];
+        [[self distanceScrollerView] hideAnimated:44 animationDuration:0.8 targetSize:-64 contentView:[self distanceScrollerView]];
     }
 }
 

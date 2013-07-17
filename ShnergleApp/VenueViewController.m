@@ -91,7 +91,7 @@
     [super viewDidLoad];
     following = [appDelegate.activeVenue[@"following"] intValue] == 0 ? NO : YES;
 
-    cellImages = [[NSMutableDictionary alloc]init];
+    cellImages = [[NSMutableDictionary alloc] init];
 
     if (!summaryContent) summaryContent = @"";
 
@@ -116,7 +116,7 @@
 
     [self configureMapWithLat:venueLat longitude:venueLon];
 
-    refreshControl = [[UIRefreshControl alloc]init];
+    refreshControl = [[UIRefreshControl alloc] init];
     [refreshControl addTarget:self action:@selector(startRefresh:)
              forControlEvents:UIControlEventValueChanged];
     [self.crowdCollectionV addSubview:refreshControl];
@@ -124,7 +124,7 @@
     [overlayView.scrollView setScrollsToTop:NO];
     [self.crowdCollectionV setScrollsToTop:YES];
 
-    [[[PostRequest alloc]init]exec:@"venue_views/set" params:[NSString stringWithFormat:@"venue_id=%@", appDelegate.activeVenue[@"id"]] delegate:self callback:@selector(doNothing:) type:@"string"];
+    [[[PostRequest alloc] init] exec:@"venue_views/set" params:[NSString stringWithFormat:@"venue_id=%@", appDelegate.activeVenue[@"id"]] delegate:self callback:@selector(doNothing:) type:@"string"];
 }
 
 - (void)startRefresh:(id)sender {
@@ -157,7 +157,7 @@
     item.crowdImage.backgroundColor = [UIColor lightGrayColor];
     item.crowdImage.image = [ImageCache get:@"post" identifier:appDelegate.posts[indexPath.item][@"id"]];
 
-    if (item.crowdImage.image == nil) [[[ImageCache alloc]init]get:@"post" identifier:[appDelegate.posts[indexPath.item][@"id"] stringValue] delegate:self callback:@selector(didFinishDownloadingImages:forIndex:) indexPath:indexPath];
+    if (item.crowdImage.image == nil) [[[ImageCache alloc] init] get:@"post" identifier:[appDelegate.posts[indexPath.item][@"id"] stringValue] delegate:self callback:@selector(didFinishDownloadingImages:forIndex:) indexPath:indexPath];
 
     [[item venueName] setText:[self getDateFromUnixFormat:appDelegate.posts[indexPath.item][@"time"]]];
     [[item venueName] setTextColor:[UIColor whiteColor]];
@@ -181,7 +181,7 @@
 - (void)displayTextView {
     if (!textViewOpen) {
         overlayView = [[NSBundle mainBundle] loadNibNamed:@"OverlayText" owner:self options:nil][0];
-        CGRect screenRect = [[UIScreen mainScreen] bounds];
+        CGRect screenRect = [UIScreen mainScreen].bounds;
         CGFloat screenHeight = screenRect.size.height;
 
         overlayView.frame = CGRectMake(overlayView.bounds.origin.x, screenHeight - 80, overlayView.bounds.size.width, screenHeight - 75);
@@ -195,9 +195,7 @@
 }
 
 - (void)configureMapWithLat:(CLLocationDegrees)lat longitude:(CLLocationDegrees)lon {
-    GMSCameraPosition *camera = [GMSCameraPosition cameraWithLatitude:lat
-                                                            longitude:lon
-                                                                 zoom:14];
+    GMSCameraPosition *camera = [GMSCameraPosition cameraWithLatitude:lat longitude:lon zoom:14];
     overlayView.venueMap.camera = camera;
 
     GMSMarker *marker = [[GMSMarker alloc] init];
@@ -242,10 +240,10 @@
 }
 
 - (void)getPosts {
-    NSMutableString *params = [[NSMutableString alloc]initWithString:@"venue_id="];
+    NSMutableString *params = [[NSMutableString alloc] initWithString:@"venue_id="];
     [params appendString:[appDelegate.activeVenue[@"id"] stringValue]];
 
-    [[[PostRequest alloc]init]exec:@"posts/get" params:params delegate:self callback:@selector(didFinishDownloadingPosts:)];
+    [[[PostRequest alloc] init] exec:@"posts/get" params:params delegate:self callback:@selector(didFinishDownloadingPosts:)];
 }
 
 - (void)viewDidAppear:(BOOL)animated {
@@ -255,9 +253,6 @@
     [self setPromoContentTo:promotionBody promoHeadline:promotionTitle promoExpiry:promotionExpiry];
     overlayView.summaryContentTextField.text = summaryContent;
     overlayView.summaryHeadlineTextField.text = summaryHeadline;
-    NSLog(@"Official status: %@ type: %@",appDelegate.activeVenue[@"official"],[appDelegate.activeVenue[@"official"] class]);
-    
-    
     
     [self getPosts];
 }
@@ -272,7 +267,8 @@
     [super viewDidDisappear:animated];
     [overlayView.scrollView setContentOffset:CGPointZero animated:YES];
     self.navigationController.navigationBarHidden = NO;
-    //appDelegate.posts = nil;
+    appDelegate.posts = nil;
+    [self.crowdCollectionV reloadData];
 }
 
 - (void)goToPromotionView {
