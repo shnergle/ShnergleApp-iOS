@@ -263,8 +263,8 @@
 
     [overlayView setTabBarHidden:YES animated:NO];
     [self setPromoContentTo:promotionBody promoHeadline:promotionTitle promoExpiry:promotionExpiry];
-    overlayView.summaryContentTextField.text = appDelegate.activeVenue[@"tonight"];
-    overlayView.summaryHeadlineTextField.text = appDelegate.activeVenue[@"headline"];
+    overlayView.summaryContentTextField.text = [NSString stringWithFormat:@"%@", appDelegate.activeVenue[@"tonight"]];
+    overlayView.summaryHeadlineTextField.text = [NSString stringWithFormat:@"%@",appDelegate.activeVenue[@"headline"]];
     
     [self getPosts];
 }
