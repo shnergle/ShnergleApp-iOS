@@ -139,7 +139,8 @@
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    [((VenueViewController *)[segue destinationViewController]) setVenueInfo];
+    if ([[segue destinationViewController] isKindOfClass:[VenueViewController class]])
+        [((VenueViewController *)[segue destinationViewController]) setVenueInfo];
     if ([segue.identifier isEqualToString:@"PromotionSegue"]) {
         appDelegate.topViewType = @"Promotions";
     } else if ([segue.identifier isEqualToString:@"QuietSegue"]) {
