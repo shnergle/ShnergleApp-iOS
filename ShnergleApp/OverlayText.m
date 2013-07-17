@@ -76,8 +76,8 @@
 
 - (IBAction)tappedThinking:(id)sender {
     [self.thinkingView setEnabled:NO];
-    NSString *params = [NSString stringWithFormat:@"venue_id=%@&maybe=%@&from_time=%d&until_time=%d",appDelegate.activeVenue[@"id"], @"true",[self fromTime],[self untilTime]];
-    NSLog(@"params:\n\n\n%@",params);
+    NSString *params = [NSString stringWithFormat:@"venue_id=%@&maybe=%@&from_time=%d&until_time=%d", appDelegate.activeVenue[@"id"], @"true",[self fromTime],[self untilTime]];
+    NSLog(@"params:\n\n\n%@", params);
     [[[PostRequest alloc] init] exec:@"venue_rsvps/set" params:params delegate:self callback:@selector(didIntent:)];
 
 }
