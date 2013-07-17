@@ -10,4 +10,15 @@
 
 @interface ScoreViewController : CustomBackViewController
 
+@property (weak, nonatomic) IBOutlet UILabel *youShare;
+@property (weak, nonatomic) IBOutlet UILabel *valueShare;
+@property (weak, nonatomic) IBOutlet UILabel *scoreShare;
+
+
+@property (weak, nonatomic) IBOutlet UILabel *youCheckIn;
+@property (weak, nonatomic) IBOutlet UILabel *valueCheckIn;
+@property (weak, nonatomic) IBOutlet UILabel *scoreCheckIn;
+
+@property (weak, nonatomic) IBOutlet UILabel *totalShnergleScore;
+
 @end

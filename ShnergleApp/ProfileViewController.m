@@ -82,6 +82,7 @@
     self.navBar.clipsToBounds = YES;
 
     [[[PostRequest alloc] init] exec:@"rankings/get" params:@"" delegate:self callback:@selector(postResponse:)];
+    
 }
 
 - (void)postResponse:(NSDictionary *)result {
@@ -101,6 +102,11 @@
     self.followingLabel.text = [result[@"following"] stringValue];
     self.redeemedLabel.text = [result[@"redemptions"] stringValue];
     self.checkInLabel.text = [result[@"posts"] stringValue];
+    appDelegate.checkIn = [result[@"posts"] stringValue];
+    self.shnerglerLabel.text = [NSString stringWithFormat:@"Shnergle score above %@", [result[@"thresholds"][2] stringValue]];
+    self.explorerLabel.text = [NSString stringWithFormat:@"Shnergle score above %@", [result[@"thresholds"][0] stringValue]];
+    self.scoutLabel.text = [NSString stringWithFormat:@"Shnergle score above %@", [result[@"thresholds"][1] stringValue]];
+    appDelegate.youShare = [result[@"share"] stringValue];
     [self.view hideToastActivity];
 }
 
@@ -140,5 +146,4 @@
     self.navBarItem.leftBarButtonItem = menuButton;
     self.navigationItem.leftBarButtonItem = menuButton;
 }
-
 @end
