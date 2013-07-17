@@ -15,7 +15,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self imageSetup];
-    [[[PostRequest alloc]init]exec:@"post_views/set" params:[NSString stringWithFormat:@"post_id=%@", appDelegate.shareActivePostId] delegate:self callback:@selector(doNothing:) type:@"string"];
+    [[[PostRequest alloc] init] exec:@"post_views/set" params:[NSString stringWithFormat:@"post_id=%@", appDelegate.shareActivePostId] delegate:self callback:@selector(doNothing:) type:@"string"];
 }
 
 - (void)setImage:(UIImage *)img withAuthor:(NSString *)user withComment:(NSString *)msg withTimestamp:(NSString *)time withId:(NSString *)post_id {

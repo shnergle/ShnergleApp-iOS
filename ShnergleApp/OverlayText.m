@@ -274,7 +274,7 @@
 
 - (IBAction)tappedClaimVenue:(id)sender {
     NSLog(@"%@",appDelegate.activeVenue[@"id"]);
-    [[[PostRequest alloc]init]exec:@"venue_managers/set" params:[NSString stringWithFormat:@"venue_id=%@",appDelegate.activeVenue[@"id"]] delegate:self callback:@selector(doNothing:)];
+    [[[PostRequest alloc] init] exec:@"venue_managers/set" params:[NSString stringWithFormat:@"venue_id=%@",appDelegate.activeVenue[@"id"]] delegate:self callback:@selector(doNothing:)];
     
 }
 @end
