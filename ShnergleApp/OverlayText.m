@@ -286,8 +286,8 @@
 
 -(void)didFinishGettingRsvps: (id) response
 {
-    self.thinkingLabel.text = [NSString stringWithFormat:@"%@",response[@"maybe"]];
-    self.goingLabel.text = [NSString stringWithFormat:@"%@",response[@"going"]];
+    self.thinkingLabel.text = [response[@"maybe"] stringValue];
+    self.goingLabel.text = [response[@"going"] stringValue];
 }
 
 //Silent Warning: time intervals are wrong. they use 24 hrs from yesterday same time until now
