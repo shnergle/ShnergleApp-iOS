@@ -53,7 +53,7 @@
     self.navigationItem.titleView.userInteractionEnabled = YES;
 }
 
-- (void)viewDidUnload{
+- (void)viewDidLoad{
     [super viewDidLoad];
     [self setHeaderTitle:@"Shnergle Score" andSubtitle:appDelegate.fullName];
 }
