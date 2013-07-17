@@ -255,9 +255,6 @@
     [self setPromoContentTo:promotionBody promoHeadline:promotionTitle promoExpiry:promotionExpiry];
     overlayView.summaryContentTextField.text = summaryContent;
     overlayView.summaryHeadlineTextField.text = summaryHeadline;
-    NSLog(@"Official status: %@ type: %@",appDelegate.activeVenue[@"official"],[appDelegate.activeVenue[@"official"] class]);
-    
-    
     
     [self getPosts];
 }
@@ -272,7 +269,8 @@
     [super viewDidDisappear:animated];
     [overlayView.scrollView setContentOffset:CGPointZero animated:YES];
     self.navigationController.navigationBarHidden = NO;
-    //appDelegate.posts = nil;
+    appDelegate.posts = nil;
+    [self.crowdCollectionV reloadData];
 }
 
 - (void)goToPromotionView {
