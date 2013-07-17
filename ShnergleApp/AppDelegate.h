@@ -21,6 +21,9 @@
 @property (nonatomic) BOOL saveLocally;
 @property (nonatomic) BOOL optInTop5;
 
+@property (strong, nonatomic) NSString *youShare;
+@property (strong, nonatomic) NSString *checkIn;
+
 @property (strong, nonatomic) NSArray *posts;
 @property (strong, nonatomic) NSArray *aroundVenues;
 @property (strong, nonatomic) NSArray *followingVenues;

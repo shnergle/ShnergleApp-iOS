@@ -7,6 +7,8 @@
 //
 
 #import "ScoreViewController.h"
+#import <Toast/Toast+UIView.h>
+#import "PostRequest.h"
 
 @implementation ScoreViewController
 
@@ -59,6 +61,15 @@
 - (void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
     [self.navigationController setNavigationBarHidden:NO animated:YES];
+    self.youShare.text = appDelegate.youShare;
+    NSNumber *score = @([self.youShare.text intValue]*[self.valueShare.text intValue]);
+    self.scoreShare.text = [score stringValue];
+    self.youCheckIn.text = appDelegate.checkIn;
+    NSNumber *scorecheck = @([self.youCheckIn.text intValue]*[self.valueCheckIn.text intValue]);
+    self.scoreCheckIn.text = [scorecheck stringValue];
+    NSNumber *total = @([self.scoreCheckIn.text intValue]+[self.scoreShare.text intValue]);
+    self.totalShnergleScore.text = [total stringValue];
 }
+
 
 @end

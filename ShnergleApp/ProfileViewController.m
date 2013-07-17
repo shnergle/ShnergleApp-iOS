@@ -102,10 +102,12 @@
     self.followingLabel.text = [result[@"following"] stringValue];
     self.redeemedLabel.text = [result[@"redemptions"] stringValue];
     self.checkInLabel.text = [result[@"posts"] stringValue];
-    self.shnerglerLabel.text = [NSString stringWithFormat:@"Shnergle score above %@", [result[@"threshold"][2] stringValue]];
-    self.explorerLabel.text = [NSString stringWithFormat:@"Shnergle score above %@", [result[@"threshold"][0] stringValue]];
+    appDelegate.checkIn = [result[@"posts"] stringValue];
+    self.shnerglerLabel.text = [NSString stringWithFormat:@"Shnergle score above %@", [result[@"thresholds"][2] stringValue]];
+    self.explorerLabel.text = [NSString stringWithFormat:@"Shnergle score above %@", [result[@"thresholds"][0] stringValue]];
+    self.scoutLabel.text = [NSString stringWithFormat:@"Shnergle score above %@", [result[@"thresholds"][1] stringValue]];
+    appDelegate.youShare = [result[@"share"] stringValue];
     [self.view hideToastActivity];
-    self.scoutLabel.text = [NSString stringWithFormat:@"Shnergle score above %@", [result[@"threshold"][1] stringValue]];
 }
 
 - (void)tapMenu {
