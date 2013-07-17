@@ -18,7 +18,7 @@
     [self.view addSubview:searchBar];
 
     tableSections = @[@"Profile", @"Explore"];
-    tableData = @[@[appDelegate.fullName], @[@"Around Me", @"Following", @"Promotions", @"Quiet", @"Trending", @"Add Venue"]];
+    tableData = @[@[appDelegate.fullName], @[@"Around Me", @"Following", @"Promotions", @"Quiet", @"Trending", @"Add Place"]];
     searchResults = appDelegate.searchResults;
     searchResults = [[NSMutableArray alloc]init];
     searchResultsView.resultsTableView.delegate = self;
