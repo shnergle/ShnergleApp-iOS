@@ -66,7 +66,7 @@
     cell = [tableView dequeueReusableCellWithIdentifier:@"Cell"];
 
     if (cell == nil) {
-        cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"Cell"];
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"Cell"];
     }
 
     cell.textLabel.text = appDelegate.locationPickerVenues[indexPath.row][@"name"];
@@ -81,7 +81,7 @@
 }
 
 - (void)searchBarSearchButtonClicked:(UISearchBar *)searchBar {
-    appDelegate.locationPickerVenues = [[NSMutableArray alloc]init];
+    appDelegate.locationPickerVenues = [[NSMutableArray alloc] init];
     for (id obj in locationPickerVenuesImmutable) {
         if ([obj[@"name"] rangeOfString:self.searchBar.text options:NSCaseInsensitiveSearch].length > 0) {
             [appDelegate.locationPickerVenues addObject:obj];

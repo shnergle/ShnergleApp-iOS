@@ -14,7 +14,7 @@
     [super viewDidLoad];
     self.navigationItem.title = @"Place Details";
 
-    appDelegate.venueDetailsContent = [[NSMutableArray alloc]init];
+    appDelegate.venueDetailsContent = [[NSMutableArray alloc] init];
     tableData = @[@"Phone", @"Email", @"Website"];
 }
 

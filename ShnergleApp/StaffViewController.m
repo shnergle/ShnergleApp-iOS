@@ -17,7 +17,7 @@
     [self.navigationController setNavigationBarHidden:NO animated:YES];
     self.navigationItem.title = @"Staff";
     [self.view makeToastActivity];
-    NSMutableString *params = [[NSMutableString alloc]initWithString:@"venue_id="];
+    NSMutableString *params = [[NSMutableString alloc] initWithString:@"venue_id="];
     [params appendString:[appDelegate.activeVenue[@"id"] stringValue]];
     [[[PostRequest alloc] init] exec:@"venue_staff/get" params:params delegate:self callback:@selector(didFinishDownloadingStaff:)];
 }
