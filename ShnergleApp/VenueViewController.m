@@ -93,7 +93,19 @@
 
     cellImages = [[NSMutableDictionary alloc] init];
 
-    if (!summaryContent) summaryContent = @"";
+    if (!appDelegate.activeVenue[@"tonight"]) {
+        summaryContent = @"";
+    }else{
+        summaryContent = appDelegate.activeVenue[@"tonight"];
+    }
+    
+    if(appDelegate.activeVenue[@"headline"]){
+        summaryHeadline = appDelegate.activeVenue[@"headline"];
+    }
+    
+    if(appDelegate.activeVenue[@"name"]){
+        titleHeader = appDelegate.activeVenue[@"name"];
+    }
 
     [self.checkInButton setTitleTextAttributes:
      @{UITextAttributeTextColor: [UIColor whiteColor],
@@ -114,7 +126,7 @@
 
     [self displayTextView];
 
-    [self configureMapWithLat:venueLat longitude:venueLon];
+    [self configureMapWithLat:[appDelegate.activeVenue[@"lat"] doubleValue] longitude:[appDelegate.activeVenue[@"lon"] doubleValue]];
 
     refreshControl = [[UIRefreshControl alloc] init];
     [refreshControl addTarget:self action:@selector(startRefresh:)

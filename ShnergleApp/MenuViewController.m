@@ -134,6 +134,7 @@
     if (tableView == self.searchResultsView.resultsTableView) {
         UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"MainStoryboard" bundle:nil];
         VenueViewController *viewController = [storyboard instantiateViewControllerWithIdentifier:@"Venue"];
+        [viewController setVenueInfo];
         appDelegate.activeVenue = searchResults[indexPath.row];
         [self.navigationController pushViewController:viewController animated:YES];
     } else if (indexPath.section == 0 && indexPath.row != 0) {
