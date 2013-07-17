@@ -75,6 +75,8 @@
     [self.tapGoing setEnabled:NO];
     [self.thinkingView setEnabled:NO];
     [self.goingView setEnabled:NO];
+    [[[PostRequest alloc]init]exec:@"venue_rsvps/set" params:[NSString stringWithFormat:@"venue_id=%@&going=%@",appDelegate.activeVenue[@"id"],@"true"] delegate:self callback:@selector(didFinishGettingRsvps:)];
+
 }
 
 - (IBAction)tappedThinking:(id)sender {
@@ -84,6 +86,10 @@
     [self.thinkingLabel setText:[@(newValue) stringValue]];
     [self.thinkingView setEnabled:NO];
     [self.thinkingLabel setTextAlignment:NSTextAlignmentCenter];
+    
+    [[[PostRequest alloc]init]exec:@"venue_rsvps/set" params:[NSString stringWithFormat:@"venue_id=%@&maybe=%@&from_time=%d&until_time=%d",appDelegate.activeVenue[@"id"],@"true",[self fromTime],[self untilTime]] delegate:self callback:@selector(didFinishGettingRsvps:)];
+
+    
 }
 
 - (IBAction)tappedCheckedIn:(id)sender {
@@ -274,7 +280,7 @@
 - (void)didAppear {
     
     [self venueLayoutConfig];
-    [[[PostRequest alloc]init]exec:@"venue_rsvps/get" params:[NSString stringWithFormat:@"venue_id=%@&from_time=%d&until_time=%d",appDelegate.activeVenue[@"id"],[self thisMorningUnixTime],[self tomorrowMorningUnixTime]] delegate:self callback:@selector(didFinishGettingRsvps:)];
+    [[[PostRequest alloc]init]exec:@"venue_rsvps/get" params:[NSString stringWithFormat:@"venue_id=%@&from_time=%d&until_time=%d",appDelegate.activeVenue[@"id"],[self fromTime],[self untilTime]] delegate:self callback:@selector(didFinishGettingRsvps:)];
     
 }
 
@@ -285,12 +291,12 @@
 }
 
 //Silent Warning: time intervals are wrong. they use 24 hrs from yesterday same time until now
--(int)thisMorningUnixTime
+-(int)fromTime
 {
     return (int)[[[NSDate alloc] init]timeIntervalSince1970] - 86400;
 
 }
--(int)tomorrowMorningUnixTime
+-(int)untilTime
 {
     return (int)[[[NSDate alloc] init]timeIntervalSince1970];
 
