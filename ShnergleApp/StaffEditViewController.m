@@ -27,10 +27,12 @@
 
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
+    /*
     self.nameLabel.text = currentStaff[];
     self.jobTitleLabel.text = currentStaff[];
     self.profileImage.profileID = currentStaff[];
     self.dateLabel.text = currentStaff[];
+     */
     
     NSString *type = appDelegate.staffType;
     if (type == nil) type = @"Staff";

@@ -62,9 +62,9 @@
     if(selectedStaffMember >= [appDelegate.staff[@"managers"] count]){
         type = @"staff";
     }else{
-        type =@"managers";
+        type = @"managers";
     }
-    [((StaffEditViewController *)[segue destinationViewController]) setStaffMember:appDelegate.staff[type]]
+    [((StaffEditViewController *)[segue destinationViewController]) setStaffMember:appDelegate.staff[type][selectedStaffMember]];
 }
 
 @end
