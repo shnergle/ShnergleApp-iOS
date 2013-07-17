@@ -67,23 +67,24 @@
 }
 
 - (IBAction)tappedGoing:(id)sender {
-    int oldValue = [self.goingLabel.text intValue];
-    int newValue = oldValue + 1;
-    [self.goingLabel setFont:[UIFont fontWithName:self.goingLabel.font.fontName size:self.goingLabel.font.pointSize]];
-    [self.goingLabel setText:[@(newValue) stringValue]];
-    [self.goingLabel setTextAlignment:NSTextAlignmentCenter];
     [self.tapGoing setEnabled:NO];
     [self.thinkingView setEnabled:NO];
     [self.goingView setEnabled:NO];
+    [[[PostRequest alloc]init]exec:@"venue_rsvps/set" params:[NSString stringWithFormat:@"venue_id=%@&going=%@&from_time=%d&until_time=%d",appDelegate.activeVenue[@"id"],@"true",[self fromTime],[self untilTime]] delegate:self callback:@selector(didIntent:)];
+
 }
 
 - (IBAction)tappedThinking:(id)sender {
-    int oldValue = [self.thinkingLabel.text intValue];
-    int newValue = oldValue + 1;
-    [self.thinkingLabel setFont:[UIFont fontWithName:self.thinkingLabel.font.fontName size:self.thinkingLabel.font.pointSize]];
-    [self.thinkingLabel setText:[@(newValue) stringValue]];
     [self.thinkingView setEnabled:NO];
-    [self.thinkingLabel setTextAlignment:NSTextAlignmentCenter];
+    NSString *params = [NSString stringWithFormat:@"venue_id=%@&maybe=%@&from_time=%d&until_time=%d", appDelegate.activeVenue[@"id"], @"true",[self fromTime],[self untilTime]];
+    NSLog(@"params:\n\n\n%@", params);
+    [[[PostRequest alloc] init] exec:@"venue_rsvps/set" params:params delegate:self callback:@selector(didIntent:)];
+
+}
+
+-(void)didIntent:(id) response
+{
+    [self loadVenueIntentions];
 }
 
 - (IBAction)tappedCheckedIn:(id)sender {
@@ -210,8 +211,7 @@
     else [self swipeUp:sender];
 }
 
-- (void)didAppear {
-    
+- (void)venueLayoutConfig {
     self.promotionImage.hidden = YES;
     self.promotionHeadline.hidden = YES;
     self.promotionContents.hidden = YES;
@@ -242,16 +242,16 @@
     {
         self.intentionHeightConstraints.constant = -10;
     }
-
+    
     
     if (appDelegate.venueStatus == Manager && [appDelegate.activeVenue[@"verified"] intValue] == 1) {
         self.postUpdateButton.hidden = NO;
         self.analyticsButton.hidden = NO;
-
+        
         self.staffButton.hidden = NO;
         self.analyticsImage.hidden = NO;
         self.analyticsLabel.hidden = NO;
-
+        
         self.staffImage.hidden = NO;
         self.staffLabel.hidden = NO;
     } else if(appDelegate.venueStatus == Staff && [appDelegate.activeVenue[@"verified"] intValue] == 1){
@@ -270,6 +270,36 @@
         self.staffImage.hidden = YES;
         self.staffLabel.hidden = YES;
     }
+}
+
+- (void)loadVenueIntentions {
+    [[[PostRequest alloc]init]exec:@"venue_rsvps/get" params:[NSString stringWithFormat:@"venue_id=%@&from_time=%d&until_time=%d",appDelegate.activeVenue[@"id"],[self fromTime],[self untilTime]] delegate:self callback:@selector(didFinishGettingRsvps:)];
+}
+
+- (void)didAppear {
+    
+    [self venueLayoutConfig];
+    [self loadVenueIntentions];
+    
+}
+
+-(void)didFinishGettingRsvps: (id) response
+{
+    NSLog(@"%@",response);
+    self.thinkingLabel.text = [response[@"maybe"] stringValue];
+    self.goingLabel.text = [response[@"going"] stringValue];
+}
+
+//Silent Warning: time intervals are wrong. they use 24 hrs from yesterday same time until now
+-(int)fromTime
+{
+    return (int)[[[NSDate alloc] init] timeIntervalSince1970] - 86400;
+
+}
+-(int)untilTime
+{
+    return (int)[[[NSDate alloc] init] timeIntervalSince1970];
+
 }
 
 - (IBAction)tappedClaimVenue:(id)sender {

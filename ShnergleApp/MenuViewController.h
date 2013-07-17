@@ -14,12 +14,11 @@
     NSArray *tableData;
     NSMutableArray *searchResults;
     UITableViewCell *profileCell;
-    SearchResultsView *searchResultsView;
 }
 
 @property (weak, nonatomic) IBOutlet UIView *searchBar;
 @property (weak, nonatomic) IBOutlet UITextField *bar;
-
+@property (weak, nonatomic) IBOutlet SearchResultsView *searchResultsView;
 @property (weak, nonatomic) IBOutlet UITableView *menuItemsTableView;
 
 @property (weak, nonatomic) IBOutlet UIButton *cancelButton;
