@@ -210,8 +210,7 @@
     else [self swipeUp:sender];
 }
 
-- (void)didAppear {
-    
+- (void)venueLayoutConfig {
     self.promotionImage.hidden = YES;
     self.promotionHeadline.hidden = YES;
     self.promotionContents.hidden = YES;
@@ -242,16 +241,16 @@
     {
         self.intentionHeightConstraints.constant = -10;
     }
-
+    
     
     if (appDelegate.venueStatus == Manager && [appDelegate.activeVenue[@"verified"] intValue] == 1) {
         self.postUpdateButton.hidden = NO;
         self.analyticsButton.hidden = NO;
-
+        
         self.staffButton.hidden = NO;
         self.analyticsImage.hidden = NO;
         self.analyticsLabel.hidden = NO;
-
+        
         self.staffImage.hidden = NO;
         self.staffLabel.hidden = NO;
     } else if(appDelegate.venueStatus == Staff && [appDelegate.activeVenue[@"verified"] intValue] == 1){
@@ -270,6 +269,31 @@
         self.staffImage.hidden = YES;
         self.staffLabel.hidden = YES;
     }
+}
+
+- (void)didAppear {
+    
+    [self venueLayoutConfig];
+    [[[PostRequest alloc]init]exec:@"venue_rsvps/get" params:[NSString stringWithFormat:@"venue_id=%@&from_time=%d&until_time=%d",appDelegate.activeVenue[@"id"],[self thisMorningUnixTime],[self tomorrowMorningUnixTime]] delegate:self callback:@selector(didFinishGettingRsvps:)];
+    
+}
+
+-(void)didFinishGettingRsvps: (id) response
+{
+    self.thinkingLabel.text = response[@"maybe"];
+    self.goingLabel.text = response[@"going"];
+}
+
+//Silent Warning: time intervals are wrong. they use 24 hrs from yesterday same time until now
+-(int)thisMorningUnixTime
+{
+    return (int)[[[NSDate alloc] init]timeIntervalSince1970] - 86400;
+
+}
+-(int)tomorrowMorningUnixTime
+{
+    return (int)[[[NSDate alloc] init]timeIntervalSince1970];
+
 }
 
 - (IBAction)tappedClaimVenue:(id)sender {
