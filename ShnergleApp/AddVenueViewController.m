@@ -116,6 +116,7 @@ typedef enum {
             textField = [[UITextField alloc] initWithFrame:CGRectMake(110, 10, 185, 30)];
             textField.tag = indexPath.row + 1;
             textField.delegate = self;
+            textField.autocorrectionType = UITextAutocorrectionTypeNo;
         }
 
         textField.placeholder = @"(Required)";
@@ -137,6 +138,7 @@ typedef enum {
             textField = [[UITextField alloc] initWithFrame:CGRectMake(110, 10, 185, 30)];
             textField.tag = indexPath.row + 1;
             textField.delegate = self;
+            textField.autocorrectionType = UITextAutocorrectionTypeNo;
         }
 
         textField.placeholder = @"(Optional)";
@@ -146,6 +148,7 @@ typedef enum {
             textField = [[UITextField alloc] initWithFrame:CGRectMake(110, 10, 185, 30)];
             textField.tag = indexPath.row + 1;
             textField.delegate = self;
+            textField.autocorrectionType = UITextAutocorrectionTypeNo;
         }
 
         textField.placeholder = @"(Optional)";
@@ -155,6 +158,7 @@ typedef enum {
             textField = [[UITextField alloc] initWithFrame:CGRectMake(110, 10, 185, 30)];
             textField.tag = indexPath.row + 1;
             textField.delegate = self;
+            textField.autocorrectionType = UITextAutocorrectionTypeNo;
         }
 
         textField.placeholder = @"(Optional)";
@@ -164,6 +168,7 @@ typedef enum {
             textField = [[UITextField alloc] initWithFrame:CGRectMake(110, 10, 185, 30)];
             textField.tag = indexPath.row + 1;
             textField.delegate = self;
+            textField.autocorrectionType = UITextAutocorrectionTypeNo;
         }
 
         textField.placeholder = @"(Optional)";
