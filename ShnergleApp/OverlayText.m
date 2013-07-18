@@ -236,11 +236,12 @@
         self.publishButton.hidden = YES;
     }else if([appDelegate.activeVenue[@"official"] intValue] == 0)
     {
+        self.intentionHeightConstraints.constant = -30;
         self.claimVenueButton.hidden = NO;
         
     }else if([appDelegate.activeVenue[@"official"] intValue] == 1)
     {
-        self.intentionHeightConstraints.constant = -10;
+        self.intentionHeightConstraints.constant = -20;
     }
     
     
