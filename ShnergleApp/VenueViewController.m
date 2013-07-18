@@ -137,6 +137,11 @@
     [self.crowdCollectionV setScrollsToTop:YES];
 
     [[[PostRequest alloc] init] exec:@"venue_views/set" params:[NSString stringWithFormat:@"venue_id=%@", appDelegate.activeVenue[@"id"]] delegate:self callback:@selector(doNothing:) type:@"string"];
+
+    CLLocationManager *man = [[CLLocationManager alloc] init];
+    man.delegate = self;
+    CLRegion *reg = [[CLRegion alloc] initCircularRegionWithCenter:CLLocationCoordinate2DMake([appDelegate.activeVenue[@"lat"] doubleValue], [appDelegate.activeVenue[@"lon"] doubleValue]) radius:100 identifier:@"venueThingy"];
+    [man startMonitoringForRegion:reg];
 }
 
 - (void)startRefresh:(id)sender {
@@ -263,8 +268,8 @@
 
     [overlayView setTabBarHidden:YES animated:NO];
     [self setPromoContentTo:promotionBody promoHeadline:promotionTitle promoExpiry:promotionExpiry];
-    overlayView.summaryContentTextField.text = appDelegate.activeVenue[@"tonight"];
-    overlayView.summaryHeadlineTextField.text = appDelegate.activeVenue[@"headline"];
+    overlayView.summaryContentTextField.text = [NSString stringWithFormat:@"%@", appDelegate.activeVenue[@"tonight"]];
+    overlayView.summaryHeadlineTextField.text = [NSString stringWithFormat:@"%@",appDelegate.activeVenue[@"headline"]];
     
     [self getPosts];
 }
@@ -298,6 +303,7 @@
         [(VenueGalleryViewController *)segue.destinationViewController setImage : ((CrowdItem *)sender).crowdImage.image withAuthor :[NSString stringWithFormat:@"%@ %@", appDelegate.posts[selectedPost][@"forename"], [appDelegate.posts[selectedPost][@"surname"] substringToIndex:1]] withComment : appDelegate.posts[selectedPost][@"caption"] withTimestamp :[self getDateFromUnixFormat:appDelegate.posts[selectedPost][@"time"]] withId :[appDelegate.posts[selectedPost][@"id"] stringValue]];
     } else if ([segue.identifier isEqualToString:@"CheckInFromVenue"]) {
         appDelegate.shareVenue = NO;
+        appDelegate.shnergleThis = YES;
     }
 }
 
@@ -331,6 +337,14 @@
 - (NSString *)getDateFromUnixFormat:(id)unixFormat {
     NSDate *date = [NSDate dateWithTimeIntervalSince1970:[unixFormat intValue]];
     return [date timeAgoWithLimit:86400 dateFormat:NSDateFormatterShortStyle andTimeFormat:NSDateFormatterShortStyle];
+}
+
+- (void)locationManager:(CLLocationManager *)manager didEnterRegion:(CLRegion *)region {
+    self.checkInButton.enabled = YES;
+}
+
+- (void)locationManager:(CLLocationManager *)manager didExitRegion:(CLRegion *)region {
+    self.checkInButton.enabled = NO;
 }
 
 @end

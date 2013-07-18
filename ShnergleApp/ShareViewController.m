@@ -39,7 +39,7 @@
 }
 
 - (void)uploadToServer {
-    if (self.shnergleThis) {
+    if (appDelegate.shnergleThis) {
         //Upload to Shnergle
         NSMutableString *postParams = [[NSMutableString alloc] initWithString:[NSString stringWithFormat:@"venue_id=%@", appDelegate.activeVenue[@"id"]]];
         [postParams appendFormat:@"&caption=%@", self.textFieldname.text];

@@ -9,6 +9,9 @@
 #import "CustomBackViewController.h"
 
 @interface StaffViewController : CustomBackViewController <UICollectionViewDataSource, UICollectionViewDelegate>
+{
+    int selectedStaffMember;
+}
 @property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
 
 @end

@@ -15,6 +15,10 @@
     [self.navigationController setNavigationBarHidden:NO animated:YES];
     self.navigationItem.title = @"Staff";
 }
+-(void)setStaffMember:(NSDictionary *)staff
+{
+    currentStaff = staff;
+}
 
 - (IBAction)deleteStaff:(id)sender {
     UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Really delete?" message:nil delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"Yes", nil];
@@ -23,7 +27,13 @@
 
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
-
+    
+    self.nameLabel.text = currentStaff[@"name"];
+    self.jobTitleLabel.text = appDelegate.staffType;
+    self.profileImage.profileID = currentStaff[@"facebook_id"];
+    self.dateLabel.text = currentStaff[@"facebook_id"];
+    
+    
     NSString *type = appDelegate.staffType;
     if (type == nil) type = @"Staff";
     secondCell.textLabel.text = [NSString stringWithFormat:@"Status: %@", type];

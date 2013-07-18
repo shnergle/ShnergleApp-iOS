@@ -10,6 +10,13 @@
 
 @interface StaffEditViewController : CustomBackViewController <UITableViewDataSource, UITableViewDelegate, UIAlertViewDelegate> {
     UITableViewCell *secondCell;
+    NSDictionary *currentStaff;
 }
+@property (weak, nonatomic) IBOutlet UILabel *nameLabel;
+@property (weak, nonatomic) IBOutlet UILabel *dateLabel;
+@property (weak, nonatomic) IBOutlet UILabel *jobTitleLabel;
+@property (weak, nonatomic) IBOutlet FBProfilePictureView *profileImage;
+@property (weak, nonatomic) IBOutlet UIButton *deleteButton;
 
+-(void)setStaffMember:(NSDictionary *)staff;
 @end

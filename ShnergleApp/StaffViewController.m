@@ -9,6 +9,7 @@
 #import "StaffViewController.h"
 #import "PostRequest.h"
 #import <Toast/Toast+UIView.h>
+#import "StaffEditViewController.h"
 
 @implementation StaffViewController
 
@@ -48,6 +49,22 @@
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
     return [appDelegate.staff[@"staff"] count] + [appDelegate.staff[@"managers"] count];
+}
+
+-(void)collectionView:(UICollectionView *)collectionView didHighlightItemAtIndexPath:(NSIndexPath *)indexPath
+{
+    selectedStaffMember = indexPath.row;
+}
+
+-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    NSString *type = @"";
+    if(selectedStaffMember >= [appDelegate.staff[@"managers"] count]){
+        type = @"staff";
+    }else{
+        type = @"managers";
+    }
+    [((StaffEditViewController *)[segue destinationViewController]) setStaffMember:appDelegate.staff[type][selectedStaffMember]];
 }
 
 @end

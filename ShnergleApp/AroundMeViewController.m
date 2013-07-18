@@ -85,7 +85,7 @@
 
     crowdImagesHidden = NO;
     dropDownHidden = YES;
-
+    appDelegate.shnergleThis = NO;
     [self menuButtonDecorations];
 }
 
