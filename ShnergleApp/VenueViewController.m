@@ -140,8 +140,8 @@
 
     CLLocationManager *man = [[CLLocationManager alloc] init];
     man.delegate = self;
-    CLRegion *reg = [[CLRegion alloc] initCircularRegionWithCenter:CLLocationCoordinate2DMake([appDelegate.activeVenue[@"lat"] doubleValue], [appDelegate.activeVenue[@"lon"] doubleValue]) radius:100 identifier:@"venueThingy"];
-    [man startMonitoringForRegion:reg];
+    man.desiredAccuracy = kCLLocationAccuracyNearestTenMeters;
+    [man startUpdatingLocation];
 }
 
 - (void)startRefresh:(id)sender {
@@ -339,12 +339,8 @@
     return [date timeAgoWithLimit:86400 dateFormat:NSDateFormatterShortStyle andTimeFormat:NSDateFormatterShortStyle];
 }
 
-- (void)locationManager:(CLLocationManager *)manager didEnterRegion:(CLRegion *)region {
-    self.checkInButton.enabled = YES;
-}
-
-- (void)locationManager:(CLLocationManager *)manager didExitRegion:(CLRegion *)region {
-    self.checkInButton.enabled = NO;
+- (void)locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray *)locations {
+    self.checkInButton.enabled = [((CLLocation *)locations.lastObject) distanceFromLocation:[[CLLocation alloc] initWithLatitude:[appDelegate.activeVenue[@"lat"] doubleValue] longitude:[appDelegate.activeVenue[@"lon"] doubleValue]]] <= 100;
 }
 
 @end
