@@ -93,13 +93,24 @@ typedef enum {
 }
 
 - (void)didFinishAddingVenue:(NSString *)response {
-    [self.view hideToastActivity];
-
-    if (![@"true" isEqualToString:response]) {
+    if (response != nil) {
+        [self.view hideToastActivity];
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Uh-oh.. Something went wrong.." message:nil delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
         [alert show];
+    } else {
+        if (workSwitch.on) {
+            [[[PostRequest alloc] init] exec:@"venue_managers/set" params:[NSString stringWithFormat:@"venue_id=%@", response] delegate:self callback:@selector(didAddAsManager:)];
+        } else {
+            [self.view hideToastActivity];
+            [self.navigationController popViewControllerAnimated:YES];
+        }
     }
 
+
+}
+
+- (void)didAddAsManager:(id)response {
+    [self.view hideToastActivity];
     [self.navigationController popViewControllerAnimated:YES];
 }
 
