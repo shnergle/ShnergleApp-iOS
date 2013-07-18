@@ -111,6 +111,10 @@
     [self.view hideToastActivity];
 }
 
+-(IBAction)privacy:(id)sender {
+    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"http://www.shnergle.com/"]];
+}
+
 - (void)tapMenu {
     [self.slidingViewController anchorTopViewTo:ECRight];
 }
