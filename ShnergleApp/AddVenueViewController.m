@@ -33,7 +33,7 @@ typedef enum {
 - (void)addVenue {
     if([self.userData[@(Name+1)] length] > 0 && appDelegate.addVenueTypeId)
     {
-    if((workSwitch.on == YES && [self.userData[@(8)] length > 0] && [self.userData[@(9)] length > 0]  && [self.userData[@(10)] length > 0]) || workSwitch.on = NO){
+    if((workSwitch.on == YES && [self.userData[@(8)] length] > 0 && [self.userData[@(9)] length] > 0  && [self.userData[@(10)] length] >0) || workSwitch.on == NO){
     
     
     [self.view makeToastActivity];
