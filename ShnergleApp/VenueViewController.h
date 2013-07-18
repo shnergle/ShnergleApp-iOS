@@ -9,7 +9,7 @@
 #import "OverlayText.h"
 #import "CustomBackViewController.h"
 
-@interface VenueViewController : CustomBackViewController<UICollectionViewDataSource, UICollectionViewDelegate, UIAlertViewDelegate> {
+@interface VenueViewController : CustomBackViewController<UICollectionViewDataSource, UICollectionViewDelegate, UIAlertViewDelegate, CLLocationManagerDelegate> {
     NSString *promotionTitle;
     NSString *promotionBody;
     NSString *promotionExpiry;
