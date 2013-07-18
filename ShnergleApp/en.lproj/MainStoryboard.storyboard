@@ -2452,8 +2452,8 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                                     </collectionViewCell>
                                 </cells>
                                 <connections>
-                                    <outlet property="dataSource" destination="iKP-o3-IW3" id="OXK-Uk-N9i"/>
-                                    <outlet property="delegate" destination="iKP-o3-IW3" id="spl-Hz-QJk"/>
+                                    <outlet property="dataSource" destination="bjE-Pa-OuT" id="gcg-Bd-yjW"/>
+                                    <outlet property="delegate" destination="bjE-Pa-OuT" id="ej9-6a-6sA"/>
                                 </connections>
                             </collectionView>
                         </subviews>
@@ -2461,6 +2461,9 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                     </view>
                     <navigationItem key="navigationItem" id="R3J-Cp-idF"/>
                     <simulatedStatusBarMetrics key="simulatedStatusBarMetrics"/>
+                    <connections>
+                        <outlet property="collectionView" destination="yd5-SI-dou" id="9Ek-AL-dSX"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Rgj-WY-Ert" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

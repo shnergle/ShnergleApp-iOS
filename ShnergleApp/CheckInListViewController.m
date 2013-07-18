@@ -8,6 +8,8 @@
 
 #import "CheckInListViewController.h"
 #import <Toast/Toast+UIView.h>
+#import "PostRequest.h"
+#import <NSDate+TimeAgo/NSDate+TimeAgo.h>
 
 @implementation CheckInListViewController
 
@@ -16,31 +18,29 @@
     [self.navigationController setNavigationBarHidden:NO animated:YES];
     self.navigationItem.title = @"Check Ins";
     [self.view makeToastActivity];
-/*
-    NSMutableString *params = [[NSMutableString alloc] initWithString:@"venue_id="];
-    [params appendString:[appDelegate.activeVenue[@"id"] stringValue]];
-    [[[PostRequest alloc] init] exec:@"venue_staff/get" params:params delegate:self callback:@selector(didFinishDownloadingStaff:)];
- */
+    [[[PostRequest alloc] init] exec:@"posts/get" params:[[NSMutableString alloc] init] delegate:self callback:@selector(didFinishDownloadingPosts:)];
 }
 
-- (void)didFinishDownloadingStaff:(id)response {
-    //appDelegate.staff = response;
-    //[self.collectionView reloadData];
+- (void)didFinishDownloadingPosts:(id)response {
+    posts = response;
+    [self.collectionView reloadData];
     [self.view hideToastActivity];
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
-    return nil;
+    UICollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"Cell" forIndexPath:indexPath];
+    ((UILabel *)[cell viewWithTag:1]).text = posts[indexPath.item][@"name"];
+    ((UILabel *)[cell viewWithTag:2]).text = [self getDateFromUnixFormat:posts[indexPath.item][@"time"]];
+    return cell;
 }
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
-    return 0;
-    //return [appDelegate.staff[@"staff"] count] + [appDelegate.staff[@"managers"] count];
+    return [posts count];
 }
 
--(void)collectionView:(UICollectionView *)collectionView didHighlightItemAtIndexPath:(NSIndexPath *)indexPath
-{
-    //selectedStaffMember = indexPath.row;
+- (NSString *)getDateFromUnixFormat:(id)unixFormat {
+    NSDate *date = [NSDate dateWithTimeIntervalSince1970:[unixFormat intValue]];
+    return [date timeAgoWithLimit:86400 dateFormat:NSDateFormatterShortStyle andTimeFormat:NSDateFormatterShortStyle];
 }
 
 @end

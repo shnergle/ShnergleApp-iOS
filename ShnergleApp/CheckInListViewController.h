@@ -8,6 +8,10 @@
 
 #import "CustomBackViewController.h"
 
-@interface CheckInListViewController : CustomBackViewController
+@interface CheckInListViewController : CustomBackViewController <UICollectionViewDelegate, UICollectionViewDataSource> {
+    NSArray *posts;
+}
+
+@property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
 
 @end
