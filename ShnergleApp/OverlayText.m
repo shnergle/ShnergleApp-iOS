@@ -309,14 +309,11 @@
 - (IBAction)tappedClaimVenue:(id)sender {
     VenueDetailsViewController *vc = [((VenueViewController *)self.nextResponder.nextResponder).storyboard instantiateViewControllerWithIdentifier:@"VenueDetailsViewIdentifier"];
     [((VenueViewController *)self.nextResponder.nextResponder).navigationController pushViewController:vc animated:YES];
-        
-        
-        
 }
+
 -(void)didFinishUpdateVenueDetails:(id)response
 {
-    NSLog(@"%@",response);
-    
+    [[[PostRequest alloc] init] exec:@"venue_managers/set" params:[NSString stringWithFormat:@"venue_id=%@",appDelegate.activeVenue[@"id"]] delegate:self callback:@selector(doNothing:)];
 }
     
 -(void)registerVenue
@@ -342,10 +339,6 @@
             [params appendString:appDelegate.venueDetailsContent[@(10)]];
         }
         
-        [[[PostRequest alloc]init]exec:@"venues/set" params:params delegate:self callback:@selector(didFinishUpdatingVenueDetails:)];
-        NSLog(params);
-        /*should be in didFinishUpdatingVenueDetails, this for debugging:
-        [[[PostRequest alloc] init] exec:@"venue_managers/set" params:[NSString stringWithFormat:@"venue_id=%@",appDelegate.activeVenue[@"id"]] delegate:self callback:@selector(doNothing:)];
-         */
+        [[[PostRequest alloc]init]exec:@"venues/set" params:params delegate:self callback:@selector(didFinishUpdateVenueDetails:)];
     }
 @end
