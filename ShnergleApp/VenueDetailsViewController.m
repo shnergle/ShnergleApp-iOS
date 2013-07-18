@@ -35,19 +35,21 @@
         textField.tag = 8;
         textField.placeholder = @"(Required)";
         textField.delegate = self;
+        textField.keyboardType = UIKeyboardTypePhonePad;
         [cell.contentView addSubview:textField];
     } else if (indexPath.row == 1) {
         UITextField *textField = [[UITextField alloc] initWithFrame:CGRectMake(110, 10, 185, 30)];
         textField.tag = 9;
         textField.placeholder = @"(Required)";
         textField.delegate = self;
-
+        textField.keyboardType = UIKeyboardTypeEmailAddress;
         [cell.contentView addSubview:textField];
     } else if (indexPath.row == 2) {
         UITextField *textField = [[UITextField alloc] initWithFrame:CGRectMake(110, 10, 185, 30)];
         textField.tag = 10;
         textField.placeholder = @"(Required)";
         textField.delegate = self;
+        textField.keyboardType = UIKeyboardTypeURL;
         [cell.contentView addSubview:textField];
     }
     return cell;
