@@ -66,6 +66,7 @@
     [self.view makeToastActivity];
 
     [self menuButtonDecorations];
+    [self decorateSignOutButton];
     self.navigationItem.hidesBackButton = YES;
 
     if (![self.slidingViewController.underLeftViewController isKindOfClass:[MenuViewController class]]) {
@@ -146,4 +147,14 @@
     self.navBarItem.leftBarButtonItem = menuButton;
     self.navigationItem.leftBarButtonItem = menuButton;
 }
+
+- (void)decorateSignOutButton {
+    [self.navBarItem.rightBarButtonItem setTitleTextAttributes:
+     @{UITextAttributeTextColor: [UIColor blackColor],
+       UITextAttributeTextShadowColor: [UIColor clearColor],
+       UITextAttributeTextShadowOffset: [NSValue valueWithUIOffset:UIOffsetMake(0, 0)],
+       UITextAttributeFont: [UIFont systemFontOfSize:14.0]}
+                                      forState:UIControlStateNormal];
+}
+
 @end
