@@ -1713,6 +1713,7 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                                                     </label>
                                                 </subviews>
                                                 <color key="backgroundColor" red="0.89411764709999997" green="0.90196078430000004" blue="0.92941176469999998" alpha="1" colorSpace="calibratedRGB"/>
+                                                <gestureRecognizers/>
                                                 <constraints>
                                                     <constraint firstItem="C41-aV-eej" firstAttribute="leading" secondItem="wCf-21-3l1" secondAttribute="leading" id="5gh-ah-Cgh"/>
                                                     <constraint firstItem="C41-aV-eej" firstAttribute="trailing" secondItem="wCf-21-3l1" secondAttribute="trailing" id="IPw-mm-t4x"/>
@@ -1723,6 +1724,9 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                                                     <constraint firstItem="C41-aV-eej" firstAttribute="top" secondItem="7GK-nU-Mra" secondAttribute="top" constant="-14" id="qdr-hL-PaH"/>
                                                     <constraint firstAttribute="bottom" secondItem="wCf-21-3l1" secondAttribute="bottom" constant="4" id="zoy-bE-wDg"/>
                                                 </constraints>
+                                                <connections>
+                                                    <outletCollection property="gestureRecognizers" destination="VCU-ik-qrT" appends="YES" id="HV0-3C-SiT"/>
+                                                </connections>
                                             </view>
                                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Account Settings" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sAt-h0-qjm">
                                                 <rect key="frame" x="7" y="240" width="193" height="21"/>
@@ -1932,6 +1936,11 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="S6M-cZ-UVf" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="VCU-ik-qrT">
+                    <connections>
+                        <segue destination="O8X-O7-5VA" kind="push" identifier="ProfileFavouritesSegue" id="sIm-va-DPj"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="-1238" y="-703"/>
         </scene>
@@ -2696,10 +2705,10 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="fjC-0F-Or5"/>
         <segue reference="mMx-sI-unJ"/>
-        <segue reference="GBJ-CV-e6H"/>
         <segue reference="msd-v0-Rw7"/>
+        <segue reference="fjC-0F-Or5"/>
         <segue reference="qNM-G7-JMr"/>
+        <segue reference="sIm-va-DPj"/>
     </inferredMetricsTieBreakers>
 </document>

@@ -49,6 +49,12 @@
     [[[PostRequest alloc] init] exec:@"users/set" params:[NSString stringWithFormat:@"top5=%@", (self.optInSwitch.on ? @"true" : @"false")] delegate:self callback:@selector(doNothing:)];
 }
 
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    if ([segue.identifier isEqualToString:@"ProfileFavouritesSegue"]) {
+        appDelegate.topViewType = @"Following";
+    }
+}
+
 - (IBAction)saveLocallyChange:(id)sender {
     [self.view makeToastActivity];
 
