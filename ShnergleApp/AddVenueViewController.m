@@ -194,6 +194,7 @@ typedef enum {
 
 - (void)textFieldDidEndEditing:(UITextField *)textField {
     [textField resignFirstResponder];
+    if([textField.text length]>0)
     self.userData[textField.tag] = textField.text;
 }
 
@@ -273,15 +274,6 @@ typedef enum {
     [self.mapView.layer addSublayer:topBorder];
 }
 
-- (NSMutableArray *)userData {
-    if (!self.userData) {
-        self.userData = [[NSMutableArray alloc] initWithCapacity:[tableData count]];
-        for (int i = 0; i < [tableData count]; i++) {
-            [self.userData addObject:@""];
-        }
-    }
-    return self.userData;
-}
 
 - (BOOL)textFieldShouldReturn:(UITextField *)textField {
     [textField resignFirstResponder];
