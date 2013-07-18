@@ -31,6 +31,8 @@ typedef enum {
 }
 
 - (void)addVenue {
+    if([self.userData[Name+1] count] > 0 && [self.userData[Category+1] count] > 0)
+    {
     [self.view makeToastActivity];
     if (appDelegate.addVenueType) self.userData[Category + 1] = appDelegate.addVenueType;
 
@@ -77,6 +79,10 @@ typedef enum {
 
         [[[PostRequest alloc] init] exec:@"venues/set" params:params delegate:self callback:@selector(didFinishAddingVenue:) type:@"string"];
     } ];
+    }else{
+        UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"Fields Missing" message:@"Please fill in all required fields" delegate:self cancelButtonTitle:@"OK" otherButtonTitles: nil];
+        [alert show];
+    }
 }
 
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
