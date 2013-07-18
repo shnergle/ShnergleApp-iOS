@@ -73,16 +73,28 @@
     self.navBar.clipsToBounds = YES;
 }
 
-#warning replace placeholder values with real values (lat/lon of user, distance in degress, from time (current timestamp - 86400) and until time (current timestamp))
+#warning replace placeholder values with real values (lat/lon of user, distance in degres)
 - (void)makeRequest {
     [self.view makeToastActivity];
     if ([@"Following" isEqualToString:appDelegate.topViewType]) {
         [[[PostRequest alloc] init] exec:@"venues/get" params:@"following_only=true" delegate:self callback:@selector(didFinishLoadingVenues:)];
     } else if ([@"Quiet" isEqualToString:appDelegate.topViewType]) {
-        [[[PostRequest alloc] init] exec:@"venues/get" params:@"quiet=true&my_lat=0&my_lon=0&distance=100&from_time=0&until_time=999999999999" delegate:self callback:@selector(didFinishLoadingVenues:)];
+        [[[PostRequest alloc] init] exec:@"venues/get" params:[NSString stringWithFormat:@"quiet=true&my_lat=0&my_lon=0&distance=100&from_time=%d&until_time=%d", [self fromTime], [self untilTime]] delegate:self callback:@selector(didFinishLoadingVenues:)];
     } else if ([@"Trending" isEqualToString:appDelegate.topViewType]) {
-        [[[PostRequest alloc] init] exec:@"venues/get" params:@"trending=true&my_lat=0&my_lon=0&distance=100&from_time=0&until_time=999999999999" delegate:self callback:@selector(didFinishLoadingVenues:)];
+        [[[PostRequest alloc] init] exec:@"venues/get" params:[NSString stringWithFormat:@"trending=true&my_lat=0&my_lon=0&distance=100&from_time=%d&until_time=%d", [self fromTime], [self untilTime]] delegate:self callback:@selector(didFinishLoadingVenues:)];
     }
+}
+
+//Silent Warning: time intervals are wrong. they use 24 hrs from yesterday same time until now
+-(int)fromTime
+{
+    return (int)[[[NSDate alloc] init] timeIntervalSince1970] - 86400;
+
+}
+-(int)untilTime
+{
+    return (int)[[[NSDate alloc] init] timeIntervalSince1970];
+    
 }
 
 - (void)didFinishLoadingVenues:(NSArray *)response {
