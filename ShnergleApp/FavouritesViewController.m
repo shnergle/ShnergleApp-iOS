@@ -14,8 +14,7 @@
 #import "ImageCache.h"
 #import <ECSlidingViewController/ECSlidingViewController.h>
 
-@implementation FavouritesViewController {
-}
+@implementation FavouritesViewController
 
 - (void)decorateCheckInButton {
     [self.checkInButton setTitleTextAttributes:
@@ -51,6 +50,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     appDelegate.followingVenues = @[];
+    appDelegate.quietVenues = @[];
+    appDelegate.trendingVenues = @[];
     if (appDelegate.topViewType) ((UINavigationItem *)self.navBar.items[0]).title = appDelegate.topViewType;
     [self menuButtonDecorations];
     [self decorateCheckInButton];
@@ -71,12 +72,25 @@
     self.navBar.clipsToBounds = YES;
 }
 
+#warning replace placeholder values with real values (lat/lon of user, distance in degress, from time (current timestamp - 86400) and until time (current timestamp))
 - (void)makeRequest {
-    [[[PostRequest alloc] init] exec:@"venues/get" params:@"following_only=true" delegate:self callback:@selector(didFinishLoadingVenues:)];
+    if ([@"Following" isEqualToString:appDelegate.topViewType]) {
+        [[[PostRequest alloc] init] exec:@"venues/get" params:@"following_only=true" delegate:self callback:@selector(didFinishLoadingVenues:)];
+    } else if ([@"Quiet" isEqualToString:appDelegate.topViewType]) {
+        [[[PostRequest alloc] init] exec:@"venues/get" params:@"quiet=true&my_lat=0&my_lon=0&distance=100&from_time=0&until_time=999999999999" delegate:self callback:@selector(didFinishLoadingVenues:)];
+    } else if ([@"Trending" isEqualToString:appDelegate.topViewType]) {
+        [[[PostRequest alloc] init] exec:@"venues/get" params:@"trending=true&my_lat=0&my_lon=0&distance=100&from_time=0&until_time=999999999999" delegate:self callback:@selector(didFinishLoadingVenues:)];
+    }
 }
 
 - (void)didFinishLoadingVenues:(NSArray *)response {
-    appDelegate.followingVenues = response;
+    if ([@"Following" isEqualToString:appDelegate.topViewType]) {
+        appDelegate.followingVenues = response;
+    } else if ([@"Quiet" isEqualToString:appDelegate.topViewType]) {
+        appDelegate.quietVenues = response;
+    } else if ([@"Trending" isEqualToString:appDelegate.topViewType]) {
+        appDelegate.trendingVenues = response;
+    }
     [self.crowdCollection reloadData];
 }
 
@@ -89,7 +103,15 @@
 }
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
-    return [@"Following" isEqualToString:appDelegate.topViewType] ? [appDelegate.followingVenues count] : 0;
+    if ([@"Following" isEqualToString:appDelegate.topViewType]) {
+        return [appDelegate.followingVenues count];
+    } else if ([@"Quiet" isEqualToString:appDelegate.topViewType]) {
+        return [appDelegate.quietVenues count];
+    } else if ([@"Trending" isEqualToString:appDelegate.topViewType]) {
+        return [appDelegate.trendingVenues count];
+    } else {
+        return 0;
+    }
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -101,17 +123,26 @@
     static NSString *cellIdentifier = @"FavCell";
     CrowdItem *item = [collectionView dequeueReusableCellWithReuseIdentifier:cellIdentifier forIndexPath:indexPath];
 
-    item.crowdImage.image = [ImageCache get:@"venue" identifier:appDelegate.followingVenues[indexPath.item][@"id"]];
-    item.crowdImage.backgroundColor = [UIColor lightGrayColor];
-    if (item.crowdImage.image == nil) [[[ImageCache alloc] init] get:@"venue" identifier:[appDelegate.followingVenues[indexPath.item][@"id"] stringValue] delegate:self callback:@selector(didFinishDownloadingImages:forIndex:) indexPath:indexPath];
+    NSArray *type;
+    if ([@"Following" isEqualToString:appDelegate.topViewType]) {
+        type = appDelegate.followingVenues;
+    } else if ([@"Quiet" isEqualToString:appDelegate.topViewType]) {
+        type = appDelegate.quietVenues;
+    } else if ([@"Trending" isEqualToString:appDelegate.topViewType]) {
+        type = appDelegate.trendingVenues;
+    }
 
-    [[item venueName] setText:appDelegate.followingVenues[indexPath.item][@"name"]];
+    item.crowdImage.image = [ImageCache get:@"venue" identifier:type[indexPath.item][@"id"]];
+    item.crowdImage.backgroundColor = [UIColor lightGrayColor];
+    if (item.crowdImage.image == nil) [[[ImageCache alloc] init] get:@"venue" identifier:[type[indexPath.item][@"id"] stringValue] delegate:self callback:@selector(didFinishDownloadingImages:forIndex:) indexPath:indexPath];
+
+    [[item venueName] setText:type[indexPath.item][@"name"]];
 
     item.venueName.font = [UIFont systemFontOfSize:11.0f];
 
     item.venueName.textColor = [UIColor whiteColor];
 
-    if (appDelegate.followingVenues[indexPath.item][@"promotion"] != nil) {
+    if (type[indexPath.item][@"promotion"] != nil) {
         item.promotionIndicator.hidden = NO;
     } else {
         item.promotionIndicator.hidden = YES;
@@ -128,7 +159,15 @@
 
 - (void)collectionView:(UICollectionView *)collectionView
     didHighlightItemAtIndexPath:(NSIndexPath *)indexPath {
-    appDelegate.activeVenue = appDelegate.followingVenues[indexPath.row];
+    NSArray *type;
+    if ([@"Following" isEqualToString:appDelegate.topViewType]) {
+        type = appDelegate.followingVenues;
+    } else if ([@"Quiet" isEqualToString:appDelegate.topViewType]) {
+        type = appDelegate.quietVenues;
+    } else if ([@"Trending" isEqualToString:appDelegate.topViewType]) {
+        type = appDelegate.trendingVenues;
+    }
+    appDelegate.activeVenue = type[indexPath.row];
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
