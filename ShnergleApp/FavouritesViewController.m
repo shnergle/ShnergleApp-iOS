@@ -73,15 +73,15 @@
     self.navBar.clipsToBounds = YES;
 }
 
-#warning replace placeholder values with real values (lat/lon of user, distance in degres)
 - (void)makeRequest {
     [self.view makeToastActivity];
     if ([@"Following" isEqualToString:appDelegate.topViewType]) {
         [[[PostRequest alloc] init] exec:@"venues/get" params:@"following_only=true" delegate:self callback:@selector(didFinishLoadingVenues:)];
-    } else if ([@"Quiet" isEqualToString:appDelegate.topViewType]) {
-        [[[PostRequest alloc] init] exec:@"venues/get" params:[NSString stringWithFormat:@"quiet=true&my_lat=0&my_lon=0&distance=100&from_time=%d&until_time=%d", [self fromTime], [self untilTime]] delegate:self callback:@selector(didFinishLoadingVenues:)];
-    } else if ([@"Trending" isEqualToString:appDelegate.topViewType]) {
-        [[[PostRequest alloc] init] exec:@"venues/get" params:[NSString stringWithFormat:@"trending=true&my_lat=0&my_lon=0&distance=100&from_time=%d&until_time=%d", [self fromTime], [self untilTime]] delegate:self callback:@selector(didFinishLoadingVenues:)];
+    } else {
+        man = [[CLLocationManager alloc] init];
+        man.delegate = self;
+        man.desiredAccuracy = kCLLocationAccuracyNearestTenMeters;
+        [man startUpdatingLocation];
     }
 }
 
@@ -188,6 +188,15 @@
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     if ([segue.identifier isEqualToString:@"CheckInFromFollowing"]) {
         appDelegate.shareVenue = NO;
+    }
+}
+
+#warning replace placeholder values with real values (distance in degrees)
+- (void)locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray *)locations {
+    if ([@"Quiet" isEqualToString:appDelegate.topViewType]) {
+        [[[PostRequest alloc] init] exec:@"venues/get" params:[NSString stringWithFormat:@"quiet=true&my_lat=%f&my_lon=%f&distance=100&from_time=%d&until_time=%d", ((CLLocation *)locations.lastObject).coordinate.latitude, ((CLLocation *)locations.lastObject).coordinate.longitude, [self fromTime], [self untilTime]] delegate:self callback:@selector(didFinishLoadingVenues:)];
+    } else if ([@"Trending" isEqualToString:appDelegate.topViewType]) {
+        [[[PostRequest alloc] init] exec:@"venues/get" params:[NSString stringWithFormat:@"trending=true&my_lat=%f&my_lon=%f&distance=100&from_time=%d&until_time=%d", ((CLLocation *)locations.lastObject).coordinate.latitude, ((CLLocation *)locations.lastObject).coordinate.longitude, [self fromTime], [self untilTime]] delegate:self callback:@selector(didFinishLoadingVenues:)];
     }
 }
 

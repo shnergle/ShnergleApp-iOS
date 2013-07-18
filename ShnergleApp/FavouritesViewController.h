@@ -6,7 +6,9 @@
 //  Copyright (c) 2013 Shnergle. All rights reserved.
 //
 
-@interface FavouritesViewController : UIViewController <UICollectionViewDataSource, UICollectionViewDelegate>
+@interface FavouritesViewController : UIViewController <UICollectionViewDataSource, UICollectionViewDelegate, CLLocationManagerDelegate> {
+    CLLocationManager *man;
+}
 
 @property (weak, nonatomic) IBOutlet UINavigationBar *navBar;
 @property (weak, nonatomic) IBOutlet UINavigationItem *navBarItem;
