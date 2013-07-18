@@ -27,6 +27,8 @@
 @property (strong, nonatomic) NSArray *posts;
 @property (strong, nonatomic) NSArray *aroundVenues;
 @property (strong, nonatomic) NSArray *followingVenues;
+@property (strong, nonatomic) NSArray *quietVenues;
+@property (strong, nonatomic) NSArray *trendingVenues;
 @property (strong, nonatomic) NSMutableArray *locationPickerVenues;
 
 @property (nonatomic) BOOL shareVenue;
