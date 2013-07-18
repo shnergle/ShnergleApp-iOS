@@ -6,7 +6,9 @@
 //  Copyright (c) 2013 Shnergle. All rights reserved.
 //
 
-@interface LoginScreenController : UIViewController
+@interface LoginScreenController : UIViewController {
+    BOOL newUser;
+}
 
 @property (strong, nonatomic) IBOutlet UIButton *buttonLoginLogout;
 
