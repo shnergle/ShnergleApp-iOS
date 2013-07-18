@@ -26,7 +26,12 @@
     appDelegate.shareImage = [info[@"UIImagePickerControllerOriginalImage"] resizedImageToFitInSize:CGSizeMake(200, 200) scaleIfSmaller:YES];
     info = nil;
     [imgPickerCam dismissViewControllerAnimated:NO completion:nil];
-    UIViewController *vc = [self.storyboard instantiateViewControllerWithIdentifier:@"PhotoLocationViewController"];
+    UIViewController *vc;
+    if(!appDelegate.activeVenue){
+        vc = [self.storyboard instantiateViewControllerWithIdentifier:@"PhotoLocationViewController"];
+    }else{
+        vc = [self.storyboard instantiateViewControllerWithIdentifier:@"ShareViewController"];
+    }
     taken = NO;
     [imgPickerCam dismissViewControllerAnimated:YES completion:nil];
     [self.navigationController pushViewController:vc animated:YES];
@@ -48,5 +53,6 @@
         [self takePhoto];
     }
 }
+
 
 @end
