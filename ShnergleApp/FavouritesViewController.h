@@ -8,6 +8,7 @@
 
 @interface FavouritesViewController : UIViewController <UICollectionViewDataSource, UICollectionViewDelegate, CLLocationManagerDelegate> {
     CLLocationManager *man;
+    BOOL hasPositionLocked;
 }
 
 @property (weak, nonatomic) IBOutlet UINavigationBar *navBar;
