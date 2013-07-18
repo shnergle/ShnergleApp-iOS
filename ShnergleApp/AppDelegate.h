@@ -40,7 +40,7 @@
 
 @property (strong, nonatomic) NSString *addVenueType;
 @property (strong, nonatomic) NSString *addVenueTypeId;
-@property (strong, nonatomic) NSMutableArray *venueDetailsContent;
+@property (strong, nonatomic) NSMutableDictionary *venueDetailsContent;
 
 @property (strong, nonatomic) NSDictionary *activeVenue;
 

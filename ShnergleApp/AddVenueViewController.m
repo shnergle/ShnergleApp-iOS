@@ -26,18 +26,21 @@ typedef enum {
     [super viewDidLoad];
     self.navigationItem.title = @"Add Place";
     [self setRightBarButton:@"Add" actionSelector:@selector(addVenue)];
-
+    self.userData = [[NSMutableDictionary alloc]init];
     tableData = @[@"Name", @"Category", @"Address 1", @"Address 2", @"City", @"Postcode", @"Work here?"];
 }
 
 - (void)addVenue {
-    if([self.userData[Name+1] count] > 0 && [self.userData[Category+1] count] > 0)
+    if([self.userData[@(Name+1)] length] > 0 && appDelegate.addVenueTypeId)
     {
+    if((workSwitch.on == YES && [self.userData[@(8)] length > 0] && [self.userData[@(9)] length > 0]  && [self.userData[@(10)] length > 0]) || workSwitch.on = NO){
+    
+    
     [self.view makeToastActivity];
-    if (appDelegate.addVenueType) self.userData[Category + 1] = appDelegate.addVenueType;
+    if (appDelegate.addVenueType) self.userData[@(Category + 1)] = appDelegate.addVenueType;
 
     if (workSwitch.on) {
-        [self.userData addObjectsFromArray:appDelegate.venueDetailsContent];
+        [self.userData addEntriesFromDictionary:appDelegate.venueDetailsContent];
     }
 
     [[[CLGeocoder alloc] init] reverseGeocodeLocation:[[CLLocation alloc] initWithLatitude:marker.position.latitude longitude:marker.position.longitude] completionHandler:^(NSArray *placemark, NSError *error)
@@ -50,25 +53,25 @@ typedef enum {
         }
 
         NSMutableString *params = [[NSMutableString alloc] initWithString:@"name="];
-        [params appendString:self.userData[1]];
+        [params appendString:self.userData[@1]];
         [params appendString:@"&category_id="];
         [params appendString:appDelegate.addVenueTypeId];
         [params appendString:@"&address="];
-        [params appendString:[NSString stringWithFormat:@"%@, %@, %@, %@", self.userData[3], self.userData[4], self.userData[5], self.userData[6]]];
+        [params appendString:[NSString stringWithFormat:@"%@, %@, %@, %@", self.userData[@3], self.userData[@4], self.userData[@5], self.userData[@6]]];
         [params appendString:@"&country="];
         [params appendString:country];
         if (appDelegate.venueDetailsContent) {
-            if (appDelegate.venueDetailsContent[0]) {
+            if (appDelegate.venueDetailsContent[@(8)]) {
                 [params appendString:@"&phone="];
-                [params appendString:appDelegate.venueDetailsContent[0]];
+                [params appendString:appDelegate.venueDetailsContent[@(8)]];
             }
-            if (appDelegate.venueDetailsContent[1]) {
+            if (appDelegate.venueDetailsContent[@(9)]) {
                 [params appendString:@"&email="];
-                [params appendString:appDelegate.venueDetailsContent[1]];
+                [params appendString:appDelegate.venueDetailsContent[@(9)]];
             }
-            if (appDelegate.venueDetailsContent[2]) {
+            if (appDelegate.venueDetailsContent[@(10)]) {
                 [params appendString:@"&website="];
-                [params appendString:appDelegate.venueDetailsContent[2]];
+                [params appendString:appDelegate.venueDetailsContent[@(10)]];
             }
         }
         [params appendString:@"&lat="];
@@ -79,6 +82,7 @@ typedef enum {
 
         [[[PostRequest alloc] init] exec:@"venues/set" params:params delegate:self callback:@selector(didFinishAddingVenue:) type:@"string"];
     } ];
+    }
     }else{
         UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"Fields Missing" message:@"Please fill in all required fields" delegate:self cancelButtonTitle:@"OK" otherButtonTitles: nil];
         [alert show];
@@ -201,7 +205,9 @@ typedef enum {
 - (void)textFieldDidEndEditing:(UITextField *)textField {
     [textField resignFirstResponder];
     if([textField.text length]>0)
-    self.userData[textField.tag] = textField.text;
+        NSLog(@"Entered %@ into TAG[%d]",textField.text,textField.tag);
+    NSLog(@"%d,%d,%d",Name,Category,City);
+    self.userData[@(textField.tag)] = textField.text;
 }
 
 - (void)segwayToWork {

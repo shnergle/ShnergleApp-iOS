@@ -22,5 +22,5 @@
 }
 @property (weak, nonatomic) IBOutlet UIView *mapView;
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
-@property (strong, nonatomic) NSMutableArray *userData;
+@property (strong, nonatomic) NSMutableDictionary *userData;
 @end

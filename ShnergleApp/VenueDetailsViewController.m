@@ -14,7 +14,7 @@
     [super viewDidLoad];
     self.navigationItem.title = @"Place Details";
 
-    appDelegate.venueDetailsContent = [[NSMutableArray alloc] init];
+    appDelegate.venueDetailsContent = [[NSMutableDictionary alloc] init];
     tableData = @[@"Phone", @"Email", @"Website"];
 }
 
@@ -32,20 +32,20 @@
     cell.textLabel.text = tableData[indexPath.row];
     if (indexPath.row == 0) {
         UITextField *textField = [[UITextField alloc] initWithFrame:CGRectMake(110, 10, 185, 30)];
-        textField.tag = 0;
+        textField.tag = 8;
         textField.placeholder = @"(Required)";
         textField.delegate = self;
         [cell.contentView addSubview:textField];
     } else if (indexPath.row == 1) {
         UITextField *textField = [[UITextField alloc] initWithFrame:CGRectMake(110, 10, 185, 30)];
-        textField.tag = 1;
+        textField.tag = 9;
         textField.placeholder = @"(Required)";
         textField.delegate = self;
 
         [cell.contentView addSubview:textField];
     } else if (indexPath.row == 2) {
         UITextField *textField = [[UITextField alloc] initWithFrame:CGRectMake(110, 10, 185, 30)];
-        textField.tag = 2;
+        textField.tag = 10;
         textField.placeholder = @"(Required)";
         textField.delegate = self;
         [cell.contentView addSubview:textField];
@@ -59,7 +59,7 @@
 }
 
 - (void)textFieldDidEndEditing:(UITextField *)textField {
-    appDelegate.venueDetailsContent[textField.tag] = textField.text;
+    appDelegate.venueDetailsContent[@(textField.tag)] = textField.text;
 }
 
 @end
