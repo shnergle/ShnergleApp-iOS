@@ -14,7 +14,6 @@
     NSString *post_id;
 }
 
-@property (nonatomic) BOOL shnergleThis;
 @property (weak, nonatomic) IBOutlet UISwitch *fbSwitch;
 @property (weak, nonatomic) IBOutlet UIImageView *image;
 @property (weak, nonatomic) IBOutlet UIButton *nameList;
