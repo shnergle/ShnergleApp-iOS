@@ -138,7 +138,7 @@
 
     [[[PostRequest alloc] init] exec:@"venue_views/set" params:[NSString stringWithFormat:@"venue_id=%@", appDelegate.activeVenue[@"id"]] delegate:self callback:@selector(doNothing:) type:@"string"];
 
-    CLLocationManager *man = [[CLLocationManager alloc] init];
+    man = [[CLLocationManager alloc] init];
     man.delegate = self;
     man.desiredAccuracy = kCLLocationAccuracyNearestTenMeters;
     [man startUpdatingLocation];

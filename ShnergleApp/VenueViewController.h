@@ -31,6 +31,8 @@
     UIRefreshControl *refreshControl;
 
     OverlayText *overlayView;
+
+    CLLocationManager *man;
 }
 - (void)viewDidAppear:(BOOL)animated;
 - (void)viewWillAppear:(BOOL)animated;
