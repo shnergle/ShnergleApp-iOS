@@ -13,6 +13,7 @@
 #import "PostRequest.h"
 #import "ImageCache.h"
 #import <ECSlidingViewController/ECSlidingViewController.h>
+#import <Toast/Toast+UIView.h>
 
 @implementation FavouritesViewController
 
@@ -74,6 +75,7 @@
 
 #warning replace placeholder values with real values (lat/lon of user, distance in degress, from time (current timestamp - 86400) and until time (current timestamp))
 - (void)makeRequest {
+    [self.view makeToastActivity];
     if ([@"Following" isEqualToString:appDelegate.topViewType]) {
         [[[PostRequest alloc] init] exec:@"venues/get" params:@"following_only=true" delegate:self callback:@selector(didFinishLoadingVenues:)];
     } else if ([@"Quiet" isEqualToString:appDelegate.topViewType]) {
@@ -92,6 +94,7 @@
         appDelegate.trendingVenues = response;
     }
     [self.crowdCollection reloadData];
+    [self.view hideToastActivity];
 }
 
 - (void)tapMenu {
