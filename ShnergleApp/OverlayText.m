@@ -12,6 +12,7 @@
 #import "PostRequest.h"
 #import <Toast+UIView.h>
 #import "ShareViewController.h"
+#import "VenueDetailsViewController.h"
 
 @implementation OverlayText
 
@@ -281,6 +282,8 @@
     
     [self venueLayoutConfig];
     [self loadVenueIntentions];
+    if(appDelegate.venueDetailsContent)
+        [self registerVenue];
     
 }
 
@@ -304,8 +307,45 @@
 }
 
 - (IBAction)tappedClaimVenue:(id)sender {
-    NSLog(@"%@",appDelegate.activeVenue[@"id"]);
-    [[[PostRequest alloc] init] exec:@"venue_managers/set" params:[NSString stringWithFormat:@"venue_id=%@",appDelegate.activeVenue[@"id"]] delegate:self callback:@selector(doNothing:)];
+    VenueDetailsViewController *vc = [((VenueViewController *)self.nextResponder.nextResponder).storyboard instantiateViewControllerWithIdentifier:@"VenueDetailsViewIdentifier"];
+    [((VenueViewController *)self.nextResponder.nextResponder).navigationController pushViewController:vc animated:YES];
+        
+        
+        
+}
+-(void)didFinishUpdateVenueDetails:(id)response
+{
+    NSLog(@"%@",response);
     
 }
+    
+-(void)registerVenue
+    {
+        NSMutableString *params = [[NSMutableString alloc] initWithString:@"venue_id="];
+        NSLog(@"%@",appDelegate.activeVenue);
+        NSLog(@"%@",appDelegate.venueDetailsContent);
+        [params appendString:[appDelegate.activeVenue[@"id"] stringValue]];
+        
+        if (appDelegate.venueDetailsContent[@(8)]) {
+            NSLog(@"added Phone");
+            [params appendString:@"&phone="];
+            [params appendString:appDelegate.venueDetailsContent[@(8)]];
+        }
+        if (appDelegate.venueDetailsContent[@(9)]) {
+            NSLog(@"added Email");
+            [params appendString:@"&email="];
+            [params appendString:appDelegate.venueDetailsContent[@(9)]];
+        }
+        if (appDelegate.venueDetailsContent[@(10)]) {
+            NSLog(@"added Website");
+            [params appendString:@"&website="];
+            [params appendString:appDelegate.venueDetailsContent[@(10)]];
+        }
+        
+        [[[PostRequest alloc]init]exec:@"venues/set" params:params delegate:self callback:@selector(didFinishUpdatingVenueDetails:)];
+        NSLog(params);
+        /*should be in didFinishUpdatingVenueDetails, this for debugging:
+        [[[PostRequest alloc] init] exec:@"venue_managers/set" params:[NSString stringWithFormat:@"venue_id=%@",appDelegate.activeVenue[@"id"]] delegate:self callback:@selector(doNothing:)];
+         */
+    }
 @end
