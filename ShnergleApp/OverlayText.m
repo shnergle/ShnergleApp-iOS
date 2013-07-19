@@ -313,9 +313,15 @@
 
 -(void)didFinishUpdateVenueDetails:(id)response
 {
-    [[[PostRequest alloc] init] exec:@"venue_managers/set" params:[NSString stringWithFormat:@"venue_id=%@",appDelegate.activeVenue[@"id"]] delegate:self callback:@selector(doNothing:)];
+    [[[PostRequest alloc] init] exec:@"venue_managers/set" params:[NSString stringWithFormat:@"venue_id=%@",appDelegate.activeVenue[@"id"]] delegate:self callback:@selector(didFinishClaiming:)];
 }
-    
+
+
+-(void)didFinishClaiming:(id)response
+{
+    [((VenueViewController *)self.nextResponder.nextResponder) reloadOverlay];
+}
+
 -(void)registerVenue
     {
         NSMutableString *params = [[NSMutableString alloc] initWithString:@"venue_id="];

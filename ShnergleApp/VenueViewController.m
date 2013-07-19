@@ -307,6 +307,14 @@
     }
 }
 
+-(void)reloadOverlay
+{
+    overlayView.claimVenueButton.hidden = YES;
+    overlayView.intentionHeightConstraints.constant = -40;
+    [overlayView updateConstraints];
+    [self setHeaderTitle:titleHeader andSubtitle:@"Manager (unverified)"];
+}
+
 - (void)collectionView:(UICollectionView *)collectionView didHighlightItemAtIndexPath:(NSIndexPath *)indexPath {
     selectedPost = indexPath.item;
     appDelegate.shareActivePostId = appDelegate.posts[selectedPost][@"id"];

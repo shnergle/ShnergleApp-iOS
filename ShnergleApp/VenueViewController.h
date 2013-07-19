@@ -43,6 +43,7 @@
 @property (weak, nonatomic) IBOutlet UICollectionView *crowdCollectionV;
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *checkInButton;
 
+-(void)reloadOverlay;
 - (void)configureMapWithLat:(CLLocationDegrees)lat longitude:(CLLocationDegrees)lon;
 - (NSString *)getDateFromUnixFormat:(id)unixFormat;
 @end
