@@ -2411,7 +2411,7 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                         <rect key="frame" x="0.0" y="20" width="320" height="548"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <collectionView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" minimumZoomScale="0.0" maximumZoomScale="0.0" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="yd5-SI-dou">
+                            <collectionView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" minimumZoomScale="0.0" maximumZoomScale="0.0" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="yd5-SI-dou">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="548"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" red="0.91372549020000005" green="0.92156862750000001" blue="0.94117647059999998" alpha="1" colorSpace="calibratedRGB"/>
@@ -2454,6 +2454,12 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                             </collectionView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="yd5-SI-dou" firstAttribute="trailing" secondItem="iBq-yA-d4H" secondAttribute="trailing" id="BAA-lM-abG"/>
+                            <constraint firstItem="yd5-SI-dou" firstAttribute="leading" secondItem="iBq-yA-d4H" secondAttribute="leading" id="HJM-rc-mZg"/>
+                            <constraint firstItem="yd5-SI-dou" firstAttribute="top" secondItem="iBq-yA-d4H" secondAttribute="top" id="f7j-ct-wPo"/>
+                            <constraint firstItem="yd5-SI-dou" firstAttribute="bottom" secondItem="iBq-yA-d4H" secondAttribute="bottom" id="jcK-GY-wC9"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="R3J-Cp-idF"/>
                     <simulatedStatusBarMetrics key="simulatedStatusBarMetrics"/>
