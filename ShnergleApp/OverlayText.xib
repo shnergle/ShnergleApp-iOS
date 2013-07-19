@@ -342,6 +342,7 @@
                                 <constraint firstItem="vh3-oi-ATO" firstAttribute="leading" secondItem="fnV-Bn-jZG" secondAttribute="trailing" constant="68" id="SBM-G1-cme"/>
                                 <constraint firstItem="234" firstAttribute="leading" secondItem="636" secondAttribute="leading" constant="26" id="SDB-jA-guB"/>
                                 <constraint firstItem="fvc-pb-gaI" firstAttribute="leading" secondItem="fnV-Bn-jZG" secondAttribute="trailing" constant="60" id="SWs-78-lsP"/>
+                                <constraint firstItem="215" firstAttribute="top" relation="lessThanOrEqual" secondItem="PTg-Fb-MR1" secondAttribute="bottom" constant="69" id="SYR-oo-bpc"/>
                                 <constraint firstItem="188" firstAttribute="top" secondItem="717" secondAttribute="bottom" constant="-5" id="TBx-If-ikf"/>
                                 <constraint firstItem="yFV-32-GOh" firstAttribute="width" secondItem="ieB-JS-QVm" secondAttribute="width" id="TXf-oM-MLp"/>
                                 <constraint firstItem="3sN-Qw-TVN" firstAttribute="leading" secondItem="vh3-oi-ATO" secondAttribute="leading" constant="-24" id="UtX-SH-syK"/>
@@ -377,7 +378,7 @@
                         <constraint firstItem="1941" firstAttribute="leading" secondItem="811" secondAttribute="leading" id="gxj-ia-oo8"/>
                     </constraints>
                 </scrollView>
-                <imageView contentMode="scaleAspectFit" image="puller_menu.png" translatesAutoresizingMaskIntoConstraints="NO" id="667">
+                <imageView contentMode="scaleAspectFit" ambiguous="YES" image="puller_menu.png" translatesAutoresizingMaskIntoConstraints="NO" id="667">
                     <rect key="frame" x="136" y="-1" width="49" height="23"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <constraints>
@@ -388,7 +389,7 @@
                         <outletCollection property="gestureRecognizers" destination="2164" appends="YES" id="2197"/>
                     </connections>
                 </imageView>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2173">
+                <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2173">
                     <rect key="frame" x="110" y="26" width="100" height="30"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <accessibility key="accessibilityConfiguration" label=" "/>
@@ -408,14 +409,14 @@
                         <action selector="share:" destination="1" eventType="touchUpInside" id="2187"/>
                     </connections>
                 </button>
-                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Share" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="khN-mT-sFq">
+                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Share" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="khN-mT-sFq">
                     <rect key="frame" x="144" y="30" width="66" height="21"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <fontDescription key="fontDescription" type="boldSystem" pointSize="12"/>
                     <color key="textColor" red="0.26274511220000002" green="0.26274511220000002" blue="0.26666668059999998" alpha="1" colorSpace="deviceRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="112-group.png" translatesAutoresizingMaskIntoConstraints="NO" id="PrS-Tp-JPR">
+                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" image="112-group.png" translatesAutoresizingMaskIntoConstraints="NO" id="PrS-Tp-JPR">
                     <rect key="frame" x="121" y="26" width="30" height="30"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 </imageView>
@@ -450,7 +451,7 @@
                     <rect key="frame" x="226" y="26" width="30" height="30"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 </imageView>
-                <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KHc-ve-3C3">
+                <button hidden="YES" opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KHc-ve-3C3">
                     <rect key="frame" x="5" y="26" width="100" height="30"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <accessibility key="accessibilityConfiguration" label=" "/>
@@ -470,14 +471,14 @@
                         <action selector="analytics:" destination="1" eventType="touchUpInside" id="8LP-2Z-VYN"/>
                     </connections>
                 </button>
-                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Analytics" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MLb-yG-muo">
+                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Analytics" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MLb-yG-muo">
                     <rect key="frame" x="42" y="30" width="59" height="21"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <fontDescription key="fontDescription" type="boldSystem" pointSize="12"/>
                     <color key="textColor" red="0.26274511218070984" green="0.26274511218070984" blue="0.26666668057441711" alpha="1" colorSpace="deviceRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="analtyics_icon.png" translatesAutoresizingMaskIntoConstraints="NO" id="GL9-Pa-rl8">
+                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" image="analtyics_icon.png" translatesAutoresizingMaskIntoConstraints="NO" id="GL9-Pa-rl8">
                     <rect key="frame" x="10" y="26" width="30" height="30"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <constraints>
@@ -492,11 +493,10 @@
                 <constraint firstItem="2173" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="1" secondAttribute="leading" constant="110" id="2175"/>
                 <constraint firstItem="khN-mT-sFq" firstAttribute="baseline" secondItem="dXe-fc-b7U" secondAttribute="baseline" id="3Xy-IC-5NY"/>
                 <constraint firstItem="khN-mT-sFq" firstAttribute="leading" secondItem="KHc-ve-3C3" secondAttribute="trailing" constant="39" id="3oJ-PE-qwR"/>
-                <constraint firstItem="667" firstAttribute="centerX" secondItem="2173" secondAttribute="centerX" id="4a4-tN-TfQ"/>
                 <constraint firstItem="bD0-0H-bGn" firstAttribute="top" secondItem="1WE-lv-x6u" secondAttribute="top" id="5NU-NY-v84"/>
                 <constraint firstItem="PrS-Tp-JPR" firstAttribute="top" secondItem="2173" secondAttribute="top" id="6Qd-Re-Ci9"/>
                 <constraint firstItem="bD0-0H-bGn" firstAttribute="leading" secondItem="1WE-lv-x6u" secondAttribute="trailing" constant="-89" id="6v3-sr-GsS"/>
-                <constraint firstItem="1WE-lv-x6u" firstAttribute="leading" secondItem="PrS-Tp-JPR" secondAttribute="trailing" constant="64" id="88j-Vl-MIl"/>
+                <constraint firstItem="1WE-lv-x6u" firstAttribute="leading" relation="lessThanOrEqual" secondItem="PrS-Tp-JPR" secondAttribute="trailing" constant="64" id="88j-Vl-MIl"/>
                 <constraint firstItem="811" firstAttribute="top" secondItem="GL9-Pa-rl8" secondAttribute="bottom" constant="8" symbolic="YES" id="8Jb-B3-l38"/>
                 <constraint firstItem="KHc-ve-3C3" firstAttribute="top" secondItem="1" secondAttribute="top" constant="26" id="ACM-rZ-i6N"/>
                 <constraint firstAttribute="trailing" secondItem="bD0-0H-bGn" secondAttribute="trailing" constant="64" id="D5O-ov-qCj"/>
@@ -545,6 +545,7 @@
                 <outlet property="goingLabel" destination="215" id="D5h-2V-Ezh"/>
                 <outlet property="goingView" destination="3sN-Qw-TVN" id="dNM-XS-SK8"/>
                 <outlet property="intentionConstraints" destination="Dbe-kx-t1F" id="XHi-jF-Jse"/>
+                <outlet property="intentionHeightConstraints" destination="SYR-oo-bpc" id="KGK-A9-JeI"/>
                 <outlet property="mainShareButton" destination="2173" id="O8Y-9T-uZf"/>
                 <outlet property="parentViewInside" destination="1941" id="FeK-bV-0Ku"/>
                 <outlet property="postUpdateButton" destination="hQT-9q-ZmQ" id="5hT-fc-Mxf"/>

@@ -310,7 +310,7 @@
 -(void)reloadOverlay
 {
     overlayView.claimVenueButton.hidden = YES;
-    overlayView.intentionHeightConstraints.constant = -40;
+    overlayView.intentionHeightConstraints.constant = -20;
     [overlayView updateConstraints];
     [self setHeaderTitle:titleHeader andSubtitle:@"Manager (unverified)"];
 }
