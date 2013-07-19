@@ -64,4 +64,6 @@ typedef NS_ENUM (NSInteger, VENUE_STATUS) {
 @property (strong, nonatomic) NSDictionary *staff;
 @property (strong, nonatomic) NSString *staffType;
 
+@property (nonatomic) BOOL addVenueCheckIn;
+
 @end

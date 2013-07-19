@@ -34,6 +34,14 @@
     self.navigationController.navigationBarHidden = NO;
     [self initMap];
     
+    appDelegate.addVenueCheckIn = NO;
+    
+}
+
+-(IBAction)addVenueCheckIn:(id)sender{
+    appDelegate.addVenueCheckIn = YES;
+    UIViewController *vc = [self.storyboard instantiateViewControllerWithIdentifier:@"AddVenueViewController"];
+    [self.navigationController pushViewController:vc animated:YES];
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
@@ -112,5 +120,7 @@
         appDelegate.shnergleThis = YES;
     }
 }
+
+
 
 @end
