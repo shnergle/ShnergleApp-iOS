@@ -7,6 +7,7 @@
 //
 
 #import "StaffEditViewController.h"
+#import <NSDate+TimeAgo/NSDate+TimeAgo.h>
 
 @implementation StaffEditViewController
 
@@ -31,7 +32,7 @@
     self.nameLabel.text = currentStaff[@"name"];
     self.jobTitleLabel.text = appDelegate.staffType;
     self.profileImage.profileID = currentStaff[@"facebook_id"];
-    self.dateLabel.text = currentStaff[@"facebook_id"];
+    self.dateLabel.text = [self getDateFromUnixFormat:currentStaff[@"time"]];
     
     
     NSString *type = appDelegate.staffType;
@@ -74,6 +75,11 @@
     if (buttonIndex != alertView.cancelButtonIndex) {
         //delete
     }
+}
+
+- (NSString *)getDateFromUnixFormat:(id)unixFormat {
+    NSDate *date = [NSDate dateWithTimeIntervalSince1970:[unixFormat intValue]];
+    return [date timeAgoWithLimit:86400 dateFormat:NSDateFormatterShortStyle andTimeFormat:NSDateFormatterShortStyle];
 }
 
 @end
