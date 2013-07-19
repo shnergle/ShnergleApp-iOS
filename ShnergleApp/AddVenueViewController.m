@@ -57,7 +57,13 @@ typedef enum {
         [params appendString:@"&category_id="];
         [params appendString:appDelegate.addVenueTypeId];
         [params appendString:@"&address="];
-        [params appendString:[NSString stringWithFormat:@"%@, %@, %@, %@", self.userData[@3], self.userData[@4], self.userData[@5], self.userData[@6]]];
+        NSMutableArray *address = [NSMutableArray array];
+        if (self.userData[@3] != nil) [address addObject:self.userData[@3]];
+        if (self.userData[@4] != nil) [address addObject:self.userData[@4]];
+        if (self.userData[@5] != nil) [address addObject:self.userData[@5]];
+        if (self.userData[@6] != nil) [address addObject:self.userData[@6]];
+        if ([address count] == 0) [address addObject:@""];
+        [params appendString:[address componentsJoinedByString:@", "]];
         [params appendString:@"&country="];
         [params appendString:country];
         if (appDelegate.venueDetailsContent) {
