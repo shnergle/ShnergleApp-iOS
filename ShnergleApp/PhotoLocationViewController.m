@@ -45,18 +45,26 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return [appDelegate.locationPickerVenues count];
+    return [appDelegate.locationPickerVenues count] + 1;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     UITableViewCell *cell = nil;
-    cell = [tableView dequeueReusableCellWithIdentifier:@"Cell"];
 
-    if (cell == nil) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"Cell"];
+    if (indexPath.row != [appDelegate.locationPickerVenues count]) {
+        
+        cell = [tableView dequeueReusableCellWithIdentifier:@"Cell"];
+        cell.textLabel.text = appDelegate.locationPickerVenues[indexPath.row][@"name"];
     }
+    else
+    {
+        cell = [tableView dequeueReusableCellWithIdentifier:@"AddVenueCell"];
+        cell.textLabel.text = @"+ Add Place";
+    }
+    
 
-    cell.textLabel.text = appDelegate.locationPickerVenues[indexPath.row][@"name"];
+
+    
     cell.textLabel.textColor = [UIColor blackColor];
     cell.textLabel.font = [UIFont systemFontOfSize:20.0];
 
