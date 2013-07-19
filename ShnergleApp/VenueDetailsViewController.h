@@ -11,6 +11,7 @@
 @interface VenueDetailsViewController : CustomBackViewController<UITableViewDataSource, UITableViewDelegate, UITextFieldDelegate>
 {
     NSArray *tableData;
+    NSMutableArray *textFields;
 }
 
 @property (weak, nonatomic) IBOutlet UITableView *tableView2;

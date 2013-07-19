@@ -16,11 +16,21 @@
 
     appDelegate.venueDetailsContent = [[NSMutableDictionary alloc] init];
     tableData = @[@"Phone", @"Email", @"Website"];
+    textFields = [NSMutableArray arrayWithCapacity:3];
 }
 
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
     [self setRightBarButton:@"Done" actionSelector:@selector(goBack)];
+}
+
+-(void)goBack
+{
+    [super goBack];
+    for(UITextField *textField in textFields)
+    {
+        [self textFieldDidEndEditing:textField];
+    }
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
@@ -37,6 +47,7 @@
         textField.delegate = self;
         textField.keyboardType = UIKeyboardTypePhonePad;
         [cell.contentView addSubview:textField];
+        [textFields addObject:textField];
     } else if (indexPath.row == 1) {
         UITextField *textField = [[UITextField alloc] initWithFrame:CGRectMake(110, 10, 185, 30)];
         textField.tag = 9;
@@ -44,6 +55,7 @@
         textField.delegate = self;
         textField.keyboardType = UIKeyboardTypeEmailAddress;
         [cell.contentView addSubview:textField];
+        [textFields addObject:textField];
     } else if (indexPath.row == 2) {
         UITextField *textField = [[UITextField alloc] initWithFrame:CGRectMake(110, 10, 185, 30)];
         textField.tag = 10;
@@ -51,6 +63,7 @@
         textField.delegate = self;
         textField.keyboardType = UIKeyboardTypeURL;
         [cell.contentView addSubview:textField];
+        [textFields addObject:textField];
     }
     return cell;
 }
