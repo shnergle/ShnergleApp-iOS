@@ -192,13 +192,12 @@
     }
 }
 
-#warning replace placeholder values with real values (distance in degrees)
 - (void)locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray *)locations {
     if (!hasPositionLocked) {
         if ([@"Quiet" isEqualToString:appDelegate.topViewType]) {
-            [[[PostRequest alloc] init] exec:@"venues/get" params:[NSString stringWithFormat:@"quiet=true&my_lat=%f&my_lon=%f&distance=100&from_time=%d&until_time=%d", ((CLLocation *)locations.lastObject).coordinate.latitude, ((CLLocation *)locations.lastObject).coordinate.longitude, [self fromTime], [self untilTime]] delegate:self callback:@selector(didFinishLoadingVenues:)];
+            [[[PostRequest alloc] init] exec:@"venues/get" params:[NSString stringWithFormat:@"quiet=true&my_lat=%f&my_lon=%f&distance=0.1&from_time=%d&until_time=%d", ((CLLocation *)locations.lastObject).coordinate.latitude, ((CLLocation *)locations.lastObject).coordinate.longitude, [self fromTime], [self untilTime]] delegate:self callback:@selector(didFinishLoadingVenues:)];
         } else if ([@"Trending" isEqualToString:appDelegate.topViewType]) {
-            [[[PostRequest alloc] init] exec:@"venues/get" params:[NSString stringWithFormat:@"trending=true&my_lat=%f&my_lon=%f&distance=100&from_time=%d&until_time=%d", ((CLLocation *)locations.lastObject).coordinate.latitude, ((CLLocation *)locations.lastObject).coordinate.longitude, [self fromTime], [self untilTime]] delegate:self callback:@selector(didFinishLoadingVenues:)];
+            [[[PostRequest alloc] init] exec:@"venues/get" params:[NSString stringWithFormat:@"trending=true&my_lat=%f&my_lon=%f&distance=0.1&from_time=%d&until_time=%d", ((CLLocation *)locations.lastObject).coordinate.latitude, ((CLLocation *)locations.lastObject).coordinate.longitude, [self fromTime], [self untilTime]] delegate:self callback:@selector(didFinishLoadingVenues:)];
         }
         hasPositionLocked = YES;
     }
