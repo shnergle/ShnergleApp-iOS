@@ -276,6 +276,7 @@
 }
 
 - (void)loadVenueIntentions {
+    [self makeToastActivity];
     [[[PostRequest alloc]init]exec:@"venue_rsvps/get" params:[NSString stringWithFormat:@"venue_id=%@&from_time=%d&until_time=%d",appDelegate.activeVenue[@"id"],[self fromTime],[self untilTime]] delegate:self callback:@selector(didFinishGettingRsvps:)];
 }
 
@@ -290,6 +291,7 @@
 
 -(void)didFinishGettingRsvps: (id) response
 {
+    [self hideToastActivity];
     NSLog(@"%@",response);
     self.thinkingLabel.text = [response[@"maybe"] stringValue];
     self.goingLabel.text = [response[@"going"] stringValue];
