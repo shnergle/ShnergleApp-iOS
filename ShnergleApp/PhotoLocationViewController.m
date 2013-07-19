@@ -109,7 +109,7 @@
     if (!hasPositionLocked) {
         if ([keyPath isEqualToString:@"myLocation"] && [object isKindOfClass:[GMSMapView class]]) {
             coord = map.myLocation.coordinate;
-            CGFloat screenDistance = [map.projection pointsForMeters:100 atCoordinate:coord];
+            CGFloat screenDistance = [map.projection pointsForMeters:200 atCoordinate:coord];
             CGPoint screenCenter = [map.projection pointForCoordinate:coord];
             CGPoint screenPoint = CGPointMake(screenCenter.x - screenDistance, screenCenter.y);
             CLLocationCoordinate2D realPoint = [map.projection coordinateForPoint:screenPoint];

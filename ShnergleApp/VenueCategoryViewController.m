@@ -15,7 +15,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self.view makeToastActivity];
-    self.navigationItem.title = @"Add Place";
+    self.navigationItem.title = @"+ Add Place";
     categories = [[NSMutableArray alloc] init];
 
     [[[PostRequest alloc] init] exec:@"venue_categories/get" params:@"" delegate:self callback:@selector(postResponse:)];
