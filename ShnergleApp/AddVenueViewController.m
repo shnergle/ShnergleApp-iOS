@@ -206,13 +206,8 @@ typedef enum {
     return cell;
 }
 
-- (void)textFieldDidBeginEditing:(UITextField *)textField {
-    textField.placeholder = nil;
-    textField.text = @"";
-}
-
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return tableData.count;
+    return [tableData count];
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -226,10 +221,6 @@ typedef enum {
 }
 
 - (void)textFieldDidEndEditing:(UITextField *)textField {
-    [textField resignFirstResponder];
-    if([textField.text length]>0)
-        NSLog(@"Entered %@ into TAG[%d]",textField.text,textField.tag);
-    NSLog(@"%d,%d,%d",Name,Category,City);
     self.userData[@(textField.tag)] = textField.text;
 }
 
