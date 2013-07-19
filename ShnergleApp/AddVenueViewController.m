@@ -45,13 +45,6 @@ typedef enum {
 
     [[[CLGeocoder alloc] init] reverseGeocodeLocation:[[CLLocation alloc] initWithLatitude:marker.position.latitude longitude:marker.position.longitude] completionHandler:^(NSArray *placemark, NSError *error)
     {
-        NSString *country;
-        if (error) {
-            country = @"--";
-        } else {
-            country = [((CLPlacemark *)placemark.firstObject).ISOcountryCode lowercaseString];
-        }
-
         NSMutableString *params = [[NSMutableString alloc] initWithString:@"name="];
         [params appendString:self.userData[@1]];
         [params appendString:@"&category_id="];
@@ -65,7 +58,7 @@ typedef enum {
         if ([address count] == 0) [address addObject:@""];
         [params appendString:[address componentsJoinedByString:@", "]];
         [params appendString:@"&country="];
-        [params appendString:country];
+        [params appendString:(error ? [((CLPlacemark *)placemark.firstObject).ISOcountryCode lowercaseString] : @"--")];
         if (appDelegate.venueDetailsContent) {
             if (appDelegate.venueDetailsContent[@(8)]) {
                 [params appendString:@"&phone="];
