@@ -20,61 +20,51 @@
 @interface GMSGroundOverlay : GMSOverlay
 
 /**
- * The position of this ground overlay, or more specifically, the physical
- * position of its anchor.
- * If bounds has been specified, it will be updated to reflect the move to the
- * new position.
+ * The position of this GMSGroundOverlay, or more specifically, the physical
+ * position of its anchor. If this is changed, |bounds| will be moved around
+ * the new position.
  */
-@property (nonatomic, assign) CLLocationCoordinate2D position;
+@property(nonatomic, assign) CLLocationCoordinate2D position;
 
 /**
- * As groundAnchor on GMSMarker. Specifies where the ground overlay is anchored
- * to the earth in relation to its position.
- * If bounds has been specified, position will be updated to keep the overlay
- * within the bounds.
+ * The anchor specifies where this GMSGroundOverlay is anchored to the Earth in
+ * relation to |bounds|. If this is modified, |position| will be set to the
+ * corresponding new position within |bounds|.
  */
-@property (nonatomic, assign) CGPoint anchor;
+@property(nonatomic, assign) CGPoint anchor;
 
 /**
- * Icon to render on the earth. Unlike for GMSMarker, this is required.
+ * Icon to render within |bounds| on the Earth. If this is nil, the overlay will
+ * not be visible (unlike GMSMarker which has a default image).
  */
-@property (nonatomic, strong) UIImage *icon;
-
-/**
- * The zoom level at which this ground overlay is displayed at 1:1. Will be
- * clamped to ensure that it is at least 0.
- * If bounds has been specified, it will be updated to fit the image at the new
- * zoomLevel.
- * zoomLevel will be updated when setting a new bounds or icon.
- */
-@property (nonatomic, assign) CGFloat zoomLevel;
+@property(nonatomic, strong) UIImage *icon;
 
 /**
  * Bearing of this ground overlay, in degrees. The default value, zero, points
  * this ground overlay up/down along the normal Y axis of the earth.
  */
-@property (nonatomic, assign) CLLocationDirection bearing;
+@property(nonatomic, assign) CLLocationDirection bearing;
 
 /**
- * The bounds within which the overlay fits, ignoring the bearing. Overlay is
- * scaled to fit within these bounds.
- * Setting this will adjust the position accordingly.
+ * The 2D bounds on the Earth in which |icon| is drawn. Changing this value
+ * will adjust |position| accordingly.
  */
-@property (nonatomic, strong) GMSCoordinateBounds *bounds;
+@property(nonatomic, strong) GMSCoordinateBounds *bounds;
 
 /**
- * Convenience constructor for GMSGroundOverlay for a particular position and
- * icon. Other properties will have default values.
- */
-+ (instancetype)groundOverlayWithPosition:(CLLocationCoordinate2D)position
-                                     icon:(UIImage *)icon;
-/**
- * Convenience constructor for GMSGroundOverlay for a particular bounds and
- * icon. Will set position accordingly.
+ * Convenience constructor for GMSGroundOverlay for a particular |bounds| and
+ * |icon|. Will set |position| accordingly.
  */
 + (instancetype)groundOverlayWithBounds:(GMSCoordinateBounds *)bounds
                                    icon:(UIImage *)icon;
 
+/**
+ * Constructs a GMSGroundOverlay that renders the given |icon| at |position|,
+ * as if the image's actual size matches camera pixels at |zoomLevel|.
+ */
++ (instancetype)groundOverlayWithPosition:(CLLocationCoordinate2D)position
+                                     icon:(UIImage *)icon
+                                zoomLevel:(CGFloat)zoomLevel;
 
 @end
 
@@ -83,6 +73,3 @@
  * point of the icon.
  */
 FOUNDATION_EXTERN const CGPoint kGMSGroundOverlayDefaultAnchor;
-
-/** The default zoom level this ground overlay is displayed at. */
-FOUNDATION_EXTERN const CGFloat kGMSGroundOverlayDefaultZoom;

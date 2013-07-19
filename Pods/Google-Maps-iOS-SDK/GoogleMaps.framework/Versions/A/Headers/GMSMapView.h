@@ -18,8 +18,8 @@
 @class GMSCameraUpdate;
 @class GMSMapLayer;
 @class GMSMapView;
-@class GMSOverlay;
 @class GMSMarker;
+@class GMSOverlay;
 @class GMSProjection;
 
 /** Delegate for events on GMSMapView. */
@@ -28,12 +28,29 @@
 @optional
 
 /**
- * Called after the camera position has changed. During an animation, this
- * delegate might not be notified of intermediate camera positions. However, it
- * will always be called eventually with the final position of an the animation.
+ * Called before the camera on the map changes, either due to a gesture,
+ * animation (e.g., by a user tapping on the "My Location" button) or by being
+ * updated explicitly via the camera or a zero-length animation on layer.
+ *
+ * @param gesture If YES, this is occuring due to a user gesture.
+*/
+- (void)mapView:(GMSMapView *)mapView willMove:(BOOL)gesture;
+
+/**
+ * Called repeatedly during any animations or gestures on the map (or once, if
+ * the camera is explicitly set). This may not be called for all intermediate
+ * camera positions. It is always called for the final position of an animation
+ * or gesture.
  */
 - (void)mapView:(GMSMapView *)mapView
     didChangeCameraPosition:(GMSCameraPosition *)position;
+
+/**
+ * Called when the map becomes idle, after any outstanding gestures or
+ * animations have completed (or after the camera has been explicitly set).
+ */
+- (void)mapView:(GMSMapView *)mapView
+    idleAtCameraPosition:(GMSCameraPosition *)position;
 
 /**
  * Called after a tap gesture at a particular coordinate, but only if a marker
@@ -131,13 +148,13 @@ typedef enum {
 @interface GMSMapView : UIView
 
 /** GMSMapView delegate. */
-@property (nonatomic, weak) id<GMSMapViewDelegate> delegate;
+@property(nonatomic, weak) id<GMSMapViewDelegate> delegate;
 
 /**
  * Controls the camera, which defines how the map is oriented. Modification of
  * this property is instantaneous.
  */
-@property (nonatomic, strong) GMSCameraPosition *camera;
+@property(nonatomic, strong) GMSCameraPosition *camera;
 
 /**
  * Returns a GMSProjection object that you can use to convert between screen
@@ -148,20 +165,20 @@ typedef enum {
  * drawn GMSMapView frame, or; where the camera has been explicitly set or the
  * map just created, the upcoming frame. It will never be nil.
  */
-@property (nonatomic, readonly) GMSProjection *projection;
+@property(nonatomic, readonly) GMSProjection *projection;
 
 /**
  * Controls whether the My Location dot and accuracy circle is enabled.
  * Defaults to NO.
  */
-@property (nonatomic, assign, getter=isMyLocationEnabled) BOOL myLocationEnabled;
+@property(nonatomic, assign, getter=isMyLocationEnabled) BOOL myLocationEnabled;
 
 /**
  * If My Location is enabled, reveals where the user location dot is being
  * drawn. If it is disabled, or it is enabled but no location data is available,
  * this will be nil.  This property is observable using KVO.
  */
-@property (nonatomic, strong, readonly) CLLocation *myLocation;
+@property(nonatomic, strong, readonly) CLLocation *myLocation;
 
 /**
  * The marker that is selected.  Setting this property selects a particular
@@ -169,19 +186,19 @@ typedef enum {
  * it to nil deselects the marker, hiding the info window.  This property is
  * observable using KVO.
  */
-@property (nonatomic, strong) GMSMarker *selectedMarker;
+@property(nonatomic, strong) GMSMarker *selectedMarker;
 
 /**
  * Controls whether the map is drawing traffic data, if available.  This is
  * subject to the availability of traffic data.  Defaults to NO.
  */
-@property (nonatomic, assign, getter=isTrafficEnabled) BOOL trafficEnabled;
+@property(nonatomic, assign, getter=isTrafficEnabled) BOOL trafficEnabled;
 
 /**
  * Controls the type of map tiles that should be displayed.  Defaults to
  * kGMSTypeNormal.
  */
-@property (nonatomic, assign) GMSMapViewType mapType;
+@property(nonatomic, assign) GMSMapViewType mapType;
 
 /**
  * If set, 3D buildings will be shown where available.  Defaults to YES.
@@ -190,21 +207,40 @@ typedef enum {
  * make it clearer at high zoom levels.  Changing this value will cause all
  * tiles to be briefly invalidated.
  */
-@property (nonatomic, assign, getter=isBuildingsEnabled) BOOL buildingsEnabled;
+@property(nonatomic, assign, getter=isBuildingsEnabled) BOOL buildingsEnabled;
+
+/**
+ * Sets whether indoor maps are shown, where available. Defaults to YES.
+ *
+ * If this is set to NO, caches for indoor data may be purged and any floor
+ * currently selected by the end-user may be reset.
+ */
+@property(nonatomic, assign, getter=isIndoorEnabled) BOOL indoorEnabled;
 
 /**
  * Gets the GMSUISettings object, which controls user interface settings for the
  * map.
  */
-@property (nonatomic, readonly) GMSUISettings *settings;
+@property(nonatomic, readonly) GMSUISettings *settings;
 
-/** Accessor for the custom CALayer type used for the layer. */
+/**
+ * Defaults to YES. If set to NO, GMSMapView will generate accessibility
+ * elements for overlay objects, such as GMSMarker and GMSPolyline.
+ *
+ * This property is as per the informal UIAcessibility protocol, except for the
+ * default value of YES.
+ */
+@property(nonatomic) BOOL accessibilityElementsHidden;
+
+/**
+ * Accessor for the custom CALayer type used for the layer.
+ */
 @property(nonatomic, readonly, retain) GMSMapLayer *layer;
 
 /**
  * Builds and returns a GMSMapView, with a frame and camera target.
  */
-+ (GMSMapView *)mapWithFrame:(CGRect)frame camera:(GMSCameraPosition *)camera;
++ (instancetype)mapWithFrame:(CGRect)frame camera:(GMSCameraPosition *)camera;
 
 /**
  * Tells this map to power up its renderer.  This is optional- GMSMapView will

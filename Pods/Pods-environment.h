@@ -27,8 +27,8 @@
 // Google-Maps-iOS-SDK
 #define COCOAPODS_POD_AVAILABLE_Google_Maps_iOS_SDK
 #define COCOAPODS_VERSION_MAJOR_Google_Maps_iOS_SDK 1
-#define COCOAPODS_VERSION_MINOR_Google_Maps_iOS_SDK 3
-#define COCOAPODS_VERSION_PATCH_Google_Maps_iOS_SDK 1
+#define COCOAPODS_VERSION_MINOR_Google_Maps_iOS_SDK 4
+#define COCOAPODS_VERSION_PATCH_Google_Maps_iOS_SDK 0
 
 // NSDate+TimeAgo
 #define COCOAPODS_POD_AVAILABLE_NSDate_TimeAgo
@@ -39,7 +39,7 @@
 // TPKeyboardAvoiding
 #define COCOAPODS_POD_AVAILABLE_TPKeyboardAvoiding
 #define COCOAPODS_VERSION_MAJOR_TPKeyboardAvoiding 1
-#define COCOAPODS_VERSION_MINOR_TPKeyboardAvoiding 0
+#define COCOAPODS_VERSION_MINOR_TPKeyboardAvoiding 1
 #define COCOAPODS_VERSION_PATCH_TPKeyboardAvoiding 0
 
 // Toast

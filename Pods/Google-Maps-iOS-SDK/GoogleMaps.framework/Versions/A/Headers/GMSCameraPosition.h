@@ -82,7 +82,7 @@
                   perPoints:(CGFloat)points;
 
 /** Location on the Earth towards which the camera points. */
-@property (nonatomic, readonly, getter=targetAsCoordinate) CLLocationCoordinate2D target;
+@property(nonatomic, readonly, getter=targetAsCoordinate) CLLocationCoordinate2D target;
 
 /**
  * Zoom level. Zoom uses an exponentional scale, where zoom 0 represents the
@@ -90,19 +90,19 @@
  * magnification by a factor of 2. At zoom 10, the entire world is a 256k x
  * 256k square, and so on.
  */
-@property (nonatomic, readonly) CGFloat zoom;
+@property(nonatomic, readonly) CGFloat zoom;
 
 /**
  * Bearing of the camera, in degrees clockwise from true north.
  */
-@property (nonatomic, readonly) CLLocationDirection bearing;
+@property(nonatomic, readonly) CLLocationDirection bearing;
 
 /**
  * The angle, in degrees, of the camera angle from the nadir (directly facing
  * the Earth). 0 is straight down, 90 is parallel to the ground. Note that the
  * maximum angle allowed is 45 degrees.
  */
-@property (nonatomic, readonly) double viewingAngle;
+@property(nonatomic, readonly) double viewingAngle;
 
 @end
 

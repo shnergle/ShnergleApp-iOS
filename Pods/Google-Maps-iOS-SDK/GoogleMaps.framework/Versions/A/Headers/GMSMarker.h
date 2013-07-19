@@ -10,6 +10,7 @@
 
 #import <GoogleMaps/GMSOverlay.h>
 
+@class GMSPanoramaView;
 @class UIImage;
 
 /**
@@ -21,13 +22,13 @@
 @interface GMSMarker : GMSOverlay
 
 /** Marker position. */
-@property (nonatomic, assign) CLLocationCoordinate2D position;
+@property(nonatomic, assign) CLLocationCoordinate2D position;
 
 /** Snippet text, shown beneath the title in the info window when selected. */
-@property (nonatomic, copy) NSString *snippet;
+@property(nonatomic, copy) NSString *snippet;
 
 /** Marker icon to render. If left nil, uses a default SDK place marker. */
-@property (nonatomic, strong) UIImage *icon;
+@property(nonatomic, strong) UIImage *icon;
 
 /**
  * The ground anchor specifies the point in the icon image that is anchored to
@@ -35,17 +36,17 @@
  * the continuous space [0.0, 1.0] x [0.0, 1.0], where (0,0) is the top-left
  * corner of the image, and (1,1) is the bottom-right corner.
  */
-@property (nonatomic, assign) CGPoint groundAnchor;
+@property(nonatomic, assign) CGPoint groundAnchor;
 
 /**
  * The info window anchor specifies the point in the icon image at which to
  * anchor the info window, which will be displayed directly above this point.
  * This point is specified within the same space as groundAnchor.
  */
-@property (nonatomic, assign) CGPoint infoWindowAnchor;
+@property(nonatomic, assign) CGPoint infoWindowAnchor;
 
 /** Whether this marker will be animated when it is placed on a GMSMapView. */
-@property (nonatomic, assign, getter=isAnimated) BOOL animated;
+@property(nonatomic, assign, getter=isAnimated) BOOL animated;
 
 /**
  * Marker data. You can use this property to associate an arbitrary object with
@@ -55,7 +56,18 @@
  * objects, otherwise a loop may be created (preventing ARC from releasing
  * objects).
  */
-@property (nonatomic, strong) id userData;
+@property(nonatomic, strong) id userData;
+
+/**
+ * The |panoramaView| specifies which panorama view will attempt to show this
+ * marker.  Note that if the marker's |position| is too far away from the
+ * |panoramaView|'s current panorama location, it will not be displayed as it
+ * will be too small.
+ * Can be set to nil to remove the marker from any current panorama view it
+ * is attached to.
+ * A marker can be shown on both a panorama and a map at the same time.
+ */
+@property(nonatomic, weak) GMSPanoramaView *panoramaView;
 
 /** Convenience constructor for a default marker. */
 + (instancetype)markerWithPosition:(CLLocationCoordinate2D)position;

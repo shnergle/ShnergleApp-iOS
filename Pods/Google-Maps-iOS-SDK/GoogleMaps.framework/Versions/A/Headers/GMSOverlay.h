@@ -28,19 +28,29 @@
  * will display the title on the map. The title is also the default
  * accessibility text.
  */
-@property (nonatomic, copy) NSString *title;
+@property(nonatomic, copy) NSString *title;
 
 /**
  * The map this overlay is on. Setting this property will add the overlay to the
  * map. Setting it to nil removes this overlay from the map. An overlay may be
  * active on at most one map at any given time.
  */
-@property (nonatomic, weak) GMSMapView *map;
+@property(nonatomic, weak) GMSMapView *map;
 
 /**
  * If this overlay should cause tap notifications. Some overlays, such as
  * markers, will default to being tappable.
  */
-@property (nonatomic, assign, getter=isTappable) BOOL tappable;
+@property(nonatomic, assign, getter=isTappable) BOOL tappable;
+
+/**
+ * Higher |zIndex| value overlays will be drawn on top of lower |zIndex|
+ * value tile layers and overlays.  Equal values result in undefined draw
+ * ordering.  Markers are an exception that regardless of |zIndex|, they will
+ * always be drawn above tile layers and other non-marker overlays; they
+ * are effectively considered to be in a separate z-index group compared to
+ * other overlays.
+ */
+@property(nonatomic, assign) NSInteger zIndex;
 
 @end

@@ -21,31 +21,31 @@
 
 /**
  * Controls whether scroll gestures are enabled (default) or disabled. If
- * enabled, users may swipe to pan the camera. This does not limit programmatic
+ * enabled, users may drag to pan the camera. This does not limit programmatic
  * movement of the camera.
  */
-@property (nonatomic, assign) BOOL scrollGestures;
+@property(nonatomic, assign) BOOL scrollGestures;
 
 /**
  * Controls whether zoom gestures are enabled (default) or disabled. If
  * enabled, users may double tap/two-finger tap or pinch to zoom the camera.
  * This does not limit programmatic movement of the camera.
  */
-@property (nonatomic, assign) BOOL zoomGestures;
+@property(nonatomic, assign) BOOL zoomGestures;
 
 /**
  * Controls whether tilt gestures are enabled (default) or disabled. If enabled,
  * users may use a two-finger vertical down or up swipe to tilt the camera. This
  * does not limit programmatic control of the camera's viewingAngle.
  */
-@property (nonatomic, assign) BOOL tiltGestures;
+@property(nonatomic, assign) BOOL tiltGestures;
 
 /**
  * Controls whether rotate gestures are enabled (default) or disabled. If
  * enabled, users may use a two-finger rotate gesture to rotate the camera. This
  * does not limit programmatic control of the camera's bearing.
  */
-@property (nonatomic, assign) BOOL rotateGestures;
+@property(nonatomic, assign) BOOL rotateGestures;
 
 /**
  * Enables or disables the compass. The compass is an icon on the map that
@@ -56,13 +56,13 @@
  * itself to its default orientation and fades away shortly after. If disabled,
  * the compass will never be displayed.
  */
-@property (nonatomic, assign) BOOL compassButton;
+@property(nonatomic, assign) BOOL compassButton;
 
 /**
  * Enables or disables the My Location button. This is a button visible on the
  * map that, when tapped by users, will center the map on the current user
  * location.
  */
-@property (nonatomic, assign) BOOL myLocationButton;
+@property(nonatomic, assign) BOOL myLocationButton;
 
 @end

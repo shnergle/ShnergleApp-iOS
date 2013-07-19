@@ -20,16 +20,16 @@
 @interface GMSPolyline : GMSOverlay
 
 /** The path that describes this polyline. */
-@property (nonatomic, copy) GMSPath *path;
+@property(nonatomic, copy) GMSPath *path;
 
 /** The width of the line in screen points. Defaults to 1. */
-@property (nonatomic, assign) CGFloat strokeWidth;
+@property(nonatomic, assign) CGFloat strokeWidth;
 
 /** The UIColor used to render the polyline. Defaults to blueColor. */
-@property (nonatomic, strong) UIColor *strokeColor;
+@property(nonatomic, strong) UIColor *strokeColor;
 
 /** If this line should be rendered with geodesic correction. */
-@property (nonatomic, assign) BOOL geodesic;
+@property(nonatomic, assign) BOOL geodesic;
 
 /**
  * Convenience constructor for GMSPolyline for a particular path.

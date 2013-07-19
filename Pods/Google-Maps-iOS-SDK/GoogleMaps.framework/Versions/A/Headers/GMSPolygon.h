@@ -23,19 +23,19 @@
 /**
  * The path that describes this polygon.
  */
-@property (nonatomic, copy) GMSPath *path;
+@property(nonatomic, copy) GMSPath *path;
 
 /** The width of the polygon outline in screen points. Defaults to 1. */
-@property (nonatomic, assign) CGFloat strokeWidth;
+@property(nonatomic, assign) CGFloat strokeWidth;
 
 /** The color of the polygon outline. Defaults to nil. */
-@property (nonatomic, strong) UIColor *strokeColor;
+@property(nonatomic, strong) UIColor *strokeColor;
 
 /** The fill color. Defaults to blueColor. */
-@property (nonatomic, strong) UIColor *fillColor;
+@property(nonatomic, strong) UIColor *fillColor;
 
 /** Whether this polygon should be rendered with geodesic correction. */
-@property (nonatomic, assign) BOOL geodesic;
+@property(nonatomic, assign) BOOL geodesic;
 
 /**
  * Convenience constructor for GMSPolygon for a particular path.

@@ -8,6 +8,9 @@
 //  Service: https://developers.google.com/maps/terms
 //
 
+#import <CoreLocation/CoreLocation.h>
+
+@class GMSCameraPosition;
 @class GMSCoordinateBounds;
 
 /**
@@ -83,8 +86,10 @@
 + (GMSCameraUpdate *)scrollByX:(CGFloat)dX Y:(CGFloat)dY;
 
 /**
- * Zoom with a focus point. The focus point stays fixed on screen.
+ * Returns a GMSCameraUpdate that zooms with a focus point; the focus point
+ * stays fixed on screen.
  */
 + (GMSCameraUpdate *)zoomBy:(CGFloat)zoom atPoint:(CGPoint)point;
 
 @end
+

@@ -42,6 +42,6 @@ typedef NSURL *(^GMSTileURLConstructor)(NSUInteger x, NSUInteger y, NSUInteger z
  * Specify the user agent to describe your application. If this is nil (the
  * default), the default iOS user agent is used for HTTP requests.
  */
-@property (nonatomic, copy) NSString *userAgent;
+@property(nonatomic, copy) NSString *userAgent;
 
 @end

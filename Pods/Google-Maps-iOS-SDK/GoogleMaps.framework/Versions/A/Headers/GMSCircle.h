@@ -23,13 +23,13 @@
  * but the exact meaning depends on the particular overlay.
  * Setting the position moves the overlay on the map to the new position.
  */
-@property (nonatomic, assign) CLLocationCoordinate2D position;
+@property(nonatomic, assign) CLLocationCoordinate2D position;
 
 /**
  * Radius of the circle in meters.
  * It must be positive.
  */
-@property (nonatomic, assign) CGFloat radius;
+@property(nonatomic, assign) CGFloat radius;
 
 /**
  * The width of the circle's outline, in screen points.
@@ -37,19 +37,19 @@
  * The width does not scale when the map is zoomed.
  * Setting strokeWidth to 0 results in no stroke.
  */
-@property (nonatomic, assign) CGFloat strokeWidth;
+@property(nonatomic, assign) CGFloat strokeWidth;
 
 /**
  * The color of the circle's outline.
  * The default value is black.
  */
-@property (nonatomic, strong) UIColor *strokeColor;
+@property(nonatomic, strong) UIColor *strokeColor;
 
 /**
  * The interior of the circle is painted with fillColor.
  * The default value is nil resulting in no fill.
  */
-@property (nonatomic, strong) UIColor *fillColor;
+@property(nonatomic, strong) UIColor *fillColor;
 
 /**
  * Convenience constructor for GMSCircle for a particular position and radius.
