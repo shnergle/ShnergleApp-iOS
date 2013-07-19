@@ -235,6 +235,7 @@
         self.summaryHeadlineTextField.hidden = NO;
         self.postUpdateButton.hidden = YES;
         self.publishButton.hidden = YES;
+        self.intentionHeightConstraints.constant = 30;
     }else if([appDelegate.activeVenue[@"official"] intValue] == 0)
     {
         self.intentionHeightConstraints.constant = 30;
