@@ -43,7 +43,10 @@
     NSString *imageName = @"mainmenu_button.png";
 
     UIBarButtonItem *menuButton;
-    menuButton = [self createLeftBarButton:imageName actionSelector:actionSelector];
+    if (self.slidingViewController != nil)
+        menuButton = [self createLeftBarButton:imageName actionSelector:actionSelector];
+    else
+        menuButton = [self createLeftBarButton:@"arrow_west.png" actionSelector:@selector(goBack)];
 
     self.navBarItem.leftBarButtonItem = menuButton;
 }
@@ -53,17 +56,20 @@
     appDelegate.followingVenues = @[];
     appDelegate.quietVenues = @[];
     appDelegate.trendingVenues = @[];
-    if (appDelegate.topViewType) ((UINavigationItem *)self.navBar.items[0]).title = appDelegate.topViewType;
+    if (!appDelegate.topViewType) appDelegate.topViewType = @"Following";
+    ((UINavigationItem *)self.navBar.items[0]).title = appDelegate.topViewType;
     [self menuButtonDecorations];
     [self decorateCheckInButton];
     [[self crowdCollection] setDataSource:self];
     [[self crowdCollection] setDelegate:self];
 
-    if (![self.slidingViewController.underLeftViewController isKindOfClass:[MenuViewController class]]) {
-        self.slidingViewController.underLeftViewController  = [self.storyboard instantiateViewControllerWithIdentifier:@"AroundMeMenu"];
+    if (self.slidingViewController != nil) {
+        if (![self.slidingViewController.underLeftViewController isKindOfClass:[MenuViewController class]]) {
+            self.slidingViewController.underLeftViewController  = [self.storyboard instantiateViewControllerWithIdentifier:@"AroundMeMenu"];
+        }
+        [self.view addGestureRecognizer:self.slidingViewController.panGesture];
+        [self.slidingViewController setAnchorRightRevealAmount:230.0f];
     }
-    [self.view addGestureRecognizer:self.slidingViewController.panGesture];
-    [self.slidingViewController setAnchorRightRevealAmount:230.0f];
 
     self.view.layer.shadowOpacity = 0.75f;
     self.view.layer.shadowRadius = 10.0f;
