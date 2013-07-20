@@ -6,7 +6,9 @@
 //  Copyright (c) 2013 Shnergle. All rights reserved.
 //
 
-@interface FavouritesViewController : UIViewController <UICollectionViewDataSource, UICollectionViewDelegate, CLLocationManagerDelegate> {
+#import "CustomBackViewController.h"
+
+@interface FavouritesViewController : CustomBackViewController <UICollectionViewDataSource, UICollectionViewDelegate, CLLocationManagerDelegate> {
     CLLocationManager *man;
     BOOL hasPositionLocked;
 }

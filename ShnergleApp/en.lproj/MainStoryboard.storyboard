@@ -1951,7 +1951,7 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                 <placeholder placeholderIdentifier="IBFirstResponder" id="S6M-cZ-UVf" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <tapGestureRecognizer id="VCU-ik-qrT">
                     <connections>
-                        <segue destination="O8X-O7-5VA" kind="push" identifier="ProfileFavouritesSegue" id="sIm-va-DPj"/>
+                        <segue destination="Hxi-4h-Khl" kind="push" id="Mwz-hY-2Xw"/>
                     </connections>
                 </tapGestureRecognizer>
                 <tapGestureRecognizer id="jpe-rx-rfA">
@@ -2397,6 +2397,7 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                         </constraints>
                     </view>
                     <extendedEdge key="edgesForExtendedLayout"/>
+                    <navigationItem key="navigationItem" id="Jhf-FP-oeK"/>
                     <connections>
                         <outlet property="checkInButton" destination="Kbi-8Y-RPI" id="nTm-zl-SDf"/>
                         <outlet property="crowdCollection" destination="KpA-8g-IKJ" id="lhS-tk-5Ud"/>
@@ -2835,10 +2836,10 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
+        <segue reference="xzO-IX-Cmd"/>
         <segue reference="mMx-sI-unJ"/>
         <segue reference="hoH-3k-0HF"/>
         <segue reference="msd-v0-Rw7"/>
-        <segue reference="sIm-va-DPj"/>
         <segue reference="fjC-0F-Or5"/>
     </inferredMetricsTieBreakers>
 </document>
