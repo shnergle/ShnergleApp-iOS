@@ -38,6 +38,13 @@
     NSString *type = appDelegate.staffType;
     if (type == nil) type = @"Staff";
     secondCell.textLabel.text = [NSString stringWithFormat:@"Status: %@", type];
+    if ([@"Manager" isEqualToString:type]) {
+        promoSwitch.on = YES;
+        promoSwitch.enabled = NO;
+    } else {
+        promoSwitch.on = [currentStaff[@"promo_perm"] intValue] == 1;
+        promoSwitch.enabled = YES;
+    }
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
@@ -50,6 +57,7 @@
         UISwitch *textField = [[UISwitch alloc] initWithFrame:CGRectMake(210, 8, 50, 30)];
         [textField addTarget:self action:@selector(canCreatePromo) forControlEvents:UIControlEventAllEvents];
         cell.textLabel.text = @"Can create promotions";
+        promoSwitch = textField;
         [cell.contentView addSubview:textField];
     } else if (indexPath.row == 1) {
         cell.textLabel.text = @"Status: Staff";

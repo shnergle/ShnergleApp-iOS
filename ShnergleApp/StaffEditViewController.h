@@ -11,6 +11,7 @@
 @interface StaffEditViewController : CustomBackViewController <UITableViewDataSource, UITableViewDelegate, UIAlertViewDelegate> {
     UITableViewCell *secondCell;
     NSDictionary *currentStaff;
+    UISwitch *promoSwitch;
 }
 @property (weak, nonatomic) IBOutlet UILabel *nameLabel;
 @property (weak, nonatomic) IBOutlet UILabel *dateLabel;
