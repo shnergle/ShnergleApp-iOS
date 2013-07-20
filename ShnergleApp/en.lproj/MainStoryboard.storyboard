@@ -1807,7 +1807,7 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 </state>
                                                 <connections>
-                                                    <action selector="privacy:" destination="qgb-Kw-YNh" eventType="touchUpInside" id="Bg7-bZ-THY"/>
+                                                    <segue destination="7jg-Cv-HlB" kind="push" id="un0-rf-vZ5"/>
                                                 </connections>
                                             </button>
                                         </subviews>
@@ -2480,6 +2480,46 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
             </objects>
             <point key="canvasLocation" x="-949" y="-1619"/>
         </scene>
+        <!--Web View Controller-->
+        <scene sceneID="hOy-4b-gRT">
+            <objects>
+                <viewController id="7jg-Cv-HlB" customClass="WebViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Gx2-vY-AJY"/>
+                        <viewControllerLayoutGuide type="bottom" id="Mae-b4-IN0"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="3o4-KQ-ijQ">
+                        <rect key="frame" x="0.0" y="20" width="320" height="548"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tnu-H2-N5b">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="548"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <dataDetectorType key="dataDetectorTypes"/>
+                                <connections>
+                                    <outlet property="delegate" destination="7jg-Cv-HlB" id="onP-gb-dX5"/>
+                                </connections>
+                            </webView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="tnu-H2-N5b" firstAttribute="leading" secondItem="3o4-KQ-ijQ" secondAttribute="leading" id="Ftk-uz-zsE"/>
+                            <constraint firstItem="tnu-H2-N5b" firstAttribute="bottom" secondItem="3o4-KQ-ijQ" secondAttribute="bottom" id="fav-KL-ZiA"/>
+                            <constraint firstItem="tnu-H2-N5b" firstAttribute="top" secondItem="3o4-KQ-ijQ" secondAttribute="top" id="kn7-0D-991"/>
+                            <constraint firstItem="tnu-H2-N5b" firstAttribute="trailing" secondItem="3o4-KQ-ijQ" secondAttribute="trailing" id="pZ6-zx-nZk"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="oFV-vt-xkW"/>
+                    <simulatedStatusBarMetrics key="simulatedStatusBarMetrics"/>
+                    <connections>
+                        <outlet property="webView" destination="tnu-H2-N5b" id="uid-zc-Oaz"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="xZ8-ka-USm" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-197" y="-1581"/>
+        </scene>
         <!--Menu-->
         <scene sceneID="o38-We-2n8">
             <objects>
@@ -2796,9 +2836,9 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
         <segue reference="mMx-sI-unJ"/>
-        <segue reference="xzO-IX-Cmd"/>
         <segue reference="hoH-3k-0HF"/>
         <segue reference="msd-v0-Rw7"/>
+        <segue reference="sIm-va-DPj"/>
         <segue reference="fjC-0F-Or5"/>
     </inferredMetricsTieBreakers>
 </document>

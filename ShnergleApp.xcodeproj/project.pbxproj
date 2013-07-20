@@ -929,6 +929,7 @@
 		CD3703751760C8B600CFD249 /* CustomBackViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CD3703741760C8B600CFD249 /* CustomBackViewController.m */; };
 		CD3B655D175CBA72006A4151 /* CrowdItem.m in Sources */ = {isa = PBXBuildFile; fileRef = CD3B655C175CBA72006A4151 /* CrowdItem.m */; };
 		CD5024921768AED6003D3004 /* StaffTypeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CD5024911768AE99003D3004 /* StaffTypeViewController.m */; };
+		CD517787179A8BF400C9BA44 /* WebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CD517786179A8B7F00C9BA44 /* WebViewController.m */; };
 		CD7C1B10175B424400902AA9 /* ImageCache.m in Sources */ = {isa = PBXBuildFile; fileRef = CD7C1B0F175B424400902AA9 /* ImageCache.m */; };
 		CD84ECEF175CC10000A09FA6 /* AppIcon_114.png in Resources */ = {isa = PBXBuildFile; fileRef = CD84ECEE175CC10000A09FA6 /* AppIcon_114.png */; };
 		CD84ECF1175CC10E00A09FA6 /* icon57.png in Resources */ = {isa = PBXBuildFile; fileRef = CD84ECF0175CC10D00A09FA6 /* icon57.png */; };
@@ -1908,6 +1909,8 @@
 		CD3B655C175CBA72006A4151 /* CrowdItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CrowdItem.m; sourceTree = "<group>"; };
 		CD5024901768AE99003D3004 /* StaffTypeViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = StaffTypeViewController.h; sourceTree = "<group>"; };
 		CD5024911768AE99003D3004 /* StaffTypeViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = StaffTypeViewController.m; sourceTree = "<group>"; };
+		CD517785179A8B7F00C9BA44 /* WebViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WebViewController.h; sourceTree = "<group>"; };
+		CD517786179A8B7F00C9BA44 /* WebViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WebViewController.m; sourceTree = "<group>"; };
 		CD61F0A317688C06005EB276 /* StaffViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = StaffViewController.h; sourceTree = "<group>"; };
 		CD61F0A417688C06005EB276 /* StaffViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = StaffViewController.m; sourceTree = "<group>"; };
 		CD7C1B0E175B424400902AA9 /* ImageCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageCache.h; sourceTree = "<group>"; };
@@ -2918,6 +2921,8 @@
 				805AB9E0172A9AFA0056DCFB /* VenueGalleryViewController.m */,
 				80B957D416FC65F90044A505 /* VenueViewController.h */,
 				80B957D516FC65F90044A505 /* VenueViewController.m */,
+				CD517785179A8B7F00C9BA44 /* WebViewController.h */,
+				CD517786179A8B7F00C9BA44 /* WebViewController.m */,
 				80B400BF17540CCA00A377D9 /* Images */,
 				808F13CF16FB6A5C00B66E6D /* Supporting Files */,
 			);
@@ -4076,6 +4081,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CD517787179A8BF400C9BA44 /* WebViewController.m in Sources */,
 				CD1D1D3517987932004B634E /* CheckInListViewController.m in Sources */,
 				EEB706F5176A1C5B00EF05C5 /* AddPromotionsViewController.m in Sources */,
 				EEE9EAD11768ACF100B8530B /* VenueDetailsViewController.m in Sources */,
