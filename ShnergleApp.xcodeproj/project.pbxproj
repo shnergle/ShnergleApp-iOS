@@ -931,6 +931,7 @@
 		CD5024921768AED6003D3004 /* StaffTypeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CD5024911768AE99003D3004 /* StaffTypeViewController.m */; };
 		CD517787179A8BF400C9BA44 /* WebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CD517786179A8B7F00C9BA44 /* WebViewController.m */; };
 		CD56F319179D30C80028B688 /* FindStaffViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CD56F318179D308C0028B688 /* FindStaffViewController.m */; };
+		CD654EE8179DCA9800F380B5 /* Crashlytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CD654EE7179DCA9800F380B5 /* Crashlytics.framework */; };
 		CD7C1B10175B424400902AA9 /* ImageCache.m in Sources */ = {isa = PBXBuildFile; fileRef = CD7C1B0F175B424400902AA9 /* ImageCache.m */; };
 		CD84ECEF175CC10000A09FA6 /* AppIcon_114.png in Resources */ = {isa = PBXBuildFile; fileRef = CD84ECEE175CC10000A09FA6 /* AppIcon_114.png */; };
 		CD84ECF1175CC10E00A09FA6 /* icon57.png in Resources */ = {isa = PBXBuildFile; fileRef = CD84ECF0175CC10D00A09FA6 /* icon57.png */; };
@@ -1916,6 +1917,7 @@
 		CD56F318179D308C0028B688 /* FindStaffViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FindStaffViewController.m; sourceTree = "<group>"; };
 		CD61F0A317688C06005EB276 /* StaffViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = StaffViewController.h; sourceTree = "<group>"; };
 		CD61F0A417688C06005EB276 /* StaffViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = StaffViewController.m; sourceTree = "<group>"; };
+		CD654EE7179DCA9800F380B5 /* Crashlytics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Crashlytics.framework; sourceTree = "<group>"; };
 		CD7C1B0E175B424400902AA9 /* ImageCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageCache.h; sourceTree = "<group>"; };
 		CD7C1B0F175B424400902AA9 /* ImageCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageCache.m; sourceTree = "<group>"; };
 		CD84ECEE175CC10000A09FA6 /* AppIcon_114.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = AppIcon_114.png; sourceTree = "<group>"; };
@@ -1953,6 +1955,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				CDAD1D33175E2BF800581713 /* UIKit.framework in Frameworks */,
+				CD654EE8179DCA9800F380B5 /* Crashlytics.framework in Frameworks */,
 				1F95516217BB4B9FAB164196 /* libPods.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -2850,6 +2853,7 @@
 		808F13C716FB6A5C00B66E6D /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				CD654EE7179DCA9800F380B5 /* Crashlytics.framework */,
 				CDAD1D32175E2BF800581713 /* UIKit.framework */,
 				808F13EC16FB6A5C00B66E6D /* SenTestingKit.framework */,
 				92FD2BD9498A41EEBBD26F82 /* libPods.a */,
@@ -4050,7 +4054,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Pods-resources.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Pods-resources.sh\"\n./Crashlytics.framework/run 2baf430bbb573cfdb444a30b0058c3d474393497";
 		};
 		3150000C4222446DAA58374A /* Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
