@@ -301,7 +301,7 @@
         [self.navigationController pushViewController:promotionView animated:YES];
 
     }else{
-        AddPromotionsViewController *promotionView = [[NSBundle mainBundle]loadNibNamed:@"AddPromotionsViewController" owner:self options:nil][0];
+        AddPromotionsViewController *promotionView = [self.storyboard instantiateViewControllerWithIdentifier:@"AddPromotionsViewController"];
         [self.navigationController pushViewController:promotionView animated:YES];
     }
     
