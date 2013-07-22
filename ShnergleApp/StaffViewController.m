@@ -72,7 +72,7 @@
         number = selectedStaffMember;
         type = @"managers";
     }
-    [((StaffEditViewController *)[segue destinationViewController]) setStaffMember:appDelegate.staff[type][selectedStaffMember]];
+    [((StaffEditViewController *)[segue destinationViewController]) setStaffMember:appDelegate.staff[type][number]];
 }
 
 @end
