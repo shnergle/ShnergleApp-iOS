@@ -8,8 +8,11 @@
 
 #import <GoogleMaps/GoogleMaps.h>
 
-@interface OverlayText : UIView {
+
+@interface OverlayText : UIView <UITableViewDataSource, UITableViewDelegate> {
     BOOL isUp;
+    NSArray *tableSections;
+    NSArray *tableData;
 }
 
 - (IBAction)swipeDown:(id)sender;
@@ -68,5 +71,11 @@
 - (void)hideAnimated:(NSInteger)originalSize animationDuration:(double)animationDuration targetSize:(NSInteger)targetSize contentView:(UIView *)contentView;
 - (void)showAnimated:(NSInteger)targetSize animationDelay:(double)animationDelay animationDuration:(double)animationDuration;
 - (void)didAppear;
+
+@property (weak, nonatomic) IBOutlet UITableView *commentsTableView;
+//@property (weak, nonatomic) IBOutlet UITableViewCell *tableCell;
+
+
+
 
 @end

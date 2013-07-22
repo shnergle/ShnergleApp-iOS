@@ -286,7 +286,8 @@
     [self loadVenueIntentions];
     if(appDelegate.venueDetailsContent)
         [self registerVenue];
-    
+    tableSections = @[@"The venue seems to be delightful", @"The Venue is very congested and crowded, with bad service"];
+    tableData = @[appDelegate.fullName, @"Bobbby Lobbbby"];
 }
 
 -(void)didFinishGettingRsvps: (id) response
@@ -350,4 +351,35 @@
         
         [[[PostRequest alloc]init]exec:@"venues/set" params:params delegate:self callback:@selector(didFinishUpdateVenueDetails:)];
     }
+
+
+
+-(UITableViewCell*)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    UITableViewCell *cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:@"Cell"];
+    cell.textLabel.text = tableData[indexPath.row];
+    cell.detailTextLabel.text = tableSections[indexPath.row];
+    cell.detailTextLabel.numberOfLines = 3;
+    cell.detailTextLabel.lineBreakMode = NSLineBreakByWordWrapping;
+    return cell;
+}
+
+
+-(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return 82;
+}
+
+
+-(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
+    return [tableData count];
+}
+
+-(IBAction)comment:(id)sender{
+    
+    UIAlertView *commentInputView = [[UIAlertView alloc] initWithTitle:@"Comment" message:nil delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"Add", nil];
+    commentInputView.alertViewStyle = UIAlertViewStylePlainTextInput;
+    [commentInputView show];
+}
+
 @end
