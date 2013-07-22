@@ -25,14 +25,14 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"ASRCell"];
-    cell.textLabel.text = [NSString stringWithFormat:@"%@ %@", results[indexPath.row][@"forename"],results[indexPath.row][@"surname"]];
-    //FBProfilePictureView *img = [[FBProfilePictureView alloc]initWithProfileID:[results[indexPath.row][@"facebook_id"] stringValue] pictureCropping:FBProfilePictureCroppingOriginal];
-    //[cell.imageView addSubview:img];
-    
-    
+    FBProfilePictureView *img = [[FBProfilePictureView alloc]initWithFrame:CGRectMake(5, 0, 44, 44)];
+    img.profileID = results[indexPath.row][@"facebook_id"];
+    [cell addSubview:img];
+    UILabel *label = [[UILabel alloc]initWithFrame:CGRectMake(54, 0, cell.bounds.size.width - 54, cell.bounds.size.height)];
+    label.text = [NSString stringWithFormat:@"%@ %@", results[indexPath.row][@"forename"],results[indexPath.row][@"surname"]];
+
+    [cell addSubview:label];
     return cell;
-    
-    
 }
 
 -(void)searchBarSearchButtonClicked:(UISearchBar *)searchBar
