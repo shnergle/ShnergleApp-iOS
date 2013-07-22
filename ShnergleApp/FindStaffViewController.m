@@ -9,6 +9,7 @@
 #import "FindStaffViewController.h"
 #import <Toast/Toast+UIView.h>
 #import "PostRequest.h"
+#import "StaffEditViewController.h"
 
 @implementation FindStaffViewController
 
@@ -16,15 +17,50 @@
     [super viewWillAppear:animated];
     [self.navigationController setNavigationBarHidden:NO animated:YES];
     self.navigationItem.title = @"Add Staff";
-    [self.view makeToastActivity];
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return 0;
+    return [results count];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    return [tableView dequeueReusableCellWithIdentifier:@"ASRCell"];
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"ASRCell"];
+    cell.textLabel.text = [NSString stringWithFormat:@"%@ %@", results[indexPath.row][@"forename"],results[indexPath.row][@"surname"]];
+    //FBProfilePictureView *img = [[FBProfilePictureView alloc]initWithProfileID:[results[indexPath.row][@"facebook_id"] stringValue] pictureCropping:FBProfilePictureCroppingOriginal];
+    //[cell.imageView addSubview:img];
+    
+    
+    return cell;
+    
+    
 }
 
+-(void)searchBarSearchButtonClicked:(UISearchBar *)searchBar
+{
+    [self.view makeToastActivity];
+    [[[PostRequest alloc]init] exec:@"users/get" params:[NSString stringWithFormat:@"term=%@",searchBar.text] delegate:self callback:@selector(didFinishSearching:)];
+    
+}
+
+-(void)didFinishSearching:(NSArray *)response
+{
+    results = response;
+    [self.resultsView reloadData];
+    [self.view hideToastActivity];
+}
+
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    [self.view makeToastActivity];
+    NSString *params = [NSString stringWithFormat:@"venue_id=%@&staff_user_id=%@&manager=%@&promo_perm=%@", [appDelegate.activeVenue[@"id"] stringValue], [results[indexPath.row][@"id"] stringValue], @"false", @"false"];
+    [[[PostRequest alloc] init] exec:@"venue_staff/set" params:params delegate:self callback:@selector(didFinishAddingStaff:) type:@"string"];}
+
+-(void)didFinishAddingStaff:(NSString *)response
+{
+    if([@"true" isEqualToString:response]){
+        [self goBack];
+    }
+    [self.view hideToastActivity];
+
+}
 @end

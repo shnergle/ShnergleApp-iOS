@@ -943,7 +943,7 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
         <!--Find Staff View Controller-->
         <scene sceneID="pKB-5r-K6m">
             <objects>
-                <viewController id="gTP-Ni-RBQ" customClass="FindStaffViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="FindStaffViewController" id="gTP-Ni-RBQ" customClass="FindStaffViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="4K5-x9-Ebi"/>
                         <viewControllerLayoutGuide type="bottom" id="ofd-Qr-Zhc"/>
@@ -964,9 +964,6 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                                             <rect key="frame" x="-1" y="0.0" width="322" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
-                                        <connections>
-                                            <segue destination="pR2-rf-Aa8" kind="push" id="RHw-4a-U8E"/>
-                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                                 <connections>
@@ -977,7 +974,7 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                             <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="Wou-c8-Le4">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="words" autocorrectionType="no"/>
                                 <connections>
                                     <outlet property="delegate" destination="gTP-Ni-RBQ" id="RH8-TU-dAN"/>
                                 </connections>
@@ -995,6 +992,9 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                         </constraints>
                     </view>
                     <simulatedStatusBarMetrics key="simulatedStatusBarMetrics"/>
+                    <connections>
+                        <outlet property="resultsView" destination="7V7-8c-tzy" id="tWH-re-iEF"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8zK-tR-sCv" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -2896,11 +2896,10 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
+        <segue reference="fjC-0F-Or5"/>
+        <segue reference="xzO-IX-Cmd"/>
         <segue reference="hoH-3k-0HF"/>
         <segue reference="mMx-sI-unJ"/>
-        <segue reference="xzO-IX-Cmd"/>
         <segue reference="msd-v0-Rw7"/>
-        <segue reference="RHw-4a-U8E"/>
-        <segue reference="fjC-0F-Or5"/>
     </inferredMetricsTieBreakers>
 </document>

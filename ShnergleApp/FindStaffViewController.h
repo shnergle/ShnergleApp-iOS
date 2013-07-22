@@ -9,5 +9,9 @@
 #import "CustomBackViewController.h"
 
 @interface FindStaffViewController : CustomBackViewController <UISearchBarDelegate, UITableViewDataSource, UITableViewDelegate>
+{
+    NSArray *results;
+}
+@property (weak, nonatomic) IBOutlet UITableView *resultsView;
 
 @end
