@@ -63,13 +63,14 @@
 
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
-    NSString *type = @"";
-    if(selectedStaffMember >= [appDelegate.staff[@"managers"] count]){
+    int number;
+    NSString *type;
+    if (selectedStaffMember >= [appDelegate.staff[@"managers"] count]) {
+        number = selectedStaffMember - [appDelegate.staff[@"managers"] count];
         type = @"staff";
-        appDelegate.staffType = @"Staff";
-    }else{
+    } else {
+        number = selectedStaffMember;
         type = @"managers";
-        appDelegate.staffType = @"Manager";
     }
     [((StaffEditViewController *)[segue destinationViewController]) setStaffMember:appDelegate.staff[type][selectedStaffMember]];
 }
