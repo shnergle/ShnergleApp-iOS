@@ -10,6 +10,7 @@
 
 @interface OverlayText : UIView {
     BOOL isUp;
+    
 }
 
 - (IBAction)swipeDown:(id)sender;
@@ -60,6 +61,7 @@
 
 @property (weak, nonatomic) IBOutlet UITapGestureRecognizer *tapGoing;
 @property (weak, nonatomic) IBOutlet UITapGestureRecognizer *tapThinking;
+
 
 - (IBAction)tappedGoing:(id)sender;
 - (IBAction)tappedThinking:(id)sender;

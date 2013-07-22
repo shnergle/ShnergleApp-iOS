@@ -9,12 +9,15 @@
 #import "VenueViewController.h"
 #import "CrowdItem.h"
 #import "PromotionView.h"
+#import "AddPromotionsViewController.h"
 #import "VenueGalleryViewController.h"
 #import "PostRequest.h"
 #import "ImageCache.h"
 #import "PhotoLocationViewController.h"
 #import <NSDate+TimeAgo/NSDate+TimeAgo.h>
 #import <Toast/Toast+UIView.h>
+
+
 
 @implementation VenueViewController
 
@@ -289,12 +292,20 @@
 }
 
 - (void)goToPromotionView {
-    PromotionView *promotionView = [[NSBundle mainBundle] loadNibNamed:@"PromotionView" owner:self options:nil][0];
-    [promotionView setpromotionTitle:promotionTitle];
-    [promotionView setpromotionBody:promotionBody];
-    [promotionView setpromotionExpiry:promotionExpiry];
+    if([appDelegate.activeVenue[@"verified"] intValue]== 1 && appDelegate.venueStatus != Manager && appDelegate.venueStatus != Staff){
+        
+        PromotionView *promotionView = [[NSBundle mainBundle] loadNibNamed:@"PromotionView" owner:self options:nil][0];
+        [promotionView setpromotionTitle:promotionTitle];
+        [promotionView setpromotionBody:promotionBody];
+        [promotionView setpromotionExpiry:promotionExpiry];
+        [self.navigationController pushViewController:promotionView animated:YES];
 
-    [self.navigationController pushViewController:promotionView animated:YES];
+    }else{
+        AddPromotionsViewController *promotionView = [[NSBundle mainBundle]loadNibNamed:@"AddPromotionsViewController" owner:self options:nil][0];
+        [self.navigationController pushViewController:promotionView animated:YES];
+    }
+    
+
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
