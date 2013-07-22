@@ -35,7 +35,7 @@
     NSArray *nibObjects = [[NSBundle mainBundle] loadNibNamed:@"SearchResultsView" owner:self options:nil];
     self.searchResultsView = nibObjects[0];
 
-    self.searchResultsView.frame = CGRectMake(320, 45, 320, self.searchResultsView.frame.size.height);
+    self.searchResultsView.frame = CGRectMake(320, 45, 320, self.searchResultsView.frame.size.height - 65);
     [[self view] addSubview:self.searchResultsView];
     self.cancelButton.alpha = 0;
 }
@@ -162,7 +162,8 @@
 }
 
 - (BOOL)textFieldShouldReturn:(UITextField *)textField {
-    if (textField.text.length > 1) {
+    searchResults = [NSMutableArray array];
+    if (textField.text.length > 0) {
         NSString *params = [NSString stringWithFormat:@"term=%@", self.bar.text];
         [[[PostRequest alloc] init] exec:@"user_searches/set" params:params delegate:self callback:@selector(searchRegistered:)];
         [[[PostRequest alloc] init] exec:@"venues/get" params:params delegate:self callback:@selector(postResponse:)];
@@ -182,6 +183,7 @@
 }
 
 - (IBAction)cancelButtonTapped:(id)sender {
+    self.bar.text = @"";
     [self.bar resignFirstResponder];
     [self.searchResultsView hide];
     [self toggleCancelButton:false];
