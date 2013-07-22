@@ -66,8 +66,10 @@
     NSString *type = @"";
     if(selectedStaffMember >= [appDelegate.staff[@"managers"] count]){
         type = @"staff";
+        appDelegate.staffType = @"Staff";
     }else{
         type = @"managers";
+        appDelegate.staffType = @"Manager";
     }
     [((StaffEditViewController *)[segue destinationViewController]) setStaffMember:appDelegate.staff[type][selectedStaffMember]];
 }
