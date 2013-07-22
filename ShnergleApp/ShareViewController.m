@@ -39,11 +39,12 @@
 }
 
 - (void)uploadToServer {
+    self.navigationItem.rightBarButtonItem.enabled = NO;
     if (appDelegate.shnergleThis) {
         //Upload to Shnergle
         NSMutableString *postParams = [[NSMutableString alloc] initWithString:[NSString stringWithFormat:@"venue_id=%@", appDelegate.activeVenue[@"id"]]];
         [postParams appendFormat:@"&caption=%@", self.textFieldname.text];
-        [[[PostRequest alloc] init] exec:@"posts/set" params:postParams delegate:self callback:@selector(didFinishPost:) type:@"string"];
+        [[[PostRequest alloc] init] exec:@"posts/set" params:postParams image:self.image.image delegate:self callback:@selector(didFinishPost:) type:@"string"];
     } else {
         post_id = appDelegate.shareActivePostId;
         //Share to Facebook
@@ -58,7 +59,6 @@
 }
 
 - (void)didFinishPost:(NSString *)response {
-    [[[PostRequest alloc] init] exec:@"images/set" params:[NSString stringWithFormat:@"entity=post&entity_id=%@", response] image:self.image.image delegate:self callback:@selector(uploadedToServer:) type:@"string"];
 
     post_id = response;
 
@@ -69,15 +69,6 @@
         }];
     else {
         [self shareOnFacebook];
-    }
-}
-
-- (void)uploadedToServer:(NSString *)response {
-    if ([@"true" isEqualToString:response]) {
-        self.navigationItem.rightBarButtonItem.enabled = NO;
-    } else {
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Upload failed!" message:nil delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
-        [alert show];
     }
 }
 

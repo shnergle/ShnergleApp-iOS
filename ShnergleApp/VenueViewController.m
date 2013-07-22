@@ -194,8 +194,7 @@
 
         if (response != nil) {
             [self.crowdCollectionV reloadItemsAtIndexPaths:@[index]];
-        }
-    }
+        }    }
 }
 
 - (void)displayTextView {
