@@ -77,11 +77,11 @@
     appDelegate.addVenueType = nil;
     if (deleteMe) {
         NSString *params = [NSString stringWithFormat:@"delete=true&venue_id=%@&staff_user_id=%@", [appDelegate.activeVenue[@"id"] stringValue], [currentStaff[@"id"] stringValue]];
-        [[[PostRequest alloc] init] exec:@"venue_staff/set" params:params delegate:self callback:@selector(didFinishSaving:)];
+        [[[PostRequest alloc] init] exec:@"venue_staff/set" params:params delegate:self callback:@selector(didFinishSaving:) type:@"string"];
         deleteMe = NO;
     } else {
         NSString *params = [NSString stringWithFormat:@"venue_id=%@&staff_user_id=%@&manager=%@&promo_perm=%@", [appDelegate.activeVenue[@"id"] stringValue], [currentStaff[@"id"] stringValue], [@"Manager" isEqualToString:appDelegate.staffType] ? @"true" : @"false", promoSwitch.on ? @"true" : @"false"];
-        [[[PostRequest alloc] init] exec:@"venue_staff/set" params:params delegate:self callback:@selector(didFinishSaving:)];
+        [[[PostRequest alloc] init] exec:@"venue_staff/set" params:params delegate:self callback:@selector(didFinishSaving:) type:@"string"];
     }
     [super goBack];
 }
