@@ -17,10 +17,15 @@
     [super viewWillAppear:animated];
     [self.navigationController setNavigationBarHidden:NO animated:YES];
     self.navigationItem.title = @"Staff";
+    [self setRightBarButton:@"Add" actionSelector:@selector(addStaff:)];
     [self.view makeToastActivity];
     NSMutableString *params = [[NSMutableString alloc] initWithString:@"venue_id="];
     [params appendString:[appDelegate.activeVenue[@"id"] stringValue]];
     [[[PostRequest alloc] init] exec:@"venue_staff/get" params:params delegate:self callback:@selector(didFinishDownloadingStaff:)];
+}
+
+- (void)addStaff:(id)sender {
+    
 }
 
 - (void)didFinishDownloadingStaff:(id)response {

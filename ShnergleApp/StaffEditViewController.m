@@ -8,6 +8,8 @@
 
 #import "StaffEditViewController.h"
 #import <NSDate+TimeAgo/NSDate+TimeAgo.h>
+#import <Toast/Toast+UIView.h>
+#import "PostRequest.h"
 
 @implementation StaffEditViewController
 
@@ -71,17 +73,33 @@
 }
 
 - (void)goBack {
+    [self.view makeToastActivity];
     appDelegate.addVenueType = nil;
+    if (deleteMe) {
+        NSString *params = [NSString stringWithFormat:@"delete=true&venue_id=%@&staff_user_id=%@", [appDelegate.activeVenue[@"id"] stringValue], [currentStaff[@"id"] stringValue]];
+        [[[PostRequest alloc] init] exec:@"venue_staff/set" params:params delegate:self callback:@selector(didFinishSaving:)];
+        deleteMe = NO;
+    } else {
+        NSString *params = [NSString stringWithFormat:@"venue_id=%@&staff_user_id=%@&manager=%@&promo_perm=%@", [appDelegate.activeVenue[@"id"] stringValue], [currentStaff[@"id"] stringValue], [@"Manager" isEqualToString:appDelegate.staffType] ? @"true" : @"false", promoSwitch.on ? @"true" : @"false"];
+        [[[PostRequest alloc] init] exec:@"venue_staff/set" params:params delegate:self callback:@selector(didFinishSaving:)];
+    }
     [super goBack];
 }
 
+- (void)didFinishSaving:(id)response {
+    if ([@"true" isEqualToString:response]) {
+        [self.view hideToastActivity];
+        [super goBack];
+    }
+}
+
 - (void)canCreatePromo {
-    //switch
 }
 
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
     if (buttonIndex != alertView.cancelButtonIndex) {
-        //delete
+        deleteMe = YES;
+        [self goBack];
     }
 }
 
