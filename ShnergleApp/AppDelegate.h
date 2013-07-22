@@ -31,6 +31,7 @@
 @property (strong, nonatomic) NSArray *trendingVenues;
 @property (strong, nonatomic) NSMutableArray *locationPickerVenues;
 
+
 @property (nonatomic) BOOL shareVenue;
 @property (nonatomic) BOOL shnergleThis;
 

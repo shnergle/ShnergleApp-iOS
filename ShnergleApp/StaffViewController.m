@@ -17,10 +17,20 @@
     [super viewWillAppear:animated];
     [self.navigationController setNavigationBarHidden:NO animated:YES];
     self.navigationItem.title = @"Staff";
+    [self setRightBarButton:@"Add" actionSelector:@selector(addStaff:)];
+}
+-(void)viewDidAppear:(BOOL)animated
+{
+    [super viewDidAppear:animated];
     [self.view makeToastActivity];
     NSMutableString *params = [[NSMutableString alloc] initWithString:@"venue_id="];
     [params appendString:[appDelegate.activeVenue[@"id"] stringValue]];
     [[[PostRequest alloc] init] exec:@"venue_staff/get" params:params delegate:self callback:@selector(didFinishDownloadingStaff:)];
+}
+
+- (void)addStaff:(id)sender {
+    UIViewController *vc = [self.storyboard instantiateViewControllerWithIdentifier:@"FindStaffViewController"];
+    [self.navigationController pushViewController:vc animated:YES];
 }
 
 - (void)didFinishDownloadingStaff:(id)response {
@@ -36,7 +46,7 @@
     if (indexPath.item >= [appDelegate.staff[@"managers"] count]) {
         number = indexPath.item - [appDelegate.staff[@"managers"] count];
         type = @"staff";
-        ((UILabel *) [cell viewWithTag:2]).text = [NSString stringWithFormat:@"Staff - Promotions %@", (appDelegate.staff[type][number][@"promo_perm"] ? @"enabled" : @"disabled")];
+        ((UILabel *) [cell viewWithTag:2]).text = [NSString stringWithFormat:@"Staff - Promotions %@", ([appDelegate.staff[type][number][@"promo_perm"] intValue] == 1 ? @"enabled" : @"disabled")];
     } else {
         number = indexPath.item;
         type = @"managers";
@@ -58,13 +68,18 @@
 
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
-    NSString *type = @"";
-    if(selectedStaffMember >= [appDelegate.staff[@"managers"] count]){
+    int number;
+    NSString *type;
+    if (selectedStaffMember >= [appDelegate.staff[@"managers"] count]) {
+        number = selectedStaffMember - [appDelegate.staff[@"managers"] count];
         type = @"staff";
-    }else{
+        appDelegate.staffType = @"Staff";
+    } else {
+        number = selectedStaffMember;
         type = @"managers";
+        appDelegate.staffType = @"Manager";
     }
-    [((StaffEditViewController *)[segue destinationViewController]) setStaffMember:appDelegate.staff[type][selectedStaffMember]];
+    [((StaffEditViewController *)[segue destinationViewController]) setStaffMember:appDelegate.staff[type][number]];
 }
 
 @end

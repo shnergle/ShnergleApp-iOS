@@ -24,7 +24,7 @@
 }
 
 - (IBAction)analytics:(id)sender {
-    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Nahhhh ...." message:nil delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Visitor analytics for venue owners will be implemented soon." message:nil delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
     [alert show];
 }
 
