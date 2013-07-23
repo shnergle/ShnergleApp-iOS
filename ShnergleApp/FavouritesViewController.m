@@ -164,12 +164,12 @@
 
     item.venueName.textColor = [UIColor whiteColor];
 
-    if (type[indexPath.item][@"promotion"] != nil) {
+    if ([appDelegate.aroundVenues[indexPath.item][@"promotions"] intValue] > 0) {
         item.promotionIndicator.hidden = NO;
     } else {
         item.promotionIndicator.hidden = YES;
     }
-
+    
     return item;
 }
 
