@@ -10,5 +10,6 @@
 
 @interface PromotionDetailView : CustomBackViewController
 - (IBAction)tapDone:(id)sender;
+@property (weak, nonatomic) IBOutlet UILabel *promotionPasscodeLabel;
 
 @end

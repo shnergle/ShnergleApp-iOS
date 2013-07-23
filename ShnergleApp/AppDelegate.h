@@ -51,6 +51,8 @@
 
 @property (strong, nonatomic) NSArray *ownVenues;
 
+@property (strong, nonatomic) NSDictionary *activePromotion;
+
 @property (strong, nonatomic) id didShare;
 
 typedef NS_ENUM (NSInteger, VENUE_STATUS) {
