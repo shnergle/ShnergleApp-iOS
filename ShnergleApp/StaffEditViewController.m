@@ -104,7 +104,7 @@
         deleteMe = YES;
         [self goBack];
         } else {
-            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"You cannot remove the last Manager." message:nil delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
+            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"You cannot remove the last manager." message:nil delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
             [alert show];
         }
     }
