@@ -13,6 +13,7 @@
 #import <Toast+UIView.h>
 #import "ShareViewController.h"
 #import "VenueDetailsViewController.h"
+#import <YIPopupTextView/YIPopupTextView.h>
 
 @implementation OverlayText
 
@@ -280,18 +281,44 @@
     [[[PostRequest alloc]init]exec:@"venue_rsvps/get" params:[NSString stringWithFormat:@"venue_id=%@&from_time=%d&until_time=%d",appDelegate.activeVenue[@"id"],[self fromTime],[self untilTime]] delegate:self callback:@selector(didFinishGettingRsvps:)];
 }
 
+- (void)getComments {
+    [[[PostRequest alloc]init]exec:@"venue_comments/get" params:[NSString stringWithFormat:@"venue_id=%@",appDelegate.activeVenue[@"id"]] delegate:self callback:@selector(didFinishGettingComments:)];
+}
+
 - (void)didAppear {
     
     [self venueLayoutConfig];
     [self loadVenueIntentions];
     if(appDelegate.venueDetailsContent)
         [self registerVenue];
-    tableSections = @[@"The venue seems to be delightful", @"The Venue is very congested and crowded, with bad service"];
-    tableData = @[appDelegate.fullName, @"Bobbby Lobbbby"];
+    tableSections = @[];
+    tableData = @[];
+    [self getComments];
     CGRect frame = self.commentsTableView.frame;
     frame.size.height = self.commentsTableView.contentSize.height;
-    self.commentsTableView.frame = frame;
-    self.commentsTableView.scrollEnabled = NO;
+    
+}
+
+-(void)didFinishGettingComments:(NSArray *)response
+{
+    NSLog(@"response count: %d",[response count]);
+    if([response count] == 0)
+    {
+        tableSections = @[@""];
+        tableData = @[@"No comments..."];
+    }else{
+        NSMutableArray *users = [NSMutableArray array];
+        NSMutableArray *comments = [NSMutableArray array];
+        
+        for (NSDictionary *obj in response) {
+            [users addObject:obj[@"name"]];
+            [comments addObject:obj[@"comment"]];
+        }
+        tableData = [NSArray arrayWithArray:users];
+        tableSections = [NSArray arrayWithArray:comments];
+    }
+    [self.commentsTableView reloadData];
+
 }
 
 -(void)didFinishGettingRsvps: (id) response
@@ -381,13 +408,26 @@
 
 -(IBAction)comment:(id)sender{
     
-    UIAlertView *commentInputView = [[UIAlertView alloc] initWithTitle:@"Comment" message:nil delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"Add", nil];
-    commentInputView.alertViewStyle = UIAlertViewStylePlainTextInput;
-    //[commentInputView show];
-}
--(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
-{
+    YIPopupTextView *commentInputView = [[YIPopupTextView alloc]initWithPlaceHolder:@"Write here.." maxCount:140 buttonStyle:YIPopupTextViewButtonStyleRightCancelAndDone tintsDoneButton:YES];
     
+    commentInputView.delegate = self;
+    [commentInputView showInView:self];
+}
+
+-(void)popupTextView:(YIPopupTextView *)textView didDismissWithText:(NSString *)text cancelled:(BOOL)cancelled
+{
+    [[[PostRequest alloc]init]exec:@"venue_comments/set" params:[NSString stringWithFormat:@"venue_id=%@&comment=%@",appDelegate.activeVenue[@"id"],text] delegate:self callback:@selector(didFinishSendingComment:) type:@"string"];
+    
+}
+
+-(void)didFinishSendingComment:(id)response
+{
+    if([@"true" isEqualToString:response])
+    {
+        [self getComments];
+    }else{
+        NSLog(@"POSTING FAILED");
+    }
 }
 
 @end

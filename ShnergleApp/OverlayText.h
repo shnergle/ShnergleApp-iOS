@@ -7,9 +7,9 @@
 //
 
 #import <GoogleMaps/GoogleMaps.h>
+#import <YIPopupTextView/YIPopupTextView.h>
 
-
-@interface OverlayText : UIView <UITableViewDataSource, UITableViewDelegate, UIAlertViewDelegate> {
+@interface OverlayText : UIView <UITableViewDataSource, UITableViewDelegate, YIPopupTextViewDelegate> {
     BOOL isUp;
     NSArray *tableSections;
     NSArray *tableData;

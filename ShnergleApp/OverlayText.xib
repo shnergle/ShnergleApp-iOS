@@ -296,11 +296,11 @@
                                         <constraint firstAttribute="width" constant="14" id="3k9-jY-7Wx"/>
                                     </constraints>
                                 </imageView>
-                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EEz-od-fXa">
-                                    <rect key="frame" x="108" y="650" width="100" height="30"/>
+                                <button opaque="NO" contentMode="scaleToFill" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EEz-od-fXa">
+                                    <rect key="frame" x="108" y="650" width="118" height="30"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <constraints>
-                                        <constraint firstAttribute="width" constant="100" id="4um-HX-cCL"/>
+                                        <constraint firstAttribute="width" constant="118" id="4um-HX-cCL"/>
                                         <constraint firstAttribute="height" constant="30" id="Kp7-yN-m24"/>
                                         <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="100" id="jQY-eG-nTs"/>
                                         <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="30" id="o4v-Uc-VwG"/>
@@ -394,7 +394,7 @@
                                 <constraint firstItem="afh-Ob-Pnz" firstAttribute="leading" secondItem="1941" secondAttribute="leading" constant="4" id="dPE-bE-7yv"/>
                                 <constraint firstItem="ieB-JS-QVm" firstAttribute="top" relation="greaterThanOrEqual" secondItem="1046" secondAttribute="bottom" constant="36" id="dUa-tM-NW4"/>
                                 <constraint firstItem="717" firstAttribute="top" secondItem="PTg-Fb-MR1" secondAttribute="bottom" constant="1" id="dXg-Di-G1k"/>
-                                <constraint firstItem="EEz-od-fXa" firstAttribute="centerX" secondItem="hQT-9q-ZmQ" secondAttribute="centerX" constant="-2" id="gZD-ca-Vhc"/>
+                                <constraint firstItem="EEz-od-fXa" firstAttribute="centerX" secondItem="hQT-9q-ZmQ" secondAttribute="centerX" constant="7" id="gZD-ca-Vhc"/>
                                 <constraint firstItem="717" firstAttribute="leading" secondItem="1941" secondAttribute="leading" constant="20" symbolic="YES" id="gqP-JE-ZoF"/>
                                 <constraint firstItem="215" firstAttribute="centerX" secondItem="3sN-Qw-TVN" secondAttribute="centerX" constant="-5" id="jBD-Mz-VgO"/>
                                 <constraint firstItem="ieB-JS-QVm" firstAttribute="leading" secondItem="yFV-32-GOh" secondAttribute="leading" id="nBL-LT-hpC"/>
@@ -578,6 +578,7 @@
                 <outlet property="analyticsLeftConstraints" destination="OGM-JG-6W4" id="9vg-Oo-orx"/>
                 <outlet property="analyticsShareConstraints" destination="q0i-E1-CEs" id="Vct-04-dXX"/>
                 <outlet property="claimVenueButton" destination="afh-Ob-Pnz" id="cdR-5r-Of2"/>
+                <outlet property="commentsTableView" destination="2Oe-8f-4w3" id="PPW-QW-EH7"/>
                 <outlet property="goingLabel" destination="215" id="D5h-2V-Ezh"/>
                 <outlet property="goingView" destination="3sN-Qw-TVN" id="dNM-XS-SK8"/>
                 <outlet property="intentionConstraints" destination="Dbe-kx-t1F" id="XHi-jF-Jse"/>
