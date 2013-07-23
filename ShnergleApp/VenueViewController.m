@@ -127,6 +127,8 @@
     promotionExpiry = @"";
     promotionBody = @"";
 
+    [[[PostRequest alloc]init]exec:@"promotions/get" params:[NSString stringWithFormat:@"venue_id=%@",appDelegate.activeVenue[@"id"] ] delegate:self callback:@selector(didFinishGettingPromotion:)];
+    
     [self displayTextView];
 
     [self configureMapWithLat:[appDelegate.activeVenue[@"lat"] doubleValue] longitude:[appDelegate.activeVenue[@"lon"] doubleValue]];
@@ -146,6 +148,33 @@
     man.desiredAccuracy = kCLLocationAccuracyNearestTenMeters;
     [man startUpdatingLocation];
 }
+
+-(void)didFinishGettingPromotion:(NSDictionary *)response
+{
+    NSLog(@"Muhjadeen is a nice guy: %@",response);
+    if(response != nil)
+    {
+        promotionBody = response[@"description"];
+        promotionTitle = response[@"title"];
+        promotionExpiry = [NSString stringWithFormat:@"/%@ claimed.",response[@"maximum"]];
+        
+    
+    }else{
+        promotionBody = @"No Promotion active";
+        promotionBody = @"Ask a member of staff for a special!";
+        promotionExpiry = @"";
+        overlayView.tapPromotion.delegate = nil;
+    }
+    
+    [self setPromoContentTo:promotionBody promoHeadline:promotionTitle promoExpiry:promotionExpiry];
+
+}
+
+- (NSString *)getDateFromUnixFormatNotTimeAgo:(id)unixFormat {
+    NSDate *date = [NSDate dateWithTimeIntervalSince1970:[unixFormat intValue]];
+    return [NSDateFormatter localizedStringFromDate:date dateStyle:NSDateFormatterShortStyle timeStyle:NSDateFormatterShortStyle] ;
+}
+
 
 - (void)startRefresh:(id)sender {
     [self getPosts];
