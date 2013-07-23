@@ -109,7 +109,6 @@ typedef enum {
 }
 
 - (void)didAddAsManager:(id)response {
-    NSLog(@"%@",response);
     [self.view hideToastActivity];
     [self.navigationController popViewControllerAnimated:YES];
 }

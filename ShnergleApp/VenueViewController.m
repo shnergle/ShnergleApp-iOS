@@ -151,7 +151,6 @@
 
 -(void)didFinishGettingPromotion:(NSDictionary *)response
 {
-    NSLog(@"Muhjadeen is a nice guy: %@",response);
     if(response != nil)
     {
         appDelegate.activePromotion = response;

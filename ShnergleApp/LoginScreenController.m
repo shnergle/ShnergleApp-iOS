@@ -132,6 +132,7 @@
                                                      FBSessionState status,
                                                      NSError *error) {
         [self updateView];
+
     }];
 }
 

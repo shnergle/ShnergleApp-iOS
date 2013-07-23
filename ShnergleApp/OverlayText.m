@@ -14,6 +14,7 @@
 #import "ShareViewController.h"
 #import "VenueDetailsViewController.h"
 #import <YIPopupTextView/YIPopupTextView.h>
+#import <NSDate+TimeAgo/NSDate+TimeAgo.h>
 
 @implementation OverlayText
 
@@ -79,7 +80,6 @@
 - (IBAction)tappedThinking:(id)sender {
     [self.thinkingView setEnabled:NO];
     NSString *params = [NSString stringWithFormat:@"venue_id=%@&maybe=%@&from_time=%d&until_time=%d", appDelegate.activeVenue[@"id"], @"true",[self fromTime],[self untilTime]];
-    NSLog(@"params:\n\n\n%@", params);
     [[[PostRequest alloc] init] exec:@"venue_rsvps/set" params:params delegate:self callback:@selector(didIntent:)];
 
 }
@@ -301,7 +301,6 @@
 
 -(void)didFinishGettingComments:(NSArray *)response
 {
-    NSLog(@"response count: %d",[response count]);
     if([response count] == 0)
     {
         tableSections = @[@""];
@@ -311,7 +310,7 @@
         NSMutableArray *comments = [NSMutableArray array];
         
         for (NSDictionary *obj in response) {
-            [users addObject:obj[@"name"]];
+            [users addObject:[NSString stringWithFormat:@"%@ (%@)", obj[@"name"], [[NSDate dateWithTimeIntervalSince1970:[obj[@"time"] intValue]] timeAgo]]];
             [comments addObject:obj[@"comment"]];
         }
         tableData = [NSArray arrayWithArray:users];
@@ -324,7 +323,6 @@
 -(void)didFinishGettingRsvps: (id) response
 {
     [self hideToastActivity];
-    NSLog(@"%@",response);
     self.thinkingLabel.text = [response[@"maybe"] stringValue];
     self.goingLabel.text = [response[@"going"] stringValue];
 }
@@ -360,22 +358,17 @@
 -(void)registerVenue
     {
         NSMutableString *params = [[NSMutableString alloc] initWithString:@"venue_id="];
-        NSLog(@"%@",appDelegate.activeVenue);
-        NSLog(@"%@",appDelegate.venueDetailsContent);
         [params appendString:[appDelegate.activeVenue[@"id"] stringValue]];
         
         if (appDelegate.venueDetailsContent[@(8)]) {
-            NSLog(@"added Phone");
             [params appendString:@"&phone="];
             [params appendString:appDelegate.venueDetailsContent[@(8)]];
         }
         if (appDelegate.venueDetailsContent[@(9)]) {
-            NSLog(@"added Email");
             [params appendString:@"&email="];
             [params appendString:appDelegate.venueDetailsContent[@(9)]];
         }
         if (appDelegate.venueDetailsContent[@(10)]) {
-            NSLog(@"added Website");
             [params appendString:@"&website="];
             [params appendString:appDelegate.venueDetailsContent[@(10)]];
         }
@@ -426,7 +419,6 @@
     {
         [self getComments];
     }else{
-        NSLog(@"POSTING FAILED");
     }
 }
 
