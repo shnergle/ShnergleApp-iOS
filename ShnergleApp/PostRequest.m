@@ -78,7 +78,6 @@
     [invocation setArgument:&responseArg atIndex:2];
     [invocation setTarget:responseObject];
     [invocation retainArguments];
-    NSLog(@"%@", responseArg);
     [invocation invoke];
 }
 

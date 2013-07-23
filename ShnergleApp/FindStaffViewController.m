@@ -66,14 +66,12 @@
     for(int i=0;i<[appDelegate.staff[@"managers"] count];i++)
     {
         if([appDelegate.staff[@"managers"][i][@"user_id"] isEqual:user_id] ){
-            NSLog(@"User is already a manager! Not adding..");
             return YES;
         }
     }
     for(int i=0;i<[appDelegate.staff[@"staff"] count];i++)
     {
         if([appDelegate.staff[@"staff"][i][@"user_id"] isEqual:user_id] ){
-            NSLog(@"User is already a staff! Not adding..");
             return YES;
         }
     }
