@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="4457.6" systemVersion="12E55" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="4471.1" systemVersion="12E55" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
     <dependencies>
         <deployment defaultVersion="1536" identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3682.6"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3697.3"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
@@ -11,27 +11,37 @@
             <rect key="frame" x="0.0" y="0.0" width="320" height="548"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <view contentMode="scaleToFill" id="32">
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="32">
                     <rect key="frame" x="0.0" y="0.0" width="320" height="504"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <subviews>
-                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Promo Code: " lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="3">
-                            <rect key="frame" x="42" y="265" width="105" height="21"/>
+                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Promotion details:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3">
+                            <rect key="frame" x="20" y="164" width="280" height="21"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="21" id="Q3j-1q-mUI"/>
+                            </constraints>
                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                             <nil key="highlightedColor"/>
                         </label>
-                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="42" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="6">
-                            <rect key="frame" x="155" y="265" width="19" height="21"/>
+                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="42" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="5" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="280" translatesAutoresizingMaskIntoConstraints="NO" id="6">
+                            <rect key="frame" x="20" y="201" width="280" height="101"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="101" id="YCt-Lw-9Dd"/>
+                            </constraints>
                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                             <nil key="highlightedColor"/>
                         </label>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="9">
-                            <rect key="frame" x="120" y="294" width="62" height="44"/>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9">
+                            <rect key="frame" x="129" y="310" width="62" height="44"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="44" id="W2s-8o-PGL"/>
+                                <constraint firstAttribute="width" constant="62" id="tmz-eg-aUG"/>
+                            </constraints>
                             <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                             <state key="normal" title="Done">
                                 <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
@@ -46,12 +56,29 @@
                         </button>
                     </subviews>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstItem="3" firstAttribute="top" secondItem="32" secondAttribute="top" constant="164" id="1t3-KO-xEs"/>
+                        <constraint firstItem="6" firstAttribute="leading" secondItem="3" secondAttribute="leading" id="77Q-Bf-6AT"/>
+                        <constraint firstItem="9" firstAttribute="centerX" secondItem="6" secondAttribute="centerX" id="BjC-5y-tza"/>
+                        <constraint firstItem="9" firstAttribute="top" secondItem="6" secondAttribute="bottom" constant="8" id="I80-zA-Lch"/>
+                        <constraint firstAttribute="trailing" secondItem="6" secondAttribute="trailing" constant="20" symbolic="YES" id="iLd-Sx-HXB"/>
+                        <constraint firstItem="6" firstAttribute="centerX" secondItem="3" secondAttribute="centerX" id="ph4-NO-7em"/>
+                        <constraint firstItem="6" firstAttribute="leading" secondItem="32" secondAttribute="leading" constant="20" symbolic="YES" id="ugg-2X-eB8"/>
+                        <constraint firstItem="6" firstAttribute="top" secondItem="3" secondAttribute="bottom" constant="16" id="wWN-B9-LG6"/>
+                    </constraints>
                 </view>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="32" firstAttribute="top" secondItem="1" secondAttribute="top" id="2r8-LW-3Ic"/>
+                <constraint firstAttribute="bottom" secondItem="32" secondAttribute="bottom" constant="44" id="qOq-1b-ILm"/>
+                <constraint firstItem="32" firstAttribute="leading" secondItem="1" secondAttribute="leading" id="sRP-Dj-kfO"/>
+                <constraint firstItem="32" firstAttribute="trailing" secondItem="1" secondAttribute="trailing" id="vZm-8d-QBh"/>
+            </constraints>
             <simulatedStatusBarMetrics key="simulatedStatusBarMetrics"/>
             <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
             <connections>
+                <outlet property="promotionPasscodeLabel" destination="6" id="mf5-hF-DR2"/>
                 <outlet property="view" destination="32" id="37"/>
             </connections>
         </view>

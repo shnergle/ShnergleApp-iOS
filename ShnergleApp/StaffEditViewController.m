@@ -40,8 +40,6 @@
     NSString *type = appDelegate.staffType;
     if (type == nil) type = @"Staff";
     secondCell.textLabel.text = [NSString stringWithFormat:@"Status: %@", type];
-    NSLog(@"%@",appDelegate.staffType);
-    NSLog(@"%@",currentStaff);
     if ([@"Manager" isEqualToString:type]) {
         promoSwitch.on = YES;
         promoSwitch.enabled = NO;

@@ -151,14 +151,12 @@
 
 -(void)didFinishGettingPromotion:(NSDictionary *)response
 {
-    NSLog(@"Muhjadeen is a nice guy: %@",response);
     if(response != nil)
     {
+        appDelegate.activePromotion = response;
         promotionBody = response[@"description"];
         promotionTitle = response[@"title"];
-        promotionExpiry = [NSString stringWithFormat:@"/%@ claimed.",response[@"maximum"]];
-        
-    
+        promotionExpiry = ([response[@"maximum"] intValue] == 0 || response[@"maximum"] == nil) ? @"":[NSString stringWithFormat:@"/%@ claimed.",response[@"maximum"]];
     }else{
         promotionBody = @"No Promotion active";
         promotionBody = @"Ask a member of staff for a special!";
@@ -280,8 +278,10 @@
 
     overlayView.promotionCount.font = [UIFont systemFontOfSize:9];
     overlayView.promotionCount.textAlignment = NSTextAlignmentCenter;
+    overlayView.promotionCount.textColor = [UIColor whiteColor];
     overlayView.promotionHeadline.font = [UIFont systemFontOfSize:11];
     overlayView.promotionHeadline.textAlignment = NSTextAlignmentCenter;
+    overlayView.promotionHeadline.textColor = [UIColor whiteColor];
     overlayView.promotionContents.font = [UIFont systemFontOfSize:22];
     overlayView.promotionContents.textColor = [UIColor whiteColor];
     overlayView.promotionContents.textAlignment = NSTextAlignmentCenter;
