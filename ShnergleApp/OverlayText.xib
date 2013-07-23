@@ -8,12 +8,6 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tapGestureRecognizer id="2164">
-            <connections>
-                <action selector="tapPullerMenu:" destination="1" id="2198"/>
-                <outlet property="delegate" destination="667" id="2195"/>
-            </connections>
-        </tapGestureRecognizer>
         <view autoresizesSubviews="NO" opaque="NO" tag="5" contentMode="top" id="1" customClass="OverlayText">
             <rect key="frame" x="0.0" y="0.0" width="320" height="1016"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -37,9 +31,6 @@
                                         <constraint firstAttribute="height" constant="68" id="686"/>
                                         <constraint firstAttribute="width" constant="311" id="1226"/>
                                     </constraints>
-                                    <connections>
-                                        <outletCollection property="gestureRecognizers" destination="804" appends="YES" id="805"/>
-                                    </connections>
                                 </imageView>
                                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="692">
                                     <rect key="frame" x="92" y="6" width="139" height="21"/>
@@ -452,9 +443,6 @@
                         <constraint firstAttribute="width" constant="49" id="782"/>
                         <constraint firstAttribute="height" constant="23" id="2188"/>
                     </constraints>
-                    <connections>
-                        <outletCollection property="gestureRecognizers" destination="2164" appends="YES" id="2197"/>
-                    </connections>
                 </imageView>
                 <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2173">
                     <rect key="frame" x="110" y="26" width="100" height="30"/>
@@ -629,8 +617,6 @@
                 <outlet property="staffLabel" destination="dXe-fc-b7U" id="tuF-Xx-Cer"/>
                 <outlet property="summaryContentTextField" destination="ieB-JS-QVm" id="MtX-rN-IcX"/>
                 <outlet property="summaryHeadlineTextField" destination="yFV-32-GOh" id="eav-dy-XE9"/>
-                <outlet property="tapGoing" destination="Twh-rf-nuM" id="C3o-Vt-c7Q"/>
-                <outlet property="tapThinking" destination="YbD-8D-97K" id="EOJ-aK-Lg8"/>
                 <outlet property="thinkingLabel" destination="234" id="QdS-8H-lZg"/>
                 <outlet property="thinkingView" destination="9JC-sc-VKz" id="Txg-Bf-gWo"/>
                 <outlet property="venueMap" destination="1046" id="1164"/>
@@ -648,27 +634,6 @@
                 <action selector="swipeUp:" destination="1" id="16"/>
             </connections>
         </swipeGestureRecognizer>
-        <tapGestureRecognizer id="804">
-            <connections>
-                <action selector="tapPromotion:" destination="1" id="806"/>
-                <outlet property="delegate" destination="636" id="807"/>
-            </connections>
-        </tapGestureRecognizer>
-        <tapGestureRecognizer id="2167">
-            <connections>
-                <action selector="share:" destination="1" id="2169"/>
-            </connections>
-        </tapGestureRecognizer>
-        <tapGestureRecognizer id="Twh-rf-nuM" userLabel="tapGoing">
-            <connections>
-                <action selector="tappedGoing:" destination="1" id="ZjA-ZZ-E6G"/>
-            </connections>
-        </tapGestureRecognizer>
-        <tapGestureRecognizer id="YbD-8D-97K" userLabel="tapThinking">
-            <connections>
-                <action selector="tappedThinking:" destination="1" id="fxs-s0-Gih"/>
-            </connections>
-        </tapGestureRecognizer>
     </objects>
     <resources>
         <image name="112-group.png" width="32" height="21"/>
