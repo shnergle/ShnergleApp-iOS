@@ -74,7 +74,7 @@
 }
 
 - (void)textFieldDidEndEditing:(UITextField *)textField {
-    appDelegate.venueDetailsContent[@(textField.tag)] = textField.text;
+    appDelegate.venueDetailsContent[@(textField.tag)] = (textField.text == nil ? @"" : textField.text);
 }
 
 @end
