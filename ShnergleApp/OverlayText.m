@@ -288,6 +288,10 @@
         [self registerVenue];
     tableSections = @[@"The venue seems to be delightful", @"The Venue is very congested and crowded, with bad service"];
     tableData = @[appDelegate.fullName, @"Bobbby Lobbbby"];
+    CGRect frame = self.commentsTableView.frame;
+    frame.size.height = self.commentsTableView.contentSize.height;
+    self.commentsTableView.frame = frame;
+    self.commentsTableView.scrollEnabled = NO;
 }
 
 -(void)didFinishGettingRsvps: (id) response
@@ -379,7 +383,11 @@
     
     UIAlertView *commentInputView = [[UIAlertView alloc] initWithTitle:@"Comment" message:nil delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"Add", nil];
     commentInputView.alertViewStyle = UIAlertViewStylePlainTextInput;
-    [commentInputView show];
+    //[commentInputView show];
+}
+-(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+    
 }
 
 @end

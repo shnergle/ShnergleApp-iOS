@@ -9,7 +9,7 @@
 #import <GoogleMaps/GoogleMaps.h>
 
 
-@interface OverlayText : UIView <UITableViewDataSource, UITableViewDelegate> {
+@interface OverlayText : UIView <UITableViewDataSource, UITableViewDelegate, UIAlertViewDelegate> {
     BOOL isUp;
     NSArray *tableSections;
     NSArray *tableData;
