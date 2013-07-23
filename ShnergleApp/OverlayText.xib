@@ -317,7 +317,7 @@
                                         <action selector="comment:" destination="1" eventType="touchUpInside" id="Zqy-F2-j0h"/>
                                     </connections>
                                 </button>
-                                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" style="plain" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="2Oe-8f-4w3">
+                                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" style="plain" allowsSelection="NO" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="2Oe-8f-4w3">
                                     <rect key="frame" x="4" y="691" width="310" height="100"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -599,6 +599,7 @@
                 <outlet property="staffLabel" destination="dXe-fc-b7U" id="tuF-Xx-Cer"/>
                 <outlet property="summaryContentTextField" destination="ieB-JS-QVm" id="MtX-rN-IcX"/>
                 <outlet property="summaryHeadlineTextField" destination="yFV-32-GOh" id="eav-dy-XE9"/>
+                <outlet property="tapPromotion" destination="iNl-nA-Q0p" id="4hY-uK-Jw8"/>
                 <outlet property="thinkingLabel" destination="234" id="QdS-8H-lZg"/>
                 <outlet property="thinkingView" destination="9JC-sc-VKz" id="Txg-Bf-gWo"/>
                 <outlet property="venueMap" destination="1046" id="1164"/>

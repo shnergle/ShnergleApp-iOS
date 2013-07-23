@@ -14,6 +14,7 @@
 #import "ShareViewController.h"
 #import "VenueDetailsViewController.h"
 #import <YIPopupTextView/YIPopupTextView.h>
+#import <NSDate+TimeAgo/NSDate+TimeAgo.h>
 
 @implementation OverlayText
 
@@ -311,7 +312,7 @@
         NSMutableArray *comments = [NSMutableArray array];
         
         for (NSDictionary *obj in response) {
-            [users addObject:obj[@"name"]];
+            [users addObject:[NSString stringWithFormat:@"%@ (%@)", obj[@"name"], [[NSDate dateWithTimeIntervalSince1970:[obj[@"time"] intValue]] timeAgo]]];
             [comments addObject:obj[@"comment"]];
         }
         tableData = [NSArray arrayWithArray:users];
