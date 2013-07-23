@@ -25,6 +25,7 @@
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
     [self setRightBarButton:@"Upload" actionSelector:@selector(share)];
+    self.navigationItem.title = @"Check In";
     self.navigationItem.rightBarButtonItem.enabled = YES;
 }
 
