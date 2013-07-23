@@ -158,8 +158,8 @@
 
     item.venueName.textColor = [UIColor whiteColor];
 
-    NSLog(@"value of promotion: %@",appDelegate.aroundVenues[indexPath.item][@"promotion"]);
-    if ([appDelegate.aroundVenues[indexPath.item][@"promotion"] intValue] > 0) {
+    NSLog(@"value of promotion: %@",appDelegate.aroundVenues[indexPath.item][@"promotions"]);
+    if ([appDelegate.aroundVenues[indexPath.item][@"promotions"] intValue] > 0) {
         item.promotionIndicator.hidden = NO;
     } else {
         item.promotionIndicator.hidden = YES;
