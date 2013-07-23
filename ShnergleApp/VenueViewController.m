@@ -291,7 +291,7 @@
 }
 
 - (void)goToPromotionView {
-    if([appDelegate.activeVenue[@"verified"] intValue]== 1 && appDelegate.venueStatus != Manager && appDelegate.venueStatus != Staff){
+    if([appDelegate.activeVenue[@"verified"] intValue]== 1 && appDelegate.venueStatus != Manager && !(appDelegate.venueStatus == Staff && [appDelegate.activeVenue[@"promo_perm"] intValue] == 1)){
         
         PromotionView *promotionView = [[NSBundle mainBundle] loadNibNamed:@"PromotionView" owner:self options:nil][0];
         [promotionView setpromotionTitle:promotionTitle];
