@@ -100,8 +100,13 @@
 
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
     if (buttonIndex != alertView.cancelButtonIndex) {
+        if ([appDelegate.staff[@"managers"] count] > 1) {
         deleteMe = YES;
         [self goBack];
+        } else {
+            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"You cannot remove the last Manager." message:nil delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
+            [alert show];
+        }
     }
 }
 
