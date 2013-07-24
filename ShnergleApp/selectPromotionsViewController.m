@@ -26,6 +26,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    [self setRightBarButton:@"New" actionSelector:@selector(addPromotion)];
     tableData = [NSMutableArray arrayWithArray:@[@"One",@"Two",@"Three"]];
 }
 
@@ -47,7 +48,7 @@
     promotionTicketView.image = img;
     [cell addSubview:promotionTicketView];
     UILabel *promoTitleLabel = [[UILabel alloc]initWithFrame:CGRectMake(0, 10, 311.0, 10)];
-    UILabel *promoContentLabel = [[UILabel alloc]initWithFrame:CGRectMake(0, 30, 311.0, 20)];
+    UILabel *promoContentLabel = [[UILabel alloc]initWithFrame:CGRectMake(0, 20, 311.0, 20)];
     UILabel *promoCountLabel = [[UILabel alloc]initWithFrame:CGRectMake(0, 50, 311.0, 10)];
     [cell addSubview:promoTitleLabel];
     [cell addSubview:promoContentLabel];
@@ -85,6 +86,26 @@
     promoContentLabel.backgroundColor = [UIColor clearColor];
 
 }
+
+- (void)setRightBarButton:(NSString *)title actionSelector:(SEL)actionSelector {
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] init];
+    self.navigationItem.rightBarButtonItem.title = title;
+    self.navigationItem.rightBarButtonItem.target = self;
+    self.navigationItem.rightBarButtonItem.action = actionSelector;
+    [self.navigationItem.rightBarButtonItem setTitleTextAttributes:
+     @{UITextAttributeTextColor: [UIColor blackColor],
+       UITextAttributeTextShadowColor: [UIColor clearColor],
+       UITextAttributeTextShadowOffset: [NSValue valueWithUIOffset:UIOffsetMake(0, 0)],
+       UITextAttributeFont: [UIFont systemFontOfSize:14.0]}
+                                                          forState:UIControlStateNormal];
+}
+
+-(void)addPromotion
+{
+    UIViewController *vc = [self.storyboard instantiateViewControllerWithIdentifier:@"AddPromotionsViewController"];
+    [self.navigationController pushViewController:vc animated:YES];
+}
+
 
 
 @end
