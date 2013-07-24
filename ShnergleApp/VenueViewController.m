@@ -275,7 +275,6 @@
     overlayView.promotionContents.text = promoContent;
     overlayView.promotionHeadline.text = promoHeadline;
     overlayView.promotionCount.text = promoExpiry;
-
     overlayView.promotionCount.font = [UIFont systemFontOfSize:9];
     overlayView.promotionCount.textAlignment = NSTextAlignmentCenter;
     overlayView.promotionCount.textColor = [UIColor whiteColor];
