@@ -7,35 +7,33 @@
 //
 
 #import "selectPromotionsViewController.h"
-
-@interface selectPromotionsViewController ()
-
-@end
+#import "PostRequest.h"
+#import <Toast+UIView.h>
 
 @implementation selectPromotionsViewController
-
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
-{
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-    if (self) {
-        // Custom initialization
-    }
-    return self;
-}
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
     [self setRightBarButton:@"New" actionSelector:@selector(addPromotion)];
     
-    tableData = [NSMutableArray arrayWithArray:@[@"One",@"Two",@"Three"]];
+    promotions = [NSMutableArray arrayWithArray:@[]];
+    [self.view makeToastActivity];
+    [[[PostRequest alloc]init]exec:@"promotions/get" params:[NSString stringWithFormat:@"venue_id=%@&getall=true",appDelegate.activeVenue[@"id"]] delegate:self callback:@selector(didFinishGettingPromotions:)];
+    self.navigationItem.title = @"Manage Promotions";
+    //reusing activepromotion from venue page.
+    appDelegate.activePromotion = nil;
+    
+}
+-(void)didFinishGettingPromotions:(NSArray *)response
+{
+    NSLog(@"%@",response);
+    promotions = [NSMutableArray arrayWithArray:response];
+    [self.tableView reloadData];
+    [self.view hideToastActivity];
+    
 }
 
-- (void)didReceiveMemoryWarning
-{
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
@@ -54,8 +52,15 @@
     [cell addSubview:promoTitleLabel];
     [cell addSubview:promoContentLabel];
     [cell addSubview:promoCountLabel];
-    [self setPromoContentTo:@"Content" promoHeadline:@"Headline" promoExpiry:@"5/5 Claimed" promoTitleLabel:promoTitleLabel promoContentLabel:promoContentLabel promoCountLabel:promoCountLabel];
+    cell.selectionStyle = UITableViewCellSelectionStyleNone;
+    [self setPromoContentTo:promotions[indexPath.row][@"description"] promoHeadline:promotions[indexPath.row][@"title"] promoExpiry:[NSString stringWithFormat:@"/%@ claimed", promotions[indexPath.row][@"maximum"] ] promoTitleLabel:promoTitleLabel promoContentLabel:promoContentLabel promoCountLabel:promoCountLabel];
     return cell;
+}
+
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    appDelegate.activePromotion = promotions[indexPath.row];
+    [self addPromotion];
 }
 
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -65,7 +70,7 @@
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return [tableData count];
+    return [promotions count];
 }
 
 - (void)setPromoContentTo:(NSString *)promoContent promoHeadline:(NSString *)promoHeadline promoExpiry:(NSString *)promoExpiry promoTitleLabel:(UILabel *)promoTitleLabel promoContentLabel:(UILabel *)promoContentLabel promoCountLabel:(UILabel *)promoCountLabel
@@ -106,11 +111,28 @@
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
 
     if (editingStyle == UITableViewCellEditingStyleDelete) {
-        [tableData removeObjectAtIndex:indexPath.row];
-        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationMiddle];
-
+        selectedIndexPath = indexPath;
+        [self.view makeToastActivity];
+        [[[PostRequest alloc]init]exec:@"promotions/set" params:[NSString stringWithFormat:@"delete=true&promotion_id=%@",promotions[indexPath.row][@"id"] ] delegate:self callback:@selector(didFinishDeletingPromotion:) type:@"string"];
+        
     }
 }
+
+-(void)didFinishDeletingPromotion:(NSString *)response
+{
+    [self.view hideToastActivity];
+
+    if([@"true" isEqualToString:response])
+    {
+        [promotions removeObjectAtIndex:selectedIndexPath.row];
+        [self.tableView deleteRowsAtIndexPaths:@[selectedIndexPath] withRowAnimation:UITableViewRowAnimationMiddle];
+
+    }else{
+        UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"Error Deleting promotion" message:nil delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+        [alert show];
+    }
+}
+
 
 
 
