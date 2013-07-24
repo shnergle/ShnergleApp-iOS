@@ -22,23 +22,20 @@
     pickerValues = [NSMutableDictionary dictionary];
 }
 
--(void)addPromotion
-{
-    NSMutableString *params = [[NSMutableString alloc]initWithFormat:@"venue_id=%@&title=%@&description=%@&passcode=%@&start=%d&end=%d&maximum=%@",[appDelegate.activeVenue[@"id"] stringValue],((UITextField *)textFields[@0]).text,((UITextField *)textFields[@1]).text,((UITextField *)textFields[@2]).text,(int)[(NSDate *)pickerValues[@3] timeIntervalSince1970],(int)[(NSDate *)pickerValues[@4] timeIntervalSince1970],((UITextField *)textFields[@5]).text];
-    if(appDelegate.activePromotion[@"id"] != nil)
-    {
-        [params appendFormat:@"&promotion_id=%@",[appDelegate.activePromotion[@"id"] stringValue]];
+- (void)addPromotion {
+    NSMutableString *params = [[NSMutableString alloc]initWithFormat:@"venue_id=%@&title=%@&description=%@&passcode=%@&start=%d&end=%d&maximum=%@", [appDelegate.activeVenue[@"id"] stringValue], ((UITextField *)textFields[@0]).text, ((UITextField *)textFields[@1]).text, ((UITextField *)textFields[@2]).text, (int)[(NSDate *)pickerValues[@3] timeIntervalSince1970], (int)[(NSDate *)pickerValues[@4] timeIntervalSince1970], ((UITextField *)textFields[@5]).text];
+    if (appDelegate.activePromotion[@"id"] != nil) {
+        [params appendFormat:@"&promotion_id=%@", [appDelegate.activePromotion[@"id"] stringValue]];
     }
     [self.view makeToastActivity];
     [[[PostRequest alloc]init]exec:@"promotions/set" params:[params stringByReplacingOccurrencesOfString:@"(null)" withString:@"0"] delegate:self callback:@selector(didFinishAddingPromotion:) type:@"string"];
 }
 
--(void)didFinishAddingPromotion:(NSString *)response
-{
+- (void)didFinishAddingPromotion:(NSString *)response {
     [self.view hideToastActivity];
-    if([@"true" isEqualToString:response]){
-    [self goBack];
-    }else{
+    if ([@"true" isEqualToString : response]) {
+        [self goBack];
+    } else {
         UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"Error" message:nil delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
         [alert show];
     }
@@ -77,26 +74,21 @@
         UILabel *textField = [[UILabel alloc] initWithFrame:CGRectMake(110, 10, 185, 30)];
         textField.backgroundColor = [UIColor clearColor];
         if (pickerValues[@(indexPath.section)] == nil)
-            if ([@"0" isEqualToString:[appDelegate.activePromotion[@"start"] stringValue]]) {
+            if ([@"0" isEqualToString :[appDelegate.activePromotion[@"start"] stringValue]]) {
                 textField.text = @"";
-            } else
-                textField.text = appDelegate.activePromotion != nil ? [NSDateFormatter localizedStringFromDate:[NSDate dateWithTimeIntervalSince1970:[appDelegate.activePromotion[@"start"] intValue]] dateStyle:NSDateFormatterShortStyle timeStyle:NSDateFormatterShortStyle] : @"";
-        else
-            textField.text = [NSDateFormatter localizedStringFromDate:pickerValues[@(indexPath.section)] dateStyle:NSDateFormatterShortStyle timeStyle:NSDateFormatterShortStyle];
-        if ([@"0" isEqualToString:textField.text])
-            textField.text = @"";
+            } else textField.text = appDelegate.activePromotion != nil ? [NSDateFormatter localizedStringFromDate:[NSDate dateWithTimeIntervalSince1970:[appDelegate.activePromotion[@"start"] intValue]] dateStyle:NSDateFormatterShortStyle timeStyle:NSDateFormatterShortStyle] : @"";
+        else textField.text = [NSDateFormatter localizedStringFromDate:pickerValues[@(indexPath.section)] dateStyle:NSDateFormatterShortStyle timeStyle:NSDateFormatterShortStyle];
+        if ([@"0" isEqualToString : textField.text]) textField.text = @"";
         textFields[@3] = textField;
         [cell.contentView addSubview:textField];
     } else if (indexPath.section == 4) {
         UILabel *textField = [[UILabel alloc] initWithFrame:CGRectMake(110, 10, 185, 30)];
         textField.backgroundColor = [UIColor clearColor];
         if (pickerValues[@(indexPath.section)] == nil)
-            if ([@"0" isEqualToString:[appDelegate.activePromotion[@"end"] stringValue]]) {
+            if ([@"0" isEqualToString :[appDelegate.activePromotion[@"end"] stringValue]]) {
                 textField.text = @"";
-            } else
-                textField.text = appDelegate.activePromotion != nil ? [NSDateFormatter localizedStringFromDate:[NSDate dateWithTimeIntervalSince1970:[appDelegate.activePromotion[@"end"] intValue]] dateStyle:NSDateFormatterShortStyle timeStyle:NSDateFormatterShortStyle] : @"";
-        else
-            textField.text = [NSDateFormatter localizedStringFromDate:pickerValues[@(indexPath.section)] dateStyle:NSDateFormatterShortStyle timeStyle:NSDateFormatterShortStyle];
+            } else textField.text = appDelegate.activePromotion != nil ? [NSDateFormatter localizedStringFromDate:[NSDate dateWithTimeIntervalSince1970:[appDelegate.activePromotion[@"end"] intValue]] dateStyle:NSDateFormatterShortStyle timeStyle:NSDateFormatterShortStyle] : @"";
+        else textField.text = [NSDateFormatter localizedStringFromDate:pickerValues[@(indexPath.section)] dateStyle:NSDateFormatterShortStyle timeStyle:NSDateFormatterShortStyle];
         textFields[@4] = textField;
         [cell.contentView addSubview:textField];
     } else if (indexPath.section == 5) {

@@ -27,9 +27,9 @@
     info = nil;
     [imgPickerCam dismissViewControllerAnimated:NO completion:nil];
     UIViewController *vc;
-    if(!appDelegate.activeVenue){
+    if (!appDelegate.activeVenue) {
         vc = [self.storyboard instantiateViewControllerWithIdentifier:@"PhotoLocationViewController"];
-    }else{
+    } else {
         vc = [self.storyboard instantiateViewControllerWithIdentifier:@"ShareViewController"];
     }
     taken = NO;
@@ -53,6 +53,5 @@
         [self takePhoto];
     }
 }
-
 
 @end

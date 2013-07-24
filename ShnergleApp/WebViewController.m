@@ -11,10 +11,9 @@
 
 @implementation WebViewController
 
-- (void)viewDidLoad
-{
+- (void)viewDidLoad {
     [super viewDidLoad];
-	[self.webView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:@"http://www.shnergle.com/"]]];
+    [self.webView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:@"http://www.shnergle.com/"]]];
 }
 
 - (void)viewWillAppear:(BOOL)animated {

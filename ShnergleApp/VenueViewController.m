@@ -21,14 +21,12 @@
 
 @implementation VenueViewController
 
-- (void)setVenueInfo
-{
+- (void)setVenueInfo {
     titleHeader = appDelegate.activeVenue[@"name"];
     venueLat = [appDelegate.activeVenue[@"lat"] doubleValue];
     venueLon = [appDelegate.activeVenue[@"lon"] doubleValue];
     summaryContent = [NSString stringWithFormat:@"%@", appDelegate.activeVenue[@"tonight"]];
     summaryHeadline = [NSString stringWithFormat:@"Tonight at %@", appDelegate.activeVenue[@"name"]];
-
 }
 
 - (void)setHeaderTitle:(NSString *)headerTitle andSubtitle:(NSString *)headerSubtitle {
@@ -98,15 +96,15 @@
 
     if (!appDelegate.activeVenue[@"tonight"]) {
         summaryContent = @"";
-    }else{
+    } else {
         summaryContent = appDelegate.activeVenue[@"tonight"];
     }
-    
-    if(appDelegate.activeVenue[@"headline"]){
+
+    if (appDelegate.activeVenue[@"headline"]) {
         summaryHeadline = appDelegate.activeVenue[@"headline"];
     }
-    
-    if(appDelegate.activeVenue[@"name"]){
+
+    if (appDelegate.activeVenue[@"name"]) {
         titleHeader = appDelegate.activeVenue[@"name"];
     }
 
@@ -127,8 +125,8 @@
     promotionExpiry = @"";
     promotionBody = @"";
 
-    [[[PostRequest alloc]init]exec:@"promotions/get" params:[NSString stringWithFormat:@"venue_id=%@",appDelegate.activeVenue[@"id"] ] delegate:self callback:@selector(didFinishGettingPromotion:)];
-    
+    [[[PostRequest alloc]init]exec:@"promotions/get" params:[NSString stringWithFormat:@"venue_id=%@", appDelegate.activeVenue[@"id"] ] delegate:self callback:@selector(didFinishGettingPromotion:)];
+
     [self displayTextView];
 
     [self configureMapWithLat:[appDelegate.activeVenue[@"lat"] doubleValue] longitude:[appDelegate.activeVenue[@"lon"] doubleValue]];
@@ -149,30 +147,26 @@
     [man startUpdatingLocation];
 }
 
--(void)didFinishGettingPromotion:(NSDictionary *)response
-{
-    if(response != nil)
-    {
+- (void)didFinishGettingPromotion:(NSDictionary *)response {
+    if (response != nil) {
         appDelegate.activePromotion = response;
         promotionBody = response[@"description"];
         promotionTitle = response[@"title"];
-        promotionExpiry = ([response[@"maximum"] intValue] == 0 || response[@"maximum"] == nil) ? @"":[NSString stringWithFormat:@"/%@ claimed.",response[@"maximum"]];
-    }else{
+        promotionExpiry = ([response[@"maximum"] intValue] == 0 || response[@"maximum"] == nil) ? @"" : [NSString stringWithFormat:@"/%@ claimed.", response[@"maximum"]];
+    } else {
         promotionBody = @"No Promotion active";
         promotionBody = @"Ask a member of staff for a special!";
         promotionExpiry = @"";
         overlayView.tapPromotion.delegate = nil;
     }
-    
-    [self setPromoContentTo:promotionBody promoHeadline:promotionTitle promoExpiry:promotionExpiry];
 
+    [self setPromoContentTo:promotionBody promoHeadline:promotionTitle promoExpiry:promotionExpiry];
 }
 
 - (NSString *)getDateFromUnixFormatNotTimeAgo:(id)unixFormat {
     NSDate *date = [NSDate dateWithTimeIntervalSince1970:[unixFormat intValue]];
-    return [NSDateFormatter localizedStringFromDate:date dateStyle:NSDateFormatterShortStyle timeStyle:NSDateFormatterShortStyle] ;
+    return [NSDateFormatter localizedStringFromDate:date dateStyle:NSDateFormatterShortStyle timeStyle:NSDateFormatterShortStyle];
 }
-
 
 - (void)startRefresh:(id)sender {
     [self getPosts];
@@ -221,7 +215,8 @@
 
         if (response != nil) {
             [self.crowdCollectionV reloadItemsAtIndexPaths:@[index]];
-        }    }
+        }
+    }
 }
 
 - (void)displayTextView {
@@ -260,14 +255,14 @@
     [super viewWillAppear:animated];
     self.navigationController.navigationBarHidden = NO;
 
-    
+
     if ([appDelegate.activeVenue[@"manager"] intValue] == 1 && [appDelegate.activeVenue[@"verified"] intValue] == 0) {
         [self setStatus:UnverifiedManager];
     } else if ([appDelegate.activeVenue[@"staff"] intValue] == 1) {
         [self setStatus:Staff];
-    } else if([appDelegate.activeVenue[@"manager"] intValue] == 1 && [appDelegate.activeVenue[@"verified"] intValue] == 1){
+    } else if ([appDelegate.activeVenue[@"manager"] intValue] == 1 && [appDelegate.activeVenue[@"verified"] intValue] == 1) {
         [self setStatus:Manager];
-    }else {
+    } else {
         [self setStatus:Default];
     }
 }
@@ -300,18 +295,16 @@
     [overlayView setTabBarHidden:YES animated:NO];
     [self setPromoContentTo:promotionBody promoHeadline:promotionTitle promoExpiry:promotionExpiry];
     overlayView.summaryContentTextField.text = [NSString stringWithFormat:@"%@", appDelegate.activeVenue[@"tonight"]];
-    overlayView.summaryHeadlineTextField.text = [NSString stringWithFormat:@"%@",appDelegate.activeVenue[@"headline"]];
-    
+    overlayView.summaryHeadlineTextField.text = [NSString stringWithFormat:@"%@", appDelegate.activeVenue[@"headline"]];
+
     [self getPosts];
 }
-
 
 - (void)didFinishDownloadingPosts:(id)response {
     appDelegate.posts = response;
     [self.crowdCollectionV reloadData];
     [refreshControl endRefreshing];
-    if([appDelegate.posts count] > 0 && appDelegate.posts[0] != nil)
-        appDelegate.shareImage = [ImageCache get:@"post" identifier:appDelegate.posts[0][@"id"]];
+    if ([appDelegate.posts count] > 0 && appDelegate.posts[0] != nil) appDelegate.shareImage = [ImageCache get:@"post" identifier:appDelegate.posts[0][@"id"]];
 }
 
 - (void)viewDidDisappear:(BOOL)animated {
@@ -323,20 +316,16 @@
 }
 
 - (void)goToPromotionView {
-    if([appDelegate.activeVenue[@"verified"] intValue]== 1 && appDelegate.venueStatus != Manager && !(appDelegate.venueStatus == Staff && [appDelegate.activeVenue[@"promo_perm"] intValue] == 1)){
-        
+    if ([appDelegate.activeVenue[@"verified"] intValue] == 1 && appDelegate.venueStatus != Manager && !(appDelegate.venueStatus == Staff && [appDelegate.activeVenue[@"promo_perm"] intValue] == 1)) {
         PromotionView *promotionView = [[NSBundle mainBundle] loadNibNamed:@"PromotionView" owner:self options:nil][0];
         [promotionView setpromotionTitle:promotionTitle];
         [promotionView setpromotionBody:promotionBody];
         [promotionView setpromotionExpiry:promotionExpiry];
         [self.navigationController pushViewController:promotionView animated:YES];
-
-    }else{
+    } else {
         AddPromotionsViewController *promotionView = [self.storyboard instantiateViewControllerWithIdentifier:@"SelectPromotionsViewController"];
         [self.navigationController pushViewController:promotionView animated:YES];
     }
-    
-
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
@@ -349,8 +338,7 @@
     }
 }
 
--(void)reloadOverlay
-{
+- (void)reloadOverlay {
     overlayView.claimVenueButton.hidden = YES;
     overlayView.intentionHeightConstraints.constant = -20;
     [overlayView updateConstraints];
@@ -390,7 +378,7 @@
 }
 
 - (void)locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray *)locations {
-    self.checkInButton.enabled = [((CLLocation *)locations.lastObject) distanceFromLocation:[[CLLocation alloc] initWithLatitude:[appDelegate.activeVenue[@"lat"] doubleValue] longitude:[appDelegate.activeVenue[@"lon"] doubleValue]]] <= 200;
+    self.checkInButton.enabled = [((CLLocation *)locations.lastObject)distanceFromLocation :[[CLLocation alloc] initWithLatitude:[appDelegate.activeVenue[@"lat"] doubleValue] longitude:[appDelegate.activeVenue[@"lon"] doubleValue]]] <= 200;
 }
 
 @end

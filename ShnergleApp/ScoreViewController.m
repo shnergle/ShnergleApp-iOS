@@ -28,7 +28,7 @@
     titleView2.text = headerTitle;
     titleView2.adjustsFontSizeToFitWidth = YES;
     [headerTitleSubtitleView addSubview:titleView2];
-    
+
     CGRect subtitleFrame = CGRectMake(0, 24, 200, 20);
     UILabel *subtitleView2 = [[UILabel alloc] initWithFrame:subtitleFrame];
     subtitleView2.backgroundColor = [UIColor clearColor];
@@ -40,48 +40,46 @@
     subtitleView2.text = headerSubtitle;
     subtitleView2.adjustsFontSizeToFitWidth = YES;
     [headerTitleSubtitleView addSubview:subtitleView2];
-    
+
     headerTitleSubtitleView.autoresizingMask = (UIViewAutoresizingFlexibleLeftMargin |
                                                 UIViewAutoresizingFlexibleRightMargin |
                                                 UIViewAutoresizingFlexibleTopMargin |
                                                 UIViewAutoresizingFlexibleBottomMargin);
-    
+
     UITapGestureRecognizer *tapGestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapToFollow)];
     [headerTitleSubtitleView addGestureRecognizer:tapGestureRecognizer];
-    
+
     self.navigationItem.titleView = headerTitleSubtitleView;
     self.navigationItem.titleView.userInteractionEnabled = YES;
 }
 
-- (void)viewDidLoad{
+- (void)viewDidLoad {
     [super viewDidLoad];
     [self setHeaderTitle:@"Shnergle Score" andSubtitle:appDelegate.fullName];
 }
 
-- (void)viewWillAppear:(BOOL)animated{
+- (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     [self.navigationController setNavigationBarHidden:NO animated:YES];
     self.youShare.text = appDelegate.youShare;
-    NSNumber *score = @([self.youShare.text intValue]*[self.valueShare.text intValue]);
+    NSNumber *score = @([self.youShare.text intValue] *[self.valueShare.text intValue]);
     self.scoreShare.text = [score stringValue];
     self.youCheckIn.text = appDelegate.checkIn;
-    NSNumber *scorecheck = @([self.youCheckIn.text intValue]*[self.valueCheckIn.text intValue]);
+    NSNumber *scorecheck = @([self.youCheckIn.text intValue] *[self.valueCheckIn.text intValue]);
     self.scoreCheckIn.text = [scorecheck stringValue];
     self.youRSVP.text = appDelegate.rsvp;
-    NSNumber *scoreRSVP = @([self.youRSVP.text intValue]*[self.valueRSVP.text intValue]);
+    NSNumber *scoreRSVP = @([self.youRSVP.text intValue] *[self.valueRSVP.text intValue]);
     self.scoreRSVP.text = [scoreRSVP stringValue];
-    
+
     self.youComment.text = appDelegate.comment;
-    NSNumber *scoreComment = @([self.youComment.text intValue]*[self.valueComment.text intValue]);
+    NSNumber *scoreComment = @([self.youComment.text intValue] *[self.valueComment.text intValue]);
     self.scoreComment.text = [scoreComment stringValue];
-    
+
     self.youLike.text = appDelegate.like;
-    NSNumber *scoreLike = @([self.youLike.text intValue]*[self.valueLike.text intValue]);
+    NSNumber *scoreLike = @([self.youLike.text intValue] *[self.valueLike.text intValue]);
     self.scoreLike.text = [scoreLike stringValue];
     //NSNumber *total = @([self.scoreCheckIn.text intValue]+[self.scoreShare.text intValue]);
     self.totalShnergleScore.text = appDelegate.totalScore;
-
 }
-
 
 @end

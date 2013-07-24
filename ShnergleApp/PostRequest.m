@@ -21,7 +21,7 @@
     NSMutableURLRequest *urlRequest = [NSMutableURLRequest requestWithURL:url];
     [urlRequest setHTTPMethod:@"POST"];
     [urlRequest setHTTPBody:[paramsString dataUsingEncoding:NSUTF8StringEncoding]];
-    if ([@"image" isEqualToString:type]) [urlRequest setTimeoutInterval:5];
+    if ([@"image" isEqualToString : type]) [urlRequest setTimeoutInterval:5];
     response = [[NSMutableData alloc] init];
     responseObject = object;
     responseCallback = cb;
@@ -43,7 +43,7 @@
     [urlRequest addValue:contentType forHTTPHeaderField:@"Content-Type"];
     [urlRequest setHTTPMethod:@"POST"];
     NSMutableData *body = [NSMutableData data];
-    for (NSString *field in [paramsString componentsSeparatedByString:@"&"]) {
+    for (NSString *field in [paramsString componentsSeparatedByString : @"&"]) {
         NSArray *splitField = [field componentsSeparatedByString:@"="];
         [body appendData:[[NSString stringWithFormat:@"\r\n--%@\r\n", boundary] dataUsingEncoding:NSUTF8StringEncoding]];
         [body appendData:[[NSString stringWithFormat:@"Content-Disposition: form-data; name=\"%@\"\r\n\r\n", splitField[0]] dataUsingEncoding:NSUTF8StringEncoding]];
@@ -68,9 +68,9 @@
 
 - (void)connectionDidFinishLoading:(NSURLConnection *)connection {
     id responseArg;
-    if ([@"image" isEqualToString:responseType]) @try {responseArg = [UIImage imageWithData:response]; } @catch (NSException *e) {
+    if ([@"image" isEqualToString : responseType]) @try {responseArg = [UIImage imageWithData:response]; } @catch (NSException *e) {
         }
-    else if ([@"string" isEqualToString:responseType]) responseArg = [[NSString alloc] initWithData:response encoding:NSUTF8StringEncoding];
+    else if ([@"string" isEqualToString : responseType]) responseArg = [[NSString alloc] initWithData:response encoding:NSUTF8StringEncoding];
     else responseArg = [NSJSONSerialization JSONObjectWithData:response options:NSJSONReadingAllowFragments error:nil];
     NSMethodSignature *methodSig = [[responseObject class] instanceMethodSignatureForSelector:responseCallback];
     NSInvocation *invocation = [NSInvocation invocationWithMethodSignature:methodSig];

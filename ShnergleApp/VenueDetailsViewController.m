@@ -23,11 +23,9 @@
     [super viewDidAppear:animated];
 }
 
--(void)goBack
-{
+- (void)goBack {
     [super goBack];
-    for(UITextField *textField in textFields)
-    {
+    for (UITextField *textField in textFields) {
         [self textFieldDidEndEditing:textField];
     }
 }

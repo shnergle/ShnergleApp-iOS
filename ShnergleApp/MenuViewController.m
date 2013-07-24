@@ -86,10 +86,8 @@
     if (tableView == self.searchResultsView.resultsTableView) {
         return [searchResults count];
     } else {
-        if (section != 0)
-            return [tableData[section] count];
-        else
-            return [tableData[section] count] + [appDelegate.ownVenues count];
+        if (section != 0) return [tableData[section] count];
+        else return [tableData[section] count] + [appDelegate.ownVenues count];
     }
 }
 
@@ -143,8 +141,7 @@
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    if ([[segue destinationViewController] isKindOfClass:[VenueViewController class]])
-        [((VenueViewController *)[segue destinationViewController]) setVenueInfo];
+    if ([[segue destinationViewController] isKindOfClass:[VenueViewController class]]) [((VenueViewController *)[segue destinationViewController])setVenueInfo];
     if ([segue.identifier isEqualToString:@"PromotionSegue"]) {
         appDelegate.topViewType = @"Promotions";
     } else if ([segue.identifier isEqualToString:@"QuietSegue"]) {

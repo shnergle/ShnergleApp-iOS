@@ -20,7 +20,6 @@
     [self.searchResultTable makeToastActivity];
 }
 
-
 - (void)didFinishLoadingVenues:(NSArray *)response {
     appDelegate.locationPickerVenues = [NSMutableArray arrayWithArray:response];
     locationPickerVenuesImmutable = [NSArray arrayWithArray:response];
@@ -29,16 +28,14 @@
 }
 
 - (void)viewWillAppear:(BOOL)animated {
-    
     [super viewWillAppear:animated];
     self.navigationController.navigationBarHidden = NO;
     [self initMap];
-    
+
     appDelegate.addVenueCheckIn = NO;
-    
 }
 
--(IBAction)addVenueCheckIn:(id)sender{
+- (IBAction)addVenueCheckIn:(id)sender {
     appDelegate.addVenueCheckIn = YES;
     UIViewController *vc = [self.storyboard instantiateViewControllerWithIdentifier:@"AddVenueViewController"];
     [self.navigationController pushViewController:vc animated:YES];
@@ -52,19 +49,16 @@
     UITableViewCell *cell = nil;
 
     if (indexPath.row != [appDelegate.locationPickerVenues count]) {
-        
         cell = [tableView dequeueReusableCellWithIdentifier:@"Cell"];
         cell.textLabel.text = appDelegate.locationPickerVenues[indexPath.row][@"name"];
-    }
-    else
-    {
+    } else {
         cell = [tableView dequeueReusableCellWithIdentifier:@"AddVenueCell"];
         cell.textLabel.text = @"+ Add Place";
     }
-    
 
 
-    
+
+
     cell.textLabel.textColor = [UIColor blackColor];
     cell.textLabel.font = [UIFont systemFontOfSize:20.0];
 
@@ -123,12 +117,10 @@
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    if ([@"SegueToShare" isEqualToString:segue.identifier]) {
+    if ([@"SegueToShare" isEqualToString : segue.identifier]) {
         //((ShareViewController *)[segue destinationViewController]).shnergleThis = YES;
         appDelegate.shnergleThis = YES;
     }
 }
-
-
 
 @end

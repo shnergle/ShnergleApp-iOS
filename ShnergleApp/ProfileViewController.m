@@ -89,7 +89,6 @@
     self.navBar.clipsToBounds = YES;
 
     [[[PostRequest alloc] init] exec:@"rankings/get" params:@"" delegate:self callback:@selector(postResponse:)];
-    
 }
 
 - (void)postResponse:(NSDictionary *)result {
@@ -112,9 +111,9 @@
     self.shnerglerLabel.text = [NSString stringWithFormat:@"Shnergle score above %@", [result[@"thresholds"][2] stringValue]];
     self.explorerLabel.text = [NSString stringWithFormat:@"Shnergle score above %@", [result[@"thresholds"][0] stringValue]];
     self.scoutLabel.text = [NSString stringWithFormat:@"Shnergle score above %@", [result[@"thresholds"][1] stringValue]];
-    
+
     self.totalScore.text = [result[@"score"] stringValue];
-    
+
     appDelegate.checkIn = [result[@"posts"] stringValue];
     appDelegate.youShare = [result[@"share"] stringValue];
     appDelegate.totalScore = [result[@"score"] stringValue];
@@ -124,7 +123,7 @@
     [self.view hideToastActivity];
 }
 
--(IBAction)privacy:(id)sender {
+- (IBAction)privacy:(id)sender {
     [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"http://www.shnergle.com/"]];
 }
 
@@ -171,7 +170,7 @@
        UITextAttributeTextShadowColor: [UIColor clearColor],
        UITextAttributeTextShadowOffset: [NSValue valueWithUIOffset:UIOffsetMake(0, 0)],
        UITextAttributeFont: [UIFont systemFontOfSize:14.0]}
-                                      forState:UIControlStateNormal];
+                                                      forState:UIControlStateNormal];
 }
 
 @end

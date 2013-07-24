@@ -44,8 +44,8 @@
 
     frame = CGRectMake(0, screenHeight - 80, self.frame.size.width, self.frame.size.height);
     self = [super initWithFrame:frame];
-        
-    
+
+
     if (self) {
         isUp = NO;
     }
@@ -74,19 +74,16 @@
     [self.tapGoing setEnabled:NO];
     [self.thinkingView setEnabled:NO];
     [self.goingView setEnabled:NO];
-    [[[PostRequest alloc]init]exec:@"venue_rsvps/set" params:[NSString stringWithFormat:@"venue_id=%@&going=%@&from_time=%d&until_time=%d",appDelegate.activeVenue[@"id"],@"true",[self fromTime],[self untilTime]] delegate:self callback:@selector(didIntent:)];
-
+    [[[PostRequest alloc]init]exec:@"venue_rsvps/set" params:[NSString stringWithFormat:@"venue_id=%@&going=%@&from_time=%d&until_time=%d", appDelegate.activeVenue[@"id"], @"true", [self fromTime], [self untilTime]] delegate:self callback:@selector(didIntent:)];
 }
 
 - (IBAction)tappedThinking:(id)sender {
     [self.thinkingView setEnabled:NO];
-    NSString *params = [NSString stringWithFormat:@"venue_id=%@&maybe=%@&from_time=%d&until_time=%d", appDelegate.activeVenue[@"id"], @"true",[self fromTime],[self untilTime]];
+    NSString *params = [NSString stringWithFormat:@"venue_id=%@&maybe=%@&from_time=%d&until_time=%d", appDelegate.activeVenue[@"id"], @"true", [self fromTime], [self untilTime]];
     [[[PostRequest alloc] init] exec:@"venue_rsvps/set" params:params delegate:self callback:@selector(didIntent:)];
-
 }
 
--(void)didIntent:(id) response
-{
+- (void)didIntent:(id)response {
     [self loadVenueIntentions];
 }
 
@@ -224,10 +221,9 @@
     self.summaryHeadlineTextField.hidden = YES;
     self.postUpdateButton.hidden = YES;
     self.publishButton.hidden = YES;
-    
-    
-    if([appDelegate.activeVenue[@"verified"] intValue] == 1)
-    {
+
+
+    if ([appDelegate.activeVenue[@"verified"] intValue] == 1) {
         self.promotionImage.hidden = NO;
         self.promotionHeadline.hidden = NO;
         self.promotionContents.hidden = NO;
@@ -238,28 +234,25 @@
         self.postUpdateButton.hidden = YES;
         self.publishButton.hidden = YES;
         self.intentionHeightConstraints.constant = 45;
-    }else if([appDelegate.activeVenue[@"official"] intValue] == 0)
-    {
+    } else if ([appDelegate.activeVenue[@"official"] intValue] == 0) {
         self.intentionHeightConstraints.constant = 30;
         self.claimVenueButton.hidden = NO;
-        
-    }else if([appDelegate.activeVenue[@"official"] intValue] == 1)
-    {
+    } else if ([appDelegate.activeVenue[@"official"] intValue] == 1) {
         self.intentionHeightConstraints.constant = -20;
     }
-    
-    
+
+
     if (appDelegate.venueStatus == Manager && [appDelegate.activeVenue[@"verified"] intValue] == 1) {
         self.postUpdateButton.hidden = NO;
         self.analyticsButton.hidden = NO;
-        
+
         self.staffButton.hidden = NO;
         self.analyticsImage.hidden = NO;
         self.analyticsLabel.hidden = NO;
-        
+
         self.staffImage.hidden = NO;
         self.staffLabel.hidden = NO;
-    } else if(appDelegate.venueStatus == Staff && [appDelegate.activeVenue[@"verified"] intValue] == 1){
+    } else if (appDelegate.venueStatus == Staff && [appDelegate.activeVenue[@"verified"] intValue] == 1) {
         self.analyticsButton.hidden = NO;
         self.analyticsImage.hidden = NO;
         self.analyticsLabel.hidden = NO;
@@ -267,7 +260,7 @@
         self.staffButton.hidden = YES;
         self.staffImage.hidden = YES;
         self.staffLabel.hidden = YES;
-    }else{
+    } else {
         self.analyticsButton.hidden = YES;
         self.staffButton.hidden = YES;
         self.analyticsImage.hidden = YES;
@@ -279,37 +272,32 @@
 
 - (void)loadVenueIntentions {
     [self makeToastActivity];
-    [[[PostRequest alloc]init]exec:@"venue_rsvps/get" params:[NSString stringWithFormat:@"venue_id=%@&from_time=%d&until_time=%d",appDelegate.activeVenue[@"id"],[self fromTime],[self untilTime]] delegate:self callback:@selector(didFinishGettingRsvps:)];
+    [[[PostRequest alloc]init]exec:@"venue_rsvps/get" params:[NSString stringWithFormat:@"venue_id=%@&from_time=%d&until_time=%d", appDelegate.activeVenue[@"id"], [self fromTime], [self untilTime]] delegate:self callback:@selector(didFinishGettingRsvps:)];
 }
 
 - (void)getComments {
-    [[[PostRequest alloc]init]exec:@"venue_comments/get" params:[NSString stringWithFormat:@"venue_id=%@",appDelegate.activeVenue[@"id"]] delegate:self callback:@selector(didFinishGettingComments:)];
+    [[[PostRequest alloc]init]exec:@"venue_comments/get" params:[NSString stringWithFormat:@"venue_id=%@", appDelegate.activeVenue[@"id"]] delegate:self callback:@selector(didFinishGettingComments:)];
 }
 
 - (void)didAppear {
-    
     [self venueLayoutConfig];
     [self loadVenueIntentions];
-    if(appDelegate.venueDetailsContent)
-        [self registerVenue];
+    if (appDelegate.venueDetailsContent) [self registerVenue];
     tableSections = @[];
     tableData = @[];
     [self getComments];
     CGRect frame = self.commentsTableView.frame;
     frame.size.height = self.commentsTableView.contentSize.height;
-    
 }
 
--(void)didFinishGettingComments:(NSArray *)response
-{
-    if([response count] == 0)
-    {
+- (void)didFinishGettingComments:(NSArray *)response {
+    if ([response count] == 0) {
         tableSections = @[@""];
         tableData = @[@"No comments..."];
-    }else{
+    } else {
         NSMutableArray *users = [NSMutableArray array];
         NSMutableArray *comments = [NSMutableArray array];
-        
+
         for (NSDictionary *obj in response) {
             [users addObject:[NSString stringWithFormat:@"%@ (%@)", obj[@"name"], [[NSDate dateWithTimeIntervalSince1970:[obj[@"time"] intValue]] timeAgo]]];
             [comments addObject:obj[@"comment"]];
@@ -318,68 +306,57 @@
         tableSections = [NSArray arrayWithArray:comments];
     }
     [self.commentsTableView reloadData];
-
 }
 
--(void)didFinishGettingRsvps: (id) response
-{
+- (void)didFinishGettingRsvps:(id)response {
     [self hideToastActivity];
     self.thinkingLabel.text = [response[@"maybe"] stringValue];
     self.goingLabel.text = [response[@"going"] stringValue];
 }
 
 //Silent Warning: time intervals are wrong. they use 24 hrs from yesterday same time until now
--(int)fromTime
-{
+- (int)fromTime {
     return (int)[[[NSDate alloc] init] timeIntervalSince1970] - 86400;
-
 }
--(int)untilTime
-{
-    return (int)[[[NSDate alloc] init] timeIntervalSince1970];
 
+- (int)untilTime {
+    return (int)[[[NSDate alloc] init] timeIntervalSince1970];
 }
 
 - (IBAction)tappedClaimVenue:(id)sender {
-    VenueDetailsViewController *vc = [((VenueViewController *)self.nextResponder.nextResponder).storyboard instantiateViewControllerWithIdentifier:@"VenueDetailsViewIdentifier"];
-    [((VenueViewController *)self.nextResponder.nextResponder).navigationController pushViewController:vc animated:YES];
+    VenueDetailsViewController *vc = [((VenueViewController *)self.nextResponder.nextResponder).storyboard instantiateViewControllerWithIdentifier : @"VenueDetailsViewIdentifier"];
+    [((VenueViewController *)self.nextResponder.nextResponder).navigationController pushViewController : vc animated : YES];
 }
 
--(void)didFinishUpdateVenueDetails:(id)response
-{
-    [[[PostRequest alloc] init] exec:@"venue_managers/set" params:[NSString stringWithFormat:@"venue_id=%@",appDelegate.activeVenue[@"id"]] delegate:self callback:@selector(didFinishClaiming:)];
+- (void)didFinishUpdateVenueDetails:(id)response {
+    [[[PostRequest alloc] init] exec:@"venue_managers/set" params:[NSString stringWithFormat:@"venue_id=%@", appDelegate.activeVenue[@"id"]] delegate:self callback:@selector(didFinishClaiming:)];
 }
 
-
--(void)didFinishClaiming:(id)response
-{
-    [((VenueViewController *)self.nextResponder.nextResponder) reloadOverlay];
+- (void)didFinishClaiming:(id)response {
+    [((VenueViewController *)self.nextResponder.nextResponder)reloadOverlay];
 }
 
--(void)registerVenue
-    {
-        NSMutableString *params = [[NSMutableString alloc] initWithString:@"venue_id="];
-        [params appendString:[appDelegate.activeVenue[@"id"] stringValue]];
-        
-        if (appDelegate.venueDetailsContent[@(8)]) {
-            [params appendString:@"&phone="];
-            [params appendString:appDelegate.venueDetailsContent[@(8)]];
-        }
-        if (appDelegate.venueDetailsContent[@(9)]) {
-            [params appendString:@"&email="];
-            [params appendString:appDelegate.venueDetailsContent[@(9)]];
-        }
-        if (appDelegate.venueDetailsContent[@(10)]) {
-            [params appendString:@"&website="];
-            [params appendString:appDelegate.venueDetailsContent[@(10)]];
-        }
-        
-        [[[PostRequest alloc]init]exec:@"venues/set" params:params delegate:self callback:@selector(didFinishUpdateVenueDetails:)];
+- (void)registerVenue {
+    NSMutableString *params = [[NSMutableString alloc] initWithString:@"venue_id="];
+    [params appendString:[appDelegate.activeVenue[@"id"] stringValue]];
+
+    if (appDelegate.venueDetailsContent[@(8)]) {
+        [params appendString:@"&phone="];
+        [params appendString:appDelegate.venueDetailsContent[@(8)]];
+    }
+    if (appDelegate.venueDetailsContent[@(9)]) {
+        [params appendString:@"&email="];
+        [params appendString:appDelegate.venueDetailsContent[@(9)]];
+    }
+    if (appDelegate.venueDetailsContent[@(10)]) {
+        [params appendString:@"&website="];
+        [params appendString:appDelegate.venueDetailsContent[@(10)]];
     }
 
+    [[[PostRequest alloc]init]exec:@"venues/set" params:params delegate:self callback:@selector(didFinishUpdateVenueDetails:)];
+}
 
-
--(UITableViewCell*)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     UITableViewCell *cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:@"Cell"];
     cell.textLabel.text = tableData[indexPath.row];
     cell.detailTextLabel.text = tableSections[indexPath.row];
@@ -388,38 +365,29 @@
     return cell;
 }
 
-
--(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
-{
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     return 82;
 }
 
-
--(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
-{
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     return [tableData count];
 }
 
--(IBAction)comment:(id)sender{
-    
+- (IBAction)comment:(id)sender {
     YIPopupTextView *commentInputView = [[YIPopupTextView alloc]initWithPlaceHolder:@"Write here.." maxCount:140 buttonStyle:YIPopupTextViewButtonStyleRightCancelAndDone tintsDoneButton:YES];
-    
+
     commentInputView.delegate = self;
     [commentInputView showInView:self];
 }
 
--(void)popupTextView:(YIPopupTextView *)textView didDismissWithText:(NSString *)text cancelled:(BOOL)cancelled
-{
-    [[[PostRequest alloc]init]exec:@"venue_comments/set" params:[NSString stringWithFormat:@"venue_id=%@&comment=%@",appDelegate.activeVenue[@"id"],text] delegate:self callback:@selector(didFinishSendingComment:) type:@"string"];
-    
+- (void)popupTextView:(YIPopupTextView *)textView didDismissWithText:(NSString *)text cancelled:(BOOL)cancelled {
+    [[[PostRequest alloc]init]exec:@"venue_comments/set" params:[NSString stringWithFormat:@"venue_id=%@&comment=%@", appDelegate.activeVenue[@"id"], text] delegate:self callback:@selector(didFinishSendingComment:) type:@"string"];
 }
 
--(void)didFinishSendingComment:(id)response
-{
-    if([@"true" isEqualToString:response])
-    {
+- (void)didFinishSendingComment:(id)response {
+    if ([@"true" isEqualToString : response]) {
         [self getComments];
-    }else{
+    } else {
     }
 }
 
