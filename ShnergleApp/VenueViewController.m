@@ -310,7 +310,7 @@
     appDelegate.posts = response;
     [self.crowdCollectionV reloadData];
     [refreshControl endRefreshing];
-    if(appDelegate.posts[0] != nil)
+    if([appDelegate.posts count] > 0 && appDelegate.posts[0] != nil)
         appDelegate.shareImage = [ImageCache get:@"post" identifier:appDelegate.posts[0][@"id"]];
 }
 
