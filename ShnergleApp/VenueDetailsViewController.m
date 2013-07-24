@@ -21,7 +21,6 @@
 
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
-    [self setRightBarButton:@"Done" actionSelector:@selector(goBack)];
 }
 
 -(void)goBack
