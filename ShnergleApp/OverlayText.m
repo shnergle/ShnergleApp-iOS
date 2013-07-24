@@ -22,6 +22,7 @@
     UIViewController *caller = (UIViewController *)self.nextResponder.nextResponder;
     UIViewController *vc = [caller.storyboard instantiateViewControllerWithIdentifier:@"ShareViewController"];
     appDelegate.shareVenue = YES;
+    appDelegate.shnergleThis = NO;
     [caller.navigationController pushViewController:vc animated:YES];
 }
 
