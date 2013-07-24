@@ -248,7 +248,11 @@ typedef enum {
         if ([keyPath isEqualToString:@"myLocation"] && [object isKindOfClass:[GMSMapView class]]) {
             [map animateToCameraPosition:[GMSCameraPosition cameraWithLatitude:map.myLocation.coordinate.latitude longitude:map.myLocation.coordinate.longitude zoom:13]];
 
-            [self mapView:map didTapAtCoordinate:map.myLocation.coordinate];
+            [map clear];
+            marker = [GMSMarker markerWithPosition:map.myLocation.coordinate];
+            marker.title = @"Selected venue location";
+            marker.map = map;
+
             venueCoord = map.myLocation.coordinate;
 
             self.navigationItem.rightBarButtonItem.enabled = YES;

@@ -153,6 +153,8 @@
         appDelegate.topViewType = @"Trending";
     } else if ([segue.identifier isEqualToString:@"FavouritesSegue"]) {
         appDelegate.topViewType = @"Following";
+    } else if ([segue.identifier isEqualToString:@"AddVenueSegue"]) {
+        appDelegate.addVenueCheckIn = NO;
     }
     if ([segue.identifier isEqualToString:@"ProfileSegue"]) {
         profileCell.selected = NO;
