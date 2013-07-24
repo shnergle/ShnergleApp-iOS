@@ -121,6 +121,7 @@
 -(void)didFinishDeletingPromotion:(NSString *)response
 {
     [self.view hideToastActivity];
+
     if([@"true" isEqualToString:response])
     {
         [promotions removeObjectAtIndex:selectedIndexPath.row];
