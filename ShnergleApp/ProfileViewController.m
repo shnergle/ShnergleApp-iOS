@@ -106,16 +106,21 @@
         default:
             break;
     }
-    self.followingLabel.text = [result[@"following"] stringValue];
-    self.redeemedLabel.text = [result[@"redemptions"] stringValue];
-    self.checkInLabel.text = [result[@"posts"] stringValue];
-    appDelegate.checkIn = [result[@"posts"] stringValue];
+    self.followingLabel.text = [result[@"following_total"] stringValue];
+    self.redeemedLabel.text = [result[@"redemptions_total"] stringValue];
+    self.checkInLabel.text = [result[@"posts_total"] stringValue];
     self.shnerglerLabel.text = [NSString stringWithFormat:@"Shnergle score above %@", [result[@"thresholds"][2] stringValue]];
     self.explorerLabel.text = [NSString stringWithFormat:@"Shnergle score above %@", [result[@"thresholds"][0] stringValue]];
     self.scoutLabel.text = [NSString stringWithFormat:@"Shnergle score above %@", [result[@"thresholds"][1] stringValue]];
+    
+    self.totalScore.text = [result[@"score"] stringValue];
+    
+    appDelegate.checkIn = [result[@"posts"] stringValue];
     appDelegate.youShare = [result[@"share"] stringValue];
-    self.totalScore.text = [NSString stringWithFormat:@"Your Shnergle score is: %@", [result[@"score"] stringValue]];
     appDelegate.totalScore = [result[@"score"] stringValue];
+    appDelegate.rsvp = [result[@"rsvps"] stringValue];
+    appDelegate.comment = [result[@"comments"] stringValue];
+    appDelegate.like = [result[@"likes"] stringValue];
     [self.view hideToastActivity];
 }
 
