@@ -234,6 +234,7 @@ typedef enum {
 
 - (void)initMap {
     hasPositionLocked = NO;
+    self.navigationItem.rightBarButtonItem.enabled = NO;
     map = [[GMSMapView alloc] initWithFrame:self.mapView.frame];
     map.myLocationEnabled = YES;
     map.delegate = self;
@@ -249,6 +250,8 @@ typedef enum {
 
             [self mapView:map didTapAtCoordinate:map.myLocation.coordinate];
             venueCoord = map.myLocation.coordinate;
+
+            self.navigationItem.rightBarButtonItem.enabled = YES;
 
             hasPositionLocked = YES;
         }

@@ -27,6 +27,7 @@
 {
     [super viewDidLoad];
     [self setRightBarButton:@"New" actionSelector:@selector(addPromotion)];
+    
     tableData = [NSMutableArray arrayWithArray:@[@"One",@"Two",@"Three"]];
 }
 
@@ -99,6 +100,19 @@
        UITextAttributeFont: [UIFont systemFontOfSize:14.0]}
                                                           forState:UIControlStateNormal];
 }
+
+
+
+- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
+
+    if (editingStyle == UITableViewCellEditingStyleDelete) {
+        [tableData removeObjectAtIndex:indexPath.row];
+        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationMiddle];
+
+    }
+}
+
+
 
 -(void)addPromotion
 {
