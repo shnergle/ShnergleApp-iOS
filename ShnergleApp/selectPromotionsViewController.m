@@ -27,6 +27,7 @@
 {
     [super viewDidLoad];
     [self setRightBarButton:@"New" actionSelector:@selector(addPromotion)];
+    
     tableData = [NSMutableArray arrayWithArray:@[@"One",@"Two",@"Three"]];
 }
 
@@ -101,11 +102,16 @@
 }
 
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
+
     if (editingStyle == UITableViewCellEditingStyleDelete) {
+        [self.tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationRight];
         [tableData removeObjectAtIndex:indexPath.row];
         [self.tableView reloadData];
+
     }
 }
+
+
 
 -(void)addPromotion
 {
