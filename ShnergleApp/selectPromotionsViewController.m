@@ -100,6 +100,13 @@
                                                           forState:UIControlStateNormal];
 }
 
+- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
+    if (editingStyle == UITableViewCellEditingStyleDelete) {
+        [tableData removeObjectAtIndex:indexPath.row];
+        [self.tableView reloadData];
+    }
+}
+
 -(void)addPromotion
 {
     UIViewController *vc = [self.storyboard instantiateViewControllerWithIdentifier:@"AddPromotionsViewController"];
