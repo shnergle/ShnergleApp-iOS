@@ -33,6 +33,10 @@
 @property (weak, nonatomic) IBOutlet UILabel *explorerLabel;
 @property (weak, nonatomic) IBOutlet UILabel *shnerglerLabel;
 @property (weak, nonatomic) IBOutlet UILabel *scoutLabel;
+@property (weak, nonatomic) IBOutlet UILabel *totalScore;
+
+
+
 
 - (IBAction)twitterSwitchAction:(id)sender;
 - (IBAction)signOut:(id)sender;

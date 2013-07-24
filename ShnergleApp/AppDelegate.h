@@ -23,6 +23,7 @@
 
 @property (strong, nonatomic) NSString *youShare;
 @property (strong, nonatomic) NSString *checkIn;
+@property (strong, nonatomic) NSString *totalScore;
 
 @property (strong, nonatomic) NSArray *posts;
 @property (strong, nonatomic) NSArray *aroundVenues;

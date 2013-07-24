@@ -1962,28 +1962,28 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                                             <constraint firstItem="sAt-h0-qjm" firstAttribute="top" secondItem="5i0-JZ-HpY" secondAttribute="bottom" constant="7" id="zSj-Fd-Xh6"/>
                                         </constraints>
                                     </view>
-                                    <label hidden="YES" opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="So far you have checked in 5 times this month you need three more to maintain your status" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="297" translatesAutoresizingMaskIntoConstraints="NO" id="xDq-dx-kAB">
-                                        <rect key="frame" x="10" y="-1" width="297" height="32"/>
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="297" translatesAutoresizingMaskIntoConstraints="NO" id="xDq-dx-kAB">
+                                        <rect key="frame" x="10" y="-1" width="297" height="50"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="32" id="J7s-dQ-lQy"/>
+                                            <constraint firstAttribute="height" constant="50" id="J7s-dQ-lQy"/>
                                         </constraints>
+                                        <string key="text">If you become one of the most active 20% of Shnergle users, you will appear on the podium below, unlocking more valuable promotions!</string>
                                         <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                         <color key="textColor" red="0.058823533356189728" green="0.60784316062927246" blue="0.87843143939971924" alpha="1" colorSpace="deviceRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label hidden="YES" opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="At the rate of two check-ins per week you represent the top 5%" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="283" translatesAutoresizingMaskIntoConstraints="NO" id="UL8-cw-UNK">
-                                        <rect key="frame" x="10" y="31" width="283" height="36"/>
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Your Shnergle score is: 0" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="283" translatesAutoresizingMaskIntoConstraints="NO" id="UL8-cw-UNK">
+                                        <rect key="frame" x="10" y="47" width="283" height="20"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="36" id="TiE-Cr-lSG"/>
+                                            <constraint firstAttribute="height" constant="20" id="TiE-Cr-lSG"/>
                                         </constraints>
-                                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="12"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
                                 <color key="backgroundColor" red="0.89411764705882346" green="0.90196078431372551" blue="0.92941176470588238" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
-                                    <constraint firstItem="UL8-cw-UNK" firstAttribute="top" secondItem="xDq-dx-kAB" secondAttribute="bottom" id="3em-Ml-EZm"/>
+                                    <constraint firstItem="UL8-cw-UNK" firstAttribute="top" secondItem="xDq-dx-kAB" secondAttribute="bottom" constant="-2" id="3em-Ml-EZm"/>
                                     <constraint firstAttribute="bottom" secondItem="d7K-2j-bO2" secondAttribute="bottom" constant="372" id="BEl-jd-YB1"/>
                                     <constraint firstItem="d7K-2j-bO2" firstAttribute="trailing" secondItem="ho1-hg-V7U" secondAttribute="trailing" id="OCl-5K-dMd"/>
                                     <constraint firstAttribute="trailing" secondItem="xDq-dx-kAB" secondAttribute="trailing" constant="13" id="Sn3-ee-TOZ"/>
@@ -2031,6 +2031,7 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                         <outlet property="scoutView" destination="oUU-4O-C2G" id="thm-UD-aEQ"/>
                         <outlet property="shnerglerLabel" destination="dJa-qt-Zm3" id="R1R-Ti-48I"/>
                         <outlet property="shnerglerView" destination="TKV-Hw-kaW" id="JV9-LM-LSK"/>
+                        <outlet property="totalScore" destination="UL8-cw-UNK" id="YNU-8R-nBp"/>
                         <outlet property="twitterSwitch" destination="f4K-tX-UWy" id="F0h-nK-o20"/>
                         <outlet property="userProfileImage1" destination="B8S-PQ-qb1" id="veS-jJ-R3L"/>
                         <outlet property="userProfileImage2" destination="h0v-Dh-fc8" id="o6g-Gf-1HW"/>
