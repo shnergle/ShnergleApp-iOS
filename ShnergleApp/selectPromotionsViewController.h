@@ -7,8 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "CustomBackViewController.h"
 
-@interface selectPromotionsViewController : UITableViewController <UITableViewDataSource, UITableViewDelegate>
+@interface selectPromotionsViewController : CustomBackViewController <UITableViewDataSource, UITableViewDelegate>
 {
     NSMutableArray *tableData;
 }
