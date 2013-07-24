@@ -19,15 +19,20 @@
     
     promotions = [NSMutableArray arrayWithArray:@[]];
     [self.view makeToastActivity];
-    [[[PostRequest alloc]init]exec:@"promotions/get" params:[NSString stringWithFormat:@"venue_id=%@&getall=true",appDelegate.activeVenue[@"id"]] delegate:self callback:@selector(didFinishGettingPromotions:)];
     self.navigationItem.title = @"Manage Promotions";
     //reusing activepromotion from venue page.
     appDelegate.activePromotion = nil;
     
 }
+
+- (void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
+
+    [[[PostRequest alloc]init]exec:@"promotions/get" params:[NSString stringWithFormat:@"venue_id=%@&getall=true",appDelegate.activeVenue[@"id"]] delegate:self callback:@selector(didFinishGettingPromotions:)];
+}
+
 -(void)didFinishGettingPromotions:(NSArray *)response
 {
-    NSLog(@"%@",response);
     promotions = [NSMutableArray arrayWithArray:response];
     [self.tableView reloadData];
     [self.view hideToastActivity];

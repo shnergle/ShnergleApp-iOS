@@ -265,8 +265,7 @@ typedef enum {
 - (void)mapView:(GMSMapView *)mapView didTapAtCoordinate:(CLLocationCoordinate2D)coordinate {
     if (appDelegate.addVenueCheckIn) {
         [mapView clear];
-        CLLocationCoordinate2D position = CLLocationCoordinate2DMake(coordinate.latitude, coordinate.longitude);
-        marker = [GMSMarker markerWithPosition:position];
+        marker = [GMSMarker markerWithPosition:coordinate];
         marker.title = @"Selected venue location";
         marker.map = mapView;
     }

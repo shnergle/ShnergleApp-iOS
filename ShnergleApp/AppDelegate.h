@@ -33,6 +33,7 @@
 @property (strong, nonatomic) NSArray *followingVenues;
 @property (strong, nonatomic) NSArray *quietVenues;
 @property (strong, nonatomic) NSArray *trendingVenues;
+@property (strong, nonatomic) NSArray *promoVenues;
 @property (strong, nonatomic) NSMutableArray *locationPickerVenues;
 
 
