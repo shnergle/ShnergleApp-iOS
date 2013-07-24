@@ -329,7 +329,7 @@
         [self.navigationController pushViewController:promotionView animated:YES];
 
     }else{
-        AddPromotionsViewController *promotionView = [self.storyboard instantiateViewControllerWithIdentifier:@"AddPromotionsViewController"];
+        AddPromotionsViewController *promotionView = [self.storyboard instantiateViewControllerWithIdentifier:@"SelectPromotionsViewController"];
         [self.navigationController pushViewController:promotionView animated:YES];
     }
     
