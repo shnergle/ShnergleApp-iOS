@@ -2069,27 +2069,34 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                                             <constraint firstItem="3F8-dh-TCs" firstAttribute="leading" secondItem="sAt-h0-qjm" secondAttribute="leading" id="zoj-Qh-reV"/>
                                         </constraints>
                                     </view>
-                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="297" translatesAutoresizingMaskIntoConstraints="NO" id="xDq-dx-kAB">
-                                        <rect key="frame" x="10" y="5" width="297" height="50"/>
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="297" translatesAutoresizingMaskIntoConstraints="NO" id="xDq-dx-kAB">
+                                        <rect key="frame" x="10" y="5" width="297" height="69"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="50" id="2TS-7d-mVs"/>
+                                            <constraint firstAttribute="height" constant="69" id="2TS-7d-mVs"/>
                                         </constraints>
-                                        <string key="text">If you become one of the most active 20% of Shnergle users, you will appear on the podium below, unlocking more valuable promotions!</string>
-                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <color key="textColor" red="0.058823533356189728" green="0.60784316062927246" blue="0.87843143939971924" alpha="1" colorSpace="deviceRGB"/>
+                                        <attributedString key="attributedText">
+                                            <fragment>
+                                                <string key="content">If you become one of the most active 20% of Shnergle users in the last 30 days, you will appear on the podium below, unlocking more valuable promotions!</string>
+                                                <attributes>
+                                                    <color key="NSColor" red="0.058823533356189728" green="0.60784316062927246" blue="0.87843143939971924" alpha="1" colorSpace="deviceRGB"/>
+                                                    <font key="NSFont" size="14" name="HelveticaNeue"/>
+                                                    <paragraphStyle key="NSParagraphStyle" alignment="justified" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
+                                                </attributes>
+                                            </fragment>
+                                        </attributedString>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Your Shnergle score is:" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="129" translatesAutoresizingMaskIntoConstraints="NO" id="UL8-cw-UNK">
-                                        <rect key="frame" x="10" y="67" width="129" height="20"/>
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Your Shnergle score is:" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="149" translatesAutoresizingMaskIntoConstraints="NO" id="UL8-cw-UNK">
+                                        <rect key="frame" x="10" y="72" width="149" height="20"/>
                                         <constraints>
-                                            <constraint firstAttribute="width" constant="129" id="Dog-G8-rPI"/>
+                                            <constraint firstAttribute="width" constant="149" id="Dog-G8-rPI"/>
                                             <constraint firstAttribute="height" constant="20" id="RKY-zq-Taw"/>
                                         </constraints>
-                                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZVT-CK-7XI">
-                                        <rect key="frame" x="138" y="66" width="49" height="21"/>
+                                        <rect key="frame" x="158" y="71" width="49" height="21"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="49" id="wBa-Kn-yIx"/>
@@ -2100,15 +2107,15 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                                 </subviews>
                                 <color key="backgroundColor" red="0.89411764705882346" green="0.90196078431372551" blue="0.92941176470588238" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
-                                    <constraint firstItem="UL8-cw-UNK" firstAttribute="top" secondItem="xDq-dx-kAB" secondAttribute="bottom" constant="12" id="CRO-O9-2IB"/>
+                                    <constraint firstItem="UL8-cw-UNK" firstAttribute="top" secondItem="xDq-dx-kAB" secondAttribute="bottom" constant="-2" id="CRO-O9-2IB"/>
                                     <constraint firstItem="xDq-dx-kAB" firstAttribute="leading" secondItem="UL8-cw-UNK" secondAttribute="leading" id="GQ2-2W-1Ze"/>
                                     <constraint firstItem="xDq-dx-kAB" firstAttribute="leading" secondItem="HP1-zJ-Evb" secondAttribute="leading" constant="10" id="ISc-Mg-qUV"/>
-                                    <constraint firstAttribute="bottom" secondItem="d7K-2j-bO2" secondAttribute="bottom" constant="800" id="K0j-EG-qqh"/>
-                                    <constraint firstItem="ZVT-CK-7XI" firstAttribute="leading" secondItem="HP1-zJ-Evb" secondAttribute="leading" constant="138" id="LSl-He-iKt"/>
+                                    <constraint firstAttribute="bottom" secondItem="d7K-2j-bO2" secondAttribute="bottom" constant="156" id="K0j-EG-qqh"/>
+                                    <constraint firstItem="ZVT-CK-7XI" firstAttribute="leading" secondItem="HP1-zJ-Evb" secondAttribute="leading" constant="158" id="LSl-He-iKt"/>
                                     <constraint firstItem="xDq-dx-kAB" firstAttribute="top" secondItem="HP1-zJ-Evb" secondAttribute="top" constant="5" id="NUm-et-fNS"/>
-                                    <constraint firstItem="d7K-2j-bO2" firstAttribute="top" secondItem="UL8-cw-UNK" secondAttribute="bottom" constant="15" id="VZ6-ri-CXB"/>
+                                    <constraint firstItem="d7K-2j-bO2" firstAttribute="top" secondItem="UL8-cw-UNK" secondAttribute="bottom" constant="10" id="VZ6-ri-CXB"/>
                                     <constraint firstItem="UL8-cw-UNK" firstAttribute="bottom" secondItem="ZVT-CK-7XI" secondAttribute="bottom" id="WUt-td-7Pj"/>
-                                    <constraint firstItem="ZVT-CK-7XI" firstAttribute="top" secondItem="xDq-dx-kAB" secondAttribute="bottom" constant="11" id="WeA-hb-dw2"/>
+                                    <constraint firstItem="ZVT-CK-7XI" firstAttribute="top" secondItem="xDq-dx-kAB" secondAttribute="bottom" constant="-3" id="WeA-hb-dw2"/>
                                     <constraint firstItem="d7K-2j-bO2" firstAttribute="leading" secondItem="HP1-zJ-Evb" secondAttribute="leading" constant="4" id="Zyl-zr-0D4"/>
                                     <constraint firstAttribute="trailing" secondItem="d7K-2j-bO2" secondAttribute="trailing" constant="4" id="dSP-7X-p3V"/>
                                     <constraint firstItem="d7K-2j-bO2" firstAttribute="centerX" secondItem="HP1-zJ-Evb" secondAttribute="centerX" id="j40-I7-FyD"/>
@@ -2160,7 +2167,7 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                 <placeholder placeholderIdentifier="IBFirstResponder" id="S6M-cZ-UVf" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <tapGestureRecognizer id="VCU-ik-qrT">
                     <connections>
-                        <segue destination="Hxi-4h-Khl" kind="push" id="Mwz-hY-2Xw"/>
+                        <segue destination="Hxi-4h-Khl" kind="push" identifier="ProfileFavouritesSegue" id="Mwz-hY-2Xw"/>
                     </connections>
                 </tapGestureRecognizer>
                 <tapGestureRecognizer id="jpe-rx-rfA">
@@ -2183,14 +2190,21 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                         <rect key="frame" x="0.0" y="20" width="320" height="548"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" lineBreakMode="tailTruncation" numberOfLines="8" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="306" translatesAutoresizingMaskIntoConstraints="NO" id="CCt-IX-LtW">
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="8" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="306" translatesAutoresizingMaskIntoConstraints="NO" id="CCt-IX-LtW">
                                 <rect key="frame" x="6" y="6" width="306" height="80"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="80" id="ZWU-xU-3ja"/>
                                 </constraints>
-                                <string key="text">The more you use Shnergle, the more you help merchants promote their venues. We want to help them reward you by offering you more valuable promotions, so your Shnergle Score is determined by how valuable your actions are to merchants.</string>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="12"/>
-                                <color key="textColor" red="0.058823533359999999" green="0.60784316059999999" blue="0.87843143940000001" alpha="1" colorSpace="deviceRGB"/>
+                                <attributedString key="attributedText">
+                                    <fragment>
+                                        <string key="content">The more you use Shnergle, the more you help merchants promote their venues. We want to help them reward you by offering you more valuable promotions, so your Shnergle Score is determined by how valuable your actions are to merchants.</string>
+                                        <attributes>
+                                            <color key="NSColor" red="0.058823533359999999" green="0.60784316059999999" blue="0.87843143940000001" alpha="1" colorSpace="deviceRGB"/>
+                                            <font key="NSFont" size="12" name="HelveticaNeue-Bold"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="justified" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
+                                        </attributes>
+                                    </fragment>
+                                </attributedString>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Action" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lbw-56-RM0">
