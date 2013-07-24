@@ -67,8 +67,9 @@
     self.youCheckIn.text = appDelegate.checkIn;
     NSNumber *scorecheck = @([self.youCheckIn.text intValue]*[self.valueCheckIn.text intValue]);
     self.scoreCheckIn.text = [scorecheck stringValue];
-    NSNumber *total = @([self.scoreCheckIn.text intValue]+[self.scoreShare.text intValue]);
-    self.totalShnergleScore.text = [total stringValue];
+    //NSNumber *total = @([self.scoreCheckIn.text intValue]+[self.scoreShare.text intValue]);
+    self.totalShnergleScore.text = appDelegate.totalScore;
+
 }
 
 

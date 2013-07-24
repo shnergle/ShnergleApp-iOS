@@ -114,6 +114,8 @@
     self.explorerLabel.text = [NSString stringWithFormat:@"Shnergle score above %@", [result[@"thresholds"][0] stringValue]];
     self.scoutLabel.text = [NSString stringWithFormat:@"Shnergle score above %@", [result[@"thresholds"][1] stringValue]];
     appDelegate.youShare = [result[@"share"] stringValue];
+    self.totalScore.text = [NSString stringWithFormat:@"Your Shnergle score is: %@", [result[@"score"] stringValue]];
+    appDelegate.totalScore = [result[@"score"] stringValue];
     [self.view hideToastActivity];
 }
 
