@@ -48,7 +48,7 @@
     [cell addSubview:promotionTicketView];
     UILabel *promoTitleLabel = [[UILabel alloc]initWithFrame:CGRectMake(0, 10, 311.0, 10)];
     UILabel *promoContentLabel = [[UILabel alloc]initWithFrame:CGRectMake(0, 30, 311.0, 20)];
-    UILabel *promoCountLabel = [[UILabel alloc]initWithFrame:CGRectMake(0, 60, 311.0, 10)];
+    UILabel *promoCountLabel = [[UILabel alloc]initWithFrame:CGRectMake(0, 50, 311.0, 10)];
     [cell addSubview:promoTitleLabel];
     [cell addSubview:promoContentLabel];
     [cell addSubview:promoCountLabel];
@@ -68,18 +68,18 @@
 
 - (void)setPromoContentTo:(NSString *)promoContent promoHeadline:(NSString *)promoHeadline promoExpiry:(NSString *)promoExpiry promoTitleLabel:(UILabel *)promoTitleLabel promoContentLabel:(UILabel *)promoContentLabel promoCountLabel:(UILabel *)promoCountLabel
 {
-    promoContentLabel.text = promoContent;
-    promoTitleLabel.text = promoHeadline;
     promoCountLabel.text = promoExpiry;
-    promoCountLabel.font = [UIFont systemFontOfSize:4];
+    promoCountLabel.font = [UIFont systemFontOfSize:8];
     promoCountLabel.textAlignment = NSTextAlignmentCenter;
     promoCountLabel.textColor = [UIColor whiteColor];
     promoCountLabel.backgroundColor = [UIColor clearColor];
-    promoTitleLabel.font = [UIFont systemFontOfSize:6];
+    promoTitleLabel.text = promoHeadline;
+    promoTitleLabel.font = [UIFont systemFontOfSize:10];
     promoTitleLabel.textAlignment = NSTextAlignmentCenter;
     promoTitleLabel.textColor = [UIColor whiteColor];
     promoTitleLabel.backgroundColor = [UIColor clearColor];
-    promoContentLabel.font = [UIFont systemFontOfSize:17];
+    promoContentLabel.text = promoContent;
+    promoContentLabel.font = [UIFont systemFontOfSize:21];
     promoContentLabel.textColor = [UIColor whiteColor];
     promoContentLabel.textAlignment = NSTextAlignmentCenter;
     promoContentLabel.backgroundColor = [UIColor clearColor];
