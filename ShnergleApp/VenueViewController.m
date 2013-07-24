@@ -260,6 +260,7 @@
     [super viewWillAppear:animated];
     self.navigationController.navigationBarHidden = NO;
 
+    
     if ([appDelegate.activeVenue[@"manager"] intValue] == 1 && [appDelegate.activeVenue[@"verified"] intValue] == 0) {
         [self setStatus:UnverifiedManager];
     } else if ([appDelegate.activeVenue[@"staff"] intValue] == 1) {
@@ -304,10 +305,13 @@
     [self getPosts];
 }
 
+
 - (void)didFinishDownloadingPosts:(id)response {
     appDelegate.posts = response;
     [self.crowdCollectionV reloadData];
     [refreshControl endRefreshing];
+    if(appDelegate.posts[0] != nil)
+        appDelegate.shareImage = [ImageCache get:@"post" identifier:appDelegate.posts[0][@"id"]];
 }
 
 - (void)viewDidDisappear:(BOOL)animated {
