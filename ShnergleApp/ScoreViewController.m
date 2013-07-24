@@ -67,6 +67,17 @@
     self.youCheckIn.text = appDelegate.checkIn;
     NSNumber *scorecheck = @([self.youCheckIn.text intValue]*[self.valueCheckIn.text intValue]);
     self.scoreCheckIn.text = [scorecheck stringValue];
+    self.youRSVP.text = appDelegate.rsvp;
+    NSNumber *scoreRSVP = @([self.youRSVP.text intValue]*[self.valueRSVP.text intValue]);
+    self.scoreRSVP.text = [scoreRSVP stringValue];
+    
+    self.youComment.text = appDelegate.comment;
+    NSNumber *scoreComment = @([self.youComment.text intValue]*[self.valueComment.text intValue]);
+    self.scoreComment.text = [scoreComment stringValue];
+    
+    self.youLike.text = appDelegate.like;
+    NSNumber *scoreLike = @([self.youLike.text intValue]*[self.valueLike.text intValue]);
+    self.scoreLike.text = [scoreLike stringValue];
     //NSNumber *total = @([self.scoreCheckIn.text intValue]+[self.scoreShare.text intValue]);
     self.totalShnergleScore.text = appDelegate.totalScore;
 
