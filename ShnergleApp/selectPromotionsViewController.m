@@ -38,8 +38,9 @@
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell"];
-    if(!cell)
+    /*if(!cell)
         UITableViewCell *cell = [UITableViewCell]
+     */
     UIImageView *promotionTicketView = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"promotion.png"]];
     [cell addSubview:promotionTicketView];
     return cell;
