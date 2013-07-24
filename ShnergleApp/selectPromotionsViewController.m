@@ -26,7 +26,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    tableData = [NSMutableArray arrayWithArray:@["One","Two","Three"]];
+    tableData = [NSMutableArray arrayWithArray:@[@"One",@"Two",@"Three"]];
 }
 
 - (void)didReceiveMemoryWarning
@@ -38,12 +38,17 @@
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell"];
+    /*if(!cell)
+        UITableViewCell *cell = [UITableViewCell]
+     */
     UIImageView *promotionTicketView = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"promotion.png"]];
+    [cell addSubview:promotionTicketView];
+    return cell;
 }
 
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    
+    return 135.0;
 }
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
