@@ -152,7 +152,7 @@
         appDelegate.activePromotion = response;
         promotionBody = response[@"description"];
         promotionTitle = response[@"title"];
-        promotionExpiry = ([response[@"maximum"] intValue] == 0 || response[@"maximum"] == nil) ? @"" : [NSString stringWithFormat:@"/%@ claimed.", response[@"maximum"]];
+        promotionExpiry = ([response[@"maximum"] intValue] == 0 || response[@"maximum"] == nil) ? [NSString stringWithFormat:@"%@ claimed", response[@"redemptions"]] : [NSString stringWithFormat:@"%@/%@ claimed", response[@"redemptions"], response[@"maximum"]];
     } else {
         promotionBody = @"No Promotion active";
         promotionBody = @"Ask a member of staff for a special!";
