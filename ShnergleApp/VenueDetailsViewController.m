@@ -28,10 +28,10 @@
 
 - (void)checkAndSave:(id)sender {
     if ([self allFieldsFilledIn]) {
-        [super goBack];
         for (UITextField *textField in textFields) {
             [self textFieldDidEndEditing:textField];
         }
+        [super goBack];
     } else {
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Please fill in all fields." message:nil delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
         [alert show];
@@ -47,7 +47,6 @@
 }
 
 - (void)goBack {
-    [super goBack];
     if (appDelegate.claiming)
         appDelegate.venueDetailsContent = nil;
     else
@@ -55,6 +54,7 @@
             [self textFieldDidEndEditing:textField];
         }
     appDelegate.claiming = NO;
+    [super goBack];
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
