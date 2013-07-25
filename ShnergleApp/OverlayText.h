@@ -66,6 +66,11 @@
 @property (weak, nonatomic) IBOutlet UITapGestureRecognizer *tapThinking;
 
 
+@property (weak, nonatomic) IBOutlet UIImageView *Done;
+@property (weak, nonatomic) IBOutlet UIImageView *Change;
+
+
+
 - (IBAction)tappedGoing:(id)sender;
 - (IBAction)tappedThinking:(id)sender;
 

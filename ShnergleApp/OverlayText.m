@@ -108,6 +108,7 @@
     [self.summaryHeadlineTextField setBackgroundColor:[UIColor clearColor]];
 
     [self.publishButton setHidden:YES];
+    self.Done.hidden = YES;
 
     self.summaryContentTextField.layer.borderWidth = 0.0f;
     self.summaryHeadlineTextField.layer.borderWidth = 0.0f;
@@ -130,6 +131,8 @@
     [self.summaryContentTextField setBackgroundColor:[UIColor whiteColor]];
     [self.summaryHeadlineTextField setBackgroundColor:[UIColor whiteColor]];
     [self.publishButton setHidden:NO];
+    self.Done.hidden = NO;
+    self.Change.hidden = YES;
     self.summaryContentTextField.editable = YES;
     [self.summaryHeadlineTextField setEnabled:YES];
     [self.summaryContentTextField becomeFirstResponder];
@@ -236,6 +239,8 @@
         self.summaryContentTextField.hidden = NO;
         self.summaryHeadlineTextField.hidden = NO;
         self.postUpdateButton.hidden = YES;
+        //self.Change.hidden = NO;
+        //self.Done.hidden = NO;
         self.publishButton.hidden = YES;
         self.intentionHeightConstraints.constant = 45;
     }else if([appDelegate.activeVenue[@"official"] intValue] == 0)
@@ -252,6 +257,8 @@
     if (appDelegate.venueStatus == Manager && [appDelegate.activeVenue[@"verified"] intValue] == 1) {
         self.postUpdateButton.hidden = NO;
         self.analyticsButton.hidden = NO;
+        
+        self.Change.hidden = NO;
         
         self.staffButton.hidden = NO;
         self.analyticsImage.hidden = NO;
@@ -274,6 +281,7 @@
         self.analyticsLabel.hidden = YES;
         self.staffImage.hidden = YES;
         self.staffLabel.hidden = YES;
+        self.Change.hidden = YES;
     }
 }
 
