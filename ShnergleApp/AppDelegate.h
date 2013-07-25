@@ -33,6 +33,7 @@
 @property (strong, nonatomic) NSArray *followingVenues;
 @property (strong, nonatomic) NSArray *quietVenues;
 @property (strong, nonatomic) NSArray *trendingVenues;
+@property (strong, nonatomic) NSArray *promoVenues;
 @property (strong, nonatomic) NSMutableArray *locationPickerVenues;
 
 
@@ -56,6 +57,8 @@
 @property (strong, nonatomic) NSArray *ownVenues;
 
 @property (strong, nonatomic) NSDictionary *activePromotion;
+
+@property (nonatomic) BOOL claiming;
 
 @property (strong, nonatomic) id didShare;
 

@@ -41,7 +41,7 @@
                             <rect key="frame" x="128" y="268" width="60" height="32"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         </imageView>
-                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Hurry!" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="108">
+                        <label hidden="YES" opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Hurry!" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="108">
                             <rect key="frame" x="132" y="308" width="64" height="21"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <fontDescription key="fontDescription" type="system" pointSize="21"/>
@@ -91,6 +91,7 @@
             <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
             <connections>
                 <outlet property="promotionBody" destination="181" id="215"/>
+                <outlet property="promotionClaimed" destination="123" id="Fbh-WL-ewH"/>
                 <outlet property="promotionExpiry" destination="146" id="217"/>
                 <outlet property="promotionTitle" destination="132" id="216"/>
                 <outlet property="view" destination="238" id="253"/>

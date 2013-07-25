@@ -25,10 +25,8 @@
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
     [self setRightBarButton:@"Upload" actionSelector:@selector(share)];
-    if (appDelegate.shnergleThis)
-        self.navigationItem.title = @"Check In";
-    else
-        self.navigationItem.title = @"Share";
+    if (appDelegate.shnergleThis) self.navigationItem.title = @"Check In";
+    else self.navigationItem.title = @"Share";
     self.navigationItem.rightBarButtonItem.enabled = YES;
 }
 
@@ -63,7 +61,6 @@
 }
 
 - (void)didFinishPost:(NSString *)response {
-
     post_id = response;
 
     //Share to Facebook

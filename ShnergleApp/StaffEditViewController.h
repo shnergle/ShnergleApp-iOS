@@ -20,5 +20,5 @@
 @property (weak, nonatomic) IBOutlet FBProfilePictureView *profileImage;
 @property (weak, nonatomic) IBOutlet UIButton *deleteButton;
 
--(void)setStaffMember:(NSDictionary *)staff;
+- (void)setStaffMember:(NSDictionary *)staff;
 @end

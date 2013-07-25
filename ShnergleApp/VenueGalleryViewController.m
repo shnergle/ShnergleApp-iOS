@@ -72,7 +72,7 @@
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    if ([@"sharePostSegue" isEqualToString:segue.identifier]) {
+    if ([@"sharePostSegue" isEqualToString : segue.identifier]) {
         appDelegate.shareVenue = NO;
     }
 }

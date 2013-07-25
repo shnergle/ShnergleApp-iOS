@@ -15,33 +15,34 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.navigationItem.title = @"Promotion";
-    [self setRightBarButton:@"Publish" actionSelector:@selector(addPromotion)];
+    if (!(appDelegate.venueStatus == Staff && [appDelegate.activeVenue[@"promo_perm"] intValue] == 0)) [self setRightBarButton:@"Publish" actionSelector:@selector(addPromotion)];
 
     self.tableData = @[@"Title", @"", @"Passcode", @"Starts", @"Ends", @"Limit"];
-    textFields = [NSMutableArray array];
+    textFields = [NSMutableDictionary dictionary];
+    pickerValues = [NSMutableDictionary dictionary];
+
+    [self.doneButton setTitleTextAttributes:
+     @{UITextAttributeTextColor: [UIColor blackColor],
+       UITextAttributeTextShadowColor: [UIColor clearColor],
+       UITextAttributeTextShadowOffset: [NSValue valueWithUIOffset:UIOffsetMake(0, 0)],
+       UITextAttributeFont: [UIFont systemFontOfSize:14.0]}
+                                      forState:UIControlStateNormal];
 }
 
--(void)addPromotion
-{
-    NSMutableString *params = [[NSMutableString alloc]initWithFormat:@"venue_id=%@&title=%@&description=%@&passcode=%@&start=%@&end=%@&maximum=%@",[appDelegate.activeVenue[@"id"] stringValue],((UITextField *)textFields[0]).text,((UITextField *)textFields[1]).text,((UITextField *)textFields[2]).text,((UITextField *)textFields[3]).text,((UITextField *)textFields[4]).text,((UITextField *)textFields[5]).text];
-    if(appDelegate.activePromotion[@"id"] != nil)
-    {
-        //The promotion exists
-        [params appendFormat:@"&promotion_id=%@",[appDelegate.activePromotion[@"id"] stringValue]];
-        
+- (void)addPromotion {
+    NSMutableString *params = [[NSMutableString alloc]initWithFormat:@"venue_id=%@&title=%@&description=%@&passcode=%@&start=%d&end=%d&maximum=%@", [appDelegate.activeVenue[@"id"] stringValue], ((UITextField *)textFields[@0]).text, ((UITextField *)textFields[@1]).text, ((UITextField *)textFields[@2]).text, (int)[(NSDate *)pickerValues[@3] timeIntervalSince1970], (int)[(NSDate *)pickerValues[@4] timeIntervalSince1970], ((UITextField *)textFields[@5]).text];
+    if (appDelegate.activePromotion[@"id"] != nil) {
+        [params appendFormat:@"&promotion_id=%@", [appDelegate.activePromotion[@"id"] stringValue]];
     }
     [self.view makeToastActivity];
-    NSLog(@"THESE ARE THE PARAMS: %@",params);
-    [[[PostRequest alloc]init]exec:@"promotions/set" params:params delegate:self callback:@selector(didFinishAddingPromotion:) type:@"string"];
+    [[[PostRequest alloc]init]exec:@"promotions/set" params:[params stringByReplacingOccurrencesOfString:@"(null)" withString:@"0"] delegate:self callback:@selector(didFinishAddingPromotion:) type:@"string"];
 }
 
--(void)didFinishAddingPromotion:(NSString *)response
-{
-    NSLog(response);
+- (void)didFinishAddingPromotion:(NSString *)response {
     [self.view hideToastActivity];
-    if([@"true" isEqualToString:response]){
-    [self goBack];
-    }else{
+    if ([@"true" isEqualToString : response]) {
+        [self goBack];
+    } else {
         UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"Error" message:nil delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
         [alert show];
     }
@@ -51,50 +52,77 @@
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell"];
     cell.textLabel.text = self.tableData[indexPath.section];
     if (indexPath.section == 0) {
-        UITextField *textField = [[UITextField alloc] initWithFrame:CGRectMake(110, 10, 185, 30)];
-        textField.delegate = self;
-        textField.backgroundColor = [UIColor clearColor];
-        textField.text = appDelegate.activePromotion != nil ? appDelegate.activePromotion[@"title"] : @"";
-        [textFields insertObject:textField atIndex:0];
-        [cell.contentView addSubview:textField];
+        UITextField *textField = (UITextField *)[cell viewWithTag:indexPath.section + 1];
+        if (!textField) {
+            UITextField *textField = [[UITextField alloc] initWithFrame:CGRectMake(110, 10, 185, 30)];
+            textField.delegate = self;
+            textField.backgroundColor = [UIColor clearColor];
+            textField.text = appDelegate.activePromotion != nil ? appDelegate.activePromotion[@"title"] : @"";
+            textField.tag = indexPath.section + 1;
+            textFields[@0] = textField;
+            [cell.contentView addSubview:textField];
+        }
     } else if (indexPath.section == 1) {
-        UITextView *textField = [[UITextView alloc] initWithFrame:CGRectMake(10, 35, 280, 100)];
-        textField.delegate = self;
-        textField.backgroundColor = [UIColor clearColor];
-        textField.text = appDelegate.activePromotion != nil ? appDelegate.activePromotion[@"description"] : @"";
-        [textFields insertObject:textField atIndex:1];
-        [cell.contentView addSubview:textField];
-        UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(10, 5, 280, 25)];
-        label.backgroundColor = [UIColor clearColor];
-        label.font = [UIFont fontWithName:cell.textLabel.font.fontName size:label.font.pointSize];
-        label.text = @"Promotion Details";
-        [cell.contentView addSubview:label];
+        UITextField *textField = (UITextField *)[cell viewWithTag:indexPath.section + 1];
+        if (!textField) {
+            UITextView *textField = [[UITextView alloc] initWithFrame:CGRectMake(10, 35, 280, 100)];
+            textField.delegate = self;
+            textField.backgroundColor = [UIColor clearColor];
+            textField.text = appDelegate.activePromotion != nil ? appDelegate.activePromotion[@"description"] : @"";
+            textFields[@1] = textField;
+            [cell.contentView addSubview:textField];
+            UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(10, 5, 280, 25)];
+            label.backgroundColor = [UIColor clearColor];
+            label.font = [UIFont fontWithName:cell.textLabel.font.fontName size:label.font.pointSize];
+            label.text = @"Promotion Details";
+            [cell.contentView addSubview:label];
+        }
     } else if (indexPath.section == 2) {
-        UITextField *textField = [[UITextField alloc] initWithFrame:CGRectMake(110, 10, 185, 30)];
-        textField.delegate = self;
-        textField.backgroundColor = [UIColor clearColor];
-        textField.text = appDelegate.activePromotion != nil ? appDelegate.activePromotion[@"passcode"] : @"";
-        [textFields insertObject:textField atIndex:2];
-        [cell.contentView addSubview:textField];
+        UITextField *textField = (UITextField *)[cell viewWithTag:indexPath.section + 1];
+        if (!textField) {
+            UITextField *textField = [[UITextField alloc] initWithFrame:CGRectMake(110, 10, 185, 30)];
+            textField.delegate = self;
+            textField.backgroundColor = [UIColor clearColor];
+            textField.text = appDelegate.activePromotion != nil ? appDelegate.activePromotion[@"passcode"] : @"";
+            textFields[@2] = textField;
+            [cell.contentView addSubview:textField];
+        }
     } else if (indexPath.section == 3) {
-        UILabel *textField = [[UILabel alloc] initWithFrame:CGRectMake(110, 10, 185, 30)];
-        textField.backgroundColor = [UIColor clearColor];
-        textField.text = appDelegate.activePromotion != nil ? [appDelegate.activePromotion[@"start"] stringValue] : @"";
-        [textFields insertObject:textField atIndex:3];
-        [cell.contentView addSubview:textField];
+        UITextField *textField = (UITextField *)[cell viewWithTag:indexPath.section + 1];
+        if (!textField) {
+            UILabel *textField = [[UILabel alloc] initWithFrame:CGRectMake(110, 10, 185, 30)];
+            textField.backgroundColor = [UIColor clearColor];
+            if (pickerValues[@(indexPath.section)] == nil)
+                if ([@"0" isEqualToString :[appDelegate.activePromotion[@"start"] stringValue]]) {
+                    textField.text = @"";
+                } else textField.text = appDelegate.activePromotion != nil ? [NSDateFormatter localizedStringFromDate:[NSDate dateWithTimeIntervalSince1970:[appDelegate.activePromotion[@"start"] intValue]] dateStyle:NSDateFormatterShortStyle timeStyle:NSDateFormatterShortStyle] : @"";
+            else textField.text = [NSDateFormatter localizedStringFromDate:pickerValues[@(indexPath.section)] dateStyle:NSDateFormatterShortStyle timeStyle:NSDateFormatterShortStyle];
+            if ([@"0" isEqualToString : textField.text]) textField.text = @"";
+            textFields[@3] = textField;
+            [cell.contentView addSubview:textField];
+        }
     } else if (indexPath.section == 4) {
-        UILabel *textField = [[UILabel alloc] initWithFrame:CGRectMake(110, 10, 185, 30)];
-        textField.backgroundColor = [UIColor clearColor];
-        textField.text = appDelegate.activePromotion != nil ? [appDelegate.activePromotion[@"end"] stringValue] : @"";
-        [textFields insertObject:textField atIndex:4];
-        [cell.contentView addSubview:textField];
+        UITextField *textField = (UITextField *)[cell viewWithTag:indexPath.section + 1];
+        if (!textField) {
+            UILabel *textField = [[UILabel alloc] initWithFrame:CGRectMake(110, 10, 185, 30)];
+            textField.backgroundColor = [UIColor clearColor];
+            if (pickerValues[@(indexPath.section)] == nil)
+                if ([@"0" isEqualToString :[appDelegate.activePromotion[@"end"] stringValue]]) {
+                    textField.text = @"";
+                } else textField.text = appDelegate.activePromotion != nil ? [NSDateFormatter localizedStringFromDate:[NSDate dateWithTimeIntervalSince1970:[appDelegate.activePromotion[@"end"] intValue]] dateStyle:NSDateFormatterShortStyle timeStyle:NSDateFormatterShortStyle] : @"";
+            else textField.text = [NSDateFormatter localizedStringFromDate:pickerValues[@(indexPath.section)] dateStyle:NSDateFormatterShortStyle timeStyle:NSDateFormatterShortStyle];
+            textFields[@4] = textField;
+            [cell.contentView addSubview:textField];
+        }
     } else if (indexPath.section == 5) {
-        UITextField *textField = [[UITextField alloc] initWithFrame:CGRectMake(110, 10, 185, 30)];
-        textField.backgroundColor = [UIColor clearColor];
-        textField.keyboardType = UIKeyboardTypeNumberPad;
-        textField.text = appDelegate.activePromotion != nil ? [appDelegate.activePromotion[@"maximum"] stringValue] : @"";
-        [textFields insertObject:textField atIndex:5];
-        [cell.contentView addSubview:textField];
+        UITextField *textField = (UITextField *)[cell viewWithTag:indexPath.section + 1];
+        if (!textField) {
+            UITextField *textField = [[UITextField alloc] initWithFrame:CGRectMake(110, 10, 185, 30)];        textField.backgroundColor = [UIColor clearColor];
+            textField.keyboardType = UIKeyboardTypeNumberPad;
+            textField.text = appDelegate.activePromotion != nil ? [appDelegate.activePromotion[@"maximum"] stringValue] : @"";
+            textFields[@5] = textField;
+            [cell.contentView addSubview:textField];
+        }
     }
 
     return cell;
@@ -150,8 +178,9 @@
     [UIView commitAnimations];
     self.navigationItem.rightBarButtonItem = publishButton;
     NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
+    pickerValues[@(indexPath.section)] = self.pickerView.date;
     [self.tableView deselectRowAtIndexPath:indexPath animated:YES];
-    
+    [self.tableView reloadRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationNone];
 }
 
 - (BOOL)textFieldShouldReturn:(UITextField *)textField {
@@ -169,6 +198,15 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     return 1;
+}
+
+- (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string
+{
+    if (textField.tag == 1) {
+        NSUInteger newLength = [textField.text length] + [string length] - range.length;
+        return (newLength > 20) ? NO : YES;
+    }
+    return YES;
 }
 
 @end

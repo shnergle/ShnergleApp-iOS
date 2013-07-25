@@ -18,8 +18,8 @@
     [self.navigationController setNavigationBarHidden:NO animated:YES];
     self.navigationItem.title = @"Staff";
 }
--(void)setStaffMember:(NSDictionary *)staff
-{
+
+- (void)setStaffMember:(NSDictionary *)staff {
     currentStaff = staff;
 }
 
@@ -30,17 +30,17 @@
 
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
-    
+
     self.nameLabel.text = currentStaff[@"name"];
     self.jobTitleLabel.text = appDelegate.staffType;
     self.profileImage.profileID = currentStaff[@"facebook_id"];
     self.dateLabel.text = [self getDateFromUnixFormat:currentStaff[@"time"]];
-    
-    
+
+
     NSString *type = appDelegate.staffType;
     if (type == nil) type = @"Staff";
     secondCell.textLabel.text = [NSString stringWithFormat:@"Status: %@", type];
-    if ([@"Manager" isEqualToString:type]) {
+    if ([@"Manager" isEqualToString : type]) {
         promoSwitch.on = YES;
         promoSwitch.enabled = NO;
     } else {
@@ -80,14 +80,14 @@
         [[[PostRequest alloc] init] exec:@"venue_staff/set" params:params delegate:self callback:@selector(didFinishSaving:) type:@"string"];
         deleteMe = NO;
     } else {
-        NSString *params = [NSString stringWithFormat:@"venue_id=%@&staff_user_id=%@&manager=%@&promo_perm=%@", [appDelegate.activeVenue[@"id"] stringValue], [currentStaff[@"user_id"] stringValue], [@"Manager" isEqualToString:appDelegate.staffType] ? @"true" : @"false", promoSwitch.on ? @"true" : @"false"];
+        NSString *params = [NSString stringWithFormat:@"venue_id=%@&staff_user_id=%@&manager=%@&promo_perm=%@", [appDelegate.activeVenue[@"id"] stringValue], [currentStaff[@"user_id"] stringValue], [@"Manager" isEqualToString : appDelegate.staffType] ? @"true":@"false", promoSwitch.on ? @"true":@"false"];
         [[[PostRequest alloc] init] exec:@"venue_staff/set" params:params delegate:self callback:@selector(didFinishSaving:) type:@"string"];
     }
     [super goBack];
 }
 
 - (void)didFinishSaving:(id)response {
-    if ([@"true" isEqualToString:response]) {
+    if ([@"true" isEqualToString : response]) {
         [self.view hideToastActivity];
         [super goBack];
     }
@@ -99,8 +99,8 @@
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
     if (buttonIndex != alertView.cancelButtonIndex) {
         if ([appDelegate.staff[@"managers"] count] > 1) {
-        deleteMe = YES;
-        [self goBack];
+            deleteMe = YES;
+            [self goBack];
         } else {
             UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"You cannot remove the last manager." message:nil delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
             [alert show];

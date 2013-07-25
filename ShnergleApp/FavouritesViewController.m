@@ -43,10 +43,8 @@
     NSString *imageName = @"mainmenu_button.png";
 
     UIBarButtonItem *menuButton;
-    if (self.slidingViewController != nil)
-        menuButton = [self createLeftBarButton:imageName actionSelector:actionSelector];
-    else
-        menuButton = [self createLeftBarButton:@"arrow_west.png" actionSelector:@selector(goBack)];
+    if (self.slidingViewController != nil) menuButton = [self createLeftBarButton:imageName actionSelector:actionSelector];
+    else menuButton = [self createLeftBarButton:@"arrow_west.png" actionSelector:@selector(goBack)];
 
     self.navBarItem.leftBarButtonItem = menuButton;
 }
@@ -56,6 +54,7 @@
     appDelegate.followingVenues = @[];
     appDelegate.quietVenues = @[];
     appDelegate.trendingVenues = @[];
+    appDelegate.promoVenues = @[];
     if (!appDelegate.topViewType) appDelegate.topViewType = @"Following";
     ((UINavigationItem *)self.navBar.items[0]).title = appDelegate.topViewType;
     [self menuButtonDecorations];
@@ -81,7 +80,7 @@
 
 - (void)makeRequest {
     [self.view makeToastActivity];
-    if ([@"Following" isEqualToString:appDelegate.topViewType]) {
+    if ([@"Following" isEqualToString : appDelegate.topViewType]) {
         [[[PostRequest alloc] init] exec:@"venues/get" params:@"following_only=true" delegate:self callback:@selector(didFinishLoadingVenues:)];
     } else {
         hasPositionLocked = NO;
@@ -93,24 +92,23 @@
 }
 
 //Silent Warning: time intervals are wrong. they use 24 hrs from yesterday same time until now
--(int)fromTime
-{
+- (int)fromTime {
     return (int)[[[NSDate alloc] init] timeIntervalSince1970] - 86400;
-
 }
--(int)untilTime
-{
+
+- (int)untilTime {
     return (int)[[[NSDate alloc] init] timeIntervalSince1970];
-    
 }
 
 - (void)didFinishLoadingVenues:(NSArray *)response {
-    if ([@"Following" isEqualToString:appDelegate.topViewType]) {
+    if ([@"Following" isEqualToString : appDelegate.topViewType]) {
         appDelegate.followingVenues = response;
-    } else if ([@"Quiet" isEqualToString:appDelegate.topViewType]) {
+    } else if ([@"Quiet" isEqualToString : appDelegate.topViewType]) {
         appDelegate.quietVenues = response;
-    } else if ([@"Trending" isEqualToString:appDelegate.topViewType]) {
+    } else if ([@"Trending" isEqualToString : appDelegate.topViewType]) {
         appDelegate.trendingVenues = response;
+    } else if ([@"Promotions" isEqualToString : appDelegate.topViewType]) {
+        appDelegate.promoVenues = response;
     }
     [self.crowdCollection reloadData];
     [self.view hideToastActivity];
@@ -125,12 +123,14 @@
 }
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
-    if ([@"Following" isEqualToString:appDelegate.topViewType]) {
+    if ([@"Following" isEqualToString : appDelegate.topViewType]) {
         return [appDelegate.followingVenues count];
-    } else if ([@"Quiet" isEqualToString:appDelegate.topViewType]) {
+    } else if ([@"Quiet" isEqualToString : appDelegate.topViewType]) {
         return [appDelegate.quietVenues count];
-    } else if ([@"Trending" isEqualToString:appDelegate.topViewType]) {
+    } else if ([@"Trending" isEqualToString : appDelegate.topViewType]) {
         return [appDelegate.trendingVenues count];
+    } else if ([@"Promotions" isEqualToString : appDelegate.topViewType]) {
+        return [appDelegate.promoVenues count];
     } else {
         return 0;
     }
@@ -146,12 +146,14 @@
     CrowdItem *item = [collectionView dequeueReusableCellWithReuseIdentifier:cellIdentifier forIndexPath:indexPath];
 
     NSArray *type;
-    if ([@"Following" isEqualToString:appDelegate.topViewType]) {
+    if ([@"Following" isEqualToString : appDelegate.topViewType]) {
         type = appDelegate.followingVenues;
-    } else if ([@"Quiet" isEqualToString:appDelegate.topViewType]) {
+    } else if ([@"Quiet" isEqualToString : appDelegate.topViewType]) {
         type = appDelegate.quietVenues;
-    } else if ([@"Trending" isEqualToString:appDelegate.topViewType]) {
+    } else if ([@"Trending" isEqualToString : appDelegate.topViewType]) {
         type = appDelegate.trendingVenues;
+    } else if ([@"Promotions" isEqualToString : appDelegate.topViewType]) {
+        type = appDelegate.promoVenues;
     }
 
     item.crowdImage.image = [ImageCache get:@"venue" identifier:type[indexPath.item][@"id"]];
@@ -169,7 +171,7 @@
     } else {
         item.promotionIndicator.hidden = YES;
     }
-    
+
     return item;
 }
 
@@ -182,12 +184,14 @@
 - (void)collectionView:(UICollectionView *)collectionView
     didHighlightItemAtIndexPath:(NSIndexPath *)indexPath {
     NSArray *type;
-    if ([@"Following" isEqualToString:appDelegate.topViewType]) {
+    if ([@"Following" isEqualToString : appDelegate.topViewType]) {
         type = appDelegate.followingVenues;
-    } else if ([@"Quiet" isEqualToString:appDelegate.topViewType]) {
+    } else if ([@"Quiet" isEqualToString : appDelegate.topViewType]) {
         type = appDelegate.quietVenues;
-    } else if ([@"Trending" isEqualToString:appDelegate.topViewType]) {
+    } else if ([@"Trending" isEqualToString : appDelegate.topViewType]) {
         type = appDelegate.trendingVenues;
+    } else if ([@"Promotions" isEqualToString : appDelegate.topViewType]) {
+        type = appDelegate.promoVenues;
     }
     appDelegate.activeVenue = type[indexPath.row];
 }
@@ -200,10 +204,12 @@
 
 - (void)locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray *)locations {
     if (!hasPositionLocked) {
-        if ([@"Quiet" isEqualToString:appDelegate.topViewType]) {
+        if ([@"Quiet" isEqualToString : appDelegate.topViewType]) {
             [[[PostRequest alloc] init] exec:@"venues/get" params:[NSString stringWithFormat:@"quiet=true&my_lat=%f&my_lon=%f&distance=0.1&from_time=%d&until_time=%d", ((CLLocation *)locations.lastObject).coordinate.latitude, ((CLLocation *)locations.lastObject).coordinate.longitude, [self fromTime], [self untilTime]] delegate:self callback:@selector(didFinishLoadingVenues:)];
-        } else if ([@"Trending" isEqualToString:appDelegate.topViewType]) {
+        } else if ([@"Trending" isEqualToString : appDelegate.topViewType]) {
             [[[PostRequest alloc] init] exec:@"venues/get" params:[NSString stringWithFormat:@"trending=true&my_lat=%f&my_lon=%f&distance=0.1&from_time=%d&until_time=%d", ((CLLocation *)locations.lastObject).coordinate.latitude, ((CLLocation *)locations.lastObject).coordinate.longitude, [self fromTime], [self untilTime]] delegate:self callback:@selector(didFinishLoadingVenues:)];
+        } else if ([@"Promotions" isEqualToString : appDelegate.topViewType]) {
+            [[[PostRequest alloc] init] exec:@"venues/get" params:[NSString stringWithFormat:@"promotions=true&my_lat=%f&my_lon=%f&distance=0.1", ((CLLocation *)locations.lastObject).coordinate.latitude, ((CLLocation *)locations.lastObject).coordinate.longitude] delegate:self callback:@selector(didFinishLoadingVenues:)];
         }
         hasPositionLocked = YES;
     }

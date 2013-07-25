@@ -11,7 +11,8 @@
 @interface AddPromotionsViewController : CustomBackViewController<UIGestureRecognizerDelegate, UITableViewDataSource, UITableViewDelegate, UITextFieldDelegate, UITextViewDelegate>
 {
     UIBarButtonItem *publishButton;
-    NSMutableArray *textFields;
+    NSMutableDictionary *textFields;
+    NSMutableDictionary *pickerValues;
 }
 
 @property (weak, nonatomic) IBOutlet UITableView *tableView;

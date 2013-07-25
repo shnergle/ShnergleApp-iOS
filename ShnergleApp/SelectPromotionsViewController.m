@@ -1,47 +1,45 @@
 //
-//  selectPromotionsViewController.m
+//  SelectPromotionsViewController.m
 //  ShnergleApp
 //
 //  Created by Stian Johansen on 24/07/2013.
 //  Copyright (c) 2013 Shnergle. All rights reserved.
 //
 
-#import "selectPromotionsViewController.h"
+#import "SelectPromotionsViewController.h"
 #import "PostRequest.h"
 #import <Toast+UIView.h>
 
-@implementation selectPromotionsViewController
+@implementation SelectPromotionsViewController
 
-- (void)viewDidLoad
-{
+- (void)viewDidLoad {
     [super viewDidLoad];
-    [self setRightBarButton:@"New" actionSelector:@selector(addPromotion)];
-    
+    if (!(appDelegate.venueStatus == Staff && [appDelegate.activeVenue[@"promo_perm"] intValue] == 0)) [self setRightBarButton:@"New" actionSelector:@selector(addPromotion)];
+
     promotions = [NSMutableArray arrayWithArray:@[]];
     [self.view makeToastActivity];
-    [[[PostRequest alloc]init]exec:@"promotions/get" params:[NSString stringWithFormat:@"venue_id=%@&getall=true",appDelegate.activeVenue[@"id"]] delegate:self callback:@selector(didFinishGettingPromotions:)];
     self.navigationItem.title = @"Manage Promotions";
     //reusing activepromotion from venue page.
     appDelegate.activePromotion = nil;
-    
 }
--(void)didFinishGettingPromotions:(NSArray *)response
-{
-    NSLog(@"%@",response);
+
+- (void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
+
+    [[[PostRequest alloc]init]exec:@"promotions/get" params:[NSString stringWithFormat:@"venue_id=%@&getall=true", appDelegate.activeVenue[@"id"]] delegate:self callback:@selector(didFinishGettingPromotions:)];
+}
+
+- (void)didFinishGettingPromotions:(NSArray *)response {
     promotions = [NSMutableArray arrayWithArray:response];
     [self.tableView reloadData];
     [self.view hideToastActivity];
-    
 }
 
-
--(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
-{
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     UITableViewCell *cell;
     cell = [tableView dequeueReusableCellWithIdentifier:@"Cell"];
-    if(!cell)
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"Cell"];
-    
+    if (!cell) cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"Cell"];
+
     UIImage *img = [UIImage imageNamed:@"promotion.png"];
     UIImageView *promotionTicketView = [[UIImageView alloc] initWithFrame:CGRectMake(5, 0, 311.0, 67.5)];
     promotionTicketView.image = img;
@@ -53,28 +51,24 @@
     [cell addSubview:promoContentLabel];
     [cell addSubview:promoCountLabel];
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
-    [self setPromoContentTo:promotions[indexPath.row][@"description"] promoHeadline:promotions[indexPath.row][@"title"] promoExpiry:[NSString stringWithFormat:@"/%@ claimed", promotions[indexPath.row][@"maximum"] ] promoTitleLabel:promoTitleLabel promoContentLabel:promoContentLabel promoCountLabel:promoCountLabel];
+    [self setPromoContentTo:promotions[indexPath.row][@"description"] promoHeadline:promotions[indexPath.row][@"title"] promoExpiry:(([promotions[indexPath.row][@"maximum"] intValue] == 0 || promotions[indexPath.row][@"maximum"] == nil) ? [NSString stringWithFormat:@"%@ claimed", promotions[indexPath.row][@"redemptions"]] : [NSString stringWithFormat:@"%@/%@ claimed", promotions[indexPath.row][@"redemptions"], promotions[indexPath.row][@"maximum"]]) promoTitleLabel:promoTitleLabel promoContentLabel:promoContentLabel promoCountLabel:promoCountLabel];
     return cell;
 }
 
--(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
-{
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     appDelegate.activePromotion = promotions[indexPath.row];
     [self addPromotion];
 }
 
--(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
-{
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     return 67.5;
 }
 
--(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
-{
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     return [promotions count];
 }
 
-- (void)setPromoContentTo:(NSString *)promoContent promoHeadline:(NSString *)promoHeadline promoExpiry:(NSString *)promoExpiry promoTitleLabel:(UILabel *)promoTitleLabel promoContentLabel:(UILabel *)promoContentLabel promoCountLabel:(UILabel *)promoCountLabel
-{
+- (void)setPromoContentTo:(NSString *)promoContent promoHeadline:(NSString *)promoHeadline promoExpiry:(NSString *)promoExpiry promoTitleLabel:(UILabel *)promoTitleLabel promoContentLabel:(UILabel *)promoContentLabel promoCountLabel:(UILabel *)promoCountLabel {
     promoCountLabel.text = promoExpiry;
     promoCountLabel.font = [UIFont systemFontOfSize:8];
     promoCountLabel.textAlignment = NSTextAlignmentCenter;
@@ -90,7 +84,6 @@
     promoContentLabel.textColor = [UIColor whiteColor];
     promoContentLabel.textAlignment = NSTextAlignmentCenter;
     promoContentLabel.backgroundColor = [UIColor clearColor];
-
 }
 
 - (void)setRightBarButton:(NSString *)title actionSelector:(SEL)actionSelector {
@@ -106,42 +99,29 @@
                                                           forState:UIControlStateNormal];
 }
 
-
-
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
-
     if (editingStyle == UITableViewCellEditingStyleDelete) {
         selectedIndexPath = indexPath;
         [self.view makeToastActivity];
-        [[[PostRequest alloc]init]exec:@"promotions/set" params:[NSString stringWithFormat:@"delete=true&promotion_id=%@",promotions[indexPath.row][@"id"] ] delegate:self callback:@selector(didFinishDeletingPromotion:) type:@"string"];
-        
+        [[[PostRequest alloc]init]exec:@"promotions/set" params:[NSString stringWithFormat:@"delete=true&promotion_id=%@", promotions[indexPath.row][@"id"] ] delegate:self callback:@selector(didFinishDeletingPromotion:) type:@"string"];
     }
 }
 
--(void)didFinishDeletingPromotion:(NSString *)response
-{
+- (void)didFinishDeletingPromotion:(NSString *)response {
     [self.view hideToastActivity];
 
-    if([@"true" isEqualToString:response])
-    {
+    if ([@"true" isEqualToString : response]) {
         [promotions removeObjectAtIndex:selectedIndexPath.row];
         [self.tableView deleteRowsAtIndexPaths:@[selectedIndexPath] withRowAnimation:UITableViewRowAnimationMiddle];
-
-    }else{
+    } else {
         UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"Error Deleting promotion" message:nil delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
         [alert show];
     }
 }
 
-
-
-
--(void)addPromotion
-{
+- (void)addPromotion {
     UIViewController *vc = [self.storyboard instantiateViewControllerWithIdentifier:@"AddPromotionsViewController"];
     [self.navigationController pushViewController:vc animated:YES];
 }
-
-
 
 @end

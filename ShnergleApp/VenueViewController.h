@@ -13,6 +13,7 @@
     NSString *promotionTitle;
     NSString *promotionBody;
     NSString *promotionExpiry;
+    NSString *promotionUntil;
     NSInteger selectedPost;
 
     BOOL textViewOpen;
@@ -39,11 +40,11 @@
 - (void)goToPromotionView;
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender;
 - (void)setHeaderTitle:(NSString *)headerTitle andSubtitle:(NSString *)headerSubtitle;
--(void)setVenueInfo;
+- (void)setVenueInfo;
 @property (weak, nonatomic) IBOutlet UICollectionView *crowdCollectionV;
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *checkInButton;
 
--(void)reloadOverlay;
+- (void)reloadOverlay;
 - (void)configureMapWithLat:(CLLocationDegrees)lat longitude:(CLLocationDegrees)lon;
 - (NSString *)getDateFromUnixFormat:(id)unixFormat;
 @end

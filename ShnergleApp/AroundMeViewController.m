@@ -70,6 +70,16 @@
     menuButton = [self createLeftBarButton:imageName actionSelector:actionSelector];
 
     self.navBarMenuItem.leftBarButtonItem = menuButton;
+
+    UIImageView *locImage = [[UIImageView alloc] initWithFrame:CGRectMake(85, 10, 20, 20)];
+    locImage.image = [UIImage imageNamed:@"glyphicons_060_compass"];
+    [self.navBar addSubview:locImage];
+}
+
+- (IBAction)backToMe:(id)sender {
+    pinDropped = NO;
+    [map animateToCameraPosition:[GMSCameraPosition cameraWithLatitude:map.myLocation.coordinate.latitude - 0.015 longitude:map.myLocation.coordinate.longitude zoom:13]];
+    [self sliderValueChanged:nil];
 }
 
 - (void)viewDidLoad {
@@ -126,13 +136,12 @@
 
     [self addShadowLineRect:CGRectMake(0.0f, 70.0f, self.distanceScrollerView.frame.size.width, 1.0f) ToView:self.distanceScrollerView];
 
-    [self addShadowLineRect:CGRectMake(0.0f, self.overlay.bounds.origin.y + (35+8), self.overlay.frame.size.width, 1.0f) ToView:self.overlay];
+    [self addShadowLineRect:CGRectMake(0.0f, self.overlay.bounds.origin.y + (35 + 8), self.overlay.frame.size.width, 1.0f) ToView:self.overlay];
 
     appDelegate.activeVenue = nil;
     appDelegate.venueDetailsContent = nil;
-    
-    [self initMap];
 
+    [self initMap];
 }
 
 - (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView {
@@ -176,7 +185,7 @@
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     if ([segue.identifier isEqualToString:@"ToVenueSite"]) {
         appDelegate.activeVenue = appDelegate.aroundVenues[selectedVenue];
-        [((VenueViewController *)[segue destinationViewController]) setVenueInfo];
+        [((VenueViewController *)[segue destinationViewController])setVenueInfo];
     } else if ([segue.identifier isEqualToString:@"CheckInFromAroundMe"]) {
         appDelegate.shareVenue = NO;
     }

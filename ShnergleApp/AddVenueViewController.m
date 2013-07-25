@@ -31,59 +31,56 @@ typedef enum {
 }
 
 - (void)addVenue {
-    if([self.userData[@(Name+1)] length] > 0 && appDelegate.addVenueTypeId)
-    {
-    if((workSwitch.on == YES && [self.userData[@(8)] length] > 0 && [self.userData[@(9)] length] > 0  && [self.userData[@(10)] length] >0) || workSwitch.on == NO){
-    
-    
-    [self.view makeToastActivity];
-    if (appDelegate.addVenueType) self.userData[@(Category + 1)] = appDelegate.addVenueType;
+    if ([self.userData[@(Name + 1)] length] > 0 && appDelegate.addVenueTypeId) {
+        if ((workSwitch.on == YES && [self.userData[@(8)] length] > 0 && [self.userData[@(9)] length] > 0  && [self.userData[@(10)] length] > 0) || workSwitch.on == NO) {
+            [self.view makeToastActivity];
+            if (appDelegate.addVenueType) self.userData[@(Category + 1)] = appDelegate.addVenueType;
 
-    if (workSwitch.on) {
-        [self.userData addEntriesFromDictionary:appDelegate.venueDetailsContent];
-    }
+            if (workSwitch.on) {
+                [self.userData addEntriesFromDictionary:appDelegate.venueDetailsContent];
+            }
 
-    [[[CLGeocoder alloc] init] reverseGeocodeLocation:[[CLLocation alloc] initWithLatitude:marker.position.latitude longitude:marker.position.longitude] completionHandler:^(NSArray *placemark, NSError *error)
-    {
-        NSMutableString *params = [[NSMutableString alloc] initWithString:@"name="];
-        [params appendString:self.userData[@1]];
-        [params appendString:@"&category_id="];
-        [params appendString:appDelegate.addVenueTypeId];
-        [params appendString:@"&address="];
-        NSMutableArray *address = [NSMutableArray array];
-        if (self.userData[@3] != nil) [address addObject:self.userData[@3]];
-        if (self.userData[@4] != nil) [address addObject:self.userData[@4]];
-        if (self.userData[@5] != nil) [address addObject:self.userData[@5]];
-        if (self.userData[@6] != nil) [address addObject:self.userData[@6]];
-        if ([address count] == 0) [address addObject:@""];
-        [params appendString:[address componentsJoinedByString:@", "]];
-        [params appendString:@"&country="];
-        [params appendString:(error ? [((CLPlacemark *)placemark.firstObject).ISOcountryCode lowercaseString] : @"--")];
-        if (appDelegate.venueDetailsContent) {
-            if (appDelegate.venueDetailsContent[@(8)]) {
-                [params appendString:@"&phone="];
-                [params appendString:appDelegate.venueDetailsContent[@(8)]];
-            }
-            if (appDelegate.venueDetailsContent[@(9)]) {
-                [params appendString:@"&email="];
-                [params appendString:appDelegate.venueDetailsContent[@(9)]];
-            }
-            if (appDelegate.venueDetailsContent[@(10)]) {
-                [params appendString:@"&website="];
-                [params appendString:appDelegate.venueDetailsContent[@(10)]];
-            }
+            [[[CLGeocoder alloc] init] reverseGeocodeLocation:[[CLLocation alloc] initWithLatitude:marker.position.latitude longitude:marker.position.longitude] completionHandler:^(NSArray *placemark, NSError *error)
+            {
+                NSMutableString *params = [[NSMutableString alloc] initWithString:@"name="];
+                [params appendString:self.userData[@1]];
+                [params appendString:@"&category_id="];
+                [params appendString:appDelegate.addVenueTypeId];
+                [params appendString:@"&address="];
+                NSMutableArray *address = [NSMutableArray array];
+                if (self.userData[@3] != nil) [address addObject:self.userData[@3]];
+                if (self.userData[@4] != nil) [address addObject:self.userData[@4]];
+                if (self.userData[@5] != nil) [address addObject:self.userData[@5]];
+                if (self.userData[@6] != nil) [address addObject:self.userData[@6]];
+                if ([address count] == 0) [address addObject:@""];
+                [params appendString:[address componentsJoinedByString:@", "]];
+                [params appendString:@"&country="];
+                [params appendString:(error ? [((CLPlacemark *)placemark.firstObject).ISOcountryCode lowercaseString] : @"--")];
+                if (appDelegate.venueDetailsContent) {
+                    if (appDelegate.venueDetailsContent[@(8)]) {
+                        [params appendString:@"&phone="];
+                        [params appendString:appDelegate.venueDetailsContent[@(8)]];
+                    }
+                    if (appDelegate.venueDetailsContent[@(9)]) {
+                        [params appendString:@"&email="];
+                        [params appendString:appDelegate.venueDetailsContent[@(9)]];
+                    }
+                    if (appDelegate.venueDetailsContent[@(10)]) {
+                        [params appendString:@"&website="];
+                        [params appendString:appDelegate.venueDetailsContent[@(10)]];
+                    }
+                }
+                [params appendString:@"&lat="];
+                [params appendFormat:@"%f", marker.position.latitude];
+                [params appendString:@"&lon="];
+                [params appendFormat:@"%f", marker.position.longitude];
+                [params appendString:@"&timezone=0"];
+
+                [[[PostRequest alloc] init] exec:@"venues/set" params:params delegate:self callback:@selector(didFinishAddingVenue:) type:@"string"];
+            } ];
         }
-        [params appendString:@"&lat="];
-        [params appendFormat:@"%f", marker.position.latitude];
-        [params appendString:@"&lon="];
-        [params appendFormat:@"%f", marker.position.longitude];
-        [params appendString:@"&timezone=0"];
-
-        [[[PostRequest alloc] init] exec:@"venues/set" params:params delegate:self callback:@selector(didFinishAddingVenue:) type:@"string"];
-    } ];
-    }
-    }else{
-        UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"Fields Missing" message:@"Please fill in all required fields" delegate:self cancelButtonTitle:@"OK" otherButtonTitles: nil];
+    } else {
+        UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"Fields Missing" message:@"Please fill in all required fields" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
         [alert show];
     }
 }
@@ -104,8 +101,6 @@ typedef enum {
             [self.navigationController popViewControllerAnimated:YES];
         }
     }
-
-
 }
 
 - (void)didAddAsManager:(id)response {
@@ -248,7 +243,11 @@ typedef enum {
         if ([keyPath isEqualToString:@"myLocation"] && [object isKindOfClass:[GMSMapView class]]) {
             [map animateToCameraPosition:[GMSCameraPosition cameraWithLatitude:map.myLocation.coordinate.latitude longitude:map.myLocation.coordinate.longitude zoom:13]];
 
-            [self mapView:map didTapAtCoordinate:map.myLocation.coordinate];
+            [map clear];
+            marker = [GMSMarker markerWithPosition:map.myLocation.coordinate];
+            marker.title = @"Selected venue location";
+            marker.map = map;
+
             venueCoord = map.myLocation.coordinate;
 
             self.navigationItem.rightBarButtonItem.enabled = YES;
@@ -261,12 +260,10 @@ typedef enum {
 - (void)mapView:(GMSMapView *)mapView didTapAtCoordinate:(CLLocationCoordinate2D)coordinate {
     if (appDelegate.addVenueCheckIn) {
         [mapView clear];
-        CLLocationCoordinate2D position = CLLocationCoordinate2DMake(coordinate.latitude, coordinate.longitude);
-        marker = [GMSMarker markerWithPosition:position];
+        marker = [GMSMarker markerWithPosition:coordinate];
         marker.title = @"Selected venue location";
         marker.map = mapView;
     }
-    
 }
 
 - (void)viewWillDisappear:(BOOL)animated {
@@ -297,7 +294,6 @@ typedef enum {
 
     [self.mapView.layer addSublayer:topBorder];
 }
-
 
 - (BOOL)textFieldShouldReturn:(UITextField *)textField {
     [textField resignFirstResponder];

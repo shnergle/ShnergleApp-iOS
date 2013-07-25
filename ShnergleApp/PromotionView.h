@@ -12,10 +12,12 @@
 @property (weak, nonatomic) IBOutlet UILabel *promotionBody;
 @property (weak, nonatomic) IBOutlet UILabel *promotionTitle;
 @property (weak, nonatomic) IBOutlet UILabel *promotionExpiry;
+@property (weak, nonatomic) IBOutlet UILabel *promotionClaimed;
 
 - (void)setpromotionTitle:(NSString *)contents;
 - (void)setpromotionBody:(NSString *)contents;
 - (void)setpromotionExpiry:(NSString *)contents;
+- (void)setpromotionClaimed:(NSString *)contents;
 
 - (IBAction)tapUseDeal:(id)sender;
 @end

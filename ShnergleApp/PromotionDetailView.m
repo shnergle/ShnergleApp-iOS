@@ -16,10 +16,8 @@
     self.navigationItem.title = @"Promotion";
 }
 
--(void)viewDidLoad
-{
+- (void)viewDidLoad {
     self.promotionPasscodeLabel.text = appDelegate.activePromotion[@"passcode"];
-
 }
 
 - (IBAction)tapDone:(id)sender {

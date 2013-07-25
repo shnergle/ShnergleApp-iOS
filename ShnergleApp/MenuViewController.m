@@ -35,7 +35,7 @@
     NSArray *nibObjects = [[NSBundle mainBundle] loadNibNamed:@"SearchResultsView" owner:self options:nil];
     self.searchResultsView = nibObjects[0];
 
-    self.searchResultsView.frame = CGRectMake(320, 45, 320, self.searchResultsView.frame.size.height - 65);
+    self.searchResultsView.frame = CGRectMake(320, 45, 320, self.view.frame.size.height - 45);
     [[self view] addSubview:self.searchResultsView];
     self.cancelButton.alpha = 0;
 }
@@ -86,10 +86,8 @@
     if (tableView == self.searchResultsView.resultsTableView) {
         return [searchResults count];
     } else {
-        if (section != 0)
-            return [tableData[section] count];
-        else
-            return [tableData[section] count] + [appDelegate.ownVenues count];
+        if (section != 0) return [tableData[section] count];
+        else return [tableData[section] count] + [appDelegate.ownVenues count];
     }
 }
 
@@ -143,8 +141,7 @@
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    if ([[segue destinationViewController] isKindOfClass:[VenueViewController class]])
-        [((VenueViewController *)[segue destinationViewController]) setVenueInfo];
+    if ([[segue destinationViewController] isKindOfClass:[VenueViewController class]]) [((VenueViewController *)[segue destinationViewController])setVenueInfo];
     if ([segue.identifier isEqualToString:@"PromotionSegue"]) {
         appDelegate.topViewType = @"Promotions";
     } else if ([segue.identifier isEqualToString:@"QuietSegue"]) {
@@ -153,6 +150,8 @@
         appDelegate.topViewType = @"Trending";
     } else if ([segue.identifier isEqualToString:@"FavouritesSegue"]) {
         appDelegate.topViewType = @"Following";
+    } else if ([segue.identifier isEqualToString:@"AddVenueSegue"]) {
+        appDelegate.addVenueCheckIn = NO;
     }
     if ([segue.identifier isEqualToString:@"ProfileSegue"]) {
         profileCell.selected = NO;

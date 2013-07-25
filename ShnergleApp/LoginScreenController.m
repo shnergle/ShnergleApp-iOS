@@ -100,7 +100,7 @@
 
 - (void)postResponse:(NSDictionary *)response {
     if (response != nil) {
-        if (![@"" isEqualToString:response[@"twitter"]]) appDelegate.twitter = ((NSDictionary *)response)[@"twitter"];
+        if (![@"" isEqualToString : response[@"twitter"]]) appDelegate.twitter = ((NSDictionary *)response)[@"twitter"];
         appDelegate.saveLocally = [response[@"save_locally"] intValue] == 1;
         appDelegate.optInTop5 = [response[@"top5"] intValue] == 1;
         newUser = [response[@"joined"] intValue] == [[NSDate date] timeIntervalSince1970];
@@ -115,9 +115,7 @@
     UIViewController *vc;
     if (newUser) {
         vc = [self.storyboard instantiateViewControllerWithIdentifier:@"PrivacyView"];
-    }
-    else
-    {
+    } else {
         vc = [self.storyboard instantiateViewControllerWithIdentifier:@"AroundMeSlidingViewController"];
     }
     [self.navigationController pushViewController:vc animated:YES];
@@ -132,7 +130,6 @@
                                                      FBSessionState status,
                                                      NSError *error) {
         [self updateView];
-
     }];
 }
 
