@@ -200,4 +200,13 @@
     return 1;
 }
 
+- (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string
+{
+    if (textField.tag == 1) {
+        NSUInteger newLength = [textField.text length] + [string length] - range.length;
+        return (newLength > 20) ? NO : YES;
+    }
+    return YES;
+}
+
 @end
