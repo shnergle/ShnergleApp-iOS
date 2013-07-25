@@ -290,7 +290,6 @@
     [self venueLayoutConfig];
     [self loadVenueIntentions];
     if (appDelegate.venueDetailsContent) [self registerVenue];
-    tableSections = @[];
     tableData = @[];
     [self getComments];
     CGRect frame = self.commentsTableView.frame;
@@ -299,18 +298,14 @@
 
 - (void)didFinishGettingComments:(NSArray *)response {
     if ([response count] == 0) {
-        tableSections = @[@""];
         tableData = @[@"No comments..."];
     } else {
         NSMutableArray *users = [NSMutableArray array];
-        NSMutableArray *comments = [NSMutableArray array];
 
         for (NSDictionary *obj in response) {
-            [users addObject:[NSString stringWithFormat:@"%@ (%@)", obj[@"name"], [[NSDate dateWithTimeIntervalSince1970:[obj[@"time"] intValue]] timeAgo]]];
-            [comments addObject:obj[@"comment"]];
+            [users addObject:[NSString stringWithFormat:@"%@\n- %@ (%@)", obj[@"comment"], obj[@"name"], [[NSDate dateWithTimeIntervalSince1970:[obj[@"time"] intValue]] timeAgo]]];
         }
         tableData = [NSArray arrayWithArray:users];
-        tableSections = [NSArray arrayWithArray:comments];
     }
     [self.commentsTableView reloadData];
 }
@@ -366,8 +361,8 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     UITableViewCell *cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:@"Cell"];
-    cell.textLabel.text = tableData[indexPath.row];
-    cell.detailTextLabel.text = tableSections[indexPath.row];
+    cell.textLabel.text = @"";
+    cell.detailTextLabel.text = tableData[indexPath.row];
     cell.detailTextLabel.numberOfLines = 3;
     cell.detailTextLabel.lineBreakMode = NSLineBreakByWordWrapping;
     return cell;
