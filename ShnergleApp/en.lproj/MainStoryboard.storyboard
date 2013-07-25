@@ -185,6 +185,7 @@
                             </view>
                             <navigationBar contentMode="scaleToFill" barStyle="black" translatesAutoresizingMaskIntoConstraints="NO" id="5nO-C1-XZo">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                                <gestureRecognizers/>
                                 <items>
                                     <navigationItem title="Around Me" id="nJg-Cb-NLe">
                                         <barButtonItem key="rightBarButtonItem" title="Check In" id="lQP-pY-6Jo">
@@ -195,6 +196,9 @@
                                         </barButtonItem>
                                     </navigationItem>
                                 </items>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="fL7-9k-mXN" appends="YES" id="PX1-wT-FHA"/>
+                                </connections>
                             </navigationBar>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
@@ -226,6 +230,11 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="fL7-9k-mXN">
+                    <connections>
+                        <action selector="backToMe:" destination="2" id="Y5B-Hu-Ld1"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="-1403" y="39"/>
         </scene>
@@ -3281,10 +3290,10 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="xzO-IX-Cmd"/>
-        <segue reference="mMx-sI-unJ"/>
         <segue reference="hoH-3k-0HF"/>
-        <segue reference="msd-v0-Rw7"/>
+        <segue reference="xzO-IX-Cmd"/>
+        <segue reference="Zho-BK-kL6"/>
+        <segue reference="ohm-kx-4nt"/>
         <segue reference="V1y-Vn-JKN"/>
     </inferredMetricsTieBreakers>
 </document>

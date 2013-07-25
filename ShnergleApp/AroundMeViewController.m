@@ -70,6 +70,16 @@
     menuButton = [self createLeftBarButton:imageName actionSelector:actionSelector];
 
     self.navBarMenuItem.leftBarButtonItem = menuButton;
+
+    UIImageView *locImage = [[UIImageView alloc] initWithFrame:CGRectMake(85, 10, 20, 20)];
+    locImage.image = [UIImage imageNamed:@"glyphicons_060_compass"];
+    [self.navBar addSubview:locImage];
+}
+
+- (IBAction)backToMe:(id)sender {
+    pinDropped = NO;
+    [map animateToCameraPosition:[GMSCameraPosition cameraWithLatitude:map.myLocation.coordinate.latitude - 0.015 longitude:map.myLocation.coordinate.longitude zoom:13]];
+    [self sliderValueChanged:nil];
 }
 
 - (void)viewDidLoad {
