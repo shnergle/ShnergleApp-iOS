@@ -124,6 +124,7 @@
     promotionTitle = @"";
     promotionExpiry = @"";
     promotionBody = @"";
+    promotionUntil = @"";
 
     [[[PostRequest alloc]init]exec:@"promotions/get" params:[NSString stringWithFormat:@"venue_id=%@", appDelegate.activeVenue[@"id"] ] delegate:self callback:@selector(didFinishGettingPromotion:)];
 
@@ -153,10 +154,12 @@
         promotionBody = response[@"description"];
         promotionTitle = response[@"title"];
         promotionExpiry = ([response[@"maximum"] intValue] == 0 || response[@"maximum"] == nil) ? [NSString stringWithFormat:@"%@ claimed", response[@"redemptions"]] : [NSString stringWithFormat:@"%@/%@ claimed", response[@"redemptions"], response[@"maximum"]];
+        promotionUntil = [response[@"end"] intValue] > 0 ? [NSString stringWithFormat:@"Expires %@", [NSDateFormatter localizedStringFromDate:[NSDate dateWithTimeIntervalSince1970:[response[@"end"] intValue]] dateStyle:NSDateFormatterShortStyle timeStyle:NSDateFormatterShortStyle]] : @"";
     } else {
         promotionBody = @"No Promotion active";
         promotionBody = @"Ask a member of staff for a special!";
         promotionExpiry = @"";
+        promotionUntil = @"";
         overlayView.tapPromotion.delegate = nil;
     }
 
@@ -320,7 +323,8 @@
         PromotionView *promotionView = [[NSBundle mainBundle] loadNibNamed:@"PromotionView" owner:self options:nil][0];
         [promotionView setpromotionTitle:promotionTitle];
         [promotionView setpromotionBody:promotionBody];
-        [promotionView setpromotionExpiry:promotionExpiry];
+        [promotionView setpromotionExpiry:promotionUntil];
+        [promotionView setpromotionClaimed:promotionExpiry];
         [self.navigationController pushViewController:promotionView animated:YES];
     } else if (appDelegate.venueStatus == Manager || (appDelegate.venueStatus == Staff && [appDelegate.activeVenue[@"promo_perm"] intValue] == 1)) {
         AddPromotionsViewController *promotionView = [self.storyboard instantiateViewControllerWithIdentifier:@"SelectPromotionsViewController"];

@@ -13,6 +13,7 @@
     NSString *promotionTitle;
     NSString *promotionBody;
     NSString *promotionExpiry;
+    NSString *promotionUntil;
     NSInteger selectedPost;
 
     BOOL textViewOpen;

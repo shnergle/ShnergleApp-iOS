@@ -42,4 +42,10 @@
     self.promotionExpiry.textAlignment = NSTextAlignmentCenter;
 }
 
+- (void)setpromotionClaimed:(NSString *)contents {
+    self.promotionClaimed.text = contents;
+    self.promotionClaimed.font = [UIFont systemFontOfSize:self.promotionExpiry.font.pointSize];
+    self.promotionClaimed.textAlignment = NSTextAlignmentCenter;
+}
+
 @end
