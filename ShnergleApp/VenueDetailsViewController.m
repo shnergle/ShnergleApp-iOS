@@ -48,13 +48,13 @@
 
 - (void)goBack {
     [super goBack];
-    appDelegate.claiming = NO;
     if (appDelegate.claiming)
         appDelegate.venueDetailsContent = nil;
     else
         for (UITextField *textField in textFields) {
             [self textFieldDidEndEditing:textField];
         }
+    appDelegate.claiming = NO;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
