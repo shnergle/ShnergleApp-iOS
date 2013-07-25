@@ -106,6 +106,7 @@
 
     [self.publishButton setHidden:YES];
     self.Done.hidden = YES;
+    self.Change.hidden = NO;
 
     self.summaryContentTextField.layer.borderWidth = 0.0f;
     self.summaryHeadlineTextField.layer.borderWidth = 0.0f;
