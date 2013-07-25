@@ -62,6 +62,9 @@
 
 @property (strong, nonatomic) id didShare;
 
+@property (strong, nonatomic) NSString *level;
+@property (nonatomic) int audience;
+
 typedef NS_ENUM (NSInteger, VENUE_STATUS) {
     Default,
     Staff,

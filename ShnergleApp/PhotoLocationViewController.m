@@ -108,7 +108,7 @@
             CGPoint screenPoint = CGPointMake(screenCenter.x - screenDistance, screenCenter.y);
             CLLocationCoordinate2D realPoint = [map.projection coordinateForPoint:screenPoint];
             CGFloat distanceInDegrees = coord.longitude - realPoint.longitude;
-            [[[PostRequest alloc] init] exec:@"venues/get" params:[NSString stringWithFormat:@"my_lat=%f&my_lon=%f&distance=%f", coord.latitude, coord.longitude, distanceInDegrees] delegate:self callback:@selector(didFinishLoadingVenues:)];
+            [[[PostRequest alloc] init] exec:@"venues/get" params:[NSString stringWithFormat:@"my_lat=%f&my_lon=%f&distance=%f&level=%@", coord.latitude, coord.longitude, distanceInDegrees, appDelegate.level] delegate:self callback:@selector(didFinishLoadingVenues:)];
             [map animateToCameraPosition:[GMSCameraPosition cameraWithLatitude:map.myLocation.coordinate.latitude longitude:map.myLocation.coordinate.longitude zoom:13]];
 
             hasPositionLocked = YES;

@@ -17,7 +17,7 @@
     self.navigationItem.title = @"Promotion";
     if (!(appDelegate.venueStatus == Staff && [appDelegate.activeVenue[@"promo_perm"] intValue] == 0)) [self setRightBarButton:@"Publish" actionSelector:@selector(addPromotion)];
 
-    self.tableData = @[@"Title", @"", @"Passcode", @"Starts", @"Ends", @"Limit"];
+    self.tableData = @[@"Title", @"", @"Passcode", @"Starts", @"Ends", @"Limit", @"Audience"];
     textFields = [NSMutableDictionary dictionary];
     pickerValues = [NSMutableDictionary dictionary];
 
@@ -27,10 +27,17 @@
        UITextAttributeTextShadowOffset: [NSValue valueWithUIOffset:UIOffsetMake(0, 0)],
        UITextAttributeFont: [UIFont systemFontOfSize:14.0]}
                                       forState:UIControlStateNormal];
+
+    appDelegate.audience = appDelegate.activePromotion == nil ? 0 : [appDelegate.activePromotion[@"level"] intValue];
+}
+
+- (void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
+    [self.tableView reloadRowsAtIndexPaths:@[[NSIndexPath indexPathForRow:0 inSection:6]] withRowAnimation:UITableViewRowAnimationNone];
 }
 
 - (void)addPromotion {
-    NSMutableString *params = [[NSMutableString alloc]initWithFormat:@"venue_id=%@&title=%@&description=%@&passcode=%@&start=%d&end=%d&maximum=%@", [appDelegate.activeVenue[@"id"] stringValue], ((UITextField *)textFields[@0]).text, ((UITextField *)textFields[@1]).text, ((UITextField *)textFields[@2]).text, (int)[(NSDate *)pickerValues[@3] timeIntervalSince1970], (int)[(NSDate *)pickerValues[@4] timeIntervalSince1970], ((UITextField *)textFields[@5]).text];
+    NSMutableString *params = [[NSMutableString alloc]initWithFormat:@"venue_id=%@&title=%@&description=%@&passcode=%@&start=%d&end=%d&maximum=%@&level=%d", [appDelegate.activeVenue[@"id"] stringValue], ((UITextField *)textFields[@0]).text, ((UITextField *)textFields[@1]).text, ((UITextField *)textFields[@2]).text, (int)[(NSDate *)pickerValues[@3] timeIntervalSince1970], (int)[(NSDate *)pickerValues[@4] timeIntervalSince1970], ((UITextField *)textFields[@5]).text, appDelegate.audience];
     if (appDelegate.activePromotion[@"id"] != nil) {
         [params appendFormat:@"&promotion_id=%@", [appDelegate.activePromotion[@"id"] stringValue]];
     }
@@ -117,15 +124,41 @@
     } else if (indexPath.section == 5) {
         UITextField *textField = (UITextField *)[cell viewWithTag:indexPath.section + 1];
         if (!textField) {
-            UITextField *textField = [[UITextField alloc] initWithFrame:CGRectMake(110, 10, 185, 30)];        textField.backgroundColor = [UIColor clearColor];
+            UITextField *textField = [[UITextField alloc] initWithFrame:CGRectMake(110, 10, 185, 30)];
+            textField.backgroundColor = [UIColor clearColor];
             textField.keyboardType = UIKeyboardTypeNumberPad;
             textField.text = appDelegate.activePromotion != nil ? [appDelegate.activePromotion[@"maximum"] stringValue] : @"";
             textFields[@5] = textField;
             [cell.contentView addSubview:textField];
         }
+    } else if (indexPath.section == 6) {
+        UILabel *textField = (UILabel *)[cell viewWithTag:indexPath.section + 1];
+        if (!textField) {
+            UILabel *textField = [[UILabel alloc] initWithFrame:CGRectMake(110, 10, 185, 30)];
+            textField.backgroundColor = [UIColor clearColor];
+            textField.text = [self levelName:appDelegate.audience];
+            textField.tag = indexPath.section + 1;
+            textFields[@6] = textField;
+            [cell.contentView addSubview:textField];
+        }
     }
 
     return cell;
+}
+
+- (NSString *)levelName:(int)level {
+    switch (level) {
+        case 0:
+            return @"Everyone";
+        case 1:
+            return @"Explorers";
+        case 2:
+            return @"Scouts";
+        case 3:
+            return @"Shnerglers";
+        default:
+            return @"";
+    }
 }
 
 - (BOOL)textView:(UITextView *)textView shouldChangeTextInRange:(NSRange)range replacementText:(NSString *)text {
@@ -157,6 +190,9 @@
 
             self.navigationItem.rightBarButtonItem = self.doneButton;
         }
+    } else if (indexPath.section == 6) {
+        UIViewController *promoAud = [self.storyboard instantiateViewControllerWithIdentifier:@"PromoAudience"];
+        [self.navigationController pushViewController:promoAud animated:YES];
     }
 }
 

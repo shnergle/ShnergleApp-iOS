@@ -126,7 +126,7 @@
     promotionBody = @"";
     promotionUntil = @"";
 
-    [[[PostRequest alloc]init]exec:@"promotions/get" params:[NSString stringWithFormat:@"venue_id=%@", appDelegate.activeVenue[@"id"] ] delegate:self callback:@selector(didFinishGettingPromotion:)];
+    [[[PostRequest alloc]init]exec:@"promotions/get" params:[NSString stringWithFormat:@"venue_id=%@&level=%@", appDelegate.activeVenue[@"id"], appDelegate.level ] delegate:self callback:@selector(didFinishGettingPromotion:)];
 
     [self displayTextView];
 
@@ -156,7 +156,7 @@
         promotionExpiry = ([response[@"maximum"] intValue] == 0 || response[@"maximum"] == nil) ? [NSString stringWithFormat:@"%@ claimed", response[@"redemptions"]] : [NSString stringWithFormat:@"%@/%@ claimed", response[@"redemptions"], response[@"maximum"]];
         promotionUntil = [response[@"end"] intValue] > 0 ? [NSString stringWithFormat:@"Expires %@", [NSDateFormatter localizedStringFromDate:[NSDate dateWithTimeIntervalSince1970:[response[@"end"] intValue]] dateStyle:NSDateFormatterShortStyle timeStyle:NSDateFormatterShortStyle]] : @"";
     } else {
-        promotionBody = @"No Promotion active";
+        promotionBody = @"No Promotion Active";
         promotionTitle = @"";
         promotionExpiry = @"";
         promotionUntil = @"";

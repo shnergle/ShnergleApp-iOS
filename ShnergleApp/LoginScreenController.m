@@ -104,7 +104,7 @@
         appDelegate.saveLocally = [response[@"save_locally"] intValue] == 1;
         appDelegate.optInTop5 = [response[@"top5"] intValue] == 1;
         newUser = [response[@"joined"] intValue] == [[NSDate date] timeIntervalSince1970];
-        [[[PostRequest alloc] init] exec:@"venues/get" params:@"own=true" delegate:self callback:@selector(gotOwnVenues:)];
+        [[[PostRequest alloc] init] exec:@"rankings/get" params:@"" delegate:self callback:@selector(gotRank:)];
     } else {
         [self alert];
     }
@@ -120,6 +120,11 @@
     }
     [self.navigationController pushViewController:vc animated:YES];
     self.buttonLoginLogout.hidden = NO;
+}
+
+- (void)gotRank:(NSDictionary *)response {
+    appDelegate.level = [response[@"level"] stringValue];
+    [[[PostRequest alloc] init] exec:@"venues/get" params:[NSString stringWithFormat:@"own=true&level=%@", appDelegate.level] delegate:self callback:@selector(gotOwnVenues:)];
 }
 
 - (IBAction)buttonClickHandler:(id)sender {
