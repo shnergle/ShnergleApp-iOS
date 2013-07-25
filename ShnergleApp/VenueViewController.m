@@ -149,7 +149,7 @@
 }
 
 - (void)didFinishGettingPromotion:(NSDictionary *)response {
-    if (response != nil) {
+    if ([appDelegate.activeVenue[@"promotions"] intValue] > 0) {
         appDelegate.activePromotion = response;
         promotionBody = response[@"description"];
         promotionTitle = response[@"title"];
@@ -157,7 +157,7 @@
         promotionUntil = [response[@"end"] intValue] > 0 ? [NSString stringWithFormat:@"Expires %@", [NSDateFormatter localizedStringFromDate:[NSDate dateWithTimeIntervalSince1970:[response[@"end"] intValue]] dateStyle:NSDateFormatterShortStyle timeStyle:NSDateFormatterShortStyle]] : @"";
     } else {
         promotionBody = @"No Promotion active";
-        promotionBody = @"Ask a member of staff for a special!";
+        promotionTitle = @"";
         promotionExpiry = @"";
         promotionUntil = @"";
         overlayView.tapPromotion.delegate = nil;
