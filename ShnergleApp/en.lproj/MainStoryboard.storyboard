@@ -1465,7 +1465,7 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                                 <rect key="frame" x="0.0" y="44" width="320" height="1100"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="d7K-2j-bO2">
-                                        <rect key="frame" x="4" y="102" width="312" height="246"/>
+                                        <rect key="frame" x="4" y="114" width="312" height="246"/>
                                         <subviews>
                                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Shnergle score above" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="98" translatesAutoresizingMaskIntoConstraints="NO" id="u3a-ML-Adf">
                                                 <rect key="frame" x="208" y="162" width="98" height="43"/>
@@ -1687,7 +1687,7 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ho1-hg-V7U">
-                                        <rect key="frame" x="3" y="362" width="313" height="800"/>
+                                        <rect key="frame" x="3" y="374" width="313" height="800"/>
                                         <subviews>
                                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Total activity to date" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="reI-HU-QFh">
                                                 <rect key="frame" x="3" y="9" width="167" height="21"/>
@@ -2101,7 +2101,7 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Your Shnergle score is:" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="149" translatesAutoresizingMaskIntoConstraints="NO" id="UL8-cw-UNK">
-                                        <rect key="frame" x="10" y="72" width="149" height="20"/>
+                                        <rect key="frame" x="10" y="84" width="149" height="20"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="149" id="Dog-G8-rPI"/>
                                             <constraint firstAttribute="height" constant="20" id="RKY-zq-Taw"/>
@@ -2110,7 +2110,7 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZVT-CK-7XI">
-                                        <rect key="frame" x="158" y="71" width="49" height="21"/>
+                                        <rect key="frame" x="158" y="83" width="49" height="21"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="49" id="wBa-Kn-yIx"/>
@@ -2121,15 +2121,15 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                                 </subviews>
                                 <color key="backgroundColor" red="0.89411764705882346" green="0.90196078431372551" blue="0.92941176470588238" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
-                                    <constraint firstItem="UL8-cw-UNK" firstAttribute="top" secondItem="xDq-dx-kAB" secondAttribute="bottom" constant="-2" id="CRO-O9-2IB"/>
+                                    <constraint firstItem="UL8-cw-UNK" firstAttribute="top" secondItem="xDq-dx-kAB" secondAttribute="bottom" constant="10" id="CRO-O9-2IB"/>
                                     <constraint firstItem="xDq-dx-kAB" firstAttribute="leading" secondItem="UL8-cw-UNK" secondAttribute="leading" id="GQ2-2W-1Ze"/>
                                     <constraint firstItem="xDq-dx-kAB" firstAttribute="leading" secondItem="HP1-zJ-Evb" secondAttribute="leading" constant="10" id="ISc-Mg-qUV"/>
-                                    <constraint firstAttribute="bottom" secondItem="d7K-2j-bO2" secondAttribute="bottom" constant="752" id="K0j-EG-qqh"/>
+                                    <constraint firstAttribute="bottom" secondItem="d7K-2j-bO2" secondAttribute="bottom" constant="740" id="K0j-EG-qqh"/>
                                     <constraint firstItem="ZVT-CK-7XI" firstAttribute="leading" secondItem="HP1-zJ-Evb" secondAttribute="leading" constant="158" id="LSl-He-iKt"/>
                                     <constraint firstItem="xDq-dx-kAB" firstAttribute="top" secondItem="HP1-zJ-Evb" secondAttribute="top" constant="5" id="NUm-et-fNS"/>
                                     <constraint firstItem="d7K-2j-bO2" firstAttribute="top" secondItem="UL8-cw-UNK" secondAttribute="bottom" constant="10" id="VZ6-ri-CXB"/>
                                     <constraint firstItem="UL8-cw-UNK" firstAttribute="bottom" secondItem="ZVT-CK-7XI" secondAttribute="bottom" id="WUt-td-7Pj"/>
-                                    <constraint firstItem="ZVT-CK-7XI" firstAttribute="top" secondItem="xDq-dx-kAB" secondAttribute="bottom" constant="-3" id="WeA-hb-dw2"/>
+                                    <constraint firstItem="ZVT-CK-7XI" firstAttribute="top" secondItem="xDq-dx-kAB" secondAttribute="bottom" constant="9" id="WeA-hb-dw2"/>
                                     <constraint firstItem="d7K-2j-bO2" firstAttribute="leading" secondItem="HP1-zJ-Evb" secondAttribute="leading" constant="4" id="Zyl-zr-0D4"/>
                                     <constraint firstAttribute="trailing" secondItem="d7K-2j-bO2" secondAttribute="trailing" constant="4" id="dSP-7X-p3V"/>
                                     <constraint firstItem="d7K-2j-bO2" firstAttribute="centerX" secondItem="HP1-zJ-Evb" secondAttribute="centerX" id="j40-I7-FyD"/>
@@ -2207,7 +2207,7 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                         <viewControllerLayoutGuide type="bottom" id="z2F-ws-8KK"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="XPi-yp-SqA">
-                        <rect key="frame" x="0.0" y="20" width="320" height="1101"/>
+                        <rect key="frame" x="0.0" y="20" width="320" height="1122"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="8" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="306" translatesAutoresizingMaskIntoConstraints="NO" id="CCt-IX-LtW">
@@ -2942,7 +2942,7 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                         <viewControllerLayoutGuide type="bottom" id="Mae-b4-IN0"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="3o4-KQ-ijQ">
-                        <rect key="frame" x="0.0" y="20" width="320" height="1101"/>
+                        <rect key="frame" x="0.0" y="20" width="320" height="1122"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tnu-H2-N5b">
