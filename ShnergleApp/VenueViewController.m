@@ -326,7 +326,7 @@
         [promotionView setpromotionExpiry:promotionUntil];
         [promotionView setpromotionClaimed:promotionExpiry];
         [self.navigationController pushViewController:promotionView animated:YES];
-    } else if (appDelegate.venueStatus == Manager || (appDelegate.venueStatus == Staff && [appDelegate.activeVenue[@"promo_perm"] intValue] == 1)) {
+    } else {
         AddPromotionsViewController *promotionView = [self.storyboard instantiateViewControllerWithIdentifier:@"SelectPromotionsViewController"];
         [self.navigationController pushViewController:promotionView animated:YES];
     }

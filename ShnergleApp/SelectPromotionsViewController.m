@@ -14,7 +14,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [self setRightBarButton:@"New" actionSelector:@selector(addPromotion)];
+    if (!(appDelegate.venueStatus == Staff && [appDelegate.activeVenue[@"promo_perm"] intValue] == 0)) [self setRightBarButton:@"New" actionSelector:@selector(addPromotion)];
 
     promotions = [NSMutableArray arrayWithArray:@[]];
     [self.view makeToastActivity];

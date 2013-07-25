@@ -15,7 +15,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.navigationItem.title = @"Promotion";
-    [self setRightBarButton:@"Publish" actionSelector:@selector(addPromotion)];
+    if (!(appDelegate.venueStatus == Staff && [appDelegate.activeVenue[@"promo_perm"] intValue] == 0)) [self setRightBarButton:@"Publish" actionSelector:@selector(addPromotion)];
 
     self.tableData = @[@"Title", @"", @"Passcode", @"Starts", @"Ends", @"Limit"];
     textFields = [NSMutableDictionary dictionary];
