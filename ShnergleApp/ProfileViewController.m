@@ -55,6 +55,11 @@
     }
 }
 
+- (void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
+    [self.scroll scrollRectToVisible:CGRectMake(0, 0, 1, 1) animated:NO];
+}
+
 - (IBAction)saveLocallyChange:(id)sender {
     [self.view makeToastActivity];
 
