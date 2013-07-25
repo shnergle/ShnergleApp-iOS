@@ -324,6 +324,7 @@
 }
 
 - (IBAction)tappedClaimVenue:(id)sender {
+    appDelegate.claiming = YES;
     VenueDetailsViewController *vc = [((VenueViewController *)self.nextResponder.nextResponder).storyboard instantiateViewControllerWithIdentifier : @"VenueDetailsViewIdentifier"];
     [((VenueViewController *)self.nextResponder.nextResponder).navigationController pushViewController : vc animated : YES];
 }

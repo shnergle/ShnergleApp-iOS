@@ -58,6 +58,8 @@
 
 @property (strong, nonatomic) NSDictionary *activePromotion;
 
+@property (nonatomic) BOOL claiming;
+
 @property (strong, nonatomic) id didShare;
 
 typedef NS_ENUM (NSInteger, VENUE_STATUS) {

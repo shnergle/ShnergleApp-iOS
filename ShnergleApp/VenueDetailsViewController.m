@@ -17,17 +17,44 @@
     appDelegate.venueDetailsContent = [[NSMutableDictionary alloc] init];
     tableData = @[@"Phone", @"Email", @"Website"];
     textFields = [NSMutableArray arrayWithCapacity:3];
+
+    if (appDelegate.claiming)
+        [self setRightBarButton:@"Done" actionSelector:@selector(checkAndSave:)];
 }
 
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
 }
 
+- (void)checkAndSave:(id)sender {
+    if ([self allFieldsFilledIn]) {
+        [super goBack];
+        for (UITextField *textField in textFields) {
+            [self textFieldDidEndEditing:textField];
+        }
+    } else {
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Please fill in all fields." message:nil delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+        [alert show];
+    }
+}
+
+- (BOOL)allFieldsFilledIn {
+    for (UITextField *textField in textFields) {
+        if (textField == nil || [textField.text isEqualToString:@""])
+            return NO;
+    }
+    return YES;
+}
+
 - (void)goBack {
     [super goBack];
-    for (UITextField *textField in textFields) {
-        [self textFieldDidEndEditing:textField];
-    }
+    appDelegate.claiming = NO;
+    if (appDelegate.claiming)
+        appDelegate.venueDetailsContent = nil;
+    else
+        for (UITextField *textField in textFields) {
+            [self textFieldDidEndEditing:textField];
+        }
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
