@@ -9,7 +9,7 @@
 #import "GCPlaceholderTextView.h"
 #import "CustomBackViewController.h"
 
-@interface ShareViewController : CustomBackViewController <FBViewControllerDelegate, UITextViewDelegate> {
+@interface ShareViewController : CustomBackViewController <FBViewControllerDelegate, UITextViewDelegate, UIAlertViewDelegate> {
     id selectedFriends;
     NSString *post_id;
 }

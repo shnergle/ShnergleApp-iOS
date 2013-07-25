@@ -65,7 +65,7 @@
 @property (strong, nonatomic) NSString *level;
 @property (nonatomic) int audience;
 
-@property (nonatomic) BOOL redeeming;
+@property (nonatomic) NSString *redeeming;
 
 typedef NS_ENUM (NSInteger, VENUE_STATUS) {
     Default,

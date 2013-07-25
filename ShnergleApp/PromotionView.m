@@ -7,8 +7,6 @@
 //
 
 #import "PromotionView.h"
-#import "VenueViewController.h"
-#import "PromotionDetailView.h"
 
 @implementation PromotionView
 
@@ -18,8 +16,9 @@
 }
 
 - (IBAction)tapUseDeal:(id)sender {
-    appDelegate.redeeming = YES;
-    UIViewController *promotionDetailView = [self.storyboard instantiateViewControllerWithIdentifier:@"CheckInViewController"];
+    appDelegate.redeeming = [appDelegate.activePromotion[@"id"] stringValue];
+    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"MainStoryboard" bundle:nil];
+    UIViewController *promotionDetailView = [storyboard instantiateViewControllerWithIdentifier:@"CheckInViewController"];
     [self.navigationController pushViewController:promotionDetailView animated:YES];
 }
 
@@ -49,7 +48,7 @@
 }
 
 - (void)goBack {
-    appDelegate.redeeming = NO;
+    appDelegate.redeeming = nil;
     [super goBack];
 }
 

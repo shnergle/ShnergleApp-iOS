@@ -75,7 +75,7 @@
 
 - (void)shareOnFacebook {
     if (!self.fbSwitch.on) {
-        [self.navigationController popToRootViewControllerAnimated:YES];
+        [self redeem];
         return;
     }
 
@@ -117,8 +117,7 @@
             }];
          */
 
-
-        [self.navigationController popToRootViewControllerAnimated:YES];
+        [self redeem];
     }];
     if (appDelegate.shareVenue) {
         [[[PostRequest alloc] init] exec:@"venue_shares/set" params:[NSString stringWithFormat:@"venue_id=%@&media_id=1", appDelegate.activeVenue[@"id"]] delegate:self callback:@selector(doNothing:) type:@"string"];
@@ -128,6 +127,31 @@
 }
 
 - (void)doNothing:(id)response {
+}
+
+- (void)redeem {
+    if (appDelegate.redeeming != nil) {
+        [[[PostRequest alloc] init] exec:@"promotion_redemptions/set" params:[NSString stringWithFormat:@"promotion_id=%@", appDelegate.redeeming] delegate:self callback:@selector(redeemed:) type:@"string"];
+    } else {
+        [self.navigationController popToRootViewControllerAnimated:YES];
+    }
+}
+
+- (void)redeemed:(NSString *)response {
+    NSString *msg;
+    if ([@"time" isEqualToString:response]) {
+        msg = @"Bad Luck, you ran out of time to redeem the promotion.";
+    } else if ([@"number" isEqualToString:response]) {
+        msg = @"Bad Luck, you just missed the last promotion; someone beat you to it!";
+    } else {
+        msg = [NSString stringWithFormat:@"The passcode for the promotion is: %@", response];
+    }
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:msg message:nil delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
+    [alert show];
+}
+
+- (void)alertView:(UIAlertView *)alertView didDismissWithButtonIndex:(NSInteger)buttonIndex {
+    [self.navigationController popToRootViewControllerAnimated:YES];
 }
 
 - (IBAction)selectFriendsButtonAction:(id)sender {
