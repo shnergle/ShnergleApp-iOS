@@ -18,8 +18,8 @@
 }
 
 - (IBAction)tapUseDeal:(id)sender {
-    PromotionDetailView *promotionDetailView = [[NSBundle mainBundle] loadNibNamed:@"PromotionDetailView" owner:self options:nil][0];
-    [promotionDetailView view];
+    appDelegate.redeeming = YES;
+    UIViewController *promotionDetailView = [self.storyboard instantiateViewControllerWithIdentifier:@"CheckInViewController"];
     [self.navigationController pushViewController:promotionDetailView animated:YES];
 }
 
@@ -46,6 +46,11 @@
     self.promotionClaimed.text = contents;
     self.promotionClaimed.font = [UIFont systemFontOfSize:self.promotionExpiry.font.pointSize];
     self.promotionClaimed.textAlignment = NSTextAlignmentCenter;
+}
+
+- (void)goBack {
+    appDelegate.redeeming = NO;
+    [super goBack];
 }
 
 @end

@@ -922,8 +922,6 @@
 		80D6FF521720303D008A3AFD /* photoScroll_dummy.png in Resources */ = {isa = PBXBuildFile; fileRef = 80D6FF501720303D008A3AFD /* photoScroll_dummy.png */; };
 		80D6FF64172191A4008A3AFD /* PromotionView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 80D6FF63172191A4008A3AFD /* PromotionView.xib */; };
 		80D6FF6717219537008A3AFD /* PromotionView.m in Sources */ = {isa = PBXBuildFile; fileRef = 80D6FF6617219536008A3AFD /* PromotionView.m */; };
-		80D6FF6B17219DA8008A3AFD /* PromotionDetailView.m in Sources */ = {isa = PBXBuildFile; fileRef = 80D6FF6A17219DA8008A3AFD /* PromotionDetailView.m */; };
-		80D6FF6D17219E4F008A3AFD /* PromotionDetailView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 80D6FF6C17219E4F008A3AFD /* PromotionDetailView.xib */; };
 		80DC1DFB1760CAC2000AA6DF /* FavouritesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 80DC1DFA1760CAC2000AA6DF /* FavouritesViewController.m */; };
 		CD1BBBB217688F350008E4FD /* StaffViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CD61F0A417688C06005EB276 /* StaffViewController.m */; };
 		CD1D1D3517987932004B634E /* CheckInListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CD1D1D34179878A7004B634E /* CheckInListViewController.m */; };
@@ -1909,9 +1907,6 @@
 		80D6FF63172191A4008A3AFD /* PromotionView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PromotionView.xib; sourceTree = "<group>"; };
 		80D6FF6517219536008A3AFD /* PromotionView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PromotionView.h; sourceTree = "<group>"; };
 		80D6FF6617219536008A3AFD /* PromotionView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PromotionView.m; sourceTree = "<group>"; };
-		80D6FF6917219DA8008A3AFD /* PromotionDetailView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PromotionDetailView.h; sourceTree = "<group>"; };
-		80D6FF6A17219DA8008A3AFD /* PromotionDetailView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PromotionDetailView.m; sourceTree = "<group>"; };
-		80D6FF6C17219E4F008A3AFD /* PromotionDetailView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PromotionDetailView.xib; sourceTree = "<group>"; };
 		80DC1DF91760CAC2000AA6DF /* FavouritesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FavouritesViewController.h; sourceTree = "<group>"; };
 		80DC1DFA1760CAC2000AA6DF /* FavouritesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FavouritesViewController.m; sourceTree = "<group>"; };
 		92FD2BD9498A41EEBBD26F82 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -2928,9 +2923,6 @@
 				CDB72C2D175A5F2B00018271 /* PostRequest.m */,
 				EE0A806E1733D97300792AE4 /* ProfileViewController.h */,
 				EE0A806F1733D97300792AE4 /* ProfileViewController.m */,
-				80D6FF6917219DA8008A3AFD /* PromotionDetailView.h */,
-				80D6FF6A17219DA8008A3AFD /* PromotionDetailView.m */,
-				80D6FF6C17219E4F008A3AFD /* PromotionDetailView.xib */,
 				80D6FF6517219536008A3AFD /* PromotionView.h */,
 				80D6FF6617219536008A3AFD /* PromotionView.m */,
 				80D6FF63172191A4008A3AFD /* PromotionView.xib */,
@@ -3219,7 +3211,6 @@
 				80376AA717748F1500524F54 /* glyphicons_010_envelope@2x.png in Resources */,
 				80376C0717748F1500524F54 /* glyphicons_186_move@2x.png in Resources */,
 				80376BBA17748F1500524F54 /* glyphicons_148_folder_flag.png in Resources */,
-				80D6FF6D17219E4F008A3AFD /* PromotionDetailView.xib in Resources */,
 				80376B0517748F1500524F54 /* glyphicons_057_history@2x.png in Resources */,
 				80376C5F17748F1500524F54 /* glyphicons_230_moon@2x.png in Resources */,
 				808CA3061733DCB400932A27 /* upArrow.png in Resources */,
@@ -4147,7 +4138,6 @@
 				8045AFC9170495CE002012D5 /* OverlayText.m in Sources */,
 				CDCDF9CD17A19A960036EA74 /* PromotionAudienceViewController.m in Sources */,
 				80D6FF6717219537008A3AFD /* PromotionView.m in Sources */,
-				80D6FF6B17219DA8008A3AFD /* PromotionDetailView.m in Sources */,
 				805AB9E1172A9AFA0056DCFB /* VenueGalleryViewController.m in Sources */,
 				EE8FF815172A9CFD0003A8E1 /* LoginScreenController.m in Sources */,
 				809F6AF8179FD52600C67D77 /* SelectPromotionsViewController.m in Sources */,
