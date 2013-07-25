@@ -316,13 +316,13 @@
 }
 
 - (void)goToPromotionView {
-    if ([appDelegate.activeVenue[@"verified"] intValue] == 1 && appDelegate.venueStatus != Manager && !(appDelegate.venueStatus == Staff && [appDelegate.activeVenue[@"promo_perm"] intValue] == 1)) {
+    if ([appDelegate.activeVenue[@"verified"] intValue] == 1 && appDelegate.venueStatus != Manager && appDelegate.venueStatus != Staff) {
         PromotionView *promotionView = [[NSBundle mainBundle] loadNibNamed:@"PromotionView" owner:self options:nil][0];
         [promotionView setpromotionTitle:promotionTitle];
         [promotionView setpromotionBody:promotionBody];
         [promotionView setpromotionExpiry:promotionExpiry];
         [self.navigationController pushViewController:promotionView animated:YES];
-    } else {
+    } else if (appDelegate.venueStatus == Manager || (appDelegate.venueStatus == Staff && [appDelegate.activeVenue[@"promo_perm"] intValue] == 1)) {
         AddPromotionsViewController *promotionView = [self.storyboard instantiateViewControllerWithIdentifier:@"SelectPromotionsViewController"];
         [self.navigationController pushViewController:promotionView animated:YES];
     }
