@@ -240,8 +240,7 @@
         //self.Done.hidden = NO;
         self.publishButton.hidden = YES;
         self.intentionHeightConstraints.constant = 0;
-        NSLog(@"length of fields: %d, %d",[self.summaryHeadlineTextField.text length],[self.summaryContentTextField.text length]);
-        if([self.summaryContentTextField.text length] < 1 && [self.summaryHeadlineTextField.text length] < 1)
+        if([self.summaryContentTextField.text length] < 1)
         {
             self.commentsHeightConstraints.constant = 50;
 
