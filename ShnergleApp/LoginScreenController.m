@@ -103,7 +103,7 @@
         if (![@"" isEqualToString : response[@"twitter"]]) appDelegate.twitter = ((NSDictionary *)response)[@"twitter"];
         appDelegate.saveLocally = [response[@"save_locally"] intValue] == 1;
         appDelegate.optInTop5 = [response[@"top5"] intValue] == 1;
-        newUser = [response[@"joined"] intValue] == [[NSDate date] timeIntervalSince1970];
+        newUser = [response[@"joined"] intValue] + 10 > [[NSDate date] timeIntervalSince1970];
         [[[PostRequest alloc] init] exec:@"rankings/get" params:@"" delegate:self callback:@selector(gotRank:)];
     } else {
         [self alert];
