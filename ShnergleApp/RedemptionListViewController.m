@@ -29,8 +29,10 @@
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     UICollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"Cell" forIndexPath:indexPath];
-    ((UILabel *)[cell viewWithTag:1]).text = promos[indexPath.item][@"name"];
-    ((UILabel *)[cell viewWithTag:2]).text = [self getDateFromUnixFormat:promos[indexPath.item][@"time"]];
+    ((UILabel *)[cell viewWithTag:1]).text = promos[indexPath.item][@"title"];
+    ((UILabel *)[cell viewWithTag:2]).text = promos[indexPath.item][@"passcode"];
+    ((UILabel *)[cell viewWithTag:3]).text = promos[indexPath.item][@"name"];
+    ((UILabel *)[cell viewWithTag:4]).text = [self getDateFromUnixFormat:promos[indexPath.item][@"time"]];
     return cell;
 }
 
