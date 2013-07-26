@@ -151,11 +151,11 @@
         case 0:
             return @"Everyone";
         case 1:
-            return @"Explorers";
+            return @"Explorers (Top 20%)";
         case 2:
-            return @"Scouts";
+            return @"Scouts (Top 5%)";
         case 3:
-            return @"Shnerglers";
+            return @"Shnerglers (Top 1%)";
         default:
             return @"";
     }

@@ -16,7 +16,7 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell"];
-    cell.textLabel.text = @[@"Shnerglers", @"Scouts", @"Explorers", @"Everyone"][indexPath.row];
+    cell.textLabel.text = @[@"Shnerglers (Top 1%)", @"Scouts (Top 5%)", @"Explorers (Top 20%)", @"Everyone"][indexPath.row];
     return cell;
 }
 
