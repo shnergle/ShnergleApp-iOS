@@ -240,11 +240,20 @@
         //self.Done.hidden = NO;
         self.publishButton.hidden = YES;
         self.intentionHeightConstraints.constant = 0;
+        NSLog(@"length of fields: %d, %d",[self.summaryHeadlineTextField.text length],[self.summaryContentTextField.text length]);
+        if([self.summaryContentTextField.text length] < 1 && [self.summaryHeadlineTextField.text length] < 1)
+        {
+            self.commentsHeightConstraints.constant = 50;
+
+        }
     } else if ([appDelegate.activeVenue[@"official"] intValue] == 0) {
         self.intentionHeightConstraints.constant = 0;
         self.claimVenueButton.hidden = NO;
+        self.commentsHeightConstraints.constant = 50;
     } else if ([appDelegate.activeVenue[@"official"] intValue] == 1) {
         self.intentionHeightConstraints.constant = -20;
+        self.commentsHeightConstraints.constant = 50;
+
     }
 
 
