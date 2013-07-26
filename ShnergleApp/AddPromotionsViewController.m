@@ -76,13 +76,13 @@
             textField.delegate = self;
             textField.backgroundColor = [UIColor clearColor];
             textField.text = appDelegate.activePromotion != nil ? appDelegate.activePromotion[@"description"] : @"";
+            textField.tag = indexPath.section + 1;
             textFields[@1] = textField;
             [cell.contentView addSubview:textField];
             UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(10, 5, 280, 25)];
             label.backgroundColor = [UIColor clearColor];
             label.font = [UIFont fontWithName:cell.textLabel.font.fontName size:label.font.pointSize];
             label.text = @"Promotion Details";
-            textField.tag = indexPath.section + 1;
             [cell.contentView addSubview:label];
         }
     } else if (indexPath.section == 2) {
