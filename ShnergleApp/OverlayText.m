@@ -239,9 +239,9 @@
         //self.Change.hidden = NO;
         //self.Done.hidden = NO;
         self.publishButton.hidden = YES;
-        self.intentionHeightConstraints.constant = 45;
+        self.intentionHeightConstraints.constant = 0;
     } else if ([appDelegate.activeVenue[@"official"] intValue] == 0) {
-        self.intentionHeightConstraints.constant = 30;
+        self.intentionHeightConstraints.constant = 0;
         self.claimVenueButton.hidden = NO;
     } else if ([appDelegate.activeVenue[@"official"] intValue] == 1) {
         self.intentionHeightConstraints.constant = -20;
