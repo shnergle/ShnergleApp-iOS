@@ -125,6 +125,7 @@
     promotionExpiry = @"";
     promotionBody = @"";
     promotionUntil = @"";
+    promotionLevel = @"";
 
     [[[PostRequest alloc]init]exec:@"promotions/get" params:[NSString stringWithFormat:@"venue_id=%@&level=%@", appDelegate.activeVenue[@"id"], appDelegate.level ] delegate:self callback:@selector(didFinishGettingPromotion:)];
 
@@ -155,15 +156,30 @@
         promotionTitle = response[@"title"];
         promotionExpiry = ([response[@"maximum"] intValue] == 0 || response[@"maximum"] == nil) ? [NSString stringWithFormat:@"%@ claimed", response[@"redemptions"]] : [NSString stringWithFormat:@"%@/%@ claimed", response[@"redemptions"], response[@"maximum"]];
         promotionUntil = [response[@"end"] intValue] > 0 ? [NSString stringWithFormat:@"Expires %@", [NSDateFormatter localizedStringFromDate:[NSDate dateWithTimeIntervalSince1970:[response[@"end"] intValue]] dateStyle:NSDateFormatterShortStyle timeStyle:NSDateFormatterShortStyle]] : @"";
+        promotionLevel = ([response[@"level"] intValue] == 0 || response[@"level"] == nil) ? @"" : [NSString stringWithFormat:@"%@ only", [self levelName:[response[@"level"] intValue]]];
     } else {
         promotionBody = @"No Promotion Active";
         promotionTitle = @"";
         promotionExpiry = @"";
         promotionUntil = @"";
+        promotionLevel = @"";
         overlayView.tapPromotion.delegate = nil;
     }
 
     [self setPromoContentTo:promotionBody promoHeadline:promotionTitle promoExpiry:promotionExpiry];
+}
+
+- (NSString *)levelName:(int)level {
+    switch (level) {
+        case 1:
+            return @"Explorers";
+        case 2:
+            return @"Scouts";
+        case 3:
+            return @"Shnerglers";
+        default:
+            return @"";
+    }
 }
 
 - (NSString *)getDateFromUnixFormatNotTimeAgo:(id)unixFormat {
@@ -325,6 +341,7 @@
         [promotionView setpromotionBody:promotionBody];
         [promotionView setpromotionExpiry:promotionUntil];
         [promotionView setpromotionClaimed:promotionExpiry];
+        [promotionView setpromotionLevel:promotionLevel];
         [self.navigationController pushViewController:promotionView animated:YES];
     } else {
         AddPromotionsViewController *promotionView = [self.storyboard instantiateViewControllerWithIdentifier:@"SelectPromotionsViewController"];

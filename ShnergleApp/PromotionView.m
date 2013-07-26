@@ -43,8 +43,14 @@
 
 - (void)setpromotionClaimed:(NSString *)contents {
     self.promotionClaimed.text = contents;
-    self.promotionClaimed.font = [UIFont systemFontOfSize:self.promotionExpiry.font.pointSize];
+    self.promotionClaimed.font = [UIFont systemFontOfSize:self.promotionClaimed.font.pointSize];
     self.promotionClaimed.textAlignment = NSTextAlignmentCenter;
+}
+
+- (void)setpromotionLevel:(NSString *)contents {
+    self.promotionLevel.text = contents;
+    self.promotionLevel.font = [UIFont systemFontOfSize:self.promotionLevel.font.pointSize];
+    self.promotionLevel.textAlignment = NSTextAlignmentCenter;
 }
 
 - (void)goBack {

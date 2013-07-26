@@ -14,6 +14,7 @@
     NSString *promotionBody;
     NSString *promotionExpiry;
     NSString *promotionUntil;
+    NSString *promotionLevel;
     NSInteger selectedPost;
 
     BOOL textViewOpen;
