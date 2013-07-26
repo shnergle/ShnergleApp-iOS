@@ -8,7 +8,7 @@
 
 #import "CustomBackViewController.h"
 
-@interface RedemptionListViewController : CustomBackViewController {
+@interface RedemptionListViewController : CustomBackViewController <UICollectionViewDataSource, UICollectionViewDelegate> {
     NSArray *promos;
 }
 
