@@ -139,9 +139,9 @@
 
 - (void)redeemed:(NSString *)response {
     NSString *msg;
-    if ([@"time" isEqualToString:response]) {
+    if ([@"\"time\"" isEqualToString:response]) {
         msg = @"Bad Luck, you ran out of time to redeem the promotion.";
-    } else if ([@"number" isEqualToString:response]) {
+    } else if ([@"\"number\"" isEqualToString:response]) {
         msg = @"Bad Luck, you just missed the last promotion; someone beat you to it!";
     } else {
         msg = [NSString stringWithFormat:@"The passcode for the promotion is: %@", response];
