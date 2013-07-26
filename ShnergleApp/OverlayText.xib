@@ -227,11 +227,11 @@
                                     <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                     <textInputTraits key="textInputTraits" autocorrectionType="no" returnKeyType="done"/>
                                 </textField>
-                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="afh-Ob-Pnz">
-                                    <rect key="frame" x="4" y="6" width="310" height="40"/>
+                                <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="afh-Ob-Pnz">
+                                    <rect key="frame" x="4" y="6" width="310" height="68"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                    <state key="normal" title="Own this venue? Claim it." backgroundImage="greenbutton.png">
+                                    <state key="normal" title=" " backgroundImage="claimvenue.png">
                                         <color key="titleColor" red="0.9960784912109375" green="0.99215692281723022" blue="0.99215692281723022" alpha="1" colorSpace="deviceRGB"/>
                                         <color key="titleShadowColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                     </state>
@@ -378,7 +378,7 @@
                                 <constraint firstItem="215" firstAttribute="top" secondItem="717" secondAttribute="bottom" constant="37" id="sYv-pe-JjN"/>
                                 <constraint firstItem="1046" firstAttribute="top" secondItem="1941" secondAttribute="top" constant="184" id="t1j-jd-6u4"/>
                                 <constraint firstItem="717" firstAttribute="leading" secondItem="1941" secondAttribute="leading" constant="20" symbolic="YES" id="t4Y-yH-WEn"/>
-                                <constraint firstItem="188" firstAttribute="top" secondItem="afh-Ob-Pnz" secondAttribute="bottom" constant="3" id="tKb-uD-zCY"/>
+                                <constraint firstItem="188" firstAttribute="top" secondItem="afh-Ob-Pnz" secondAttribute="bottom" constant="-25" id="tKb-uD-zCY"/>
                                 <constraint firstItem="fvc-pb-gaI" firstAttribute="top" secondItem="215" secondAttribute="bottom" constant="8" symbolic="YES" id="uA3-Hu-Zyg"/>
                                 <constraint firstItem="9JC-sc-VKz" firstAttribute="centerX" secondItem="234" secondAttribute="centerX" id="vLC-f7-jnk"/>
                                 <constraint firstItem="692" firstAttribute="leading" secondItem="hQT-9q-ZmQ" secondAttribute="leading" id="wIE-bO-VrQ"/>
@@ -600,12 +600,12 @@
     <resources>
         <image name="112-group.png" width="32" height="21"/>
         <image name="analtyics_icon.png" width="50" height="50"/>
+        <image name="claimvenue.png" width="622" height="135"/>
         <image name="glyphicons_029_notes_2%402x%20%28grey%20edit%29.png" width="40" height="54"/>
         <image name="glyphicons_173_play%402x%20%28Rob%20Grey%29.png" width="33" height="34"/>
         <image name="glyphicons_174_pause%402x%20%28Rob%20-%20grey%29.png" width="20" height="32"/>
         <image name="glyphicons_206_ok_2%402x%20%28Rob%20grey%29.png" width="48" height="39"/>
         <image name="glyphicons_309_comments%402x%20%28Rob%20-%20Grey%29.png" width="48" height="46"/>
-        <image name="greenbutton.png" width="155" height="60"/>
         <image name="greybutton02.png" width="235" height="60"/>
         <image name="promotion.png" width="622" height="135"/>
         <image name="puller_menu.png" width="98" height="45"/>

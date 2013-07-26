@@ -925,6 +925,7 @@
 		80DC1DFB1760CAC2000AA6DF /* FavouritesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 80DC1DFA1760CAC2000AA6DF /* FavouritesViewController.m */; };
 		CD1BBBB217688F350008E4FD /* StaffViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CD61F0A417688C06005EB276 /* StaffViewController.m */; };
 		CD1D1D3517987932004B634E /* CheckInListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CD1D1D34179878A7004B634E /* CheckInListViewController.m */; };
+		CD2957F017A271B200B72702 /* claimvenue.png in Resources */ = {isa = PBXBuildFile; fileRef = CD2957EF17A26FAB00B72702 /* claimvenue.png */; };
 		CD3703751760C8B600CFD249 /* CustomBackViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CD3703741760C8B600CFD249 /* CustomBackViewController.m */; };
 		CD3B655D175CBA72006A4151 /* CrowdItem.m in Sources */ = {isa = PBXBuildFile; fileRef = CD3B655C175CBA72006A4151 /* CrowdItem.m */; };
 		CD5024921768AED6003D3004 /* StaffTypeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CD5024911768AE99003D3004 /* StaffTypeViewController.m */; };
@@ -1912,6 +1913,7 @@
 		92FD2BD9498A41EEBBD26F82 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		CD1D1D33179878A7004B634E /* CheckInListViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CheckInListViewController.h; sourceTree = "<group>"; };
 		CD1D1D34179878A7004B634E /* CheckInListViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CheckInListViewController.m; sourceTree = "<group>"; };
+		CD2957EF17A26FAB00B72702 /* claimvenue.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = claimvenue.png; sourceTree = "<group>"; };
 		CD3703731760C8B600CFD249 /* CustomBackViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomBackViewController.h; sourceTree = "<group>"; };
 		CD3703741760C8B600CFD249 /* CustomBackViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomBackViewController.m; sourceTree = "<group>"; };
 		CD3B655C175CBA72006A4151 /* CrowdItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CrowdItem.m; sourceTree = "<group>"; };
@@ -3008,20 +3010,13 @@
 		80B400BF17540CCA00A377D9 /* Images */ = {
 			isa = PBXGroup;
 			children = (
-				80ABCC06176F68E5002718A1 /* background.png */,
 				EEF07B9E17A1701D004E84C7 /* Authentication%20Process.png */,
-				CDD7F16F1768DE3C00E8B23E /* promocorner.png */,
-				801D4ED5175DF337007212E0 /* highlight_distance_02_long.png */,
-				801D4EDA175E1FCF007212E0 /* highlight_distance_02_long@2x.png */,
-				801D4EDB175E1FCF007212E0 /* highlight_distance_02_transparent@2x.png */,
-				801D4EDC175E1FCF007212E0 /* highlight_distance@2x.png */,
-				801D4ED3175DF1E1007212E0 /* highlight_distance_02_transparent.png */,
-				80A8AAE8175CD9690082AAB8 /* Facebook Login Images */,
-				80A8AAE4175CD3ED0082AAB8 /* shnerglelogo_splash_screen.png */,
-				EE0B37E0175E108100B6EE58 /* FB-f-Logo__blue_50.png */,
-				EE0B37DE175E0FA900B6EE58 /* twitter-bird-white-on-blue.png */,
+				80ABCC06176F68E5002718A1 /* background.png */,
+				CD2957EF17A26FAB00B72702 /* claimvenue.png */,
 				80B401171754F2D500A377D9 /* comment.png */,
 				80B400C317540CCA00A377D9 /* Day_Highlight_menu.png */,
+				80A8AAE8175CD9690082AAB8 /* Facebook Login Images */,
+				EE0B37E0175E108100B6EE58 /* FB-f-Logo__blue_50.png */,
 				80B400C417540CCA00A377D9 /* greenbutton.png */,
 				80B400C517540CCA00A377D9 /* greybutton.png */,
 				80B400C617540CCA00A377D9 /* greybutton02.png */,
@@ -3029,16 +3024,24 @@
 				80B400C817540CCA00A377D9 /* greybutton04.png */,
 				80B400C917540CCA00A377D9 /* greybutton_outline.png */,
 				80B400CA17540CCA00A377D9 /* highlight_distance.png */,
+				801D4EDC175E1FCF007212E0 /* highlight_distance@2x.png */,
 				80B400CB17540CCA00A377D9 /* highlight_distance_02.png */,
+				801D4ED5175DF337007212E0 /* highlight_distance_02_long.png */,
+				801D4EDA175E1FCF007212E0 /* highlight_distance_02_long@2x.png */,
+				801D4ED3175DF1E1007212E0 /* highlight_distance_02_transparent.png */,
+				801D4EDB175E1FCF007212E0 /* highlight_distance_02_transparent@2x.png */,
 				80B400CC17540CCA00A377D9 /* Icons */,
 				80B400DC17540CCA00A377D9 /* Lense.png */,
 				80B400DD17540CCA00A377D9 /* mainmenu_button.png */,
 				80D6FF501720303D008A3AFD /* photoScroll_dummy.png */,
+				CDD7F16F1768DE3C00E8B23E /* promocorner.png */,
 				80B400E017540CCA00A377D9 /* promotion.png */,
 				80B400E117540CCA00A377D9 /* puller_menu.png */,
 				80B400E217540CCA00A377D9 /* red_button.png */,
 				80B400E317540CCA00A377D9 /* search_cancel_button.png */,
+				80A8AAE4175CD3ED0082AAB8 /* shnerglelogo_splash_screen.png */,
 				80B400E417540CCA00A377D9 /* ticket.png */,
+				EE0B37DE175E0FA900B6EE58 /* twitter-bird-white-on-blue.png */,
 				808CA3041733DCB400932A27 /* upArrow.png */,
 			);
 			name = Images;
@@ -3147,6 +3150,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CD2957F017A271B200B72702 /* claimvenue.png in Resources */,
 				80376C1B17748F1500524F54 /* glyphicons_196_circle_exclamation_mark@2x.png in Resources */,
 				80376AFC17748F1500524F54 /* glyphicons_053_alarm.png in Resources */,
 				80376BFC17748F1500524F54 /* glyphicons_181_download_alt.png in Resources */,
