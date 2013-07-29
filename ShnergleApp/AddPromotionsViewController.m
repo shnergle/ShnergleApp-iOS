@@ -56,7 +56,7 @@
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell"];
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:[NSString stringWithFormat:@"CellToAddPromo%d", indexPath.section]];
     cell.textLabel.text = self.tableData[indexPath.section];
     if (indexPath.section == 0) {
         UITextField *textField = (UITextField *)[cell viewWithTag:indexPath.section + 1];
@@ -210,7 +210,7 @@
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell"];
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"CellToAddPromo0"];
 
     return indexPath.section == 1 ? 140 : cell.bounds.size.height;
 }
