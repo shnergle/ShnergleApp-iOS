@@ -221,8 +221,8 @@
     self.promotionContents.hidden = YES;
     self.promotionCount.hidden = YES;
     self.claimVenueButton.hidden = YES;
-    self.summaryContentTextField.hidden = NO;
-    self.summaryHeadlineTextField.hidden = NO;
+    self.summaryContentTextField.hidden = YES;
+    self.summaryHeadlineTextField.hidden = YES;
     self.postUpdateButton.hidden = YES;
     self.publishButton.hidden = YES;
 
@@ -244,12 +244,14 @@
             self.commentsHeightConstraints.constant = 50;
 
         }
+        self.intentionHeightConstraints.constant = 64;
+
     } else if ([appDelegate.activeVenue[@"official"] intValue] == 0) {
-        self.intentionHeightConstraints.constant = 0;
         self.claimVenueButton.hidden = NO;
+        self.intentionHeightConstraints.constant = 64;
         self.commentsHeightConstraints.constant = 50;
     } else if ([appDelegate.activeVenue[@"official"] intValue] == 1) {
-        self.intentionHeightConstraints.constant = -20;
+        self.intentionHeightConstraints.constant = 0;
         self.commentsHeightConstraints.constant = 50;
 
     }
