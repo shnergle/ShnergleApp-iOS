@@ -221,8 +221,8 @@
     self.promotionContents.hidden = YES;
     self.promotionCount.hidden = YES;
     self.claimVenueButton.hidden = YES;
-    self.summaryContentTextField.hidden = YES;
-    self.summaryHeadlineTextField.hidden = YES;
+    self.summaryContentTextField.hidden = NO;
+    self.summaryHeadlineTextField.hidden = NO;
     self.postUpdateButton.hidden = YES;
     self.publishButton.hidden = YES;
 
@@ -236,8 +236,7 @@
         self.summaryContentTextField.hidden = NO;
         self.summaryHeadlineTextField.hidden = NO;
         self.postUpdateButton.hidden = YES;
-        //self.Change.hidden = NO;
-        //self.Done.hidden = NO;
+      
         self.publishButton.hidden = YES;
         self.intentionHeightConstraints.constant = 0;
         if([self.summaryContentTextField.text length] < 1)
