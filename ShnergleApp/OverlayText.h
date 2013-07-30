@@ -7,9 +7,8 @@
 //
 
 #import <GoogleMaps/GoogleMaps.h>
-#import <YIPopupTextView/YIPopupTextView.h>
 
-@interface OverlayText : UIView <UITableViewDataSource, UITableViewDelegate, YIPopupTextViewDelegate> {
+@interface OverlayText : UIView {
     BOOL isUp;
 
     NSArray *tableData;
@@ -29,13 +28,11 @@
 @property (weak, nonatomic) IBOutlet UILabel *promotionCount;
 @property (weak, nonatomic) IBOutlet GMSMapView *venueMap;
 @property (weak, nonatomic) IBOutlet UIButton *shareButton;
-@property (weak, nonatomic) IBOutlet UIImageView *commentButton;
 @property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *intentionConstraints;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *intentionHeightConstraints;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *analyticsShareConstraints;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *analyticsLeftConstraints;
-@property (weak, nonatomic) IBOutlet NSLayoutConstraint *commentsHeightConstraints;
 
 @property (weak, nonatomic) IBOutlet UIButton *postUpdateButton;
 @property (weak, nonatomic) IBOutlet UITextView *summaryContentTextField;

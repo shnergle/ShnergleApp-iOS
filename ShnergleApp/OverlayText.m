@@ -65,11 +65,6 @@
     isUp = YES;
 }
 
-- (IBAction)tap:(id)sender {
-    if (isUp) [self swipeDown:sender];
-    else [self swipeUp:sender];
-}
-
 - (IBAction)tappedGoing:(id)sender {
     [self.tapGoing setEnabled:NO];
     [self.thinkingView setEnabled:NO];
@@ -239,17 +234,13 @@
 
         self.publishButton.hidden = YES;
         self.intentionHeightConstraints.constant = 0;
-        if ([self.summaryContentTextField.text length] < 1) {
-            self.commentsHeightConstraints.constant = 50;
-        }
+        
         self.intentionHeightConstraints.constant = 64;
     } else if ([appDelegate.activeVenue[@"official"] intValue] == 0) {
         self.claimVenueButton.hidden = NO;
         self.intentionHeightConstraints.constant = 64;
-        self.commentsHeightConstraints.constant = 50;
     } else if ([appDelegate.activeVenue[@"official"] intValue] == 1) {
         self.intentionHeightConstraints.constant = 0;
-        self.commentsHeightConstraints.constant = 50;
     }
 
 
@@ -287,33 +278,17 @@
     [[[PostRequest alloc]init]exec:@"venue_rsvps/get" params:[NSString stringWithFormat:@"venue_id=%@&from_time=%d&until_time=%d", appDelegate.activeVenue[@"id"], [self fromTime], [self untilTime]] delegate:self callback:@selector(didFinishGettingRsvps:)];
 }
 
-- (void)getComments {
-    [[[PostRequest alloc]init]exec:@"venue_comments/get" params:[NSString stringWithFormat:@"venue_id=%@", appDelegate.activeVenue[@"id"]] delegate:self callback:@selector(didFinishGettingComments:)];
-}
+
 
 - (void)didAppear {
     [self venueLayoutConfig];
     [self loadVenueIntentions];
     if (appDelegate.venueDetailsContent) [self registerVenue];
     tableData = @[];
-    [self getComments];
     CGRect frame = self.commentsTableView.frame;
     frame.size.height = self.commentsTableView.contentSize.height;
 }
 
-- (void)didFinishGettingComments:(NSArray *)response {
-    if ([response count] == 0) {
-        tableData = @[@"No comments..."];
-    } else {
-        NSMutableArray *users = [NSMutableArray array];
-
-        for (NSDictionary *obj in response) {
-            [users addObject:[NSString stringWithFormat:@"%@\n- %@ (%@)", obj[@"comment"], obj[@"name"], [[NSDate dateWithTimeIntervalSince1970:[obj[@"time"] intValue]] timeAgo]]];
-        }
-        tableData = [NSArray arrayWithArray:users];
-    }
-    [self.commentsTableView reloadData];
-}
 
 - (void)didFinishGettingRsvps:(id)response {
     [self hideToastActivity];
@@ -364,39 +339,8 @@
     [[[PostRequest alloc]init]exec:@"venues/set" params:params delegate:self callback:@selector(didFinishUpdateVenueDetails:)];
 }
 
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:@"Cell"];
-    cell.textLabel.text = @"";
-    cell.detailTextLabel.text = tableData[indexPath.row];
-    cell.detailTextLabel.numberOfLines = 3;
-    cell.detailTextLabel.lineBreakMode = NSLineBreakByWordWrapping;
-    return cell;
-}
 
-- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    return 82;
-}
 
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return [tableData count];
-}
 
-- (IBAction)comment:(id)sender {
-    YIPopupTextView *commentInputView = [[YIPopupTextView alloc]initWithPlaceHolder:@"Write here.." maxCount:140 buttonStyle:YIPopupTextViewButtonStyleRightCancelAndDone tintsDoneButton:YES];
-
-    commentInputView.delegate = self;
-    [commentInputView showInView:self];
-}
-
-- (void)popupTextView:(YIPopupTextView *)textView didDismissWithText:(NSString *)text cancelled:(BOOL)cancelled {
-    [[[PostRequest alloc]init]exec:@"venue_comments/set" params:[NSString stringWithFormat:@"venue_id=%@&comment=%@", appDelegate.activeVenue[@"id"], text] delegate:self callback:@selector(didFinishSendingComment:) type:@"string"];
-}
-
-- (void)didFinishSendingComment:(id)response {
-    if ([@"true" isEqualToString : response]) {
-        [self getComments];
-    } else {
-    }
-}
 
 @end
