@@ -29,8 +29,7 @@
 
 - (void)viewDidDisappear:(BOOL)animated {
     [self.menuItemsTableView deselectRowAtIndexPath:[self.menuItemsTableView indexPathForSelectedRow] animated:YES];
-    if (self.searchResultsView.resultsTableView != nil)
-        [self.searchResultsView.resultsTableView deselectRowAtIndexPath:[self.searchResultsView.resultsTableView indexPathForSelectedRow] animated:YES];
+    if (self.searchResultsView.resultsTableView != nil) [self.searchResultsView.resultsTableView deselectRowAtIndexPath:[self.searchResultsView.resultsTableView indexPathForSelectedRow] animated:YES];
 }
 
 - (void)initsearchResultsView {

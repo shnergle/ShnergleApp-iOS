@@ -18,8 +18,7 @@
     tableData = @[@"Phone", @"Email", @"Website"];
     textFields = [NSMutableArray arrayWithCapacity:3];
 
-    if (appDelegate.claiming)
-        [self setRightBarButton:@"Done" actionSelector:@selector(checkAndSave:)];
+    if (appDelegate.claiming) [self setRightBarButton:@"Done" actionSelector:@selector(checkAndSave:)];
 }
 
 - (void)viewDidAppear:(BOOL)animated {
@@ -40,15 +39,13 @@
 
 - (BOOL)allFieldsFilledIn {
     for (UITextField *textField in textFields) {
-        if (textField == nil || [textField.text isEqualToString:@""])
-            return NO;
+        if (textField == nil || [textField.text isEqualToString:@""]) return NO;
     }
     return YES;
 }
 
 - (void)goBack {
-    if (appDelegate.claiming)
-        appDelegate.venueDetailsContent = nil;
+    if (appDelegate.claiming) appDelegate.venueDetailsContent = nil;
     else
         for (UITextField *textField in textFields) {
             [self textFieldDidEndEditing:textField];

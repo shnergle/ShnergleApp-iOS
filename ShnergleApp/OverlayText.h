@@ -11,7 +11,7 @@
 
 @interface OverlayText : UIView <UITableViewDataSource, UITableViewDelegate, YIPopupTextViewDelegate> {
     BOOL isUp;
-    
+
     NSArray *tableData;
 }
 

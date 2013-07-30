@@ -236,16 +236,13 @@
         self.summaryContentTextField.hidden = NO;
         self.summaryHeadlineTextField.hidden = NO;
         self.postUpdateButton.hidden = YES;
-      
+
         self.publishButton.hidden = YES;
         self.intentionHeightConstraints.constant = 0;
-        if([self.summaryContentTextField.text length] < 1)
-        {
+        if ([self.summaryContentTextField.text length] < 1) {
             self.commentsHeightConstraints.constant = 50;
-
         }
         self.intentionHeightConstraints.constant = 64;
-
     } else if ([appDelegate.activeVenue[@"official"] intValue] == 0) {
         self.claimVenueButton.hidden = NO;
         self.intentionHeightConstraints.constant = 64;
@@ -253,7 +250,6 @@
     } else if ([appDelegate.activeVenue[@"official"] intValue] == 1) {
         self.intentionHeightConstraints.constant = 0;
         self.commentsHeightConstraints.constant = 50;
-
     }
 
 

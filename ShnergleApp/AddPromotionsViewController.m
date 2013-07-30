@@ -26,7 +26,7 @@
        UITextAttributeTextShadowColor: [UIColor clearColor],
        UITextAttributeTextShadowOffset: [NSValue valueWithUIOffset:UIOffsetMake(0, 0)],
        UITextAttributeFont: [UIFont systemFontOfSize:14.0]}
-                                      forState:UIControlStateNormal];
+                                   forState:UIControlStateNormal];
 
     appDelegate.audience = appDelegate.activePromotion == nil ? 0 : [appDelegate.activePromotion[@"level"] intValue];
 }
@@ -249,8 +249,7 @@
     return 1;
 }
 
-- (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string
-{
+- (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string {
     if (textField.tag == 1) {
         NSUInteger newLength = [textField.text length] + [string length] - range.length;
         return (newLength > 20) ? NO : YES;
