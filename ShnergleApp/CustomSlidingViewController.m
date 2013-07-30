@@ -12,6 +12,8 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.shouldAllowPanningPastAnchor = NO;
+    self.anchorLeftRevealAmount = NSIntegerMax;
     self.topViewController = [self.storyboard instantiateViewControllerWithIdentifier:self.mainController];
 }
 
