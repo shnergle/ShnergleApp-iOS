@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="4471.1" systemVersion="12E55" targetRuntime="iOS.CocoaTouch" variant="6xAndEarlier" propertyAccessControl="none" useAutolayout="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="4488.1" systemVersion="12E55" targetRuntime="iOS.CocoaTouch" variant="6xAndEarlier" propertyAccessControl="none" useAutolayout="YES">
     <dependencies>
         <deployment defaultVersion="1536" identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3697.3"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3715.3"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="MenuViewController">
@@ -15,7 +15,7 @@
             <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <tableView clipsSubviews="YES" contentMode="scaleToFill" horizontalCompressionResistancePriority="117" verticalCompressionResistancePriority="208" ambiguous="YES" alwaysBounceVertical="YES" style="plain" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="xFU-QV-hTZ">
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" horizontalCompressionResistancePriority="117" verticalCompressionResistancePriority="208" alwaysBounceVertical="YES" style="plain" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="xFU-QV-hTZ">
                     <rect key="frame" x="0.0" y="0.0" width="230" height="480"/>
                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -30,10 +30,10 @@
             </subviews>
             <color key="backgroundColor" white="0.28740875910000002" alpha="1" colorSpace="calibratedWhite"/>
             <constraints>
-                <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="xFU-QV-hTZ" secondAttribute="bottom" id="NeI-kW-bN2"/>
-                <constraint firstAttribute="bottom" secondItem="xFU-QV-hTZ" secondAttribute="bottom" id="Rfj-Zc-QVh"/>
-                <constraint firstItem="xFU-QV-hTZ" firstAttribute="top" secondItem="1" secondAttribute="top" id="gXB-Uh-BUP"/>
-                <constraint firstAttribute="trailing" secondItem="xFU-QV-hTZ" secondAttribute="trailing" constant="90" id="wQ4-pw-yja"/>
+                <constraint firstItem="xFU-QV-hTZ" firstAttribute="leading" secondItem="1" secondAttribute="leading" id="FbW-ry-wP4"/>
+                <constraint firstItem="xFU-QV-hTZ" firstAttribute="top" secondItem="1" secondAttribute="top" id="I78-iv-Xif"/>
+                <constraint firstAttribute="trailing" secondItem="xFU-QV-hTZ" secondAttribute="trailing" constant="90" id="Q8H-1G-qYX"/>
+                <constraint firstAttribute="bottom" secondItem="xFU-QV-hTZ" secondAttribute="bottom" id="eaJ-pr-hLl"/>
             </constraints>
             <simulatedScreenMetrics key="simulatedDestinationMetrics"/>
             <connections>
