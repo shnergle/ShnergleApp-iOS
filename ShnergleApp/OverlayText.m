@@ -13,7 +13,6 @@
 #import <Toast+UIView.h>
 #import "ShareViewController.h"
 #import "VenueDetailsViewController.h"
-#import <YIPopupTextView/YIPopupTextView.h>
 #import <NSDate+TimeAgo/NSDate+TimeAgo.h>
 
 @implementation OverlayText
@@ -284,9 +283,6 @@
     [self venueLayoutConfig];
     [self loadVenueIntentions];
     if (appDelegate.venueDetailsContent) [self registerVenue];
-    tableData = @[];
-    CGRect frame = self.commentsTableView.frame;
-    frame.size.height = self.commentsTableView.contentSize.height;
 }
 
 

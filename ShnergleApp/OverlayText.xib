@@ -107,9 +107,13 @@
                                     </constraints>
                                 </view>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hQT-9q-ZmQ">
-                                    <rect key="frame" x="92" y="617" width="134" height="31"/>
+                                    <rect key="frame" x="94" y="616" width="134" height="31"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <color key="tintColor" red="0.14901960780000001" green="0.14901960780000001" blue="0.14901960780000001" alpha="1" colorSpace="calibratedRGB"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="31" id="hgM-yH-jzN"/>
+                                        <constraint firstAttribute="width" constant="134" id="xft-Sg-0zc"/>
+                                    </constraints>
                                     <fontDescription key="fontDescription" type="boldSystem" pointSize="12"/>
                                     <color key="tintColor" red="0.14901960780000001" green="0.14901960780000001" blue="0.14901960780000001" alpha="1" colorSpace="calibratedRGB"/>
                                     <state key="normal" title=" Change" backgroundImage="greybutton02.png">
@@ -304,10 +308,10 @@
                                 <constraint firstItem="3sN-Qw-TVN" firstAttribute="leading" secondItem="anw-aD-f1q" secondAttribute="trailing" constant="88" id="N97-tj-eF4"/>
                                 <constraint firstItem="234" firstAttribute="leading" secondItem="1941" secondAttribute="leading" constant="52" id="NIh-xb-yCc"/>
                                 <constraint firstItem="636" firstAttribute="top" secondItem="1941" secondAttribute="top" constant="2" id="OMY-jY-Xgw"/>
-                                <constraint firstItem="hQT-9q-ZmQ" firstAttribute="leading" secondItem="o08-tK-dph" secondAttribute="leading" id="OtS-13-0yw"/>
-                                <constraint firstItem="hQT-9q-ZmQ" firstAttribute="centerY" secondItem="Ff1-ZQ-V66" secondAttribute="centerY" id="RAG-ex-59o"/>
+                                <constraint firstItem="hQT-9q-ZmQ" firstAttribute="leading" secondItem="o08-tK-dph" secondAttribute="leading" constant="2" id="OtS-13-0yw"/>
+                                <constraint firstItem="hQT-9q-ZmQ" firstAttribute="centerY" secondItem="Ff1-ZQ-V66" secondAttribute="centerY" constant="-1" id="RAG-ex-59o"/>
                                 <constraint firstItem="636" firstAttribute="leading" secondItem="1941" secondAttribute="leading" id="Rt4-KW-lGR"/>
-                                <constraint firstItem="hQT-9q-ZmQ" firstAttribute="top" secondItem="o08-tK-dph" secondAttribute="top" id="T03-V2-6YD"/>
+                                <constraint firstItem="hQT-9q-ZmQ" firstAttribute="top" secondItem="o08-tK-dph" secondAttribute="top" constant="-1" id="T03-V2-6YD"/>
                                 <constraint firstItem="anw-aD-f1q" firstAttribute="top" secondItem="234" secondAttribute="bottom" constant="4" id="T0l-CN-pwy"/>
                                 <constraint firstItem="afh-Ob-Pnz" firstAttribute="top" secondItem="1941" secondAttribute="top" constant="6" id="Tpj-MW-JVV"/>
                                 <constraint firstItem="LEs-D3-CHJ" firstAttribute="centerX" secondItem="692" secondAttribute="centerX" id="UEt-3v-QcH"/>

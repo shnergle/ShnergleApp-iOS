@@ -77,8 +77,6 @@
 - (void)showAnimated:(NSInteger)targetSize animationDelay:(double)animationDelay animationDuration:(double)animationDuration;
 - (void)didAppear;
 
-@property (weak, nonatomic) IBOutlet UITableView *commentsTableView;
-//@property (weak, nonatomic) IBOutlet UITableViewCell *tableCell;
 
 
 
