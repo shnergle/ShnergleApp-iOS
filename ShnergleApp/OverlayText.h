@@ -19,6 +19,7 @@
 - (void)setTabBarHidden:(BOOL)hide animated:(BOOL)animated;
 - (IBAction)tapPromotion:(id)sender;
 - (IBAction)tapPullerMenu:(id)sender;
+@property (weak, nonatomic) IBOutlet UILabel *rsvpQuestionLabel;
 
 @property (weak, nonatomic) IBOutlet UILabel *promotionHeadline;
 @property (weak, nonatomic) IBOutlet UILabel *promotionContents;

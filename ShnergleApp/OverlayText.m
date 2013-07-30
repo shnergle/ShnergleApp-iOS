@@ -81,14 +81,6 @@
     [self loadVenueIntentions];
 }
 
-- (IBAction)tappedCheckedIn:(id)sender {
-    UIViewController *caller = (UIViewController *)self.nextResponder.nextResponder;
-
-    UIStoryboard *storyb = [UIStoryboard storyboardWithName:@"MainStoryboard" bundle:nil];
-    UIViewController *vc = [storyb instantiateViewControllerWithIdentifier:@"CheckInViewController"];
-
-    [caller.navigationController pushViewController:vc animated:YES];
-}
 
 - (IBAction)publishTapped:(id)sender {
     [self.summaryContentTextField resignFirstResponder];
@@ -281,13 +273,17 @@
 
 - (void)didAppear {
     [self venueLayoutConfig];
-    [self loadVenueIntentions];
+    self.thinkingLabel.hidden = YES;
+    self.goingLabel.hidden = YES;
     if (appDelegate.venueDetailsContent) [self registerVenue];
 }
 
 
 - (void)didFinishGettingRsvps:(id)response {
     [self hideToastActivity];
+    self.rsvpQuestionLabel.hidden = YES;
+    self.thinkingLabel.hidden = NO;
+    self.goingLabel.hidden = NO;
     self.thinkingLabel.text = [response[@"maybe"] stringValue];
     self.goingLabel.text = [response[@"going"] stringValue];
 }

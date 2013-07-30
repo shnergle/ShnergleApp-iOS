@@ -289,6 +289,12 @@
                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                     <nil key="highlightedColor"/>
                                 </label>
+                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Going to this place today?" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7ol-YB-nd6">
+                                    <rect key="frame" x="53" y="91" width="217" height="21"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
                             </subviews>
                             <color key="backgroundColor" white="1" alpha="0.0" colorSpace="custom" customColorSpace="calibratedWhite"/>
                             <constraints>
@@ -565,6 +571,7 @@
                 <outlet property="promotionHeadline" destination="692" id="NFX-Py-191"/>
                 <outlet property="promotionImage" destination="636" id="wuT-Tl-frO"/>
                 <outlet property="publishButton" destination="o08-tK-dph" id="F74-8T-yik"/>
+                <outlet property="rsvpQuestionLabel" destination="7ol-YB-nd6" id="vBf-Ih-aiQ"/>
                 <outlet property="scrollView" destination="811" id="2oc-m9-KOy"/>
                 <outlet property="shareImage" destination="PrS-Tp-JPR" id="g6x-23-EdC"/>
                 <outlet property="shareLabel" destination="khN-mT-sFq" id="r42-tE-X5l"/>
