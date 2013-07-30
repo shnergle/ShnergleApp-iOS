@@ -81,7 +81,6 @@
     [self loadVenueIntentions];
 }
 
-
 - (IBAction)publishTapped:(id)sender {
     [self.summaryContentTextField resignFirstResponder];
     [self.summaryContentTextField setEditable:NO];
@@ -225,7 +224,7 @@
 
         self.publishButton.hidden = YES;
         self.intentionHeightConstraints.constant = 0;
-        
+
         self.intentionHeightConstraints.constant = 64;
     } else if ([appDelegate.activeVenue[@"official"] intValue] == 0) {
         self.claimVenueButton.hidden = NO;
@@ -269,15 +268,12 @@
     [[[PostRequest alloc]init]exec:@"venue_rsvps/get" params:[NSString stringWithFormat:@"venue_id=%@&from_time=%d&until_time=%d", appDelegate.activeVenue[@"id"], [self fromTime], [self untilTime]] delegate:self callback:@selector(didFinishGettingRsvps:)];
 }
 
-
-
 - (void)didAppear {
     [self venueLayoutConfig];
     self.thinkingLabel.hidden = YES;
     self.goingLabel.hidden = YES;
     if (appDelegate.venueDetailsContent) [self registerVenue];
 }
-
 
 - (void)didFinishGettingRsvps:(id)response {
     [self hideToastActivity];
@@ -330,9 +326,5 @@
 
     [[[PostRequest alloc]init]exec:@"venues/set" params:params delegate:self callback:@selector(didFinishUpdateVenueDetails:)];
 }
-
-
-
-
 
 @end
