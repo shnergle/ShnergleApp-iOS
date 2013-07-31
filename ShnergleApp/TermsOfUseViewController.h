@@ -10,4 +10,6 @@
 
 @interface TermsOfUseViewController : CustomBackViewController
 
+@property (nonatomic, strong) NSString *title;
+
 @end

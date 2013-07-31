@@ -2054,7 +2054,7 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             </imageView>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Iao-6a-4Jo">
-                                                <rect key="frame" x="7" y="639" width="205" height="25"/>
+                                                <rect key="frame" x="7" y="674" width="205" height="25"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="25" id="Dm9-Ww-2yw"/>
@@ -2122,7 +2122,7 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Legal" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="H3q-g6-cBg">
-                                                <rect key="frame" x="7" y="602" width="48" height="21"/>
+                                                <rect key="frame" x="7" y="642" width="48" height="21"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="48" id="3Lp-pr-Bby"/>
@@ -2132,7 +2132,7 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mh6-7s-42y">
-                                                <rect key="frame" x="7" y="675" width="205" height="25"/>
+                                                <rect key="frame" x="7" y="710" width="205" height="25"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="25" id="eG2-zb-8x2"/>
@@ -2145,11 +2145,12 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                                                     <segue destination="dSf-nl-gV6" kind="push" id="HzW-kz-4Eb"/>
                                                 </connections>
                                             </button>
-                                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iU5-fn-yXd">
-                                                <rect key="frame" x="7" y="711" width="205" height="25"/>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iU5-fn-yXd">
+                                                <rect key="frame" x="7" y="576" width="205" height="25"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="25" id="0lh-V4-qaa"/>
+                                                    <constraint firstAttribute="width" constant="205" id="rw5-VW-jeX"/>
                                                 </constraints>
                                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                                 <state key="normal" title="FAQ" backgroundImage="greybutton04.png">
@@ -2168,7 +2169,7 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                                             <constraint firstItem="8Vi-ig-4Kl" firstAttribute="leading" secondItem="ccN-SN-iHZ" secondAttribute="trailing" constant="2" id="2lS-iX-1uK"/>
                                             <constraint firstItem="f4K-tX-UWy" firstAttribute="trailing" secondItem="G5B-44-FjK" secondAttribute="trailing" id="3KP-nj-nKk"/>
                                             <constraint firstItem="eOV-wf-yYN" firstAttribute="trailing" secondItem="RtN-HM-Qtz" secondAttribute="trailing" id="3oH-Wr-g2M"/>
-                                            <constraint firstItem="H3q-g6-cBg" firstAttribute="top" secondItem="NlE-Cn-TD0" secondAttribute="bottom" constant="34" id="4YB-xW-fVz"/>
+                                            <constraint firstItem="H3q-g6-cBg" firstAttribute="top" secondItem="NlE-Cn-TD0" secondAttribute="bottom" constant="74" id="4YB-xW-fVz"/>
                                             <constraint firstItem="5i0-JZ-HpY" firstAttribute="top" secondItem="zN9-Dk-DAR" secondAttribute="bottom" constant="14" id="4bN-5B-Jwr"/>
                                             <constraint firstItem="NlE-Cn-TD0" firstAttribute="top" secondItem="FG2-bQ-V73" secondAttribute="bottom" constant="7" id="5Wn-6r-PzD"/>
                                             <constraint firstItem="FG2-bQ-V73" firstAttribute="top" secondItem="d9b-Ij-v7L" secondAttribute="bottom" constant="8" symbolic="YES" id="6ei-Iu-0tf"/>
@@ -2182,6 +2183,7 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                                             <constraint firstItem="ccN-SN-iHZ" firstAttribute="leading" secondItem="RtN-HM-Qtz" secondAttribute="trailing" constant="7" id="CLM-4q-kN6"/>
                                             <constraint firstItem="eOV-wf-yYN" firstAttribute="leading" secondItem="RtN-HM-Qtz" secondAttribute="leading" id="CfH-Hh-YHL"/>
                                             <constraint firstItem="reI-HU-QFh" firstAttribute="top" secondItem="ho1-hg-V7U" secondAttribute="top" constant="9" id="FgP-jQ-8cC"/>
+                                            <constraint firstItem="iU5-fn-yXd" firstAttribute="top" secondItem="mh6-7s-42y" secondAttribute="bottom" constant="-159" id="HRf-Hj-Lin"/>
                                             <constraint firstItem="mh6-7s-42y" firstAttribute="trailing" secondItem="Iao-6a-4Jo" secondAttribute="trailing" id="IWp-4A-EeB"/>
                                             <constraint firstItem="mc9-vJ-eG8" firstAttribute="leading" secondItem="zN9-Dk-DAR" secondAttribute="trailing" constant="8" symbolic="YES" id="Jsn-uW-vU0"/>
                                             <constraint firstItem="nGX-en-P2f" firstAttribute="top" secondItem="RtN-HM-Qtz" secondAttribute="bottom" constant="51" id="LHd-NH-aEi"/>
@@ -2190,10 +2192,11 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                                             <constraint firstItem="sAt-h0-qjm" firstAttribute="leading" secondItem="eOV-wf-yYN" secondAttribute="leading" id="OUc-IO-sLx"/>
                                             <constraint firstItem="sAt-h0-qjm" firstAttribute="top" secondItem="gJ1-F0-r4G" secondAttribute="bottom" constant="24" id="OYV-e9-jYq"/>
                                             <constraint firstItem="GwA-0R-rfu" firstAttribute="leading" secondItem="eOV-wf-yYN" secondAttribute="trailing" constant="6" id="OkY-RX-dXA"/>
-                                            <constraint firstAttribute="bottom" secondItem="mh6-7s-42y" secondAttribute="bottom" constant="98" id="PB2-Yl-Ge8"/>
+                                            <constraint firstAttribute="bottom" secondItem="mh6-7s-42y" secondAttribute="bottom" constant="63" id="PB2-Yl-Ge8"/>
                                             <constraint firstItem="G5B-44-FjK" firstAttribute="top" secondItem="7GK-nU-Mra" secondAttribute="bottom" constant="50" id="PDP-vX-kE8"/>
-                                            <constraint firstItem="Iao-6a-4Jo" firstAttribute="top" secondItem="H3q-g6-cBg" secondAttribute="bottom" constant="16" id="PwJ-cP-oaF"/>
+                                            <constraint firstItem="Iao-6a-4Jo" firstAttribute="top" secondItem="H3q-g6-cBg" secondAttribute="bottom" constant="11" id="PwJ-cP-oaF"/>
                                             <constraint firstItem="W3Q-7b-sAk" firstAttribute="top" secondItem="rsv-1W-kuR" secondAttribute="bottom" constant="14" id="QPw-yu-mrI"/>
+                                            <constraint firstItem="iU5-fn-yXd" firstAttribute="leading" secondItem="mh6-7s-42y" secondAttribute="leading" id="QnC-bn-yBt"/>
                                             <constraint firstItem="rsv-1W-kuR" firstAttribute="top" secondItem="8Vi-ig-4Kl" secondAttribute="bottom" constant="89" id="RLh-UZ-LBB"/>
                                             <constraint firstItem="sAt-h0-qjm" firstAttribute="trailing" secondItem="3F8-dh-TCs" secondAttribute="trailing" id="RhY-hJ-wBh"/>
                                             <constraint firstItem="mh6-7s-42y" firstAttribute="top" secondItem="Iao-6a-4Jo" secondAttribute="bottom" constant="11" id="RzD-jd-dTk"/>
@@ -2224,7 +2227,7 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                                             <constraint firstItem="mc9-vJ-eG8" firstAttribute="top" secondItem="3F8-dh-TCs" secondAttribute="bottom" constant="14" id="kI4-ZU-tbs"/>
                                             <constraint firstItem="W3Q-7b-sAk" firstAttribute="leading" secondItem="B1L-Va-mUZ" secondAttribute="leading" id="ki3-8a-DOp"/>
                                             <constraint firstItem="zN9-Dk-DAR" firstAttribute="leading" secondItem="ho1-hg-V7U" secondAttribute="leading" constant="6" id="kl3-jJ-h5k"/>
-                                            <constraint firstItem="H3q-g6-cBg" firstAttribute="top" secondItem="B1L-Va-mUZ" secondAttribute="bottom" constant="39" id="krl-re-O1A"/>
+                                            <constraint firstItem="H3q-g6-cBg" firstAttribute="top" secondItem="B1L-Va-mUZ" secondAttribute="bottom" constant="79" id="krl-re-O1A"/>
                                             <constraint firstItem="8Vi-ig-4Kl" firstAttribute="top" secondItem="LfG-bg-yfB" secondAttribute="bottom" constant="26" id="l6e-aH-MeH"/>
                                             <constraint firstItem="gJ1-F0-r4G" firstAttribute="top" secondItem="mc9-vJ-eG8" secondAttribute="bottom" constant="33" id="l8S-iF-Toa"/>
                                             <constraint firstItem="reI-HU-QFh" firstAttribute="leading" secondItem="ho1-hg-V7U" secondAttribute="leading" constant="3" id="mEU-7J-ukB"/>
@@ -2759,10 +2762,10 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
             </objects>
             <point key="canvasLocation" x="-309" y="-713"/>
         </scene>
-        <!--View Controller-->
+        <!--Terms Of Use View Controller-->
         <scene sceneID="w4s-h5-ykB">
             <objects>
-                <viewController id="m3L-Cu-7Qf" sceneMemberID="viewController">
+                <viewController id="m3L-Cu-7Qf" customClass="TermsOfUseViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Jei-3Z-qRN"/>
                         <viewControllerLayoutGuide type="bottom" id="tGy-fh-vuL"/>
@@ -2771,7 +2774,7 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                         <rect key="frame" x="0.0" y="20" width="320" height="548"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" editable="NO" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Cjv-oL-HZ0">
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" editable="NO" usesAttributedText="YES" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Cjv-oL-HZ0">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="548"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -2779,30 +2782,146 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
 Shnergle is about helping you stay flexible, save time and hopefully a bit of cash too. We help Merchants tell you what is going on at their establishments in real time, without spamming your mailbox or phone. We also help the most active Shnerglers in the community to tip off the public about what is going on where, and get rewarded with more valuable discounts in return.
 DonÕt waste time wandering around looking for the right place, now you can #Shnergleit on your phone and go!
 
-HOW DOES IT ALL WORK?
-Shnergle lets you see photos and comments  about specific places posted by Merchants and the Shnergle community, along with when the photos were taken. We only show activity from the last 8 days, and we only show how many people have RSVPÕd to go to a place today Ð there is too much out of date information out there and we think you deserve the latest info!
 
-WHAT DO MERCHANTS FIND OUT ABOUT ME?
+</string>
+                                        <attributes>
+                                            <font key="NSFont" size="14" name="HelveticaNeue"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
+                                        </attributes>
+                                    </fragment>
+                                    <fragment>
+                                        <string key="content">WHAT DO MERCHANTS FIND OUT ABOUT ME?
+</string>
+                                        <attributes>
+                                            <font key="NSFont" size="14" name="HelveticaNeue-Bold"/>
+                                            <font key="NSOriginalFont" size="14" name="HelveticaNeue-Bold"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
+                                        </attributes>
+                                    </fragment>
+                                    <fragment>
+                                        <string key="content">
 We help Merchants better understand the people searching for and visiting their establishments, but we reckon you want to stay anonymous. As such we bundle together the information we give them, so you can't be identified personally.
-If you are happy to be identified and you want the very best deals, then turn on the ÔTop 5 CustomerÕ feature in the profile view. This way if you are one of the 5 most active Shnerglers at a particular venue they can reach out to you for the best VIP deals!
+If you are happy to be identified and you want the very best deals, then turn on the `Top 5 Customer´ feature in the profile view. This way if you are one of the 5 most active Shnerglers at a particular venue they can reach out to you for the best VIP deals!
 
-PROMOTIONS
-We think you should get rewarded for helping Merchants and other Shnerglers; so we have setup a promotion feature for Merchants. These promotions might be for short periods or for limited number of people; there may also be more valuable promotions for more active Shnerglers. If you see one of these promotions, get yourself over there and redeem it Ð taking a picture in the process and helping everybody out!
 
-HOW CAN I DO MY BIT FOR THE COMMUNITY?
-Shnergle is going to be most useful when there is lots of up to date info for everybody to benefit from. If you are going through a station, waiting for the tube, grabbing a coffee or popping into a bar for a drink, take a quick snap and check it into Shnergle Ð help other Shnerglers! If the place you are snapping isnÕt on the system, just add it; it only takes a second.
+</string>
+                                        <attributes>
+                                            <font key="NSFont" size="14" name="HelveticaNeue"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
+                                        </attributes>
+                                    </fragment>
+                                    <fragment>
+                                        <string key="content">PROMOTIONS
+</string>
+                                        <attributes>
+                                            <font key="NSFont" size="14" name="HelveticaNeue-Bold"/>
+                                            <font key="NSOriginalFont" size="14" name="HelveticaNeue-Bold"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
+                                        </attributes>
+                                    </fragment>
+                                    <fragment>
+                                        <string key="content">
+We think you should get rewarded for helping Merchants and other Shnerglers; so we have setup a promotion feature for Merchants. These promotions might be for short periods or for limited number of people; there may also be more valuable promotions for more active Shnerglers. If you see one of these promotions, get yourself over there and redeem it - taking a picture in the process and helping everybody out!
 
-WHERE CAN I GET THE PHOTOS I TAKE ON SHNERGLE?
-Every time you take a photo on Shnergle you can share it with your friends on Facebook, but we know you might want full resolution ones later too, so we save full resolution images to the camera roll on your phone. These photos taking up too much space? No problem Ð head over to the profile page, scroll down and you can stop saving the photos.
 
-I WANT TO TWEET MY SHNERGLE PICTURES!
+</string>
+                                        <attributes>
+                                            <font key="NSFont" size="14" name="HelveticaNeue"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
+                                        </attributes>
+                                    </fragment>
+                                    <fragment>
+                                        <string key="content">HOW CAN I DO MY BIT FOR THE COMMUNITY?
+</string>
+                                        <attributes>
+                                            <font key="NSFont" size="14" name="HelveticaNeue-Bold"/>
+                                            <font key="NSOriginalFont" size="14" name="HelveticaNeue-Bold"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
+                                        </attributes>
+                                    </fragment>
+                                    <fragment>
+                                        <string key="content">
+Shnergle is going to be most useful when there is lots of up to date info for everybody to benefit from. If you are going through a station, waiting for the tube, grabbing a coffee or popping into a bar for a drink, take a quick snap and check it into Shnergle - help other Shnerglers! If the place you are snapping isn't on the system, just add it; it only takes a second.
+
+
+</string>
+                                        <attributes>
+                                            <font key="NSFont" size="14" name="HelveticaNeue"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
+                                        </attributes>
+                                    </fragment>
+                                    <fragment>
+                                        <string key="content">WHERE CAN I GET THE PHOTOS I TAKE ON SHNERGLE?
+</string>
+                                        <attributes>
+                                            <font key="NSFont" size="14" name="HelveticaNeue-Bold"/>
+                                            <font key="NSOriginalFont" size="14" name="HelveticaNeue-Bold"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
+                                        </attributes>
+                                    </fragment>
+                                    <fragment>
+                                        <string key="content">
+Every time you take a photo on Shnergle you can share it with your friends on Facebook, but we know you might want full resolution ones later too, so we save full resolution images to the camera roll on your phone. These photos taking up too much space? No problem - head over to the profile page, scroll down and you can stop saving the photos.
+
+
+</string>
+                                        <attributes>
+                                            <font key="NSFont" size="14" name="HelveticaNeue"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
+                                        </attributes>
+                                    </fragment>
+                                    <fragment>
+                                        <string key="content">I WANT TO TWEET MY SHNERGLE PICTURES!
+</string>
+                                        <attributes>
+                                            <font key="NSFont" size="14" name="HelveticaNeue-Bold"/>
+                                            <font key="NSOriginalFont" size="14" name="HelveticaNeue-Bold"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
+                                        </attributes>
+                                    </fragment>
+                                    <fragment>
+                                        <string key="content">
 We know and we are working hard to include this important feature. So far it has been a big challenge; if you are a whiz with custom Twitter iOS integration, drop us a line!
 
-CAN I INVITE MY FRIENDS TO USE SHNERGLE?
-Of course Ð the more the merrier! Please help us spread the word, particularly on Facebook and Twitter, so that we can grow the community and make it better for everybody!
 
-WHERE CAN I GIVE FEEDBACK?
-We love feedback Ð good or bad! WeÕd love to answer any questions you have or listen to your views about how to improve or fix the app. Please drop us a line or drop by TechHub at Google Campus in London and let chat!
+</string>
+                                        <attributes>
+                                            <font key="NSFont" size="14" name="HelveticaNeue"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
+                                        </attributes>
+                                    </fragment>
+                                    <fragment>
+                                        <string key="content">CAN I INVITE MY FRIENDS TO USE SHNERGLE?
+</string>
+                                        <attributes>
+                                            <font key="NSFont" size="14" name="HelveticaNeue-Bold"/>
+                                            <font key="NSOriginalFont" size="14" name="HelveticaNeue-Bold"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
+                                        </attributes>
+                                    </fragment>
+                                    <fragment>
+                                        <string key="content">
+Of course - the more the merrier! Please help us spread the word, particularly on Facebook and Twitter, so that we can grow the community and make it better for everybody!
+
+
+</string>
+                                        <attributes>
+                                            <font key="NSFont" size="14" name="HelveticaNeue"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
+                                        </attributes>
+                                    </fragment>
+                                    <fragment>
+                                        <string key="content">WHERE CAN I GIVE FEEDBACK?
+</string>
+                                        <attributes>
+                                            <font key="NSFont" size="14" name="HelveticaNeue-Bold"/>
+                                            <font key="NSOriginalFont" size="14" name="HelveticaNeue-Bold"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
+                                        </attributes>
+                                    </fragment>
+                                    <fragment>
+                                        <string key="content">
+We love feedback - good or bad! We'd love to answer any questions you have or listen to your views about how to improve or fix the app. Please drop us a line or drop by TechHub at Google Campus in London and let chat!
 * Message us on Facebook
 * Tweet us @Shnerglehelp
 * Email us at contact@shnergle.com
@@ -2822,6 +2941,9 @@ THANKS FOR BEING PART OF THE SHNERGLE COMMUNITY - HAPPY SHNERGLING!
                     </view>
                     <navigationItem key="navigationItem" id="J05-8Z-Grw"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="string" keyPath="title" value="FAQ"/>
+                    </userDefinedRuntimeAttributes>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="z3x-uH-Dwx" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -3158,10 +3280,10 @@ THANKS FOR BEING PART OF THE SHNERGLE COMMUNITY - HAPPY SHNERGLING!
             </objects>
             <point key="canvasLocation" x="-480" y="-1656"/>
         </scene>
-        <!--Terms Of Use View Controller-->
+        <!--Terms Of Use View Controller - Privacy Policy-->
         <scene sceneID="klW-Hx-hjJ">
             <objects>
-                <viewController id="hEm-jV-zWS" customClass="TermsOfUseViewController" sceneMemberID="viewController">
+                <viewController title="Privacy Policy" id="hEm-jV-zWS" customClass="TermsOfUseViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="DWj-nT-73d"/>
                         <viewControllerLayoutGuide type="bottom" id="77T-pS-x89"/>
@@ -3283,15 +3405,18 @@ If you have any questions, comments or requests regarding this Policy, please co
                     </view>
                     <navigationItem key="navigationItem" id="hJS-Q9-54n"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="string" keyPath="title" value="Privacy Policy"/>
+                    </userDefinedRuntimeAttributes>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ga3-EJ-E3E" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="92" y="-1239"/>
         </scene>
-        <!--Terms Of Use View Controller-->
+        <!--Terms Of Use View Controller - Terms & Conditions-->
         <scene sceneID="XBh-Uq-0X8">
             <objects>
-                <viewController storyboardIdentifier="TermsOfUse" id="dSf-nl-gV6" customClass="TermsOfUseViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="TermsOfUse" title="Terms &amp; Conditions" id="dSf-nl-gV6" customClass="TermsOfUseViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="5S4-Tw-caT"/>
                         <viewControllerLayoutGuide type="bottom" id="GDJ-8f-IuV"/>
@@ -3321,6 +3446,9 @@ If you have any questions, comments or requests regarding this Policy, please co
                     </view>
                     <navigationItem key="navigationItem" id="lRh-Ql-efE"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="string" keyPath="title" value="Terms &amp; Conditions"/>
+                    </userDefinedRuntimeAttributes>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Q94-zz-R59" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -3641,9 +3769,8 @@ If you have any questions, comments or requests regarding this Policy, please co
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="xzO-IX-Cmd"/>
-        <segue reference="ohm-kx-4nt"/>
         <segue reference="Zho-BK-kL6"/>
+        <segue reference="ohm-kx-4nt"/>
         <segue reference="V1y-Vn-JKN"/>
         <segue reference="qNM-G7-JMr"/>
         <segue reference="xUB-NL-HY4"/>
