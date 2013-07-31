@@ -1607,7 +1607,7 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                         <viewControllerLayoutGuide type="bottom" id="Lk3-8N-Zhg"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="T3d-vY-Mf8">
-                        <rect key="frame" x="0.0" y="20" width="320" height="2842"/>
+                        <rect key="frame" x="0.0" y="20" width="320" height="2882"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <navigationBar contentMode="scaleToFill" barStyle="black" translatesAutoresizingMaskIntoConstraints="NO" id="uZw-Cy-fCl">
@@ -1623,8 +1623,8 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                                     </navigationItem>
                                 </items>
                             </navigationBar>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HP1-zJ-Evb">
-                                <rect key="frame" x="0.0" y="44" width="320" height="2800"/>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="HP1-zJ-Evb">
+                                <rect key="frame" x="0.0" y="86" width="320" height="2800"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="d7K-2j-bO2">
                                         <rect key="frame" x="4" y="114" width="312" height="246"/>
@@ -2063,9 +2063,6 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                                                 <state key="normal" title="Privacy and Cookie Policy" backgroundImage="greybutton04.png">
                                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                                 </state>
-                                                <connections>
-                                                    <segue destination="7jg-Cv-HlB" kind="push" id="un0-rf-vZ5"/>
-                                                </connections>
                                             </button>
                                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Need Help?" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nGX-en-P2f">
                                                 <rect key="frame" x="4" y="434" width="106" height="21"/>
@@ -3070,47 +3067,6 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
             </objects>
             <point key="canvasLocation" x="-480" y="-1656"/>
         </scene>
-        <!--Web View Controller-->
-        <scene sceneID="hOy-4b-gRT">
-            <objects>
-                <viewController id="7jg-Cv-HlB" customClass="WebViewController" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="Gx2-vY-AJY"/>
-                        <viewControllerLayoutGuide type="bottom" id="Mae-b4-IN0"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="3o4-KQ-ijQ">
-                        <rect key="frame" x="0.0" y="20" width="320" height="548"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        <subviews>
-                            <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tnu-H2-N5b">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="548"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                <dataDetectorType key="dataDetectorTypes"/>
-                                <connections>
-                                    <outlet property="delegate" destination="7jg-Cv-HlB" id="onP-gb-dX5"/>
-                                </connections>
-                            </webView>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstItem="tnu-H2-N5b" firstAttribute="leading" secondItem="3o4-KQ-ijQ" secondAttribute="leading" id="Ftk-uz-zsE"/>
-                            <constraint firstItem="tnu-H2-N5b" firstAttribute="bottom" secondItem="3o4-KQ-ijQ" secondAttribute="bottom" id="fav-KL-ZiA"/>
-                            <constraint firstItem="tnu-H2-N5b" firstAttribute="top" secondItem="3o4-KQ-ijQ" secondAttribute="top" id="kn7-0D-991"/>
-                            <constraint firstItem="tnu-H2-N5b" firstAttribute="trailing" secondItem="3o4-KQ-ijQ" secondAttribute="trailing" id="pZ6-zx-nZk"/>
-                        </constraints>
-                    </view>
-                    <navigationItem key="navigationItem" id="oFV-vt-xkW"/>
-                    <simulatedStatusBarMetrics key="simulatedStatusBarMetrics"/>
-                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
-                    <connections>
-                        <outlet property="webView" destination="tnu-H2-N5b" id="uid-zc-Oaz"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="xZ8-ka-USm" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-110" y="-1656"/>
-        </scene>
         <!--Terms Of Use View Controller-->
         <scene sceneID="XBh-Uq-0X8">
             <objects>
@@ -3120,11 +3076,11 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                         <viewControllerLayoutGuide type="bottom" id="GDJ-8f-IuV"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="TQr-Rt-KYN">
-                        <rect key="frame" x="0.0" y="20" width="320" height="9860"/>
+                        <rect key="frame" x="0.0" y="20" width="320" height="9920"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HB4-oX-cdE">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="9860"/>
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="9920"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <subviews>
                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" lineBreakMode="tailTruncation" numberOfLines="50000" baselineAdjustment="alignBaselines" minimumFontSize="6" preferredMaxLayoutWidth="310" translatesAutoresizingMaskIntoConstraints="NO" id="uvg-qA-Hm0">
