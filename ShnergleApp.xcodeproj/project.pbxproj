@@ -929,7 +929,6 @@
 		CD3703751760C8B600CFD249 /* CustomBackViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CD3703741760C8B600CFD249 /* CustomBackViewController.m */; };
 		CD3B655D175CBA72006A4151 /* CrowdItem.m in Sources */ = {isa = PBXBuildFile; fileRef = CD3B655C175CBA72006A4151 /* CrowdItem.m */; };
 		CD5024921768AED6003D3004 /* StaffTypeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CD5024911768AE99003D3004 /* StaffTypeViewController.m */; };
-		CD517787179A8BF400C9BA44 /* WebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CD517786179A8B7F00C9BA44 /* WebViewController.m */; };
 		CD56F319179D30C80028B688 /* FindStaffViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CD56F318179D308C0028B688 /* FindStaffViewController.m */; };
 		CD654EE8179DCA9800F380B5 /* Crashlytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CD654EE7179DCA9800F380B5 /* Crashlytics.framework */; };
 		CD7C1B10175B424400902AA9 /* ImageCache.m in Sources */ = {isa = PBXBuildFile; fileRef = CD7C1B0F175B424400902AA9 /* ImageCache.m */; };
@@ -1920,8 +1919,6 @@
 		CD3B655C175CBA72006A4151 /* CrowdItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CrowdItem.m; sourceTree = "<group>"; };
 		CD5024901768AE99003D3004 /* StaffTypeViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = StaffTypeViewController.h; sourceTree = "<group>"; };
 		CD5024911768AE99003D3004 /* StaffTypeViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = StaffTypeViewController.m; sourceTree = "<group>"; };
-		CD517785179A8B7F00C9BA44 /* WebViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WebViewController.h; sourceTree = "<group>"; };
-		CD517786179A8B7F00C9BA44 /* WebViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WebViewController.m; sourceTree = "<group>"; };
 		CD56F317179D308C0028B688 /* FindStaffViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FindStaffViewController.h; sourceTree = "<group>"; };
 		CD56F318179D308C0028B688 /* FindStaffViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FindStaffViewController.m; sourceTree = "<group>"; };
 		CD61F0A317688C06005EB276 /* StaffViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = StaffViewController.h; sourceTree = "<group>"; };
@@ -2951,6 +2948,8 @@
 				CD5024911768AE99003D3004 /* StaffTypeViewController.m */,
 				CD61F0A317688C06005EB276 /* StaffViewController.h */,
 				CD61F0A417688C06005EB276 /* StaffViewController.m */,
+				EE9D078817A90BFD008FAD09 /* TermsOfUseViewController.h */,
+				EE9D078917A90BFD008FAD09 /* TermsOfUseViewController.m */,
 				806D2781176627CC001E349D /* VenueCategoryViewController.h */,
 				806D2782176627CC001E349D /* VenueCategoryViewController.m */,
 				EEAFF0FE17677CBC00980DC1 /* VenueDetailsViewController.h */,
@@ -2959,12 +2958,8 @@
 				805AB9E0172A9AFA0056DCFB /* VenueGalleryViewController.m */,
 				80B957D416FC65F90044A505 /* VenueViewController.h */,
 				80B957D516FC65F90044A505 /* VenueViewController.m */,
-				CD517785179A8B7F00C9BA44 /* WebViewController.h */,
-				CD517786179A8B7F00C9BA44 /* WebViewController.m */,
 				80B400BF17540CCA00A377D9 /* Images */,
 				808F13CF16FB6A5C00B66E6D /* Supporting Files */,
-				EE9D078817A90BFD008FAD09 /* TermsOfUseViewController.h */,
-				EE9D078917A90BFD008FAD09 /* TermsOfUseViewController.m */,
 			);
 			path = ShnergleApp;
 			sourceTree = "<group>";
@@ -4130,7 +4125,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				CD56F319179D30C80028B688 /* FindStaffViewController.m in Sources */,
-				CD517787179A8BF400C9BA44 /* WebViewController.m in Sources */,
 				CD1D1D3517987932004B634E /* CheckInListViewController.m in Sources */,
 				EEB706F5176A1C5B00EF05C5 /* AddPromotionsViewController.m in Sources */,
 				EE9D078A17A90BFD008FAD09 /* TermsOfUseViewController.m in Sources */,

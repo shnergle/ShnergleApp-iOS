@@ -105,9 +105,9 @@
         default:
             break;
     }
-    self.followingLabel.text = [result[@"following_total"] stringValue];
-    self.redeemedLabel.text = [result[@"redemptions_total"] stringValue];
-    self.checkInLabel.text = [result[@"posts_total"] stringValue];
+    self.followingLabel.text = [self suffix:[result[@"following_total"] intValue]];
+    self.redeemedLabel.text = [self suffix:[result[@"redemptions_total"]  intValue]];
+    self.checkInLabel.text = [self suffix:[result[@"posts_total"]  intValue]];
     self.shnerglerLabel.text = [NSString stringWithFormat:@"Shnergle score above %@", [result[@"thresholds"][2] stringValue]];
     self.explorerLabel.text = [NSString stringWithFormat:@"Shnergle score above %@", [result[@"thresholds"][0] stringValue]];
     self.scoutLabel.text = [NSString stringWithFormat:@"Shnergle score above %@", [result[@"thresholds"][1] stringValue]];
@@ -121,6 +121,17 @@
     appDelegate.comment = [result[@"comments"] stringValue];
     appDelegate.like = [result[@"likes"] stringValue];
     [self.view hideToastActivity];
+}
+
+
+- (NSString *)suffix:(int)number {
+    if (number > 999999) {
+        return [NSString stringWithFormat:@"%dM", number / 1000000];
+    } else if (number > 999) {
+        return [NSString stringWithFormat:@"%dK", number / 1000];
+    } else {
+        return [@(number) stringValue];
+    }
 }
 
 - (IBAction)privacy:(id)sender {

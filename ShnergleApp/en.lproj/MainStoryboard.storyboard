@@ -1844,7 +1844,7 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ho1-hg-V7U">
-                                        <rect key="frame" x="3" y="374" width="313" height="802"/>
+                                        <rect key="frame" x="3" y="374" width="313" height="798"/>
                                         <subviews>
                                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Total activity to date" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="reI-HU-QFh">
                                                 <rect key="frame" x="3" y="9" width="167" height="21"/>
@@ -1856,7 +1856,7 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Manage linked accounts" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3F8-dh-TCs">
-                                                <rect key="frame" x="7" y="138" width="193" height="21"/>
+                                                <rect key="frame" x="7" y="134" width="193" height="21"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="193" id="gw4-RC-4MH"/>
                                                 </constraints>
@@ -1865,10 +1865,10 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" image="twitter-bird-white-on-blue.png" translatesAutoresizingMaskIntoConstraints="NO" id="5i0-JZ-HpY">
-                                                <rect key="frame" x="6" y="218" width="43" height="40"/>
+                                                <rect key="frame" x="6" y="214" width="43" height="40"/>
                                             </imageView>
                                             <label hidden="YES" opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Twitter" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gJ1-F0-r4G">
-                                                <rect key="frame" x="57" y="227" width="64" height="21"/>
+                                                <rect key="frame" x="57" y="223" width="64" height="21"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="21" id="29A-en-jg1"/>
                                                     <constraint firstAttribute="width" constant="64" id="nGW-LD-th2"/>
@@ -1878,20 +1878,20 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <switch hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="f4K-tX-UWy">
-                                                <rect key="frame" x="226" y="222" width="45" height="27"/>
+                                                <rect key="frame" x="226" y="218" width="79" height="27"/>
                                                 <connections>
                                                     <action selector="twitterSwitchAction:" destination="qgb-Kw-YNh" eventType="valueChanged" id="NqF-qj-vfl"/>
                                                 </connections>
                                             </switch>
                                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="FB-f-Logo__blue_50.png" translatesAutoresizingMaskIntoConstraints="NO" id="zN9-Dk-DAR">
-                                                <rect key="frame" x="6" y="164" width="43" height="40"/>
+                                                <rect key="frame" x="6" y="160" width="43" height="40"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="40" id="6lZ-bm-5QH"/>
                                                     <constraint firstAttribute="width" constant="43" id="SSC-S8-xfx"/>
                                                 </constraints>
                                             </imageView>
                                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Facebook" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mc9-vJ-eG8">
-                                                <rect key="frame" x="57" y="173" width="121" height="21"/>
+                                                <rect key="frame" x="57" y="169" width="121" height="21"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="21" id="Ozc-l9-fsp"/>
                                                 </constraints>
@@ -1900,23 +1900,23 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <switch opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="251" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="G5B-44-FjK">
-                                                <rect key="frame" x="226" y="170" width="45" height="27"/>
+                                                <rect key="frame" x="226" y="166" width="79" height="27"/>
                                                 <accessibility key="accessibilityConfiguration">
                                                     <bool key="isElement" value="NO"/>
                                                 </accessibility>
                                             </switch>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wHE-cF-94Z">
-                                                <rect key="frame" x="4" y="38" width="100" height="82"/>
+                                                <rect key="frame" x="4" y="38" width="100" height="78"/>
                                                 <subviews>
                                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Check Ins" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="O35-G2-0P4">
-                                                        <rect key="frame" x="5" y="54" width="84" height="24"/>
+                                                        <rect key="frame" x="5" y="54" width="84" height="20"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="lvZ-Xo-ozX">
-                                                        <rect key="frame" x="7" y="-9" width="78" height="77"/>
-                                                        <fontDescription key="fontDescription" type="system" pointSize="64"/>
+                                                        <rect key="frame" x="7" y="-9" width="78" height="73"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="40"/>
                                                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
@@ -1938,16 +1938,16 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                                                 </connections>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GKX-LD-Xt5">
-                                                <rect key="frame" x="106" y="38" width="101" height="82"/>
+                                                <rect key="frame" x="106" y="38" width="101" height="78"/>
                                                 <subviews>
                                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="B6N-VF-klk">
-                                                        <rect key="frame" x="7" y="-12" width="86" height="80"/>
-                                                        <fontDescription key="fontDescription" type="system" pointSize="64"/>
+                                                        <rect key="frame" x="7" y="-12" width="86" height="76"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="40"/>
                                                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Redeemed" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="X6T-vE-tC0">
-                                                        <rect key="frame" x="4" y="54" width="89" height="24"/>
+                                                        <rect key="frame" x="4" y="54" width="89" height="20"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                         <nil key="highlightedColor"/>
@@ -1970,16 +1970,16 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                                                 </connections>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7GK-nU-Mra">
-                                                <rect key="frame" x="209" y="38" width="100" height="82"/>
+                                                <rect key="frame" x="209" y="38" width="100" height="78"/>
                                                 <subviews>
                                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="C41-aV-eej">
-                                                        <rect key="frame" x="9" y="-14" width="83" height="83"/>
-                                                        <fontDescription key="fontDescription" type="system" pointSize="64"/>
+                                                        <rect key="frame" x="9" y="-14" width="83" height="79"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="40"/>
                                                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Following" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wCf-21-3l1">
-                                                        <rect key="frame" x="9" y="54" width="83" height="24"/>
+                                                        <rect key="frame" x="9" y="54" width="83" height="20"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                         <nil key="highlightedColor"/>
@@ -2002,7 +2002,7 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                                                 </connections>
                                             </view>
                                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Account Settings" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sAt-h0-qjm">
-                                                <rect key="frame" x="7" y="272" width="193" height="21"/>
+                                                <rect key="frame" x="7" y="268" width="193" height="21"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="21" id="Bng-BE-kNW"/>
                                                 </constraints>
@@ -2011,13 +2011,13 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Save images to camera roll" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="9" translatesAutoresizingMaskIntoConstraints="NO" id="GwA-0R-rfu">
-                                                <rect key="frame" x="43" y="305" width="180" height="21"/>
+                                                <rect key="frame" x="43" y="301" width="180" height="21"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Show me in top 5 customers" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="9" translatesAutoresizingMaskIntoConstraints="NO" id="ccN-SN-iHZ">
-                                                <rect key="frame" x="44" y="359" width="180" height="21"/>
+                                                <rect key="frame" x="44" y="355" width="180" height="21"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="21" id="LWh-Vz-aSf"/>
                                                 </constraints>
@@ -2025,7 +2025,7 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="LfG-bg-yfB">
-                                                <rect key="frame" x="225" y="302" width="79" height="27"/>
+                                                <rect key="frame" x="225" y="298" width="79" height="27"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="77" id="9Jc-oD-NhH"/>
@@ -2035,14 +2035,14 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                                                 </connections>
                                             </switch>
                                             <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="8Vi-ig-4Kl">
-                                                <rect key="frame" x="226" y="355" width="45" height="27"/>
+                                                <rect key="frame" x="226" y="351" width="79" height="27"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <connections>
                                                     <action selector="optInChange:" destination="qgb-Kw-YNh" eventType="valueChanged" id="4aC-GR-t96"/>
                                                 </connections>
                                             </switch>
                                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="glyphicons_087_log_book.png" translatesAutoresizingMaskIntoConstraints="NO" id="eOV-wf-yYN">
-                                                <rect key="frame" x="7" y="298" width="30" height="30"/>
+                                                <rect key="frame" x="7" y="294" width="30" height="30"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="30" id="1z8-Lb-62S"/>
@@ -2050,11 +2050,11 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                                                 </constraints>
                                             </imageView>
                                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="glyphicons_029_notes_2.png" translatesAutoresizingMaskIntoConstraints="NO" id="RtN-HM-Qtz">
-                                                <rect key="frame" x="7" y="353" width="30" height="34"/>
+                                                <rect key="frame" x="7" y="349" width="30" height="34"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             </imageView>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Iao-6a-4Jo">
-                                                <rect key="frame" x="7" y="643" width="205" height="25"/>
+                                                <rect key="frame" x="7" y="639" width="205" height="25"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="25" id="Dm9-Ww-2yw"/>
@@ -2064,11 +2064,11 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                                 </state>
                                                 <connections>
-                                                    <segue destination="7jg-Cv-HlB" kind="push" id="un0-rf-vZ5"/>
+                                                    <segue destination="hEm-jV-zWS" kind="push" id="bLg-gv-CVq"/>
                                                 </connections>
                                             </button>
                                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Need Help?" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nGX-en-P2f">
-                                                <rect key="frame" x="4" y="438" width="106" height="21"/>
+                                                <rect key="frame" x="4" y="434" width="106" height="21"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="106" id="gtj-ye-KR0"/>
@@ -2077,14 +2077,14 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="glyphicons_410_facebook.png" translatesAutoresizingMaskIntoConstraints="NO" id="d9b-Ij-v7L">
-                                                <rect key="frame" x="7" y="467" width="30" height="30"/>
+                                                <rect key="frame" x="7" y="463" width="30" height="30"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="30" id="G2q-ie-cPx"/>
                                                 </constraints>
                                             </imageView>
                                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Message us on our Facebook Page" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="9" translatesAutoresizingMaskIntoConstraints="NO" id="rsv-1W-kuR">
-                                                <rect key="frame" x="44" y="471" width="247" height="21"/>
+                                                <rect key="frame" x="44" y="467" width="247" height="21"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="21" id="Ozw-xf-iBU"/>
@@ -2093,14 +2093,14 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="glyphicons_411_twitter.png" translatesAutoresizingMaskIntoConstraints="NO" id="FG2-bQ-V73">
-                                                <rect key="frame" x="7" y="505" width="30" height="30"/>
+                                                <rect key="frame" x="7" y="501" width="30" height="30"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="30" id="ckD-sH-5Cz"/>
                                                 </constraints>
                                             </imageView>
                                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Twitter Message (to @Shnerglehelp)" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="14" translatesAutoresizingMaskIntoConstraints="NO" id="W3Q-7b-sAk">
-                                                <rect key="frame" x="44" y="506" width="247" height="27"/>
+                                                <rect key="frame" x="44" y="502" width="247" height="27"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="27" id="PcM-M6-LnN"/>
@@ -2109,11 +2109,11 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="glyphicons_419_e-mail.png" translatesAutoresizingMaskIntoConstraints="NO" id="NlE-Cn-TD0">
-                                                <rect key="frame" x="7" y="542" width="30" height="30"/>
+                                                <rect key="frame" x="7" y="538" width="30" height="30"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             </imageView>
                                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Email us at contact@shnergle.com" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="9" translatesAutoresizingMaskIntoConstraints="NO" id="B1L-Va-mUZ">
-                                                <rect key="frame" x="44" y="546" width="251" height="21"/>
+                                                <rect key="frame" x="44" y="542" width="251" height="21"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="21" id="din-4v-Uy1"/>
@@ -2122,7 +2122,7 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Legal" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="H3q-g6-cBg">
-                                                <rect key="frame" x="7" y="606" width="48" height="21"/>
+                                                <rect key="frame" x="7" y="602" width="48" height="21"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="48" id="3Lp-pr-Bby"/>
@@ -2132,7 +2132,7 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mh6-7s-42y">
-                                                <rect key="frame" x="7" y="679" width="205" height="25"/>
+                                                <rect key="frame" x="7" y="675" width="205" height="25"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="25" id="eG2-zb-8x2"/>
@@ -2143,6 +2143,20 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                                                 </state>
                                                 <connections>
                                                     <segue destination="dSf-nl-gV6" kind="push" id="HzW-kz-4Eb"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iU5-fn-yXd">
+                                                <rect key="frame" x="7" y="711" width="205" height="25"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="25" id="0lh-V4-qaa"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                                <state key="normal" title="FAQ" backgroundImage="greybutton04.png">
+                                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                                </state>
+                                                <connections>
+                                                    <segue destination="m3L-Cu-7Qf" kind="push" id="Bgj-3i-74u"/>
                                                 </connections>
                                             </button>
                                         </subviews>
@@ -2348,7 +2362,7 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                     </connections>
                 </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="-1173" y="-1220"/>
+            <point key="canvasLocation" x="-1145" y="-1230"/>
         </scene>
         <!--Score View Controller-->
         <scene sceneID="mG7-aw-G4c">
@@ -2703,6 +2717,9 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                                 <state key="normal" title="Privacy and Cookie Policy" backgroundImage="greybutton04.png">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <segue destination="hEm-jV-zWS" kind="push" id="xUB-NL-HY4"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kpM-AK-0pm">
                                 <rect key="frame" x="60" y="325" width="205" height="25"/>
@@ -2741,6 +2758,74 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                 <placeholder placeholderIdentifier="IBFirstResponder" id="muV-Yu-rvu" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-309" y="-713"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="w4s-h5-ykB">
+            <objects>
+                <viewController id="m3L-Cu-7Qf" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Jei-3Z-qRN"/>
+                        <viewControllerLayoutGuide type="bottom" id="tGy-fh-vuL"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Y1G-9J-auZ">
+                        <rect key="frame" x="0.0" y="20" width="320" height="548"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" editable="NO" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Cjv-oL-HZ0">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="548"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <mutableString key="text">WHAT IS SHNERGLE ALL ABOUT?
+Shnergle is about helping you stay flexible, save time and hopefully a bit of cash too. We help Merchants tell you what is going on at their establishments in real time, without spamming your mailbox or phone. We also help the most active Shnerglers in the community to tip off the public about what is going on where, and get rewarded with more valuable discounts in return.
+DonÕt waste time wandering around looking for the right place, now you can #Shnergleit on your phone and go!
+
+HOW DOES IT ALL WORK?
+Shnergle lets you see photos and comments  about specific places posted by Merchants and the Shnergle community, along with when the photos were taken. We only show activity from the last 8 days, and we only show how many people have RSVPÕd to go to a place today Ð there is too much out of date information out there and we think you deserve the latest info!
+
+WHAT DO MERCHANTS FIND OUT ABOUT ME?
+We help Merchants better understand the people searching for and visiting their establishments, but we reckon you want to stay anonymous. As such we bundle together the information we give them, so you can't be identified personally.
+If you are happy to be identified and you want the very best deals, then turn on the ÔTop 5 CustomerÕ feature in the profile view. This way if you are one of the 5 most active Shnerglers at a particular venue they can reach out to you for the best VIP deals!
+
+PROMOTIONS
+We think you should get rewarded for helping Merchants and other Shnerglers; so we have setup a promotion feature for Merchants. These promotions might be for short periods or for limited number of people; there may also be more valuable promotions for more active Shnerglers. If you see one of these promotions, get yourself over there and redeem it Ð taking a picture in the process and helping everybody out!
+
+HOW CAN I DO MY BIT FOR THE COMMUNITY?
+Shnergle is going to be most useful when there is lots of up to date info for everybody to benefit from. If you are going through a station, waiting for the tube, grabbing a coffee or popping into a bar for a drink, take a quick snap and check it into Shnergle Ð help other Shnerglers! If the place you are snapping isnÕt on the system, just add it; it only takes a second.
+
+WHERE CAN I GET THE PHOTOS I TAKE ON SHNERGLE?
+Every time you take a photo on Shnergle you can share it with your friends on Facebook, but we know you might want full resolution ones later too, so we save full resolution images to the camera roll on your phone. These photos taking up too much space? No problem Ð head over to the profile page, scroll down and you can stop saving the photos.
+
+I WANT TO TWEET MY SHNERGLE PICTURES!
+We know and we are working hard to include this important feature. So far it has been a big challenge; if you are a whiz with custom Twitter iOS integration, drop us a line!
+
+CAN I INVITE MY FRIENDS TO USE SHNERGLE?
+Of course Ð the more the merrier! Please help us spread the word, particularly on Facebook and Twitter, so that we can grow the community and make it better for everybody!
+
+WHERE CAN I GIVE FEEDBACK?
+We love feedback Ð good or bad! WeÕd love to answer any questions you have or listen to your views about how to improve or fix the app. Please drop us a line or drop by TechHub at Google Campus in London and let chat!
+* Message us on Facebook
+* Tweet us @Shnerglehelp
+* Email us at contact@shnergle.com
+* TechHub
+Google Campus
+4-5 Bonhill Street
+London
+EC2A 4BX
+
+THANKS FOR BEING PART OF THE SHNERGLE COMMUNITY - HAPPY SHNERGLING! 
+</mutableString>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="J05-8Z-Grw"/>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="z3x-uH-Dwx" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="75" y="-420"/>
         </scene>
         <!--Favourites Sliding-->
         <scene sceneID="2ce-1L-Y1h">
@@ -3073,46 +3158,135 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
             </objects>
             <point key="canvasLocation" x="-480" y="-1656"/>
         </scene>
-        <!--Web View Controller-->
-        <scene sceneID="hOy-4b-gRT">
+        <!--Terms Of Use View Controller-->
+        <scene sceneID="klW-Hx-hjJ">
             <objects>
-                <viewController id="7jg-Cv-HlB" customClass="WebViewController" sceneMemberID="viewController">
+                <viewController id="hEm-jV-zWS" customClass="TermsOfUseViewController" sceneMemberID="viewController">
                     <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="Gx2-vY-AJY"/>
-                        <viewControllerLayoutGuide type="bottom" id="Mae-b4-IN0"/>
+                        <viewControllerLayoutGuide type="top" id="DWj-nT-73d"/>
+                        <viewControllerLayoutGuide type="bottom" id="77T-pS-x89"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="3o4-KQ-ijQ">
+                    <view key="view" contentMode="scaleToFill" id="Uhc-ca-aJl">
                         <rect key="frame" x="0.0" y="20" width="320" height="548"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tnu-H2-N5b">
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" editable="NO" usesAttributedText="YES" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="l35-1v-63j">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="548"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                <dataDetectorType key="dataDetectorTypes"/>
-                                <connections>
-                                    <outlet property="delegate" destination="7jg-Cv-HlB" id="onP-gb-dX5"/>
-                                </connections>
-                            </webView>
+                                <attributedString key="attributedText">
+                                    <fragment>
+                                        <string key="content">Privacy and Cookie Policy
+
+Last Updated:  29 July 2013
+Welcome to Shnergle ("Shnergle", "we", "us" or "our").  We allow people anywhere in the world to see what is going on at any given place in real time through posting and sharing content, including photos, comments and other materials ("User Content") through our content sharing platform. We know that you take your privacy seriously and we are committed to giving you transparent information about our privacy practices and how we control your data in connection with our Service (defined below). 
+To that end, this privacy and cookie policy (together with our terms of use ("Policy") explains how we collect, use and disclose personally identifiable data ("Personal Information) and other data (together "Your Information") that we may collect from you, when you use the Shnergle App or website ("Site") and associated software and services (together the "Service"). It also explains your choices about the collection and use of Your Information and applies to all visitors, users, merchants and others who access the Service (together "Users"). 
+Please read the following carefully to understand our view and privacy practices regarding Your Information and how we treat it. We recommend that you print and retain a copy for your future reference. 
+If you have any queries about how we use Your Information or have a complaint, please contact us.
+
+1. Who we are:
+For the purposes of the Data Protection Act 1998, the data controller is Shnergle Limited of Kemp House, City Road, London, United Kingdom, EC1V 2NX, We are a company registered in England Wales with the company number 08263039.
+
+2. Information we collect:
+We may collect or receive Your Information directly from you or from other sources. We collect the following types of information about Users who use the Service:
+* When you register to use our Service, we will collect your username, e-mail address and  password.  
+* When you logon to the Service using your Facebook logon credentials, we may receive Personal Information about you from Facebook, in accordance with the Facebook terms and conditions. For example when you logon from Facebook Connect, Facebook will provide us with basic information (which may include your name, e-mail, gender, birthday, current city and profile URL), all in accordance with Facebook's terms and conditions. We will also request the following permissions from you: Your "Basic Info", your "Location" and whether you'd like to publish "your user content". We may add any of Your Information received from Facebook to the information we have already collected from you via the Service, and we will treat such data in accordance with the Policy. When you logon to the Service through Facebook Connect, Facebook will know that you have logged onto the Service and will display the Shnergle App as one of your Facebook applications. You may elect to share, through a feature on the Service, certain content and information from our Service with Facebook. The Facebook terms and conditions will apply to the information we so disclose to it. We work with Facebook's application protocol interface (better known as their developer API) in a way that allows you to authorise us to access your account on Facebook directly through our Service. Once authorised by you, Facebook provides us with a token that allows Facebook to recognise us when we ask, on your behalf, to access your account information or post information. You can revoke our access to Facebook at any time by amending the appropriate setting from within your account settings on the Facebook site;
+* Profile information that you provide when you set up or update your user profile, including your name, demographic information, Facebook photo and any other profile information you provide. 
+* User Content you generate (e.g.,  photos comments,  captions or other materials) and post to the Service;
+* When you use the Service, we may collect information about your activities, such as, traffic data, location data, device identity data, weblogs, recent history of your search activity, information relating to your use of promotions, including full promotion redemption history, information about your favourite venues and other communication data, whether this is required for our own security purposes or otherwise and the resources that you access;
+*  If you contact us, we keep a record of that correspondence; 
+* Staffing and permissions information if your user account is associated with a merchant venue;
+* Where you choose to use ShnergleÕs intentions feature, data around the indication of your intentions. This feature is a button that you can press to indicate on an anonymous basis that you will be going to a particular venue. You can find out more information about this feature on our Site.
+* When you visit the Service, we may use certain cookies and similar technologies like pixels, web beacons, and local storage to collect information about your use the Service and to distinguish you from other Users of the Service.  This helps us to provide you with a good experience when you browse and use our Service and also allows us to improve our Service. 
+* More information is available in our Cookies Policy section. 
+* Metadata is usually technical data that is associated with your User Content.  For example, Metadata can describe how, when and by whom a piece of User Content was collected and how the content is formatted. Users can add or may have Metadata added to their User Content including a geotag (e.g. to mark your location to a photo), comments or other data. This makes your User Content more interactive.  
+* To provide the Service, we need to know your location.  Whenever you open the App and use the Service on your mobile app or through our Site, we (and our partners) may collect and use your location information from your mobile device or browser, including the real-time geographic location of your device when you use the Service.  We do this so that we can tailor the Shnergle experience to your current location (i.e. we'll show you a list of nearby venues).  This information is NOT shared with others unless you proactively decide to share this information with other Users, for example when you "check in" to a venue.  We will request permission to access your location data prior to accessing such data for the first time. If you do not want to provide us with your location data, do not give us permission to use your location data when we ask you.  Note however, that if you do not allow us to use your location data, we will be unable to provide the Service to you.
+* When you use the Services or view content on our Site, we may automatically collect and store certain information in server logs, including but not limited to internet protocol (IP) addresses, internet service provider (ISP), clickstream data, browser type and language, viewed and exit pages and date or time stamps.
+
+3. How we use your information. 
+In addition to some of the specific uses of Your Information we describe in this Policy, we may use Your Information that we receive:
+* To provide the Service to you; For Communications between you and Shnergle.  For example, we may send you Service-related emails (e.g. account verification, changes/updates to features of the Service, technical and security notices). Note that you may not opt out of Service-related e-mails;
+* To provide you with marketing communications where you have given your consent to such purpose.  If you do not want us to use your data in this way, please tick the relevant box on the registration form when you are setting up your account with us.  For more information about how to change your preferences, and to unsubscribe from promotional materials (including newsletters, marketing messages and email notifications) please see the Your Choices section below ;
+* To determine the 5 most active Users in relation to a particular venue, determined by reference to the volume and frequency of User Content uploaded, shared and checked by any one User in respect of a particular venue (each an "Active User");
+* To provide, improve, test, and monitor the effectiveness of the Service;
+* To develop and test new products and features for the Service;
+* To carry out research and analysis and monitor visitor use of our Service on an anonymous basis to identify general trends and to better understand visitor behaviour, including for example, to monitor metrics such as total number of visitors to our site, traffic, and demographic patterns and through the Shnergle intentions feature, to collect data on an anonymous basis about how many Users intend to visit a particular venue;
+* To diagnose or fix technology problems;
+* To investigate any complaints or potential breaches of the Service;
+* To provide merchants who are Users with relevant reports including aggregate information based on User activity. Please note that with the exception of the Ô5 most active customersÕ feature, this information will always be aggregate, anonymous, statistical information that will not identify any particular individual. 
+* We do not disclose information about identifiable individuals to our advertisers, but we may provide Merchants who are Users with aggregate information about other Users (for example, we may inform them that 500 men aged under 30 have clicked on their advertisement on any given day).]
+
+4. Information which we may share with third parties
+We never disclose Your Information or merchant business information to anyone (except pursuant to a court order or otherwise where required by law). Neither will we rent or sell Your Information to third parties outside Shnergle (or the group of companies of which Shnergle is a part) without your consent, except as noted in this Policy.
+Please note however that any User Content you upload to Shnergle (such as images, comments or captions for example) will automatically be public from the moment you upload it. This means that other Users may search for, see, use or share any of your User Content that you make publically available through the Service.  You should take care when considering adding content to the Service. We only disclose Your Information to third parties as follows:
+* To any suppliers and subcontractors (including payment providers) that help us to provide the Service to you ("Service Providers"). We don't allow them to use this information for their own commercial purposes and they have to follow our express instructions and comply with appropriate security measures to protect your Personal Information;
+* If we (or a part of our business) are acquired by a third party, Your Information may be one of the transferred assets;
+* We may share Your information with a parent company, and subsidiaries, joint ventures, or other companies under common control with Shnergle (collectively "Affiliates"), in the event we have such Affiliates in the future and in which case we will require our Affiliates to honour this Policy.
+* If we are under a duty to disclose or share Your Information in order to comply with any legal obligation or in order to enforce or apply the Terms of Use as applicable and any other agreements or to protect the rights, property, or safety of Shnergle Limited, our customers, or others. This includes exchanging information with other companies and organisations for the purposes of fraud protection and credit risk reduction;
+* If you are an Active User in relation to a particular venue, we will share your Facebook photo and full name to the merchant associated with that venue so that they can reach out to you to let you know about any special deals or rewards which may be of interest to you.  We may also share Your Information with other third parties for marketing purposes. We will only share Your Information with anyone else, including to merchants for these purposes and/or send you promotional materials if you have specifically consented to that.  If you do not want us to use your data in this way, or to pass your details onto third parties for marketing purposes, please amend the setting on the profile screen of the App, or contact us at contact@shnergle.com.  For more information about how to change your preferences, and to unsubscribe from promotional materials (including newsletters, marketing messages and email notifications) please see the Your Choices section below.
+
+5. Where we store your Personal Data 
+Your Information may be transferred to stored and processed outside the European Economic Area ("EEA") in the United States. We will ensure any data export is undertaken in accordance with relevant data protection laws and take all steps reasonably necessary to ensure that Your Information is treated securely and in accordance with this Policy. By submitting your personal data, you agree to this transfer, storing or processing outside of the EEA, including the United States, which may provide for different data protection rules than in your country. 
+
+6. How do we protect Your Information?
+Unfortunately, the transmission of information via the internet is not completely secure. Although we will do our best to protect Your Information, we cannot guarantee the security of data transmitted to the Service; any transmission is at your own risk. Once we have received Your Information, we will use commercially reasonable procedures and security features to try to prevent unauthorised access, alteration and destruction of Your Information. You need to prevent unauthorised access to your account and Personal Information by selecting and protecting your password appropriately.
+ 
+7. Your Choices 
+You have the right to "opt in" and/or "opt-out" of certain uses of your Personal Information when registering to access or in the course of using our Service.   
+* You can update, correct or delete information about you at any time by accessing your profile within the menu of options on the Service and changing your profile settings or by emailing us at contact@shnergle.com.  If you wish to deactivate your account, please also email us at contact@shnergle.com.
+* You can "opt out" of receiving marketing emails from us at any time by clicking on the "unsubscribe link" provided in such communications or by emailing us at contact@shnergle.com with your specific request.   As noted above, you may not opt out of Service-related communications (e.g., account verification, purchase and billing confirmations and reminders, changes/updates to features of the Service, technical and security notices). 
+* Most web browsers (such as Internet Explorer, FireFox and Safari) are set to automatically accept cookies as the by default setting. If you donÕt want to receive cookies or other tracking technologies, you can usually choose to set your browser to remove or reject browser cookies or to prompt you before accepting such a cookie. You can also delete cookies that have already been set. The "Help" function within your browser should tell you how. Alternatively you may wish to visit www.aboutcookies.org, which contains comprehensive information on how to do this on a wide variety of desktop browsers. Please note that, if you choose to remove or reject browser cookies, this could affect the availability or functionality of the Box Services.
+
+8. How long we keep your User Content:
+* We will retain your Personal Information for the period necessary to fulfil the purposes outlined in this Policy
+* Following termination or deactivation of your account, Shnergle, its affiliates, or its Service Providers may retain information (including your profile information) and User Content for a commercially reasonable time for backup, archival, and/or audit purposes.
+* If you have any questions about termination or deactivation of your account, please contact us directly at contact@shnergle.com.
+
+9. Your Rights
+You have the following rights:
+* You have the right to request a copy of the information that we hold about you. If you would like a copy of some or all of such information, please contact us.  Any access request may be subject to a fee of £10 (or as specific by law) to meet our costs in providing you with details of the information we hold about you.
+* We hope you will be happy with the way we handle your information but if not you have the right to complain to the Information Commissioner if there is a problem - for more information visit www.ico.gov.uk.
+* The right to ask us to update and correct any out-of-date or incorrect Personal Information that we hold about you free of charge; and
+* The right to opt out of any marketing communications that we (or any third party to whom we have disclosed your Personal Information with your consent) may send you. Please see the "Your Choices" above for more information.
+
+10. Cookie Policy
+When you visit the Service, we may use certain cookies and similar technologies like pixels, web beacons, and local storage to collect information about how you use the Service and to provide features to you. 
+What is a cookie? Cookies are small data files stored on your browser or hard drive of your computer or mobile device if you agree. Cookies contain information that is transferred to your hard drive. 
+How do we use cookies? We use cookies and other tracking technologies  to help us to improve the Service and your experience, customise your experience and preferences, allow you to access and use the Service without re-entering your member ID and/or password and understand which areas and features of the Service are most popular and count visits. 
+What cookies do we use? Below we have provided a list of the categories of cookies that we use on the Service and a description of what those cookies do. Please check back here periodically as we may update this information from time to time: 
+* Session ID Cookies: We use session ID cookies to enable you to use the Service and to make it easier for you to navigate our Service (for example to enable you to complete a registration or access information). A session ID cookies only exist during an online session.  
+* Performance Cookies:  We use third party analytics tools like Google Analytics to measure traffic and usage trends for the Service for business analysis, site/platform improvement and performance metrics.  Google Analytics do not provide Shnergle with any personally identifiable information. These tools collect information sent by your device or our Service, including the web-pages you visit, add-ons and any other information that assists us in improving the Service.  We collect and use this analytics information with analytics information from other Users so that it cannot reasonably be used to identify any particular User. 
+To learn more about Google Analytics and your privacy visit: To learn more about Google Analytics and your privacy, visithttp://www.google.com/analytics/learn/privacy.html. To opt out of being tracked by Google Analytics when using our web-based products, visit http://tools.google.com/dlpage/gaoptout.
+How to manage or refuse cookies? For more information about cookies and how to disable them, please see the "Your Choices" section above.
+11. Children's privacy
+Shnergle does not knowingly collect or solicit any information from anyone under the age of 13 or knowingly allow such persons to register for the Service. The Service and its content are not directed at children under the age of 13. In the event that we learn that we have collected Personal Information from a child under age 13 without parental consent, we will delete that information as quickly as possible. If you believe that we might have any information from or about a child under 13, please contact us at contact@shnergle.com.
+
+12. Other web sites and services
+We are not responsible for the practices employed by any websites or services linked to or from our Service, including the information or content contained within them. Please remember that when you use a link to go from our Service to another website or service, our Policy does not apply to those third-party websites or services. Your browsing and interaction on any third-party website or service, including those that have a link on our website, are subject to that third party's own rules and policies. In addition, you agree that we are not responsible and do not have control over any third-parties with whom public content on Shnergle is shared with. If you are using a third-party website or service and sharing public content you do so at your own risk.
+
+13. Updates to this Policy
+We may modify or update this Policy from time to time. If we make any changes, we will notify you by revising the Last Updated information at the top of this Policy and in some cases, where appropriate, we may provide you with additional notice (such as sending you an email notification) so please review this Policy periodically.  To review the most current version of our Policy please visit our Site.  If there are material changes to this Policy, we will notify you more directly by email.  We may provide you additional forms of notice of modifications or updates as appropriate under the circumstances. Your continued use of Shnergle or the Service after any modification to this Privacy Policy will constitute your acceptance of such modification.
+This privacy policy was last updated on 29 July 2013.
+
+14. Contacting Us 
+If you have any questions, comments or requests regarding this Policy, please contact us directly by email at contact@shnergle.com or by post to Kemp House, City Road, London, United Kingdom, EC1V 2NX, </string>
+                                        <attributes>
+                                            <font key="NSFont" metaFont="toolTip"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
+                                        </attributes>
+                                    </fragment>
+                                </attributedString>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstItem="tnu-H2-N5b" firstAttribute="leading" secondItem="3o4-KQ-ijQ" secondAttribute="leading" id="Ftk-uz-zsE"/>
-                            <constraint firstItem="tnu-H2-N5b" firstAttribute="bottom" secondItem="3o4-KQ-ijQ" secondAttribute="bottom" id="fav-KL-ZiA"/>
-                            <constraint firstItem="tnu-H2-N5b" firstAttribute="top" secondItem="3o4-KQ-ijQ" secondAttribute="top" id="kn7-0D-991"/>
-                            <constraint firstItem="tnu-H2-N5b" firstAttribute="trailing" secondItem="3o4-KQ-ijQ" secondAttribute="trailing" id="pZ6-zx-nZk"/>
-                        </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="oFV-vt-xkW"/>
-                    <simulatedStatusBarMetrics key="simulatedStatusBarMetrics"/>
+                    <navigationItem key="navigationItem" id="hJS-Q9-54n"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
-                    <connections>
-                        <outlet property="webView" destination="tnu-H2-N5b" id="uid-zc-Oaz"/>
-                    </connections>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="xZ8-ka-USm" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ga3-EJ-E3E" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-110" y="-1656"/>
+            <point key="canvasLocation" x="92" y="-1239"/>
         </scene>
         <!--Terms Of Use View Controller-->
         <scene sceneID="XBh-Uq-0X8">
@@ -3467,8 +3641,9 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="Zho-BK-kL6"/>
+        <segue reference="xzO-IX-Cmd"/>
         <segue reference="ohm-kx-4nt"/>
+        <segue reference="Zho-BK-kL6"/>
         <segue reference="V1y-Vn-JKN"/>
         <segue reference="xzO-IX-Cmd"/>
         <segue reference="WSb-QO-1iD"/>
