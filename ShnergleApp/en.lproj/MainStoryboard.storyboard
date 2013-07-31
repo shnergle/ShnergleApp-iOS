@@ -1607,7 +1607,7 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                         <viewControllerLayoutGuide type="bottom" id="Lk3-8N-Zhg"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="T3d-vY-Mf8">
-                        <rect key="frame" x="0.0" y="20" width="320" height="2982"/>
+                        <rect key="frame" x="0.0" y="20" width="320" height="3062"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <navigationBar contentMode="scaleToFill" barStyle="black" translatesAutoresizingMaskIntoConstraints="NO" id="uZw-Cy-fCl">
@@ -1624,7 +1624,7 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                                 </items>
                             </navigationBar>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="HP1-zJ-Evb">
-                                <rect key="frame" x="0.0" y="145" width="320" height="2180"/>
+                                <rect key="frame" x="0.0" y="159" width="320" height="2180"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="d7K-2j-bO2">
                                         <rect key="frame" x="4" y="114" width="312" height="246"/>
@@ -2762,10 +2762,10 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
             </objects>
             <point key="canvasLocation" x="-309" y="-713"/>
         </scene>
-        <!--Terms Of Use View Controller - FAQ-->
+        <!--Terms Of Use View Controller-->
         <scene sceneID="w4s-h5-ykB">
             <objects>
-                <viewController title="FAQ" id="m3L-Cu-7Qf" customClass="TermsOfUseViewController" sceneMemberID="viewController">
+                <viewController id="m3L-Cu-7Qf" customClass="TermsOfUseViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Jei-3Z-qRN"/>
                         <viewControllerLayoutGuide type="bottom" id="tGy-fh-vuL"/>
@@ -2979,6 +2979,9 @@ THANKS FOR BEING PART OF THE SHNERGLE COMMUNITY - HAPPY SHNERGLING!
                     </view>
                     <navigationItem key="navigationItem" id="J05-8Z-Grw"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="string" keyPath="title" value="FAQ"/>
+                    </userDefinedRuntimeAttributes>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="z3x-uH-Dwx" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -3440,6 +3443,9 @@ If you have any questions, comments or requests regarding this Policy, please co
                     </view>
                     <navigationItem key="navigationItem" id="hJS-Q9-54n"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="string" keyPath="title" value="Privacy Policy"/>
+                    </userDefinedRuntimeAttributes>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ga3-EJ-E3E" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -3652,6 +3658,9 @@ Apple is a third party beneficiary of the Terms
                     </view>
                     <navigationItem key="navigationItem" id="lRh-Ql-efE"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="string" keyPath="title" value="Terms &amp; Conditions"/>
+                    </userDefinedRuntimeAttributes>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Q94-zz-R59" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
