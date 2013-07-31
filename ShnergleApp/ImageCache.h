@@ -17,6 +17,8 @@
 
 + (UIImage *)get:(NSString *)type identifier:(NSString *)type_id;
 
++ (void)set:(NSString *)type identifier:(NSString *)type_id image:(UIImage *)image;
+
 - (void)get:(NSString *)type identifier:(NSString *)type_id delegate:(id)object callback:(SEL)cb indexPath:(NSIndexPath *)index;
 
 @end

@@ -230,6 +230,7 @@
     if (appDelegate.posts != nil) {
         if (index.item == 0) {
             appDelegate.shareImage = [ImageCache get:@"post" identifier:appDelegate.posts[0][@"id"]];
+            [ImageCache set:@"venue" identifier:appDelegate.activeVenue[@"id"] image:appDelegate.shareImage];
         }
 
         if (response != nil) {
@@ -323,7 +324,10 @@
     appDelegate.posts = response;
     [self.crowdCollectionV reloadData];
     [refreshControl endRefreshing];
-    if ([appDelegate.posts count] > 0 && appDelegate.posts[0] != nil) appDelegate.shareImage = [ImageCache get:@"post" identifier:appDelegate.posts[0][@"id"]];
+    if ([appDelegate.posts count] > 0 && appDelegate.posts[0] != nil) {
+        appDelegate.shareImage = [ImageCache get:@"post" identifier:appDelegate.posts[0][@"id"]];
+        if (appDelegate.shareImage != nil) [ImageCache set:@"venue" identifier:appDelegate.activeVenue[@"id"] image:appDelegate.shareImage];
+    }
 }
 
 - (void)viewDidDisappear:(BOOL)animated {

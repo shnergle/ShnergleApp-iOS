@@ -39,6 +39,11 @@ static NSCache *cache;
     return (UIImage *)[cache objectForKey:key];
 }
 
++ (void)set:(NSString *)type identifier:(NSString *)type_id image:(UIImage *)image {
+    NSString *key = [NSString stringWithFormat:@"%@/%@", type, type_id];
+    [cache setObject:image forKey:key];
+}
+
 - (void)get:(NSString *)type identifier:(NSString *)type_id delegate:(id)object callback:(SEL)cb indexPath:(NSIndexPath *)index {
     indexPath = index;
     [self get:type identifier:type_id delegate:object callback:cb];

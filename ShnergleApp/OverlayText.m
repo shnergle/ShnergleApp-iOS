@@ -13,7 +13,6 @@
 #import <Toast+UIView.h>
 #import "ShareViewController.h"
 #import "VenueDetailsViewController.h"
-#import <YIPopupTextView/YIPopupTextView.h>
 #import <NSDate+TimeAgo/NSDate+TimeAgo.h>
 
 @implementation OverlayText
@@ -80,15 +79,6 @@
 
 - (void)didIntent:(id)response {
     [self loadVenueIntentions];
-}
-
-- (IBAction)tappedCheckedIn:(id)sender {
-    UIViewController *caller = (UIViewController *)self.nextResponder.nextResponder;
-
-    UIStoryboard *storyb = [UIStoryboard storyboardWithName:@"MainStoryboard" bundle:nil];
-    UIViewController *vc = [storyb instantiateViewControllerWithIdentifier:@"CheckInViewController"];
-
-    [caller.navigationController pushViewController:vc animated:YES];
 }
 
 - (IBAction)publishTapped:(id)sender {
@@ -234,7 +224,7 @@
 
         self.publishButton.hidden = YES;
         self.intentionHeightConstraints.constant = 0;
-        
+
         self.intentionHeightConstraints.constant = 64;
     } else if ([appDelegate.activeVenue[@"official"] intValue] == 0) {
         self.claimVenueButton.hidden = NO;
@@ -278,20 +268,18 @@
     [[[PostRequest alloc]init]exec:@"venue_rsvps/get" params:[NSString stringWithFormat:@"venue_id=%@&from_time=%d&until_time=%d", appDelegate.activeVenue[@"id"], [self fromTime], [self untilTime]] delegate:self callback:@selector(didFinishGettingRsvps:)];
 }
 
-
-
 - (void)didAppear {
     [self venueLayoutConfig];
-    [self loadVenueIntentions];
+    self.thinkingLabel.hidden = YES;
+    self.goingLabel.hidden = YES;
     if (appDelegate.venueDetailsContent) [self registerVenue];
-    tableData = @[];
-    CGRect frame = self.commentsTableView.frame;
-    frame.size.height = self.commentsTableView.contentSize.height;
 }
-
 
 - (void)didFinishGettingRsvps:(id)response {
     [self hideToastActivity];
+    self.rsvpQuestionLabel.hidden = YES;
+    self.thinkingLabel.hidden = NO;
+    self.goingLabel.hidden = NO;
     self.thinkingLabel.text = [response[@"maybe"] stringValue];
     self.goingLabel.text = [response[@"going"] stringValue];
 }
@@ -338,9 +326,5 @@
 
     [[[PostRequest alloc]init]exec:@"venues/set" params:params delegate:self callback:@selector(didFinishUpdateVenueDetails:)];
 }
-
-
-
-
 
 @end
