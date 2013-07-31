@@ -1607,7 +1607,7 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                         <viewControllerLayoutGuide type="bottom" id="Lk3-8N-Zhg"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="T3d-vY-Mf8">
-                        <rect key="frame" x="0.0" y="20" width="320" height="2922"/>
+                        <rect key="frame" x="0.0" y="20" width="320" height="2982"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <navigationBar contentMode="scaleToFill" barStyle="black" translatesAutoresizingMaskIntoConstraints="NO" id="uZw-Cy-fCl">
@@ -1624,7 +1624,7 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                                 </items>
                             </navigationBar>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="HP1-zJ-Evb">
-                                <rect key="frame" x="0.0" y="134" width="320" height="2180"/>
+                                <rect key="frame" x="0.0" y="145" width="320" height="2180"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="d7K-2j-bO2">
                                         <rect key="frame" x="4" y="114" width="312" height="246"/>
@@ -2054,7 +2054,7 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             </imageView>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Iao-6a-4Jo">
-                                                <rect key="frame" x="7" y="639" width="205" height="25"/>
+                                                <rect key="frame" x="7" y="674" width="205" height="25"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="25" id="Dm9-Ww-2yw"/>
@@ -2122,7 +2122,7 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Legal" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="H3q-g6-cBg">
-                                                <rect key="frame" x="7" y="602" width="48" height="21"/>
+                                                <rect key="frame" x="7" y="642" width="48" height="21"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="48" id="3Lp-pr-Bby"/>
@@ -2132,7 +2132,7 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mh6-7s-42y">
-                                                <rect key="frame" x="7" y="675" width="205" height="25"/>
+                                                <rect key="frame" x="7" y="710" width="205" height="25"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="25" id="eG2-zb-8x2"/>
@@ -2145,11 +2145,12 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                                                     <segue destination="dSf-nl-gV6" kind="push" id="HzW-kz-4Eb"/>
                                                 </connections>
                                             </button>
-                                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iU5-fn-yXd">
-                                                <rect key="frame" x="7" y="711" width="205" height="25"/>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iU5-fn-yXd">
+                                                <rect key="frame" x="7" y="576" width="205" height="25"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="25" id="0lh-V4-qaa"/>
+                                                    <constraint firstAttribute="width" constant="205" id="rw5-VW-jeX"/>
                                                 </constraints>
                                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                                 <state key="normal" title="FAQ" backgroundImage="greybutton04.png">
@@ -2168,7 +2169,7 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                                             <constraint firstItem="8Vi-ig-4Kl" firstAttribute="leading" secondItem="ccN-SN-iHZ" secondAttribute="trailing" constant="2" id="2lS-iX-1uK"/>
                                             <constraint firstItem="f4K-tX-UWy" firstAttribute="trailing" secondItem="G5B-44-FjK" secondAttribute="trailing" id="3KP-nj-nKk"/>
                                             <constraint firstItem="eOV-wf-yYN" firstAttribute="trailing" secondItem="RtN-HM-Qtz" secondAttribute="trailing" id="3oH-Wr-g2M"/>
-                                            <constraint firstItem="H3q-g6-cBg" firstAttribute="top" secondItem="NlE-Cn-TD0" secondAttribute="bottom" constant="34" id="4YB-xW-fVz"/>
+                                            <constraint firstItem="H3q-g6-cBg" firstAttribute="top" secondItem="NlE-Cn-TD0" secondAttribute="bottom" constant="74" id="4YB-xW-fVz"/>
                                             <constraint firstItem="5i0-JZ-HpY" firstAttribute="top" secondItem="zN9-Dk-DAR" secondAttribute="bottom" constant="14" id="4bN-5B-Jwr"/>
                                             <constraint firstItem="NlE-Cn-TD0" firstAttribute="top" secondItem="FG2-bQ-V73" secondAttribute="bottom" constant="7" id="5Wn-6r-PzD"/>
                                             <constraint firstItem="FG2-bQ-V73" firstAttribute="top" secondItem="d9b-Ij-v7L" secondAttribute="bottom" constant="8" symbolic="YES" id="6ei-Iu-0tf"/>
@@ -2182,6 +2183,7 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                                             <constraint firstItem="ccN-SN-iHZ" firstAttribute="leading" secondItem="RtN-HM-Qtz" secondAttribute="trailing" constant="7" id="CLM-4q-kN6"/>
                                             <constraint firstItem="eOV-wf-yYN" firstAttribute="leading" secondItem="RtN-HM-Qtz" secondAttribute="leading" id="CfH-Hh-YHL"/>
                                             <constraint firstItem="reI-HU-QFh" firstAttribute="top" secondItem="ho1-hg-V7U" secondAttribute="top" constant="9" id="FgP-jQ-8cC"/>
+                                            <constraint firstItem="iU5-fn-yXd" firstAttribute="top" secondItem="mh6-7s-42y" secondAttribute="bottom" constant="-159" id="HRf-Hj-Lin"/>
                                             <constraint firstItem="mh6-7s-42y" firstAttribute="trailing" secondItem="Iao-6a-4Jo" secondAttribute="trailing" id="IWp-4A-EeB"/>
                                             <constraint firstItem="mc9-vJ-eG8" firstAttribute="leading" secondItem="zN9-Dk-DAR" secondAttribute="trailing" constant="8" symbolic="YES" id="Jsn-uW-vU0"/>
                                             <constraint firstItem="nGX-en-P2f" firstAttribute="top" secondItem="RtN-HM-Qtz" secondAttribute="bottom" constant="51" id="LHd-NH-aEi"/>
@@ -2190,10 +2192,11 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                                             <constraint firstItem="sAt-h0-qjm" firstAttribute="leading" secondItem="eOV-wf-yYN" secondAttribute="leading" id="OUc-IO-sLx"/>
                                             <constraint firstItem="sAt-h0-qjm" firstAttribute="top" secondItem="gJ1-F0-r4G" secondAttribute="bottom" constant="24" id="OYV-e9-jYq"/>
                                             <constraint firstItem="GwA-0R-rfu" firstAttribute="leading" secondItem="eOV-wf-yYN" secondAttribute="trailing" constant="6" id="OkY-RX-dXA"/>
-                                            <constraint firstAttribute="bottom" secondItem="mh6-7s-42y" secondAttribute="bottom" constant="98" id="PB2-Yl-Ge8"/>
+                                            <constraint firstAttribute="bottom" secondItem="mh6-7s-42y" secondAttribute="bottom" constant="63" id="PB2-Yl-Ge8"/>
                                             <constraint firstItem="G5B-44-FjK" firstAttribute="top" secondItem="7GK-nU-Mra" secondAttribute="bottom" constant="50" id="PDP-vX-kE8"/>
-                                            <constraint firstItem="Iao-6a-4Jo" firstAttribute="top" secondItem="H3q-g6-cBg" secondAttribute="bottom" constant="16" id="PwJ-cP-oaF"/>
+                                            <constraint firstItem="Iao-6a-4Jo" firstAttribute="top" secondItem="H3q-g6-cBg" secondAttribute="bottom" constant="11" id="PwJ-cP-oaF"/>
                                             <constraint firstItem="W3Q-7b-sAk" firstAttribute="top" secondItem="rsv-1W-kuR" secondAttribute="bottom" constant="14" id="QPw-yu-mrI"/>
+                                            <constraint firstItem="iU5-fn-yXd" firstAttribute="leading" secondItem="mh6-7s-42y" secondAttribute="leading" id="QnC-bn-yBt"/>
                                             <constraint firstItem="rsv-1W-kuR" firstAttribute="top" secondItem="8Vi-ig-4Kl" secondAttribute="bottom" constant="89" id="RLh-UZ-LBB"/>
                                             <constraint firstItem="sAt-h0-qjm" firstAttribute="trailing" secondItem="3F8-dh-TCs" secondAttribute="trailing" id="RhY-hJ-wBh"/>
                                             <constraint firstItem="mh6-7s-42y" firstAttribute="top" secondItem="Iao-6a-4Jo" secondAttribute="bottom" constant="11" id="RzD-jd-dTk"/>
@@ -2224,7 +2227,7 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                                             <constraint firstItem="mc9-vJ-eG8" firstAttribute="top" secondItem="3F8-dh-TCs" secondAttribute="bottom" constant="14" id="kI4-ZU-tbs"/>
                                             <constraint firstItem="W3Q-7b-sAk" firstAttribute="leading" secondItem="B1L-Va-mUZ" secondAttribute="leading" id="ki3-8a-DOp"/>
                                             <constraint firstItem="zN9-Dk-DAR" firstAttribute="leading" secondItem="ho1-hg-V7U" secondAttribute="leading" constant="6" id="kl3-jJ-h5k"/>
-                                            <constraint firstItem="H3q-g6-cBg" firstAttribute="top" secondItem="B1L-Va-mUZ" secondAttribute="bottom" constant="39" id="krl-re-O1A"/>
+                                            <constraint firstItem="H3q-g6-cBg" firstAttribute="top" secondItem="B1L-Va-mUZ" secondAttribute="bottom" constant="79" id="krl-re-O1A"/>
                                             <constraint firstItem="8Vi-ig-4Kl" firstAttribute="top" secondItem="LfG-bg-yfB" secondAttribute="bottom" constant="26" id="l6e-aH-MeH"/>
                                             <constraint firstItem="gJ1-F0-r4G" firstAttribute="top" secondItem="mc9-vJ-eG8" secondAttribute="bottom" constant="33" id="l8S-iF-Toa"/>
                                             <constraint firstItem="reI-HU-QFh" firstAttribute="leading" secondItem="ho1-hg-V7U" secondAttribute="leading" constant="3" id="mEU-7J-ukB"/>
@@ -2759,10 +2762,10 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
             </objects>
             <point key="canvasLocation" x="-309" y="-713"/>
         </scene>
-        <!--View Controller-->
+        <!--Terms Of Use View Controller - FAQ-->
         <scene sceneID="w4s-h5-ykB">
             <objects>
-                <viewController id="m3L-Cu-7Qf" sceneMemberID="viewController">
+                <viewController title="FAQ" id="m3L-Cu-7Qf" customClass="TermsOfUseViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Jei-3Z-qRN"/>
                         <viewControllerLayoutGuide type="bottom" id="tGy-fh-vuL"/>
@@ -2771,38 +2774,183 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                         <rect key="frame" x="0.0" y="20" width="320" height="548"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" editable="NO" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Cjv-oL-HZ0">
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" editable="NO" usesAttributedText="YES" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Cjv-oL-HZ0">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="548"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                <mutableString key="text">WHAT IS SHNERGLE ALL ABOUT?
-Shnergle is about helping you stay flexible, save time and hopefully a bit of cash too. We help Merchants tell you what is going on at their establishments in real time, without spamming your mailbox or phone. We also help the most active Shnerglers in the community to tip off the public about what is going on where, and get rewarded with more valuable discounts in return.
-DonÕt waste time wandering around looking for the right place, now you can #Shnergleit on your phone and go!
+                                <attributedString key="attributedText">
+                                    <fragment>
+                                        <string key="content">WHAT IS SHNERGLE ALL ABOUT?  
+</string>
+                                        <attributes>
+                                            <font key="NSFont" size="14" name="HelveticaNeue-Bold"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
+                                        </attributes>
+                                    </fragment>
+                                    <fragment>
+                                        <string key="content">Shnergle is about helping you stay flexible, save time and hopefully a bit of cash too. We help Merchants tell you what is going on at their establishments in real time, without spamming your mailbox or phone. We also help the most active Shnerglers in the community to tip off the public about what is going on where, and get rewarded with more valuable discounts in return.
+Don't waste time wandering around looking for the right place, now you can #Shnergleit on your phone and go!
 
-HOW DOES IT ALL WORK?
-Shnergle lets you see photos and comments  about specific places posted by Merchants and the Shnergle community, along with when the photos were taken. We only show activity from the last 8 days, and we only show how many people have RSVPÕd to go to a place today Ð there is too much out of date information out there and we think you deserve the latest info!
 
-WHAT DO MERCHANTS FIND OUT ABOUT ME?
+</string>
+                                        <attributes>
+                                            <font key="NSFont" size="14" name="HelveticaNeue"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
+                                        </attributes>
+                                    </fragment>
+                                    <fragment>
+                                        <string key="content">HOW DOES IT ALL WORK?
+</string>
+                                        <attributes>
+                                            <font key="NSFont" size="14" name="HelveticaNeue-Bold"/>
+                                            <font key="NSOriginalFont" size="14" name="HelveticaNeue-Bold"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
+                                        </attributes>
+                                    </fragment>
+                                    <fragment>
+                                        <string key="content">
+Shnergle lets you see photos and comments  about specific places posted by Merchants and the Shnergle community, along with when the photos were taken. We only show activity from the last 8 days, and we only show how many people have RSVP'd to go to a place today - there is too much out of date information out there and we think you deserve the latest info!
+
+
+</string>
+                                        <attributes>
+                                            <font key="NSFont" size="14" name="HelveticaNeue"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
+                                        </attributes>
+                                    </fragment>
+                                    <fragment>
+                                        <string key="content">WHAT DO MERCHANTS FIND OUT ABOUT ME?
+</string>
+                                        <attributes>
+                                            <font key="NSFont" size="14" name="HelveticaNeue-Bold"/>
+                                            <font key="NSOriginalFont" size="14" name="HelveticaNeue-Bold"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
+                                        </attributes>
+                                    </fragment>
+                                    <fragment>
+                                        <string key="content">
 We help Merchants better understand the people searching for and visiting their establishments, but we reckon you want to stay anonymous. As such we bundle together the information we give them, so you can't be identified personally.
-If you are happy to be identified and you want the very best deals, then turn on the ÔTop 5 CustomerÕ feature in the profile view. This way if you are one of the 5 most active Shnerglers at a particular venue they can reach out to you for the best VIP deals!
+If you are happy to be identified and you want the very best deals, then turn on the `Top 5 Customer´ feature in the profile view. This way if you are one of the 5 most active Shnerglers at a particular venue they can reach out to you for the best VIP deals!
 
-PROMOTIONS
-We think you should get rewarded for helping Merchants and other Shnerglers; so we have setup a promotion feature for Merchants. These promotions might be for short periods or for limited number of people; there may also be more valuable promotions for more active Shnerglers. If you see one of these promotions, get yourself over there and redeem it Ð taking a picture in the process and helping everybody out!
 
-HOW CAN I DO MY BIT FOR THE COMMUNITY?
-Shnergle is going to be most useful when there is lots of up to date info for everybody to benefit from. If you are going through a station, waiting for the tube, grabbing a coffee or popping into a bar for a drink, take a quick snap and check it into Shnergle Ð help other Shnerglers! If the place you are snapping isnÕt on the system, just add it; it only takes a second.
+</string>
+                                        <attributes>
+                                            <font key="NSFont" size="14" name="HelveticaNeue"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
+                                        </attributes>
+                                    </fragment>
+                                    <fragment>
+                                        <string key="content">PROMOTIONS
+</string>
+                                        <attributes>
+                                            <font key="NSFont" size="14" name="HelveticaNeue-Bold"/>
+                                            <font key="NSOriginalFont" size="14" name="HelveticaNeue-Bold"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
+                                        </attributes>
+                                    </fragment>
+                                    <fragment>
+                                        <string key="content">
+We think you should get rewarded for helping Merchants and other Shnerglers; so we have setup a promotion feature for Merchants. These promotions might be for short periods or for limited number of people; there may also be more valuable promotions for more active Shnerglers. If you see one of these promotions, get yourself over there and redeem it - taking a picture in the process and helping everybody out!
 
-WHERE CAN I GET THE PHOTOS I TAKE ON SHNERGLE?
-Every time you take a photo on Shnergle you can share it with your friends on Facebook, but we know you might want full resolution ones later too, so we save full resolution images to the camera roll on your phone. These photos taking up too much space? No problem Ð head over to the profile page, scroll down and you can stop saving the photos.
 
-I WANT TO TWEET MY SHNERGLE PICTURES!
+</string>
+                                        <attributes>
+                                            <font key="NSFont" size="14" name="HelveticaNeue"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
+                                        </attributes>
+                                    </fragment>
+                                    <fragment>
+                                        <string key="content">HOW CAN I DO MY BIT FOR THE COMMUNITY?
+</string>
+                                        <attributes>
+                                            <font key="NSFont" size="14" name="HelveticaNeue-Bold"/>
+                                            <font key="NSOriginalFont" size="14" name="HelveticaNeue-Bold"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
+                                        </attributes>
+                                    </fragment>
+                                    <fragment>
+                                        <string key="content">
+Shnergle is going to be most useful when there is lots of up to date info for everybody to benefit from. If you are going through a station, waiting for the tube, grabbing a coffee or popping into a bar for a drink, take a quick snap and check it into Shnergle - help other Shnerglers! If the place you are snapping isn't on the system, just add it; it only takes a second.
+
+
+</string>
+                                        <attributes>
+                                            <font key="NSFont" size="14" name="HelveticaNeue"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
+                                        </attributes>
+                                    </fragment>
+                                    <fragment>
+                                        <string key="content">WHERE CAN I GET THE PHOTOS I TAKE ON SHNERGLE?
+</string>
+                                        <attributes>
+                                            <font key="NSFont" size="14" name="HelveticaNeue-Bold"/>
+                                            <font key="NSOriginalFont" size="14" name="HelveticaNeue-Bold"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
+                                        </attributes>
+                                    </fragment>
+                                    <fragment>
+                                        <string key="content">
+Every time you take a photo on Shnergle you can share it with your friends on Facebook, but we know you might want full resolution ones later too, so we save full resolution images to the camera roll on your phone. These photos taking up too much space? No problem - head over to the profile page, scroll down and you can stop saving the photos.
+
+
+</string>
+                                        <attributes>
+                                            <font key="NSFont" size="14" name="HelveticaNeue"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
+                                        </attributes>
+                                    </fragment>
+                                    <fragment>
+                                        <string key="content">I WANT TO TWEET MY SHNERGLE PICTURES!
+</string>
+                                        <attributes>
+                                            <font key="NSFont" size="14" name="HelveticaNeue-Bold"/>
+                                            <font key="NSOriginalFont" size="14" name="HelveticaNeue-Bold"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
+                                        </attributes>
+                                    </fragment>
+                                    <fragment>
+                                        <string key="content">
 We know and we are working hard to include this important feature. So far it has been a big challenge; if you are a whiz with custom Twitter iOS integration, drop us a line!
 
-CAN I INVITE MY FRIENDS TO USE SHNERGLE?
-Of course Ð the more the merrier! Please help us spread the word, particularly on Facebook and Twitter, so that we can grow the community and make it better for everybody!
 
-WHERE CAN I GIVE FEEDBACK?
-We love feedback Ð good or bad! WeÕd love to answer any questions you have or listen to your views about how to improve or fix the app. Please drop us a line or drop by TechHub at Google Campus in London and let chat!
+</string>
+                                        <attributes>
+                                            <font key="NSFont" size="14" name="HelveticaNeue"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
+                                        </attributes>
+                                    </fragment>
+                                    <fragment>
+                                        <string key="content">CAN I INVITE MY FRIENDS TO USE SHNERGLE?
+</string>
+                                        <attributes>
+                                            <font key="NSFont" size="14" name="HelveticaNeue-Bold"/>
+                                            <font key="NSOriginalFont" size="14" name="HelveticaNeue-Bold"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
+                                        </attributes>
+                                    </fragment>
+                                    <fragment>
+                                        <string key="content">
+Of course - the more the merrier! Please help us spread the word, particularly on Facebook and Twitter, so that we can grow the community and make it better for everybody!
+
+
+</string>
+                                        <attributes>
+                                            <font key="NSFont" size="14" name="HelveticaNeue"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
+                                        </attributes>
+                                    </fragment>
+                                    <fragment>
+                                        <string key="content">WHERE CAN I GIVE FEEDBACK?
+</string>
+                                        <attributes>
+                                            <font key="NSFont" size="14" name="HelveticaNeue-Bold"/>
+                                            <font key="NSOriginalFont" size="14" name="HelveticaNeue-Bold"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
+                                        </attributes>
+                                    </fragment>
+                                    <fragment>
+                                        <string key="content">
+We love feedback - good or bad! We'd love to answer any questions you have or listen to your views about how to improve or fix the app. Please drop us a line or drop by TechHub at Google Campus in London and let chat!
 * Message us on Facebook
 * Tweet us @Shnerglehelp
 * Email us at contact@shnergle.com
@@ -2813,8 +2961,17 @@ London
 EC2A 4BX
 
 THANKS FOR BEING PART OF THE SHNERGLE COMMUNITY - HAPPY SHNERGLING! 
-</mutableString>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+
+
+
+    
+</string>
+                                        <attributes>
+                                            <font key="NSFont" size="14" name="HelveticaNeue"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
+                                        </attributes>
+                                    </fragment>
+                                </attributedString>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                         </subviews>
@@ -3158,10 +3315,10 @@ THANKS FOR BEING PART OF THE SHNERGLE COMMUNITY - HAPPY SHNERGLING!
             </objects>
             <point key="canvasLocation" x="-480" y="-1656"/>
         </scene>
-        <!--Terms Of Use View Controller-->
+        <!--Terms Of Use View Controller - Privacy Policy-->
         <scene sceneID="klW-Hx-hjJ">
             <objects>
-                <viewController id="hEm-jV-zWS" customClass="TermsOfUseViewController" sceneMemberID="viewController">
+                <viewController title="Privacy Policy" id="hEm-jV-zWS" customClass="TermsOfUseViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="DWj-nT-73d"/>
                         <viewControllerLayoutGuide type="bottom" id="77T-pS-x89"/>
@@ -3288,10 +3445,10 @@ If you have any questions, comments or requests regarding this Policy, please co
             </objects>
             <point key="canvasLocation" x="92" y="-1239"/>
         </scene>
-        <!--Terms Of Use View Controller-->
+        <!--Terms Of Use View Controller - Terms & Conditions-->
         <scene sceneID="XBh-Uq-0X8">
             <objects>
-                <viewController storyboardIdentifier="TermsOfUse" id="dSf-nl-gV6" customClass="TermsOfUseViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="TermsOfUse" title="Terms &amp; Conditions" id="dSf-nl-gV6" customClass="TermsOfUseViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="5S4-Tw-caT"/>
                         <viewControllerLayoutGuide type="bottom" id="GDJ-8f-IuV"/>
@@ -3307,7 +3464,181 @@ If you have any questions, comments or requests regarding this Policy, please co
                                 <constraints>
                                     <constraint firstAttribute="height" constant="548" id="3hZ-3i-IOW"/>
                                 </constraints>
-                                <mutableString key="text">Shnergle Terms of Use Last Update: 26 July 20131.	INTRODUCTION1.1	Welcome to Shnergle ("Shnergle", "we", "us" or "our" etc.).  Shnergle allows people anywhere in the world to see what is going on at any given place in real time through sharing the medium of photos and comments through our content sharing platform! 1.2	These Terms of Use, which also incorporate our Privacy Policy (the "Terms") are a contract between you and us, that governs your use of the Shnergle app.  This Shnergle app includes the software in the app (including any patches or updates), any User Content (as defined in section 7 below) and our platform and of our associated services ("Service") all of which may be accessible via a web application, third party platform or Facebook.  For the purposes of these Terms collectively we'll call all these our "App". 1.3	You must agree to our Terms of Use before you use the App.  For more information about the App and the Service we offer please visit our website at http://www.shnergle.com.1.4	These Terms apply to all owners of bars, pubs, clubs, event spaces, cafes, shops, gyms and other venues ("Venues") who are using the App on behalf of the business that they represent ("Merchants") as well as normal users of the App (together referred to in this Agreement as "Users", "you" and "your" etc.). 1.5	If you are under 13 years of age, please ask your parent or guardian to review and approve the Terms on your behalf.1.6	BY DOWNLOADING OR USING THE APP AND CLICKING THE "I ACCEPT" BOX DURING THE INSTALLATION PROCESS, YOU ARE INDICATING YOUR ACCEPTANCE TO THESE TERMS AND ARE AGREEING TO BE BOUND BY AND TO BECOME A PARTY TO THIS CONTRACT. 1.7	IF YOU DO NOT AGREE WITH THESE TERMS, OR DO NOT HAVE THE AUTHORITY TO AGREE TO THEM ON BEHALF OF YOUR ORGANISATION YOU MUST NOT REGISTER FOR AN ACCOUNT WITH US AND MUST NOT USE THE APP.1.8	You confirm that you have read and agree to the current version of our Privacy Policy which is available for review at (http://www.shnergle.com). This policy contains information about our approach to privacy and the use of your personal information.  For example, it explains how we may use your location and metrics information.1.9	These Terms may be localised to your local language for your information and convenience.  Please bear in mind though that in the event of any inconsistency or dispute between the localised language version and the English language version, the English language version will prevail.  2.	ABOUT US2.1	We are Shnergle Limited a company incorporated in England and Wales (company number 08263039) with registered office at Kemp House, City Road, London, EC1V 2NX, United Kingdom with a registered VAT number of 162 4603 27 .  You can contact us by emailing us at: contact@shnergle.com. 3.	USING THE APP3.1	In return for your acceptance of the Terms, we give you the personal right (known as a 'licence') to download and use our App on any iPhone, iPod or iPad device that you own or control and as permitted by the Usage Rules set forth in the App Store Terms of Service (http://www.apple.com/legal/itunes/us/terms.html3.2	This licence is for your personal use only (i.e. not for other people and not for commercial gain), except as expressly specified in these Terms.  We can terminate this licence in certain circumstances, which are explained further below.  This licence is 'non-exclusive', meaning that we can grant similar licences to other people as well.  It is also 'non-transferable', meaning it cannot be given to anyone else.4.	YOUR ACCOUNT4.1	To use the App you must first register and create an online account.  There are two kinds of online accounts: (1) accounts that are created by individual users of the App; and (2) accounts that are created by Merchants on behalf of the businesses they represent (we refer to both types of online account as an "Account").  You are responsible for ensuring that the details you provide us with are current, correct and complete, and for informing us of any changes to the information you have provided. 4.2	You login into your Account by using your Facebook log-in credentials ("Facebook Password"), which saves you having to remember another password. You agree that your use of the Facebook website is governed by the terms and conditions of Facebook's terms of use and its privacy policy, including, without limitation, Facebook's password and account security policies related to Facebook Passwords and accounts. You are responsible for maintaining the confidentiality of your Facebook Password, and you are responsible for all activities that occur using your Account related to the App. You agree not to share your Facebook Password, let anyone else access your Facebook Password or do anything else that might jeopardise the security of your Facebook Password. You agree to notify us if there is any unauthorised use of your Facebook Password in connection with the App or if you know of any other breach of security in relation to the App.4.3	You agree that you will not sell, transfer, license or assign your Account or permit a third party to use it.  With the exception of Merchants that are expressly authorised to create accounts on behalf of their businesses, you must not create an Account for anyone other than yourself.  4.4	We may suspend or terminate your Account at any time and without prior notice to you if it appears to us that your Account has been used in breach of these Terms (including by providing false registration details or other misuse of the App) or any applicable laws.4.5	You represent and warrant to us that if you are an individual, you are of legal age to form a binding contract, or that if you are registering on behalf of an entity, that you are authorised to enter into, and bind the entity to, these Terms and register for the Service. The Service is not available to individuals who are younger than 13 years old. We may, in our sole discretion, refuse to offer the Service to any person or entity and change its eligibility criteria at any time.5.	PATCHES, UPDATES AND CHANGES5.1	From time to time, we may need to deploy or provide patches, updates, additional content or other modifications to the App (for example to enhance the App functionality, to add new features or to resolve software bugs).  From time to time, we may also at our discretion remove or suspend access to particular features, content or other parts of the App without notice to you.  5.2	Without limiting the foregoing, we may post on our website and/or send an email to your Account, notice of such changes to the App. It is your responsibility to review our website and/or check your email address for any such notices. You agree that we shall not be liable to you or any third party for any modification of cessation of the App.  6.	INTELLECTUAL PROPERTY AND TRADE MARKS6.1	The App, including the graphics, user interface, audio and other content, contains proprietary information and material that is protected by copyright and other laws including but not limited to intellectual property.  You agree that we own or license all of this proprietary information and material and that you may not use or exploit any of it without our permission.  6.2	The "Shnergle" logo, the "S" logo and all other Shnergle logos and product and service names  are trade marks of, and are owned by Shnergle.  You may not use or display such trade marks in any manner, except as expressly set forth in these Terms.  All third party trade marks and service marks appearing on the App are the property of their respective owners and all rights in them are reserved.7.	USER CONTENT7.1	For the purposes of these Terms, "User Content" is any information that is created, uploaded, posted or submitted for use with the App by Users such as photographs, comments, captions, location information or other materials in the App.  You are solely responsible and liable for any User Content, including its legality, accuracy and appropriateness. You are also responsible for your interaction with other Users of the App.  7.2	You acknowledge that all User Content accessed by you using the App is at your own risk. We do not accept any liability or responsibly for User Content, nor do we provide any support for it. We do not control, edit or change any of the User Content or have an obligation to correct any errors or mistakes in the User Content. We do not therefore guarantee the accuracy, integrity or quality of the User Content.  Users of the App create, download and use User Content at their own risk. 7.3	We may use your User Content in a number of different ways in connection with the App and Shnergle's business as we may determine in our sole discretion, including but not limited to, publically displaying it, reformatting it, distributing it, sharing it with third parties and other Users and allowing Merchants to do the same in connection with their Pages (as defined in section 21 below on the Service. 7.4	We encourage you to maintain your own back-up of any User Content that you submit through the App. We are not a back-up service and we will not be liable for any loss of, modification, suspension or any discontinuation of any User Content offered though the App, including without limitation your User Content. 8.	LICENCE TO SHNERGLE8.1	We do not claim ownership of any User Content. However, by submitting User Content to the App or otherwise through the Service, you grant us (and our successors and assigns') an irrevocable, worldwide, royalty-free and perpetual licence to use, distribute, syndicate, derive remuneration, reproduce, publicly display or perform, amend, edit, re-format, transfer,  create derivative works of, share with third parties (including without limitation other Users) and otherwise fully exploit the User Content (in whole or in part) in connection with the App and the Service, as we consider necessary and you waive any and all moral or similar rights you may have over the User Content. You agree that we may exercise the licence granted by you without notice, payment or attribution to you. 8.2	You represent and warrant that you have all rights to grant the above license to us without infringement or violation of any third party rights, including without limitation, any privacy rights, publicity rights, copyrights, contract rights, or any other intellectual property or proprietary rights.8.3	You understand that we do not guarantee any confidentiality with respect to your User Content that you submit.  For clarity, this licence that you have granted us will not affect your other ownership or licence rights in your User Content unless otherwise agreed with us. 9.	LICENCE TO OTHER USERS9.1	By using the App and/or Service you also agree to grant all other Users of the App and Service a non-exclusive, worldwide, perpetual, irrevocable license to use, syndicate, reproduce, publicly display or perform, amend, edit, transfer, create derivative works of and otherwise fully exploit the User Content (in whole or in part) in connection with the App, including, without limitation, in connection with and as part of such Users' own User Content and/or a Merchants Page (as defined in section 21 below. You acknowledge and agree that a User of the App and Service can exercise the foregoing rights without further notice, payment or attribution to you.10.	PUBLIC USE 10.1	By using the App you understand and agree that we are providing you with a platform for you to post your User Content and to share User Content publically. This means that other Users may search for, see, use or share any of your User Content. User Content will be publically available to other Users for only eight (8) days from the date on which it is posted. Be sure that any information or material that you include in your User Content that you choose to share through the App is therefore information that you are comfortable with sharing with others. If you are not comfortably with sharing any portion of the information or material that is included in your User Content, do not submit your User Content through the App or Service. 11.	RULES AND CONDUCT  11.1	In relation to any User Content which you create or make available to other users, you agree to and comply with the following rules:(a)	Any part of the User Content which comprises or incorporates any of our intellectual property rights remains our property.(b)	You must not in any way claim or suggest that any User Content is endorsed, supported by, or affiliated with us. To be clear, you acknowledge and agree that we do not endorse the User Content of any User communications or User Content.(c)	The User Content must comply with all relevant legislation and must not: (i)	infringe the intellectual property rights or breach or infringe upon any other rights of any third party;  (ii)	be unlawful, threatening, abusive, defamatory, invasive of privacy, vulgar, pornographic, obscene, profane, contain or depict nudity, contain and depict sexual activity, promotes bigotry, discrimination or violence or otherwise be objectionable, inappropriate or cause any reputational loss or embarrassment to us as determined in our sole discretion;(iii)	encourage conduct that would constitute a criminal offence, give rise to civil liability or otherwise violate any applicable law; (iv)	 constitute unauthorised or unsolicited advertising, junk or bulk e-mail ("spamming"); (v)	contain software viruses or any other computer codes, files, worms, logic bombs or programs that are designed or intended to disrupt, disable, damage, limit or interfere with the proper function of any software, hardware, or telecommunications equipment or to damage or obtain unauthorised access to any system, data, password or other information of Shnergle or any third party; or(vi)	breach the Privacy Policy [and/or any other policies and rules incorporated herein].12.	REMOVAL OF USER CONTENT 12.1	You agree and understand that Merchants can request the removal of any User Content that relates to its business.  User Content will be automatically hidden from view if we receive a single such request from a Merchant. 12.2	Other Users can also report any User Content which breaches the provisions of these Terms or is otherwise objectionable.  Without prejudice to clause 12.3 below, where we receive three such reports from Users, such User Content will be automatically hidden from view.12.3	We may or may not regulate User Content and we provide no representations or guarantees regarding the accuracy, quality, or integrity of any User Content posted via the App. You agree that we will not under any circumstances be responsible or liable for any User Content, including, but not limited to, errors in any User Content or any loss or damage incurred by use of the User Content or for any failure to or delay in removing User Content. We reserve the right (but shall at no time be obligated) to, in our sole discretion, to remove, block, edit, move, disable or permanently delete User Content from the App with or without notice for any reason whatsoever. Notwithstanding the foregoing, we assume no responsibility for on-going monitoring or for the removal or editing of any User Content.12.4	You agree that, to the maximum extent permitted by applicable law, we shall at no time be responsible or held liable for the removal, modification or blocking of material or User Content that may be considered offensive and shall at no time be obligated to effect such removal other than under applicable law. 12.5	If you see any User Content that is inappropriate or otherwise in breach of these Terms, use the "Report" button or contact us directly at contact@shnergle.com to alert us and we will take care of things.12.6	When you delete your User Content from the App, it will be removed from the App. However, you understand that any removed User Content may persist in backup copies for a reasonable period of time (but following removal will not be shared with others) or may remain with Users who have previously accessed or downloaded your User Content.13.	FEEDBACK13.1	We welcome feedback from our users regarding our App.  Please note that, as part of you providing us any comments, suggestions or other feedback regarding our App ("Feedback"), you agree that we will be the exclusive owners of the Feedback and you assign all of your rights in the Feedback to us for this purpose.  We may make use of the Feedback for any purpose at our discretion without any notice or compensation to you. 13.2	WHAT YOU MUST NOT DO13.3	You must not do or attempt to do (either yourself or via someone else) any of the following:(a)	to use the App in any way which is likely to cause harm to other people; (b)	to use the App for any purpose that is likely to break the law; (c)	to use the App for any purpose except personal enjoyment (for example, you must not use the App for commercial gain) or if you are a Merchant, for your own internal business purposes;(d)	except as authorised by us in the Terms (or as permitted by law) to copy, rent, sub-license, loan, modify, adapt, merge, translate, reverse engineer, decompile, disassemble the software included in the App  or create adaptations of the App  or derivative works based on the App  (excluding User Content); or(e)	to hack, distribute, modify, transmit, harm, or misuse the App.14.	WARRANTIES AND LIMITATION OF LIABILITY REGARDING THE APP Warranties14.1	We warrant that: (i) we have the right to enter the Terms and to grant you the licence to use the App set out above; (ii) we will use reasonable skill and care to give you access to the App; and (iii) we will use reasonable endeavours to comply with applicable laws in the performance of our obligations under the Terms.14.2	Please also note that we provide the App for personal entertainment, on an 'as is' and 'as available' basis.  You expressly agree that use of the App is at your sole risk.  Except as provided in these Terms and to the maximum extent permitted by applicable law, we do not make any (and specifically disclaim all) representations, conditions or warranties of any kind, whether express, implied, statutory or otherwise, including, without limitation, any warranty that the App will be uninterrupted, error-free or free of harmful components, that the User Content will be secure or not otherwise lost or damaged, or any implied warranty or condition of, satisfactory quality, fitness for a particular purpose, or non-infringement, and any warranty arising out of any course of performance, course of dealing or usage of trade.   14.3	We do not guarantee that any User Content and/or the Service will always be available through the App.  You acknowledge and agree there will be occasions when the App and/or Service offered through the App will be interrupted for scheduled maintenance or upgrades, for emergency repairs, or due to failure of telecommunications links and equipment that are beyond our control, and that we will have no liability for your inability to access and/ or use the App, User Content and/or Services or any portion thereof, during any of the foregoing events. We reserve the right to change, alter or vary the App or the Service offered through the App at any time without notice.Limitation of liability14.4	Nothing in this Agreement will limit or exclude our liability for death or personal injury caused by our negligence, fraud or anything else where we cannot by law limit or exclude our liability.14.5	The maximum amount of our liability to you will be limited to the sum of £25,000.Our liability if you are a business:14.6	Subject to section 15.3, we will under no circumstances whatever be liable to you, whether in contract, tort (including negligence), breach of statutory duty, or otherwise, arising under or in connection with the App or these Terms for:(a)	any loss of profits, sales, business, or revenue;(b)	loss or corruption of data, information or software;(c)	loss of business opportunity;(d)	loss of anticipated savings;(e)	loss of goodwill; or(f)	any indirect or consequential loss.Our liability if you are a consumer:14.7	Subject to section 15.3 above, if we fail to comply with these Terms, we are responsible for loss or damage you suffer that is a foreseeable result of our breach of these Terms or our negligence, but we are not responsible for any loss or damage that is not foreseeable.  Loss or damage is foreseeable if they were an obvious consequence of our breach or if they were contemplated by you and us at the time we entered into this agreement.15.	FORCE MAJEURE15.1	We will not be liable for any failure by us to perform any obligation under these Terms or to make the App available for download, installation or use if that failure is caused by the happening of any unforeseen event beyond our reasonable control including without limitation: Internet outages, communications outages, hacking, fire, flood, war or act of God.16.	TERMINATION16.1	If you breach a term of the Terms, or we have strong grounds to believe that you have done so, then we may, acting in our sole discretion and without notice to you, cancel or suspend your access to the App at any time. 16.2	If we terminate your access to the App your User Content will no longer be accessible through your Account.16.3	Upon termination, all licences or other rights granted to you in these Terms will immediately cease.17.	DISPUTE RESOLUTION BY ARBITRATION17.1	Most user concerns can be resolved quickly and to your satisfaction by contacting us at contact@shnergle.com. In the unlikely event that we cannot resolve a concern to your satisfaction (or if we cannot resolve a concern we have with you after attempting to do so informally), then either you or we may refer this matter to arbitration with the prior written consent of the other party.18.	LINKS TO THIRD PARTY WEB SITES18.1	The App may provide links to or be linked to other web sites that are not Shnergle websites ("Third Party Web Sites") and certain functionality of the App may allow you to conduct transactions through such Third Party Web Sites. We are providing these links to you as a convenience, and we do not verify, make any representations or take any responsibility for such linked to Third Party Web Sites, including, without limitation, the truthfulness, accuracy, quality or completeness of the content, links displayed or activities conducted on such Third Party Web Sites. The Third Party Web Sites may have different privacy policies and terms and conditions and business practices than Shnergle. Your dealings and communications through such sites with any party other than Shnergle are solely between you and such third party. Any complaints, concerns or questions you have relating to materials provided by third parties should be forwarded directly to the applicable third party. 18.2	You agree that Shnergle will not, under any circumstances, be responsible or liable, directly or indirectly, for any goods, services, resources or content available through any Third Party Web Sites and/or third party dealings or communications, or for any harm related thereto, or for any damages or loss caused or alleged to be caused by or in connection with your use or reliance on the content, advertising or business practices of any third party. Any reference in the App and/or on our website to any product, process, publication or service of any third party, by trade name, domain name, trademark, trade identity, service mark, logo, manufacturer or otherwise does not constitute or imply Shnergle's endorsement or recommendation.19.	GENERAL19.1	The Terms governs our relationship with you.  It does not create any rights for any other person, unless otherwise expressly stated in these Terms.19.2	If any part of these Terms is held to be unenforceable, then it will not affect the enforceability of any other part of these Terms.  Also, we and you agree to interpret the rest of these Terms in such a way as to reflect your and our intentions in these Terms as far as possible.  19.3	If you or we fail to exercise (or delay exercising) any right which you or we may have under these Terms, that failure or delay does not mean that we or you lose that right.  If we or you only partially exercise a right or only exercise it once, that will not stop you or us from exercising it again in the future.19.4	These Terms constitute the entire agreement between you and us with respect to the App and supersede any previous agreement or understandings between you and us.  If you consider the Terms - are incomplete in any way, please contact us at contact@shnergle.com as soon as possible before commencing use of any App, otherwise you will be deemed to have accepted these documents within a reasonable time afterwards.19.5	This contract is between you and us. No other person shall have any rights to enforce any of its terms, whether under the Contracts (Rights of Third Parties Act) 1999 or otherwise.19.6	Nothing in these Terms is intended to, or shall be deemed to, establish any partnership or joint venture between you and us, constitute any party the agent of another party, or authorise any party to make or enter into any commitments for or on behalf of any other party.20.	SPECIAL TERMS FOR MERCHANT'S WITH PAGES ON THE APP20.1	When a Merchant associates himself with and claims a page about a Venue, subject to the terms set out in this section 21, that page becomes an official Venue page ("Page"). If you have a Page on the App, you also agree to the following: (a)	In order to claim a page about a Venue you must be invited and/or approved by Shnergle and complete the applicable verification process for such Venue; (b)	You may only claim and administer a Page if you are an authorised representative of the subject of the Page; (c)	You warrant and represent that you have all the necessary rights licenses, consents, and permissions to use any trademark or logo in any of your User Content you upload and display on and/or associate with your the Page;  (d)	All User Content posted on the Page will be made available to all users of the App;(e)	You will not direct your Page, or any User Content on your Page, to children under the age of 13; and(f)	You are responsible for ensuring that your Page, including any User Content you post on your Page, shall comply with all applicable laws, rules and regulations and these Terms, including without limitation, any advertising codes and/or consumer protection laws that may be applicable to your Page or any User Content on your Page.  20.2	You agree to defend, indemnify, and hold Shnergle, its affiliates, officers, directors, agents, and other partners and employees, harmless from and against any loss, liability, claim, or demand, including reasonable legal fees, made by any third party due to or arising from: (i) your use of and access to the App; (ii) your breach of these Terms; (iii) your User Content; (iv) your violation of any third party right, including, without limitation, any copyright, property, or privacy right; (v) your breach of any applicable law, rule or regulation. This indemnification will survive termination of our agreement and your use of the App.21.	ADDITIONAL PROVISIONS APPLYING TO NATURALMOTION APPLE iOS APPS ("APP" or "APPS")Third party intellectual property right claims21.1	In the event of any third party claim that an App or your possession and use of that App  infringes that third party’s intellectual property rights, we and not Apple will be solely responsible for the investigation, defence, settlement and discharge of any such intellectual property infringement claim.Warranties21.2	You represent and warrant that (i) you are not located in a country that is subject to a U.S. Government embargo, or that has been designated by the U.S. Government as a “terrorist supporting” country; and (ii) you are not listed on any U.S. Government list of prohibited or restricted parties.Liability21.3	The terms set out in section 15 above do not limit any consumer rights which we cannot exclude under applicable law, nor do they exclude or limit our liability for death or personal injury resulting from our negligence or for any fraudulent representation. In the event that the App fails to comply with the warranties set out above or any other applicable warranty (whether express or implied by law), we will be solely liable to you to the extent that warranty has not been validly excluded.  21.4	In the event of any failure of any App to conform to any applicable warranty you may notify Apple, and Apple will refund the purchase price for that App to that user.  Otherwise, to the maximum extent permitted by applicable law, Apple will have no other warranty obligation whatsoever with respect to the App, and any other claims, losses, liabilities, damages, costs or expenses attributable to any failure to conform to any warranty will be our sole responsibility.21.5	You and we agree acknowledge that we, not Apple, are responsible for addressing any claims by you or any third party relating to the App or your possession and/or use of the App, including, but not limited to: (i) product liability claims; (ii) any claim that the Apps fail to conform to any applicable legal or regulatory requirement; and (iii) claims arising under consumer protection or similar legislation. The Terms may not limit our liability to you beyond what is permitted by applicable law.Apple is not a party to the Terms21.6	You and we agree that the Terms is an agreement concluded between us alone and not by Apple.  We are solely responsible to you for the App and its content, so if you require maintenance or support services or have any questions or complaints please contact us at contact@shnergle.com and not Apple, since Apple has no obligation whatsoever to furnish any such services with respect to the App.Apple is a third party beneficiary of the Terms21.7	Apple and its subsidiaries are a third party beneficiary of the Terms.  Following your acceptance of the Terms, Apple will have the right (and will be deemed to have accepted the right) to enforce the Terms against you as a third party beneficiary thereof.22.	GOVERNING LAW22.1	You and we agree that your use of the App, and these Terms, shall be governed by and interpreted according to the laws of England and Wales and that any dispute regarding them shall be heard exclusively by the courts of England and Wales.23.	CHANGES TO THE TERMS23.1	We may vary the Terms as and when we consider it appropriate or necessary for legal reasons or to reflect changes in the App.  If so, then we will make the revised Terms available at (http://www.shnergle.com) and in some cases, where appropriate, we may provide you with additional notice (such as sending you an email notification or posting on a social media site). Any changes will be effective upon posting the revised version of these Terms on the Service (or such later effective date as may be indicated at the top of the revised Terms). If we do update these Terms and you do not agree to the updated Terms, you shall be free to decide whether to accept the terms or stop using the App. You can close your Account with us at any time by emailing us at contact@shnergle.com.  </mutableString>
+                                <string key="text">Shnergle Terms of Use 
+Last Update: 26 July 2013
+
+1.	INTRODUCTION
+1.1	Welcome to Shnergle ("Shnergle", "we", "us" or "our" etc.).  Shnergle allows people anywhere in the world to see what is going on at any given place in real time through sharing the medium of photos and comments through our content sharing platform! 
+1.2	These Terms of Use, which also incorporate our Privacy Policy (the "Terms") are a contract between you and us, that governs your use of the Shnergle app.  This Shnergle app includes the software in the app (including any patches or updates), any User Content (as defined in section 7 below) and our platform and of our associated services ("Service") all of which may be accessible via a web application, third party platform or Facebook.  For the purposes of these Terms collectively we'll call all these our "App". 
+1.3	You must agree to our Terms of Use before you use the App.  For more information about the App and the Service we offer please visit our website at http://www.shnergle.com.
+1.4	These Terms apply to all owners of bars, pubs, clubs, event spaces, cafes, shops, gyms and other venues ("Venues") who are using the App on behalf of the business that they represent ("Merchants") as well as normal users of the App (together referred to in this Agreement as "Users", "you" and "your" etc.). 
+1.5	If you are under 13 years of age, please ask your parent or guardian to review and approve the Terms on your behalf.
+1.6	BY DOWNLOADING OR USING THE APP AND CLICKING THE "I ACCEPT" BOX DURING THE INSTALLATION PROCESS, YOU ARE INDICATING YOUR ACCEPTANCE TO THESE TERMS AND ARE AGREEING TO BE BOUND BY AND TO BECOME A PARTY TO THIS CONTRACT. 
+1.7	IF YOU DO NOT AGREE WITH THESE TERMS, OR DO NOT HAVE THE AUTHORITY TO AGREE TO THEM ON BEHALF OF YOUR ORGANISATION YOU MUST NOT REGISTER FOR AN ACCOUNT WITH US AND MUST NOT USE THE APP.
+1.8	You confirm that you have read and agree to the current version of our Privacy Policy which is available for review at (http://www.shnergle.com). This policy contains information about our approach to privacy and the use of your personal information.  For example, it explains how we may use your location and metrics information.
+1.9	These Terms may be localised to your local language for your information and convenience.  Please bear in mind though that in the event of any inconsistency or dispute between the localised language version and the English language version, the English language version will prevail.
+
+  
+2.	ABOUT US
+2.1	We are Shnergle Limited a company incorporated in England and Wales (company number 08263039) with registered office at Kemp House, City Road, London, EC1V 2NX, United Kingdom with a registered VAT number of 162 4603 27 .  You can contact us by emailing us at: contact@shnergle.com. 
+
+
+3.	USING THE APP
+3.1	In return for your acceptance of the Terms, we give you the personal right (known as a 'licence') to download and use our App on any iPhone, iPod or iPad device that you own or control and as permitted by the Usage Rules set forth in the App Store Terms of Service (http://www.apple.com/legal/itunes/us/terms.html
+3.2	This licence is for your personal use only (i.e. not for other people and not for commercial gain), except as expressly specified in these Terms.  We can terminate this licence in certain circumstances, which are explained further below.  This licence is 'non-exclusive', meaning that we can grant similar licences to other people as well.  It is also 'non-transferable', meaning it cannot be given to anyone else.
+
+
+4.	YOUR ACCOUNT
+4.1	To use the App you must first register and create an online account.  There are two kinds of online accounts: (1) accounts that are created by individual users of the App; and (2) accounts that are created by Merchants on behalf of the businesses they represent (we refer to both types of online account as an "Account").  You are responsible for ensuring that the details you provide us with are current, correct and complete, and for informing us of any changes to the information you have provided. 
+4.2	You login into your Account by using your Facebook log-in credentials ("Facebook Password"), which saves you having to remember another password. You agree that your use of the Facebook website is governed by the terms and conditions of Facebook's terms of use and its privacy policy, including, without limitation, Facebook's password and account security policies related to Facebook Passwords and accounts. You are responsible for maintaining the confidentiality of your Facebook Password, and you are responsible for all activities that occur using your Account related to the App. You agree not to share your Facebook Password, let anyone else access your Facebook Password or do anything else that might jeopardise the security of your Facebook Password. You agree to notify us if there is any unauthorised use of your Facebook Password in connection with the App or if you know of any other breach of security in relation to the App.
+4.3	You agree that you will not sell, transfer, license or assign your Account or permit a third party to use it.  With the exception of Merchants that are expressly authorised to create accounts on behalf of their businesses, you must not create an Account for anyone other than yourself.  
+4.4	We may suspend or terminate your Account at any time and without prior notice to you if it appears to us that your Account has been used in breach of these Terms (including by providing false registration details or other misuse of the App) or any applicable laws.
+4.5	You represent and warrant to us that if you are an individual, you are of legal age to form a binding contract, or that if you are registering on behalf of an entity, that you are authorised to enter into, and bind the entity to, these Terms and register for the Service. The Service is not available to individuals who are younger than 13 years old. We may, in our sole discretion, refuse to offer the Service to any person or entity and change its eligibility criteria at any time.
+
+
+5.	PATCHES, UPDATES AND CHANGES
+5.1	From time to time, we may need to deploy or provide patches, updates, additional content or other modifications to the App (for example to enhance the App functionality, to add new features or to resolve software bugs).  From time to time, we may also at our discretion remove or suspend access to particular features, content or other parts of the App without notice to you.  
+5.2	Without limiting the foregoing, we may post on our website and/or send an email to your Account, notice of such changes to the App. It is your responsibility to review our website and/or check your email address for any such notices. You agree that we shall not be liable to you or any third party for any modification of cessation of the App.  
+
+
+6.	INTELLECTUAL PROPERTY AND TRADE MARKS
+6.1	The App, including the graphics, user interface, audio and other content, contains proprietary information and material that is protected by copyright and other laws including but not limited to intellectual property.  You agree that we own or license all of this proprietary information and material and that you may not use or exploit any of it without our permission.  
+6.2	The "Shnergle" logo, the "S" logo and all other Shnergle logos and product and service names  are trade marks of, and are owned by Shnergle.  You may not use or display such trade marks in any manner, except as expressly set forth in these Terms.  All third party trade marks and service marks appearing on the App are the property of their respective owners and all rights in them are reserved.
+
+
+7.	USER CONTENT
+7.1	For the purposes of these Terms, "User Content" is any information that is created, uploaded, posted or submitted for use with the App by Users such as photographs, comments, captions, location information or other materials in the App.  You are solely responsible and liable for any User Content, including its legality, accuracy and appropriateness. You are also responsible for your interaction with other Users of the App.  
+7.2	You acknowledge that all User Content accessed by you using the App is at your own risk. We do not accept any liability or responsibly for User Content, nor do we provide any support for it. We do not control, edit or change any of the User Content or have an obligation to correct any errors or mistakes in the User Content. We do not therefore guarantee the accuracy, integrity or quality of the User Content.  Users of the App create, download and use User Content at their own risk. 
+7.3	We may use your User Content in a number of different ways in connection with the App and Shnergle's business as we may determine in our sole discretion, including but not limited to, publically displaying it, reformatting it, distributing it, sharing it with third parties and other Users and allowing Merchants to do the same in connection with their Pages (as defined in section 21 below on the Service. 
+7.4	We encourage you to maintain your own back-up of any User Content that you submit through the App. We are not a back-up service and we will not be liable for any loss of, modification, suspension or any discontinuation of any User Content offered though the App, including without limitation your User Content. 
+
+
+8.	LICENCE TO SHNERGLE
+8.1	We do not claim ownership of any User Content. However, by submitting User Content to the App or otherwise through the Service, you grant us (and our successors and assigns') an irrevocable, worldwide, royalty-free and perpetual licence to use, distribute, syndicate, derive remuneration, reproduce, publicly display or perform, amend, edit, re-format, transfer,  create derivative works of, share with third parties (including without limitation other Users) and otherwise fully exploit the User Content (in whole or in part) in connection with the App and the Service, as we consider necessary and you waive any and all moral or similar rights you may have over the User Content. You agree that we may exercise the licence granted by you without notice, payment or attribution to you. 
+8.2	You represent and warrant that you have all rights to grant the above license to us without infringement or violation of any third party rights, including without limitation, any privacy rights, publicity rights, copyrights, contract rights, or any other intellectual property or proprietary rights.
+8.3	You understand that we do not guarantee any confidentiality with respect to your User Content that you submit.  For clarity, this licence that you have granted us will not affect your other ownership or licence rights in your User Content unless otherwise agreed with us. 
+
+
+9.	LICENCE TO OTHER USERS
+9.1	By using the App and/or Service you also agree to grant all other Users of the App and Service a non-exclusive, worldwide, perpetual, irrevocable license to use, syndicate, reproduce, publicly display or perform, amend, edit, transfer, create derivative works of and otherwise fully exploit the User Content (in whole or in part) in connection with the App, including, without limitation, in connection with and as part of such Users' own User Content and/or a Merchants Page (as defined in section 21 below. You acknowledge and agree that a User of the App and Service can exercise the foregoing rights without further notice, payment or attribution to you.
+
+
+10.	PUBLIC USE 
+10.1	By using the App you understand and agree that we are providing you with a platform for you to post your User Content and to share User Content publically. This means that other Users may search for, see, use or share any of your User Content. User Content will be publically available to other Users for only eight (8) days from the date on which it is posted. Be sure that any information or material that you include in your User Content that you choose to share through the App is therefore information that you are comfortable with sharing with others. If you are not comfortably with sharing any portion of the information or material that is included in your User Content, do not submit your User Content through the App or Service. 
+
+
+11.	RULES AND CONDUCT  
+11.1	In relation to any User Content which you create or make available to other users, you agree to and comply with the following rules:
+(a)	Any part of the User Content which comprises or incorporates any of our intellectual property rights remains our property.
+(b)	You must not in any way claim or suggest that any User Content is endorsed, supported by, or affiliated with us. To be clear, you acknowledge and agree that we do not endorse the User Content of any User communications or User Content.
+(c)	The User Content must comply with all relevant legislation and must not: 
+(i)	infringe the intellectual property rights or breach or infringe upon any other rights of any third party;  
+(ii)	be unlawful, threatening, abusive, defamatory, invasive of privacy, vulgar, pornographic, obscene, profane, contain or depict nudity, contain and depict sexual activity, promotes bigotry, discrimination or violence or otherwise be objectionable, inappropriate or cause any reputational loss or embarrassment to us as determined in our sole discretion;
+(iii)	encourage conduct that would constitute a criminal offence, give rise to civil liability or otherwise violate any applicable law; 
+(iv)	 constitute unauthorised or unsolicited advertising, junk or bulk e-mail ("spamming"); 
+(v)	contain software viruses or any other computer codes, files, worms, logic bombs or programs that are designed or intended to disrupt, disable, damage, limit or interfere with the proper function of any software, hardware, or telecommunications equipment or to damage or obtain unauthorised access to any system, data, password or other information of Shnergle or any third party; or
+(vi)	breach the Privacy Policy [and/or any other policies and rules incorporated herein].
+
+
+
+12.	REMOVAL OF USER CONTENT 
+12.1	You agree and understand that Merchants can request the removal of any User Content that relates to its business.  User Content will be automatically hidden from view if we receive a single such request from a Merchant. 
+12.2	Other Users can also report any User Content which breaches the provisions of these Terms or is otherwise objectionable.  Without prejudice to clause 12.3 below, where we receive three such reports from Users, such User Content will be automatically hidden from view.
+12.3	We may or may not regulate User Content and we provide no representations or guarantees regarding the accuracy, quality, or integrity of any User Content posted via the App. You agree that we will not under any circumstances be responsible or liable for any User Content, including, but not limited to, errors in any User Content or any loss or damage incurred by use of the User Content or for any failure to or delay in removing User Content. We reserve the right (but shall at no time be obligated) to, in our sole discretion, to remove, block, edit, move, disable or permanently delete User Content from the App with or without notice for any reason whatsoever. Notwithstanding the foregoing, we assume no responsibility for on-going monitoring or for the removal or editing of any User Content.
+12.4	You agree that, to the maximum extent permitted by applicable law, we shall at no time be responsible or held liable for the removal, modification or blocking of material or User Content that may be considered offensive and shall at no time be obligated to effect such removal other than under applicable law. 
+12.5	If you see any User Content that is inappropriate or otherwise in breach of these Terms, use the "Report" button or contact us directly at contact@shnergle.com to alert us and we will take care of things.
+12.6	When you delete your User Content from the App, it will be removed from the App. However, you understand that any removed User Content may persist in backup copies for a reasonable period of time (but following removal will not be shared with others) or may remain with Users who have previously accessed or downloaded your User Content.
+
+
+13.	FEEDBACK
+13.1	We welcome feedback from our users regarding our App.  Please note that, as part of you providing us any comments, suggestions or other feedback regarding our App ("Feedback"), you agree that we will be the exclusive owners of the Feedback and you assign all of your rights in the Feedback to us for this purpose.  We may make use of the Feedback for any purpose at our discretion without any notice or compensation to you. 
+
+
+13.2	WHAT YOU MUST NOT DO
+13.3	You must not do or attempt to do (either yourself or via someone else) any of the following:
+(a)	to use the App in any way which is likely to cause harm to other people; 
+(b)	to use the App for any purpose that is likely to break the law; 
+(c)	to use the App for any purpose except personal enjoyment (for example, you must not use the App for commercial gain) or if you are a Merchant, for your own internal business purposes;
+(d)	except as authorised by us in the Terms (or as permitted by law) to copy, rent, sub-license, loan, modify, adapt, merge, translate, reverse engineer, decompile, disassemble the software included in the App  or create adaptations of the App  or derivative works based on the App  (excluding User Content); or
+(e)	to hack, distribute, modify, transmit, harm, or misuse the App.
+
+
+14.	WARRANTIES AND LIMITATION OF LIABILITY REGARDING THE APP 
+Warranties
+14.1	We warrant that: (i) we have the right to enter the Terms and to grant you the licence to use the App set out above; (ii) we will use reasonable skill and care to give you access to the App; and (iii) we will use reasonable endeavours to comply with applicable laws in the performance of our obligations under the Terms.
+14.2	Please also note that we provide the App for personal entertainment, on an 'as is' and 'as available' basis.  You expressly agree that use of the App is at your sole risk.  Except as provided in these Terms and to the maximum extent permitted by applicable law, we do not make any (and specifically disclaim all) representations, conditions or warranties of any kind, whether express, implied, statutory or otherwise, including, without limitation, any warranty that the App will be uninterrupted, error-free or free of harmful components, that the User Content will be secure or not otherwise lost or damaged, or any implied warranty or condition of, satisfactory quality, fitness for a particular purpose, or non-infringement, and any warranty arising out of any course of performance, course of dealing or usage of trade.   
+14.3	We do not guarantee that any User Content and/or the Service will always be available through the App.  You acknowledge and agree there will be occasions when the App and/or Service offered through the App will be interrupted for scheduled maintenance or upgrades, for emergency repairs, or due to failure of telecommunications links and equipment that are beyond our control, and that we will have no liability for your inability to access and/ or use the App, User Content and/or Services or any portion thereof, during any of the foregoing events. We reserve the right to change, alter or vary the App or the Service offered through the App at any time without notice.
+Limitation of liability
+14.4	Nothing in this Agreement will limit or exclude our liability for death or personal injury caused by our negligence, fraud or anything else where we cannot by law limit or exclude our liability.
+14.5	The maximum amount of our liability to you will be limited to the sum of £25,000.
+Our liability if you are a business:
+14.6	Subject to section 15.3, we will under no circumstances whatever be liable to you, whether in contract, tort (including negligence), breach of statutory duty, or otherwise, arising under or in connection with the App or these Terms for:
+(a)	any loss of profits, sales, business, or revenue;
+(b)	loss or corruption of data, information or software;
+(c)	loss of business opportunity;
+(d)	loss of anticipated savings;
+(e)	loss of goodwill; or
+(f)	any indirect or consequential loss.
+
+Our liability if you are a consumer:
+14.7	Subject to section 15.3 above, if we fail to comply with these Terms, we are responsible for loss or damage you suffer that is a foreseeable result of our breach of these Terms or our negligence, but we are not responsible for any loss or damage that is not foreseeable.  Loss or damage is foreseeable if they were an obvious consequence of our breach or if they were contemplated by you and us at the time we entered into this agreement.
+
+
+15.	FORCE MAJEURE
+15.1	We will not be liable for any failure by us to perform any obligation under these Terms or to make the App available for download, installation or use if that failure is caused by the happening of any unforeseen event beyond our reasonable control including without limitation: Internet outages, communications outages, hacking, fire, flood, war or act of God.
+
+
+16.	TERMINATION
+16.1	If you breach a term of the Terms, or we have strong grounds to believe that you have done so, then we may, acting in our sole discretion and without notice to you, cancel or suspend your access to the App at any time. 
+16.2	If we terminate your access to the App your User Content will no longer be accessible through your Account.
+16.3	Upon termination, all licences or other rights granted to you in these Terms will immediately cease.
+
+
+17.	DISPUTE RESOLUTION BY ARBITRATION
+17.1	Most user concerns can be resolved quickly and to your satisfaction by contacting us at contact@shnergle.com. In the unlikely event that we cannot resolve a concern to your satisfaction (or if we cannot resolve a concern we have with you after attempting to do so informally), then either you or we may refer this matter to arbitration with the prior written consent of the other party.
+
+
+18.	LINKS TO THIRD PARTY WEB SITES
+18.1	The App may provide links to or be linked to other web sites that are not Shnergle websites ("Third Party Web Sites") and certain functionality of the App may allow you to conduct transactions through such Third Party Web Sites. We are providing these links to you as a convenience, and we do not verify, make any representations or take any responsibility for such linked to Third Party Web Sites, including, without limitation, the truthfulness, accuracy, quality or completeness of the content, links displayed or activities conducted on such Third Party Web Sites. The Third Party Web Sites may have different privacy policies and terms and conditions and business practices than Shnergle. Your dealings and communications through such sites with any party other than Shnergle are solely between you and such third party. Any complaints, concerns or questions you have relating to materials provided by third parties should be forwarded directly to the applicable third party. 
+18.2	You agree that Shnergle will not, under any circumstances, be responsible or liable, directly or indirectly, for any goods, services, resources or content available through any Third Party Web Sites and/or third party dealings or communications, or for any harm related thereto, or for any damages or loss caused or alleged to be caused by or in connection with your use or reliance on the content, advertising or business practices of any third party. Any reference in the App and/or on our website to any product, process, publication or service of any third party, by trade name, domain name, trademark, trade identity, service mark, logo, manufacturer or otherwise does not constitute or imply Shnergle's endorsement or recommendation.
+
+19.	GENERAL
+19.1	The Terms governs our relationship with you.  It does not create any rights for any other person, unless otherwise expressly stated in these Terms.
+19.2	If any part of these Terms is held to be unenforceable, then it will not affect the enforceability of any other part of these Terms.  Also, we and you agree to interpret the rest of these Terms in such a way as to reflect your and our intentions in these Terms as far as possible.  
+19.3	If you or we fail to exercise (or delay exercising) any right which you or we may have under these Terms, that failure or delay does not mean that we or you lose that right.  If we or you only partially exercise a right or only exercise it once, that will not stop you or us from exercising it again in the future.
+19.4	These Terms constitute the entire agreement between you and us with respect to the App and supersede any previous agreement or understandings between you and us.  If you consider the Terms - are incomplete in any way, please contact us at contact@shnergle.com as soon as possible before commencing use of any App, otherwise you will be deemed to have accepted these documents within a reasonable time afterwards.
+19.5	This contract is between you and us. No other person shall have any rights to enforce any of its terms, whether under the Contracts (Rights of Third Parties Act) 1999 or otherwise.
+19.6	Nothing in these Terms is intended to, or shall be deemed to, establish any partnership or joint venture between you and us, constitute any party the agent of another party, or authorise any party to make or enter into any commitments for or on behalf of any other party.
+
+20.	SPECIAL TERMS FOR MERCHANT'S WITH PAGES ON THE APP
+20.1	When a Merchant associates himself with and claims a page about a Venue, subject to the terms set out in this section 21, that page becomes an official Venue page ("Page"). If you have a Page on the App, you also agree to the following: 
+(a)	In order to claim a page about a Venue you must be invited and/or approved by Shnergle and complete the applicable verification process for such Venue; 
+(b)	You may only claim and administer a Page if you are an authorised representative of the subject of the Page; 
+(c)	You warrant and represent that you have all the necessary rights licenses, consents, and permissions to use any trademark or logo in any of your User Content you upload and display on and/or associate with your the Page;  
+(d)	All User Content posted on the Page will be made available to all users of the App;
+(e)	You will not direct your Page, or any User Content on your Page, to children under the age of 13; and
+(f)	You are responsible for ensuring that your Page, including any User Content you post on your Page, shall comply with all applicable laws, rules and regulations and these Terms, including without limitation, any advertising codes and/or consumer protection laws that may be applicable to your Page or any User Content on your Page.  
+20.2	You agree to defend, indemnify, and hold Shnergle, its affiliates, officers, directors, agents, and other partners and employees, harmless from and against any loss, liability, claim, or demand, including reasonable legal fees, made by any third party due to or arising from: (i) your use of and access to the App; (ii) your breach of these Terms; (iii) your User Content; (iv) your violation of any third party right, including, without limitation, any copyright, property, or privacy right; (v) your breach of any applicable law, rule or regulation. This indemnification will survive termination of our agreement and your use of the App.
+
+21.	ADDITIONAL PROVISIONS APPLYING TO NATURALMOTION APPLE iOS APPS ("APP" or "APPS")
+Third party intellectual property right claims
+21.1	In the event of any third party claim that an App or your possession and use of that App  infringes that third party’s intellectual property rights, we and not Apple will be solely responsible for the investigation, defence, settlement and discharge of any such intellectual property infringement claim.
+Warranties
+21.2	You represent and warrant that (i) you are not located in a country that is subject to a U.S. Government embargo, or that has been designated by the U.S. Government as a “terrorist supporting” country; and (ii) you are not listed on any U.S. Government list of prohibited or restricted parties.
+Liability
+21.3	The terms set out in section 15 above do not limit any consumer rights which we cannot exclude under applicable law, nor do they exclude or limit our liability for death or personal injury resulting from our negligence or for any fraudulent representation. In the event that the App fails to comply with the warranties set out above or any other applicable warranty (whether express or implied by law), we will be solely liable to you to the extent that warranty has not been validly excluded.  
+21.4	In the event of any failure of any App to conform to any applicable warranty you may notify Apple, and Apple will refund the purchase price for that App to that user.  Otherwise, to the maximum extent permitted by applicable law, Apple will have no other warranty obligation whatsoever with respect to the App, and any other claims, losses, liabilities, damages, costs or expenses attributable to any failure to conform to any warranty will be our sole responsibility.
+21.5	You and we agree acknowledge that we, not Apple, are responsible for addressing any claims by you or any third party relating to the App or your possession and/or use of the App, including, but not limited to: (i) product liability claims; (ii) any claim that the Apps fail to conform to any applicable legal or regulatory requirement; and (iii) claims arising under consumer protection or similar legislation. The Terms may not limit our liability to you beyond what is permitted by applicable law.
+Apple is not a party to the Terms
+21.6	You and we agree that the Terms is an agreement concluded between us alone and not by Apple.  We are solely responsible to you for the App and its content, so if you require maintenance or support services or have any questions or complaints please contact us at contact@shnergle.com and not Apple, since Apple has no obligation whatsoever to furnish any such services with respect to the App.
+Apple is a third party beneficiary of the Terms
+21.7	Apple and its subsidiaries are a third party beneficiary of the Terms.  Following your acceptance of the Terms, Apple will have the right (and will be deemed to have accepted the right) to enforce the Terms against you as a third party beneficiary thereof.
+22.	GOVERNING LAW
+22.1	You and we agree that your use of the App, and these Terms, shall be governed by and interpreted according to the laws of England and Wales and that any dispute regarding them shall be heard exclusively by the courts of England and Wales.
+23.	CHANGES TO THE TERMS
+23.1	We may vary the Terms as and when we consider it appropriate or necessary for legal reasons or to reflect changes in the App.  If so, then we will make the revised Terms available at (http://www.shnergle.com) and in some cases, where appropriate, we may provide you with additional notice (such as sending you an email notification or posting on a social media site). Any changes will be effective upon posting the revised version of these Terms on the Service (or such later effective date as may be indicated at the top of the revised Terms). If we do update these Terms and you do not agree to the updated Terms, you shall be free to decide whether to accept the terms or stop using the App. You can close your Account with us at any time by emailing us at contact@shnergle.com.  
+
+</string>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
@@ -3641,12 +3972,12 @@ If you have any questions, comments or requests regarding this Policy, please co
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="xzO-IX-Cmd"/>
-        <segue reference="ohm-kx-4nt"/>
         <segue reference="Zho-BK-kL6"/>
+        <segue reference="ohm-kx-4nt"/>
         <segue reference="V1y-Vn-JKN"/>
+        <segue reference="bLg-gv-CVq"/>
+        <segue reference="HzW-kz-4Eb"/>
         <segue reference="xzO-IX-Cmd"/>
-        <segue reference="WSb-QO-1iD"/>
         <segue reference="qNM-G7-JMr"/>
     </inferredMetricsTieBreakers>
 </document>
