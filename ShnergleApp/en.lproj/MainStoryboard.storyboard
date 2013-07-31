@@ -1607,7 +1607,7 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                         <viewControllerLayoutGuide type="bottom" id="Lk3-8N-Zhg"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="T3d-vY-Mf8">
-                        <rect key="frame" x="0.0" y="20" width="320" height="2962"/>
+                        <rect key="frame" x="0.0" y="20" width="320" height="3042"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <navigationBar contentMode="scaleToFill" barStyle="black" translatesAutoresizingMaskIntoConstraints="NO" id="uZw-Cy-fCl">
@@ -1624,7 +1624,7 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                                 </items>
                             </navigationBar>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="HP1-zJ-Evb">
-                                <rect key="frame" x="0.0" y="170" width="320" height="2800"/>
+                                <rect key="frame" x="0.0" y="254" width="320" height="2800"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="d7K-2j-bO2">
                                         <rect key="frame" x="4" y="114" width="312" height="246"/>
@@ -2143,6 +2143,20 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                                                 </state>
                                                 <connections>
                                                     <segue destination="dSf-nl-gV6" kind="push" id="HzW-kz-4Eb"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iU5-fn-yXd">
+                                                <rect key="frame" x="7" y="711" width="205" height="25"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="25" id="0lh-V4-qaa"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                                <state key="normal" title="FAQ" backgroundImage="greybutton04.png">
+                                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                                </state>
+                                                <connections>
+                                                    <segue destination="m3L-Cu-7Qf" kind="push" id="Bgj-3i-74u"/>
                                                 </connections>
                                             </button>
                                         </subviews>
@@ -2742,6 +2756,74 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
             </objects>
             <point key="canvasLocation" x="-309" y="-713"/>
         </scene>
+        <!--View Controller-->
+        <scene sceneID="w4s-h5-ykB">
+            <objects>
+                <viewController id="m3L-Cu-7Qf" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Jei-3Z-qRN"/>
+                        <viewControllerLayoutGuide type="bottom" id="tGy-fh-vuL"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Y1G-9J-auZ">
+                        <rect key="frame" x="0.0" y="20" width="320" height="548"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" editable="NO" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Cjv-oL-HZ0">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="548"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <mutableString key="text">WHAT IS SHNERGLE ALL ABOUT?
+Shnergle is about helping you stay flexible, save time and hopefully a bit of cash too. We help Merchants tell you what is going on at their establishments in real time, without spamming your mailbox or phone. We also help the most active Shnerglers in the community to tip off the public about what is going on where, and get rewarded with more valuable discounts in return.
+DonÕt waste time wandering around looking for the right place, now you can #Shnergleit on your phone and go!
+
+HOW DOES IT ALL WORK?
+Shnergle lets you see photos and comments  about specific places posted by Merchants and the Shnergle community, along with when the photos were taken. We only show activity from the last 8 days, and we only show how many people have RSVPÕd to go to a place today Ð there is too much out of date information out there and we think you deserve the latest info!
+
+WHAT DO MERCHANTS FIND OUT ABOUT ME?
+We help Merchants better understand the people searching for and visiting their establishments, but we reckon you want to stay anonymous. As such we bundle together the information we give them, so you can't be identified personally.
+If you are happy to be identified and you want the very best deals, then turn on the ÔTop 5 CustomerÕ feature in the profile view. This way if you are one of the 5 most active Shnerglers at a particular venue they can reach out to you for the best VIP deals!
+
+PROMOTIONS
+We think you should get rewarded for helping Merchants and other Shnerglers; so we have setup a promotion feature for Merchants. These promotions might be for short periods or for limited number of people; there may also be more valuable promotions for more active Shnerglers. If you see one of these promotions, get yourself over there and redeem it Ð taking a picture in the process and helping everybody out!
+
+HOW CAN I DO MY BIT FOR THE COMMUNITY?
+Shnergle is going to be most useful when there is lots of up to date info for everybody to benefit from. If you are going through a station, waiting for the tube, grabbing a coffee or popping into a bar for a drink, take a quick snap and check it into Shnergle Ð help other Shnerglers! If the place you are snapping isnÕt on the system, just add it; it only takes a second.
+
+WHERE CAN I GET THE PHOTOS I TAKE ON SHNERGLE?
+Every time you take a photo on Shnergle you can share it with your friends on Facebook, but we know you might want full resolution ones later too, so we save full resolution images to the camera roll on your phone. These photos taking up too much space? No problem Ð head over to the profile page, scroll down and you can stop saving the photos.
+
+I WANT TO TWEET MY SHNERGLE PICTURES!
+We know and we are working hard to include this important feature. So far it has been a big challenge; if you are a whiz with custom Twitter iOS integration, drop us a line!
+
+CAN I INVITE MY FRIENDS TO USE SHNERGLE?
+Of course Ð the more the merrier! Please help us spread the word, particularly on Facebook and Twitter, so that we can grow the community and make it better for everybody!
+
+WHERE CAN I GIVE FEEDBACK?
+We love feedback Ð good or bad! WeÕd love to answer any questions you have or listen to your views about how to improve or fix the app. Please drop us a line or drop by TechHub at Google Campus in London and let chat!
+* Message us on Facebook
+* Tweet us @Shnerglehelp
+* Email us at contact@shnergle.com
+* TechHub
+Google Campus
+4-5 Bonhill Street
+London
+EC2A 4BX
+
+THANKS FOR BEING PART OF THE SHNERGLE COMMUNITY - HAPPY SHNERGLING! 
+</mutableString>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="J05-8Z-Grw"/>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="z3x-uH-Dwx" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="75" y="-420"/>
+        </scene>
         <!--Favourites Sliding-->
         <scene sceneID="2ce-1L-Y1h">
             <objects>
@@ -3212,11 +3294,11 @@ If you have any questions, comments or requests regarding this Policy, please co
                         <viewControllerLayoutGuide type="bottom" id="GDJ-8f-IuV"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="TQr-Rt-KYN">
-                        <rect key="frame" x="0.0" y="20" width="320" height="10080"/>
+                        <rect key="frame" x="0.0" y="20" width="320" height="10220"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HB4-oX-cdE">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="10080"/>
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="10220"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <subviews>
                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" lineBreakMode="tailTruncation" numberOfLines="50000" baselineAdjustment="alignBaselines" minimumFontSize="6" preferredMaxLayoutWidth="310" translatesAutoresizingMaskIntoConstraints="NO" id="uvg-qA-Hm0">
@@ -3745,7 +3827,7 @@ Apple is a third party beneficiary of the Terms
         <segue reference="ohm-kx-4nt"/>
         <segue reference="Zho-BK-kL6"/>
         <segue reference="V1y-Vn-JKN"/>
+        <segue reference="bLg-gv-CVq"/>
         <segue reference="qNM-G7-JMr"/>
-        <segue reference="xUB-NL-HY4"/>
     </inferredMetricsTieBreakers>
 </document>
