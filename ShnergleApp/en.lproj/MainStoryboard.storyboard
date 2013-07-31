@@ -1607,7 +1607,7 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                         <viewControllerLayoutGuide type="bottom" id="Lk3-8N-Zhg"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="T3d-vY-Mf8">
-                        <rect key="frame" x="0.0" y="20" width="320" height="3002"/>
+                        <rect key="frame" x="0.0" y="20" width="320" height="3082"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <navigationBar contentMode="scaleToFill" barStyle="black" translatesAutoresizingMaskIntoConstraints="NO" id="uZw-Cy-fCl">
@@ -1624,7 +1624,7 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                                 </items>
                             </navigationBar>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="HP1-zJ-Evb">
-                                <rect key="frame" x="0.0" y="65" width="320" height="2940"/>
+                                <rect key="frame" x="0.0" y="149" width="320" height="2940"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="d7K-2j-bO2">
                                         <rect key="frame" x="4" y="114" width="312" height="246"/>
@@ -2774,7 +2774,7 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                         <rect key="frame" x="0.0" y="20" width="320" height="548"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" editable="NO" usesAttributedText="YES" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Cjv-oL-HZ0">
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" usesAttributedText="YES" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Cjv-oL-HZ0">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="548"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" red="0.89411764709999997" green="0.90196078430000004" blue="0.92941176469999998" alpha="1" colorSpace="calibratedRGB"/>
@@ -2970,6 +2970,12 @@ THANKS FOR BEING PART OF THE SHNERGLE COMMUNITY - HAPPY SHNERGLING!
                             </textView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="Cjv-oL-HZ0" secondAttribute="trailing" id="UCb-LX-F4y"/>
+                            <constraint firstAttribute="bottom" secondItem="Cjv-oL-HZ0" secondAttribute="bottom" id="ZlP-mz-9oj"/>
+                            <constraint firstItem="Cjv-oL-HZ0" firstAttribute="leading" secondItem="Y1G-9J-auZ" secondAttribute="leading" id="cYX-d4-ARu"/>
+                            <constraint firstItem="Cjv-oL-HZ0" firstAttribute="top" secondItem="Y1G-9J-auZ" secondAttribute="top" id="oRZ-q0-gFN"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="J05-8Z-Grw"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
@@ -3324,7 +3330,7 @@ THANKS FOR BEING PART OF THE SHNERGLE COMMUNITY - HAPPY SHNERGLING!
                         <rect key="frame" x="0.0" y="20" width="320" height="548"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" editable="NO" usesAttributedText="YES" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="l35-1v-63j">
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" usesAttributedText="YES" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="l35-1v-63j">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="548"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" red="0.89411764709999997" green="0.90196078430000004" blue="0.92941176469999998" alpha="1" colorSpace="calibratedRGB"/>
@@ -3434,6 +3440,12 @@ If you have any questions, comments or requests regarding this Policy, please co
                             </textView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="l35-1v-63j" firstAttribute="leading" secondItem="Uhc-ca-aJl" secondAttribute="leading" id="5Dp-Oz-pm9"/>
+                            <constraint firstItem="l35-1v-63j" firstAttribute="top" secondItem="Uhc-ca-aJl" secondAttribute="top" id="GQc-WV-K74"/>
+                            <constraint firstAttribute="trailing" secondItem="l35-1v-63j" secondAttribute="trailing" id="Zlw-Sv-ttz"/>
+                            <constraint firstAttribute="bottom" secondItem="l35-1v-63j" secondAttribute="bottom" id="tft-ul-P5P"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="hJS-Q9-54n"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
@@ -3461,9 +3473,6 @@ If you have any questions, comments or requests regarding this Policy, please co
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="548"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.89411764709999997" green="0.90196078430000004" blue="0.92941176469999998" alpha="1" colorSpace="calibratedRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="548" id="3hZ-3i-IOW"/>
-                                </constraints>
                                 <string key="text">Shnergle Terms of Use 
 Last Update: 26 July 2013
 
@@ -3726,9 +3735,10 @@ Apple is a third party beneficiary of the Terms
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="ZkD-aC-df9" firstAttribute="top" secondItem="TQr-Rt-KYN" secondAttribute="top" id="9IR-XH-PuY"/>
-                            <constraint firstAttribute="trailing" secondItem="ZkD-aC-df9" secondAttribute="trailing" id="T31-zu-AM7"/>
-                            <constraint firstItem="ZkD-aC-df9" firstAttribute="leading" secondItem="TQr-Rt-KYN" secondAttribute="leading" id="v4I-qx-84k"/>
+                            <constraint firstItem="ZkD-aC-df9" firstAttribute="leading" secondItem="TQr-Rt-KYN" secondAttribute="leading" id="Pya-sW-Es3"/>
+                            <constraint firstAttribute="trailing" secondItem="ZkD-aC-df9" secondAttribute="trailing" id="T8U-pz-rBK"/>
+                            <constraint firstAttribute="bottom" secondItem="ZkD-aC-df9" secondAttribute="bottom" id="f5w-7f-6me"/>
+                            <constraint firstItem="ZkD-aC-df9" firstAttribute="top" secondItem="TQr-Rt-KYN" secondAttribute="top" id="zaj-6e-zOx"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="lRh-Ql-efE"/>
