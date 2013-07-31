@@ -54,9 +54,3 @@
 #define COCOAPODS_VERSION_MINOR_UIImage_Resize 1
 #define COCOAPODS_VERSION_PATCH_UIImage_Resize 0
 
-// YIPopupTextView
-#define COCOAPODS_POD_AVAILABLE_YIPopupTextView
-#define COCOAPODS_VERSION_MAJOR_YIPopupTextView 1
-#define COCOAPODS_VERSION_MINOR_YIPopupTextView 0
-#define COCOAPODS_VERSION_PATCH_YIPopupTextView 0
-
