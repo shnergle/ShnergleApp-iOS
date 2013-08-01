@@ -55,7 +55,7 @@ typedef enum {
                 if ([address count] == 0) [address addObject:@""];
                 [params appendString:[address componentsJoinedByString:@", "]];
                 [params appendString:@"&country="];
-                [params appendString:(error ? [((CLPlacemark *)placemark.firstObject).ISOcountryCode lowercaseString] : @"--")];
+                [params appendString:(error ? [((CLPlacemark *)placemark[0]).ISOcountryCode lowercaseString] : @"--")];
                 if (appDelegate.venueDetailsContent) {
                     if (appDelegate.venueDetailsContent[@(8)]) {
                         [params appendString:@"&phone="];

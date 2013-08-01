@@ -120,6 +120,8 @@
     if ([@"SegueToShare" isEqualToString : segue.identifier]) {
         //((ShareViewController *)[segue destinationViewController]).shnergleThis = YES;
         appDelegate.shnergleThis = YES;
+    } else if ([@"AddVenueSegue" isEqualToString:segue.identifier]) {
+        appDelegate.addVenueCheckIn = YES;
     }
 }
 
