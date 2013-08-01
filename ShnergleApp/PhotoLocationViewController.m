@@ -20,6 +20,11 @@
     [self.searchResultTable makeToastActivity];
 }
 
+- (void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
+    [self initMap];
+}
+
 - (void)didFinishLoadingVenues:(NSArray *)response {
     appDelegate.locationPickerVenues = [NSMutableArray arrayWithArray:response];
     locationPickerVenuesImmutable = [NSArray arrayWithArray:response];
@@ -30,7 +35,6 @@
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     self.navigationController.navigationBarHidden = NO;
-    [self initMap];
 
     appDelegate.addVenueCheckIn = NO;
 }

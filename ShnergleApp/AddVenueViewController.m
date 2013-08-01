@@ -204,7 +204,6 @@ typedef enum {
         secondCellField.text = appDelegate.addVenueType;
         secondCellField.textColor = [UIColor blackColor];
     }
-    [self initMap];
 }
 
 - (void)textFieldDidEndEditing:(UITextField *)textField {
@@ -293,6 +292,7 @@ typedef enum {
     topBorder.backgroundColor = [UIColor lightGrayColor].CGColor;
 
     [self.mapView.layer addSublayer:topBorder];
+    [self initMap];
 }
 
 - (BOOL)textFieldShouldReturn:(UITextField *)textField {
