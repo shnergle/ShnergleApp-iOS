@@ -9,7 +9,7 @@
 #import <FacebookSDK/FacebookSDK.h>
 #import "CustomBackViewController.h"
 
-@interface ProfileViewController : UIViewController <UIActionSheetDelegate>
+@interface ProfileViewController : UIViewController <UIActionSheetDelegate, UIAlertViewDelegate>
 
 @property (weak, nonatomic) IBOutlet UILabel *checkInLabel;
 @property (weak, nonatomic) IBOutlet UILabel *redeemedLabel;

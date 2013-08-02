@@ -945,6 +945,7 @@
 		CDAD1D35175E2FA600581713 /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = CDAD1D34175E2FA600581713 /* Settings.bundle */; };
 		CDB11BF517A056D400B8817A /* RedemptionListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CDB11BF417A056D400B8817A /* RedemptionListViewController.m */; };
 		CDB72C2E175A5F2B00018271 /* PostRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = CDB72C2D175A5F2B00018271 /* PostRequest.m */; };
+		CDBC6C7C17AC47D9001B667B /* Accounts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CDBC6C7B17AC47D9001B667B /* Accounts.framework */; };
 		CDBCDE7F1765245B0048478F /* CustomSlidingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CDBCDE7E1765245B0048478F /* CustomSlidingViewController.m */; };
 		CDCCCE3C17AC03BC001B091B /* NSObject+MissingMethods.m in Sources */ = {isa = PBXBuildFile; fileRef = CDCCCE3B17AC03BC001B091B /* NSObject+MissingMethods.m */; };
 		CDCDF9CD17A19A960036EA74 /* PromotionAudienceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CDCDF9CC17A19A960036EA74 /* PromotionAudienceViewController.m */; };
@@ -1950,6 +1951,7 @@
 		CDB11BF417A056D400B8817A /* RedemptionListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RedemptionListViewController.m; sourceTree = "<group>"; };
 		CDB72C2C175A5F2B00018271 /* PostRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PostRequest.h; sourceTree = "<group>"; };
 		CDB72C2D175A5F2B00018271 /* PostRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PostRequest.m; sourceTree = "<group>"; };
+		CDBC6C7B17AC47D9001B667B /* Accounts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accounts.framework; path = System/Library/Frameworks/Accounts.framework; sourceTree = SDKROOT; };
 		CDBCDE7D1765245B0048478F /* CustomSlidingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomSlidingViewController.h; sourceTree = "<group>"; };
 		CDBCDE7E1765245B0048478F /* CustomSlidingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomSlidingViewController.m; sourceTree = "<group>"; };
 		CDCCCE3A17AC03BC001B091B /* NSObject+MissingMethods.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+MissingMethods.h"; sourceTree = "<group>"; };
@@ -1990,6 +1992,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CDBC6C7C17AC47D9001B667B /* Accounts.framework in Frameworks */,
 				CDAD1D33175E2BF800581713 /* UIKit.framework in Frameworks */,
 				CD654EE8179DCA9800F380B5 /* Crashlytics.framework in Frameworks */,
 				1F95516217BB4B9FAB164196 /* libPods.a in Frameworks */,
@@ -2901,6 +2904,7 @@
 		808F13C716FB6A5C00B66E6D /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				CDBC6C7B17AC47D9001B667B /* Accounts.framework */,
 				CD654EE7179DCA9800F380B5 /* Crashlytics.framework */,
 				CDAD1D32175E2BF800581713 /* UIKit.framework */,
 				808F13EC16FB6A5C00B66E6D /* SenTestingKit.framework */,

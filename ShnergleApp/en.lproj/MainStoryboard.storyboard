@@ -1860,10 +1860,10 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" image="twitter-bird-white-on-blue.png" translatesAutoresizingMaskIntoConstraints="NO" id="5i0-JZ-HpY">
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="twitter-bird-white-on-blue.png" translatesAutoresizingMaskIntoConstraints="NO" id="5i0-JZ-HpY">
                                                 <rect key="frame" x="6" y="214" width="43" height="40"/>
                                             </imageView>
-                                            <label hidden="YES" opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Twitter" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gJ1-F0-r4G">
+                                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Twitter" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gJ1-F0-r4G">
                                                 <rect key="frame" x="57" y="223" width="64" height="21"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="21" scoringType="23.5" id="29A-en-jg1"/>
@@ -1873,7 +1873,7 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <switch hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="f4K-tX-UWy">
+                                            <switch opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="f4K-tX-UWy">
                                                 <rect key="frame" x="226" y="218" width="79" height="27"/>
                                                 <connections>
                                                     <action selector="twitterSwitchAction:" destination="qgb-Kw-YNh" eventType="valueChanged" id="NqF-qj-vfl"/>
@@ -4048,13 +4048,13 @@ Apple is a third party beneficiary of the Terms
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="qNM-G7-JMr"/>
-        <segue reference="xUB-NL-HY4"/>
-        <segue reference="WSb-QO-1iD"/>
-        <segue reference="Zho-BK-kL6"/>
         <segue reference="ohm-kx-4nt"/>
+        <segue reference="Zho-BK-kL6"/>
+        <segue reference="qNM-G7-JMr"/>
         <segue reference="Dyu-vl-dRT"/>
         <segue reference="fjC-0F-Or5"/>
+        <segue reference="bLg-gv-CVq"/>
+        <segue reference="HzW-kz-4Eb"/>
         <segue reference="xzO-IX-Cmd"/>
     </inferredMetricsTieBreakers>
 </document>
