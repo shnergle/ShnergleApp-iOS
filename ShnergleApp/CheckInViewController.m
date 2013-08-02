@@ -32,7 +32,9 @@
         vc = [self.storyboard instantiateViewControllerWithIdentifier:@"ShareViewController"];
     }
     taken = NO;
-    [imgPickerCam dismissViewControllerAnimated:YES completion:nil];
+    dispatch_async(dispatch_get_main_queue(), ^{
+        [imgPickerCam dismissViewControllerAnimated:YES completion:nil];
+    });
     [self.navigationController pushViewController:vc animated:YES];
 }
 
