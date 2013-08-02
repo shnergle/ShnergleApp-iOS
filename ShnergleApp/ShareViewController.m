@@ -185,7 +185,13 @@
                              withName:@"media[]"
                                  type:@"image/jpeg"
                              filename:@"image.jpg"];
-            [request setAccount:[accounts lastObject]];
+            ACAccount *rightAccount;
+            for (ACAccount *account in accounts)
+                if ([account.username isEqualToString:appDelegate.twitter]) {
+                    rightAccount = account;
+                    break;
+                }
+            [request setAccount:rightAccount];
             [request performRequestWithHandler:requestHandler];
         }
         else {
