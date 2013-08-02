@@ -8,16 +8,11 @@
 
 #import "AcceptViewController.h"
 
-@interface AcceptViewController ()
-
-@end
-
 @implementation AcceptViewController
 
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear: animated];
     [self.navigationController setNavigationBarHidden:YES animated:NO];
-    
 }
 
 @end

@@ -14,6 +14,7 @@
     BOOL hasPositionLocked;
     CLLocationCoordinate2D coord;
     NSArray *locationPickerVenuesImmutable;
+    int rows;
 }
 
 @property (weak, nonatomic) IBOutlet UILabel *headline;
