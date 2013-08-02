@@ -1437,7 +1437,7 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                                                     <constraint firstAttribute="height" constant="40" scoringType="23.5" id="yUx-Ia-d70"/>
                                                 </constraints>
                                             </imageView>
-                                            <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" image="twitter-bird-white-on-blue.png" translatesAutoresizingMaskIntoConstraints="NO" id="46y-qu-YuB">
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" image="twitter-bird-white-on-blue.png" translatesAutoresizingMaskIntoConstraints="NO" id="46y-qu-YuB">
                                                 <rect key="frame" x="0.0" y="256" width="43" height="40"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="43" type="user" id="7zp-8U-iLf"/>
@@ -1450,13 +1450,13 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <label hidden="YES" opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Twitter" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="T47-Fz-41Z">
+                                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Twitter" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="T47-Fz-41Z">
                                                 <rect key="frame" x="56" y="266" width="51" height="21"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <switch hidden="YES" opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="13J-WF-nqe">
+                                            <switch opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="13J-WF-nqe">
                                                 <rect key="frame" x="146" y="261" width="79" height="27"/>
                                             </switch>
                                             <switch opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="vGu-QZ-o73">
@@ -1561,6 +1561,7 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                         <outlet property="image" destination="iA1-kv-wSd" id="XQe-8H-AeI"/>
                         <outlet property="nameList" destination="peK-WU-kWy" id="XF3-Mr-Wba"/>
                         <outlet property="textFieldname" destination="Ske-Xe-Yqg" id="yDT-FD-HIK"/>
+                        <outlet property="twSwitch" destination="13J-WF-nqe" id="nhg-FX-Yc1"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Kno-OL-VfV" userLabel="First Responder" sceneMemberID="firstResponder"/>

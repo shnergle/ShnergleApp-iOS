@@ -15,6 +15,7 @@
 }
 
 @property (weak, nonatomic) IBOutlet UISwitch *fbSwitch;
+@property (weak, nonatomic) IBOutlet UISwitch *twSwitch;
 @property (weak, nonatomic) IBOutlet UIImageView *image;
 @property (weak, nonatomic) IBOutlet UIButton *nameList;
 @property (weak, nonatomic) IBOutlet UILabel *friendLabel;
