@@ -18,14 +18,13 @@
     [self presentViewController:imgPickerCam animated:NO completion:nil];
 }
 
-- (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info {
-    taken = YES;
+- (void)useImage:(UIImage *)img {
+    NSDictionary *info;
     if (appDelegate.saveLocally) {
-        UIImageWriteToSavedPhotosAlbum(info[@"UIImagePickerControllerOriginalImage"], nil, nil, nil);
+        UIImageWriteToSavedPhotosAlbum(img, nil, nil, nil);
     }
-    appDelegate.shareImage = [info[@"UIImagePickerControllerOriginalImage"] resizedImageToFitInSize:CGSizeMake(200, 200) scaleIfSmaller:YES];
+    appDelegate.shareImage = [img resizedImageToFitInSize:CGSizeMake(200, 200) scaleIfSmaller:YES];
     info = nil;
-    [imgPickerCam dismissViewControllerAnimated:NO completion:nil];
     UIViewController *vc;
     if (!appDelegate.activeVenue) {
         vc = [self.storyboard instantiateViewControllerWithIdentifier:@"PhotoLocationViewController"];
@@ -35,6 +34,14 @@
     taken = NO;
     [imgPickerCam dismissViewControllerAnimated:YES completion:nil];
     [self.navigationController pushViewController:vc animated:YES];
+}
+
+- (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info {
+    taken = YES;
+    [imgPickerCam dismissViewControllerAnimated:NO completion:nil];
+    
+    UIImage *img = info[@"UIImagePickerControllerOriginalImage"];
+    [NSThread detachNewThreadSelector:@selector(useImage:) toTarget:self withObject:img];
 }
 
 - (void)imagePickerControllerDidCancel:(UIImagePickerController *)picker {
