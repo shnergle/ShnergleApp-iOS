@@ -233,8 +233,10 @@
             [ImageCache set:@"venue" identifier:appDelegate.activeVenue[@"id"] image:appDelegate.shareImage];
         }
 
-        if (response != nil) {
+        if (response != nil && self.crowdCollectionV != nil) {
             [self.crowdCollectionV reloadItemsAtIndexPaths:@[index]];
+        }else if(self.crowdCollectionV == nil){
+            NSLog(@"Crowd Collection was nil");
         }
     }
 }
