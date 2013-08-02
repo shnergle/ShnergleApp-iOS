@@ -125,7 +125,7 @@
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     if ([@"SegueToShare" isEqualToString : segue.identifier]) {
         appDelegate.shnergleThis = YES;
-    } else if ([@"AddVenueSegue" isEqualToString:segue.identifier]) {
+    } else if ([@"AddVenueSegue" isEqualToString : segue.identifier]) {
         appDelegate.addVenueCheckIn = YES;
     }
 }
