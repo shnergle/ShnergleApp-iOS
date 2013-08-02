@@ -238,10 +238,7 @@
                 [self.crowdCollectionV reloadItemsAtIndexPaths:@[index]];
             }
             @catch (NSException *exception) {
-                NSLog(@"Exception while updating frame");
             }
-        }else if(self.crowdCollectionV == nil){
-            NSLog(@"Crowd Collection was nil");
         }
     }
 }

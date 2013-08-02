@@ -179,11 +179,6 @@
 - (void)didFinishDownloadingImages:(UIImage *)response forIndex:(NSIndexPath *)index {
     if (response != nil && self.crowdCollection != nil) {
         [self.crowdCollection reloadItemsAtIndexPaths:@[index]];
-    }else if(self.crowdCollection == nil)
-    {
-        NSLog(@"collection view was nil");
-    }else{
-        NSLog(@"response was nil");
     }
 }
 
