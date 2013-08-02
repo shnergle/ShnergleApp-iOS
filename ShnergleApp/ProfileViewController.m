@@ -164,7 +164,9 @@
                     [alert addButtonWithTitle:[NSString stringWithFormat:@"@%@", account.username]];
                 }
                 [self.view hideToastActivity];
-                [alert show];
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    [alert show];
+                });
             } else {
                 NSLog(@"[ERROR] An error occurred while asking for user authorization: %@",
                       [error localizedDescription]);
