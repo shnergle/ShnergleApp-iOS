@@ -77,6 +77,7 @@
     [invocation setSelector:responseCallback];
     [invocation setArgument:&responseArg atIndex:2];
     [invocation setTarget:responseObject];
+    NSLog(@"%@",responseArg);
     [invocation retainArguments];
     [invocation invoke];
 }
