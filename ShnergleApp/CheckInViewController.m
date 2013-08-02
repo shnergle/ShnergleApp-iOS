@@ -38,7 +38,6 @@
 
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info {
     taken = YES;
-    [imgPickerCam dismissViewControllerAnimated:NO completion:nil];
 
     UIImage *img = info[@"UIImagePickerControllerOriginalImage"];
     [NSThread detachNewThreadSelector:@selector(useImage:) toTarget:self withObject:img];
