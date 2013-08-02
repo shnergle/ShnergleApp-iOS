@@ -241,7 +241,12 @@
         self.staffButton.hidden = NO;
         self.analyticsImage.hidden = NO;
         self.analyticsLabel.hidden = NO;
-
+        self.thinkingView.hidden = YES;
+        [self loadVenueIntentions];
+        self.goingView.hidden = YES;
+        self.goingLabel.hidden = NO;
+        self.thinkingLabel.hidden = NO;
+        self.rsvpQuestionLabel.hidden = YES;
         self.staffImage.hidden = NO;
         self.staffLabel.hidden = NO;
     } else if (appDelegate.venueStatus == Staff && [appDelegate.activeVenue[@"verified"] intValue] == 1) {
