@@ -7,6 +7,7 @@
 //
 
 #import "PostRequest.h"
+#import <Crashlytics/Crashlytics.h>
 
 @implementation PostRequest
 
@@ -72,6 +73,8 @@
         }
     else if ([@"string" isEqualToString : responseType]) responseArg = [[NSString alloc] initWithData:response encoding:NSUTF8StringEncoding];
     else responseArg = [NSJSONSerialization JSONObjectWithData:response options:NSJSONReadingAllowFragments error:nil];
+    [Crashlytics setObjectValue:response forKey:@"lastResponseRaw"];
+    [Crashlytics setObjectValue:responseArg forKey:@"lastResponseParsed"];
     NSMethodSignature *methodSig = [[responseObject class] instanceMethodSignatureForSelector:responseCallback];
     NSInvocation *invocation = [NSInvocation invocationWithMethodSignature:methodSig];
     [invocation setSelector:responseCallback];

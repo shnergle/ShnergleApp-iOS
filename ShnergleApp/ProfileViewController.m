@@ -123,14 +123,13 @@
     [self.view hideToastActivity];
 }
 
-
 - (NSString *)suffix:(int)number {
     if (number > 999999) {
         return [NSString stringWithFormat:@"%dM", number / 1000000];
     } else if (number > 999) {
         return [NSString stringWithFormat:@"%dK", number / 1000];
     } else {
-        return [@(number) stringValue];
+        return [@(number)stringValue];
     }
 }
 
