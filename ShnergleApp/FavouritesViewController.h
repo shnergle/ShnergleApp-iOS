@@ -11,6 +11,7 @@
 @interface FavouritesViewController : CustomBackViewController <UICollectionViewDataSource, UICollectionViewDelegate, CLLocationManagerDelegate> {
     CLLocationManager *man;
     BOOL hasPositionLocked;
+    NSArray *venues;
 }
 
 @property (weak, nonatomic) IBOutlet UINavigationBar *navBar;

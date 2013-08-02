@@ -92,7 +92,7 @@
     [super viewDidLoad];
     following = [appDelegate.activeVenue[@"following"] intValue] == 0 ? NO : YES;
 
-    cellImages = [[NSMutableDictionary alloc] init];
+    cellImages = [NSMutableDictionary dictionary];
 
     if (!appDelegate.activeVenue[@"tonight"]) {
         summaryContent = @"";
@@ -206,7 +206,7 @@
 }
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
-    return appDelegate.posts ? [appDelegate.posts count] : 0;
+    return posts ? [posts count] : 0;
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
@@ -215,11 +215,11 @@
 
     item.index = indexPath.item;
     item.crowdImage.backgroundColor = [UIColor lightGrayColor];
-    item.crowdImage.image = [ImageCache get:@"post" identifier:appDelegate.posts[indexPath.item][@"id"]];
+    item.crowdImage.image = [ImageCache get:@"post" identifier:posts[indexPath.item][@"id"]];
 
-    if (item.crowdImage.image == nil) [[[ImageCache alloc] init] get:@"post" identifier:[appDelegate.posts[indexPath.item][@"id"] stringValue] delegate:self callback:@selector(didFinishDownloadingImages:forIndex:) indexPath:indexPath];
+    if (item.crowdImage.image == nil) [[[ImageCache alloc] init] get:@"post" identifier:[posts[indexPath.item][@"id"] stringValue] delegate:self callback:@selector(didFinishDownloadingImages:forIndex:) indexPath:indexPath];
 
-    [[item venueName] setText:[self getDateFromUnixFormat:appDelegate.posts[indexPath.item][@"time"]]];
+    [[item venueName] setText:[self getDateFromUnixFormat:posts[indexPath.item][@"time"]]];
     [[item venueName] setTextColor:[UIColor whiteColor]];
     [[item venueName] setFont:[UIFont systemFontOfSize:11]];
 
@@ -227,9 +227,9 @@
 }
 
 - (void)didFinishDownloadingImages:(UIImage *)response forIndex:(NSIndexPath *)index {
-    if (appDelegate.posts != nil) {
+    if (posts != nil) {
         if (index.item == 0) {
-            appDelegate.shareImage = [ImageCache get:@"post" identifier:appDelegate.posts[0][@"id"]];
+            appDelegate.shareImage = [ImageCache get:@"post" identifier:posts[0][@"id"]];
             [ImageCache set:@"venue" identifier:appDelegate.activeVenue[@"id"] image:appDelegate.shareImage];
         }
 
@@ -324,11 +324,11 @@
 }
 
 - (void)didFinishDownloadingPosts:(id)response {
-    appDelegate.posts = response;
+    posts = response;
     [self.crowdCollectionV reloadData];
     [refreshControl endRefreshing];
-    if ([appDelegate.posts count] > 0 && appDelegate.posts[0] != nil) {
-        appDelegate.shareImage = [ImageCache get:@"post" identifier:appDelegate.posts[0][@"id"]];
+    if ([posts count] > 0 && posts[0] != nil) {
+        appDelegate.shareImage = [ImageCache get:@"post" identifier:posts[0][@"id"]];
         if (appDelegate.shareImage != nil) [ImageCache set:@"venue" identifier:appDelegate.activeVenue[@"id"] image:appDelegate.shareImage];
     }
 }
@@ -337,7 +337,7 @@
     [super viewDidDisappear:animated];
     [overlayView.scrollView setContentOffset:CGPointZero animated:YES];
     self.navigationController.navigationBarHidden = NO;
-    appDelegate.posts = nil;
+    posts = nil;
     [self.crowdCollectionV reloadData];
 }
 
@@ -359,7 +359,7 @@
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     if ([segue.identifier isEqualToString:@"ToGallery"]) {
         [segue.destinationViewController setTitle:titleHeader];
-        [(VenueGalleryViewController *)segue.destinationViewController setImage : ((CrowdItem *)sender).crowdImage.image withAuthor :[NSString stringWithFormat:@"%@ %@", appDelegate.posts[selectedPost][@"forename"], [appDelegate.posts[selectedPost][@"surname"] substringToIndex:1]] withComment : appDelegate.posts[selectedPost][@"caption"] withTimestamp :[self getDateFromUnixFormat:appDelegate.posts[selectedPost][@"time"]] withId :[appDelegate.posts[selectedPost][@"id"] stringValue]];
+        [(VenueGalleryViewController *)segue.destinationViewController setImage : ((CrowdItem *)sender).crowdImage.image withAuthor :[NSString stringWithFormat:@"%@ %@", posts[selectedPost][@"forename"], [posts[selectedPost][@"surname"] substringToIndex:1]] withComment : posts[selectedPost][@"caption"] withTimestamp :[self getDateFromUnixFormat:posts[selectedPost][@"time"]] withId :[posts[selectedPost][@"id"] stringValue]];
     } else if ([segue.identifier isEqualToString:@"CheckInFromVenue"]) {
         appDelegate.shareVenue = NO;
         appDelegate.shnergleThis = YES;
@@ -375,7 +375,7 @@
 
 - (void)collectionView:(UICollectionView *)collectionView didHighlightItemAtIndexPath:(NSIndexPath *)indexPath {
     selectedPost = indexPath.item;
-    appDelegate.shareActivePostId = appDelegate.posts[selectedPost][@"id"];
+    appDelegate.shareActivePostId = posts[selectedPost][@"id"];
 }
 
 - (void)setStatus:(VENUE_STATUS)status {

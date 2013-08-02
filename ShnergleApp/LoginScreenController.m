@@ -54,7 +54,6 @@
             if (!error) {
                 appDelegate.fullName = [NSString stringWithFormat:@"%@ %@", user.first_name, user.last_name];
                 appDelegate.facebookId = user.id;
-                appDelegate.email = user[@"email"];
                 NSMutableString *params = [[NSMutableString alloc] initWithString:@"facebook="];
                 [params appendString:user.username];
                 [params appendString:@"&forename="];

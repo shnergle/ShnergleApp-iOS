@@ -100,7 +100,7 @@
 }
 
 - (void)didFinishLoadingVenues:(NSArray *)response {
-    appDelegate.aroundVenues = response;
+    venues = response;
     [self.crowdCollection reloadData];
     loading = NO;
     [self.overlay hideToastActivity];
@@ -149,7 +149,7 @@
 }
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
-    return appDelegate.aroundVenues ? [appDelegate.aroundVenues count] : 0;
+    return venues ? [venues count] : 0;
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
@@ -157,17 +157,17 @@
     CrowdItem *item = [collectionView dequeueReusableCellWithReuseIdentifier:cellIdentifier forIndexPath:indexPath];
     item.crowdImage.backgroundColor = [UIColor lightGrayColor];
 
-    item.crowdImage.image = [ImageCache get:@"venue" identifier:appDelegate.aroundVenues[indexPath.item][@"id"]];
+    item.crowdImage.image = [ImageCache get:@"venue" identifier:venues[indexPath.item][@"id"]];
 
-    if (item.crowdImage.image == nil) [[[ImageCache alloc] init] get:@"venue" identifier:[appDelegate.aroundVenues[indexPath.item][@"id"] stringValue] delegate:self callback:@selector(didFinishDownloadingImages:forIndex:) indexPath:indexPath];
+    if (item.crowdImage.image == nil) [[[ImageCache alloc] init] get:@"venue" identifier:[venues[indexPath.item][@"id"] stringValue] delegate:self callback:@selector(didFinishDownloadingImages:forIndex:) indexPath:indexPath];
 
-    [[item venueName] setText:appDelegate.aroundVenues[indexPath.item][@"name"]];
+    [[item venueName] setText:venues[indexPath.item][@"name"]];
 
     item.venueName.font = [UIFont systemFontOfSize:11.0f];
 
     item.venueName.textColor = [UIColor whiteColor];
 
-    if ([appDelegate.aroundVenues[indexPath.item][@"promotions"] intValue] > 0) {
+    if ([venues[indexPath.item][@"promotions"] intValue] > 0) {
         item.promotionIndicator.hidden = NO;
     } else {
         item.promotionIndicator.hidden = YES;
@@ -184,7 +184,7 @@
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     if ([segue.identifier isEqualToString:@"ToVenueSite"]) {
-        appDelegate.activeVenue = appDelegate.aroundVenues[selectedVenue];
+        appDelegate.activeVenue = venues[selectedVenue];
         [((VenueViewController *)[segue destinationViewController])setVenueInfo];
     } else if ([segue.identifier isEqualToString:@"CheckInFromAroundMe"]) {
         appDelegate.shareVenue = NO;

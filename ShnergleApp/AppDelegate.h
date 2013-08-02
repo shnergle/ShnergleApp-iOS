@@ -14,7 +14,6 @@
 
 @property (strong, nonatomic) FBSession *session;
 @property (strong, nonatomic) NSString *fullName;
-@property (strong, nonatomic) NSString *email;
 @property (strong, nonatomic) NSString *facebookId;
 @property (strong, nonatomic) NSString *appSecret;
 @property (strong, nonatomic) NSString *twitter;
@@ -27,15 +26,6 @@
 @property (strong, nonatomic) NSString *comment;
 @property (strong, nonatomic) NSString *like;
 @property (strong, nonatomic) NSString *totalScore;
-
-@property (strong, nonatomic) NSArray *posts;
-@property (strong, nonatomic) NSArray *aroundVenues;
-@property (strong, nonatomic) NSArray *followingVenues;
-@property (strong, nonatomic) NSArray *quietVenues;
-@property (strong, nonatomic) NSArray *trendingVenues;
-@property (strong, nonatomic) NSArray *promoVenues;
-@property (strong, nonatomic) NSMutableArray *locationPickerVenues;
-
 
 @property (nonatomic) BOOL shareVenue;
 @property (nonatomic) BOOL shnergleThis;
@@ -51,11 +41,7 @@
 @property (strong, nonatomic) NSMutableDictionary *venueDetailsContent;
 
 @property (strong, nonatomic) NSDictionary *activeVenue;
-
-@property (strong, nonatomic) NSMutableArray *searchResults;
-
 @property (strong, nonatomic) NSArray *ownVenues;
-
 @property (strong, nonatomic) NSDictionary *activePromotion;
 
 @property (nonatomic) BOOL claiming;

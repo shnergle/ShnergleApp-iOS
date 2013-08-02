@@ -15,6 +15,7 @@
     CLLocationCoordinate2D coord;
     NSArray *locationPickerVenuesImmutable;
     int rows;
+    NSMutableArray *venues;
 }
 
 @property (weak, nonatomic) IBOutlet UILabel *headline;

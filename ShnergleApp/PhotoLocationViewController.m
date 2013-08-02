@@ -17,7 +17,7 @@
     [super viewDidLoad];
     rows = 0;
     self.navigationItem.title = @"Location";
-    appDelegate.locationPickerVenues = nil;
+    venues = nil;
     [self.searchResultTable makeToastActivity];
 }
 
@@ -27,9 +27,9 @@
 }
 
 - (void)didFinishLoadingVenues:(NSArray *)response {
-    appDelegate.locationPickerVenues = [NSMutableArray arrayWithArray:response];
+    venues = [NSMutableArray arrayWithArray:response];
     locationPickerVenuesImmutable = [NSArray arrayWithArray:response];
-    rows = [appDelegate.locationPickerVenues count] + 1;
+    rows = [venues count] + 1;
     [self.searchResultTable reloadData];
     [self.searchResultTable hideToastActivity];
 }
@@ -54,16 +54,13 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     UITableViewCell *cell = nil;
 
-    if (indexPath.row != [appDelegate.locationPickerVenues count]) {
+    if (indexPath.row != [venues count]) {
         cell = [tableView dequeueReusableCellWithIdentifier:@"Cell"];
-        cell.textLabel.text = appDelegate.locationPickerVenues[indexPath.row][@"name"];
+        cell.textLabel.text = venues[indexPath.row][@"name"];
     } else {
         cell = [tableView dequeueReusableCellWithIdentifier:@"AddVenueCell"];
         cell.textLabel.text = @"+ Add Place";
     }
-
-
-
 
     cell.textLabel.textColor = [UIColor blackColor];
     cell.textLabel.font = [UIFont systemFontOfSize:20.0];
@@ -72,14 +69,14 @@
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    appDelegate.activeVenue = appDelegate.locationPickerVenues[indexPath.row];
+    if (indexPath.row != [venues count]) appDelegate.activeVenue = venues[indexPath.row];
 }
 
 - (void)searchBarSearchButtonClicked:(UISearchBar *)searchBar {
-    appDelegate.locationPickerVenues = [[NSMutableArray alloc] init];
+    venues = [NSMutableArray array];
     for (id obj in locationPickerVenuesImmutable) {
         if ([obj[@"name"] rangeOfString:self.searchBar.text options:NSCaseInsensitiveSearch].length > 0) {
-            [appDelegate.locationPickerVenues addObject:obj];
+            [venues addObject:obj];
         }
     }
     [self.searchResultTable reloadData];

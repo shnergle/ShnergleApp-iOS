@@ -16,10 +16,9 @@
     BOOL hasPositionLocked;
     BOOL pinDropped;
     CLLocationCoordinate2D pinDroppedLocation;
-    NSArray *venueNames;
-    NSArray *images;
     BOOL loading;
     GMSMapView *map;
+    NSArray *venues;
 }
 @property (weak, nonatomic) IBOutlet UIButton *drawerCloseButton;
 @property (weak, nonatomic) IBOutlet OverlayText *distanceScrollerView;

@@ -19,8 +19,7 @@
 
     tableSections = @[@"Profile", @"Explore"];
     tableData = @[@[appDelegate.fullName], @[@"Around Me", @"Following", @"Promotions", @"Quiet", @"Trending", @"+ Add Place"]];
-    searchResults = appDelegate.searchResults;
-    searchResults = [[NSMutableArray alloc] init];
+    searchResults = [NSMutableArray array];
     self.searchResultsView.resultsTableView.delegate = self;
     self.searchResultsView.resultsTableView.dataSource = self;
 

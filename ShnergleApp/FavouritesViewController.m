@@ -51,10 +51,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    appDelegate.followingVenues = @[];
-    appDelegate.quietVenues = @[];
-    appDelegate.trendingVenues = @[];
-    appDelegate.promoVenues = @[];
+    venues = @[];
     if (!appDelegate.topViewType) appDelegate.topViewType = @"Following";
     ((UINavigationItem *)self.navBar.items[0]).title = appDelegate.topViewType;
     [self menuButtonDecorations];
@@ -101,15 +98,7 @@
 }
 
 - (void)didFinishLoadingVenues:(NSArray *)response {
-    if ([@"Following" isEqualToString : appDelegate.topViewType]) {
-        appDelegate.followingVenues = response;
-    } else if ([@"Quiet" isEqualToString : appDelegate.topViewType]) {
-        appDelegate.quietVenues = response;
-    } else if ([@"Trending" isEqualToString : appDelegate.topViewType]) {
-        appDelegate.trendingVenues = response;
-    } else if ([@"Promotions" isEqualToString : appDelegate.topViewType]) {
-        appDelegate.promoVenues = response;
-    }
+    venues = response;
     [self.crowdCollection reloadData];
     [self.view hideToastActivity];
 }
@@ -123,17 +112,7 @@
 }
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
-    if ([@"Following" isEqualToString : appDelegate.topViewType]) {
-        return [appDelegate.followingVenues count];
-    } else if ([@"Quiet" isEqualToString : appDelegate.topViewType]) {
-        return [appDelegate.quietVenues count];
-    } else if ([@"Trending" isEqualToString : appDelegate.topViewType]) {
-        return [appDelegate.trendingVenues count];
-    } else if ([@"Promotions" isEqualToString : appDelegate.topViewType]) {
-        return [appDelegate.promoVenues count];
-    } else {
-        return 0;
-    }
+    return [venues count];
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -145,28 +124,17 @@
     static NSString *cellIdentifier = @"FavCell";
     CrowdItem *item = [collectionView dequeueReusableCellWithReuseIdentifier:cellIdentifier forIndexPath:indexPath];
 
-    NSArray *type;
-    if ([@"Following" isEqualToString : appDelegate.topViewType]) {
-        type = appDelegate.followingVenues;
-    } else if ([@"Quiet" isEqualToString : appDelegate.topViewType]) {
-        type = appDelegate.quietVenues;
-    } else if ([@"Trending" isEqualToString : appDelegate.topViewType]) {
-        type = appDelegate.trendingVenues;
-    } else if ([@"Promotions" isEqualToString : appDelegate.topViewType]) {
-        type = appDelegate.promoVenues;
-    }
-
-    item.crowdImage.image = [ImageCache get:@"venue" identifier:type[indexPath.item][@"id"]];
+    item.crowdImage.image = [ImageCache get:@"venue" identifier:venues[indexPath.item][@"id"]];
     item.crowdImage.backgroundColor = [UIColor lightGrayColor];
-    if (item.crowdImage.image == nil) [[[ImageCache alloc] init] get:@"venue" identifier:[type[indexPath.item][@"id"] stringValue] delegate:self callback:@selector(didFinishDownloadingImages:forIndex:) indexPath:indexPath];
+    if (item.crowdImage.image == nil) [[[ImageCache alloc] init] get:@"venue" identifier:[venues[indexPath.item][@"id"] stringValue] delegate:self callback:@selector(didFinishDownloadingImages:forIndex:) indexPath:indexPath];
 
-    [[item venueName] setText:type[indexPath.item][@"name"]];
+    [[item venueName] setText:venues[indexPath.item][@"name"]];
 
     item.venueName.font = [UIFont systemFontOfSize:11.0f];
 
     item.venueName.textColor = [UIColor whiteColor];
 
-    if ([type[indexPath.item][@"promotions"] intValue] > 0) {
+    if ([venues[indexPath.item][@"promotions"] intValue] > 0) {
         item.promotionIndicator.hidden = NO;
     } else {
         item.promotionIndicator.hidden = YES;
@@ -183,17 +151,7 @@
 
 - (void)collectionView:(UICollectionView *)collectionView
     didHighlightItemAtIndexPath:(NSIndexPath *)indexPath {
-    NSArray *type;
-    if ([@"Following" isEqualToString : appDelegate.topViewType]) {
-        type = appDelegate.followingVenues;
-    } else if ([@"Quiet" isEqualToString : appDelegate.topViewType]) {
-        type = appDelegate.quietVenues;
-    } else if ([@"Trending" isEqualToString : appDelegate.topViewType]) {
-        type = appDelegate.trendingVenues;
-    } else if ([@"Promotions" isEqualToString : appDelegate.topViewType]) {
-        type = appDelegate.promoVenues;
-    }
-    appDelegate.activeVenue = type[indexPath.row];
+    appDelegate.activeVenue = venues[indexPath.row];
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {

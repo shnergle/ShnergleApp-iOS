@@ -35,6 +35,7 @@
     OverlayText *overlayView;
 
     CLLocationManager *man;
+    NSArray *posts;
 }
 - (void)viewDidAppear:(BOOL)animated;
 - (void)viewWillAppear:(BOOL)animated;
