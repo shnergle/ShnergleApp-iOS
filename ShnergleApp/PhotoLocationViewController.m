@@ -15,6 +15,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    rows = 0;
     self.navigationItem.title = @"Location";
     appDelegate.locationPickerVenues = nil;
     [self.searchResultTable makeToastActivity];
@@ -28,6 +29,7 @@
 - (void)didFinishLoadingVenues:(NSArray *)response {
     appDelegate.locationPickerVenues = [NSMutableArray arrayWithArray:response];
     locationPickerVenuesImmutable = [NSArray arrayWithArray:response];
+    rows = [appDelegate.locationPickerVenues count] + 1;
     [self.searchResultTable reloadData];
     [self.searchResultTable hideToastActivity];
 }
@@ -46,7 +48,7 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return [appDelegate.locationPickerVenues count] + 1;
+    return rows;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -122,7 +124,6 @@
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     if ([@"SegueToShare" isEqualToString : segue.identifier]) {
-        //((ShareViewController *)[segue destinationViewController]).shnergleThis = YES;
         appDelegate.shnergleThis = YES;
     } else if ([@"AddVenueSegue" isEqualToString:segue.identifier]) {
         appDelegate.addVenueCheckIn = YES;
