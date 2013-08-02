@@ -59,6 +59,7 @@
         [[[PostRequest alloc] init] exec:@"posts/set" params:postParams image:self.image.image delegate:self callback:@selector(didFinishPost:) type:@"string"];
     } else {
         post_id = appDelegate.shareActivePostId;
+        [self shareOnTwitter];
         //Share to Facebook
         if ([appDelegate.session.permissions indexOfObject:@"publish_actions"] == NSNotFound)
             [appDelegate.session requestNewPublishPermissions:@[@"publish_actions"] defaultAudience:FBSessionDefaultAudienceEveryone completionHandler:^(FBSession *session, NSError *error) {
@@ -70,9 +71,20 @@
     }
 }
 
+- (void)shareOnTwitter {
+    if (self.twSwitch.on) {
+        [self postImage:self.image.image withStatus:[NSString stringWithFormat:@"%@ @ %@", self.textFieldname.text, appDelegate.activeVenue[@"name"]]];
+        if (appDelegate.shareVenue) {
+            [[[PostRequest alloc] init] exec:@"venue_shares/set" params:[NSString stringWithFormat:@"venue_id=%@&media_id=2", appDelegate.activeVenue[@"id"]] delegate:self callback:@selector(doNothing:) type:@"string"];
+        } else {
+            [[[PostRequest alloc] init] exec:@"post_shares/set" params:[NSString stringWithFormat:@"post_id=%@&media_id=2", post_id] delegate:self callback:@selector(doNothing:) type:@"string"];
+        }
+    }
+}
+
 - (void)didFinishPost:(NSString *)response {
     post_id = response;
-
+    [self shareOnTwitter];
     //Share to Facebook
     if ([appDelegate.session.permissions indexOfObject:@"publish_actions"] == NSNotFound)
         [appDelegate.session requestNewPublishPermissions:@[@"publish_actions"] defaultAudience:FBSessionDefaultAudienceEveryone completionHandler:^(FBSession *session, NSError *error) {
@@ -81,8 +93,6 @@
     else {
         [self shareOnFacebook];
     }
-
-    if (self.twSwitch.on) [self postImage:self.image.image withStatus:[NSString stringWithFormat:@"%@ @ %@", self.textFieldname.text, appDelegate.activeVenue[@"name"]]];
 }
 
 - (void)shareOnFacebook {
