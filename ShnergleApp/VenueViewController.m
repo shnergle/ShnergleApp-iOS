@@ -234,7 +234,12 @@
         }
 
         if (response != nil && self.crowdCollectionV != nil) {
-            [self.crowdCollectionV reloadItemsAtIndexPaths:@[index]];
+            @try {
+                [self.crowdCollectionV reloadItemsAtIndexPaths:@[index]];
+            }
+            @catch (NSException *exception) {
+                NSLog(@"Exception while updating frame");
+            }
         }else if(self.crowdCollectionV == nil){
             NSLog(@"Crowd Collection was nil");
         }
@@ -406,6 +411,12 @@
 
 - (void)locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray *)locations {
     self.checkInButton.enabled = [((CLLocation *)locations.lastObject)distanceFromLocation :[[CLLocation alloc] initWithLatitude:[appDelegate.activeVenue[@"lat"] doubleValue] longitude:[appDelegate.activeVenue[@"lon"] doubleValue]]] <= 200;
+}
+
+-(void)goBack
+{
+    self.crowdCollectionV = nil;
+    [super goBack];
 }
 
 @end
