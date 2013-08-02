@@ -123,7 +123,7 @@
 
     promotionTitle = @"";
     promotionExpiry = @"";
-    promotionBody = @"";
+    promotionBody = @"No Promotion Active";
     promotionUntil = @"";
     promotionLevel = @"";
 
