@@ -113,7 +113,7 @@
         if ([selectedFriends count] > 1) {
             [friends appendString:@" and"];
         }
-        [friends appendFormat:@" %@", selectedFriends[[selectedFriends count] - 1][@"name"]];
+        [friends appendFormat:@" %@", [selectedFriends lastObject][@"name"]];
         [friends appendString:@"."];
     }
     action[@"message"] = [NSString stringWithFormat:@"%@ @%@%@", self.textFieldname.text, appDelegate.activeVenue[@"name"], friends];
