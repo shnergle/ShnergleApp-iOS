@@ -313,7 +313,7 @@
 }
 
 - (void)registerVenue {
-    NSMutableString *params = [[NSMutableString alloc] initWithString:@"venue_id="];
+    NSMutableString *params = [[NSMutableString alloc] initWithString:@"email_verified=0&venue_id="];
     [params appendString:[appDelegate.activeVenue[@"id"] stringValue]];
 
     if (appDelegate.venueDetailsContent[@(8)]) {
