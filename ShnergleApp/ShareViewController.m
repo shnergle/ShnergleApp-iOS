@@ -73,7 +73,7 @@
 
 - (void)shareOnTwitter {
     if (self.twSwitch.on) {
-        [self postImage:self.image.image withStatus:[NSString stringWithFormat:@"%@ @ %@", self.textFieldname.text, appDelegate.activeVenue[@"name"]]];
+        [self postImage:self.image.image withStatus:[NSString stringWithFormat:@"%@ @ %@ #ShnergleIt", self.textFieldname.text, appDelegate.activeVenue[@"name"]]];
         if (appDelegate.shareVenue) {
             [[[PostRequest alloc] init] exec:@"venue_shares/set" params:[NSString stringWithFormat:@"venue_id=%@&media_id=2", appDelegate.activeVenue[@"id"]] delegate:self callback:@selector(doNothing:) type:@"string"];
         } else {
@@ -116,7 +116,7 @@
         [friends appendFormat:@" %@", [selectedFriends lastObject][@"name"]];
         [friends appendString:@"."];
     }
-    action[@"message"] = [NSString stringWithFormat:@"%@ @%@%@", self.textFieldname.text, appDelegate.activeVenue[@"name"], friends];
+    action[@"message"] = [NSString stringWithFormat:@"%@ @%@%@ #ShnergleIt", self.textFieldname.text, appDelegate.activeVenue[@"name"], friends];
     action[@"fb:explicitly_shared"] = @"true";
     //action[@"tags"] = selectedFriends;
     //action[@"place"] = @"http://samples.ogp.me/259837270824167";
