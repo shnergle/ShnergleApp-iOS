@@ -127,8 +127,6 @@
     promotionUntil = @"";
     promotionLevel = @"";
 
-    [[[PostRequest alloc]init]exec:@"promotions/get" params:[NSString stringWithFormat:@"venue_id=%@&level=%@", appDelegate.activeVenue[@"id"], appDelegate.level ] delegate:self callback:@selector(didFinishGettingPromotion:)];
-
     [self displayTextView];
 
     [self configureMapWithLat:[appDelegate.activeVenue[@"lat"] doubleValue] longitude:[appDelegate.activeVenue[@"lon"] doubleValue]];
@@ -150,7 +148,7 @@
 }
 
 - (void)didFinishGettingPromotion:(NSDictionary *)response {
-    if ([appDelegate.activeVenue[@"promotions"] intValue] > 0) {
+    if ([response respondsToSelector:@selector(objectForKeyedSubscript:)]) {
         appDelegate.activePromotion = response;
         promotionBody = response[@"description"];
         promotionTitle = response[@"title"];
@@ -278,6 +276,7 @@
     [super viewWillAppear:animated];
     self.navigationController.navigationBarHidden = NO;
 
+    [[[PostRequest alloc]init]exec:@"promotions/get" params:[NSString stringWithFormat:@"venue_id=%@&level=%@", appDelegate.activeVenue[@"id"], appDelegate.level ] delegate:self callback:@selector(didFinishGettingPromotion:)];
 
     if ([appDelegate.activeVenue[@"manager"] intValue] == 1 && [appDelegate.activeVenue[@"verified"] intValue] == 0) {
         [self setStatus:UnverifiedManager];
