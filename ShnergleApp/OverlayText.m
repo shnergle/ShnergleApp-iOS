@@ -230,7 +230,7 @@
         self.claimVenueButton.hidden = NO;
         self.intentionHeightConstraints.constant = 64;
     } else if ([appDelegate.activeVenue[@"official"] intValue] == 1) {
-        self.intentionHeightConstraints.constant = 0;
+        self.intentionHeightConstraints.constant = 64;
     }
 
 
