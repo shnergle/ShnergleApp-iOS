@@ -278,6 +278,10 @@
     self.thinkingLabel.hidden = YES;
     self.goingLabel.hidden = YES;
     if (appDelegate.venueDetailsContent) [self registerVenue];
+    if ([[self.summaryContentTextField.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet] ] isEqual:@""] && [[self.summaryHeadlineTextField.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]] isEqual:@""] && appDelegate.venueStatus == Manager) {
+        self.summaryContentTextField.text = @"";
+        self.summaryHeadlineTextField.text = @"Write Something...";
+    }
 }
 
 - (void)didFinishGettingRsvps:(id)response {
@@ -331,5 +335,7 @@
 
     [[[PostRequest alloc]init]exec:@"venues/set" params:params delegate:self callback:@selector(didFinishUpdateVenueDetails:)];
 }
+
+
 
 @end

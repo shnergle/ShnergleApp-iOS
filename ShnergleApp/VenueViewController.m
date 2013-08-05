@@ -321,6 +321,8 @@
     overlayView.summaryHeadlineTextField.text = [NSString stringWithFormat:@"%@", appDelegate.activeVenue[@"headline"]];
 
     [self getPosts];
+    [overlayView didAppear];
+
 }
 
 - (void)didFinishDownloadingPosts:(id)response {
@@ -397,7 +399,6 @@
         case UnverifiedManager:
             [self setHeaderTitle:titleHeader andSubtitle:@"Manager (unverified)"];
     }
-    [overlayView didAppear];
 }
 
 - (NSString *)getDateFromUnixFormat:(id)unixFormat {
