@@ -44,7 +44,7 @@
     UIImageView *promotionTicketView = [[UIImageView alloc] initWithFrame:CGRectMake(5, 0, 311.0, 67.5)];
     promotionTicketView.image = img;
     [cell addSubview:promotionTicketView];
-    UILabel *promoTitleLabel = [[UILabel alloc]initWithFrame:CGRectMake(0, 10, 311.0, 10)];
+    UILabel *promoTitleLabel = [[UILabel alloc]initWithFrame:CGRectMake(0, 8, 311.0, 10)];
     UILabel *promoContentLabel = [[UILabel alloc]initWithFrame:CGRectMake(0, 20, 311.0, 20)];
     UILabel *promoCountLabel = [[UILabel alloc]initWithFrame:CGRectMake(0, 50, 311.0, 10)];
     [cell addSubview:promoTitleLabel];
