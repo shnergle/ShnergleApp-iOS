@@ -127,4 +127,8 @@
     }
 }
 
+-(void)searchBarCancelButtonClicked:(UISearchBar *)searchBar{
+    [searchBar resignFirstResponder];
+}
+
 @end
