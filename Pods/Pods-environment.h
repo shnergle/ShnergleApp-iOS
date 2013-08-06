@@ -6,6 +6,12 @@
 // project.
 
 
+// CorePlot
+#define COCOAPODS_POD_AVAILABLE_CorePlot
+#define COCOAPODS_VERSION_MAJOR_CorePlot 1
+#define COCOAPODS_VERSION_MINOR_CorePlot 3
+#define COCOAPODS_VERSION_PATCH_CorePlot 0
+
 // ECSlidingViewController
 #define COCOAPODS_POD_AVAILABLE_ECSlidingViewController
 #define COCOAPODS_VERSION_MAJOR_ECSlidingViewController 0
@@ -50,7 +56,7 @@
 
 // UIImage-Resize
 #define COCOAPODS_POD_AVAILABLE_UIImage_Resize
-#define COCOAPODS_VERSION_MAJOR_UIImage_Resize 0
-#define COCOAPODS_VERSION_MINOR_UIImage_Resize 1
+#define COCOAPODS_VERSION_MAJOR_UIImage_Resize 1
+#define COCOAPODS_VERSION_MINOR_UIImage_Resize 0
 #define COCOAPODS_VERSION_PATCH_UIImage_Resize 0
 
