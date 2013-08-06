@@ -26,9 +26,8 @@
     [self initsearchResultsView];
 }
 
-- (void)viewDidDisappear:(BOOL)animated {
-    [self.menuItemsTableView deselectRowAtIndexPath:[self.menuItemsTableView indexPathForSelectedRow] animated:YES];
-    if (self.searchResultsView.resultsTableView != nil) [self.searchResultsView.resultsTableView deselectRowAtIndexPath:[self.searchResultsView.resultsTableView indexPathForSelectedRow] animated:YES];
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
 
 - (void)initsearchResultsView {

@@ -32,7 +32,7 @@ typedef enum {
 
 - (void)addVenue {
     if ([self.userData[@(Name + 1)] length] > 0 && appDelegate.addVenueTypeId) {
-        if ((workSwitch.on == YES && [self.userData[@(8)] length] > 0 && [self.userData[@(9)] length] > 0  && [self.userData[@(10)] length] > 0) || workSwitch.on == NO) {
+        if ((workSwitch.on == YES && [appDelegate.venueDetailsContent[@(8)] length] > 0 && [appDelegate.venueDetailsContent[@(9)] length] > 0  && [appDelegate.venueDetailsContent[@(10)] length] > 0) || workSwitch.on == NO) {
             [self.view makeToastActivity];
             if (appDelegate.addVenueType) self.userData[@(Category + 1)] = appDelegate.addVenueType;
 
@@ -56,7 +56,7 @@ typedef enum {
                 [params appendString:[address componentsJoinedByString:@", "]];
                 [params appendString:@"&country="];
                 [params appendString:(error ? [((CLPlacemark *)placemark[0]).ISOcountryCode lowercaseString] : @"--")];
-                if (appDelegate.venueDetailsContent) {
+                if (appDelegate.venueDetailsContent && workSwitch.on) {
                     if (appDelegate.venueDetailsContent[@(8)]) {
                         [params appendString:@"&phone="];
                         [params appendString:appDelegate.venueDetailsContent[@(8)]];
@@ -74,10 +74,12 @@ typedef enum {
                 [params appendFormat:@"%f", marker.position.latitude];
                 [params appendString:@"&lon="];
                 [params appendFormat:@"%f", marker.position.longitude];
-                [params appendString:@"&timezone=0"];
 
                 [[[PostRequest alloc] init] exec:@"venues/set" params:params delegate:self callback:@selector(didFinishAddingVenue:) type:@"string"];
             } ];
+        } else {
+            UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"Fields Missing" message:@"Please fill in all required fields" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
+            [alert show];
         }
     } else {
         UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"Fields Missing" message:@"Please fill in all required fields" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
@@ -94,7 +96,7 @@ typedef enum {
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Uh-oh.. Something went wrong.." message:nil delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
         [alert show];
     } else {
-        if (appDelegate.venueDetailsContent) {
+        if (workSwitch.on) {
             [[[PostRequest alloc] init] exec:@"venue_managers/set" params:[NSString stringWithFormat:@"venue_id=%@", response] delegate:self callback:@selector(didAddAsManager:)];
         } else {
             [self.view hideToastActivity];
