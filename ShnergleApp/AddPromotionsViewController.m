@@ -147,7 +147,7 @@
     } else if (indexPath.section == 6) {
         UILabel *textField = (UILabel *)[cell viewWithTag:indexPath.section + 1];
         if (!textField) {
-            UILabel *textField = [[UILabel alloc] initWithFrame:CGRectMake(110, 10, 185, 30)];
+            UILabel *textField = [[UILabel alloc] initWithFrame:CGRectMake(110, 8, 185, 30)];
             textField.backgroundColor = [UIColor clearColor];
             textField.text = [self levelName:appDelegate.audience];
             textField.tag = indexPath.section + 1;
