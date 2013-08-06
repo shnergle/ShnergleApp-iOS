@@ -20,7 +20,7 @@
 
 - (void)decorateCheckInButton {
     [self.checkInButton setTitleTextAttributes:
-     @{UITextAttributeTextColor: [UIColor whiteColor],
+     @{UITextAttributeTextColor: [[[UIDevice currentDevice] systemVersion] compare:@"7.0" options:NSNumericSearch] != NSOrderedAscending ? [UIColor greenColor] : [UIColor whiteColor],
        UITextAttributeTextShadowColor: [UIColor clearColor],
        UITextAttributeTextShadowOffset: [NSValue valueWithUIOffset:UIOffsetMake(0, 0)],
        UITextAttributeFont: [UIFont systemFontOfSize:14.0]}
@@ -97,6 +97,9 @@
     dropDownHidden = YES;
     appDelegate.shnergleThis = NO;
     [self menuButtonDecorations];
+
+    if ([self.navBar respondsToSelector:@selector(setBarTintColor:)]) self.navBar.barTintColor = [UIColor colorWithRed:233.0 / 255 green:235.0 / 255 blue:240.0 / 255 alpha:1.0];
+    self.navBar.translucent = NO;
 }
 
 - (void)didFinishLoadingVenues:(NSArray *)response {

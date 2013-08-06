@@ -43,6 +43,9 @@
     self.optInSwitch.on = appDelegate.optInTop5;
 
     self.twitterSwitch.on = appDelegate.twitter != nil;
+
+    if ([self.navBar respondsToSelector:@selector(setBarTintColor:)]) self.navBar.barTintColor = [UIColor colorWithRed:233.0 / 255 green:235.0 / 255 blue:240.0 / 255 alpha:1.0];
+    self.navBar.translucent = NO;
 }
 
 - (IBAction)optInChange:(id)sender {

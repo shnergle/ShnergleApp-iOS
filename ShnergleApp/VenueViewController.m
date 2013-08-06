@@ -109,7 +109,7 @@
     }
 
     [self.checkInButton setTitleTextAttributes:
-     @{UITextAttributeTextColor: [UIColor whiteColor],
+     @{UITextAttributeTextColor: [[[UIDevice currentDevice] systemVersion] compare:@"7.0" options:NSNumericSearch] != NSOrderedAscending ? [UIColor blackColor] : [UIColor whiteColor],
        UITextAttributeTextShadowColor: [UIColor clearColor],
        UITextAttributeTextShadowOffset: [NSValue valueWithUIOffset:UIOffsetMake(0, 0)],
        UITextAttributeFont: [UIFont systemFontOfSize:14.0]}
@@ -406,7 +406,15 @@
 }
 
 - (void)locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray *)locations {
-    self.checkInButton.enabled = [((CLLocation *)locations.lastObject)distanceFromLocation :[[CLLocation alloc] initWithLatitude:[appDelegate.activeVenue[@"lat"] doubleValue] longitude:[appDelegate.activeVenue[@"lon"] doubleValue]]] <= 111;
+    BOOL on = [((CLLocation *)locations.lastObject)distanceFromLocation :[[CLLocation alloc] initWithLatitude:[appDelegate.activeVenue[@"lat"] doubleValue] longitude:[appDelegate.activeVenue[@"lon"] doubleValue]]] <= 111;
+    self.checkInButton.enabled = on;
+
+    [self.checkInButton setTitleTextAttributes:
+     @{UITextAttributeTextColor: ([[[UIDevice currentDevice] systemVersion] compare:@"7.0" options:NSNumericSearch] != NSOrderedAscending) ? (on ? [UIColor greenColor] : [UIColor blackColor]) : [UIColor whiteColor],
+       UITextAttributeTextShadowColor: [UIColor clearColor],
+       UITextAttributeTextShadowOffset: [NSValue valueWithUIOffset:UIOffsetMake(0, 0)],
+       UITextAttributeFont: [UIFont systemFontOfSize:14.0]}
+                                      forState:UIControlStateNormal];
 }
 
 - (void)goBack {
