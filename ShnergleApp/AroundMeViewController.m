@@ -20,7 +20,7 @@
 
 - (void)decorateCheckInButton {
     [self.checkInButton setTitleTextAttributes:
-     @{UITextAttributeTextColor: [[[UIDevice currentDevice] systemVersion] compare:@"7.0" options:NSNumericSearch] != NSOrderedAscending ? [UIColor greenColor] : [UIColor whiteColor],
+     @{UITextAttributeTextColor: [[[UIDevice currentDevice] systemVersion] compare:@"7.0" options:NSNumericSearch] != NSOrderedAscending ? [UIColor colorWithRed:51.0 / 250 green:140.0 / 250 blue:16.0 / 250 alpha:1.0] : [UIColor whiteColor],
        UITextAttributeTextShadowColor: [UIColor clearColor],
        UITextAttributeTextShadowOffset: [NSValue valueWithUIOffset:UIOffsetMake(0, 0)],
        UITextAttributeFont: [UIFont systemFontOfSize:14.0]}
