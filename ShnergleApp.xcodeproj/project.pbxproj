@@ -955,6 +955,8 @@
 		EE0A80711733D97300792AE4 /* ProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EE0A806F1733D97300792AE4 /* ProfileViewController.m */; };
 		EE0B37DF175E0FA900B6EE58 /* twitter-bird-white-on-blue.png in Resources */ = {isa = PBXBuildFile; fileRef = EE0B37DE175E0FA900B6EE58 /* twitter-bird-white-on-blue.png */; };
 		EE0B37E1175E108100B6EE58 /* FB-f-Logo__blue_50.png in Resources */ = {isa = PBXBuildFile; fileRef = EE0B37E0175E108100B6EE58 /* FB-f-Logo__blue_50.png */; };
+		EE23586517B13D8D00E3668E /* AnalyticsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EE23586417B13D8D00E3668E /* AnalyticsViewController.m */; };
+		EE23586817B1434E00E3668E /* GraphViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EE23586717B1434E00E3668E /* GraphViewController.m */; };
 		EE48E7261787300100C13F2A /* OverlayText.xib in Resources */ = {isa = PBXBuildFile; fileRef = EE48E7251787300100C13F2A /* OverlayText.xib */; };
 		EE6707BD17A957B80083E2C5 /* AcceptViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EE6707BC17A957B80083E2C5 /* AcceptViewController.m */; };
 		EE8FF815172A9CFD0003A8E1 /* LoginScreenController.m in Sources */ = {isa = PBXBuildFile; fileRef = EE8FF814172A9CFD0003A8E1 /* LoginScreenController.m */; };
@@ -1967,6 +1969,10 @@
 		EE0A806F1733D97300792AE4 /* ProfileViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProfileViewController.m; sourceTree = "<group>"; };
 		EE0B37DE175E0FA900B6EE58 /* twitter-bird-white-on-blue.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "twitter-bird-white-on-blue.png"; sourceTree = "<group>"; };
 		EE0B37E0175E108100B6EE58 /* FB-f-Logo__blue_50.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "FB-f-Logo__blue_50.png"; sourceTree = "<group>"; };
+		EE23586317B13D8D00E3668E /* AnalyticsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AnalyticsViewController.h; sourceTree = "<group>"; };
+		EE23586417B13D8D00E3668E /* AnalyticsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AnalyticsViewController.m; sourceTree = "<group>"; };
+		EE23586617B1434E00E3668E /* GraphViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GraphViewController.h; sourceTree = "<group>"; };
+		EE23586717B1434E00E3668E /* GraphViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GraphViewController.m; sourceTree = "<group>"; };
 		EE48E7251787300100C13F2A /* OverlayText.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = OverlayText.xib; sourceTree = "<group>"; };
 		EE6707BB17A957B80083E2C5 /* AcceptViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AcceptViewController.h; sourceTree = "<group>"; };
 		EE6707BC17A957B80083E2C5 /* AcceptViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AcceptViewController.m; sourceTree = "<group>"; };
@@ -2997,6 +3003,10 @@
 				80B957D516FC65F90044A505 /* VenueViewController.m */,
 				80B400BF17540CCA00A377D9 /* Images */,
 				808F13CF16FB6A5C00B66E6D /* Supporting Files */,
+				EE23586317B13D8D00E3668E /* AnalyticsViewController.h */,
+				EE23586417B13D8D00E3668E /* AnalyticsViewController.m */,
+				EE23586617B1434E00E3668E /* GraphViewController.h */,
+				EE23586717B1434E00E3668E /* GraphViewController.m */,
 			);
 			path = ShnergleApp;
 			sourceTree = "<group>";
@@ -4158,6 +4168,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				CD56F319179D30C80028B688 /* FindStaffViewController.m in Sources */,
+				EE23586517B13D8D00E3668E /* AnalyticsViewController.m in Sources */,
 				CD1D1D3517987932004B634E /* CheckInListViewController.m in Sources */,
 				EEB706F5176A1C5B00EF05C5 /* AddPromotionsViewController.m in Sources */,
 				EE9D078A17A90BFD008FAD09 /* TermsOfUseViewController.m in Sources */,
@@ -4169,6 +4180,7 @@
 				808F13D516FB6A5C00B66E6D /* main.m in Sources */,
 				808F13D916FB6A5C00B66E6D /* AppDelegate.m in Sources */,
 				808F13E516FB6A5C00B66E6D /* AroundMeViewController.m in Sources */,
+				EE23586817B1434E00E3668E /* GraphViewController.m in Sources */,
 				80B957D116FBB74F0044A505 /* CheckInViewController.m in Sources */,
 				80ABCC03176F2012002718A1 /* SearchResultsView.m in Sources */,
 				80B957D616FC65F90044A505 /* VenueViewController.m in Sources */,

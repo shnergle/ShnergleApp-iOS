@@ -26,9 +26,13 @@
 }
 
 - (IBAction)analytics:(id)sender {
-    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Visitor analytics for venue managers and staff will be implemented soon; please check the app store regularly for updates" message:nil delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
-    [alert show];
+    UIViewController *caller = (UIViewController *)self.nextResponder.nextResponder;
+    UIViewController *vc = [caller.storyboard instantiateViewControllerWithIdentifier:@"Analytics"];
+    [caller.navigationController pushViewController:vc animated:YES];
+    return;
+
 }
+
 
 - (IBAction)staff:(id)sender {
     UIViewController *caller = (UIViewController *)self.nextResponder.nextResponder;

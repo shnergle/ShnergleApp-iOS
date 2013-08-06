@@ -701,6 +701,80 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
             </objects>
             <point key="canvasLocation" x="-1068" y="1535"/>
         </scene>
+        <!--Analytics View Controller-->
+        <scene sceneID="M5Q-CF-N6f">
+            <objects>
+                <viewController storyboardIdentifier="Analytics" id="Kxe-Lp-5gA" customClass="AnalyticsViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="zM2-fa-Sgo">
+                        <rect key="frame" x="0.0" y="20" width="320" height="548"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="srb-3Q-bc2">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="548"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Cell" id="XfL-gR-eS6">
+                                        <rect key="frame" x="0.0" y="22" width="320" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="XfL-gR-eS6" id="DXo-ua-B0p">
+                                            <rect key="frame" x="0.0" y="0.0" width="300" height="43"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <segue destination="DyD-qk-fol" kind="push" id="5Mh-uS-eha"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="Kxe-Lp-5gA" id="04h-AV-2qi"/>
+                                    <outlet property="delegate" destination="Kxe-Lp-5gA" id="2bQ-c9-2Lk"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="bottom" secondItem="srb-3Q-bc2" secondAttribute="bottom" type="default" id="K94-rT-IAO"/>
+                            <constraint firstItem="srb-3Q-bc2" firstAttribute="leading" secondItem="zM2-fa-Sgo" secondAttribute="leading" type="default" id="LfW-Ed-8Pv"/>
+                            <constraint firstItem="srb-3Q-bc2" firstAttribute="top" secondItem="zM2-fa-Sgo" secondAttribute="top" type="default" id="lBq-1f-88E"/>
+                            <constraint firstAttribute="trailing" secondItem="srb-3Q-bc2" secondAttribute="trailing" type="default" id="qiz-4q-via"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="0FI-1D-7X9" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-963" y="2338"/>
+        </scene>
+        <!--Graph View Controller-->
+        <scene sceneID="vLI-on-kB2">
+            <objects>
+                <viewController id="DyD-qk-fol" customClass="GraphViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Ak9-vm-im0">
+                        <rect key="frame" x="0.0" y="20" width="320" height="548"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mzg-vT-vEn">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="548"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                            </scrollView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="bottom" secondItem="mzg-vT-vEn" secondAttribute="bottom" type="default" id="4Oi-kD-ktS"/>
+                            <constraint firstItem="mzg-vT-vEn" firstAttribute="top" secondItem="Ak9-vm-im0" secondAttribute="top" type="default" id="CSK-oW-730"/>
+                            <constraint firstAttribute="trailing" secondItem="mzg-vT-vEn" secondAttribute="trailing" type="default" id="F11-G3-xPc"/>
+                            <constraint firstItem="mzg-vT-vEn" firstAttribute="leading" secondItem="Ak9-vm-im0" secondAttribute="leading" type="default" id="ei6-VM-4Zo"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="EnP-Fh-f4A"/>
+                    <connections>
+                        <outlet property="scrollView" destination="mzg-vT-vEn" id="F7c-pg-peA"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="hqE-JJ-ahU" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-386" y="2338"/>
+        </scene>
         <!--Promotion Audience View Controller-->
         <scene sceneID="h8B-da-hOz">
             <objects>
