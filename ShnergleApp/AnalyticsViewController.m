@@ -26,7 +26,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    self.tableData = @[@"Important Stuff", @"Of Interest", @"Optimisation"];
+    self.tableData = @[@"Important Stuff", @"Optimisation", @"Of Interest"];
 	// Do any additional setup after loading the view.
 }
 
