@@ -63,14 +63,7 @@
 }
 
 - (void)menuButtonDecorations {
-    SEL actionSelector = @selector(tapMenu);
-    NSString *imageName = @"mainmenu_button.png";
-
-    UIBarButtonItem *menuButton;
-    menuButton = [self createLeftBarButton:imageName actionSelector:actionSelector];
-
-    self.navBarMenuItem.leftBarButtonItem = menuButton;
-
+    self.navBarMenuItem.leftBarButtonItem = [self createLeftBarButton:@"mainmenu_button.png" actionSelector:@selector(tapMenu)];
     UIImageView *locImage = [[UIImageView alloc] initWithFrame:CGRectMake(85, 10, 20, 20)];
     locImage.image = [UIImage imageNamed:@"glyphicons_060_compass"];
     [self.navBar addSubview:locImage];
@@ -197,7 +190,6 @@
 
 - (void)showOverlay {
     [[self overlay] showAnimated:126 animationDelay:0.2 animationDuration:0.5];
-
     crowdImagesHidden = NO;
 }
 
