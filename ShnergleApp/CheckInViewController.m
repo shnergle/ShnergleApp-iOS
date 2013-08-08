@@ -33,9 +33,11 @@
     }
     taken = NO;
     dispatch_async(dispatch_get_main_queue(), ^{
-        [imgPickerCam dismissViewControllerAnimated:YES completion:nil];
+        [imgPickerCam dismissViewControllerAnimated:YES completion:^{
+            [self.navigationController pushViewController:vc animated:YES];
+        }];
     });
-    [self.navigationController pushViewController:vc animated:YES];
+
 }
 
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info {
@@ -46,8 +48,9 @@
 }
 
 - (void)imagePickerControllerDidCancel:(UIImagePickerController *)picker {
-    [imgPickerCam dismissViewControllerAnimated:YES completion:nil];
-    [self.navigationController popViewControllerAnimated:YES];
+    [imgPickerCam dismissViewControllerAnimated:YES completion:^{
+        [self.navigationController popViewControllerAnimated:YES];
+    }];
 }
 
 - (void)viewDidLoad {
