@@ -47,8 +47,10 @@
 }
 
 - (void)imagePickerControllerDidCancel:(UIImagePickerController *)picker {
+    taken = YES;
     [imgPickerCam dismissViewControllerAnimated:YES completion:^{
         [self.navigationController popViewControllerAnimated:YES];
+        taken = NO;
     }];
 }
 
