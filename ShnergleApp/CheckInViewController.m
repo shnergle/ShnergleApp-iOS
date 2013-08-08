@@ -31,13 +31,12 @@
     } else {
         vc = [self.storyboard instantiateViewControllerWithIdentifier:@"ShareViewController"];
     }
-    taken = NO;
     dispatch_async(dispatch_get_main_queue(), ^{
         [imgPickerCam dismissViewControllerAnimated:YES completion:^{
             [self.navigationController pushViewController:vc animated:YES];
+            taken = NO;
         }];
     });
-
 }
 
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info {
@@ -55,8 +54,13 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.navigationController.navigationBarHidden = YES;
     taken = NO;
+}
+
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    self.navigationController.navigationBar.hidden = YES;
+    self.navigationController.navigationBarHidden = YES;
 }
 
 - (void)viewDidAppear:(BOOL)animated {
