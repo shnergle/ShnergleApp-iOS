@@ -78,7 +78,6 @@
     self.youLike.text = appDelegate.like;
     NSNumber *scoreLike = @([self.youLike.text intValue] *[self.valueLike.text intValue]);
     self.scoreLike.text = [scoreLike stringValue];
-    //NSNumber *total = @([self.scoreCheckIn.text intValue]+[self.scoreShare.text intValue]);
     self.totalShnergleScore.text = appDelegate.totalScore;
 }
 

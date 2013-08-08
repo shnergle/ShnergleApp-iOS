@@ -9,8 +9,7 @@
 #import "CustomBackViewController.h"
 
 @interface GraphViewController : CustomBackViewController
+
 @property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
-
-
 
 @end

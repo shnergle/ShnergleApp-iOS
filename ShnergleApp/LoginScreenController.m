@@ -46,7 +46,6 @@
     if (appDelegate.session.isOpen) {
         self.buttonLoginLogout.hidden = YES;
 
-        //login on server
         [[[FBRequest alloc] initWithSession:appDelegate.session graphPath:@"me"] startWithCompletionHandler:
          ^(FBRequestConnection *connection,
            NSDictionary<FBGraphUser> *user,
