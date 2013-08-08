@@ -341,6 +341,4 @@
     [[[PostRequest alloc]init]exec:@"venues/set" params:params delegate:self callback:@selector(didFinishUpdateVenueDetails:)];
 }
 
-
-
 @end

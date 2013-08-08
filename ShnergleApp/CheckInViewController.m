@@ -33,9 +33,9 @@
     }
     dispatch_async(dispatch_get_main_queue(), ^{
         [imgPickerCam dismissViewControllerAnimated:YES completion:^{
-            [self.navigationController pushViewController:vc animated:YES];
-            taken = NO;
-        }];
+                [self.navigationController pushViewController:vc animated:YES];
+                taken = NO;
+            }];
     });
 }
 

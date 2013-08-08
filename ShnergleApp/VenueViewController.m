@@ -321,7 +321,6 @@
 
     [self getPosts];
     [overlayView didAppear];
-
 }
 
 - (void)didFinishDownloadingPosts:(id)response {

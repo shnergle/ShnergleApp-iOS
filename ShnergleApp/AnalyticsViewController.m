@@ -10,8 +10,7 @@
 
 @implementation AnalyticsViewController
 
-- (void)viewDidLoad
-{
+- (void)viewDidLoad {
     [super viewDidLoad];
     self.tableData = @[@"Important Stuff", @"Optimisation", @"Of Interest"];
 }
@@ -30,19 +29,16 @@
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell"];
     if (indexPath.row == 0) {
         cell.imageView.image = [UIImage imageNamed:@"glyphicons_228_gbp"];
-    }
-    else if (indexPath.row == 1){
+    } else if (indexPath.row == 1) {
         cell.imageView.image = [UIImage imageNamed:@"glyphicons_280_settings"];
-    }
-    else if (indexPath.row == 2){
+    } else if (indexPath.row == 2) {
         cell.imageView.image = [UIImage imageNamed:@"glyphicons_194_circle_question_mark"];
     }
     cell.textLabel.text = self.tableData[indexPath.row];
     return cell;
 }
 
--(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
-{
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     return tableView.bounds.size.height / 3;
 }
 
