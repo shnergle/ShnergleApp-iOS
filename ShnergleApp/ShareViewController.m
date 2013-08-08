@@ -34,6 +34,8 @@
 
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
+    self.navigationController.navigationBar.hidden = NO;
+    self.navigationController.navigationBarHidden = NO;
     [self setRightBarButton:@"Upload" actionSelector:@selector(share)];
     if (appDelegate.shnergleThis) self.navigationItem.title = @"Check In";
     else self.navigationItem.title = @"Share";
