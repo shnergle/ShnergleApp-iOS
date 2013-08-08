@@ -12,7 +12,7 @@
 @implementation LoginScreenController
 
 - (void)viewWillAppear:(BOOL)animated {
-    [[self navigationController] setNavigationBarHidden:YES];
+    [self.navigationController setNavigationBarHidden:YES];
     if (appDelegate.didShare != nil) {
         UIViewController *vc = [self.storyboard instantiateViewControllerWithIdentifier:@"AroundMeSlidingViewController"];
         [self.navigationController pushViewController:vc animated:YES];
@@ -26,7 +26,7 @@
     [self.buttonLoginLogout setBackgroundImage:[UIImage imageNamed:@"login-button-small.png"] forState:UIControlStateNormal];
     [self.buttonLoginLogout setBackgroundImage:[UIImage imageNamed:@"login-button-small-pressed.png"] forState:UIControlStateHighlighted];
 
-    [[self navigationController] setNavigationBarHidden:YES];
+    [self.navigationController setNavigationBarHidden:YES];
     if (!appDelegate.session.isOpen) {
         self.buttonLoginLogout.hidden = YES;
         appDelegate.session = [[FBSession alloc] initWithAppID:nil permissions:@[@"email", @"user_birthday"] urlSchemeSuffix:nil tokenCacheStrategy:nil];
@@ -76,7 +76,7 @@
                 [params appendString:[user[@"birthday"] substringFromIndex:6]];
                 NSDate *now = [NSDate date];
                 NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
-                [dateFormatter setDateFormat:@"MM/dd/yyyy"];
+                dateFormatter.dateFormat = @"MM/dd/yyyy";
                 NSDate *birthday = [dateFormatter dateFromString:user[@"birthday"]];
                 NSDateComponents *ageComponents = [[NSCalendar currentCalendar]
                                                    components:NSYearCalendarUnit

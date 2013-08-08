@@ -70,14 +70,14 @@
 }
 
 - (IBAction)tappedGoing:(id)sender {
-    [self.tapGoing setEnabled:NO];
-    [self.thinkingView setEnabled:NO];
-    [self.goingView setEnabled:NO];
+    self.tapGoing.enabled = NO;
+    self.thinkingView.enabled = NO;
+    self.goingView.enabled = NO;
     [[[PostRequest alloc]init]exec:@"venue_rsvps/set" params:[NSString stringWithFormat:@"venue_id=%@&going=%@&from_time=%d&until_time=%d", appDelegate.activeVenue[@"id"], @"true", [self fromTime], [self untilTime]] delegate:self callback:@selector(didIntent:)];
 }
 
 - (IBAction)tappedThinking:(id)sender {
-    [self.thinkingView setEnabled:NO];
+    self.thinkingView.enabled = NO;
     NSString *params = [NSString stringWithFormat:@"venue_id=%@&maybe=%@&from_time=%d&until_time=%d", appDelegate.activeVenue[@"id"], @"true", [self fromTime], [self untilTime]];
     [[[PostRequest alloc] init] exec:@"venue_rsvps/set" params:params delegate:self callback:@selector(didIntent:)];
 }
@@ -88,13 +88,13 @@
 
 - (IBAction)publishTapped:(id)sender {
     [self.summaryContentTextField resignFirstResponder];
-    [self.summaryContentTextField setEditable:NO];
-    [self.summaryContentTextField setBackgroundColor:[UIColor clearColor]];
+    self.summaryContentTextField.editable = NO;
+    self.summaryContentTextField.backgroundColor = [UIColor clearColor];
     [self.summaryHeadlineTextField resignFirstResponder];
-    [self.summaryHeadlineTextField setEnabled:NO];
-    [self.summaryHeadlineTextField setBackgroundColor:[UIColor clearColor]];
+    self.summaryHeadlineTextField.enabled = NO;
+    self.summaryHeadlineTextField.backgroundColor = [UIColor clearColor];
 
-    [self.publishButton setHidden:YES];
+    self.publishButton.hidden = YES;
     self.Done.hidden = YES;
     self.Change.hidden = NO;
 
@@ -116,20 +116,20 @@
 }
 
 - (IBAction)postUpdateTapped:(id)sender {
-    [self.summaryContentTextField setBackgroundColor:[UIColor whiteColor]];
-    [self.summaryHeadlineTextField setBackgroundColor:[UIColor whiteColor]];
-    [self.publishButton setHidden:NO];
+    self.summaryContentTextField.backgroundColor = [UIColor whiteColor];
+    self.summaryHeadlineTextField.backgroundColor = [UIColor whiteColor];
+    self.publishButton.hidden = NO;
     self.Done.hidden = NO;
     self.Change.hidden = YES;
     self.summaryContentTextField.editable = YES;
-    [self.summaryHeadlineTextField setEnabled:YES];
+    self.summaryHeadlineTextField.enabled = YES;
     [self.summaryContentTextField becomeFirstResponder];
-    self.summaryHeadlineTextField.layer.borderColor = [[UIColor grayColor] CGColor];
-    self.summaryContentTextField.layer.borderColor = [[UIColor grayColor] CGColor];
-    self.summaryContentTextField.layer.borderWidth = 1.0f;
-    self.summaryHeadlineTextField.layer.borderWidth = 1.0f;
-    self.summaryHeadlineTextField.layer.cornerRadius = 5.0f;
-    self.summaryContentTextField.layer.cornerRadius = 5.0f;
+    self.summaryHeadlineTextField.layer.borderColor = [UIColor grayColor].CGColor;
+    self.summaryContentTextField.layer.borderColor = [UIColor grayColor].CGColor;
+    self.summaryContentTextField.layer.borderWidth = 1;
+    self.summaryHeadlineTextField.layer.borderWidth = 1;
+    self.summaryHeadlineTextField.layer.cornerRadius = 5;
+    self.summaryContentTextField.layer.cornerRadius = 5;
     self.summaryHeadlineTextField.layer.masksToBounds = YES;
     self.summaryContentTextField.layer.masksToBounds = YES;
 }

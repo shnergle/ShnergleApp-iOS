@@ -161,7 +161,7 @@
 
     if (item.crowdImage.image == nil) [[[ImageCache alloc] init] get:@"venue" identifier:[venues[indexPath.item][@"id"] stringValue] delegate:self callback:@selector(didFinishDownloadingImages:forIndex:) indexPath:indexPath];
 
-    [[item venueName] setText:venues[indexPath.item][@"name"]];
+    item.venueName.text = venues[indexPath.item][@"name"];
 
     item.venueName.font = [UIFont systemFontOfSize:11.0f];
 

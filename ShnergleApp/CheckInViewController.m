@@ -14,7 +14,7 @@
 - (void)takePhoto {
     imgPickerCam = [[UIImagePickerController alloc] init];
     imgPickerCam.delegate = self;
-    [imgPickerCam setSourceType:UIImagePickerControllerSourceTypeCamera];
+    imgPickerCam.sourceType = UIImagePickerControllerSourceTypeCamera;
     [self presentViewController:imgPickerCam animated:NO completion:nil];
 }
 
