@@ -88,9 +88,6 @@
     [self decorateScroller];
     [self toolbarDecorations];
 
-    [[self crowdCollection] setDataSource:self];
-    [[self crowdCollection] setDelegate:self];
-
     loading = YES;
 
     crowdImagesHidden = NO;

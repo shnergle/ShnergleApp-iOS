@@ -56,8 +56,6 @@
     ((UINavigationItem *)self.navBar.items[0]).title = appDelegate.topViewType;
     [self menuButtonDecorations];
     [self decorateCheckInButton];
-    [[self crowdCollection] setDataSource:self];
-    [[self crowdCollection] setDelegate:self];
 
     if (self.slidingViewController != nil) {
         if (![self.slidingViewController.underLeftViewController isKindOfClass:[MenuViewController class]]) {

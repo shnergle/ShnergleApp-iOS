@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="4488.1" systemVersion="12E55" targetRuntime="iOS.CocoaTouch" variant="6xAndEarlier" propertyAccessControl="none" useAutolayout="YES" initialViewController="Yrf-wA-f9e">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="4488.2" systemVersion="12E55" targetRuntime="iOS.CocoaTouch" variant="6xAndEarlier" propertyAccessControl="none" useAutolayout="YES" initialViewController="Yrf-wA-f9e">
     <dependencies>
         <deployment defaultVersion="1536" identifier="iOS"/>
         <development version="4600" identifier="xcode"/>
@@ -97,6 +97,10 @@
                                                 </connections>
                                             </collectionViewCell>
                                         </cells>
+                                        <connections>
+                                            <outlet property="dataSource" destination="2" id="7vv-jH-DnG"/>
+                                            <outlet property="delegate" destination="2" id="yeX-T9-tiY"/>
+                                        </connections>
                                     </collectionView>
                                     <button opaque="NO" alpha="0.80000000000000004" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3ru-jW-uGF">
                                         <rect key="frame" x="139" y="0.0" width="35" height="35"/>
@@ -4147,13 +4151,13 @@ Apple is a third party beneficiary of the Terms
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="wJZ-W6-KFM"/>
-        <segue reference="bLg-gv-CVq"/>
-        <segue reference="HzW-kz-4Eb"/>
-        <segue reference="Dyu-vl-dRT"/>
         <segue reference="fjC-0F-Or5"/>
-        <segue reference="qNM-G7-JMr"/>
+        <segue reference="Dyu-vl-dRT"/>
+        <segue reference="HzW-kz-4Eb"/>
+        <segue reference="bLg-gv-CVq"/>
+        <segue reference="wJZ-W6-KFM"/>
+        <segue reference="HHH-Gt-FIZ"/>
         <segue reference="xzO-IX-Cmd"/>
-        <segue reference="ohm-kx-4nt"/>
+        <segue reference="qNM-G7-JMr"/>
     </inferredMetricsTieBreakers>
 </document>
