@@ -100,6 +100,7 @@
 - (void)postResponse:(NSDictionary *)response {
     if (response != nil) {
         if (![@"" isEqualToString : response[@"twitter"]]) appDelegate.twitter = response[@"twitter"];
+        appDelegate.employee = [response[@"employee"]  isEqual: @1];
         appDelegate.saveLocally = [response[@"save_locally"] intValue] == 1;
         appDelegate.optInTop5 = [response[@"top5"] intValue] == 1;
         newUser = [response[@"joined"] intValue] + 10 > [[NSDate date] timeIntervalSince1970];

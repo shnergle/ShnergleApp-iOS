@@ -26,19 +26,20 @@
 }
 
 - (IBAction)analytics:(id)sender {
-    UIViewController *caller = (UIViewController *)self.nextResponder.nextResponder;
-    UIViewController *vc = [caller.storyboard instantiateViewControllerWithIdentifier:@"Analytics"];
-    [caller.navigationController pushViewController:vc animated:YES];
-    return;
-
+    if (appDelegate.employee) {
+        UIViewController *caller = (UIViewController *)self.nextResponder.nextResponder;
+        UIViewController *vc = [caller.storyboard instantiateViewControllerWithIdentifier:@"Analytics"];
+        [caller.navigationController pushViewController:vc animated:YES];
+    } else {
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Visitor analytics for venue managers and staff will be implemented soon; please check the app store regularly for updates" message:nil delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+        [alert show];
+    }
 }
-
 
 - (IBAction)staff:(id)sender {
     UIViewController *caller = (UIViewController *)self.nextResponder.nextResponder;
     UIViewController *vc = [caller.storyboard instantiateViewControllerWithIdentifier:@"Staff"];
     [caller.navigationController pushViewController:vc animated:YES];
-    return;
 }
 
 - (id)initWithFrame:(CGRect)frame {
