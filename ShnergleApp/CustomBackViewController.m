@@ -50,8 +50,8 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    if ([self.navigationController.navigationBar respondsToSelector:@selector(setBarTintColor:)]) self.navigationController.navigationBar.barTintColor = [UIColor colorWithRed:233.0 / 255 green:235.0 / 255 blue:240.0 / 255 alpha:1.0];
-    if ([self respondsToSelector:@selector(setEdgesForExtendedLayout:)]) self.edgesForExtendedLayout = UIRectEdgeNone;
+    if ([self.navigationController.navigationBar respondsToSelector:@selector(setBarTintColor:)]) [self.navigationController.navigationBar performSelector:@selector(setBarTintColor:) withObject:[UIColor colorWithRed:233.0 / 255 green:235.0 / 255 blue:240.0 / 255 alpha:1.0]];
+    if ([self respondsToSelector:@selector(setEdgesForExtendedLayout:)]) [self performSelector:@selector(setEdgesForExtendedLayout:) withObject:0];
 }
 
 @end
