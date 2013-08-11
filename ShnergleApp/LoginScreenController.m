@@ -13,6 +13,10 @@
 
 - (void)viewWillAppear:(BOOL)animated {
     [self.navigationController setNavigationBarHidden:YES];
+}
+
+- (void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
     if (appDelegate.didShare != nil) {
         UIViewController *vc = [self.storyboard instantiateViewControllerWithIdentifier:@"AroundMeSlidingViewController"];
         [self.navigationController pushViewController:vc animated:YES];
@@ -23,8 +27,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
 
-    [self.buttonLoginLogout setBackgroundImage:[UIImage imageNamed:@"login-button-small.png"] forState:UIControlStateNormal];
-    [self.buttonLoginLogout setBackgroundImage:[UIImage imageNamed:@"login-button-small-pressed.png"] forState:UIControlStateHighlighted];
+    [self.buttonLoginLogout setBackgroundImage:[UIImage imageNamed:@"login-button-small"] forState:UIControlStateNormal];
+    [self.buttonLoginLogout setBackgroundImage:[UIImage imageNamed:@"login-button-small-pressed"] forState:UIControlStateHighlighted];
 
     [self.navigationController setNavigationBarHidden:YES];
     if (!appDelegate.session.isOpen) {
