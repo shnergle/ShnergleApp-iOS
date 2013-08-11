@@ -10,6 +10,7 @@
 #import "PostRequest.h"
 #import <FacebookSDK/FBLoginViewLoginButtonSmallPNG.h>
 #import <FacebookSDK/FBLoginViewLoginButtonSmallPressedPNG.h>
+#import <sys/utsname.h>
 
 @implementation LoginScreenController
 
@@ -73,6 +74,12 @@
                 [params appendString:[[user[@"locale"] substringFromIndex:3] lowercaseString]];
                 [params appendString:@"&language="];
                 [params appendString:user[@"locale"]];
+                [params appendString:@"&app_version="];
+                [params appendString:[[NSBundle mainBundle] infoDictionary][@"CFBundleVersion"]];
+                [params appendString:@"&iphone_model="];
+                [params appendString:[self machineName]];
+                [params appendString:@"&ios_version="];
+                [params appendString:[UIDevice currentDevice].systemVersion];
                 [params appendString:@"&birth_day="];
                 [params appendString:[user[@"birthday"] substringWithRange:NSMakeRange(3, 2)]];
                 [params appendString:@"&birth_month="];
@@ -100,6 +107,12 @@
     } else {
         self.buttonLoginLogout.hidden = NO;
     }
+}
+
+- (NSString *)machineName {
+    struct utsname systemInfo;
+    uname(&systemInfo);
+    return [NSString stringWithCString:systemInfo.machine encoding:NSUTF8StringEncoding];
 }
 
 - (void)postResponse:(NSDictionary *)response {
