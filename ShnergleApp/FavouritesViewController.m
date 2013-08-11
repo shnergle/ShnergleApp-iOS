@@ -142,7 +142,7 @@
 }
 
 - (void)didFinishDownloadingImages:(UIImage *)response forIndex:(NSIndexPath *)index {
-    if (response != nil) {
+    if (response != nil && self.crowdCollection != nil && [self.crowdCollection numberOfItemsInSection:index.section] > index.item) {
         [self.crowdCollection reloadItemsAtIndexPaths:@[index]];
     }
 }

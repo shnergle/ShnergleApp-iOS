@@ -231,7 +231,7 @@
             [ImageCache set:@"venue" identifier:appDelegate.activeVenue[@"id"] image:appDelegate.shareImage];
         }
 
-        if (response != nil && self.crowdCollectionV != nil) {
+        if (response != nil && self.crowdCollectionV != nil && [self.crowdCollectionV numberOfItemsInSection:index.section] > index.item) {
             @try {
                 [self.crowdCollectionV reloadItemsAtIndexPaths:@[index]];
             } @catch (NSException *exception) {
