@@ -8,6 +8,8 @@
 
 #import "LoginScreenController.h"
 #import "PostRequest.h"
+#import <FacebookSDK/FBLoginViewLoginButtonSmallPNG.h>
+#import <FacebookSDK/FBLoginViewLoginButtonSmallPressedPNG.h>
 
 @implementation LoginScreenController
 
@@ -27,8 +29,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
 
-    [self.buttonLoginLogout setBackgroundImage:[UIImage imageNamed:@"login-button-small"] forState:UIControlStateNormal];
-    [self.buttonLoginLogout setBackgroundImage:[UIImage imageNamed:@"login-button-small-pressed"] forState:UIControlStateHighlighted];
+    [self.buttonLoginLogout setBackgroundImage:[FBLoginViewLoginButtonSmallPNG image] forState:UIControlStateNormal];
+    [self.buttonLoginLogout setBackgroundImage:[FBLoginViewLoginButtonSmallPressedPNG image] forState:UIControlStateHighlighted];
 
     [self.navigationController setNavigationBarHidden:YES];
     if (!appDelegate.session.isOpen) {
