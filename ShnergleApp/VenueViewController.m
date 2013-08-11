@@ -217,9 +217,9 @@
 
     if (item.crowdImage.image == nil) [[[ImageCache alloc] init] get:@"post" identifier:[posts[indexPath.item][@"id"] stringValue] delegate:self callback:@selector(didFinishDownloadingImages:forIndex:) indexPath:indexPath];
 
-    [[item venueName] setText:[self getDateFromUnixFormat:posts[indexPath.item][@"time"]]];
-    [[item venueName] setTextColor:[UIColor whiteColor]];
-    [[item venueName] setFont:[UIFont systemFontOfSize:11]];
+    item.venueName.text = [self getDateFromUnixFormat:posts[indexPath.item][@"time"]];
+    item.venueName.textColor = [UIColor whiteColor];
+    item.venueName.font = [UIFont systemFontOfSize:11];
 
     return item;
 }
