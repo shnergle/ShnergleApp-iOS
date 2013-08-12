@@ -118,6 +118,7 @@
 - (void)postResponse:(NSDictionary *)response {
     if (response != nil) {
         if (![@"" isEqualToString : response[@"twitter"]]) appDelegate.twitter = response[@"twitter"];
+        appDelegate.userId = response[@"id"];
         appDelegate.employee = [response[@"employee"] isEqual:@1];
         appDelegate.saveLocally = [response[@"save_locally"] intValue] == 1;
         appDelegate.optInTop5 = [response[@"top5"] intValue] == 1;

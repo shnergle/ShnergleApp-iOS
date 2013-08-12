@@ -15,6 +15,7 @@
 @property (strong, nonatomic) FBSession *session;
 @property (strong, nonatomic) NSString *fullName;
 @property (strong, nonatomic) NSString *facebookId;
+@property (strong, nonatomic) NSString *userId;
 @property (strong, nonatomic) NSString *appSecret;
 @property (strong, nonatomic) NSString *twitter;
 @property (nonatomic) BOOL employee;
@@ -27,6 +28,7 @@
 @property (strong, nonatomic) NSString *comment;
 @property (strong, nonatomic) NSString *like;
 @property (strong, nonatomic) NSString *totalScore;
+
 
 @property (nonatomic) BOOL shareVenue;
 @property (nonatomic) BOOL shnergleThis;
