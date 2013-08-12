@@ -954,6 +954,8 @@
 		EE23586517B13D8D00E3668E /* AnalyticsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EE23586417B13D8D00E3668E /* AnalyticsViewController.m */; };
 		EE23586817B1434E00E3668E /* GraphViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EE23586717B1434E00E3668E /* GraphViewController.m */; };
 		EE48E7261787300100C13F2A /* OverlayText.xib in Resources */ = {isa = PBXBuildFile; fileRef = EE48E7251787300100C13F2A /* OverlayText.xib */; };
+		EE4C2E1F17B9168B007CD51A /* AccountViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EE4C2E1E17B9168B007CD51A /* AccountViewController.m */; };
+		EE4C2E2217B91E20007CD51A /* HelpViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EE4C2E2117B91E20007CD51A /* HelpViewController.m */; };
 		EE6707BD17A957B80083E2C5 /* AcceptViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EE6707BC17A957B80083E2C5 /* AcceptViewController.m */; };
 		EE8FF815172A9CFD0003A8E1 /* LoginScreenController.m in Sources */ = {isa = PBXBuildFile; fileRef = EE8FF814172A9CFD0003A8E1 /* LoginScreenController.m */; };
 		EE9D078A17A90BFD008FAD09 /* TermsOfUseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EE9D078917A90BFD008FAD09 /* TermsOfUseViewController.m */; };
@@ -1966,6 +1968,10 @@
 		EE23586617B1434E00E3668E /* GraphViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GraphViewController.h; sourceTree = "<group>"; };
 		EE23586717B1434E00E3668E /* GraphViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GraphViewController.m; sourceTree = "<group>"; };
 		EE48E7251787300100C13F2A /* OverlayText.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = OverlayText.xib; sourceTree = "<group>"; };
+		EE4C2E1D17B9168B007CD51A /* AccountViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AccountViewController.h; sourceTree = "<group>"; };
+		EE4C2E1E17B9168B007CD51A /* AccountViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AccountViewController.m; sourceTree = "<group>"; };
+		EE4C2E2017B91E20007CD51A /* HelpViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HelpViewController.h; sourceTree = "<group>"; };
+		EE4C2E2117B91E20007CD51A /* HelpViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HelpViewController.m; sourceTree = "<group>"; };
 		EE6707BB17A957B80083E2C5 /* AcceptViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AcceptViewController.h; sourceTree = "<group>"; };
 		EE6707BC17A957B80083E2C5 /* AcceptViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AcceptViewController.m; sourceTree = "<group>"; };
 		EE8FF813172A9CFD0003A8E1 /* LoginScreenController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginScreenController.h; sourceTree = "<group>"; };
@@ -2999,6 +3005,10 @@
 				80B957D516FC65F90044A505 /* VenueViewController.m */,
 				80B400BF17540CCA00A377D9 /* Images */,
 				808F13CF16FB6A5C00B66E6D /* Supporting Files */,
+				EE4C2E1D17B9168B007CD51A /* AccountViewController.h */,
+				EE4C2E1E17B9168B007CD51A /* AccountViewController.m */,
+				EE4C2E2017B91E20007CD51A /* HelpViewController.h */,
+				EE4C2E2117B91E20007CD51A /* HelpViewController.m */,
 			);
 			path = ShnergleApp;
 			sourceTree = "<group>";
@@ -4166,6 +4176,7 @@
 				808F13E516FB6A5C00B66E6D /* AroundMeViewController.m in Sources */,
 				EE23586817B1434E00E3668E /* GraphViewController.m in Sources */,
 				80B957D116FBB74F0044A505 /* CheckInViewController.m in Sources */,
+				EE4C2E2217B91E20007CD51A /* HelpViewController.m in Sources */,
 				80ABCC03176F2012002718A1 /* SearchResultsView.m in Sources */,
 				80B957D616FC65F90044A505 /* VenueViewController.m in Sources */,
 				805CE6D016FCBDC9002445C3 /* PhotoLocationViewController.m in Sources */,
@@ -4176,6 +4187,7 @@
 				805AB9E1172A9AFA0056DCFB /* VenueGalleryViewController.m in Sources */,
 				EE8FF815172A9CFD0003A8E1 /* LoginScreenController.m in Sources */,
 				809F6AF8179FD52600C67D77 /* SelectPromotionsViewController.m in Sources */,
+				EE4C2E1F17B9168B007CD51A /* AccountViewController.m in Sources */,
 				80B77D28173E938E00085A71 /* MenuViewController.m in Sources */,
 				EE0A80711733D97300792AE4 /* ProfileViewController.m in Sources */,
 				EEF8C4B71794453800DDE026 /* ScoreViewController.m in Sources */,
