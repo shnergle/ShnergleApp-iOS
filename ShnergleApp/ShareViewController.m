@@ -135,9 +135,6 @@
                                                                                                                                                        NSError *error) {
 
                 [self.navigationController setNavigationBarHidden:YES animated:YES];
-                //UIViewController *aroundMe = [self.storyboard instantiateViewControllerWithIdentifier:@"AroundMe"];
-                //[self.navigationController pushViewController:aroundMe animated:YES];
-
             }];
          */
 
@@ -218,7 +215,7 @@
     if (appDelegate.redeeming != nil) {
         [[[PostRequest alloc] init] exec:@"promotion_redemptions/set" params:[NSString stringWithFormat:@"promotion_id=%@", appDelegate.redeeming] delegate:self callback:@selector(redeemed:) type:@"string"];
     } else {
-        [self.navigationController popToRootViewControllerAnimated:YES];
+        [self.navigationController popToRootViewControllerAnimated:NO];
     }
 }
 
@@ -236,7 +233,7 @@
 }
 
 - (void)alertView:(UIAlertView *)alertView didDismissWithButtonIndex:(NSInteger)buttonIndex {
-    [self.navigationController popToRootViewControllerAnimated:YES];
+    [self.navigationController popToRootViewControllerAnimated:NO];
 }
 
 - (IBAction)selectFriendsButtonAction:(id)sender {
