@@ -17,8 +17,8 @@
     UIView *searchBar = [[NSBundle mainBundle] loadNibNamed:@"SearchBar" owner:self options:nil][0];
     [self.view addSubview:searchBar];
 
-    tableSections = @[@"Profile", @"Explore"];
-    tableData = @[@[appDelegate.fullName], @[@"Around Me", @"Following", @"Promotions", @"Quiet", @"Trending", @"+ Add Place"]];
+    tableSections = @[@"Profile", @"Explore", @" "];
+    tableData = @[@[appDelegate.fullName], @[@"Around Me", @"Following", @"Promotions", @"Quiet", @"Trending", @"+ Add Place"], @[@"Account Settings", @"FAQ", @"Help", @"Privacy Policy", @"Terms of Use"]];
     searchResults = [NSMutableArray array];
     self.searchResultsView.resultsTableView.delegate = self;
     self.searchResultsView.resultsTableView.dataSource = self;

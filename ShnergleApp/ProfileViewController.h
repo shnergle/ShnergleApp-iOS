@@ -35,7 +35,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *scoutLabel;
 @property (weak, nonatomic) IBOutlet UILabel *totalScore;
 
-
+-(IBAction)showInfo:(id)sender;
 
 
 - (IBAction)twitterSwitchAction:(id)sender;
