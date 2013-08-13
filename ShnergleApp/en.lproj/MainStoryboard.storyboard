@@ -3278,29 +3278,41 @@ THANKS FOR BEING PART OF THE SHNERGLE COMMUNITY - HAPPY SHNERGLING!
                         <rect key="frame" x="0.0" y="20" width="320" height="548"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="glyphicons_410_facebook.png" translatesAutoresizingMaskIntoConstraints="NO" id="rvr-C9-Dpd">
+                            <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="glyphicons_410_facebook.png" translatesAutoresizingMaskIntoConstraints="NO" id="rvr-C9-Dpd">
                                 <rect key="frame" x="12" y="37" width="40" height="40"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <gestureRecognizers/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="40" id="15b-DG-hIf"/>
                                     <constraint firstAttribute="height" constant="40" id="g6l-rk-8BT"/>
                                 </constraints>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="iPE-JD-Opi" appends="YES" id="H84-4E-Nl8"/>
+                                </connections>
                             </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="glyphicons_411_twitter.png" translatesAutoresizingMaskIntoConstraints="NO" id="KLs-UF-a9r">
+                            <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="glyphicons_411_twitter.png" translatesAutoresizingMaskIntoConstraints="NO" id="KLs-UF-a9r">
                                 <rect key="frame" x="12" y="99" width="40" height="40"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <gestureRecognizers/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="9hA-HU-jZx"/>
                                 </constraints>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="vhK-SS-WQU" appends="YES" id="8rd-r2-h5n"/>
+                                </connections>
                             </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="glyphicons_419_e-mail.png" translatesAutoresizingMaskIntoConstraints="NO" id="psb-7A-Gw1">
+                            <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="glyphicons_419_e-mail.png" translatesAutoresizingMaskIntoConstraints="NO" id="psb-7A-Gw1">
                                 <rect key="frame" x="12" y="160" width="40" height="40"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <gestureRecognizers/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="Wrf-Fq-Qwa"/>
                                 </constraints>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="C6t-cg-pl2" appends="YES" id="aOb-yQ-tee"/>
+                                </connections>
                             </imageView>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Message us on our Facebook Page" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="9" translatesAutoresizingMaskIntoConstraints="NO" id="VKH-8G-VHR">
+                            <label opaque="NO" clipsSubviews="YES" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Message us on our Facebook Page" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="9" translatesAutoresizingMaskIntoConstraints="NO" id="VKH-8G-VHR">
                                 <rect key="frame" x="60" y="46" width="247" height="21"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="247" id="9ck-VF-eZ9"/>
@@ -3308,16 +3320,22 @@ THANKS FOR BEING PART OF THE SHNERGLE COMMUNITY - HAPPY SHNERGLING!
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="highlightedColor"/>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="iPE-JD-Opi" appends="YES" id="81E-6M-wgp"/>
+                                </connections>
                             </label>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Twitter Message (to @ShnergleHelp)" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="14" translatesAutoresizingMaskIntoConstraints="NO" id="tBA-2C-r2l">
+                            <label opaque="NO" clipsSubviews="YES" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Twitter Message (to @ShnergleHelp)" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="14" translatesAutoresizingMaskIntoConstraints="NO" id="tBA-2C-r2l">
                                 <rect key="frame" x="60" y="101" width="247" height="27"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="27" id="p9f-lS-NlR"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <nil key="highlightedColor"/>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="vhK-SS-WQU" appends="YES" id="Ki2-kc-IVW"/>
+                                </connections>
                             </label>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Email us at contact@shnergle.com" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="9" translatesAutoresizingMaskIntoConstraints="NO" id="kl6-Q6-Hdt">
+                            <label opaque="NO" clipsSubviews="YES" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Email us at contact@shnergle.com" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="9" translatesAutoresizingMaskIntoConstraints="NO" id="kl6-Q6-Hdt">
                                 <rect key="frame" x="57" y="169" width="251" height="21"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="21" type="user" id="Rdv-gL-oYf"/>
@@ -3325,6 +3343,9 @@ THANKS FOR BEING PART OF THE SHNERGLE COMMUNITY - HAPPY SHNERGLING!
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="highlightedColor"/>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="C6t-cg-pl2" appends="YES" id="pz3-37-bKG"/>
+                                </connections>
                             </label>
                         </subviews>
                         <color key="backgroundColor" red="0.89411764709999997" green="0.90196078430000004" blue="0.92941176469999998" alpha="1" colorSpace="calibratedRGB"/>
@@ -3349,6 +3370,21 @@ THANKS FOR BEING PART OF THE SHNERGLE COMMUNITY - HAPPY SHNERGLING!
                     <navigationItem key="navigationItem" id="ajR-Xj-U72"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="C0y-0h-3XB" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="iPE-JD-Opi">
+                    <connections>
+                        <action selector="fb:" destination="jTa-SF-rUG" id="CEF-eS-V2n"/>
+                    </connections>
+                </tapGestureRecognizer>
+                <tapGestureRecognizer id="vhK-SS-WQU">
+                    <connections>
+                        <action selector="twitter:" destination="jTa-SF-rUG" id="qcp-wX-3gZ"/>
+                    </connections>
+                </tapGestureRecognizer>
+                <tapGestureRecognizer id="C6t-cg-pl2">
+                    <connections>
+                        <action selector="mail:" destination="jTa-SF-rUG" id="en7-mt-rbF"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="341" y="-2404"/>
         </scene>

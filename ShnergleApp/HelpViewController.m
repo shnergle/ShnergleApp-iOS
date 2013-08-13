@@ -8,40 +8,33 @@
 
 #import "HelpViewController.h"
 
-@interface HelpViewController ()
-
-@end
-
 @implementation HelpViewController
 
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
-{
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-    if (self) {
-        // Custom initialization
+- (IBAction)fb:(id)sender {
+    NSURL *url = [NSURL URLWithString:@"fb://profile/265947480190327"];
+    if (![[UIApplication sharedApplication] canOpenURL:url]) {
+        url = [NSURL URLWithString:@"https://www.facebook.com/shnergle"];
     }
-    return self;
+    [[UIApplication sharedApplication] openURL:url];
 }
 
-- (void)viewDidLoad
-{
-    [super viewDidLoad];
-	// Do any additional setup after loading the view.
+- (IBAction)twitter:(id)sender {
+    NSURL *url = [NSURL URLWithString:@"twitter://user?screen_name=shnergle"];
+    if (![[UIApplication sharedApplication] canOpenURL:url]) {
+        url = [NSURL URLWithString:@"https://www.twitter.com/shnergle"];
+    }
+    [[UIApplication sharedApplication] openURL:url];
 }
 
-- (void)didReceiveMemoryWarning
-{
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+- (IBAction)mail:(id)sender {
+    NSURL *url = [NSURL URLWithString:@"mailto:contact@shnergle.com"];
+    [[UIApplication sharedApplication] openURL:url];
 }
-
-
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     [self.navigationController setNavigationBarHidden:NO animated:YES];
     self.navigationItem.title = @"Help";
 }
-
 
 @end
