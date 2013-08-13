@@ -9,26 +9,23 @@
 #import <FacebookSDK/FacebookSDK.h>
 #import "CustomBackViewController.h"
 
-@interface ProfileViewController : UIViewController <UIActionSheetDelegate, UIAlertViewDelegate>
+@interface ProfileViewController : UIViewController
 
 @property (weak, nonatomic) IBOutlet UILabel *checkInLabel;
 @property (weak, nonatomic) IBOutlet UILabel *redeemedLabel;
 @property (weak, nonatomic) IBOutlet UILabel *followingLabel;
-@property (weak, nonatomic) IBOutlet UISwitch *optInSwitch;
 @property (strong, nonatomic) IBOutlet FBProfilePictureView *userProfileImage3;
 @property (strong, nonatomic) IBOutlet FBProfilePictureView *userProfileImage1;
 @property (strong, nonatomic) IBOutlet FBProfilePictureView *userProfileImage2;
 @property (weak, nonatomic) IBOutlet UINavigationItem *navBarItem;
 @property (strong, nonatomic) IBOutlet UINavigationBar *navBar;
 
-@property (strong, nonatomic) IBOutlet UISwitch *twitterSwitch;
 @property (weak, nonatomic) IBOutlet UIView *checkInView;
 @property (weak, nonatomic) IBOutlet UIView *redeemed;
 @property (weak, nonatomic) IBOutlet UIView *favourites;
 @property (weak, nonatomic) IBOutlet UIView *scoutView;
 @property (weak, nonatomic) IBOutlet UIView *shnerglerView;
 @property (weak, nonatomic) IBOutlet UIView *explorerView;
-@property (weak, nonatomic) IBOutlet UISwitch *saveLocallySwitch;
 
 @property (weak, nonatomic) IBOutlet UILabel *explorerLabel;
 @property (weak, nonatomic) IBOutlet UILabel *shnerglerLabel;
@@ -37,8 +34,6 @@
 
 -(IBAction)showInfo:(id)sender;
 
-
-- (IBAction)twitterSwitchAction:(id)sender;
 - (IBAction)signOut:(id)sender;
 
 @end

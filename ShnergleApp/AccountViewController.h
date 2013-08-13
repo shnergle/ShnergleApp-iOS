@@ -8,7 +8,11 @@
 
 #import "CustomBackViewController.h"
 
-@interface AccountViewController : CustomBackViewController
+@interface AccountViewController : CustomBackViewController <UIAlertViewDelegate>
+
 @property (weak, nonatomic) IBOutlet UISwitch *optInSwitch;
+@property (weak, nonatomic) IBOutlet UISwitch *twitterSwitch;
+@property (weak, nonatomic) IBOutlet UISwitch *saveLocallySwitch;
+
 
 @end

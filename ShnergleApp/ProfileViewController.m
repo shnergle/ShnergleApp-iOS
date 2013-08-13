@@ -10,8 +10,7 @@
 #import "PostRequest.h"
 #import "MenuViewController.h"
 #import <Toast/Toast+UIView.h>
-#import <ECSlidingViewController.h>
-#import <Accounts/Accounts.h>
+#import <ECSlidingViewController/ECSlidingViewController.h>
 
 @implementation ProfileViewController
 
@@ -39,33 +38,14 @@
     self.userProfileImage1.layer.borderColor = [UIColor colorWithRed:255 green:255 blue:255 alpha:1].CGColor;
     self.userProfileImage1.layer.borderWidth = 2;
 
-    self.saveLocallySwitch.on = appDelegate.saveLocally;
-    self.optInSwitch.on = appDelegate.optInTop5;
-
-    self.twitterSwitch.on = appDelegate.twitter != nil;
-
     if ([self.navBar respondsToSelector:@selector(setBarTintColor:)]) [self.navBar performSelector:@selector(setBarTintColor:) withObject:[UIColor colorWithRed:233.0 / 255 green:235.0 / 255 blue:240.0 / 255 alpha:1.0]];
     self.navBar.translucent = NO;
-}
-
-- (IBAction)optInChange:(id)sender {
-    [self.view makeToastActivity];
-
-    appDelegate.optInTop5 = self.optInSwitch.on;
-    [[[PostRequest alloc] init] exec:@"users/set" params:[NSString stringWithFormat:@"top5=%@", (self.optInSwitch.on ? @"true" : @"false")] delegate:self callback:@selector(doNothing:)];
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     if ([segue.identifier isEqualToString:@"ProfileFavouritesSegue"]) {
         appDelegate.topViewType = @"Following";
     }
-}
-
-- (IBAction)saveLocallyChange:(id)sender {
-    [self.view makeToastActivity];
-
-    appDelegate.saveLocally = self.saveLocallySwitch.on;
-    [[[PostRequest alloc] init] exec:@"users/set" params:[NSString stringWithFormat:@"save_locally=%@", (self.saveLocallySwitch.on ? @"true" : @"false")] delegate:self callback:@selector(doNothing:)];
 }
 
 - (void)doNothing:(id)whoCares {
@@ -146,48 +126,12 @@
 - (IBAction)signOut:(id)sender {
     [appDelegate.session closeAndClearTokenInformation];
     [self.navigationController popToRootViewControllerAnimated:YES];
-    
 }
 
 
 - (IBAction)showInfo:(id)sender {
     UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"If you become one of the most active 20% of Shnergle users in the last 30 days, you will appear on the podium below, unlocking more valuable promotions!" message:nil delegate:nil cancelButtonTitle:@"OK" otherButtonTitles: nil];
     [alert show];
-    
-}
-
-
-- (IBAction)twitterSwitchAction:(id)sender {
-    [self.view makeToastActivity];
-    if (self.twitterSwitch.on) {
-        ACAccountStore *accountStore = [[ACAccountStore alloc] init];
-        ACAccountType *twitterType = [accountStore accountTypeWithAccountTypeIdentifier:ACAccountTypeIdentifierTwitter];
-
-        ACAccountStoreRequestAccessCompletionHandler accountStoreHandler =
-            ^(BOOL granted, NSError *error) {
-            if (granted) {
-                NSArray *accounts = [accountStore accountsWithAccountType:twitterType];
-                UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Twitter Account" message:nil delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:nil];
-                for (ACAccount *account in accounts) {
-                    [alert addButtonWithTitle:[NSString stringWithFormat:@"@%@", account.username]];
-                }
-                [self.view hideToastActivity];
-                dispatch_async(dispatch_get_main_queue(), ^{
-                    [alert show];
-                });
-            } else {
-                NSLog(@"[ERROR] An error occurred while asking for user authorization: %@",
-                      [error localizedDescription]);
-            }
-        };
-
-        [accountStore requestAccessToAccountsWithType:twitterType
-                                              options:NULL
-                                           completion:accountStoreHandler];
-    } else {
-        appDelegate.twitter = nil;
-        [[[PostRequest alloc] init] exec:@"users/set" params:@"twitter=" delegate:self callback:@selector(doNothing:)];
-    }
 }
 
 - (UIBarButtonItem *)createLeftBarButton:(NSString *)imageName actionSelector:(SEL)actionSelector {
@@ -200,16 +144,6 @@
 
     UIBarButtonItem *menuButton = [[UIBarButtonItem alloc] initWithCustomView:menuButtonTmp];
     return menuButton;
-}
-
-- (void)alertView:(UIAlertView *)alertView didDismissWithButtonIndex:(NSInteger)buttonIndex {
-    [self.view makeToastActivity];
-    if (buttonIndex == alertView.cancelButtonIndex) {
-        self.twitterSwitch.on = NO;
-    } else {
-        appDelegate.twitter = [[alertView buttonTitleAtIndex:buttonIndex] stringByReplacingCharactersInRange:NSMakeRange(0, 1) withString:@""];
-        [[[PostRequest alloc] init] exec:@"users/set" params:[NSString stringWithFormat:@"twitter=%@", appDelegate.twitter] delegate:self callback:@selector(doNothing:)];
-    }
 }
 
 - (void)menuButtonDecorations {
