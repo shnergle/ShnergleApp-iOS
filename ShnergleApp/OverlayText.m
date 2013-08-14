@@ -281,7 +281,7 @@
 }
 
 - (void)hasAlreadyRSVPd {
-    [[[PostRequest alloc]init]exec:@"venue_rsvps/get" params:[NSString stringWithFormat:@"venue_id=%@&from_time=%d&until_time=%d&user_id=%@", appDelegate.activeVenue[@"id"], [self fromTime], [self untilTime], appDelegate.userId] delegate:self callback:@selector(didFinishGettingAlreadyRSVPd:)];
+    [[[PostRequest alloc]init]exec:@"venue_rsvps/get" params:[NSString stringWithFormat:@"venue_id=%@&from_time=%d&until_time=%d&own=true", appDelegate.activeVenue[@"id"], [self fromTime], [self untilTime]] delegate:self callback:@selector(didFinishGettingAlreadyRSVPd:)];
 }
 
 - (void)didFinishGettingAlreadyRSVPd:(id)response {
