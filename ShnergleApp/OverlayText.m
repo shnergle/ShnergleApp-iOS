@@ -280,16 +280,12 @@
     [[[PostRequest alloc]init]exec:@"venue_rsvps/get" params:[NSString stringWithFormat:@"venue_id=%@&from_time=%d&until_time=%d", appDelegate.activeVenue[@"id"], [self fromTime], [self untilTime]] delegate:self callback:@selector(didFinishGettingRsvps:)];
 }
 
--(void)hasAlreadyRSVPd {
+- (void)hasAlreadyRSVPd {
     [[[PostRequest alloc]init]exec:@"venue_rsvps/get" params:[NSString stringWithFormat:@"venue_id=%@&from_time=%d&until_time=%d&user_id=%@", appDelegate.activeVenue[@"id"], [self fromTime], [self untilTime], appDelegate.userId] delegate:self callback:@selector(didFinishGettingAlreadyRSVPd:)];
-
 }
 
--(void)didFinishGettingAlreadyRSVPd:(id)response
-{
-    NSLog(@" already rsvp, me: %@",response);
-    if([response[@"going"] integerValue] > 0 || [response[@"maybe"] integerValue] > 0)
-        [self loadVenueIntentions];
+- (void)didFinishGettingAlreadyRSVPd:(id)response {
+    if ([response[@"going"] integerValue] > 0 || [response[@"maybe"] integerValue] > 0) [self loadVenueIntentions];
 }
 
 - (void)didAppear {

@@ -44,7 +44,7 @@
         ACAccountType *twitterType = [accountStore accountTypeWithAccountTypeIdentifier:ACAccountTypeIdentifierTwitter];
 
         ACAccountStoreRequestAccessCompletionHandler accountStoreHandler =
-        ^(BOOL granted, NSError *error) {
+            ^(BOOL granted, NSError *error) {
             if (granted) {
                 NSArray *accounts = [accountStore accountsWithAccountType:twitterType];
                 UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Twitter Account" message:nil delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:nil];
@@ -55,9 +55,6 @@
                 dispatch_async(dispatch_get_main_queue(), ^{
                     [alert show];
                 });
-            } else {
-                NSLog(@"[ERROR] An error occurred while asking for user authorization: %@",
-                      [error localizedDescription]);
             }
         };
 

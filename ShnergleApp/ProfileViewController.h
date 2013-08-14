@@ -32,7 +32,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *scoutLabel;
 @property (weak, nonatomic) IBOutlet UILabel *totalScore;
 
--(IBAction)showInfo:(id)sender;
+- (IBAction)showInfo:(id)sender;
 
 - (IBAction)signOut:(id)sender;
 
