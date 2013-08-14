@@ -14,6 +14,7 @@
 #import "ShareViewController.h"
 #import "VenueDetailsViewController.h"
 #import <NSDate+TimeAgo/NSDate+TimeAgo.h>
+#import <NSDate-Escort/NSDate+Escort.h>
 
 @implementation OverlayText
 
@@ -311,13 +312,24 @@
     self.goingLabel.text = [response[@"going"] stringValue];
 }
 
-//Silent Warning: time intervals are wrong. they use 24 hrs from yesterday same time until now
 - (int)fromTime {
-    return (int)[[[NSDate alloc] init] timeIntervalSince1970] - 86400;
+    NSDate *date;
+    if ([[NSDate dateWithMinutesBeforeNow:360] isYesterday]) {
+        date = [[[NSDate dateYesterday] dateAtStartOfDay] dateByAddingHours:6];
+    } else {
+        date = [[[NSDate date] dateAtStartOfDay] dateByAddingHours:6];
+    }
+    return (int)[date timeIntervalSince1970];
 }
 
 - (int)untilTime {
-    return (int)[[[NSDate alloc] init] timeIntervalSince1970];
+    NSDate *date;
+    if ([[NSDate dateWithMinutesBeforeNow:360] isYesterday]) {
+        date = [[[NSDate date] dateAtStartOfDay] dateByAddingHours:6];
+    } else {
+        date = [[[NSDate dateTomorrow] dateAtStartOfDay] dateByAddingHours:6];
+    }
+    return (int)[date timeIntervalSince1970];
 }
 
 - (IBAction)tappedClaimVenue:(id)sender {
