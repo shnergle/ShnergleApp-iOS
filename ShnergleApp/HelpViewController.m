@@ -19,9 +19,9 @@
 }
 
 - (IBAction)twitter:(id)sender {
-    NSURL *url = [NSURL URLWithString:@"twitter://user?screen_name=shnergle"];
+    NSURL *url = [NSURL URLWithString:@"twitter://user?screen_name=ShnergleHelp"];
     if (![[UIApplication sharedApplication] canOpenURL:url]) {
-        url = [NSURL URLWithString:@"https://www.twitter.com/shnergle"];
+        url = [NSURL URLWithString:@"https://www.twitter.com/ShnergleHelp"];
     }
     [[UIApplication sharedApplication] openURL:url];
 }
