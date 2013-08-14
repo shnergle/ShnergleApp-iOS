@@ -14,6 +14,7 @@
 #import "ImageCache.h"
 #import <ECSlidingViewController/ECSlidingViewController.h>
 #import <Toast/Toast+UIView.h>
+#import <NSDate-Escort/NSDate+Escort.h>
 
 @implementation FavouritesViewController
 
@@ -86,13 +87,24 @@
     }
 }
 
-//Silent Warning: time intervals are wrong. they use 24 hrs from yesterday same time until now
 - (int)fromTime {
-    return (int)[[[NSDate alloc] init] timeIntervalSince1970] - 86400;
+    NSDate *date;
+    if ([[NSDate dateWithHoursBeforeNow:6] isYesterday]) {
+        date = [[[NSDate dateYesterday] dateAtStartOfDay] dateByAddingHours:6];
+    } else {
+        date = [[[NSDate date] dateAtStartOfDay] dateByAddingHours:6];
+    }
+    return (int)[date timeIntervalSince1970];
 }
 
 - (int)untilTime {
-    return (int)[[[NSDate alloc] init] timeIntervalSince1970];
+    NSDate *date;
+    if ([[NSDate dateWithHoursBeforeNow:6] isYesterday]) {
+        date = [[[NSDate date] dateAtStartOfDay] dateByAddingHours:6];
+    } else {
+        date = [[[NSDate dateTomorrow] dateAtStartOfDay] dateByAddingHours:6];
+    }
+    return (int)[date timeIntervalSince1970];
 }
 
 - (void)didFinishLoadingVenues:(NSArray *)response {

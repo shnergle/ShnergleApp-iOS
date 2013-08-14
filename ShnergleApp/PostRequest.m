@@ -73,13 +73,14 @@
         }
     else if ([@"string" isEqualToString : responseType]) responseArg = [[NSString alloc] initWithData:response encoding:NSUTF8StringEncoding];
     else responseArg = [NSJSONSerialization JSONObjectWithData:response options:NSJSONReadingAllowFragments error:nil];
-    [Crashlytics setObjectValue:response forKey:@"lastResponseRaw"];
+    [Crashlytics setObjectValue:[[NSString alloc] initWithData:response encoding:NSUTF8StringEncoding] forKey:@"lastResponseString"];
     [Crashlytics setObjectValue:responseArg forKey:@"lastResponseParsed"];
     NSMethodSignature *methodSig = [[responseObject class] instanceMethodSignatureForSelector:responseCallback];
     NSInvocation *invocation = [NSInvocation invocationWithMethodSignature:methodSig];
     [invocation setSelector:responseCallback];
     [invocation setArgument:&responseArg atIndex:2];
     [invocation setTarget:responseObject];
+    NSLog(@"%@", [[NSString alloc] initWithData:response encoding:NSUTF8StringEncoding]);
     NSLog(@"%@", responseArg);
     [invocation retainArguments];
     [invocation invoke];

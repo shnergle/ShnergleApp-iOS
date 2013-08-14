@@ -158,21 +158,6 @@
 
     SLRequestHandler requestHandler =
         ^(NSData *responseData, NSHTTPURLResponse *urlResponse, NSError *error) {
-        if (responseData) {
-            NSInteger statusCode = urlResponse.statusCode;
-            if (statusCode >= 200 && statusCode < 300) {
-                NSDictionary *postResponseData =
-                    [NSJSONSerialization JSONObjectWithData:responseData
-                                                    options:NSJSONReadingMutableContainers
-                                                      error:NULL];
-                NSLog(@"[SUCCESS!] Created Tweet with ID: %@", postResponseData[@"id_str"]);
-            } else {
-                NSLog(@"[ERROR] Server responded: status code %d %@", statusCode,
-                      [NSHTTPURLResponse localizedStringForStatusCode:statusCode]);
-            }
-        } else {
-            NSLog(@"[ERROR] An error occurred while posting: %@", [error localizedDescription]);
-        }
     };
 
     ACAccountStoreRequestAccessCompletionHandler accountStoreHandler =
@@ -200,9 +185,6 @@
             }
             [request setAccount:rightAccount];
             [request performRequestWithHandler:requestHandler];
-        } else {
-            NSLog(@"[ERROR] An error occurred while asking for user authorization: %@",
-                  [error localizedDescription]);
         }
     };
 

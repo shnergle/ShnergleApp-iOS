@@ -14,6 +14,7 @@
 #import "ShareViewController.h"
 #import "VenueDetailsViewController.h"
 #import <NSDate+TimeAgo/NSDate+TimeAgo.h>
+#import <NSDate-Escort/NSDate+Escort.h>
 
 @implementation OverlayText
 
@@ -279,16 +280,12 @@
     [[[PostRequest alloc]init]exec:@"venue_rsvps/get" params:[NSString stringWithFormat:@"venue_id=%@&from_time=%d&until_time=%d", appDelegate.activeVenue[@"id"], [self fromTime], [self untilTime]] delegate:self callback:@selector(didFinishGettingRsvps:)];
 }
 
--(void)hasAlreadyRSVPd {
-    [[[PostRequest alloc]init]exec:@"venue_rsvps/get" params:[NSString stringWithFormat:@"venue_id=%@&from_time=%d&until_time=%d&user_id=%@", appDelegate.activeVenue[@"id"], [self fromTime], [self untilTime], appDelegate.userId] delegate:self callback:@selector(didFinishGettingAlreadyRSVPd:)];
-
+- (void)hasAlreadyRSVPd {
+    [[[PostRequest alloc]init]exec:@"venue_rsvps/get" params:[NSString stringWithFormat:@"venue_id=%@&from_time=%d&until_time=%d&own=true", appDelegate.activeVenue[@"id"], [self fromTime], [self untilTime]] delegate:self callback:@selector(didFinishGettingAlreadyRSVPd:)];
 }
 
--(void)didFinishGettingAlreadyRSVPd:(id)response
-{
-    NSLog(@" already rsvp, me: %@",response);
-    if([response[@"going"] integerValue] > 0 || [response[@"maybe"] integerValue] > 0)
-        [self loadVenueIntentions];
+- (void)didFinishGettingAlreadyRSVPd:(id)response {
+    if ([response[@"going"] integerValue] > 0 || [response[@"maybe"] integerValue] > 0) [self loadVenueIntentions];
 }
 
 - (void)didAppear {
@@ -311,13 +308,24 @@
     self.goingLabel.text = [response[@"going"] stringValue];
 }
 
-//Silent Warning: time intervals are wrong. they use 24 hrs from yesterday same time until now
 - (int)fromTime {
-    return (int)[[[NSDate alloc] init] timeIntervalSince1970] - 86400;
+    NSDate *date;
+    if ([[NSDate dateWithHoursBeforeNow:6] isYesterday]) {
+        date = [[[NSDate dateYesterday] dateAtStartOfDay] dateByAddingHours:6];
+    } else {
+        date = [[[NSDate date] dateAtStartOfDay] dateByAddingHours:6];
+    }
+    return (int)[date timeIntervalSince1970];
 }
 
 - (int)untilTime {
-    return (int)[[[NSDate alloc] init] timeIntervalSince1970];
+    NSDate *date;
+    if ([[NSDate dateWithHoursBeforeNow:6] isYesterday]) {
+        date = [[[NSDate date] dateAtStartOfDay] dateByAddingHours:6];
+    } else {
+        date = [[[NSDate dateTomorrow] dateAtStartOfDay] dateByAddingHours:6];
+    }
+    return (int)[date timeIntervalSince1970];
 }
 
 - (IBAction)tappedClaimVenue:(id)sender {

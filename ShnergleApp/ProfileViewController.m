@@ -128,9 +128,8 @@
     [self.navigationController popToRootViewControllerAnimated:YES];
 }
 
-
 - (IBAction)showInfo:(id)sender {
-    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"If you become one of the most active 20% of Shnergle users in the last 30 days, you will appear on the podium below, unlocking more valuable promotions!" message:nil delegate:nil cancelButtonTitle:@"OK" otherButtonTitles: nil];
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"If you become one of the most active 20% of Shnergle users in the last 30 days, you will appear on the podium below, unlocking more valuable promotions!" message:nil delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
     [alert show];
 }
 
