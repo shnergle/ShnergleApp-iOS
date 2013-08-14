@@ -310,7 +310,7 @@
 
 - (int)fromTime {
     NSDate *date;
-    if ([[NSDate dateWithMinutesBeforeNow:360] isYesterday]) {
+    if ([[NSDate dateWithHoursBeforeNow:6] isYesterday]) {
         date = [[[NSDate dateYesterday] dateAtStartOfDay] dateByAddingHours:6];
     } else {
         date = [[[NSDate date] dateAtStartOfDay] dateByAddingHours:6];
@@ -320,7 +320,7 @@
 
 - (int)untilTime {
     NSDate *date;
-    if ([[NSDate dateWithMinutesBeforeNow:360] isYesterday]) {
+    if ([[NSDate dateWithHoursBeforeNow:6] isYesterday]) {
         date = [[[NSDate date] dateAtStartOfDay] dateByAddingHours:6];
     } else {
         date = [[[NSDate dateTomorrow] dateAtStartOfDay] dateByAddingHours:6];
