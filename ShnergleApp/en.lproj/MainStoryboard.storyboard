@@ -2496,9 +2496,10 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9bD-S6-rlk">
-                                <rect key="frame" x="93" y="209" width="135" height="39"/>
+                                <rect key="frame" x="92" y="219" width="135" height="39"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="39" id="biX-g0-By1"/>
+                                    <constraint firstAttribute="width" constant="135" id="7Xa-iD-l8p"/>
+                                    <constraint firstAttribute="height" constant="39" type="user" id="biX-g0-By1"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                 <state key="normal" title="  I Accept" image="glyphicons_030_pencil.png" backgroundImage="greenbutton.png">
@@ -2524,7 +2525,7 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uef-fn-PXW">
                                 <rect key="frame" x="58" y="293" width="205" height="25"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="25" id="Vxv-75-4df"/>
+                                    <constraint firstAttribute="height" constant="25" type="user" id="Vxv-75-4df"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                 <state key="normal" title="Privacy and Cookie Policy" backgroundImage="greybutton04.png">
@@ -2541,7 +2542,7 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kpM-AK-0pm">
                                 <rect key="frame" x="60" y="345" width="205" height="25"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="25" id="8fM-iY-JYh"/>
+                                    <constraint firstAttribute="height" constant="25" type="user" id="8fM-iY-JYh"/>
                                     <constraint firstAttribute="width" constant="205" id="ehU-dY-Aa5"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
@@ -2560,15 +2561,16 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                         <color key="backgroundColor" red="0.91372549020000005" green="0.92156862750000001" blue="0.94117647059999998" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="XSn-oA-PEi" firstAttribute="top" secondItem="F9v-Tn-2r2" secondAttribute="top" constant="20" symbolic="YES" type="default" id="HTL-Vc-crj"/>
-                            <constraint firstAttribute="bottom" secondItem="uef-fn-PXW" secondAttribute="bottom" constant="230" id="Jbb-Ts-baM"/>
-                            <constraint firstItem="9bD-S6-rlk" firstAttribute="centerX" secondItem="F9v-Tn-2r2" secondAttribute="centerX" type="default" id="Mub-Eo-dHb"/>
-                            <constraint firstItem="9bD-S6-rlk" firstAttribute="leading" secondItem="F9v-Tn-2r2" secondAttribute="leading" constant="93" type="default" id="PIJ-hI-D1B"/>
+                            <constraint firstAttribute="bottom" secondItem="uef-fn-PXW" secondAttribute="bottom" constant="230" type="user" id="Jbb-Ts-baM"/>
+                            <constraint firstItem="uef-fn-PXW" firstAttribute="top" secondItem="9bD-S6-rlk" secondAttribute="bottom" constant="35" type="user" id="RgC-tZ-NbL"/>
+                            <constraint firstItem="9bD-S6-rlk" firstAttribute="centerX" secondItem="XSn-oA-PEi" secondAttribute="centerX" type="default" id="ULr-zd-prg"/>
                             <constraint firstItem="kpM-AK-0pm" firstAttribute="leading" secondItem="F9v-Tn-2r2" secondAttribute="leading" constant="60" id="Ub5-LU-w5Q"/>
-                            <constraint firstAttribute="bottom" secondItem="kpM-AK-0pm" secondAttribute="bottom" constant="178" id="cgm-pu-GU2"/>
+                            <constraint firstAttribute="bottom" secondItem="kpM-AK-0pm" secondAttribute="bottom" constant="178" type="user" id="cgm-pu-GU2"/>
                             <constraint firstItem="XSn-oA-PEi" firstAttribute="leading" secondItem="F9v-Tn-2r2" secondAttribute="leading" constant="8" id="eq8-Pb-dtM"/>
-                            <constraint firstItem="uef-fn-PXW" firstAttribute="centerX" secondItem="9bD-S6-rlk" secondAttribute="centerX" type="default" id="sda-p1-odo"/>
+                            <constraint firstItem="uef-fn-PXW" firstAttribute="centerX" secondItem="F9v-Tn-2r2" secondAttribute="centerX" type="default" id="evB-sx-oka"/>
                             <constraint firstItem="uef-fn-PXW" firstAttribute="leading" secondItem="F9v-Tn-2r2" secondAttribute="leading" constant="58" type="default" id="wCJ-RI-99f"/>
-                            <constraint firstItem="9bD-S6-rlk" firstAttribute="top" secondItem="F9v-Tn-2r2" secondAttribute="top" constant="209" id="yYv-hs-de7"/>
+                            <constraint firstItem="9bD-S6-rlk" firstAttribute="top" secondItem="F9v-Tn-2r2" secondAttribute="top" constant="219" type="user" id="wgF-e2-qMA"/>
+                            <constraint firstItem="kpM-AK-0pm" firstAttribute="top" secondItem="uef-fn-PXW" secondAttribute="bottom" constant="27" type="user" id="zYS-Wq-NC9"/>
                         </constraints>
                     </view>
                     <simulatedStatusBarMetrics key="simulatedStatusBarMetrics"/>
@@ -4246,12 +4248,12 @@ Apple is a third party beneficiary of the Terms
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
         <segue reference="1nI-j0-QaW"/>
-        <segue reference="FIu-Ud-A3V"/>
-        <segue reference="hoH-3k-0HF"/>
         <segue reference="xzO-IX-Cmd"/>
         <segue reference="mMx-sI-unJ"/>
-        <segue reference="cQy-dx-7sJ"/>
         <segue reference="V1y-Vn-JKN"/>
+        <segue reference="WSb-QO-1iD"/>
+        <segue reference="xUB-NL-HY4"/>
+        <segue reference="qNM-G7-JMr"/>
         <segue reference="HHH-Gt-FIZ"/>
     </inferredMetricsTieBreakers>
 </document>
