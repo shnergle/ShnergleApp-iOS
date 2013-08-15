@@ -1514,7 +1514,7 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xXT-6c-y6I">
-                                <rect key="frame" x="0.0" y="66" width="320" height="284"/>
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="416"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="W4X-1Y-Qg4">
                                         <rect key="frame" x="4" y="28" width="311" height="115"/>
@@ -1636,7 +1636,6 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                                         <color key="backgroundColor" red="0.89411764709999997" green="0.90196078430000004" blue="0.92941176469999998" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
                                             <constraint firstItem="O6L-ny-MSs" firstAttribute="leading" secondItem="liT-2J-Jt8" secondAttribute="leading" constant="65" type="user" id="1hW-K0-RDs"/>
-                                            <constraint firstItem="vGu-QZ-o73" firstAttribute="top" secondItem="liT-2J-Jt8" secondAttribute="top" constant="165" scoringType="5" id="1hi-Lm-uIC"/>
                                             <constraint firstAttribute="bottom" secondItem="vGu-QZ-o73" secondAttribute="bottom" constant="99" id="6rV-fm-xTO"/>
                                             <constraint firstItem="46y-qu-YuB" firstAttribute="leading" secondItem="wNA-Lp-peS" secondAttribute="leading" type="default" id="84I-VY-RhI"/>
                                             <constraint firstItem="peK-WU-kWy" firstAttribute="top" secondItem="liT-2J-Jt8" secondAttribute="top" constant="34" type="default" id="9ji-bS-g5h"/>
@@ -1670,16 +1669,17 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                                     <constraint firstItem="liT-2J-Jt8" firstAttribute="top" secondItem="W4X-1Y-Qg4" secondAttribute="bottom" constant="3" type="user" id="djZ-9I-kzU"/>
                                     <constraint firstItem="W4X-1Y-Qg4" firstAttribute="leading" secondItem="xXT-6c-y6I" secondAttribute="leading" constant="4" type="default" id="j84-4C-xKY"/>
                                     <constraint firstItem="W4X-1Y-Qg4" firstAttribute="top" secondItem="xXT-6c-y6I" secondAttribute="top" constant="28" type="default" id="oAr-IT-mwe"/>
+                                    <constraint firstAttribute="bottom" secondItem="liT-2J-Jt8" secondAttribute="bottom" constant="-21" id="r2i-aQ-Tc9"/>
                                     <constraint firstItem="liT-2J-Jt8" firstAttribute="top" secondItem="xXT-6c-y6I" secondAttribute="top" constant="146" type="default" id="zqn-Uv-Syz"/>
                                 </constraints>
                             </view>
                         </subviews>
                         <color key="backgroundColor" red="0.89411764709999997" green="0.90196078430000004" blue="0.92941176469999998" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
-                            <constraint firstItem="xXT-6c-y6I" firstAttribute="top" secondItem="vOU-bV-1Mm" secondAttribute="top" constant="66" id="VW2-HY-YbL"/>
                             <constraint firstItem="xXT-6c-y6I" firstAttribute="trailing" secondItem="vOU-bV-1Mm" secondAttribute="trailing" type="default" id="Wko-94-C1g"/>
                             <constraint firstItem="xXT-6c-y6I" firstAttribute="leading" secondItem="vOU-bV-1Mm" secondAttribute="leading" type="default" id="gwW-7H-Y0w"/>
-                            <constraint firstItem="xXT-6c-y6I" firstAttribute="centerY" secondItem="vOU-bV-1Mm" secondAttribute="centerY" type="default" id="j5G-lX-9Go"/>
+                            <constraint firstAttribute="bottom" secondItem="xXT-6c-y6I" secondAttribute="bottom" type="default" id="n5B-kQ-Z0v"/>
+                            <constraint firstItem="xXT-6c-y6I" firstAttribute="top" secondItem="vOU-bV-1Mm" secondAttribute="top" type="default" id="yYA-kD-EyI"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="92u-jL-hhq"/>
