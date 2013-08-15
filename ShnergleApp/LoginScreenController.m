@@ -131,7 +131,7 @@
 - (void)gotOwnVenues:(NSArray *)response {
     appDelegate.ownVenues = response;
     UIViewController *vc;
-    if (newUser) {
+    if (true /*newUser*/) {
         vc = [self.storyboard instantiateViewControllerWithIdentifier:@"PrivacyView"];
     } else {
         vc = [self.storyboard instantiateViewControllerWithIdentifier:@"AroundMeSlidingViewController"];
