@@ -206,6 +206,13 @@
     else [self swipeUp:sender];
 }
 
+-(void)setContactDetails{
+    NSLog(@"%@",appDelegate.activeVenue);
+    self.phoneTextField.text = appDelegate.activeVenue[@"phone"];
+    self.emailTextField.text = appDelegate.activeVenue[@"email"];
+    self.websiteTextField.text = appDelegate.activeVenue[@"website"];
+}
+
 - (void)venueLayoutConfig {
     [self hasAlreadyRSVPd];
     self.promotionImage.hidden = YES;
@@ -217,7 +224,9 @@
     self.summaryHeadlineTextField.hidden = YES;
     self.postUpdateButton.hidden = YES;
     self.publishButton.hidden = YES;
-
+    self.emailTextField.hidden = YES;
+    self.phoneTextField.hidden = YES;
+    self.websiteTextField.hidden = YES;
 
     if ([appDelegate.activeVenue[@"verified"] intValue] == 1) {
         self.promotionImage.hidden = NO;
@@ -228,7 +237,12 @@
         self.summaryContentTextField.hidden = NO;
         self.summaryHeadlineTextField.hidden = NO;
         self.postUpdateButton.hidden = YES;
-
+        
+        self.emailTextField.hidden = NO;
+        self.phoneTextField.hidden = NO;
+        self.websiteTextField.hidden = NO;
+        [self setContactDetails];
+        
         self.publishButton.hidden = YES;
         self.intentionHeightConstraints.constant = 0;
 
