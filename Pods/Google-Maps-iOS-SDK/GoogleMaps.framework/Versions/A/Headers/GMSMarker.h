@@ -45,7 +45,10 @@
  */
 @property(nonatomic, assign) CGPoint infoWindowAnchor;
 
-/** Whether this marker will be animated when it is placed on a GMSMapView. */
+/**
+ * Controls whether this marker will be animated when it is placed on a
+ * GMSMapView.
+ */
 @property(nonatomic, assign, getter=isAnimated) BOOL animated;
 
 /**

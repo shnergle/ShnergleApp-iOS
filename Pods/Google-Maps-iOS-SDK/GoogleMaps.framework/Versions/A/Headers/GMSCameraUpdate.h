@@ -9,6 +9,7 @@
 //
 
 #import <CoreLocation/CoreLocation.h>
+#import <UIKit/UIKit.h>
 
 @class GMSCameraPosition;
 @class GMSCoordinateBounds;
@@ -77,6 +78,13 @@
  */
 + (GMSCameraUpdate *)fitBounds:(GMSCoordinateBounds *)bounds
                    withPadding:(CGFloat)padding;
+
+/**
+ * This is similar to fitBounds: but allows specifying edge insets
+ * in order to inset the bounding box from the view's edges.
+ */
++ (GMSCameraUpdate *)fitBounds:(GMSCoordinateBounds *)bounds
+                withEdgeInsets:(UIEdgeInsets)edgeInsets;
 
 /**
  * Returns a GMSCameraUpdate that shifts the center of the view by the

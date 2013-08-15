@@ -19,6 +19,9 @@
 #import <GoogleMaps/GMSGeocoder.h>
 #import <GoogleMaps/GMSGeometryUtils.h>
 #import <GoogleMaps/GMSGroundOverlay.h>
+#import <GoogleMaps/GMSIndoorBuilding.h>
+#import <GoogleMaps/GMSIndoorDisplay.h>
+#import <GoogleMaps/GMSIndoorLevel.h>
 #import <GoogleMaps/GMSMapLayer.h>
 #import <GoogleMaps/GMSMapView+Animation.h>
 #import <GoogleMaps/GMSMapView+Overlays.h>
@@ -30,6 +33,7 @@
 #import <GoogleMaps/GMSPanorama.h>
 #import <GoogleMaps/GMSPanoramaCamera.h>
 #import <GoogleMaps/GMSPanoramaCameraUpdate.h>
+#import <GoogleMaps/GMSPanoramaLayer.h>
 #import <GoogleMaps/GMSPanoramaLink.h>
 #import <GoogleMaps/GMSPanoramaService.h>
 #import <GoogleMaps/GMSPanoramaView.h>
