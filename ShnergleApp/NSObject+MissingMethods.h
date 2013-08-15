@@ -10,5 +10,6 @@
 
 - (void)didReceiveMemoryWarning:(id)param;
 - (id)stringValue;
+- (NSString *)stringByAddingPercentEncodingWithAllowedCharacters:(NSCharacterSet *)allowedCharacters;
 
 @end

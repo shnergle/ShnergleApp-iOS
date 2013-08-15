@@ -17,4 +17,8 @@
     return self;
 }
 
+- (NSString *)stringByAddingPercentEncodingWithAllowedCharacters:(NSCharacterSet *)allowedCharacters {
+    return CFBridgingRelease(CFURLCreateStringByAddingPercentEscapes(kCFAllocatorDefault, (__bridge CFStringRef)((NSString *)self), NULL, CFSTR("!*'();:@&=+@,/?#[]"), kCFStringEncodingUTF8));
+}
+
 @end
