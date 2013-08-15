@@ -162,7 +162,8 @@
 - (BOOL)textFieldShouldReturn:(UITextField *)textField {
     searchResults = [NSMutableArray array];
     if (textField.text.length > 0) {
-        NSString *params = [NSString stringWithFormat:@"term=%@&level=%@", self.bar.text, appDelegate.level];
+        NSDictionary *params = @{@"term": self.bar.text,
+                                 @"level": appDelegate.level};
         [[[PostRequest alloc] init] exec:@"user_searches/set" params:params delegate:self callback:@selector(searchRegistered:)];
         [[[PostRequest alloc] init] exec:@"venues/get" params:params delegate:self callback:@selector(postResponse:)];
         [textField resignFirstResponder];

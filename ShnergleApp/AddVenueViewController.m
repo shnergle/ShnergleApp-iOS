@@ -42,38 +42,31 @@ typedef enum {
 
             [[[CLGeocoder alloc] init] reverseGeocodeLocation:[[CLLocation alloc] initWithLatitude:marker.position.latitude longitude:marker.position.longitude] completionHandler:^(NSArray *placemark, NSError *error)
             {
-                NSMutableString *params = [[NSMutableString alloc] initWithString:@"name="];
-                [params appendString:self.userData[@1]];
-                [params appendString:@"&category_id="];
-                [params appendString:appDelegate.addVenueTypeId];
-                [params appendString:@"&address="];
                 NSMutableArray *address = [NSMutableArray array];
                 if (self.userData[@3] != nil) [address addObject:self.userData[@3]];
                 if (self.userData[@4] != nil) [address addObject:self.userData[@4]];
                 if (self.userData[@5] != nil) [address addObject:self.userData[@5]];
                 if (self.userData[@6] != nil) [address addObject:self.userData[@6]];
                 if ([address count] == 0) [address addObject:@""];
-                [params appendString:[address componentsJoinedByString:@", "]];
-                [params appendString:@"&country="];
-                [params appendString:(error ? [((CLPlacemark *)placemark[0]).ISOcountryCode lowercaseString] : @"--")];
+
+                NSMutableDictionary *params = [@{@"name": self.userData[@1],
+                                                 @"category_id": appDelegate.addVenueTypeId,
+                                                 @"address": [address componentsJoinedByString:@", "],
+                                                 @"country": !error ? [((CLPlacemark *)placemark[0]).ISOcountryCode lowercaseString] : @"--",
+                                                 @"lat": @(marker.position.latitude),
+                                                 @"lon": @(marker.position.longitude)} mutableCopy];
+
                 if (appDelegate.venueDetailsContent && workSwitch.on) {
                     if (appDelegate.venueDetailsContent[@(8)]) {
-                        [params appendString:@"&phone="];
-                        [params appendString:appDelegate.venueDetailsContent[@(8)]];
+                        params[@"phone"] = appDelegate.venueDetailsContent[@(8)];
                     }
                     if (appDelegate.venueDetailsContent[@(9)]) {
-                        [params appendString:@"&email="];
-                        [params appendString:appDelegate.venueDetailsContent[@(9)]];
+                        params[@"email"] = appDelegate.venueDetailsContent[@(9)];
                     }
                     if (appDelegate.venueDetailsContent[@(10)]) {
-                        [params appendString:@"&website="];
-                        [params appendString:appDelegate.venueDetailsContent[@(10)]];
+                        params[@"website"] = appDelegate.venueDetailsContent[@(10)];
                     }
                 }
-                [params appendString:@"&lat="];
-                [params appendFormat:@"%f", marker.position.latitude];
-                [params appendString:@"&lon="];
-                [params appendFormat:@"%f", marker.position.longitude];
 
                 [[[PostRequest alloc] init] exec:@"venues/set" params:params delegate:self callback:@selector(didFinishAddingVenue:) type:@"string"];
             } ];
@@ -97,7 +90,7 @@ typedef enum {
         [alert show];
     } else {
         if (workSwitch.on) {
-            [[[PostRequest alloc] init] exec:@"venue_managers/set" params:[NSString stringWithFormat:@"venue_id=%@", response] delegate:self callback:@selector(didAddAsManager:)];
+            [[[PostRequest alloc] init] exec:@"venue_managers/set" params:@{@"venue_id": response} delegate:self callback:@selector(didAddAsManager:)];
         } else {
             [self.view hideToastActivity];
             [self.navigationController popViewControllerAnimated:YES];

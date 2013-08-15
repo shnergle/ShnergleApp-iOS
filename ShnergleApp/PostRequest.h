@@ -13,12 +13,12 @@
     NSString *responseType;
 }
 
-- (BOOL)exec:(NSString *)path params:(NSString *)params delegate:(id)object callback:(SEL)cb;
+- (BOOL)exec:(NSString *)path params:(NSDictionary *)params delegate:(id)object callback:(SEL)cb;
 
-- (BOOL)exec:(NSString *)path params:(NSString *)params delegate:(id)object callback:(SEL)cb type:(NSString *)type;
+- (BOOL)exec:(NSString *)path params:(NSDictionary *)params delegate:(id)object callback:(SEL)cb type:(NSString *)type;
 
-- (BOOL)exec:(NSString *)path params:(NSString *)params image:(UIImage *)image delegate:(id)object callback:(SEL)cb;
+- (BOOL)exec:(NSString *)path params:(NSDictionary *)params image:(UIImage *)image delegate:(id)object callback:(SEL)cb;
 
-- (BOOL)exec:(NSString *)path params:(NSString *)params image:(UIImage *)image delegate:(id)object callback:(SEL)cb type:(NSString *)type;
+- (BOOL)exec:(NSString *)path params:(NSDictionary *)params image:(UIImage *)image delegate:(id)object callback:(SEL)cb type:(NSString *)type;
 
 @end

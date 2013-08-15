@@ -243,7 +243,11 @@
        oo..
      */
 
-    [[[PostRequest alloc] init] exec:@"venues/get" params:[NSString stringWithFormat:@"my_lat=%f&my_lon=%f&distance=%f&level=%@", coord.latitude, coord.longitude, distanceInDegrees, appDelegate.level] delegate:self callback:@selector(didFinishLoadingVenues:)];
+    NSDictionary *params = @{@"my_lat": @(coord.latitude),
+                             @"my_lon": @(coord.longitude),
+                             @"distance": @(distanceInDegrees),
+                             @"level": appDelegate.level};
+    [[[PostRequest alloc] init] exec:@"venues/get" params:params delegate:self callback:@selector(didFinishLoadingVenues:)];
 
     mapCircle.map = map;
 }

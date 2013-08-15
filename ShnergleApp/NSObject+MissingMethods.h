@@ -9,5 +9,6 @@
 @interface NSObject (MissingMethods)
 
 - (void)didReceiveMemoryWarning:(id)param;
+- (id)stringValue;
 
 @end

@@ -18,7 +18,7 @@
     [self.navigationController setNavigationBarHidden:NO animated:YES];
     self.navigationItem.title = @"Redeemed";
     [self.view makeToastActivity];
-    [[[PostRequest alloc] init] exec:@"promotion_redemptions/get" params:[[NSMutableString alloc] init] delegate:self callback:@selector(didFinishDownloadingPosts:)];
+    [[[PostRequest alloc] init] exec:@"promotion_redemptions/get" params:nil delegate:self callback:@selector(didFinishDownloadingPosts:)];
 }
 
 - (void)didFinishDownloadingPosts:(id)response {

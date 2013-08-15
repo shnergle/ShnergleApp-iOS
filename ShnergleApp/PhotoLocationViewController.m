@@ -27,7 +27,7 @@
 }
 
 - (void)didFinishLoadingVenues:(NSArray *)response {
-    venues = [NSMutableArray arrayWithArray:response];
+    venues = [response mutableCopy];
     locationPickerVenuesImmutable = [NSArray arrayWithArray:response];
     rows = [venues count] + 1;
     [self.searchResultTable reloadData];
@@ -111,7 +111,13 @@
             CGPoint screenPoint = CGPointMake(screenCenter.x - screenDistance, screenCenter.y);
             CLLocationCoordinate2D realPoint = [map.projection coordinateForPoint:screenPoint];
             CGFloat distanceInDegrees = coord.longitude - realPoint.longitude;
-            [[[PostRequest alloc] init] exec:@"venues/get" params:[NSString stringWithFormat:@"my_lat=%f&my_lon=%f&distance=%f&level=%@", coord.latitude, coord.longitude, distanceInDegrees, appDelegate.level] delegate:self callback:@selector(didFinishLoadingVenues:)];
+
+            NSDictionary *params = @{@"my_lat": @(coord.latitude),
+                                     @"my_lon": @(coord.longitude),
+                                     @"distance": @(distanceInDegrees),
+                                     @"level": appDelegate.level};
+            [[[PostRequest alloc] init] exec:@"venues/get" params:params delegate:self callback:@selector(didFinishLoadingVenues:)];
+            
             [map animateToCameraPosition:[GMSCameraPosition cameraWithLatitude:map.myLocation.coordinate.latitude longitude:map.myLocation.coordinate.longitude zoom:13]];
 
             hasPositionLocked = YES;

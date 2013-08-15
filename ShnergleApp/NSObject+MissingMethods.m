@@ -13,4 +13,8 @@
 - (void)didReceiveMemoryWarning:(id)param {
 }
 
+- (id)stringValue {
+    return self;
+}
+
 @end

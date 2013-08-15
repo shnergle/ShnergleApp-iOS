@@ -21,12 +21,14 @@
     self.navigationItem.title = @"Manage Promotions";
     //reusing activepromotion from venue page.
     appDelegate.activePromotion = nil;
+
+    self.tableView.backgroundColor = [UIColor colorWithRed:233/255. green:235/255. blue:240/255. alpha:1];
 }
 
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
 
-    [[[PostRequest alloc]init]exec:@"promotions/get" params:[NSString stringWithFormat:@"venue_id=%@&getall=true", appDelegate.activeVenue[@"id"]] delegate:self callback:@selector(didFinishGettingPromotions:)];
+    [[[PostRequest alloc] init] exec:@"promotions/get" params:@{@"venue_id": appDelegate.activeVenue[@"id"], @"getall": @"true"} delegate:self callback:@selector(didFinishGettingPromotions:)];
 }
 
 - (void)didFinishGettingPromotions:(NSArray *)response {
@@ -103,7 +105,7 @@
     if (editingStyle == UITableViewCellEditingStyleDelete) {
         selectedIndexPath = indexPath;
         [self.view makeToastActivity];
-        [[[PostRequest alloc]init]exec:@"promotions/set" params:[NSString stringWithFormat:@"delete=true&promotion_id=%@", promotions[indexPath.row][@"id"] ] delegate:self callback:@selector(didFinishDeletingPromotion:) type:@"string"];
+        [[[PostRequest alloc] init] exec:@"promotions/set" params:@{@"promotion_id": promotions[indexPath.row][@"id"], @"delete": @"true"} delegate:self callback:@selector(didFinishDeletingPromotion:) type:@"string"];
     }
 }
 

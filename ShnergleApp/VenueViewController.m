@@ -81,7 +81,9 @@
     } else {
         [self setHeaderTitle:titleHeader andSubtitle:@"Tap to Follow"];
     }
-    [[[PostRequest alloc] init] exec:@"venue_followers/set" params:[NSString stringWithFormat:@"venue_id=%@&following=%@", appDelegate.activeVenue[@"id"], (following ? @"true" : @"false")] delegate:self callback:@selector(doNothing:) type:@"string"];
+    NSDictionary *params = @{@"venue_id": appDelegate.activeVenue[@"id"],
+                             @"following": following ? @"true" : @"false"};
+    [[[PostRequest alloc] init] exec:@"venue_followers/set" params:params delegate:self callback:@selector(doNothing:) type:@"string"];
 }
 
 - (void)doNothing:(id)whoCares {
@@ -139,7 +141,7 @@
     [overlayView.scrollView setScrollsToTop:NO];
     [self.crowdCollectionV setScrollsToTop:YES];
 
-    [[[PostRequest alloc] init] exec:@"venue_views/set" params:[NSString stringWithFormat:@"venue_id=%@", appDelegate.activeVenue[@"id"]] delegate:self callback:@selector(doNothing:) type:@"string"];
+    [[[PostRequest alloc] init] exec:@"venue_views/set" params:@{@"venue_id": appDelegate.activeVenue[@"id"]} delegate:self callback:@selector(doNothing:) type:@"string"];
 
     man = [[CLLocationManager alloc] init];
     man.delegate = self;
@@ -276,7 +278,9 @@
     [super viewWillAppear:animated];
     self.navigationController.navigationBarHidden = NO;
 
-    [[[PostRequest alloc]init]exec:@"promotions/get" params:[NSString stringWithFormat:@"venue_id=%@&level=%@", appDelegate.activeVenue[@"id"], appDelegate.level ] delegate:self callback:@selector(didFinishGettingPromotion:)];
+    NSDictionary *params = @{@"venue_id": appDelegate.activeVenue[@"id"],
+                             @"level": appDelegate.level};
+    [[[PostRequest alloc] init] exec:@"promotions/get" params:params delegate:self callback:@selector(didFinishGettingPromotion:)];
 
     if ([appDelegate.activeVenue[@"manager"] intValue] == 1 && [appDelegate.activeVenue[@"verified"] intValue] == 0) {
         [self setStatus:UnverifiedManager];
@@ -305,10 +309,7 @@
 }
 
 - (void)getPosts {
-    NSMutableString *params = [[NSMutableString alloc] initWithString:@"venue_id="];
-    [params appendString:[appDelegate.activeVenue[@"id"] stringValue]];
-
-    [[[PostRequest alloc] init] exec:@"posts/get" params:params delegate:self callback:@selector(didFinishDownloadingPosts:)];
+    [[[PostRequest alloc] init] exec:@"posts/get" params:@{@"venue_id": appDelegate.activeVenue[@"id"]} delegate:self callback:@selector(didFinishDownloadingPosts:)];
 }
 
 - (void)viewDidAppear:(BOOL)animated {

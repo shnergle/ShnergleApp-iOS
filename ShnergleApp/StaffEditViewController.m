@@ -76,11 +76,16 @@
     [self.view makeToastActivity];
     appDelegate.addVenueType = nil;
     if (deleteMe) {
-        NSString *params = [NSString stringWithFormat:@"delete=true&venue_id=%@&staff_user_id=%@", [appDelegate.activeVenue[@"id"] stringValue], [currentStaff[@"user_id"] stringValue]];
+        NSDictionary *params = @{@"delete": @"true",
+                                 @"venue_id": appDelegate.activeVenue[@"id"],
+                                 @"staff_user_id": currentStaff[@"user_id"]};
         [[[PostRequest alloc] init] exec:@"venue_staff/set" params:params delegate:self callback:@selector(didFinishSaving:) type:@"string"];
         deleteMe = NO;
     } else {
-        NSString *params = [NSString stringWithFormat:@"venue_id=%@&staff_user_id=%@&manager=%@&promo_perm=%@", [appDelegate.activeVenue[@"id"] stringValue], [currentStaff[@"user_id"] stringValue], [@"Manager" isEqualToString : appDelegate.staffType] ? @"true":@"false", promoSwitch.on ? @"true":@"false"];
+        NSDictionary *params = @{@"venue_id": appDelegate.activeVenue[@"id"],
+                                 @"staff_user_id": currentStaff[@"user_id"],
+                                 @"manager": [@"Manager" isEqualToString:appDelegate.staffType] ? @"true" : @"false",
+                                 @"promo_perm": promoSwitch.on ? @"true" : @"false"};
         [[[PostRequest alloc] init] exec:@"venue_staff/set" params:params delegate:self callback:@selector(didFinishSaving:) type:@"string"];
     }
     [super goBack];

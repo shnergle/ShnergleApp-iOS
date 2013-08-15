@@ -56,9 +56,7 @@
     self.navigationItem.rightBarButtonItem.enabled = NO;
     if (appDelegate.shnergleThis) {
         //Upload to Shnergle
-        NSMutableString *postParams = [[NSMutableString alloc] initWithString:[NSString stringWithFormat:@"venue_id=%@", appDelegate.activeVenue[@"id"]]];
-        [postParams appendFormat:@"&caption=%@", self.textFieldname.text];
-        [[[PostRequest alloc] init] exec:@"posts/set" params:postParams image:self.image.image delegate:self callback:@selector(didFinishPost:) type:@"string"];
+        [[[PostRequest alloc] init] exec:@"posts/set" params:@{@"venue_id": appDelegate.activeVenue[@"id"], @"caption": self.textFieldname.text} image:self.image.image delegate:self callback:@selector(didFinishPost:) type:@"string"];
     } else {
         post_id = appDelegate.shareActivePostId;
         [self shareOnTwitter];
@@ -77,9 +75,9 @@
     if (self.twSwitch.on) {
         [self postImage:self.image.image withStatus:[NSString stringWithFormat:@"%@ @ %@ #ShnergleIt", self.textFieldname.text, appDelegate.activeVenue[@"name"]]];
         if (appDelegate.shareVenue) {
-            [[[PostRequest alloc] init] exec:@"venue_shares/set" params:[NSString stringWithFormat:@"venue_id=%@&media_id=2", appDelegate.activeVenue[@"id"]] delegate:self callback:@selector(doNothing:) type:@"string"];
+            [[[PostRequest alloc] init] exec:@"venue_shares/set" params:@{@"venue_id": appDelegate.activeVenue[@"id"], @"media_id": @2} delegate:self callback:@selector(doNothing:) type:@"string"];
         } else {
-            [[[PostRequest alloc] init] exec:@"post_shares/set" params:[NSString stringWithFormat:@"post_id=%@&media_id=2", post_id] delegate:self callback:@selector(doNothing:) type:@"string"];
+            [[[PostRequest alloc] init] exec:@"post_shares/set" params:@{@"post_id": post_id, @"media_id": @2} delegate:self callback:@selector(doNothing:) type:@"string"];
         }
     }
 }
@@ -141,9 +139,9 @@
         [self redeem];
     }];
     if (appDelegate.shareVenue) {
-        [[[PostRequest alloc] init] exec:@"venue_shares/set" params:[NSString stringWithFormat:@"venue_id=%@&media_id=1", appDelegate.activeVenue[@"id"]] delegate:self callback:@selector(doNothing:) type:@"string"];
+        [[[PostRequest alloc] init] exec:@"venue_shares/set" params:@{@"venue_id": appDelegate.activeVenue[@"id"], @"media_id": @1} delegate:self callback:@selector(doNothing:) type:@"string"];
     } else {
-        [[[PostRequest alloc] init] exec:@"post_shares/set" params:[NSString stringWithFormat:@"post_id=%@&media_id=1", post_id] delegate:self callback:@selector(doNothing:) type:@"string"];
+        [[[PostRequest alloc] init] exec:@"post_shares/set" params:@{@"post_id": post_id, @"media_id": @1} delegate:self callback:@selector(doNothing:) type:@"string"];
     }
 }
 
@@ -195,7 +193,7 @@
 
 - (void)redeem {
     if (appDelegate.redeeming != nil) {
-        [[[PostRequest alloc] init] exec:@"promotion_redemptions/set" params:[NSString stringWithFormat:@"promotion_id=%@", appDelegate.redeeming] delegate:self callback:@selector(redeemed:) type:@"string"];
+        [[[PostRequest alloc] init] exec:@"promotion_redemptions/set" params:@{@"promotion_id": appDelegate.redeeming} delegate:self callback:@selector(redeemed:) type:@"string"];
     } else {
         [self.navigationController popToRootViewControllerAnimated:NO];
     }
