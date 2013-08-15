@@ -38,13 +38,13 @@
 
 - (void)addPromotion {
     NSMutableDictionary *params = [@{@"venue_id": appDelegate.activeVenue[@"id"],
-                                    @"title": ((UITextField *)textFields[@0]).text,
-                                    @"description": ((UITextField *)textFields[@1]).text,
-                                    @"passcode": ((UITextField *)textFields[@2]).text,
-                                    @"start": @([(NSDate *)pickerValues[@3] timeIntervalSince1970]),
-                                    @"end": @([(NSDate *)pickerValues[@4] timeIntervalSince1970]),
+                                     @"title": ((UITextField *)textFields[@0]).text,
+                                     @"description": ((UITextField *)textFields[@1]).text,
+                                     @"passcode": ((UITextField *)textFields[@2]).text,
+                                     @"start": @([(NSDate *)pickerValues[@3] timeIntervalSince1970]),
+                                     @"end": @([(NSDate *)pickerValues[@4] timeIntervalSince1970]),
                                      @"maximum": ((UITextField *)textFields[@5]).text ? ((UITextField *)textFields[@5]).text : @0,
-                                    @"level": @(appDelegate.audience)} mutableCopy];
+                                     @"level": @(appDelegate.audience)} mutableCopy];
     if (appDelegate.activePromotion[@"id"] != nil) {
         params[@"promotion_id"] = appDelegate.activePromotion[@"id"];
     }

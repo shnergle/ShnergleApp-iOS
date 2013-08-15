@@ -27,7 +27,7 @@
     NSMutableURLRequest *urlRequest = [NSMutableURLRequest requestWithURL:url];
     [urlRequest setHTTPMethod:@"POST"];
     [urlRequest setHTTPBody:[paramsString dataUsingEncoding:NSUTF8StringEncoding]];
-    if ([@"image" isEqualToString:type]) [urlRequest setTimeoutInterval:4];
+    if ([@"image" isEqualToString : type]) [urlRequest setTimeoutInterval:4];
     response = [[NSMutableData alloc] init];
     responseObject = object;
     responseCallback = cb;

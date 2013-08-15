@@ -117,7 +117,7 @@
                                      @"distance": @(distanceInDegrees),
                                      @"level": appDelegate.level};
             [[[PostRequest alloc] init] exec:@"venues/get" params:params delegate:self callback:@selector(didFinishLoadingVenues:)];
-            
+
             [map animateToCameraPosition:[GMSCameraPosition cameraWithLatitude:map.myLocation.coordinate.latitude longitude:map.myLocation.coordinate.longitude zoom:13]];
 
             hasPositionLocked = YES;

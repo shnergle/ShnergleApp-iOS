@@ -94,9 +94,9 @@
     NSDate *birthdayDate = [dateFormatter dateFromString:birthday];
     NSDateComponents *ageComponents = [[NSCalendar currentCalendar]
                                        components:NSYearCalendarUnit
-                                       fromDate:birthdayDate
-                                       toDate:now
-                                       options:0];
+                                         fromDate:birthdayDate
+                                           toDate:now
+                                          options:0];
     return [ageComponents year];
 }
 

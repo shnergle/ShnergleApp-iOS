@@ -84,7 +84,7 @@
     } else {
         NSDictionary *params = @{@"venue_id": appDelegate.activeVenue[@"id"],
                                  @"staff_user_id": currentStaff[@"user_id"],
-                                 @"manager": [@"Manager" isEqualToString:appDelegate.staffType] ? @"true" : @"false",
+                                 @"manager": [@"Manager" isEqualToString: appDelegate.staffType] ? @"true" : @"false",
                                  @"promo_perm": promoSwitch.on ? @"true" : @"false"};
         [[[PostRequest alloc] init] exec:@"venue_staff/set" params:params delegate:self callback:@selector(didFinishSaving:) type:@"string"];
     }

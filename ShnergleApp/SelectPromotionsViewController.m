@@ -22,7 +22,7 @@
     //reusing activepromotion from venue page.
     appDelegate.activePromotion = nil;
 
-    self.tableView.backgroundColor = [UIColor colorWithRed:233/255. green:235/255. blue:240/255. alpha:1];
+    self.tableView.backgroundColor = [UIColor colorWithRed:233 / 255. green:235 / 255. blue:240 / 255. alpha:1];
 }
 
 - (void)viewDidAppear:(BOOL)animated {

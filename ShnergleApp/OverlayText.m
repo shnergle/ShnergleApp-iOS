@@ -108,8 +108,8 @@
     self.emailTextField.backgroundColor = [UIColor clearColor];
     self.websiteTextField.editable = NO;
     self.websiteTextField.backgroundColor = [UIColor clearColor];
-    
-    
+
+
     self.publishButton.hidden = YES;
     self.Done.hidden = YES;
     self.Change.hidden = NO;
@@ -243,8 +243,8 @@
     else [self swipeUp:sender];
 }
 
--(void)setContactDetails{
-    NSLog(@" Halleluja: %@",appDelegate.activeVenue);
+- (void)setContactDetails {
+    NSLog(@" Halleluja: %@", appDelegate.activeVenue);
     self.phoneTextField.text = appDelegate.activeVenue[@"phone"];
     self.emailTextField.text = appDelegate.activeVenue[@"email"];
     self.websiteTextField.text = appDelegate.activeVenue[@"website"];
@@ -277,12 +277,12 @@
         self.summaryContentTextField.hidden = NO;
         self.summaryHeadlineTextField.hidden = NO;
         self.postUpdateButton.hidden = YES;
-        
+
         self.emailTextField.hidden = NO;
         self.phoneTextField.hidden = NO;
         self.websiteTextField.hidden = NO;
         [self setContactDetails];
-        
+
         self.publishButton.hidden = YES;
         self.intentionHeightConstraints.constant = 0;
 

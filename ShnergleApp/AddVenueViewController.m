@@ -49,12 +49,12 @@ typedef enum {
                 if (self.userData[@6] != nil) [address addObject:self.userData[@6]];
                 if ([address count] == 0) [address addObject:@""];
 
-                NSMutableDictionary *params = [@{@"name": self.userData[@1],
-                                                 @"category_id": appDelegate.addVenueTypeId,
-                                                 @"address": [address componentsJoinedByString:@", "],
-                                                 @"country": !error ? [((CLPlacemark *)placemark[0]).ISOcountryCode lowercaseString] : @"--",
-                                                 @"lat": @(marker.position.latitude),
-                                                 @"lon": @(marker.position.longitude)} mutableCopy];
+                NSMutableDictionary * params = [@{@"name": self.userData[@1],
+                                                  @"category_id": appDelegate.addVenueTypeId,
+                                                  @"address": [address componentsJoinedByString:@", "],
+                                                  @"country": !error ? [((CLPlacemark *)placemark[0]).ISOcountryCode lowercaseString] : @"--",
+                                                  @"lat": @(marker.position.latitude),
+                                                  @"lon": @(marker.position.longitude)} mutableCopy];
 
                 if (appDelegate.venueDetailsContent && workSwitch.on) {
                     if (appDelegate.venueDetailsContent[@(8)]) {
