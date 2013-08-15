@@ -29,6 +29,10 @@
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell"];
     if (indexPath.row == 0) {
         cell.imageView.image = [UIImage imageNamed:@"glyphicons_228_gbp"];
+        if (cell.selected == YES) {
+           UIViewController *vc = [self.storyboard instantiateViewControllerWithIdentifier:@"ImpViewController"];
+            [self.navigationController pushViewController:vc animated:YES];
+        }
     } else if (indexPath.row == 1) {
         cell.imageView.image = [UIImage imageNamed:@"glyphicons_280_settings"];
     } else if (indexPath.row == 2) {
@@ -38,12 +42,18 @@
     return cell;
 }
 
+
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     return tableView.bounds.size.height / 3;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    
 }
+
+
+
+
 
 @end
