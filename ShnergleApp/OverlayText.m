@@ -94,7 +94,14 @@
     [self.summaryHeadlineTextField resignFirstResponder];
     self.summaryHeadlineTextField.enabled = NO;
     self.summaryHeadlineTextField.backgroundColor = [UIColor clearColor];
-
+    self.phoneTextField.editable = NO;
+    self.phoneTextField.backgroundColor = [UIColor clearColor];
+    self.emailTextField.editable = NO;
+    self.emailTextField.backgroundColor = [UIColor clearColor];
+    self.websiteTextField.editable = NO;
+    self.websiteTextField.backgroundColor = [UIColor clearColor];
+    
+    
     self.publishButton.hidden = YES;
     self.Done.hidden = YES;
     self.Change.hidden = NO;
@@ -103,12 +110,15 @@
     self.summaryHeadlineTextField.layer.borderWidth = 0.0f;
     self.summaryHeadlineTextField.layer.cornerRadius = 0.0f;
     self.summaryContentTextField.layer.cornerRadius = 0.0f;
+    self.phoneTextField.layer.borderWidth = 0.0f;
+    self.websiteTextField.layer.borderWidth = 0.0f;
+    self.emailTextField.layer.borderWidth = 0.0f;
 
     [[[PostRequest alloc] init] exec:@"venues/set"
                               params:[NSString stringWithFormat:
-                                      @"venue_id=%@&tonight=%@&headline=%@",
+                                      @"venue_id=%@&tonight=%@&headline=%@&phone=%@&website=%@&email=%@",
                                       appDelegate.activeVenue[@"id"],
-                                      self.summaryContentTextField.text, self.summaryHeadlineTextField.text] delegate:self
+                                      self.summaryContentTextField.text, self.summaryHeadlineTextField.text,self.phoneTextField.text,self.websiteTextField.text,self.emailTextField.text] delegate:self
                             callback:@selector(doNothing:)
                                 type:@"string"];
 }
@@ -124,6 +134,21 @@
     self.Change.hidden = YES;
     self.summaryContentTextField.editable = YES;
     self.summaryHeadlineTextField.enabled = YES;
+    self.phoneTextField.editable = YES;
+    self.phoneTextField.backgroundColor = [UIColor whiteColor];
+    self.phoneTextField.layer.borderColor = [UIColor grayColor].CGColor;
+    self.phoneTextField.layer.borderWidth = 1;
+    self.phoneTextField.layer.cornerRadius = 5;
+    self.websiteTextField.editable = YES;
+    self.websiteTextField.backgroundColor = [UIColor whiteColor];
+    self.websiteTextField.layer.borderColor = [UIColor grayColor].CGColor;
+    self.websiteTextField.layer.borderWidth = 1;
+    self.websiteTextField.layer.cornerRadius = 5;
+    self.emailTextField.editable = YES;
+    self.emailTextField.backgroundColor = [UIColor whiteColor];
+    self.emailTextField.layer.borderColor = [UIColor grayColor].CGColor;
+    self.emailTextField.layer.borderWidth = 1;
+    self.emailTextField.layer.cornerRadius = 5;
     [self.summaryContentTextField becomeFirstResponder];
     self.summaryHeadlineTextField.layer.borderColor = [UIColor grayColor].CGColor;
     self.summaryContentTextField.layer.borderColor = [UIColor grayColor].CGColor;
@@ -207,7 +232,7 @@
 }
 
 -(void)setContactDetails{
-    NSLog(@"%@",appDelegate.activeVenue);
+    NSLog(@" Halleluja: %@",appDelegate.activeVenue);
     self.phoneTextField.text = appDelegate.activeVenue[@"phone"];
     self.emailTextField.text = appDelegate.activeVenue[@"email"];
     self.websiteTextField.text = appDelegate.activeVenue[@"website"];
@@ -225,8 +250,11 @@
     self.postUpdateButton.hidden = YES;
     self.publishButton.hidden = YES;
     self.emailTextField.hidden = YES;
+    self.emailTextField.dataDetectorTypes = UIDataDetectorTypeAll;
     self.phoneTextField.hidden = YES;
+    self.phoneTextField.dataDetectorTypes = UIDataDetectorTypePhoneNumber;
     self.websiteTextField.hidden = YES;
+    self.websiteTextField.dataDetectorTypes = UIDataDetectorTypeLink;
 
     if ([appDelegate.activeVenue[@"verified"] intValue] == 1) {
         self.promotionImage.hidden = NO;
