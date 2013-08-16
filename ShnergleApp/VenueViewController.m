@@ -93,7 +93,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     following = [appDelegate.activeVenue[@"following"] intValue] == 0 ? NO : YES;
-
+    appDelegate.shareImage = nil;
     cellImages = [NSMutableDictionary dictionary];
 
     if (!appDelegate.activeVenue[@"tonight"]) {
