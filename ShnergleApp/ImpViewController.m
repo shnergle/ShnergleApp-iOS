@@ -26,8 +26,28 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+     self.tableData = @[@"Estimated Revenue from Shnergle", @"Customers Checking in", @"Demographics of Check-Ins", @"Audience viewing your venue", @"Audience Demographics", @"Venue followers", @"Conversion rates"];
 	// Do any additional setup after loading the view.
 }
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    return [self.tableData count];
+}
+
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:[NSString stringWithFormat:@"Cell%d", indexPath.row]];
+   /* if (indexPath.row == 0) {
+        cell.imageView.image = [UIImage imageNamed:@"glyphicons_228_gbp"];
+    } else if (indexPath.row == 1) {
+        cell.imageView.image = [UIImage imageNamed:@"glyphicons_280_settings"];
+    } else if (indexPath.row == 2) {
+        cell.imageView.image = [UIImage imageNamed:@"glyphicons_194_circle_question_mark"];
+    }*/
+    cell.textLabel.text = self.tableData[indexPath.row];
+    return cell;
+}
+
 
 - (void)didReceiveMemoryWarning
 {
@@ -43,7 +63,7 @@
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
-    [self.navigationController setNavigationBarHidden:YES animated:NO];
+    [self.navigationController setNavigationBarHidden:NO animated:YES];
     self.navigationItem.title = @"Important Stuff";
 }
 

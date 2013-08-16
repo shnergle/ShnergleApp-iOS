@@ -11,5 +11,7 @@
 @interface ImpViewController : CustomBackViewController <UICollectionViewDelegate, UICollectionViewDataSource>
 
 - (IBAction)showInfo:(id)sender;
+//@property (weak, nonatomic) IBOutlet UITableView *tableView;
+@property (strong, nonatomic) NSArray *tableData;
 
 @end
