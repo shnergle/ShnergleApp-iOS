@@ -71,6 +71,10 @@
     isUp = YES;
 }
 
+- (IBAction)tappedContact:(id)sender {
+    NSLog(@"%@", [sender class]);
+}
+
 - (IBAction)tappedGoing:(id)sender {
     self.tapGoing.enabled = NO;
     self.thinkingView.enabled = NO;
