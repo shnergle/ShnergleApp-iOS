@@ -58,45 +58,23 @@
            NSDictionary<FBGraphUser> *user,
            NSError *error) {
             if (!error) {
-                appDelegate.fullName = [NSString stringWithFormat:@"%@ %@", user.first_name, user.last_name];
+                appDelegate.fullName = [NSString stringWithFormat:@"%@ %@", [self orEmpty:user.first_name], [self orEmpty:user.last_name]];
                 appDelegate.facebookId = user.id;
-                NSMutableString *params = [[NSMutableString alloc] initWithString:@"facebook="];
-                [params appendString:user.username];
-                [params appendString:@"&forename="];
-                [params appendString:user.first_name];
-                [params appendString:@"&surname="];
-                [params appendString:user.last_name];
-                [params appendString:@"&email="];
-                [params appendString:user[@"email"]];
-                [params appendString:@"&gender="];
-                [params appendString:[user[@"gender"] substringToIndex:1]];
-                [params appendString:@"&country="];
-                [params appendString:[[user[@"locale"] substringFromIndex:3] lowercaseString]];
-                [params appendString:@"&language="];
-                [params appendString:user[@"locale"]];
-                [params appendString:@"&app_version="];
-                [params appendString:[[NSBundle mainBundle] infoDictionary][@"CFBundleVersion"]];
-                [params appendString:@"&iphone_model="];
-                [params appendString:[self machineName]];
-                [params appendString:@"&ios_version="];
-                [params appendString:[UIDevice currentDevice].systemVersion];
-                [params appendString:@"&birth_day="];
-                [params appendString:[user[@"birthday"] substringWithRange:NSMakeRange(3, 2)]];
-                [params appendString:@"&birth_month="];
-                [params appendString:[user[@"birthday"] substringToIndex:2]];
-                [params appendString:@"&birth_year="];
-                [params appendString:[user[@"birthday"] substringFromIndex:6]];
-                NSDate *now = [NSDate date];
-                NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
-                dateFormatter.dateFormat = @"MM/dd/yyyy";
-                NSDate *birthday = [dateFormatter dateFromString:user[@"birthday"]];
-                NSDateComponents *ageComponents = [[NSCalendar currentCalendar]
-                                                   components:NSYearCalendarUnit
-                                                     fromDate:birthday
-                                                       toDate:now
-                                                      options:0];
-                NSInteger age = [ageComponents year];
-                [params appendFormat:@"&age=%d", age];
+
+                NSDictionary *params = @{@"facebook": [self orEmpty:user.username],
+                                         @"forename": [self orEmpty:user.first_name],
+                                         @"surname": [self orEmpty:user.last_name],
+                                         @"email": [self orEmpty:user[@"email"]],
+                                         @"gender": [self orEmpty:[user[@"gender"] substringToIndex:1]],
+                                         @"country": [self orEmpty:[[user[@"locale"] substringFromIndex:3] lowercaseString]],
+                                         @"language": [self orEmpty:user[@"locale"]],
+                                         @"app_version": [[NSBundle mainBundle] infoDictionary][@"CFBundleVersion"],
+                                         @"iphone_model": [self machineName],
+                                         @"ios_version": [UIDevice currentDevice].systemVersion,
+                                         @"birth_day": [self orEmpty:[user[@"birthday"] substringWithRange:NSMakeRange(3, 2)]],
+                                         @"birth_month": [self orEmpty:[user[@"birthday"] substringToIndex:2]],
+                                         @"birth_year": [self orEmpty:[user[@"birthday"] substringFromIndex:6]],
+                                         @"age": @([self age:user[@"birthday"]])};
 
                 if (![[[PostRequest alloc] init] exec:@"users/set" params:params delegate:self callback:@selector(postResponse:)]) [self alert];
             } else {
@@ -107,6 +85,23 @@
     } else {
         self.buttonLoginLogout.hidden = NO;
     }
+}
+
+- (NSString *)orEmpty:(NSString *)string {
+    return string ? string : @"";
+}
+
+- (NSInteger)age:(NSString *)birthday {
+    NSDate *now = [NSDate date];
+    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+    dateFormatter.dateFormat = @"MM/dd/yyyy";
+    NSDate *birthdayDate = [dateFormatter dateFromString:birthday];
+    NSDateComponents *ageComponents = [[NSCalendar currentCalendar]
+                                       components:NSYearCalendarUnit
+                                         fromDate:birthdayDate
+                                           toDate:now
+                                          options:0];
+    return [ageComponents year];
 }
 
 - (NSString *)machineName {
@@ -122,7 +117,7 @@
         appDelegate.saveLocally = [response[@"save_locally"] intValue] == 1;
         appDelegate.optInTop5 = [response[@"top5"] intValue] == 1;
         newUser = [response[@"joined"] intValue] + 10 > [[NSDate date] timeIntervalSince1970];
-        [[[PostRequest alloc] init] exec:@"rankings/get" params:@"" delegate:self callback:@selector(gotRank:)];
+        [[[PostRequest alloc] init] exec:@"rankings/get" params:nil delegate:self callback:@selector(gotRank:)];
     } else {
         [self alert];
     }
@@ -142,7 +137,7 @@
 
 - (void)gotRank:(NSDictionary *)response {
     appDelegate.level = [response[@"level"] stringValue];
-    [[[PostRequest alloc] init] exec:@"venues/get" params:[NSString stringWithFormat:@"own=true&level=%@", appDelegate.level] delegate:self callback:@selector(gotOwnVenues:)];
+    [[[PostRequest alloc] init] exec:@"venues/get" params:@{@"own": @"true", @"level": appDelegate.level} delegate:self callback:@selector(gotOwnVenues:)];
 }
 
 - (IBAction)buttonClickHandler:(id)sender {

@@ -13,6 +13,7 @@
 		801D4EDD175E1FCF007212E0 /* highlight_distance_02_long@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 801D4EDA175E1FCF007212E0 /* highlight_distance_02_long@2x.png */; };
 		801D4EDE175E1FCF007212E0 /* highlight_distance_02_transparent@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 801D4EDB175E1FCF007212E0 /* highlight_distance_02_transparent@2x.png */; };
 		801D4EDF175E1FCF007212E0 /* highlight_distance@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 801D4EDC175E1FCF007212E0 /* highlight_distance@2x.png */; };
+		801FA80C17BE4FB00006B589 /* No_activity.png in Resources */ = {isa = PBXBuildFile; fileRef = 801FA80B17BE4FB00006B589 /* No_activity.png */; };
 		80376A9417748F1500524F54 /* glyphicons_001_leaf.png in Resources */ = {isa = PBXBuildFile; fileRef = 8037674C17748F0C00524F54 /* glyphicons_001_leaf.png */; };
 		80376A9517748F1500524F54 /* glyphicons_001_leaf@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 8037674D17748F0C00524F54 /* glyphicons_001_leaf@2x.png */; };
 		80376A9617748F1500524F54 /* glyphicons_002_dog.png in Resources */ = {isa = PBXBuildFile; fileRef = 8037674E17748F0C00524F54 /* glyphicons_002_dog.png */; };
@@ -990,6 +991,7 @@
 		801D4EDA175E1FCF007212E0 /* highlight_distance_02_long@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "highlight_distance_02_long@2x.png"; sourceTree = "<group>"; };
 		801D4EDB175E1FCF007212E0 /* highlight_distance_02_transparent@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "highlight_distance_02_transparent@2x.png"; sourceTree = "<group>"; };
 		801D4EDC175E1FCF007212E0 /* highlight_distance@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "highlight_distance@2x.png"; sourceTree = "<group>"; };
+		801FA80B17BE4FB00006B589 /* No_activity.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = No_activity.png; sourceTree = "<group>"; };
 		8037674C17748F0C00524F54 /* glyphicons_001_leaf.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = glyphicons_001_leaf.png; sourceTree = "<group>"; };
 		8037674D17748F0C00524F54 /* glyphicons_001_leaf@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "glyphicons_001_leaf@2x.png"; sourceTree = "<group>"; };
 		8037674E17748F0C00524F54 /* glyphicons_002_dog.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = glyphicons_002_dog.png; sourceTree = "<group>"; };
@@ -2961,6 +2963,8 @@
 				EE4C2E2117B91E20007CD51A /* HelpViewController.m */,
 				CD7C1B0E175B424400902AA9 /* ImageCache.h */,
 				CD7C1B0F175B424400902AA9 /* ImageCache.m */,
+				EE4D8F9617BBD5180012A453 /* ImpViewController.h */,
+				EE4D8F9717BBD5190012A453 /* ImpViewController.m */,
 				EE8FF813172A9CFD0003A8E1 /* LoginScreenController.h */,
 				EE8FF814172A9CFD0003A8E1 /* LoginScreenController.m */,
 				808F13E016FB6A5C00B66E6D /* MainStoryboard.storyboard */,
@@ -2977,6 +2981,8 @@
 				CDB72C2D175A5F2B00018271 /* PostRequest.m */,
 				EE0A806E1733D97300792AE4 /* ProfileViewController.h */,
 				EE0A806F1733D97300792AE4 /* ProfileViewController.m */,
+				CDCDF9CB17A19A950036EA74 /* PromotionAudienceViewController.h */,
+				CDCDF9CC17A19A960036EA74 /* PromotionAudienceViewController.m */,
 				80D6FF6517219536008A3AFD /* PromotionView.h */,
 				80D6FF6617219536008A3AFD /* PromotionView.m */,
 				80D6FF63172191A4008A3AFD /* PromotionView.xib */,
@@ -2988,8 +2994,6 @@
 				80ABCC01176F2012002718A1 /* SearchResultsView.h */,
 				80ABCC02176F2012002718A1 /* SearchResultsView.m */,
 				80ABCC04176F2037002718A1 /* SearchResultsView.xib */,
-				CDCDF9CB17A19A950036EA74 /* PromotionAudienceViewController.h */,
-				CDCDF9CC17A19A960036EA74 /* PromotionAudienceViewController.m */,
 				809F6AF6179FD52600C67D77 /* SelectPromotionsViewController.h */,
 				809F6AF7179FD52600C67D77 /* SelectPromotionsViewController.m */,
 				CDAD1D2D175E011100581713 /* ShareViewController.h */,
@@ -3012,8 +3016,6 @@
 				80B957D516FC65F90044A505 /* VenueViewController.m */,
 				80B400BF17540CCA00A377D9 /* Images */,
 				808F13CF16FB6A5C00B66E6D /* Supporting Files */,
-				EE4D8F9617BBD5180012A453 /* ImpViewController.h */,
-				EE4D8F9717BBD5190012A453 /* ImpViewController.m */,
 			);
 			path = ShnergleApp;
 			sourceTree = "<group>";
@@ -3056,6 +3058,7 @@
 				80ABCC06176F68E5002718A1 /* background.png */,
 				CD2957EF17A26FAB00B72702 /* claimvenue.png */,
 				80B401171754F2D500A377D9 /* comment.png */,
+				801FA80B17BE4FB00006B589 /* No_activity.png */,
 				80B400C317540CCA00A377D9 /* Day_Highlight_menu.png */,
 				EE0B37E0175E108100B6EE58 /* FB-f-Logo__blue_50.png */,
 				80B400C417540CCA00A377D9 /* greenbutton.png */,
@@ -3659,6 +3662,7 @@
 				80376D2B17748F1500524F54 /* glyphicons_332_certificate@2x.png in Resources */,
 				80376BE917748F1500524F54 /* glyphicons_171_fast_backward@2x.png in Resources */,
 				80376BA017748F1500524F54 /* glyphicons_135_inbox_out.png in Resources */,
+				801FA80C17BE4FB00006B589 /* No_activity.png in Resources */,
 				80376DA017748F1500524F54 /* glyphicons_391_evernote.png in Resources */,
 				80376CEF17748F1500524F54 /* glyphicons_302_temple_christianity_church@2x.png in Resources */,
 				80376C0817748F1500524F54 /* glyphicons_187_more.png in Resources */,

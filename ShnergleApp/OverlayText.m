@@ -19,6 +19,7 @@
 @implementation OverlayText
 
 - (IBAction)share:(id)sender {
+    if (!appDelegate.shareImage) return;
     UIViewController *caller = (UIViewController *)self.nextResponder.nextResponder;
     UIViewController *vc = [caller.storyboard instantiateViewControllerWithIdentifier:@"ShareViewController"];
     appDelegate.shareVenue = YES;
@@ -70,16 +71,28 @@
     isUp = YES;
 }
 
+- (IBAction)tappedContact:(id)sender {
+    NSLog(@"%@", [sender class]);
+}
+
 - (IBAction)tappedGoing:(id)sender {
     self.tapGoing.enabled = NO;
     self.thinkingView.enabled = NO;
     self.goingView.enabled = NO;
-    [[[PostRequest alloc]init]exec:@"venue_rsvps/set" params:[NSString stringWithFormat:@"venue_id=%@&going=%@&from_time=%d&until_time=%d", appDelegate.activeVenue[@"id"], @"true", [self fromTime], [self untilTime]] delegate:self callback:@selector(didIntent:)];
+
+    NSDictionary *params = @{@"venue_id": appDelegate.activeVenue[@"id"],
+                             @"going": @"true",
+                             @"from_time": @([self fromTime]),
+                             @"until_time": @([self untilTime])};
+    [[[PostRequest alloc] init] exec:@"venue_rsvps/set" params:params delegate:self callback:@selector(didIntent:)];
 }
 
 - (IBAction)tappedThinking:(id)sender {
     self.thinkingView.enabled = NO;
-    NSString *params = [NSString stringWithFormat:@"venue_id=%@&maybe=%@&from_time=%d&until_time=%d", appDelegate.activeVenue[@"id"], @"true", [self fromTime], [self untilTime]];
+    NSDictionary *params = @{@"venue_id": appDelegate.activeVenue[@"id"],
+                             @"maybe": @"true",
+                             @"from_time": @([self fromTime]),
+                             @"until_time": @([self untilTime])};
     [[[PostRequest alloc] init] exec:@"venue_rsvps/set" params:params delegate:self callback:@selector(didIntent:)];
 }
 
@@ -94,6 +107,13 @@
     [self.summaryHeadlineTextField resignFirstResponder];
     self.summaryHeadlineTextField.enabled = NO;
     self.summaryHeadlineTextField.backgroundColor = [UIColor clearColor];
+    self.phoneTextField.enabled= NO;
+    self.phoneTextField.backgroundColor = [UIColor clearColor];
+    self.emailTextField.enabled = NO;
+    self.emailTextField.backgroundColor = [UIColor clearColor];
+    self.websiteTextField.enabled = NO;
+    self.websiteTextField.backgroundColor = [UIColor clearColor];
+
 
     self.publishButton.hidden = YES;
     self.Done.hidden = YES;
@@ -103,12 +123,19 @@
     self.summaryHeadlineTextField.layer.borderWidth = 0.0f;
     self.summaryHeadlineTextField.layer.cornerRadius = 0.0f;
     self.summaryContentTextField.layer.cornerRadius = 0.0f;
+    self.phoneTextField.layer.borderWidth = 0.0f;
+    self.websiteTextField.layer.borderWidth = 0.0f;
+    self.emailTextField.layer.borderWidth = 0.0f;
 
+    NSDictionary *params = @{@"venue_id": appDelegate.activeVenue[@"id"],
+                             @"tonight": self.summaryContentTextField.text,
+                             @"headline": self.summaryHeadlineTextField.text,
+                             @"phone": self.phoneTextField.text,
+                             @"website": self.websiteTextField.text,
+                             @"email": self.emailTextField.text};
     [[[PostRequest alloc] init] exec:@"venues/set"
-                              params:[NSString stringWithFormat:
-                                      @"venue_id=%@&tonight=%@&headline=%@",
-                                      appDelegate.activeVenue[@"id"],
-                                      self.summaryContentTextField.text, self.summaryHeadlineTextField.text] delegate:self
+                              params:params
+                            delegate:self
                             callback:@selector(doNothing:)
                                 type:@"string"];
 }
@@ -124,6 +151,21 @@
     self.Change.hidden = YES;
     self.summaryContentTextField.editable = YES;
     self.summaryHeadlineTextField.enabled = YES;
+    self.phoneTextField.enabled = YES;
+    self.phoneTextField.backgroundColor = [UIColor whiteColor];
+    self.phoneTextField.layer.borderColor = [UIColor grayColor].CGColor;
+    self.phoneTextField.layer.borderWidth = 1;
+    self.phoneTextField.layer.cornerRadius = 5;
+    self.websiteTextField.enabled = YES;
+    self.websiteTextField.backgroundColor = [UIColor whiteColor];
+    self.websiteTextField.layer.borderColor = [UIColor grayColor].CGColor;
+    self.websiteTextField.layer.borderWidth = 1;
+    self.websiteTextField.layer.cornerRadius = 5;
+    self.emailTextField.enabled = YES;
+    self.emailTextField.backgroundColor = [UIColor whiteColor];
+    self.emailTextField.layer.borderColor = [UIColor grayColor].CGColor;
+    self.emailTextField.layer.borderWidth = 1;
+    self.emailTextField.layer.cornerRadius = 5;
     [self.summaryContentTextField becomeFirstResponder];
     self.summaryHeadlineTextField.layer.borderColor = [UIColor grayColor].CGColor;
     self.summaryContentTextField.layer.borderColor = [UIColor grayColor].CGColor;
@@ -206,8 +248,8 @@
     else [self swipeUp:sender];
 }
 
--(void)setContactDetails{
-    NSLog(@"%@",appDelegate.activeVenue);
+- (void)setContactDetails {
+    NSLog(@" Halleluja: %@", appDelegate.activeVenue);
     self.phoneTextField.text = appDelegate.activeVenue[@"phone"];
     self.emailTextField.text = appDelegate.activeVenue[@"email"];
     self.websiteTextField.text = appDelegate.activeVenue[@"website"];
@@ -237,12 +279,12 @@
         self.summaryContentTextField.hidden = NO;
         self.summaryHeadlineTextField.hidden = NO;
         self.postUpdateButton.hidden = YES;
-        
+
         self.emailTextField.hidden = NO;
         self.phoneTextField.hidden = NO;
         self.websiteTextField.hidden = NO;
         [self setContactDetails];
-        
+
         self.publishButton.hidden = YES;
         self.intentionHeightConstraints.constant = 0;
 
@@ -291,11 +333,18 @@
 
 - (void)loadVenueIntentions {
     [self makeToastActivity];
-    [[[PostRequest alloc]init]exec:@"venue_rsvps/get" params:[NSString stringWithFormat:@"venue_id=%@&from_time=%d&until_time=%d", appDelegate.activeVenue[@"id"], [self fromTime], [self untilTime]] delegate:self callback:@selector(didFinishGettingRsvps:)];
+    NSDictionary *params = @{@"venue_id": appDelegate.activeVenue[@"id"],
+                             @"from_time": @([self fromTime]),
+                             @"until_time": @([self untilTime])};
+    [[[PostRequest alloc] init] exec:@"venue_rsvps/get" params:params delegate:self callback:@selector(didFinishGettingRsvps:)];
 }
 
 - (void)hasAlreadyRSVPd {
-    [[[PostRequest alloc]init]exec:@"venue_rsvps/get" params:[NSString stringWithFormat:@"venue_id=%@&from_time=%d&until_time=%d&own=true", appDelegate.activeVenue[@"id"], [self fromTime], [self untilTime]] delegate:self callback:@selector(didFinishGettingAlreadyRSVPd:)];
+    NSDictionary *params = @{@"venue_id": appDelegate.activeVenue[@"id"],
+                             @"own": @"true",
+                             @"from_time": @([self fromTime]),
+                             @"until_time": @([self untilTime])};
+    [[[PostRequest alloc] init] exec:@"venue_rsvps/get" params:params delegate:self callback:@selector(didFinishGettingAlreadyRSVPd:)];
 }
 
 - (void)didFinishGettingAlreadyRSVPd:(id)response {
@@ -349,7 +398,7 @@
 }
 
 - (void)didFinishUpdateVenueDetails:(id)response {
-    [[[PostRequest alloc] init] exec:@"venue_managers/set" params:[NSString stringWithFormat:@"venue_id=%@", appDelegate.activeVenue[@"id"]] delegate:self callback:@selector(didFinishClaiming:)];
+    [[[PostRequest alloc] init] exec:@"venue_managers/set" params:@{@"venue_id": appDelegate.activeVenue[@"id"]} delegate:self callback:@selector(didFinishClaiming:)];
 }
 
 - (void)didFinishClaiming:(id)response {
@@ -357,23 +406,19 @@
 }
 
 - (void)registerVenue {
-    NSMutableString *params = [[NSMutableString alloc] initWithString:@"email_verified=0&venue_id="];
-    [params appendString:[appDelegate.activeVenue[@"id"] stringValue]];
+    NSMutableDictionary *params = [@{@"email_verified": @0, @"venue_id": appDelegate.activeVenue[@"id"]} mutableCopy];
 
     if (appDelegate.venueDetailsContent[@(8)]) {
-        [params appendString:@"&phone="];
-        [params appendString:appDelegate.venueDetailsContent[@(8)]];
+        params[@"phone"] = appDelegate.venueDetailsContent[@(8)];
     }
     if (appDelegate.venueDetailsContent[@(9)]) {
-        [params appendString:@"&email="];
-        [params appendString:appDelegate.venueDetailsContent[@(9)]];
+        params[@"email"] = appDelegate.venueDetailsContent[@(9)];
     }
     if (appDelegate.venueDetailsContent[@(10)]) {
-        [params appendString:@"&website="];
-        [params appendString:appDelegate.venueDetailsContent[@(10)]];
+        params[@"website"] = appDelegate.venueDetailsContent[@(10)];
     }
 
-    [[[PostRequest alloc]init]exec:@"venues/set" params:params delegate:self callback:@selector(didFinishUpdateVenueDetails:)];
+    [[[PostRequest alloc] init] exec:@"venues/set" params:params delegate:self callback:@selector(didFinishUpdateVenueDetails:)];
 }
 
 @end

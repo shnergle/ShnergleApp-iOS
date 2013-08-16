@@ -15,7 +15,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self imageSetup];
-    [[[PostRequest alloc] init] exec:@"post_views/set" params:[NSString stringWithFormat:@"post_id=%@", appDelegate.shareActivePostId] delegate:self callback:@selector(doNothing:) type:@"string"];
+    [[[PostRequest alloc] init] exec:@"post_views/set" params:@{@"post_id": appDelegate.shareActivePostId} delegate:self callback:@selector(doNothing:) type:@"string"];
 }
 
 - (void)setImage:(UIImage *)img withAuthor:(NSString *)user withComment:(NSString *)msg withTimestamp:(NSString *)time withId:(NSString *)post_id {
@@ -36,7 +36,7 @@
 }
 
 - (IBAction)likeButtonPressed:(id)sender {
-    [[[PostRequest alloc] init] exec:@"post_likes/set" params:[NSString stringWithFormat:@"post_id=%@", postId] delegate:self callback:@selector(likedPostFinished:)];
+    [[[PostRequest alloc] init] exec:@"post_likes/set" params:@{@"post_id": appDelegate.shareActivePostId} delegate:self callback:@selector(likedPostFinished:)];
 }
 
 - (void)likedPostFinished:(id)response {
@@ -64,9 +64,9 @@
     if (buttonIndex != alertView.cancelButtonIndex) {
         [self.view makeToastActivity];
         if (appDelegate.venueStatus == Manager) {
-            [[[PostRequest alloc] init] exec:@"posts/set" params:[NSString stringWithFormat:@"post_id=%@&hide=true", postId] delegate:self callback:@selector(doNothing:) type:@"string"];
+            [[[PostRequest alloc] init] exec:@"posts/set" params:@{@"post_id": appDelegate.shareActivePostId, @"hide": @"true"} delegate:self callback:@selector(doNothing:) type:@"string"];
         } else {
-            [[[PostRequest alloc] init] exec:@"post_reports/set" params:[NSString stringWithFormat:@"post_id=%@", postId] delegate:self callback:@selector(doNothing:) type:@"string"];
+            [[[PostRequest alloc] init] exec:@"post_reports/set" params:@{@"post_id": appDelegate.shareActivePostId} delegate:self callback:@selector(doNothing:) type:@"string"];
         }
     }
 }

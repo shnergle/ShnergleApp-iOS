@@ -37,7 +37,7 @@
 
 - (void)searchBarSearchButtonClicked:(UISearchBar *)searchBar {
     [self.view makeToastActivity];
-    [[[PostRequest alloc]init] exec:@"users/get" params:[NSString stringWithFormat:@"term=%@", searchBar.text] delegate:self callback:@selector(didFinishSearching:)];
+    [[[PostRequest alloc] init] exec:@"users/get" params:@{@"term": searchBar.text} delegate:self callback:@selector(didFinishSearching:)];
 }
 
 - (void)didFinishSearching:(NSArray *)response {
@@ -52,7 +52,11 @@
         return;
     }
     [self.view makeToastActivity];
-    NSString *params = [NSString stringWithFormat:@"venue_id=%@&staff_user_id=%@&manager=%@&promo_perm=%@", [appDelegate.activeVenue[@"id"] stringValue], [results[indexPath.row][@"id"] stringValue], @"false", @"false"];
+
+    NSDictionary *params = @{@"venue_id": appDelegate.activeVenue[@"id"],
+                             @"staff_user_id": results[indexPath.row][@"id"],
+                             @"manager": @"false",
+                             @"promo_perm": @"false"};
     [[[PostRequest alloc] init] exec:@"venue_staff/set" params:params delegate:self callback:@selector(didFinishAddingStaff:) type:@"string"];
 }
 

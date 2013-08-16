@@ -72,6 +72,7 @@
 @property (weak, nonatomic) IBOutlet UIImageView *Change;
 
 
+- (IBAction)tappedContact:(id)sender;
 
 - (IBAction)tappedGoing:(id)sender;
 - (IBAction)tappedThinking:(id)sender;

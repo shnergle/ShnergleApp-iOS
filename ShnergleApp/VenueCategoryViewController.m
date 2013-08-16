@@ -18,7 +18,7 @@
     self.navigationItem.title = @"+ Add Place";
     categories = [NSMutableArray array];
 
-    [[[PostRequest alloc] init] exec:@"venue_categories/get" params:@"" delegate:self callback:@selector(postResponse:)];
+    [[[PostRequest alloc] init] exec:@"venue_categories/get" params:nil delegate:self callback:@selector(postResponse:)];
 }
 
 - (void)postResponse:(id)response {

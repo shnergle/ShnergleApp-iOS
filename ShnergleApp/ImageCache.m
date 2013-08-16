@@ -29,7 +29,8 @@ static NSCache *cache;
         [self received:[cache objectForKey:key]];
     } else {
         NSString *path = @"images/get";
-        NSString *params = [NSString stringWithFormat:@"entity=%@&entity_id=%@", type, type_id];
+        NSDictionary *params = @{@"entity": type,
+                                 @"entity_id": type_id};
         [[[PostRequest alloc] init] exec:path params:params delegate:self callback:@selector(received:) type:@"image"];
     }
 }
@@ -61,6 +62,10 @@ static NSCache *cache;
     [invocation setTarget:responseObject];
     [invocation retainArguments];
     [invocation invoke];
+}
+
+- (void)didReceiveMemoryWarning:(id)param {
+    [cache removeAllObjects];
 }
 
 @end

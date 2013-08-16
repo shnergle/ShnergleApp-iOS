@@ -74,7 +74,7 @@
     self.navigationController.navigationBar.clipsToBounds = YES;
     self.navBar.clipsToBounds = YES;
 
-    [[[PostRequest alloc] init] exec:@"rankings/get" params:@"" delegate:self callback:@selector(postResponse:)];
+    [[[PostRequest alloc] init] exec:@"rankings/get" params:nil delegate:self callback:@selector(postResponse:)];
 }
 
 - (void)postResponse:(NSDictionary *)result {

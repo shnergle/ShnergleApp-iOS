@@ -9,5 +9,7 @@
 @interface NSObject (MissingMethods)
 
 - (void)didReceiveMemoryWarning:(id)param;
+- (id)stringValue;
+- (NSString *)stringByAddingPercentEncodingWithAllowedCharacters:(NSCharacterSet *)allowedCharacters;
 
 @end
