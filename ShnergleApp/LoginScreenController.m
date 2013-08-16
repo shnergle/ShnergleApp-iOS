@@ -58,7 +58,7 @@
            NSDictionary<FBGraphUser> *user,
            NSError *error) {
             if (!error) {
-                appDelegate.fullName = [NSString stringWithFormat:@"%@ %@", user.first_name, user.last_name];
+                appDelegate.fullName = [NSString stringWithFormat:@"%@ %@", [self orEmpty:user.first_name], [self orEmpty:user.last_name]];
                 appDelegate.facebookId = user.id;
 
                 NSDictionary *params = @{@"facebook": [self orEmpty:user.username],
