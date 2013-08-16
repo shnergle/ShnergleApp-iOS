@@ -61,19 +61,19 @@
                 appDelegate.fullName = [NSString stringWithFormat:@"%@ %@", user.first_name, user.last_name];
                 appDelegate.facebookId = user.id;
 
-                NSDictionary *params = @{@"facebook": user.username,
-                                         @"forename": user.first_name,
-                                         @"surname": user.last_name,
-                                         @"email": user[@"email"],
-                                         @"gender": [user[@"gender"] substringToIndex:1],
-                                         @"country": [[user[@"locale"] substringFromIndex:3] lowercaseString],
-                                         @"language": user[@"locale"],
+                NSDictionary *params = @{@"facebook": [self orEmpty:user.username],
+                                         @"forename": [self orEmpty:user.first_name],
+                                         @"surname": [self orEmpty:user.last_name],
+                                         @"email": [self orEmpty:user[@"email"]],
+                                         @"gender": [self orEmpty:[user[@"gender"] substringToIndex:1]],
+                                         @"country": [self orEmpty:[[user[@"locale"] substringFromIndex:3] lowercaseString]],
+                                         @"language": [self orEmpty:user[@"locale"]],
                                          @"app_version": [[NSBundle mainBundle] infoDictionary][@"CFBundleVersion"],
                                          @"iphone_model": [self machineName],
                                          @"ios_version": [UIDevice currentDevice].systemVersion,
-                                         @"birth_day": [user[@"birthday"] substringWithRange:NSMakeRange(3, 2)],
-                                         @"birth_month": [user[@"birthday"] substringToIndex:2],
-                                         @"birth_year": [user[@"birthday"] substringFromIndex:6],
+                                         @"birth_day": [self orEmpty:[user[@"birthday"] substringWithRange:NSMakeRange(3, 2)]],
+                                         @"birth_month": [self orEmpty:[user[@"birthday"] substringToIndex:2]],
+                                         @"birth_year": [self orEmpty:[user[@"birthday"] substringFromIndex:6]],
                                          @"age": @([self age:user[@"birthday"]])};
 
                 if (![[[PostRequest alloc] init] exec:@"users/set" params:params delegate:self callback:@selector(postResponse:)]) [self alert];
@@ -85,6 +85,10 @@
     } else {
         self.buttonLoginLogout.hidden = NO;
     }
+}
+
+- (NSString *)orEmpty:(NSString *)string {
+    return string ? string : @"";
 }
 
 - (NSInteger)age:(NSString *)birthday {
