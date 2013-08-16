@@ -9,10 +9,9 @@
 //
 
 /**
- * |GMSOrientation| is used to control the viewing direction of a panorama.
- * It is integrated in GMSPanoramaCamera.
+ * GMSOrientation is a tuple of heading and pitch used to control the viewing
+ * direction of a GMSPanoramaCamera.
  */
-
 typedef struct {
   /**
    * The camera heading (horizontal angle) in degrees from north, clockwise.

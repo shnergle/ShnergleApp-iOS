@@ -11,7 +11,9 @@
 #import <CoreLocation/CoreLocation.h>
 
 #import <GoogleMaps/GMSOrientation.h>
+#import <GoogleMaps/GMSPanoramaLayer.h>
 
+@class GMSMarker;
 @class GMSPanorama;
 @class GMSPanoramaCamera;
 @class GMSPanoramaCameraUpdate;
@@ -74,6 +76,13 @@
  * consumed (taps may be consumed by e.g., tapping on a navigation arrow).
  */
 - (void)panoramaView:(GMSPanoramaView *)panoramaView didTap:(CGPoint)point;
+
+/**
+ * Called after a marker has been tapped.  May return YES to indicate the event
+ * has been fully handled and suppress any default behavior.
+ */
+- (BOOL)panoramaView:(GMSPanoramaView *)panoramaView
+        didTapMarker:(GMSMarker *)marker;
 
 @end
 
@@ -150,6 +159,11 @@
  * camera value, with no animation.
  */
 @property(nonatomic, strong) GMSPanoramaCamera *camera;
+
+/**
+ * Accessor for the custom CALayer type used for the layer.
+ */
+@property(nonatomic, readonly, retain) GMSPanoramaLayer *layer;
 
 /**
  * Animates the camera of this GMSPanoramaView to |camera|, over |duration|

@@ -37,12 +37,19 @@
 }
 
 - (void)addPromotion {
-    NSMutableString *params = [[NSMutableString alloc]initWithFormat:@"venue_id=%@&title=%@&description=%@&passcode=%@&start=%d&end=%d&maximum=%@&level=%d", [appDelegate.activeVenue[@"id"] stringValue], ((UITextField *)textFields[@0]).text, ((UITextField *)textFields[@1]).text, ((UITextField *)textFields[@2]).text, (int)[(NSDate *)pickerValues[@3] timeIntervalSince1970], (int)[(NSDate *)pickerValues[@4] timeIntervalSince1970], ((UITextField *)textFields[@5]).text, appDelegate.audience];
+    NSMutableDictionary *params = [@{@"venue_id": appDelegate.activeVenue[@"id"],
+                                     @"title": ((UITextField *)textFields[@0]).text,
+                                     @"description": ((UITextField *)textFields[@1]).text,
+                                     @"passcode": ((UITextField *)textFields[@2]).text,
+                                     @"start": @([(NSDate *)pickerValues[@3] timeIntervalSince1970]),
+                                     @"end": @([(NSDate *)pickerValues[@4] timeIntervalSince1970]),
+                                     @"maximum": ((UITextField *)textFields[@5]).text ? ((UITextField *)textFields[@5]).text : @0,
+                                     @"level": @(appDelegate.audience)} mutableCopy];
     if (appDelegate.activePromotion[@"id"] != nil) {
-        [params appendFormat:@"&promotion_id=%@", [appDelegate.activePromotion[@"id"] stringValue]];
+        params[@"promotion_id"] = appDelegate.activePromotion[@"id"];
     }
     [self.view makeToastActivity];
-    [[[PostRequest alloc]init]exec:@"promotions/set" params:[params stringByReplacingOccurrencesOfString:@"(null)" withString:@"0"] delegate:self callback:@selector(didFinishAddingPromotion:) type:@"string"];
+    [[[PostRequest alloc] init] exec:@"promotions/set" params:params delegate:self callback:@selector(didFinishAddingPromotion:) type:@"string"];
 }
 
 - (void)didFinishAddingPromotion:(NSString *)response {

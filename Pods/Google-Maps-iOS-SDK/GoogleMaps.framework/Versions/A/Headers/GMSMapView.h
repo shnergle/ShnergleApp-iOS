@@ -16,6 +16,7 @@
 
 @class GMSCameraPosition;
 @class GMSCameraUpdate;
+@class GMSIndoorDisplay;
 @class GMSMapLayer;
 @class GMSMapView;
 @class GMSMarker;
@@ -104,6 +105,9 @@
  * The returned UIView must not have bounds greater than 500 points on either
  * dimension.  As there is only one info window shown at any time, the returned
  * view may be reused between other info windows.
+ *
+ * Removing the marker from the map or changing the map's selected marker during
+ * this call results in undefined behavior.
  *
  * @return The custom info window for the specified marker, or nil for default
  */
@@ -218,10 +222,16 @@ typedef enum {
 @property(nonatomic, assign, getter=isIndoorEnabled) BOOL indoorEnabled;
 
 /**
+ * Gets the GMSIndoorDisplay instance which allows to observe or control
+ * aspects of indoor data display.
+ */
+@property(nonatomic, strong, readonly) GMSIndoorDisplay *indoorDisplay;
+
+/**
  * Gets the GMSUISettings object, which controls user interface settings for the
  * map.
  */
-@property(nonatomic, readonly) GMSUISettings *settings;
+@property(nonatomic, strong, readonly) GMSUISettings *settings;
 
 /**
  * Defaults to YES. If set to NO, GMSMapView will generate accessibility

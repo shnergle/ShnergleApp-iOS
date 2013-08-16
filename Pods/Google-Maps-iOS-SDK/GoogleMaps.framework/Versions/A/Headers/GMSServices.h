@@ -8,8 +8,22 @@
 //  Service: https://developers.google.com/maps/terms
 //
 
-/** Service class for the Google Maps SDK for iOS. May not be instantiated. */
+/** Service class for the Google Maps SDK for iOS. */
 @interface GMSServices : NSObject
+
+/**
+ * Provides the shared instance of GMSServices for the Google Maps SDK for iOS,
+ * creating it if nessecary. Classes such as GMSMapView and GMSPanoramaView will
+ * hold this instance to provide their connection to Google.
+ *
+ * This is an opaque object. If your application often creates and destroys view
+ * or service classes provided by the Google Maps SDK for iOS, it may be useful
+ * to hold onto this object directly, as otherwise your connection to Google
+ * may be restarted on a regular basis.
+ *
+ * This method will throw an exception if provideAPIKey: has not been called.
+ */
++ (GMSServices *)sharedServices;
 
 /**
  * Provides your API key to the Google Maps SDK for iOS.  This key is generated
@@ -23,12 +37,12 @@
 
 /**
  * Returns the open source software license information for Google Maps SDK for
- * iOS.  This information must be made available within your application.
+ * iOS. This information must be made available within your application.
  */
 + (NSString *)openSourceLicenseInfo;
 
 /**
- * Returns the current version of the Google Maps SDK for iOS.
+ * Returns the version for this release of the Google Maps SDK for iOS.
  */
 + (NSString *)SDKVersion;
 

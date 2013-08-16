@@ -11,13 +11,18 @@
 
 @implementation PostRequest
 
-- (BOOL)exec:(NSString *)path params:(NSString *)params delegate:(id)object callback:(SEL)cb {
+- (BOOL)exec:(NSString *)path params:(NSDictionary *)params delegate:(id)object callback:(SEL)cb {
     return [self exec:path params:params delegate:object callback:cb type:@"json"];
 }
 
-- (BOOL)exec:(NSString *)path params:(NSString *)params delegate:(id)object callback:(SEL)cb type:(NSString *)type {
+- (BOOL)exec:(NSString *)path params:(NSDictionary *)params delegate:(id)object callback:(SEL)cb type:(NSString *)type {
     NSString *urlString = [NSString stringWithFormat:@"http://shnergle-api.azurewebsites.net/v1/%@", path];
-    NSString *paramsString = [NSString stringWithFormat:@"app_secret=%@&facebook_id=%@&%@", appDelegate.appSecret, appDelegate.facebookId, params];
+    NSMutableString *paramsString = [NSMutableString stringWithFormat:@"app_secret=%@&facebook_id=%@", [appDelegate.appSecret stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet alphanumericCharacterSet]], [appDelegate.facebookId stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet alphanumericCharacterSet]]];
+    if (params) {
+        for (NSString *key in params) {
+            [paramsString appendFormat:@"&%@=%@", key, [[params[key] stringValue] stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet alphanumericCharacterSet]]];
+        }
+    }
     NSURL *url = [[NSURL alloc] initWithString:urlString];
     NSMutableURLRequest *urlRequest = [NSMutableURLRequest requestWithURL:url];
     [urlRequest setHTTPMethod:@"POST"];
@@ -30,13 +35,12 @@
     return !![[NSURLConnection alloc] initWithRequest:urlRequest delegate:self];
 }
 
-- (BOOL)exec:(NSString *)path params:(NSString *)params image:(UIImage *)image delegate:(id)object callback:(SEL)cb {
+- (BOOL)exec:(NSString *)path params:(NSDictionary *)params image:(UIImage *)image delegate:(id)object callback:(SEL)cb {
     return [self exec:path params:params image:(UIImage *)image delegate:object callback:cb type:@"json"];
 }
 
-- (BOOL)exec:(NSString *)path params:(NSString *)params image:(UIImage *)image delegate:(id)object callback:(SEL)cb type:(NSString *)type {
+- (BOOL)exec:(NSString *)path params:(NSDictionary *)params image:(UIImage *)image delegate:(id)object callback:(SEL)cb type:(NSString *)type {
     NSString *urlString = [NSString stringWithFormat:@"http://shnergle-api.azurewebsites.net/v1/%@", path];
-    NSString *paramsString = [NSString stringWithFormat:@"app_secret=%@&facebook_id=%@&%@", appDelegate.appSecret, appDelegate.facebookId, params];
     NSString *boundary = @"This-string-cannot-be-part-of-the-content";
     NSString *contentType = [NSString stringWithFormat:@"multipart/form-data; boundary=%@", boundary];
     NSURL *url = [[NSURL alloc] initWithString:urlString];
@@ -44,11 +48,18 @@
     [urlRequest addValue:contentType forHTTPHeaderField:@"Content-Type"];
     [urlRequest setHTTPMethod:@"POST"];
     NSMutableData *body = [NSMutableData data];
-    for (NSString *field in [paramsString componentsSeparatedByString : @"&"]) {
-        NSArray *splitField = [field componentsSeparatedByString:@"="];
-        [body appendData:[[NSString stringWithFormat:@"\r\n--%@\r\n", boundary] dataUsingEncoding:NSUTF8StringEncoding]];
-        [body appendData:[[NSString stringWithFormat:@"Content-Disposition: form-data; name=\"%@\"\r\n\r\n", splitField[0]] dataUsingEncoding:NSUTF8StringEncoding]];
-        [body appendData:[splitField[1] dataUsingEncoding:NSUTF8StringEncoding]];
+    [body appendData:[[NSString stringWithFormat:@"\r\n--%@\r\n", boundary] dataUsingEncoding:NSUTF8StringEncoding]];
+    [body appendData:[[NSString stringWithFormat:@"Content-Disposition: form-data; name=\"%@\"\r\n\r\n", @"app_secret"] dataUsingEncoding:NSUTF8StringEncoding]];
+    [body appendData:[[appDelegate.appSecret stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet alphanumericCharacterSet]] dataUsingEncoding:NSUTF8StringEncoding]];
+    [body appendData:[[NSString stringWithFormat:@"\r\n--%@\r\n", boundary] dataUsingEncoding:NSUTF8StringEncoding]];
+    [body appendData:[[NSString stringWithFormat:@"Content-Disposition: form-data; name=\"%@\"\r\n\r\n", @"facebook_id"] dataUsingEncoding:NSUTF8StringEncoding]];
+    [body appendData:[[appDelegate.facebookId stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet alphanumericCharacterSet]] dataUsingEncoding:NSUTF8StringEncoding]];
+    if (params) {
+        for (NSString *key in params) {
+            [body appendData:[[NSString stringWithFormat:@"\r\n--%@\r\n", boundary] dataUsingEncoding:NSUTF8StringEncoding]];
+            [body appendData:[[NSString stringWithFormat:@"Content-Disposition: form-data; name=\"%@\"\r\n\r\n", key] dataUsingEncoding:NSUTF8StringEncoding]];
+            [body appendData:[[params[key] stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet alphanumericCharacterSet]] dataUsingEncoding:NSUTF8StringEncoding]];
+        }
     }
     [body appendData:[[NSString stringWithFormat:@"\r\n--%@\r\n", boundary] dataUsingEncoding:NSUTF8StringEncoding]];
     [body appendData:[@"Content-Disposition: form-data; name=\"image\"; filename=\"image.jpg\"\r\n" dataUsingEncoding : NSUTF8StringEncoding]];

@@ -35,7 +35,6 @@ FOUNDATION_EXTERN UIImage *const kGMSTileLayerNoTile;
  * At zoom level 0 the whole world is a square covered by a single tile,
  * and the coordinates |x| and |y| are both 0 for that tile. At zoom level 1,
  * the world is covered by 4 tiles with |x| and |y| being 0 or 1, and so on.
- * The size of a tile is 256x256 points.
  */
 @interface GMSTileLayer : NSObject
 
@@ -45,8 +44,7 @@ FOUNDATION_EXTERN UIImage *const kGMSTileLayerNoTile;
  * |zoom| _must_ be later passed to |receiver|.
  *
  * Specify kGMSTileLayerNoTile if no tile is available for this location; or
- * nil if a transient error occured and a tile may be available later. If the
- * specified UIImage is not 256x256 points, it is shrinked/enlarged to 256x256.
+ * nil if a transient error occured and a tile may be available later.
  *
  * Calls to this method will be made on the main thread. See GMSSyncTileLayer
  * for a base class that implements a blocking tile layer that does not run on
@@ -75,5 +73,20 @@ FOUNDATION_EXTERN UIImage *const kGMSTileLayerNoTile;
  * ordering.
  */
 @property(nonatomic, assign) NSInteger zIndex;
+
+/**
+ * Specifies the number of pixels (not points) that the returned tile images
+ * will prefer to display as.  For best results, this should be the edge
+ * length of your custom tiles.  Defaults to 256, which is the traditional
+ * size of Google Maps tiles.
+ *
+ * Values less than the equivalent of 128 points (e.g. 256 pixels on retina
+ * devices) may not perform well and are not recommended.
+ *
+ * As an example, an application developer may wish to provide retina tiles
+ * (512 pixel edge length) on retina devices, to keep the same number of tiles
+ * per view as the default value of 256 would give on a non-retina device.
+ */
+@property(nonatomic, assign) NSInteger tileSize;
 
 @end

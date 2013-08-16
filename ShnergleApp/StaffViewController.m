@@ -23,8 +23,7 @@
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
     [self.view makeToastActivity];
-    NSMutableString *params = [[NSMutableString alloc] initWithString:@"venue_id="];
-    [params appendString:[appDelegate.activeVenue[@"id"] stringValue]];
+    NSDictionary *params = @{@"venue_id": appDelegate.activeVenue[@"id"]};
     [[[PostRequest alloc] init] exec:@"venue_staff/get" params:params delegate:self callback:@selector(didFinishDownloadingStaff:)];
 }
 

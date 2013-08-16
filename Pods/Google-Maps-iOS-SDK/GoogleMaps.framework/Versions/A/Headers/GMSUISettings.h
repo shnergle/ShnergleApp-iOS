@@ -48,6 +48,18 @@
 @property(nonatomic, assign) BOOL rotateGestures;
 
 /**
+ * Controls whether gestures by users are completely consumed by the GMSMapView
+ * when gestures are enabled (default YES).  This prevents these gestures from
+ * being received by parent views.
+ *
+ * When the GMSMapView is contained by a UIScrollView (or other scrollable area),
+ * this means that gestures on the map will not be additional consumed as scroll
+ * gestures.  However, disabling this (set to NO) may be userful to support
+ * complex view hierarchies or requirements.
+ */
+@property(nonatomic, assign) BOOL consumesGesturesInView;
+
+/**
  * Enables or disables the compass. The compass is an icon on the map that
  * indicates the direction of north on the map.
  *
@@ -64,5 +76,13 @@
  * location.
  */
 @property(nonatomic, assign) BOOL myLocationButton;
+
+/**
+ * Enables (default) or disables the indoor floor picker. If enabled, it is only
+ * visible when the view is focused on a building with indoor floor data.
+ * If disabled, the selected floor can still be controlled programatically via
+ * the indoorDisplay mapView property.
+ */
+@property(nonatomic, assign) BOOL indoorPicker;
 
 @end
