@@ -64,4 +64,8 @@ static NSCache *cache;
     [invocation invoke];
 }
 
+- (void)didReceiveMemoryWarning:(id)param {
+    [cache removeAllObjects];
+}
+
 @end
