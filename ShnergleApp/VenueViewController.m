@@ -357,11 +357,16 @@
     }
 }
 
+- (BOOL)shouldPerformSegueWithIdentifier:(NSString *)identifier sender:(id)sender {
+    if ([@"ToGallery" isEqualToString:identifier] && !((CrowdItem *)sender).crowdImage.image) return NO;
+    return YES;
+}
+
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    if ([segue.identifier isEqualToString:@"ToGallery"]) {
+    if ([@"ToGallery" isEqualToString:segue.identifier]) {
         [segue.destinationViewController setTitle:titleHeader];
         [(VenueGalleryViewController *)segue.destinationViewController setImage : ((CrowdItem *)sender).crowdImage.image withAuthor :[NSString stringWithFormat:@"%@ %@", posts[selectedPost][@"forename"], [posts[selectedPost][@"surname"] substringToIndex:1]] withComment : posts[selectedPost][@"caption"] withTimestamp :[self getDateFromUnixFormat:posts[selectedPost][@"time"]] withId :[posts[selectedPost][@"id"] stringValue]];
-    } else if ([segue.identifier isEqualToString:@"CheckInFromVenue"]) {
+    } else if ([@"CheckInFromVenue" isEqualToString:segue.identifier]) {
         appDelegate.shareVenue = NO;
         appDelegate.shnergleThis = YES;
     }
