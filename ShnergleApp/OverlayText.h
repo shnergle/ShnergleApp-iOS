@@ -47,9 +47,9 @@
 @property (weak, nonatomic) IBOutlet UIButton *thinkingView;
 @property (weak, nonatomic) IBOutlet UIButton *goingView;
 @property (weak, nonatomic) IBOutlet UIButton *checkedInView;
-@property (weak, nonatomic) IBOutlet UITextView *phoneTextField;
-@property (weak, nonatomic) IBOutlet UITextView *emailTextField;
-@property (weak, nonatomic) IBOutlet UITextView *websiteTextField;
+@property (weak, nonatomic) IBOutlet UITextField *phoneTextField;
+@property (weak, nonatomic) IBOutlet UITextField *emailTextField;
+@property (weak, nonatomic) IBOutlet UITextField *websiteTextField;
 
 @property (weak, nonatomic) IBOutlet UIButton *staffButton;
 @property (weak, nonatomic) IBOutlet UILabel *staffLabel;
