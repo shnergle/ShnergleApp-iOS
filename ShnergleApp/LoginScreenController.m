@@ -153,13 +153,12 @@
 
 - (void)viewDidDisappear:(BOOL)animated {
     self.buttonLoginLogout = nil;
-
     [super viewDidDisappear:animated];
 }
 
 - (void)alert {
-    UIActionSheet *alert = [[UIActionSheet alloc] initWithTitle:@"Connection failed!" delegate:nil cancelButtonTitle:@"OK" destructiveButtonTitle:nil otherButtonTitles:nil];
-    [alert showInView:[[self view] window]];
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Connection failed!" message:nil delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+    [alert show];
 }
 
 @end

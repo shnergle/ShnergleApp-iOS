@@ -80,10 +80,25 @@
 
 - (void)connectionDidFinishLoading:(NSURLConnection *)connection {
     id responseArg;
-    if ([@"image" isEqualToString : responseType]) @try {responseArg = [UIImage imageWithData:response]; } @catch (NSException *e) {
+    if ([@"image" isEqualToString : responseType]) {
+        @try {
+            NSString *firstChar = [[[NSString alloc] initWithData:response encoding:NSUTF8StringEncoding] substringToIndex:1];
+            if ([@"{" isEqualToString:firstChar] || [@"null" isEqualToString:firstChar] || [@"" isEqualToString:firstChar]) @throw [NSException exceptionWithName:nil reason:nil userInfo:nil];
+            responseArg = [UIImage imageWithData:response];
+        } @catch (NSException *e) {
+            responseArg = [UIImage imageNamed:@"No_activity.png"];
         }
-    else if ([@"string" isEqualToString : responseType]) responseArg = [[NSString alloc] initWithData:response encoding:NSUTF8StringEncoding];
-    else responseArg = [NSJSONSerialization JSONObjectWithData:response options:NSJSONReadingAllowFragments error:nil];
+    } else if ([@"string" isEqualToString : responseType]) responseArg = [[NSString alloc] initWithData:response encoding:NSUTF8StringEncoding];
+    else {
+        responseArg = [NSJSONSerialization JSONObjectWithData:response options:NSJSONReadingAllowFragments error:nil];
+        if ([responseArg isKindOfClass:[NSDictionary class]] && responseArg[@"traceback"]) {
+            responseArg = nil;
+            dispatch_async(dispatch_get_main_queue(), ^{
+                UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"An error occured while trying to load!" message:nil delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+                [alert show];
+            });
+        }
+    }
     [Crashlytics setObjectValue:[[NSString alloc] initWithData:response encoding:NSUTF8StringEncoding] forKey:@"lastResponseString"];
     [Crashlytics setObjectValue:responseArg forKey:@"lastResponseParsed"];
     NSMethodSignature *methodSig = [[responseObject class] instanceMethodSignatureForSelector:responseCallback];
