@@ -10,8 +10,7 @@
 #import "MenuViewController.h"
 #import "CrowdItem.h"
 #import "VenueViewController.h"
-#import "PostRequest.h"
-#import "ImageCache.h"
+#import "Request.h"
 #import <ECSlidingViewController/ECSlidingViewController.h>
 #import <Toast/Toast+UIView.h>
 #import <NSDate-Escort/NSDate+Escort.h>
@@ -77,7 +76,7 @@
 - (void)makeRequest {
     [self.view makeToastActivity];
     if ([@"Following" isEqualToString : appDelegate.topViewType]) {
-        [[[PostRequest alloc] init] exec:@"venues/get" params:@{@"following_only" : @"true", @"level" : appDelegate.level} delegate:self callback:@selector(didFinishLoadingVenues:)];
+        [Request post:@"venues/get" params:@{@"following_only" : @"true", @"level" : appDelegate.level} delegate:self callback:@selector(didFinishLoadingVenues:)];
     } else {
         hasPositionLocked = NO;
         man = [[CLLocationManager alloc] init];
@@ -134,14 +133,15 @@
     static NSString *cellIdentifier = @"FavCell";
     CrowdItem *item = [collectionView dequeueReusableCellWithReuseIdentifier:cellIdentifier forIndexPath:indexPath];
 
-    item.crowdImage.image = [ImageCache get:@"venue" identifier:venues[indexPath.item][@"id"]];
+    NSDictionary *key = @{@"entity": @"venue",
+                          @"entity_id": venues[indexPath.item][@"id"]};
     item.crowdImage.backgroundColor = [UIColor lightGrayColor];
-    if (item.crowdImage.image == nil) [[[ImageCache alloc] init] get:@"venue" identifier:[venues[indexPath.item][@"id"] stringValue] delegate:self callback:@selector(didFinishDownloadingImages:forIndex:) indexPath:indexPath];
+    if (!(item.crowdImage.image = [Request getImage:key])) {
+        [Request post:@"images/get" params:key delegate:self callback:@selector(didFinishDownloadingImages:forIndex:) type:Image userData:indexPath];
+    }
 
     item.venueName.text = venues[indexPath.item][@"name"];
-
     item.venueName.font = [UIFont systemFontOfSize:11.0f];
-
     item.venueName.textColor = [UIColor whiteColor];
 
     if ([venues[indexPath.item][@"promotions"] intValue] > 0) {
@@ -180,17 +180,17 @@
             [params addEntriesFromDictionary:@{@"quiet" : @"true",
                                                @"from_time" : @([self fromTime]),
                                                @"until_time" : @([self untilTime])}];
-            [[[PostRequest alloc] init] exec:@"venues/get" params:params delegate:self callback:@selector(didFinishLoadingVenues:)];
+            [Request post:@"venues/get" params:params delegate:self callback:@selector(didFinishLoadingVenues:)];
         } else if ([@"Trending" isEqualToString : appDelegate.topViewType]) {
             [params addEntriesFromDictionary:@{@"trending" : @"true",
                                                @"from_time" : @([self fromTime]),
                                                @"until_time" : @([self untilTime])}];
-            [[[PostRequest alloc] init] exec:@"venues/get" params:params delegate:self callback:@selector(didFinishLoadingVenues:)];
+            [Request post:@"venues/get" params:params delegate:self callback:@selector(didFinishLoadingVenues:)];
         } else if ([@"Promotions" isEqualToString : appDelegate.topViewType]) {
             [params addEntriesFromDictionary:@{@"promotions" : @"true",
                                                @"from_time" : @([self fromTime]),
                                                @"until_time" : @([self untilTime])}];
-            [[[PostRequest alloc] init] exec:@"venues/get" params:params delegate:self callback:@selector(didFinishLoadingVenues:)];
+            [Request post:@"venues/get" params:params delegate:self callback:@selector(didFinishLoadingVenues:)];
         }
         hasPositionLocked = YES;
     }

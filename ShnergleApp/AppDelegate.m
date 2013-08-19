@@ -51,8 +51,6 @@
     [self customiseNavBar];
 
     [GMSServices provideAPIKey:@"AIzaSyBiJeQvT0FUQdGPMbOR8DFGdVbEtHMJe7c"];
-    self.appSecret = @"FCuf65iuOUDCjlbiyyer678Coutyc64v655478VGvgh76";
-
     [Crashlytics startWithAPIKey:@"2baf430bbb573cfdb444a30b0058c3d474393497"];
 
     return YES;

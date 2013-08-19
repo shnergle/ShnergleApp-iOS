@@ -8,7 +8,7 @@
 
 #import "CheckInListViewController.h"
 #import <Toast/Toast+UIView.h>
-#import "PostRequest.h"
+#import "Request.h"
 #import <NSDate+TimeAgo/NSDate+TimeAgo.h>
 
 @implementation CheckInListViewController
@@ -18,7 +18,7 @@
     [self.navigationController setNavigationBarHidden:NO animated:YES];
     self.navigationItem.title = @"Check Ins";
     [self.view makeToastActivity];
-    [[[PostRequest alloc] init] exec:@"posts/get" params:nil delegate:self callback:@selector(didFinishDownloadingPosts:)];
+    [Request post:@"posts/get" params:nil delegate:self callback:@selector(didFinishDownloadingPosts:)];
 }
 
 - (void)didFinishDownloadingPosts:(id)response {

@@ -7,7 +7,7 @@
 //
 
 #import "AddVenueViewController.h"
-#import "PostRequest.h"
+#import "Request.h"
 #import <Toast+UIView.h>
 
 typedef enum {
@@ -68,7 +68,7 @@ typedef enum {
                     }
                 }
 
-                [[[PostRequest alloc] init] exec:@"venues/set" params:params delegate:self callback:@selector(didFinishAddingVenue:) type:@"string"];
+                [Request post:@"venues/set" params:params delegate:self callback:@selector(didFinishAddingVenue:) type:String];
             } ];
         } else {
             UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"Fields Missing" message:@"Please fill in all required fields" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
@@ -90,7 +90,7 @@ typedef enum {
         [alert show];
     } else {
         if (workSwitch.on) {
-            [[[PostRequest alloc] init] exec:@"venue_managers/set" params:@{@"venue_id": response} delegate:self callback:@selector(didAddAsManager:)];
+            [Request post:@"venue_managers/set" params:@{@"venue_id": response} delegate:self callback:@selector(didAddAsManager:)];
         } else {
             [self.view hideToastActivity];
             [self.navigationController popViewControllerAnimated:YES];

@@ -7,7 +7,7 @@
 //
 
 #import "VenueCategoryViewController.h"
-#import "PostRequest.h"
+#import "Request.h"
 #import <Toast/Toast+UIView.h>
 
 @implementation VenueCategoryViewController
@@ -18,7 +18,7 @@
     self.navigationItem.title = @"+ Add Place";
     categories = [NSMutableArray array];
 
-    [[[PostRequest alloc] init] exec:@"venue_categories/get" params:nil delegate:self callback:@selector(postResponse:)];
+    [Request post:@"venue_categories/get" params:nil delegate:self callback:@selector(postResponse:)];
 }
 
 - (void)postResponse:(id)response {

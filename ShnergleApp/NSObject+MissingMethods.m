@@ -7,10 +7,12 @@
 //
 
 #import "NSObject+MissingMethods.h"
+#import "Request.h"
 
 @implementation NSObject (MissingMethods)
 
 - (void)didReceiveMemoryWarning:(id)param {
+    [Request evict];
 }
 
 - (id)stringValue {

@@ -934,14 +934,13 @@
 		CD5024921768AED6003D3004 /* StaffTypeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CD5024911768AE99003D3004 /* StaffTypeViewController.m */; };
 		CD56F319179D30C80028B688 /* FindStaffViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CD56F318179D308C0028B688 /* FindStaffViewController.m */; };
 		CD654EE8179DCA9800F380B5 /* Crashlytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CD654EE7179DCA9800F380B5 /* Crashlytics.framework */; };
-		CD7C1B10175B424400902AA9 /* ImageCache.m in Sources */ = {isa = PBXBuildFile; fileRef = CD7C1B0F175B424400902AA9 /* ImageCache.m */; };
 		CD84ECEF175CC10000A09FA6 /* AppIcon_114.png in Resources */ = {isa = PBXBuildFile; fileRef = CD84ECEE175CC10000A09FA6 /* AppIcon_114.png */; };
 		CD84ECF1175CC10E00A09FA6 /* icon57.png in Resources */ = {isa = PBXBuildFile; fileRef = CD84ECF0175CC10D00A09FA6 /* icon57.png */; };
 		CDAD1D2F175E011100581713 /* ShareViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CDAD1D2E175E011100581713 /* ShareViewController.m */; };
 		CDAD1D33175E2BF800581713 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CDAD1D32175E2BF800581713 /* UIKit.framework */; };
 		CDAD1D35175E2FA600581713 /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = CDAD1D34175E2FA600581713 /* Settings.bundle */; };
 		CDB11BF517A056D400B8817A /* RedemptionListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CDB11BF417A056D400B8817A /* RedemptionListViewController.m */; };
-		CDB72C2E175A5F2B00018271 /* PostRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = CDB72C2D175A5F2B00018271 /* PostRequest.m */; };
+		CDB72C2E175A5F2B00018271 /* Request.m in Sources */ = {isa = PBXBuildFile; fileRef = CDB72C2D175A5F2B00018271 /* Request.m */; };
 		CDBC6C7C17AC47D9001B667B /* Accounts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CDBC6C7B17AC47D9001B667B /* Accounts.framework */; };
 		CDBC6C7E17AC4FBA001B667B /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CDBC6C7D17AC4FBA001B667B /* Social.framework */; };
 		CDBCDE7F1765245B0048478F /* CustomSlidingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CDBCDE7E1765245B0048478F /* CustomSlidingViewController.m */; };
@@ -1939,8 +1938,6 @@
 		CD61F0A317688C06005EB276 /* StaffViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = StaffViewController.h; sourceTree = "<group>"; };
 		CD61F0A417688C06005EB276 /* StaffViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = StaffViewController.m; sourceTree = "<group>"; };
 		CD654EE7179DCA9800F380B5 /* Crashlytics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Crashlytics.framework; sourceTree = "<group>"; };
-		CD7C1B0E175B424400902AA9 /* ImageCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageCache.h; sourceTree = "<group>"; };
-		CD7C1B0F175B424400902AA9 /* ImageCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageCache.m; sourceTree = "<group>"; };
 		CD84ECEE175CC10000A09FA6 /* AppIcon_114.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = AppIcon_114.png; sourceTree = "<group>"; };
 		CD84ECF0175CC10D00A09FA6 /* icon57.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon57.png; sourceTree = "<group>"; };
 		CDAD1D2D175E011100581713 /* ShareViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShareViewController.h; sourceTree = "<group>"; };
@@ -1949,8 +1946,8 @@
 		CDAD1D34175E2FA600581713 /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
 		CDB11BF317A056D300B8817A /* RedemptionListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RedemptionListViewController.h; sourceTree = "<group>"; };
 		CDB11BF417A056D400B8817A /* RedemptionListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RedemptionListViewController.m; sourceTree = "<group>"; };
-		CDB72C2C175A5F2B00018271 /* PostRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PostRequest.h; sourceTree = "<group>"; };
-		CDB72C2D175A5F2B00018271 /* PostRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PostRequest.m; sourceTree = "<group>"; };
+		CDB72C2C175A5F2B00018271 /* Request.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Request.h; sourceTree = "<group>"; };
+		CDB72C2D175A5F2B00018271 /* Request.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Request.m; sourceTree = "<group>"; };
 		CDBC6C7B17AC47D9001B667B /* Accounts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accounts.framework; path = System/Library/Frameworks/Accounts.framework; sourceTree = SDKROOT; };
 		CDBC6C7D17AC4FBA001B667B /* Social.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Social.framework; path = System/Library/Frameworks/Social.framework; sourceTree = SDKROOT; };
 		CDBCDE7D1765245B0048478F /* CustomSlidingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomSlidingViewController.h; sourceTree = "<group>"; };
@@ -2961,8 +2958,6 @@
 				EE23586717B1434E00E3668E /* GraphViewController.m */,
 				EE4C2E2017B91E20007CD51A /* HelpViewController.h */,
 				EE4C2E2117B91E20007CD51A /* HelpViewController.m */,
-				CD7C1B0E175B424400902AA9 /* ImageCache.h */,
-				CD7C1B0F175B424400902AA9 /* ImageCache.m */,
 				EE4D8F9617BBD5180012A453 /* ImpViewController.h */,
 				EE4D8F9717BBD5190012A453 /* ImpViewController.m */,
 				EE8FF813172A9CFD0003A8E1 /* LoginScreenController.h */,
@@ -2977,8 +2972,6 @@
 				EE48E7251787300100C13F2A /* OverlayText.xib */,
 				805CE6CE16FCBDC9002445C3 /* PhotoLocationViewController.h */,
 				805CE6CF16FCBDC9002445C3 /* PhotoLocationViewController.m */,
-				CDB72C2C175A5F2B00018271 /* PostRequest.h */,
-				CDB72C2D175A5F2B00018271 /* PostRequest.m */,
 				EE0A806E1733D97300792AE4 /* ProfileViewController.h */,
 				EE0A806F1733D97300792AE4 /* ProfileViewController.m */,
 				CDCDF9CB17A19A950036EA74 /* PromotionAudienceViewController.h */,
@@ -2988,6 +2981,8 @@
 				80D6FF63172191A4008A3AFD /* PromotionView.xib */,
 				CDB11BF317A056D300B8817A /* RedemptionListViewController.h */,
 				CDB11BF417A056D400B8817A /* RedemptionListViewController.m */,
+				CDB72C2C175A5F2B00018271 /* Request.h */,
+				CDB72C2D175A5F2B00018271 /* Request.m */,
 				EEF8C4B51794453800DDE026 /* ScoreViewController.h */,
 				EEF8C4B61794453800DDE026 /* ScoreViewController.m */,
 				808330BC17565F9F00C183B9 /* SearchBar.xib */,
@@ -4200,8 +4195,7 @@
 				80B77D28173E938E00085A71 /* MenuViewController.m in Sources */,
 				EE0A80711733D97300792AE4 /* ProfileViewController.m in Sources */,
 				EEF8C4B71794453800DDE026 /* ScoreViewController.m in Sources */,
-				CDB72C2E175A5F2B00018271 /* PostRequest.m in Sources */,
-				CD7C1B10175B424400902AA9 /* ImageCache.m in Sources */,
+				CDB72C2E175A5F2B00018271 /* Request.m in Sources */,
 				EE4D8F9817BBD5190012A453 /* ImpViewController.m in Sources */,
 				CD3B655D175CBA72006A4151 /* CrowdItem.m in Sources */,
 				CDAD1D2F175E011100581713 /* ShareViewController.m in Sources */,

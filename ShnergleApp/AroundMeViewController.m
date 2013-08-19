@@ -11,9 +11,8 @@
 #import <CoreLocation/CoreLocation.h>
 #import "MenuViewController.h"
 #import <Toast+UIView.h>
-#import "PostRequest.h"
+#import "Request.h"
 #import "VenueViewController.h"
-#import "ImageCache.h"
 #import <ECSlidingViewController/ECSlidingViewController.h>
 
 @implementation AroundMeViewController
@@ -150,14 +149,14 @@
     CrowdItem *item = [collectionView dequeueReusableCellWithReuseIdentifier:cellIdentifier forIndexPath:indexPath];
     item.crowdImage.backgroundColor = [UIColor lightGrayColor];
 
-    item.crowdImage.image = [ImageCache get:@"venue" identifier:venues[indexPath.item][@"id"]];
-
-    if (item.crowdImage.image == nil) [[[ImageCache alloc] init] get:@"venue" identifier:[venues[indexPath.item][@"id"] stringValue] delegate:self callback:@selector(didFinishDownloadingImages:forIndex:) indexPath:indexPath];
+    NSDictionary *key = @{@"entity": @"venue",
+                          @"entity_id": venues[indexPath.item][@"id"]};
+    if (!(item.crowdImage.image = [Request getImage:key])) {
+        [Request post:@"images/get" params:key delegate:self callback:@selector(didFinishDownloadingImages:forIndex:) type:Image userData:indexPath];
+    }
 
     item.venueName.text = venues[indexPath.item][@"name"];
-
     item.venueName.font = [UIFont systemFontOfSize:11.0f];
-
     item.venueName.textColor = [UIColor whiteColor];
 
     if ([venues[indexPath.item][@"promotions"] intValue] > 0) {
@@ -247,7 +246,7 @@
                              @"my_lon": @(coord.longitude),
                              @"distance": @(distanceInDegrees),
                              @"level": appDelegate.level};
-    [[[PostRequest alloc] init] exec:@"venues/get" params:params delegate:self callback:@selector(didFinishLoadingVenues:)];
+    [Request post:@"venues/get" params:params delegate:self callback:@selector(didFinishLoadingVenues:)];
 
     mapCircle.map = map;
 }

@@ -11,13 +11,10 @@
 #import "PromotionView.h"
 #import "AddPromotionsViewController.h"
 #import "VenueGalleryViewController.h"
-#import "PostRequest.h"
-#import "ImageCache.h"
+#import "Request.h"
 #import "PhotoLocationViewController.h"
 #import <NSDate+TimeAgo/NSDate+TimeAgo.h>
 #import <Toast/Toast+UIView.h>
-
-
 
 @implementation VenueViewController
 
@@ -83,7 +80,7 @@
     }
     NSDictionary *params = @{@"venue_id": appDelegate.activeVenue[@"id"],
                              @"following": following ? @"true" : @"false"};
-    [[[PostRequest alloc] init] exec:@"venue_followers/set" params:params delegate:self callback:@selector(doNothing:) type:@"string"];
+    [Request post:@"venue_followers/set" params:params delegate:self callback:@selector(doNothing:) type:String];
 }
 
 - (void)doNothing:(id)whoCares {
@@ -141,7 +138,7 @@
     [overlayView.scrollView setScrollsToTop:NO];
     [self.crowdCollectionV setScrollsToTop:YES];
 
-    [[[PostRequest alloc] init] exec:@"venue_views/set" params:@{@"venue_id": appDelegate.activeVenue[@"id"]} delegate:self callback:@selector(doNothing:) type:@"string"];
+    [Request post:@"venue_views/set" params:@{@"venue_id": appDelegate.activeVenue[@"id"]} delegate:self callback:@selector(doNothing:) type:String];
 
     man = [[CLLocationManager alloc] init];
     man.delegate = self;
@@ -213,11 +210,13 @@
     static NSString *cellIdentifier = @"Cell";
     CrowdItem *item = [collectionView dequeueReusableCellWithReuseIdentifier:cellIdentifier forIndexPath:indexPath];
 
+    NSDictionary *key = @{@"entity": @"post",
+                          @"entity_id": posts[indexPath.item][@"id"]};
     item.index = indexPath.item;
     item.crowdImage.backgroundColor = [UIColor lightGrayColor];
-    item.crowdImage.image = [ImageCache get:@"post" identifier:posts[indexPath.item][@"id"]];
-
-    if (item.crowdImage.image == nil) [[[ImageCache alloc] init] get:@"post" identifier:[posts[indexPath.item][@"id"] stringValue] delegate:self callback:@selector(didFinishDownloadingImages:forIndex:) indexPath:indexPath];
+    if (!(item.crowdImage.image = [Request getImage:key])) {
+        [Request post:@"images/get" params:key delegate:self callback:@selector(didFinishDownloadingImages:forIndex:) type:Image userData:indexPath];
+    }
 
     item.venueName.text = [self getDateFromUnixFormat:posts[indexPath.item][@"time"]];
     item.venueName.textColor = [UIColor whiteColor];
@@ -229,8 +228,10 @@
 - (void)didFinishDownloadingImages:(UIImage *)response forIndex:(NSIndexPath *)index {
     if (posts != nil) {
         if (index.item == 0) {
-            appDelegate.shareImage = [ImageCache get:@"post" identifier:posts[0][@"id"]];
-            [ImageCache set:@"venue" identifier:appDelegate.activeVenue[@"id"] image:appDelegate.shareImage];
+            NSDictionary *key = @{@"entity": @"post",
+                                  @"entity_id": posts[0][@"id"]};
+            appDelegate.shareImage = [Request getImage:key];
+            [Request setImage:key image:appDelegate.shareImage];
         }
 
         if (response != nil && self.crowdCollectionV != nil && [self.crowdCollectionV numberOfItemsInSection:index.section] > index.item) {
@@ -280,7 +281,7 @@
 
     NSDictionary *params = @{@"venue_id": appDelegate.activeVenue[@"id"],
                              @"level": appDelegate.level};
-    [[[PostRequest alloc] init] exec:@"promotions/get" params:params delegate:self callback:@selector(didFinishGettingPromotion:)];
+    [Request post:@"promotions/get" params:params delegate:self callback:@selector(didFinishGettingPromotion:)];
 
     if ([appDelegate.activeVenue[@"manager"] intValue] == 1 && [appDelegate.activeVenue[@"verified"] intValue] == 0) {
         [self setStatus:UnverifiedManager];
@@ -309,7 +310,7 @@
 }
 
 - (void)getPosts {
-    [[[PostRequest alloc] init] exec:@"posts/get" params:@{@"venue_id": appDelegate.activeVenue[@"id"]} delegate:self callback:@selector(didFinishDownloadingPosts:)];
+    [Request post:@"posts/get" params:@{@"venue_id": appDelegate.activeVenue[@"id"]} delegate:self callback:@selector(didFinishDownloadingPosts:)];
 }
 
 - (void)viewDidAppear:(BOOL)animated {
@@ -329,8 +330,10 @@
     [self.crowdCollectionV reloadData];
     [refreshControl endRefreshing];
     if ([posts count] > 0 && posts[0] != nil) {
-        appDelegate.shareImage = [ImageCache get:@"post" identifier:posts[0][@"id"]];
-        if (appDelegate.shareImage != nil) [ImageCache set:@"venue" identifier:appDelegate.activeVenue[@"id"] image:appDelegate.shareImage];
+        NSDictionary *key = @{@"entity": @"post",
+                              @"entity_id": posts[0][@"id"]};
+        appDelegate.shareImage = [Request getImage:key];
+        if (appDelegate.shareImage != nil) [Request setImage:key image:appDelegate.shareImage];
     }
 }
 

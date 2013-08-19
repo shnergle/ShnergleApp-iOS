@@ -7,7 +7,7 @@
 //
 
 #import "ProfileViewController.h"
-#import "PostRequest.h"
+#import "Request.h"
 #import "MenuViewController.h"
 #import <Toast/Toast+UIView.h>
 #import <ECSlidingViewController/ECSlidingViewController.h>
@@ -74,7 +74,7 @@
     self.navigationController.navigationBar.clipsToBounds = YES;
     self.navBar.clipsToBounds = YES;
 
-    [[[PostRequest alloc] init] exec:@"rankings/get" params:nil delegate:self callback:@selector(postResponse:)];
+    [Request post:@"rankings/get" params:nil delegate:self callback:@selector(postResponse:)];
 }
 
 - (void)postResponse:(NSDictionary *)result {

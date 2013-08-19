@@ -7,7 +7,7 @@
 //
 
 #import "StaffViewController.h"
-#import "PostRequest.h"
+#import "Request.h"
 #import <Toast/Toast+UIView.h>
 #import "StaffEditViewController.h"
 
@@ -24,7 +24,7 @@
     [super viewDidAppear:animated];
     [self.view makeToastActivity];
     NSDictionary *params = @{@"venue_id": appDelegate.activeVenue[@"id"]};
-    [[[PostRequest alloc] init] exec:@"venue_staff/get" params:params delegate:self callback:@selector(didFinishDownloadingStaff:)];
+    [Request post:@"venue_staff/get" params:params delegate:self callback:@selector(didFinishDownloadingStaff:)];
 }
 
 - (void)addStaff:(id)sender {

@@ -8,7 +8,7 @@
 
 #import "AccountViewController.h"
 #import <Toast/Toast+UIView.h>
-#import "PostRequest.h"
+#import "Request.h"
 
 @implementation AccountViewController
 
@@ -28,13 +28,13 @@
 - (IBAction)optInChange:(id)sender {
     [self.view makeToastActivity];
     appDelegate.optInTop5 = self.optInSwitch.on;
-    [[[PostRequest alloc] init] exec:@"users/set" params:@{@"top5": self.optInSwitch.on ? @"true" : @"false"} delegate:self callback:@selector(doNothing:)];
+    [Request post:@"users/set" params:@{@"top5": self.optInSwitch.on ? @"true" : @"false"} delegate:self callback:@selector(doNothing:)];
 }
 
 - (IBAction)saveLocallyChange:(id)sender {
     [self.view makeToastActivity];
     appDelegate.saveLocally = self.saveLocallySwitch.on;
-    [[[PostRequest alloc] init] exec:@"users/set" params:@{@"save_locally": self.saveLocallySwitch.on ? @"true" : @"false"} delegate:self callback:@selector(doNothing:)];
+    [Request post:@"users/set" params:@{@"save_locally": self.saveLocallySwitch.on ? @"true" : @"false"} delegate:self callback:@selector(doNothing:)];
 }
 
 - (IBAction)twitterSwitchAction:(id)sender {
@@ -63,7 +63,7 @@
                                            completion:accountStoreHandler];
     } else {
         appDelegate.twitter = nil;
-        [[[PostRequest alloc] init] exec:@"users/set" params:@{@"twitter": @""} delegate:self callback:@selector(doNothing:)];
+        [Request post:@"users/set" params:@{@"twitter": @""} delegate:self callback:@selector(doNothing:)];
     }
 }
 
@@ -73,7 +73,7 @@
         self.twitterSwitch.on = NO;
     } else {
         appDelegate.twitter = [[alertView buttonTitleAtIndex:buttonIndex] stringByReplacingCharactersInRange:NSMakeRange(0, 1) withString:@""];
-        [[[PostRequest alloc] init] exec:@"users/set" params:@{@"twitter": appDelegate.twitter} delegate:self callback:@selector(doNothing:)];
+        [Request post:@"users/set" params:@{@"twitter": appDelegate.twitter} delegate:self callback:@selector(doNothing:)];
     }
 }
 

@@ -9,7 +9,7 @@
 #import "OverlayText.h"
 #import "VenueViewController.h"
 #import "CheckInViewController.h"
-#import "PostRequest.h"
+#import "Request.h"
 #import <Toast+UIView.h>
 #import "ShareViewController.h"
 #import "VenueDetailsViewController.h"
@@ -84,7 +84,7 @@
                              @"going": @"true",
                              @"from_time": @([self fromTime]),
                              @"until_time": @([self untilTime])};
-    [[[PostRequest alloc] init] exec:@"venue_rsvps/set" params:params delegate:self callback:@selector(didIntent:)];
+    [Request post:@"venue_rsvps/set" params:params delegate:self callback:@selector(didIntent:)];
 }
 
 - (IBAction)tappedThinking:(id)sender {
@@ -93,7 +93,7 @@
                              @"maybe": @"true",
                              @"from_time": @([self fromTime]),
                              @"until_time": @([self untilTime])};
-    [[[PostRequest alloc] init] exec:@"venue_rsvps/set" params:params delegate:self callback:@selector(didIntent:)];
+    [Request post:@"venue_rsvps/set" params:params delegate:self callback:@selector(didIntent:)];
 }
 
 - (void)didIntent:(id)response {
@@ -133,11 +133,11 @@
                              @"phone": self.phoneTextField.text,
                              @"website": self.websiteTextField.text,
                              @"email": self.emailTextField.text};
-    [[[PostRequest alloc] init] exec:@"venues/set"
+    [Request post:@"venues/set"
                               params:params
                             delegate:self
                             callback:@selector(doNothing:)
-                                type:@"string"];
+                                type:String];
 }
 
 - (void)doNothing:(id)sender {
@@ -336,7 +336,7 @@
     NSDictionary *params = @{@"venue_id": appDelegate.activeVenue[@"id"],
                              @"from_time": @([self fromTime]),
                              @"until_time": @([self untilTime])};
-    [[[PostRequest alloc] init] exec:@"venue_rsvps/get" params:params delegate:self callback:@selector(didFinishGettingRsvps:)];
+    [Request post:@"venue_rsvps/get" params:params delegate:self callback:@selector(didFinishGettingRsvps:)];
 }
 
 - (void)hasAlreadyRSVPd {
@@ -344,7 +344,7 @@
                              @"own": @"true",
                              @"from_time": @([self fromTime]),
                              @"until_time": @([self untilTime])};
-    [[[PostRequest alloc] init] exec:@"venue_rsvps/get" params:params delegate:self callback:@selector(didFinishGettingAlreadyRSVPd:)];
+    [Request post:@"venue_rsvps/get" params:params delegate:self callback:@selector(didFinishGettingAlreadyRSVPd:)];
 }
 
 - (void)didFinishGettingAlreadyRSVPd:(id)response {
@@ -398,7 +398,7 @@
 }
 
 - (void)didFinishUpdateVenueDetails:(id)response {
-    [[[PostRequest alloc] init] exec:@"venue_managers/set" params:@{@"venue_id": appDelegate.activeVenue[@"id"]} delegate:self callback:@selector(didFinishClaiming:)];
+    [Request post:@"venue_managers/set" params:@{@"venue_id": appDelegate.activeVenue[@"id"]} delegate:self callback:@selector(didFinishClaiming:)];
 }
 
 - (void)didFinishClaiming:(id)response {
@@ -418,7 +418,7 @@
         params[@"website"] = appDelegate.venueDetailsContent[@(10)];
     }
 
-    [[[PostRequest alloc] init] exec:@"venues/set" params:params delegate:self callback:@selector(didFinishUpdateVenueDetails:)];
+    [Request post:@"venues/set" params:params delegate:self callback:@selector(didFinishUpdateVenueDetails:)];
 }
 
 @end

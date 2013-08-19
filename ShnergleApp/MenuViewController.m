@@ -7,7 +7,7 @@
 //
 
 #import "MenuViewController.h"
-#import "PostRequest.h"
+#import "Request.h"
 #import "VenueViewController.h"
 
 @implementation MenuViewController
@@ -164,8 +164,8 @@
     if (textField.text.length > 0) {
         NSDictionary *params = @{@"term": self.bar.text,
                                  @"level": appDelegate.level};
-        [[[PostRequest alloc] init] exec:@"user_searches/set" params:params delegate:self callback:@selector(searchRegistered:)];
-        [[[PostRequest alloc] init] exec:@"venues/get" params:params delegate:self callback:@selector(postResponse:)];
+        [Request post:@"user_searches/set" params:params delegate:self callback:@selector(searchRegistered:)];
+        [Request post:@"venues/get" params:params delegate:self callback:@selector(postResponse:)];
         [textField resignFirstResponder];
         [self.searchResultsView show];
         [self toggleCancelButton:true];

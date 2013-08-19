@@ -7,7 +7,7 @@
 //
 
 #import "AddPromotionsViewController.h"
-#import "PostRequest.h"
+#import "Request.h"
 #import <Toast+UIView.h>
 
 @implementation AddPromotionsViewController
@@ -49,7 +49,7 @@
         params[@"promotion_id"] = appDelegate.activePromotion[@"id"];
     }
     [self.view makeToastActivity];
-    [[[PostRequest alloc] init] exec:@"promotions/set" params:params delegate:self callback:@selector(didFinishAddingPromotion:) type:@"string"];
+    [Request post:@"promotions/set" params:params delegate:self callback:@selector(didFinishAddingPromotion:) type:String];
 }
 
 - (void)didFinishAddingPromotion:(NSString *)response {

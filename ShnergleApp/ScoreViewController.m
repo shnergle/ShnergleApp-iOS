@@ -8,7 +8,7 @@
 
 #import "ScoreViewController.h"
 #import <Toast/Toast+UIView.h>
-#import "PostRequest.h"
+#import "Request.h"
 
 @implementation ScoreViewController
 

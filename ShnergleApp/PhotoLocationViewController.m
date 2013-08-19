@@ -8,7 +8,7 @@
 
 #import "PhotoLocationViewController.h"
 #import "ShareViewController.h"
-#import "PostRequest.h"
+#import "Request.h"
 #import <Toast/Toast+UIView.h>
 
 @implementation PhotoLocationViewController
@@ -116,7 +116,7 @@
                                      @"my_lon": @(coord.longitude),
                                      @"distance": @(distanceInDegrees),
                                      @"level": appDelegate.level};
-            [[[PostRequest alloc] init] exec:@"venues/get" params:params delegate:self callback:@selector(didFinishLoadingVenues:)];
+            [Request post:@"venues/get" params:params delegate:self callback:@selector(didFinishLoadingVenues:)];
 
             [map animateToCameraPosition:[GMSCameraPosition cameraWithLatitude:map.myLocation.coordinate.latitude longitude:map.myLocation.coordinate.longitude zoom:13]];
 

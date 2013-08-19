@@ -7,7 +7,7 @@
 //
 
 #import "SelectPromotionsViewController.h"
-#import "PostRequest.h"
+#import "Request.h"
 #import <Toast+UIView.h>
 
 @implementation SelectPromotionsViewController
@@ -28,7 +28,7 @@
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
 
-    [[[PostRequest alloc] init] exec:@"promotions/get" params:@{@"venue_id": appDelegate.activeVenue[@"id"], @"getall": @"true"} delegate:self callback:@selector(didFinishGettingPromotions:)];
+    [Request post:@"promotions/get" params:@{@"venue_id": appDelegate.activeVenue[@"id"], @"getall": @"true"} delegate:self callback:@selector(didFinishGettingPromotions:)];
 }
 
 - (void)didFinishGettingPromotions:(NSArray *)response {
@@ -105,7 +105,7 @@
     if (editingStyle == UITableViewCellEditingStyleDelete) {
         selectedIndexPath = indexPath;
         [self.view makeToastActivity];
-        [[[PostRequest alloc] init] exec:@"promotions/set" params:@{@"promotion_id": promotions[indexPath.row][@"id"], @"delete": @"true"} delegate:self callback:@selector(didFinishDeletingPromotion:) type:@"string"];
+        [Request post:@"promotions/set" params:@{@"promotion_id": promotions[indexPath.row][@"id"], @"delete": @"true"} delegate:self callback:@selector(didFinishDeletingPromotion:) type:String];
     }
 }
 

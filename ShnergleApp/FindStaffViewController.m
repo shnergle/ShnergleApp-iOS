@@ -8,7 +8,7 @@
 
 #import "FindStaffViewController.h"
 #import <Toast/Toast+UIView.h>
-#import "PostRequest.h"
+#import "Request.h"
 #import "StaffEditViewController.h"
 
 @implementation FindStaffViewController
@@ -37,7 +37,7 @@
 
 - (void)searchBarSearchButtonClicked:(UISearchBar *)searchBar {
     [self.view makeToastActivity];
-    [[[PostRequest alloc] init] exec:@"users/get" params:@{@"term": searchBar.text} delegate:self callback:@selector(didFinishSearching:)];
+    [Request post:@"users/get" params:@{@"term": searchBar.text} delegate:self callback:@selector(didFinishSearching:)];
 }
 
 - (void)didFinishSearching:(NSArray *)response {
@@ -57,7 +57,7 @@
                              @"staff_user_id": results[indexPath.row][@"id"],
                              @"manager": @"false",
                              @"promo_perm": @"false"};
-    [[[PostRequest alloc] init] exec:@"venue_staff/set" params:params delegate:self callback:@selector(didFinishAddingStaff:) type:@"string"];
+    [Request post:@"venue_staff/set" params:params delegate:self callback:@selector(didFinishAddingStaff:) type:String];
 }
 
 - (BOOL)isAlreadyInStaffList:(id)user_id {

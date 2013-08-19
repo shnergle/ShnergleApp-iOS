@@ -9,7 +9,7 @@
 #import "RedemptionListViewController.h"
 #import <Toast/Toast+UIView.h>
 #import <NSDate+TimeAgo/NSDate+TimeAgo.h>
-#import "PostRequest.h"
+#import "Request.h"
 
 @implementation RedemptionListViewController
 
@@ -18,7 +18,7 @@
     [self.navigationController setNavigationBarHidden:NO animated:YES];
     self.navigationItem.title = @"Redeemed";
     [self.view makeToastActivity];
-    [[[PostRequest alloc] init] exec:@"promotion_redemptions/get" params:nil delegate:self callback:@selector(didFinishDownloadingPosts:)];
+    [Request post:@"promotion_redemptions/get" params:nil delegate:self callback:@selector(didFinishDownloadingPosts:)];
 }
 
 - (void)didFinishDownloadingPosts:(id)response {

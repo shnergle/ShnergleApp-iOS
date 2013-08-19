@@ -7,7 +7,7 @@
 //
 
 #import "LoginScreenController.h"
-#import "PostRequest.h"
+#import "Request.h"
 #import <FacebookSDK/FBLoginViewLoginButtonSmallPNG.h>
 #import <FacebookSDK/FBLoginViewLoginButtonSmallPressedPNG.h>
 #import <sys/utsname.h>
@@ -76,7 +76,7 @@
                                          @"birth_year": [self orEmpty:[user[@"birthday"] substringFromIndex:6]],
                                          @"age": @([self age:user[@"birthday"]])};
 
-                if (![[[PostRequest alloc] init] exec:@"users/set" params:params delegate:self callback:@selector(postResponse:)]) [self alert];
+                [Request post:@"users/set" params:params delegate:self callback:@selector(postResponse:)];
             } else {
                 self.buttonLoginLogout.hidden = NO;
                 [self alert];
@@ -117,7 +117,7 @@
         appDelegate.saveLocally = [response[@"save_locally"] intValue] == 1;
         appDelegate.optInTop5 = [response[@"top5"] intValue] == 1;
         newUser = [response[@"joined"] intValue] + 10 > [[NSDate date] timeIntervalSince1970];
-        [[[PostRequest alloc] init] exec:@"rankings/get" params:nil delegate:self callback:@selector(gotRank:)];
+        [Request post:@"rankings/get" params:nil delegate:self callback:@selector(gotRank:)];
     } else {
         [self alert];
     }
@@ -137,7 +137,7 @@
 
 - (void)gotRank:(NSDictionary *)response {
     appDelegate.level = [response[@"level"] stringValue];
-    [[[PostRequest alloc] init] exec:@"venues/get" params:@{@"own": @"true", @"level": appDelegate.level} delegate:self callback:@selector(gotOwnVenues:)];
+    [Request post:@"venues/get" params:@{@"own": @"true", @"level": appDelegate.level} delegate:self callback:@selector(gotOwnVenues:)];
 }
 
 - (IBAction)buttonClickHandler:(id)sender {
