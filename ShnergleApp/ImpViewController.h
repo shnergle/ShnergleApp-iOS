@@ -8,10 +8,8 @@
 
 #import "CustomBackViewController.h"
 
-@interface ImpViewController : CustomBackViewController <UICollectionViewDelegate, UICollectionViewDataSource>
+@interface ImpViewController : CustomBackViewController <UITableViewDataSource, UITableViewDelegate>
 
-- (IBAction)showInfo:(id)sender;
-//@property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (strong, nonatomic) NSArray *tableData;
 
 @end

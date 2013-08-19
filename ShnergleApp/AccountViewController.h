@@ -14,5 +14,4 @@
 @property (weak, nonatomic) IBOutlet UISwitch *twitterSwitch;
 @property (weak, nonatomic) IBOutlet UISwitch *saveLocallySwitch;
 
-
 @end
