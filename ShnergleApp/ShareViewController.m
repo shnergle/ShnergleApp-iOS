@@ -61,7 +61,7 @@
         post_id = appDelegate.shareActivePostId;
         [self shareOnTwitter];
         //Share to Facebook
-        if ([appDelegate.session.permissions indexOfObject:@"publish_actions"] == NSNotFound)
+        if (self.fbSwitch.on && [appDelegate.session.permissions indexOfObject:@"publish_actions"] == NSNotFound)
             [appDelegate.session requestNewPublishPermissions:@[@"publish_actions"] defaultAudience:FBSessionDefaultAudienceEveryone completionHandler:^(FBSession *session, NSError *error) {
                 [self shareOnFacebook];
             }];
