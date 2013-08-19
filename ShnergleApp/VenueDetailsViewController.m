@@ -38,8 +38,10 @@
 }
 
 - (BOOL)allFieldsFilledIn {
-    for (UITextField *textField in textFields) {
-        if (textField == nil || [textField.text isEqualToString:@""]) return NO;
+    if ([textFields count] != 3) {
+        for (UITextField *textField in textFields) {
+            if (textField == nil || textField.text == nil || [[textField.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]] isEqualToString:@""]) return NO;
+        }
     }
     return YES;
 }
