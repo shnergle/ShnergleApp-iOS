@@ -245,7 +245,8 @@
     NSDictionary *params = @{@"my_lat": @(coord.latitude),
                              @"my_lon": @(coord.longitude),
                              @"distance": @(distanceInDegrees),
-                             @"level": appDelegate.level};
+                             @"level": appDelegate.level,
+                             @"around_me": @"true"};
     [Request post:@"venues/get" params:params delegate:self callback:@selector(didFinishLoadingVenues:)];
 
     mapCircle.map = map;
