@@ -12,12 +12,28 @@
 #define appSecret @"FCuf65iuOUDCjlbiyyer678Coutyc64v655478VGvgh76"
 #define serverURL @"http://shnergle-api.azurewebsites.net/v1/%@"
 
+@interface ConnectionErrorAlert : NSObject <UIAlertViewDelegate>
+
+@property BOOL alertIssued;
+
+@end
+
+@implementation ConnectionErrorAlert : NSObject
+
+- (void)alertView:(UIAlertView *)alertView didDismissWithButtonIndex:(NSInteger)buttonIndex {
+    self.alertIssued = NO;
+}
+
+@end
+
 static NSCache *cache;
+static ConnectionErrorAlert *connectionErrorAlert;
 
 @implementation Request
 
 + (void)initialize {
     cache = [[NSCache alloc] init];
+    connectionErrorAlert = [[ConnectionErrorAlert alloc] init];
 }
 
 + (UIImage *)getImage:(NSDictionary *)params {
@@ -106,10 +122,13 @@ static NSCache *cache;
         if (connectionError) {
             [Crashlytics setObjectValue:connectionError forKey:@"lastConnectionError"];
             NSLog(@"ConnectionError: %@", connectionError);
-            dispatch_async(dispatch_get_main_queue(), ^{
-                UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Connection failed!" message:nil delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
-                [alert show];
-            });
+            if (connectionError.code != -1001 && !connectionErrorAlert.alertIssued) {
+                connectionErrorAlert.alertIssued = YES;
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Connection failed!" message:nil delegate:connectionErrorAlert cancelButtonTitle:@"OK" otherButtonTitles:nil];
+                    [alert show];
+                });
+            }
             return;
         }
         id responseArg;
