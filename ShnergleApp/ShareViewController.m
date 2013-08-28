@@ -44,7 +44,7 @@
 - (void)share {
     [self.view makeToastActivity];
     appDelegate.didShare = @YES;
-    [self uploadToServer];
+    [NSThread detachNewThreadSelector:@selector(uploadToServer) toTarget:self withObject:nil];
 }
 
 - (void)viewDidDisappear:(BOOL)animated {

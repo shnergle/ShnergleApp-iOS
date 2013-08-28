@@ -24,7 +24,7 @@
     if (appDelegate.saveLocally) {
         UIImageWriteToSavedPhotosAlbum(img, nil, nil, nil);
     }
-    [Request setImage:@{@"entity": @"image", @"entity_id": @"toShare"} image:[img resizedImageToFitInSize:CGSizeMake(200, 200) scaleIfSmaller:YES]];
+    [Request setImage:@{@"entity": @"image", @"entity_id": @"toShare"} image:[img resizedImageToFitInSize:CGSizeMake(500, 500) scaleIfSmaller:YES]];
     info = nil;
     UIViewController *vc;
     if (!appDelegate.activeVenue) {

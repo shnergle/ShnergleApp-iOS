@@ -9,6 +9,8 @@
 #import "Request.h"
 #import <Crashlytics/Crashlytics.h>
 #import <TMCache/TMCache.h>
+#import <WebP/encode.h>
+#import <WebP/decode.h>
 
 #define appSecret @"FCuf65iuOUDCjlbiyyer678Coutyc64v655478VGvgh76"
 #define serverURL @"http://shnergle-api.azurewebsites.net/v1/%@"
@@ -109,7 +111,20 @@ static ConnectionErrorAlert *connectionErrorAlert;
         [body appendData:[[NSString stringWithFormat:@"\r\n--%@\r\n", boundary] dataUsingEncoding:NSUTF8StringEncoding]];
         [body appendData:[@"Content-Disposition: form-data; name=\"image\"; filename=\"image.jpg\"\r\n" dataUsingEncoding : NSUTF8StringEncoding]];
         [body appendData:[@"Content-Type: application/octet-stream\r\n\r\n" dataUsingEncoding : NSUTF8StringEncoding]];
-        [body appendData:[NSData dataWithData:UIImageJPEGRepresentation(image, 0.7)]];
+        CGImageRef imageRef = image.CGImage;
+        CGColorSpaceRef colorSpace = CGImageGetColorSpace(imageRef);
+        CGDataProviderRef dataProvider = CGImageGetDataProvider(imageRef);
+        CFDataRef imageData = CGDataProviderCopyData(dataProvider);
+        const UInt8 *rawData = CFDataGetBytePtr(imageData);
+        size_t width = CGImageGetWidth(imageRef);
+        size_t height = CGImageGetHeight(imageRef);
+        uint8_t *output;
+        NSUInteger stride = CGImageGetBytesPerRow(imageRef);
+        size_t ret_size;
+        ret_size = WebPEncodeRGBA(rawData, width, height, stride, 75, &output);
+        CFRelease(imageData);
+        CGColorSpaceRelease(colorSpace);
+        [body appendData:[NSData dataWithBytes:(const void *)output length:ret_size]];
         [body appendData:[[NSString stringWithFormat:@"\r\n--%@--\r\n", boundary] dataUsingEncoding:NSUTF8StringEncoding]];
         [urlRequest setHTTPBody:body];
     } else {
@@ -135,39 +150,75 @@ static ConnectionErrorAlert *connectionErrorAlert;
             }
             return;
         }
-        id responseArg;
         switch (type) {
             case String:
-                responseArg = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
+            {
+                NSString *responseArg = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
+                [self logData:data andResponse:responseArg];
+                [self despatch:responseArg to:object callback:cb userData:userData];
                 break;
+            }
             case Image:
-                @try {
-                    NSString *firstChar = [[[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding] substringToIndex:1];
-                    if ([@"{" isEqualToString:firstChar] || [@"null" isEqualToString:firstChar] || [@"" isEqualToString:firstChar]) @throw [NSException exceptionWithName:nil reason:nil userInfo:nil];
-                    responseArg = [UIImage imageWithData:data];
-                    [self setImage:params image:responseArg];
-                } @catch (NSException *e) {
-                    responseArg = [UIImage imageNamed:@"No_activity.png"];
-                    [self setImage:params image:responseArg];
-                }
+            {
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    UIImage *responseArg;
+                    @try {
+                        NSString *firstChar = [[[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding] substringToIndex:1];
+                        if ([@"{" isEqualToString:firstChar] || [@"null" isEqualToString:firstChar] || [@"" isEqualToString:firstChar]) @throw [NSException exceptionWithName:nil reason:nil userInfo:nil];
+                        int width = 0;
+                        int height = 0;
+                        WebPGetInfo([data bytes], [data length], &width, &height);
+                        uint8_t *rgbaData = WebPDecodeBGRA([data bytes], [data length], &width, &height);
+                        CGDataProviderRef provider = CGDataProviderCreateWithData(NULL, rgbaData, width * height * 4, free_image_data);
+                        CGColorSpaceRef colorSpaceRef = CGColorSpaceCreateDeviceRGB();
+                        CGBitmapInfo bitmapInfo = kCGBitmapByteOrderDefault;
+                        CGColorRenderingIntent renderingIntent = kCGRenderingIntentDefault;
+                        CGImageRef imageRef = CGImageCreate(width, height, 8, 32, 4 * width, colorSpaceRef, bitmapInfo, provider, NULL, NO, renderingIntent);
+                        responseArg = [UIImage imageWithCGImage:imageRef];
+                        CGImageRelease(imageRef);
+                        CGColorSpaceRelease(colorSpaceRef);
+                        CGDataProviderRelease(provider);
+                        [self setImage:params image:responseArg];
+                    } @catch (NSException *e) {
+                        responseArg = [UIImage imageNamed:@"No_activity.png"];
+                        [self setImage:params image:responseArg];
+                    }
+                    [self logData:data andResponse:responseArg];
+                    [self despatch:responseArg to:object callback:cb userData:userData];
+                });
                 break;
+            }
             case JSON:
-                responseArg = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingAllowFragments error:nil];
-                if ([responseArg isKindOfClass:[NSDictionary class]] && responseArg[@"traceback"]) {
-                    responseArg = nil;
-                    dispatch_async(dispatch_get_main_queue(), ^{
-                        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"An error occured while trying to load!" message:nil delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
-                        [alert show];
-                    });
-                }
+            {
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    id responseArg = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingAllowFragments error:nil];
+                    if ([responseArg isKindOfClass:[NSDictionary class]] && responseArg[@"traceback"]) {
+                        responseArg = nil;
+                        dispatch_async(dispatch_get_main_queue(), ^{
+                            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"An error occured while trying to load!" message:nil delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+                            [alert show];
+                        });
+                    }
+                    [self logData:data andResponse:responseArg];
+                    [self despatch:responseArg to:object callback:cb userData:userData];
+                });
+            }
         }
-        [Crashlytics setObjectValue:[[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding] forKey:@"lastResponseString"];
-        [Crashlytics setObjectValue:responseArg forKey:@"lastResponseParsed"];
-        NSLog(@"ResponseString: %@", [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding]);
-        NSLog(@"ResponseParsed: %@", responseArg);
-        [self despatch:responseArg to:object callback:cb userData:userData];
     }];
 }
+
++ (void)logData:(NSData *)data andResponse:(id)response {
+    [Crashlytics setObjectValue:[[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding] forKey:@"lastResponseString"];
+    [Crashlytics setObjectValue:response forKey:@"lastResponseParsed"];
+    NSLog(@"ResponseString: %@", [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding]);
+    NSLog(@"ResponseParsed: %@", response);
+}
+
+static void free_image_data(void *info, const void *data, size_t size)
+{
+    free((void *)data);
+}
+
 
 + (void)despatch:(id)argument to:(id)object callback:(SEL)cb userData:(id)userData {
     NSMethodSignature *methodSig = [[object class] instanceMethodSignatureForSelector:cb];
