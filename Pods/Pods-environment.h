@@ -48,6 +48,12 @@
 #define COCOAPODS_VERSION_MINOR_NSDate_Escort 1
 #define COCOAPODS_VERSION_PATCH_NSDate_Escort 0
 
+// TMCache
+#define COCOAPODS_POD_AVAILABLE_TMCache
+#define COCOAPODS_VERSION_MAJOR_TMCache 1
+#define COCOAPODS_VERSION_MINOR_TMCache 2
+#define COCOAPODS_VERSION_PATCH_TMCache 0
+
 // TPKeyboardAvoiding
 #define COCOAPODS_POD_AVAILABLE_TPKeyboardAvoiding
 #define COCOAPODS_VERSION_MAJOR_TPKeyboardAvoiding 1

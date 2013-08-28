@@ -12,7 +12,6 @@
 @implementation NSObject (MissingMethods)
 
 - (void)didReceiveMemoryWarning:(id)param {
-    [Request evict];
 }
 
 - (id)stringValue {

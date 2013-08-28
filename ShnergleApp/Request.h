@@ -26,6 +26,4 @@ typedef NS_ENUM (NSInteger, TYPE) {
 + (void)post:(NSString *)path params:(NSDictionary *)params image:(UIImage *)image delegate:(id)object callback:(SEL)cb userData:(id)userData;
 + (void)post:(NSString *)path params:(NSDictionary *)params image:(UIImage *)image delegate:(id)object callback:(SEL)cb type:(TYPE)type userData:(id)userData;
 
-+ (void)evict;
-
 @end

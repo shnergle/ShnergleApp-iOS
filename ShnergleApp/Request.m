@@ -8,6 +8,7 @@
 
 #import "Request.h"
 #import <Crashlytics/Crashlytics.h>
+#import <TMCache/TMCache.h>
 
 #define appSecret @"FCuf65iuOUDCjlbiyyer678Coutyc64v655478VGvgh76"
 #define serverURL @"http://shnergle-api.azurewebsites.net/v1/%@"
@@ -26,22 +27,20 @@
 
 @end
 
-static NSCache *cache;
 static ConnectionErrorAlert *connectionErrorAlert;
 
 @implementation Request
 
 + (void)initialize {
-    cache = [[NSCache alloc] init];
     connectionErrorAlert = [[ConnectionErrorAlert alloc] init];
 }
 
 + (UIImage *)getImage:(NSDictionary *)params {
-    return (UIImage *)[cache objectForKey:[self key:params]];
+    return [[TMCache sharedCache] objectForKey:[self key:params]];
 }
 
 + (void)setImage:(NSDictionary *)params image:(UIImage *)image {
-    [cache setObject:image forKey:[self key:params]];
+    [[TMCache sharedCache] setObject:image forKey:[self key:params]];
 }
 
 + (NSString *)key:(NSDictionary *)params {
@@ -174,10 +173,6 @@ static ConnectionErrorAlert *connectionErrorAlert;
     [invocation setTarget:object];
     [invocation retainArguments];
     [invocation invoke];
-}
-
-+ (void)evict {
-    if (cache) [cache removeAllObjects];
 }
 
 @end
