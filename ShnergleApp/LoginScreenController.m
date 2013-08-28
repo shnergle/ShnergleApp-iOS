@@ -118,4 +118,8 @@
     [[[UIAlertView alloc] initWithTitle:@"Connection failed!" message:nil delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil] show];
 }
 
+- (IBAction)showInfo:(id)sender {
+    [[[UIAlertView alloc] initWithTitle:nil message:@"We only take your most basic Facebook info so that we can provide you a service without asking you to fill in forms.\n\nWe will never post to Facebook without your express instruction.\nWe will never share your information with anybody other than in aggregated non-identifiable ways (e.g: '15% of males aged 18-24 attend your venue after seeing this image') without your express permission.\n\nFor more information please see our privacy policy." delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil] show];
+}
+
 @end
