@@ -9,7 +9,7 @@
 #import "CheckInListViewController.h"
 #import <Toast/Toast+UIView.h>
 #import "Request.h"
-#import <NSDate+TimeAgo/NSDate+TimeAgo.h>
+#import "NSDate+TimeAgo.h"
 
 @implementation CheckInListViewController
 
@@ -22,9 +22,11 @@
 }
 
 - (void)didFinishDownloadingPosts:(id)response {
-    posts = response;
-    [self.collectionView reloadData];
-    [self.view hideToastActivity];
+    @synchronized (self) {
+        posts = response;
+        [self.collectionView reloadData];
+        [self.view hideToastActivity];
+    }
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
@@ -40,7 +42,9 @@
 
 - (NSString *)getDateFromUnixFormat:(id)unixFormat {
     NSDate *date = [NSDate dateWithTimeIntervalSince1970:[unixFormat intValue]];
-    return [date timeAgoWithLimit:86400 dateFormat:NSDateFormatterShortStyle andTimeFormat:NSDateFormatterShortStyle];
+    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+    dateFormatter.dateFormat = @"ccc H:mm";
+    return [date timeAgoWithLimit:86400 dateFormatter:dateFormatter];
 }
 
 @end

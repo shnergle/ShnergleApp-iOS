@@ -9,6 +9,7 @@
 #import "LoginScreenController.h"
 #import <GoogleMaps/GoogleMaps.h>
 #import <Crashlytics/Crashlytics.h>
+#import <FacebookSDK/FBAppCall.h>
 
 @implementation AppDelegate
 
@@ -17,12 +18,11 @@
     sourceApplication:(NSString *)sourceApplication
     annotation:(id)annotation {
     return [FBAppCall handleOpenURL:url
-                  sourceApplication:sourceApplication
-                        withSession:self.session];
+                  sourceApplication:sourceApplication];
 }
 
 - (void)applicationWillTerminate:(UIApplication *)application {
-    [self.session close];
+    [[FBSession activeSession] close];
 }
 
 - (void)customiseNavBar {
@@ -57,7 +57,7 @@
 }
 
 - (void)applicationDidBecomeActive:(UIApplication *)application {
-    [FBAppCall handleDidBecomeActiveWithSession:self.session];
+    [FBAppCall handleDidBecomeActive];
 }
 
 @end

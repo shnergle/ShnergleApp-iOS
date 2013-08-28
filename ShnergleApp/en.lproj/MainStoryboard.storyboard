@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="4488.2" systemVersion="12E55" targetRuntime="iOS.CocoaTouch" variant="6xAndEarlier" propertyAccessControl="none" useAutolayout="YES" initialViewController="Yrf-wA-f9e">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="4504" systemVersion="12E55" targetRuntime="iOS.CocoaTouch" variant="6xAndEarlier" propertyAccessControl="none" useAutolayout="YES" initialViewController="Yrf-wA-f9e">
     <dependencies>
         <deployment defaultVersion="1536" identifier="iOS"/>
         <development version="4600" identifier="xcode"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3715.3"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3734.1"/>
     </dependencies>
     <scenes>
         <!--Navigation Controller-->
@@ -791,16 +791,17 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                                 <nil key="highlightedColor"/>
                             </label>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="6Sb-zS-yhc">
-                                <rect key="frame" x="112" y="53" width="97" height="30"/>
+                                <rect key="frame" x="112" y="53" width="97" height="26"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="97" id="dJf-0g-rnJ"/>
+                                    <constraint firstAttribute="height" constant="26" id="rwA-xw-vNe"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="£" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pEg-Ej-yr1">
-                                <rect key="frame" x="57" y="58" width="42" height="21"/>
+                                <rect key="frame" x="57" y="54" width="42" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="21" id="69m-a5-MYq"/>
@@ -912,7 +913,6 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                             <constraint firstItem="RYO-NA-DX0" firstAttribute="top" secondItem="Z9F-p7-zUh" secondAttribute="top" constant="11" id="34S-rQ-YfP"/>
                             <constraint firstItem="J5u-Xa-562" firstAttribute="top" secondItem="Z9F-p7-zUh" secondAttribute="top" constant="99" type="user" id="9VV-WX-hbd"/>
                             <constraint firstItem="J5u-Xa-562" firstAttribute="leading" secondItem="Z9F-p7-zUh" secondAttribute="leading" type="default" id="9aJ-4t-ldO"/>
-                            <constraint firstItem="6Sb-zS-yhc" firstAttribute="centerY" secondItem="pEg-Ej-yr1" secondAttribute="centerY" type="default" id="FBE-dy-6m4"/>
                             <constraint firstItem="RYO-NA-DX0" firstAttribute="leading" secondItem="Z9F-p7-zUh" secondAttribute="leading" constant="11" id="Mhm-Pa-lZf"/>
                             <constraint firstItem="pEg-Ej-yr1" firstAttribute="leading" secondItem="Z9F-p7-zUh" secondAttribute="leading" constant="57" id="PSD-AR-cou"/>
                             <constraint firstItem="pEg-Ej-yr1" firstAttribute="baseline" secondItem="6Sb-zS-yhc" secondAttribute="baseline" type="default" id="Uka-P0-zrn"/>
@@ -4332,34 +4332,6 @@ Apple is a third party beneficiary of the Terms
                                     <constraint firstAttribute="height" constant="570" id="0GW-ng-t96"/>
                                 </constraints>
                             </imageView>
-                            <button contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="0Fe-ga-82h">
-                                <rect key="frame" x="74" y="354" width="180" height="47"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="180" scoringType="23.5" id="CmZ-ty-hwG"/>
-                                    <constraint firstAttribute="height" constant="46" scoringType="23.5" id="wnb-bi-md8"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="boldSystem" size="button"/>
-                                <inset key="contentEdgeInsets" minX="50" minY="0.0" maxX="0.0" maxY="0.0"/>
-                                <state key="normal">
-                                    <attributedString key="attributedTitle">
-                                        <fragment content="Login with Facebook">
-                                            <attributes>
-                                                <color key="NSColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                <font key="NSFont" size="11" name="Helvetica-Bold"/>
-                                                <paragraphStyle key="NSParagraphStyle" alignment="right" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
-                                            </attributes>
-                                        </fragment>
-                                    </attributedString>
-                                    <color key="titleColor" red="0.19607843137254902" green="0.30980392156862746" blue="0.52156862745098043" alpha="1" colorSpace="calibratedRGB"/>
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <state key="highlighted">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="buttonClickHandler:" destination="Elr-eK-1V1" eventType="touchUpInside" id="EZ5-MC-aWD"/>
-                                </connections>
-                            </button>
                             <imageView autoresizesSubviews="NO" userInteractionEnabled="NO" contentMode="scaleAspectFit" image="shnerglelogo_splash_screen.png" translatesAutoresizingMaskIntoConstraints="NO" id="rry-Gf-ZA7">
                                 <rect key="frame" x="10" y="130" width="300" height="172"/>
                                 <constraints>
@@ -4369,9 +4341,6 @@ Apple is a third party beneficiary of the Terms
                         </subviews>
                         <constraints>
                             <constraint firstItem="6wr-nA-yH3" firstAttribute="centerX" secondItem="rry-Gf-ZA7" secondAttribute="centerX" type="default" id="57w-d4-M1h"/>
-                            <constraint firstItem="0Fe-ga-82h" firstAttribute="leading" secondItem="pvJ-ME-z3b" secondAttribute="leading" constant="74" type="default" id="DZp-gv-WOp"/>
-                            <constraint firstAttribute="bottom" secondItem="0Fe-ga-82h" secondAttribute="bottom" constant="148" type="user" id="RWa-64-c1X"/>
-                            <constraint firstItem="0Fe-ga-82h" firstAttribute="top" secondItem="rry-Gf-ZA7" secondAttribute="bottom" constant="52" type="user" id="S9Q-yU-OVb"/>
                             <constraint firstAttribute="bottom" secondItem="6wr-nA-yH3" secondAttribute="bottom" type="default" id="qPF-pY-WVq"/>
                             <constraint firstItem="6wr-nA-yH3" firstAttribute="leading" secondItem="pvJ-ME-z3b" secondAttribute="leading" type="default" id="wW1-gO-TQc"/>
                             <constraint firstItem="rry-Gf-ZA7" firstAttribute="centerX" secondItem="pvJ-ME-z3b" secondAttribute="centerX" type="user" id="wY3-4E-vEb"/>
@@ -4380,9 +4349,6 @@ Apple is a third party beneficiary of the Terms
                     </view>
                     <navigationItem key="navigationItem" title="Shnergle" id="JMg-dQ-Qmk"/>
                     <nil key="simulatedTopBarMetrics"/>
-                    <connections>
-                        <outlet property="buttonLoginLogout" destination="0Fe-ga-82h" id="M41-kj-X9M"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="DxJ-Q3-ATN" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

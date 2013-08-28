@@ -124,7 +124,7 @@
 }
 
 - (IBAction)signOut:(id)sender {
-    [appDelegate.session closeAndClearTokenInformation];
+    [[FBSession activeSession] closeAndClearTokenInformation];
     [self.navigationController popToRootViewControllerAnimated:YES];
 }
 

@@ -7,7 +7,7 @@
 //
 
 #import "StaffEditViewController.h"
-#import <NSDate+TimeAgo/NSDate+TimeAgo.h>
+#import "NSDate+TimeAgo.h"
 #import <Toast/Toast+UIView.h>
 #import "Request.h"
 
@@ -115,7 +115,9 @@
 
 - (NSString *)getDateFromUnixFormat:(id)unixFormat {
     NSDate *date = [NSDate dateWithTimeIntervalSince1970:[unixFormat intValue]];
-    return [date timeAgoWithLimit:86400 dateFormat:NSDateFormatterShortStyle andTimeFormat:NSDateFormatterShortStyle];
+    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+    dateFormatter.dateFormat = @"ccc H:mm";
+    return [date timeAgoWithLimit:86400 dateFormatter:dateFormatter];
 }
 
 @end

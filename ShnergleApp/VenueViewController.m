@@ -13,7 +13,7 @@
 #import "VenueGalleryViewController.h"
 #import "Request.h"
 #import "PhotoLocationViewController.h"
-#import <NSDate+TimeAgo/NSDate+TimeAgo.h>
+#import "NSDate+TimeAgo.h"
 #import <Toast/Toast+UIView.h>
 
 @implementation VenueViewController
@@ -91,7 +91,6 @@
     [super viewDidLoad];
     following = [appDelegate.activeVenue[@"following"] intValue] == 0 ? NO : YES;
     appDelegate.shareImage = nil;
-    cellImages = [NSMutableDictionary dictionary];
 
     if (!appDelegate.activeVenue[@"tonight"]) {
         summaryContent = @"";
@@ -326,14 +325,16 @@
 }
 
 - (void)didFinishDownloadingPosts:(id)response {
-    posts = response;
-    [self.crowdCollectionV reloadData];
-    [refreshControl endRefreshing];
-    if ([posts count] > 0 && posts[0] != nil) {
-        NSDictionary *key = @{@"entity": @"post",
-                              @"entity_id": posts[0][@"id"]};
-        appDelegate.shareImage = [Request getImage:key];
-        if (appDelegate.shareImage != nil) [Request setImage:key image:appDelegate.shareImage];
+    @synchronized (self) {
+        posts = response;
+        [self.crowdCollectionV reloadData];
+        [refreshControl endRefreshing];
+        if ([posts count] > 0 && posts[0] != nil) {
+            NSDictionary *key = @{@"entity": @"post",
+                                  @"entity_id": posts[0][@"id"]};
+            appDelegate.shareImage = [Request getImage:key];
+            if (appDelegate.shareImage != nil) [Request setImage:key image:appDelegate.shareImage];
+        }
     }
 }
 
@@ -410,7 +411,9 @@
 
 - (NSString *)getDateFromUnixFormat:(id)unixFormat {
     NSDate *date = [NSDate dateWithTimeIntervalSince1970:[unixFormat intValue]];
-    return [date timeAgoWithLimit:86400 dateFormat:NSDateFormatterShortStyle andTimeFormat:NSDateFormatterShortStyle];
+    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+    dateFormatter.dateFormat = @"ccc H:mm";
+    return [date timeAgoWithLimit:86400 dateFormatter:dateFormatter];
 }
 
 - (void)locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray *)locations {

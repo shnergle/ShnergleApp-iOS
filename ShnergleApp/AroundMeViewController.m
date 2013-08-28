@@ -92,10 +92,12 @@
 }
 
 - (void)didFinishLoadingVenues:(NSArray *)response {
-    venues = response;
-    [self.crowdCollection reloadData];
-    loading = NO;
-    [self.overlay hideToastActivity];
+    @synchronized (self) {
+        venues = response;
+        [self.crowdCollection reloadData];
+        loading = NO;
+        [self.overlay hideToastActivity];
+    }
 }
 
 - (void)addShadowLineRect:(CGRect)shadeRect ToView:(UIView *)view {

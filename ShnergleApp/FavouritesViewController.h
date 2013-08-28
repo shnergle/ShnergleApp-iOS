@@ -7,6 +7,7 @@
 //
 
 #import "CustomBackViewController.h"
+#import <CoreLocation/CoreLocation.h>
 
 @interface FavouritesViewController : CustomBackViewController <UICollectionViewDataSource, UICollectionViewDelegate, CLLocationManagerDelegate> {
     CLLocationManager *man;

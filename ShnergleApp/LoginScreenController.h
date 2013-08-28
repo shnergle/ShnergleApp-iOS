@@ -6,13 +6,10 @@
 //  Copyright (c) 2013 Shnergle. All rights reserved.
 //
 
-@interface LoginScreenController : UIViewController {
+#import <FacebookSDK/FBLoginView.h>
+
+@interface LoginScreenController : UIViewController <FBLoginViewDelegate> {
     BOOL newUser;
 }
-
-@property (strong, nonatomic) IBOutlet UIButton *buttonLoginLogout;
-
-- (IBAction)buttonClickHandler:(id)sender;
-- (void)updateView;
 
 @end

@@ -6,13 +6,10 @@
 //  Copyright (c) 2013 Shnergle. All rights reserved.
 //
 
-#import <FacebookSDK/FacebookSDK.h>
-
 @interface AppDelegate : UIResponder <UIApplicationDelegate>
 
 @property (strong, nonatomic) UIWindow *window;
 
-@property (strong, nonatomic) FBSession *session;
 @property (strong, nonatomic) NSString *fullName;
 @property (strong, nonatomic) NSString *facebookId;
 @property (strong, nonatomic) NSString *twitter;

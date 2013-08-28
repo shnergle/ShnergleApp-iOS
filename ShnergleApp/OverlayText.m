@@ -13,7 +13,6 @@
 #import <Toast+UIView.h>
 #import "ShareViewController.h"
 #import "VenueDetailsViewController.h"
-#import <NSDate+TimeAgo/NSDate+TimeAgo.h>
 #import <NSDate-Escort/NSDate+Escort.h>
 
 @implementation OverlayText

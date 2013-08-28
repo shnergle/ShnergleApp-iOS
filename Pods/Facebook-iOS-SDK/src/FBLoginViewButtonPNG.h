@@ -19,14 +19,14 @@
  * Please do not hand edit this file.
  * It can be rebuilt by running 
  *
- *   ./image_to_code.py -i src/ImageResources/FBLoginView/FBLoginViewLoginButtonSmall.png -c FBLoginViewLoginButtonSmall -o src
+ *   ./image_to_code.py -i src/ImageResources/FBLoginView/FBLoginViewButton.png -c FBLoginViewButton -o src
  *
  */
 
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
 
-@interface FBLoginViewLoginButtonSmallPNG : NSObject
+@interface FBLoginViewButtonPNG : NSObject
 
 + (UIImage *)image;
 

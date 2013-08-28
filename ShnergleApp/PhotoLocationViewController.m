@@ -27,11 +27,13 @@
 }
 
 - (void)didFinishLoadingVenues:(NSArray *)response {
-    venues = [response mutableCopy];
-    locationPickerVenuesImmutable = [NSArray arrayWithArray:response];
-    rows = [venues count] + 1;
-    [self.searchResultTable reloadData];
-    [self.searchResultTable hideToastActivity];
+    @synchronized (self) {
+        venues = [response mutableCopy];
+        locationPickerVenuesImmutable = [NSArray arrayWithArray:response];
+        rows = [venues count] + 1;
+        [self.searchResultTable reloadData];
+        [self.searchResultTable hideToastActivity];
+    }
 }
 
 - (void)viewWillAppear:(BOOL)animated {

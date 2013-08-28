@@ -40,13 +40,15 @@
 }
 
 - (void)postResponse:(id)response {
-    if ([response isKindOfClass:[NSArray class]]) {
-        for (id obj in response) {
-            if ([obj count] > 1) [searchResults addObject:obj];
+    @synchronized (self) {
+        if ([response isKindOfClass:[NSArray class]]) {
+            for (id obj in response) {
+                if ([obj count] > 1) [searchResults addObject:obj];
+            }
         }
-    }
 
-    [self.self.searchResultsView.resultsTableView reloadData];
+        [self.searchResultsView.resultsTableView reloadData];
+    }
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {

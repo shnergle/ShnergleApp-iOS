@@ -8,6 +8,7 @@
 
 #import "GCPlaceholderTextView.h"
 #import "CustomBackViewController.h"
+#import <FacebookSDK/FacebookSDK.h>
 
 @interface ShareViewController : CustomBackViewController <FBViewControllerDelegate, UITextViewDelegate, UIAlertViewDelegate> {
     id selectedFriends;

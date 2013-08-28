@@ -7,6 +7,7 @@
 //
 
 #import "CustomBackViewController.h"
+#import <FacebookSDK/FBProfilePictureView.h>
 
 @interface StaffEditViewController : CustomBackViewController <UITableViewDataSource, UITableViewDelegate, UIAlertViewDelegate> {
     UITableViewCell *secondCell;

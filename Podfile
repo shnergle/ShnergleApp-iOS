@@ -1,7 +1,7 @@
 platform :ios, '6.0'
 xcodeproj 'ShnergleApp.xcodeproj'
 pod 'ECSlidingViewController', '~> 0.10.0'
-pod 'Facebook-iOS-SDK', '~> 3.6'
+pod 'Facebook-iOS-SDK', '~> 3.7.1'
 pod 'Google-Maps-iOS-SDK', '~> 1.4.0'
 pod 'GCPlaceholderTextView', '~> 1.0.1'
 pod 'Toast', '~> 2.0'

@@ -14,6 +14,7 @@
 #import <ECSlidingViewController/ECSlidingViewController.h>
 #import <Toast/Toast+UIView.h>
 #import <NSDate-Escort/NSDate+Escort.h>
+#import <MapKit/MapKit.h>
 
 @implementation FavouritesViewController
 
@@ -107,9 +108,11 @@
 }
 
 - (void)didFinishLoadingVenues:(NSArray *)response {
-    venues = response;
-    [self.crowdCollection reloadData];
-    [self.view hideToastActivity];
+    @synchronized (self) {
+        venues = response;
+        [self.crowdCollection reloadData];
+        [self.view hideToastActivity];
+    }
 }
 
 - (void)tapMenu {
@@ -172,9 +175,11 @@
 
 - (void)locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray *)locations {
     if (!hasPositionLocked) {
+        MKCoordinateRegion rgn = MKCoordinateRegionMakeWithDistance(((CLLocation *)locations.lastObject).coordinate, 5000, 5000);
+        double distanceInDegrees = sqrt(pow(rgn.span.latitudeDelta, 2) + pow(rgn.span.longitudeDelta, 2));
         NSMutableDictionary *params = [@{@"my_lat": @(((CLLocation *)locations.lastObject).coordinate.latitude),
                                          @"my_lon": @(((CLLocation *)locations.lastObject).coordinate.longitude),
-                                         @"distance": @0.1,
+                                         @"distance": @(distanceInDegrees),
                                          @"level": appDelegate.level} mutableCopy];
         if ([@"Quiet" isEqualToString : appDelegate.topViewType]) {
             [params addEntriesFromDictionary:@{@"quiet" : @"true",

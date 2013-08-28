@@ -7,7 +7,6 @@
 //
 
 #import "ShareViewController.h"
-#import <FacebookSDK/FacebookSDK.h>
 #import "Request.h"
 #import <Toast/Toast+UIView.h>
 #import <Accounts/Accounts.h>
@@ -61,8 +60,8 @@
         post_id = appDelegate.shareActivePostId;
         [self shareOnTwitter];
         //Share to Facebook
-        if (self.fbSwitch.on && [appDelegate.session.permissions indexOfObject:@"publish_actions"] == NSNotFound)
-            [appDelegate.session requestNewPublishPermissions:@[@"publish_actions"] defaultAudience:FBSessionDefaultAudienceEveryone completionHandler:^(FBSession *session, NSError *error) {
+        if (self.fbSwitch.on && [[FBSession activeSession].permissions indexOfObject:@"publish_actions"] == NSNotFound)
+            [[FBSession activeSession] requestNewPublishPermissions:@[@"publish_actions"] defaultAudience:FBSessionDefaultAudienceEveryone completionHandler:^(FBSession *session, NSError *error) {
                 [self shareOnFacebook];
             }];
         else {
@@ -86,8 +85,8 @@
     post_id = response;
     [self shareOnTwitter];
     //Share to Facebook
-    if ([appDelegate.session.permissions indexOfObject:@"publish_actions"] == NSNotFound)
-        [appDelegate.session requestNewPublishPermissions:@[@"publish_actions"] defaultAudience:FBSessionDefaultAudienceEveryone completionHandler:^(FBSession *session, NSError *error) {
+    if ([[FBSession activeSession].permissions indexOfObject:@"publish_actions"] == NSNotFound)
+        [[FBSession activeSession] requestNewPublishPermissions:@[@"publish_actions"] defaultAudience:FBSessionDefaultAudienceEveryone completionHandler:^(FBSession *session, NSError *error) {
             [self shareOnFacebook];
         }];
     else {
@@ -121,7 +120,7 @@
     //action[@"tags"] = selectedFriends;
     //action[@"place"] = @"http://samples.ogp.me/259837270824167";
     //action[@"tags"] = @[@"549445495",@"701732"];
-    [[[FBRequest alloc] initWithSession:appDelegate.session graphPath:@"me/photos" parameters:action HTTPMethod:@"POST"] startWithCompletionHandler:^(FBRequestConnection *connection, id result, NSError *error) {
+    [[[FBRequest alloc] initWithSession:[FBSession activeSession] graphPath:@"me/photos" parameters:action HTTPMethod:@"POST"] startWithCompletionHandler:^(FBRequestConnection *connection, id result, NSError *error) {
         /*NSMutableDictionary<FBGraphObject> *action = [FBGraphObject graphObject];
            action[@"venue"] = @"http://samples.ogp.me/259837270824167";
            if (action[@"tags"] != nil) action[@"tags"] = selectedFriends;
@@ -221,7 +220,6 @@
         [[FBFriendPickerViewController alloc] init];
     friendPickerController.title = @"Select Friends";
     friendPickerController.delegate = self;
-    friendPickerController.session = appDelegate.session;
 
     [friendPickerController loadData];
 

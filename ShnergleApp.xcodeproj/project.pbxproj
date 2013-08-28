@@ -931,6 +931,9 @@
 		CD2957F017A271B200B72702 /* claimvenue.png in Resources */ = {isa = PBXBuildFile; fileRef = CD2957EF17A26FAB00B72702 /* claimvenue.png */; };
 		CD3703751760C8B600CFD249 /* CustomBackViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CD3703741760C8B600CFD249 /* CustomBackViewController.m */; };
 		CD3B655D175CBA72006A4151 /* CrowdItem.m in Sources */ = {isa = PBXBuildFile; fileRef = CD3B655C175CBA72006A4151 /* CrowdItem.m */; };
+		CD4DF2A317CE048A005F3604 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CD4DF2A217CE048A005F3604 /* MapKit.framework */; };
+		CD4DF2A917CE05EC005F3604 /* UIImage+Resize.m in Sources */ = {isa = PBXBuildFile; fileRef = CD4DF2A517CE05EB005F3604 /* UIImage+Resize.m */; };
+		CD4DF2AA17CE05EC005F3604 /* NSDate+TimeAgo.m in Sources */ = {isa = PBXBuildFile; fileRef = CD4DF2A717CE05EC005F3604 /* NSDate+TimeAgo.m */; };
 		CD5024921768AED6003D3004 /* StaffTypeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CD5024911768AE99003D3004 /* StaffTypeViewController.m */; };
 		CD56F319179D30C80028B688 /* FindStaffViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CD56F318179D308C0028B688 /* FindStaffViewController.m */; };
 		CD654EE8179DCA9800F380B5 /* Crashlytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CD654EE7179DCA9800F380B5 /* Crashlytics.framework */; };
@@ -1931,6 +1934,11 @@
 		CD3703731760C8B600CFD249 /* CustomBackViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomBackViewController.h; sourceTree = "<group>"; };
 		CD3703741760C8B600CFD249 /* CustomBackViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomBackViewController.m; sourceTree = "<group>"; };
 		CD3B655C175CBA72006A4151 /* CrowdItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CrowdItem.m; sourceTree = "<group>"; };
+		CD4DF2A217CE048A005F3604 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		CD4DF2A517CE05EB005F3604 /* UIImage+Resize.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+Resize.m"; sourceTree = "<group>"; };
+		CD4DF2A617CE05EB005F3604 /* UIImage+Resize.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+Resize.h"; sourceTree = "<group>"; };
+		CD4DF2A717CE05EC005F3604 /* NSDate+TimeAgo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+TimeAgo.m"; sourceTree = "<group>"; };
+		CD4DF2A817CE05EC005F3604 /* NSDate+TimeAgo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+TimeAgo.h"; sourceTree = "<group>"; };
 		CD5024901768AE99003D3004 /* StaffTypeViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = StaffTypeViewController.h; sourceTree = "<group>"; };
 		CD5024911768AE99003D3004 /* StaffTypeViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = StaffTypeViewController.m; sourceTree = "<group>"; };
 		CD56F317179D308C0028B688 /* FindStaffViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FindStaffViewController.h; sourceTree = "<group>"; };
@@ -2000,6 +2008,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CD4DF2A317CE048A005F3604 /* MapKit.framework in Frameworks */,
 				CDBC6C7E17AC4FBA001B667B /* Social.framework in Frameworks */,
 				CDBC6C7C17AC47D9001B667B /* Accounts.framework in Frameworks */,
 				CDAD1D33175E2BF800581713 /* UIKit.framework in Frameworks */,
@@ -2913,6 +2922,7 @@
 		808F13C716FB6A5C00B66E6D /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				CD4DF2A217CE048A005F3604 /* MapKit.framework */,
 				CDBC6C7D17AC4FBA001B667B /* Social.framework */,
 				CDBC6C7B17AC47D9001B667B /* Accounts.framework */,
 				CD654EE7179DCA9800F380B5 /* Crashlytics.framework */,
@@ -2926,6 +2936,7 @@
 		808F13CE16FB6A5C00B66E6D /* ShnergleApp */ = {
 			isa = PBXGroup;
 			children = (
+				CD4DF2A417CE05D6005F3604 /* TemporaryPods */,
 				EE6707BB17A957B80083E2C5 /* AcceptViewController.h */,
 				EE6707BC17A957B80083E2C5 /* AcceptViewController.m */,
 				EE4C2E1D17B9168B007CD51A /* AccountViewController.h */,
@@ -3107,6 +3118,17 @@
 				80B400DB17540CCA00A377D9 /* stafficon.png */,
 			);
 			path = Icons;
+			sourceTree = "<group>";
+		};
+		CD4DF2A417CE05D6005F3604 /* TemporaryPods */ = {
+			isa = PBXGroup;
+			children = (
+				CD4DF2A517CE05EB005F3604 /* UIImage+Resize.m */,
+				CD4DF2A617CE05EB005F3604 /* UIImage+Resize.h */,
+				CD4DF2A717CE05EC005F3604 /* NSDate+TimeAgo.m */,
+				CD4DF2A817CE05EC005F3604 /* NSDate+TimeAgo.h */,
+			);
+			name = TemporaryPods;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -4191,6 +4213,7 @@
 				805AB9E1172A9AFA0056DCFB /* VenueGalleryViewController.m in Sources */,
 				EE8FF815172A9CFD0003A8E1 /* LoginScreenController.m in Sources */,
 				809F6AF8179FD52600C67D77 /* SelectPromotionsViewController.m in Sources */,
+				CD4DF2A917CE05EC005F3604 /* UIImage+Resize.m in Sources */,
 				EE4C2E1F17B9168B007CD51A /* AccountViewController.m in Sources */,
 				80B77D28173E938E00085A71 /* MenuViewController.m in Sources */,
 				EE0A80711733D97300792AE4 /* ProfileViewController.m in Sources */,
@@ -4199,6 +4222,7 @@
 				EE4D8F9817BBD5190012A453 /* ImpViewController.m in Sources */,
 				CD3B655D175CBA72006A4151 /* CrowdItem.m in Sources */,
 				CDAD1D2F175E011100581713 /* ShareViewController.m in Sources */,
+				CD4DF2AA17CE05EC005F3604 /* NSDate+TimeAgo.m in Sources */,
 				80DC1DFB1760CAC2000AA6DF /* FavouritesViewController.m in Sources */,
 				CD3703751760C8B600CFD249 /* CustomBackViewController.m in Sources */,
 				CDBCDE7F1765245B0048478F /* CustomSlidingViewController.m in Sources */,
