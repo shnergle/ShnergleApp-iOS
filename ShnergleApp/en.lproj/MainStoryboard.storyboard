@@ -4333,10 +4333,13 @@ Apple is a third party beneficiary of the Terms
                                 </constraints>
                             </imageView>
                             <imageView autoresizesSubviews="NO" userInteractionEnabled="NO" contentMode="scaleAspectFit" image="shnerglelogo_splash_screen.png" translatesAutoresizingMaskIntoConstraints="NO" id="rry-Gf-ZA7">
-                                <rect key="frame" x="10" y="130" width="300" height="172"/>
+                                <rect key="frame" x="10" y="80" width="300" height="172"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="300" id="Lsb-U3-z53"/>
+                                </constraints>
                             </imageView>
                             <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uln-P5-VDI">
-                                <rect key="frame" x="284" y="456" width="26" height="26"/>
+                                <rect key="frame" x="284" y="337" width="26" height="26"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="26" type="user" id="SQg-XH-h7q"/>
@@ -4350,11 +4353,10 @@ Apple is a third party beneficiary of the Terms
                                 </connections>
                             </button>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Why do we only use Facebook login?" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7Pl-iu-lsA">
-                                <rect key="frame" x="10" y="458" width="290" height="21"/>
+                                <rect key="frame" x="10" y="340" width="290" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <constraints>
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="290" type="user" id="M3V-LB-K3Z"/>
-                                    <constraint firstAttribute="width" constant="290" id="Mbu-TZ-E4i"/>
                                     <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="21" type="user" id="f7X-Qe-s3N"/>
                                     <constraint firstAttribute="height" constant="21" type="user" id="wjU-NI-jFM"/>
                                 </constraints>
@@ -4364,17 +4366,15 @@ Apple is a third party beneficiary of the Terms
                             </label>
                         </subviews>
                         <constraints>
-                            <constraint firstItem="6wr-nA-yH3" firstAttribute="centerX" secondItem="rry-Gf-ZA7" secondAttribute="centerX" type="default" id="57w-d4-M1h"/>
-                            <constraint firstItem="7Pl-iu-lsA" firstAttribute="leading" secondItem="rry-Gf-ZA7" secondAttribute="leading" type="default" id="A6r-RI-zWu"/>
+                            <constraint firstItem="rry-Gf-ZA7" firstAttribute="top" secondItem="pvJ-ME-z3b" secondAttribute="top" constant="80" id="0wJ-wl-ivZ"/>
+                            <constraint firstItem="uln-P5-VDI" firstAttribute="centerY" secondItem="7Pl-iu-lsA" secondAttribute="centerY" type="default" id="4Sg-F3-3ZB"/>
+                            <constraint firstItem="rry-Gf-ZA7" firstAttribute="centerX" secondItem="6wr-nA-yH3" secondAttribute="centerX" type="default" id="CFv-Gt-eaq"/>
                             <constraint firstAttribute="trailing" secondItem="7Pl-iu-lsA" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="IwK-Ed-sKZ"/>
-                            <constraint firstAttribute="bottom" secondItem="7Pl-iu-lsA" secondAttribute="bottom" constant="69" id="V2y-97-vWs"/>
-                            <constraint firstAttribute="bottom" secondItem="uln-P5-VDI" secondAttribute="bottom" constant="66" id="Y1X-il-hlt"/>
-                            <constraint firstItem="uln-P5-VDI" firstAttribute="trailing" secondItem="rry-Gf-ZA7" secondAttribute="trailing" type="default" id="aDm-6T-2RS"/>
-                            <constraint firstItem="7Pl-iu-lsA" firstAttribute="baseline" secondItem="uln-P5-VDI" secondAttribute="baseline" type="default" id="fbK-2q-GIl"/>
+                            <constraint firstItem="7Pl-iu-lsA" firstAttribute="top" secondItem="pvJ-ME-z3b" secondAttribute="top" constant="340" type="user" id="Wan-u4-0or"/>
+                            <constraint firstItem="rry-Gf-ZA7" firstAttribute="trailing" secondItem="uln-P5-VDI" secondAttribute="trailing" type="default" id="ZmU-Ps-osM"/>
                             <constraint firstAttribute="bottom" secondItem="6wr-nA-yH3" secondAttribute="bottom" type="default" id="qPF-pY-WVq"/>
                             <constraint firstItem="6wr-nA-yH3" firstAttribute="leading" secondItem="pvJ-ME-z3b" secondAttribute="leading" type="default" id="wW1-gO-TQc"/>
-                            <constraint firstItem="rry-Gf-ZA7" firstAttribute="centerX" secondItem="pvJ-ME-z3b" secondAttribute="centerX" type="user" id="wY3-4E-vEb"/>
-                            <constraint firstItem="rry-Gf-ZA7" firstAttribute="top" secondItem="pvJ-ME-z3b" secondAttribute="top" constant="130" type="user" id="xkP-dm-L6A"/>
+                            <constraint firstItem="rry-Gf-ZA7" firstAttribute="leading" secondItem="7Pl-iu-lsA" secondAttribute="leading" type="default" id="wYe-dL-SrJ"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Shnergle" id="JMg-dQ-Qmk"/>
@@ -4388,6 +4388,7 @@ Apple is a third party beneficiary of the Terms
     <resources>
         <image name="Authentication%20Process.png" width="640" height="198"/>
         <image name="FB-f-Logo__blue_50.png" width="50" height="50"/>
+        <image name="FB-f-Logo__blue_50.png" width="50" height="50"/>
         <image name="add_friend.png" width="89" height="89"/>
         <image name="arrowDown.png" width="42" height="42"/>
         <image name="arrow_east.png" width="38" height="32"/>
@@ -4396,14 +4397,25 @@ Apple is a third party beneficiary of the Terms
         <image name="glyphicons_030_pencil.png" width="24" height="24"/>
         <image name="glyphicons_087_log_book.png" width="22" height="24"/>
         <image name="glyphicons_195_circle_info.png" width="26" height="26"/>
+        <image name="glyphicons_195_circle_info.png" width="26" height="26"/>
+        <image name="glyphicons_195_circle_info.png" width="26" height="26"/>
         <image name="glyphicons_410_facebook.png" width="24" height="24"/>
         <image name="glyphicons_411_twitter.png" width="24" height="24"/>
         <image name="glyphicons_419_e-mail.png" width="24" height="24"/>
         <image name="greenbutton.png" width="155" height="60"/>
+        <image name="greenbutton.png" width="155" height="60"/>
+        <image name="greybutton03.png" width="157" height="60"/>
+        <image name="greybutton03.png" width="157" height="60"/>
         <image name="greybutton03.png" width="157" height="60"/>
         <image name="greybutton04.png" width="195" height="60"/>
+        <image name="greybutton04.png" width="195" height="60"/>
+        <image name="greybutton04.png" width="195" height="60"/>
+        <image name="greybutton04.png" width="195" height="60"/>
+        <image name="greybutton04.png" width="195" height="60"/>
+        <image name="promocorner.png" width="60" height="60"/>
         <image name="promocorner.png" width="60" height="60"/>
         <image name="shnerglelogo_splash_screen.png" width="600" height="172"/>
+        <image name="twitter-bird-white-on-blue.png" width="300" height="300"/>
         <image name="twitter-bird-white-on-blue.png" width="300" height="300"/>
     </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">

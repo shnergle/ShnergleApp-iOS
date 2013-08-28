@@ -32,7 +32,7 @@
 
     FBLoginView *loginView = [[FBLoginView alloc] initWithReadPermissions:@[@"email", @"user_birthday"]];
     loginView.delegate = self;
-    loginView.frame = CGRectMake(160 - loginView.frame.size.width / 2, 354, loginView.frame.size.width, loginView.frame.size.height);
+    loginView.frame = CGRectMake(160 - loginView.frame.size.width / 2, 284, loginView.frame.size.width, loginView.frame.size.height);
     [self.view addSubview:loginView];
 }
 
