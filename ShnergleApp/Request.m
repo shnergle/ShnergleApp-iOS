@@ -40,7 +40,12 @@ static ConnectionErrorAlert *connectionErrorAlert;
 }
 
 + (void)setImage:(NSDictionary *)params image:(UIImage *)image {
+    if (!image) return;
     [[TMCache sharedCache] setObject:image forKey:[self key:params]];
+}
+
++ (void)removeImage:(NSDictionary *)params {
+    [[TMCache sharedCache] removeObjectForKey:[self key:params]];
 }
 
 + (NSString *)key:(NSDictionary *)params {

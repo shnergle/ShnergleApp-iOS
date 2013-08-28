@@ -90,7 +90,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     following = [appDelegate.activeVenue[@"following"] intValue] == 0 ? NO : YES;
-    appDelegate.shareImage = nil;
+    [Request removeImage:@{@"entity": @"image", @"entity_id": @"toShare"}];
 
     if (!appDelegate.activeVenue[@"tonight"]) {
         summaryContent = @"";
@@ -229,8 +229,7 @@
         if (index.item == 0) {
             NSDictionary *key = @{@"entity": @"post",
                                   @"entity_id": posts[0][@"id"]};
-            appDelegate.shareImage = [Request getImage:key];
-            [Request setImage:key image:appDelegate.shareImage];
+            [Request setImage:@{@"entity": @"image", @"entity_id": @"toShare"} image:[Request getImage:key]];
         }
 
         if (response != nil && self.crowdCollectionV != nil && [self.crowdCollectionV numberOfItemsInSection:index.section] > index.item) {
@@ -332,8 +331,7 @@
         if ([posts count] > 0 && posts[0] != nil) {
             NSDictionary *key = @{@"entity": @"post",
                                   @"entity_id": posts[0][@"id"]};
-            appDelegate.shareImage = [Request getImage:key];
-            if (appDelegate.shareImage != nil) [Request setImage:key image:appDelegate.shareImage];
+            [Request setImage:@{@"entity": @"image", @"entity_id": @"toShare"} image:[Request getImage:key]];
         }
     }
 }

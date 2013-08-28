@@ -28,7 +28,6 @@
 @property (nonatomic) BOOL shareVenue;
 @property (nonatomic) BOOL shnergleThis;
 
-@property (strong, nonatomic) UIImage *shareImage;
 @property (strong, nonatomic) NSString *shareActivePostId;
 
 @property (nonatomic) BOOL backFromShareView;

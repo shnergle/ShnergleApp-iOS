@@ -57,7 +57,7 @@
     self.authorLabel.lineBreakMode = NSLineBreakByCharWrapping;
     self.authorLabel.text = author;
 
-    appDelegate.shareImage = image;
+    [Request setImage:@{@"entity": @"image", @"entity_id": @"toShare"} image:image];
 }
 
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {

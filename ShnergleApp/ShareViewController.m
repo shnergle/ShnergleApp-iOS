@@ -20,7 +20,7 @@
     self.textFieldname.placeholder = @"Write something..";
     self.textFieldname.placeholderColor = [UIColor lightGrayColor];
 
-    if (appDelegate.shareImage) self.image.image = appDelegate.shareImage;
+    self.image.image = [Request getImage:@{@"entity": @"image", @"entity_id": @"toShare"}];
 
     if (appDelegate.twitter != nil) {
         self.twSwitch.enabled = YES;

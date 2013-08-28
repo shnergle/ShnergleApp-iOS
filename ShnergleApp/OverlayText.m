@@ -18,7 +18,7 @@
 @implementation OverlayText
 
 - (IBAction)share:(id)sender {
-    if (!appDelegate.shareImage) return;
+    if (![Request getImage:@{@"entity": @"image", @"entity_id": @"toShare"}]) return;
     UIViewController *caller = (UIViewController *)self.nextResponder.nextResponder;
     UIViewController *vc = [caller.storyboard instantiateViewControllerWithIdentifier:@"ShareViewController"];
     appDelegate.shareVenue = YES;

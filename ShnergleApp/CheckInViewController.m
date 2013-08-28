@@ -8,6 +8,7 @@
 
 #import "CheckInViewController.h"
 #import "UIImage+Resize.h"
+#import "Request.h"
 
 @implementation CheckInViewController
 
@@ -23,7 +24,7 @@
     if (appDelegate.saveLocally) {
         UIImageWriteToSavedPhotosAlbum(img, nil, nil, nil);
     }
-    appDelegate.shareImage = [img resizedImageToFitInSize:CGSizeMake(200, 200) scaleIfSmaller:YES];
+    [Request setImage:@{@"entity": @"image", @"entity_id": @"toShare"} image:[img resizedImageToFitInSize:CGSizeMake(200, 200) scaleIfSmaller:YES]];
     info = nil;
     UIViewController *vc;
     if (!appDelegate.activeVenue) {
