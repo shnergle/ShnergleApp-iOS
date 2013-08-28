@@ -9,6 +9,7 @@
 #import "MenuViewController.h"
 #import "Request.h"
 #import "VenueViewController.h"
+#import <MapKit/MapKit.h>
 
 @implementation MenuViewController
 
@@ -20,6 +21,7 @@
     tableSections = @[@"Profile", @"Explore", @" "];
     tableData = @[@[appDelegate.fullName], @[@"Around Me", @"Following", @"Promotions", @"Quiet", @"Trending", @"+ Add Place"], @[@"Account Settings", @"FAQ", @"Help", @"Privacy Policy", @"Terms of Use"]];
     searchResults = [NSMutableArray array];
+    searchResultsLocation = [NSMutableArray array];
     self.searchResultsView.resultsTableView.delegate = self;
     self.searchResultsView.resultsTableView.dataSource = self;
 
@@ -51,6 +53,18 @@
     }
 }
 
+- (void)postResponseLocation:(id)response {
+    @synchronized (self) {
+        if ([response isKindOfClass:[NSArray class]]) {
+            for (id obj in response) {
+                if ([obj count] > 1) [searchResultsLocation addObject:obj];
+            }
+        }
+
+        [self.searchResultsView.resultsTableView reloadData];
+    }
+}
+
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     if (tableView == self.menuItemsTableView) {
         UITableViewCell *cell;
@@ -75,7 +89,7 @@
         if (!cell) {
             cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:@"ResultCell"];
         }
-        cell.textLabel.text = searchResults[indexPath.row][@"name"];
+        cell.textLabel.text = (indexPath.section == 0 ? searchResults : searchResultsLocation)[indexPath.row][@"name"];
         cell.textLabel.textColor = [UIColor whiteColor];
         cell.backgroundColor = [UIColor clearColor];
         cell.textLabel.font = [UIFont systemFontOfSize:20];
@@ -85,7 +99,7 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     if (tableView == self.searchResultsView.resultsTableView) {
-        return [searchResults count];
+        return section == 0 ? [searchResults count] : [searchResultsLocation count];
     } else {
         if (section != 0) return [tableData[section] count];
         else return [tableData[section] count] + [appDelegate.ownVenues count];
@@ -94,7 +108,7 @@
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
     if (tableView == self.searchResultsView.resultsTableView) {
-        return 1;
+        return 2;
     } else {
         return [tableData count];
     }
@@ -102,7 +116,7 @@
 
 - (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
     if (tableView == self.searchResultsView.resultsTableView) {
-        return @"Results";
+        return section == 0 ? @"Results In Names" : @"Results In Locations";
     } else {
         return tableSections[section];
     }
@@ -163,11 +177,23 @@
 
 - (BOOL)textFieldShouldReturn:(UITextField *)textField {
     searchResults = [NSMutableArray array];
+    searchResultsLocation = [NSMutableArray array];
     if (textField.text.length > 0) {
         NSDictionary *params = @{@"term": self.bar.text,
                                  @"level": appDelegate.level};
         [Request post:@"user_searches/set" params:params delegate:self callback:@selector(searchRegistered:)];
         [Request post:@"venues/get" params:params delegate:self callback:@selector(postResponse:)];
+        [[[CLGeocoder alloc] init] geocodeAddressString:self.bar.text completionHandler:^(NSArray* placemarks, NSError* error){
+            if (!error) {
+                MKCoordinateRegion rgn = MKCoordinateRegionMakeWithDistance(((CLPlacemark *)placemarks[0]).location.coordinate, 2000, 2000);
+                double distanceInDegrees = sqrt(pow(rgn.span.latitudeDelta, 2) + pow(rgn.span.longitudeDelta, 2));
+                NSDictionary *params = @{@"my_lat": @(((CLPlacemark *)placemarks[0]).location.coordinate.latitude),
+                                         @"my_lon": @(((CLPlacemark *)placemarks[0]).location.coordinate.longitude),
+                                         @"distance": @(distanceInDegrees),
+                                         @"level": appDelegate.level};
+                [Request post:@"venues/get" params:params delegate:self callback:@selector(postResponseLocation:)];
+            }
+        }];
         [textField resignFirstResponder];
         [self.searchResultsView show];
         [self toggleCancelButton:true];

@@ -13,6 +13,7 @@
     NSArray *tableSections;
     NSArray *tableData;
     NSMutableArray *searchResults;
+    NSMutableArray *searchResultsLocation;
     UITableViewCell *profileCell;
 }
 
