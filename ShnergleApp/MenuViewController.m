@@ -116,7 +116,7 @@
 
 - (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
     if (tableView == self.searchResultsView.resultsTableView) {
-        return section == 0 ? @"Results In Names" : @"Results In Locations";
+        return section == 0 ? @"Name Matches" : @"Location Matches";
     } else {
         return tableSections[section];
     }
