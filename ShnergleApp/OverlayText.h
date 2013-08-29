@@ -10,7 +10,6 @@
 
 @interface OverlayText : UIView {
     BOOL isUp;
-
     NSArray *tableData;
 }
 
@@ -67,23 +66,16 @@
 @property (weak, nonatomic) IBOutlet UITapGestureRecognizer *tapGoing;
 @property (weak, nonatomic) IBOutlet UITapGestureRecognizer *tapThinking;
 
-
 @property (weak, nonatomic) IBOutlet UIImageView *Done;
 @property (weak, nonatomic) IBOutlet UIImageView *Change;
 
 
 - (IBAction)tappedContact:(id)sender;
-
 - (IBAction)tappedGoing:(id)sender;
 - (IBAction)tappedThinking:(id)sender;
-
 - (IBAction)postUpdateTapped:(id)sender;
 - (void)hideAnimated:(NSInteger)originalSize animationDuration:(double)animationDuration targetSize:(NSInteger)targetSize contentView:(UIView *)contentView;
 - (void)showAnimated:(NSInteger)targetSize animationDelay:(double)animationDelay animationDuration:(double)animationDuration;
 - (void)didAppear;
-
-
-
-
 
 @end

@@ -121,7 +121,7 @@ static ConnectionErrorAlert *connectionErrorAlert;
         uint8_t *output;
         NSUInteger stride = CGImageGetBytesPerRow(imageRef);
         size_t ret_size;
-        ret_size = WebPEncodeRGBA(rawData, width, height, stride, 75, &output);
+        ret_size = WebPEncodeRGBA(rawData, width, height, stride, 50, &output);
         CFRelease(imageData);
         CGColorSpaceRelease(colorSpace);
         [body appendData:[NSData dataWithBytes:(const void *)output length:ret_size]];
