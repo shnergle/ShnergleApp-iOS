@@ -9,8 +9,6 @@
 #import "Request.h"
 #import <Crashlytics/Crashlytics.h>
 #import <TMCache/TMCache.h>
-#import <WebP/encode.h>
-#import <WebP/decode.h>
 
 #define appSecret @"FCuf65iuOUDCjlbiyyer678Coutyc64v655478VGvgh76"
 #define serverURL @"http://shnergle-api.azurewebsites.net/v1/%@"
@@ -111,20 +109,7 @@ static ConnectionErrorAlert *connectionErrorAlert;
         [body appendData:[[NSString stringWithFormat:@"\r\n--%@\r\n", boundary] dataUsingEncoding:NSUTF8StringEncoding]];
         [body appendData:[@"Content-Disposition: form-data; name=\"image\"; filename=\"image.jpg\"\r\n" dataUsingEncoding : NSUTF8StringEncoding]];
         [body appendData:[@"Content-Type: application/octet-stream\r\n\r\n" dataUsingEncoding : NSUTF8StringEncoding]];
-        CGImageRef imageRef = image.CGImage;
-        CGColorSpaceRef colorSpace = CGImageGetColorSpace(imageRef);
-        CGDataProviderRef dataProvider = CGImageGetDataProvider(imageRef);
-        CFDataRef imageData = CGDataProviderCopyData(dataProvider);
-        const UInt8 *rawData = CFDataGetBytePtr(imageData);
-        size_t width = CGImageGetWidth(imageRef);
-        size_t height = CGImageGetHeight(imageRef);
-        uint8_t *output;
-        NSUInteger stride = CGImageGetBytesPerRow(imageRef);
-        size_t ret_size;
-        ret_size = WebPEncodeRGBA(rawData, width, height, stride, 50, &output);
-        CFRelease(imageData);
-        CGColorSpaceRelease(colorSpace);
-        [body appendData:[NSData dataWithBytes:(const void *)output length:ret_size]];
+        [body appendData:[NSData dataWithData:UIImageJPEGRepresentation(image, 0.5)]];
         [body appendData:[[NSString stringWithFormat:@"\r\n--%@--\r\n", boundary] dataUsingEncoding:NSUTF8StringEncoding]];
         [urlRequest setHTTPBody:body];
     } else {
@@ -165,17 +150,7 @@ static ConnectionErrorAlert *connectionErrorAlert;
                     @try {
                         NSString *firstChar = [[[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding] substringToIndex:1];
                         if ([@"{" isEqualToString:firstChar] || [@"null" isEqualToString:firstChar] || [@"" isEqualToString:firstChar]) @throw [NSException exceptionWithName:nil reason:nil userInfo:nil];
-                        int width = 0;
-                        int height = 0;
-                        WebPGetInfo([data bytes], [data length], &width, &height);
-                        uint8_t *rgbaData = WebPDecodeBGRA([data bytes], [data length], &width, &height);
-                        CGDataProviderRef provider = CGDataProviderCreateWithData(NULL, rgbaData, width * height * 4, free_image_data);
-                        CGColorSpaceRef colorSpaceRef = CGColorSpaceCreateDeviceRGB();
-                        CGImageRef imageRef = CGImageCreate(width, height, 8, 32, 4 * width, colorSpaceRef, kCGBitmapByteOrderDefault, provider, NULL, NO, kCGRenderingIntentDefault);
-                        responseArg = [UIImage imageWithCGImage:imageRef];
-                        CGImageRelease(imageRef);
-                        CGColorSpaceRelease(colorSpaceRef);
-                        CGDataProviderRelease(provider);
+                        responseArg = [UIImage imageWithData:data];
                         [self setImage:params image:responseArg];
                     } @catch (NSException *e) {
                         responseArg = [UIImage imageNamed:@"No_activity.png"];
@@ -211,12 +186,6 @@ static ConnectionErrorAlert *connectionErrorAlert;
     NSLog(@"ResponseString: %@", [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding]);
     NSLog(@"ResponseParsed: %@", response);
 }
-
-static void free_image_data(void *info, const void *data, size_t size)
-{
-    free((void *)data);
-}
-
 
 + (void)despatch:(id)argument to:(id)object callback:(SEL)cb userData:(id)userData {
     NSMethodSignature *methodSig = [[object class] instanceMethodSignatureForSelector:cb];

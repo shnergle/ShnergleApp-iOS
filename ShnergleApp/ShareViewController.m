@@ -72,7 +72,7 @@
 
 - (void)shareOnTwitter {
     if (self.twSwitch.on) {
-        [self postImage:self.image.image withStatus:[NSString stringWithFormat:@"%@ @ %@ #ShnergleIt", self.textFieldname.text, appDelegate.activeVenue[@"name"]]];
+        [self postImage:self.image.image withStatus:[NSString stringWithFormat:@"%@ @%@ #ShnergleIt", self.textFieldname.text, (![appDelegate.activeVenue[@"twitter"] isKindOfClass:[NSNull class]] && ![@"" isEqualToString : appDelegate.activeVenue[@"twitter"]]) ? appDelegate.activeVenue[@"twitter"] : [@" " stringByAppendingString:appDelegate.activeVenue[@"name"]]]];
         if (appDelegate.shareVenue) {
             [Request post:@"venue_shares/set" params:@{@"venue_id": appDelegate.activeVenue[@"id"], @"media_id": @2} delegate:self callback:@selector(doNothing:) type:String];
         } else {
@@ -110,9 +110,8 @@
             [friends appendFormat:@", %@", selectedFriends[i][@"name"]];
         }
         if ([selectedFriends count] > 1) {
-            [friends appendString:@" and"];
+            [friends appendFormat:@" and %@", [selectedFriends lastObject][@"name"]];
         }
-        [friends appendFormat:@" %@", [selectedFriends lastObject][@"name"]];
         [friends appendString:@"."];
     }
     action[@"message"] = [NSString stringWithFormat:@"%@ @%@%@ #ShnergleIt", self.textFieldname.text, appDelegate.activeVenue[@"name"], friends];

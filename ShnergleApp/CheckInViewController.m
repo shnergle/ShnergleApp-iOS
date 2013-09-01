@@ -7,7 +7,7 @@
 //
 
 #import "CheckInViewController.h"
-#import "UIImage+Resize.h"
+#import <UIImage-Resize/UIImage+Resize.h>
 #import "Request.h"
 
 @implementation CheckInViewController
