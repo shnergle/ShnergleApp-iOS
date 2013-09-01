@@ -150,7 +150,7 @@ static ConnectionErrorAlert *connectionErrorAlert;
                     @try {
                         NSString *firstChar = [[[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding] substringToIndex:1];
                         if ([@"{" isEqualToString:firstChar] || [@"null" isEqualToString:firstChar] || [@"" isEqualToString:firstChar]) @throw [NSException exceptionWithName:nil reason:nil userInfo:nil];
-                        responseArg = [UIImage imageWithData:data];
+                        responseArg = [[UIImage alloc] initWithData:data];
                         [self setImage:params image:responseArg];
                     } @catch (NSException *e) {
                         responseArg = [UIImage imageNamed:@"No_activity.png"];
