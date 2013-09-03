@@ -70,7 +70,7 @@
 
 - (IBAction)backToMe:(id)sender {
     pinDropped = NO;
-    [map animateToCameraPosition:[GMSCameraPosition cameraWithLatitude:map.myLocation.coordinate.latitude - 0.015 longitude:map.myLocation.coordinate.longitude zoom:13]];
+    [map animateToCameraPosition:[GMSCameraPosition cameraWithLatitude:map.myLocation.coordinate.latitude - 0.012 longitude:map.myLocation.coordinate.longitude zoom:13]];
     [self sliderValueChanged:nil];
 }
 
@@ -288,7 +288,7 @@
 
 - (void)initMap {
     hasPositionLocked = NO;
-    map = [[GMSMapView alloc] initWithFrame:CGRectMake(0, 44, self.view.bounds.size.width, self.view.bounds.size.height - 60)];
+    map = [[GMSMapView alloc] initWithFrame:CGRectMake(0, 44, self.view.bounds.size.width, 350)];
     map.myLocationEnabled = YES;
     map.delegate = self;
     [map addObserver:self forKeyPath:@"myLocation" options:NSKeyValueObservingOptionNew context:nil];
@@ -299,7 +299,7 @@
 - (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context {
     if (!hasPositionLocked) {
         if ([keyPath isEqualToString:@"myLocation"] && [object isKindOfClass:[GMSMapView class]]) {
-            [map animateToCameraPosition:[GMSCameraPosition cameraWithLatitude:map.myLocation.coordinate.latitude - 0.015 longitude:map.myLocation.coordinate.longitude zoom:13]];
+            [map animateToCameraPosition:[GMSCameraPosition cameraWithLatitude:map.myLocation.coordinate.latitude - 0.012 longitude:map.myLocation.coordinate.longitude zoom:13]];
             hasPositionLocked = YES;
             [self sliderValueChanged:nil];
         }
