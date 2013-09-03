@@ -148,7 +148,8 @@
         UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"MainStoryboard" bundle:nil];
         VenueViewController *viewController = [storyboard instantiateViewControllerWithIdentifier:@"Venue"];
         [viewController setVenueInfo];
-        appDelegate.activeVenue = searchResults[indexPath.row];
+        if (indexPath.section == 0) appDelegate.activeVenue = searchResults[indexPath.row];
+        else appDelegate.activeVenue = searchResultsLocation[indexPath.row];
         [self.navigationController pushViewController:viewController animated:YES];
     } else if (indexPath.section == 0 && indexPath.row != 0) {
         appDelegate.activeVenue = appDelegate.ownVenues[indexPath.row - 1];
