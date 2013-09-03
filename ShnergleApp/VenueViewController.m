@@ -230,6 +230,7 @@
             NSDictionary *key = @{@"entity": @"post",
                                   @"entity_id": posts[0][@"id"]};
             [Request setImage:@{@"entity": @"image", @"entity_id": @"toShare"} image:[Request getImage:key]];
+            [Request setImage:@{@"entity": @"venue", @"entity_id": appDelegate.activeVenue[@"id"]} image:[Request getImage:key]];
         }
 
         if (response != nil && self.crowdCollectionV != nil && [self.crowdCollectionV numberOfItemsInSection:index.section] > index.item) {
