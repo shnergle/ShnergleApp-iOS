@@ -16,6 +16,8 @@
 @property (nonatomic) BOOL employee;
 @property (nonatomic) BOOL saveLocally;
 @property (nonatomic) BOOL optInTop5;
+@property (nonatomic) BOOL lastFb;
+@property (nonatomic) BOOL lastTwitter;
 
 @property (strong, nonatomic) NSString *youShare;
 @property (strong, nonatomic) NSString *checkIn;

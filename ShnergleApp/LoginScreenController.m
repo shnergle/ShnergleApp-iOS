@@ -91,6 +91,8 @@
         appDelegate.employee = [response[@"employee"] isEqual:@1];
         appDelegate.saveLocally = [response[@"save_locally"] intValue] == 1;
         appDelegate.optInTop5 = [response[@"top5"] intValue] == 1;
+        appDelegate.lastFb = [response[@"last_facebook"] intValue] == 1;
+        appDelegate.lastTwitter = [response[@"last_twitter"] intValue] == 1;
         newUser = [response[@"joined"] intValue] + 10 > [[NSDate date] timeIntervalSince1970];
         [Request post:@"rankings/get" params:nil delegate:self callback:@selector(gotRank:)];
     } else {

@@ -24,11 +24,13 @@
 
     if (appDelegate.twitter != nil) {
         self.twSwitch.enabled = YES;
-        self.twSwitch.on = YES;
+        self.twSwitch.on = appDelegate.lastTwitter;
     } else {
         self.twSwitch.enabled = NO;
         self.twSwitch.on = NO;
     }
+
+    self.fbSwitch.on = appDelegate.lastFb;
 }
 
 - (void)viewDidAppear:(BOOL)animated {
@@ -71,6 +73,7 @@
 }
 
 - (void)shareOnTwitter {
+    appDelegate.lastTwitter = self.twSwitch.on;
     if (self.twSwitch.on) {
         [self postImage:self.image.image withStatus:[NSString stringWithFormat:@"%@ @%@ #ShnergleIt", self.textFieldname.text, (![appDelegate.activeVenue[@"twitter"] isKindOfClass:[NSNull class]] && ![@"" isEqualToString : appDelegate.activeVenue[@"twitter"]]) ? appDelegate.activeVenue[@"twitter"] : [@" " stringByAppendingString:appDelegate.activeVenue[@"name"]]]];
         if (appDelegate.shareVenue) {
@@ -95,6 +98,7 @@
 }
 
 - (void)shareOnFacebook {
+    appDelegate.lastFb = self.fbSwitch.on;
     if (!self.fbSwitch.on) {
         [self redeem];
         return;
@@ -190,6 +194,7 @@
 }
 
 - (void)redeem {
+    [Request post:@"users/set" params:@{@"last_facebook": appDelegate.lastFb ? @"true" : @"false", @"last_twitter": appDelegate.lastTwitter ? @"true" : @"false"} delegate:self callback:@selector(doNothing:) type:String];
     if (appDelegate.redeeming != nil) {
         [Request post:@"promotion_redemptions/set" params:@{@"promotion_id": appDelegate.redeeming} delegate:self callback:@selector(redeemed:) type:String];
     } else {
