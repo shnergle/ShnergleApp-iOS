@@ -923,9 +923,11 @@
 		80B957D116FBB74F0044A505 /* CheckInViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 80B957D016FBB74F0044A505 /* CheckInViewController.m */; };
 		80B957D616FC65F90044A505 /* VenueViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 80B957D516FC65F90044A505 /* VenueViewController.m */; };
 		80BB5197178ED50D005E5D44 /* Seven@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 80BB5196178ED50D005E5D44 /* Seven@2x.png */; };
+		80CC355217DA12A6004D6101 /* No_Activity_Background@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 80CC355117DA12A5004D6101 /* No_Activity_Background@2x.png */; };
 		80D6FF64172191A4008A3AFD /* PromotionView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 80D6FF63172191A4008A3AFD /* PromotionView.xib */; };
 		80D6FF6717219537008A3AFD /* PromotionView.m in Sources */ = {isa = PBXBuildFile; fileRef = 80D6FF6617219536008A3AFD /* PromotionView.m */; };
 		80DC1DFB1760CAC2000AA6DF /* FavouritesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 80DC1DFA1760CAC2000AA6DF /* FavouritesViewController.m */; };
+		80F5980F17D9EC2500B25FE5 /* No_activity_background.png in Resources */ = {isa = PBXBuildFile; fileRef = 80F5980E17D9EC2400B25FE5 /* No_activity_background.png */; };
 		CD1BBBB217688F350008E4FD /* StaffViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CD61F0A417688C06005EB276 /* StaffViewController.m */; };
 		CD1D1D3517987932004B634E /* CheckInListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CD1D1D34179878A7004B634E /* CheckInListViewController.m */; };
 		CD2957F017A271B200B72702 /* claimvenue.png in Resources */ = {isa = PBXBuildFile; fileRef = CD2957EF17A26FAB00B72702 /* claimvenue.png */; };
@@ -1925,11 +1927,13 @@
 		80B957D416FC65F90044A505 /* VenueViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VenueViewController.h; sourceTree = "<group>"; };
 		80B957D516FC65F90044A505 /* VenueViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VenueViewController.m; sourceTree = "<group>"; };
 		80BB5196178ED50D005E5D44 /* Seven@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Seven@2x.png"; sourceTree = "<group>"; };
+		80CC355117DA12A5004D6101 /* No_Activity_Background@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "No_Activity_Background@2x.png"; sourceTree = "<group>"; };
 		80D6FF63172191A4008A3AFD /* PromotionView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PromotionView.xib; sourceTree = "<group>"; };
 		80D6FF6517219536008A3AFD /* PromotionView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PromotionView.h; sourceTree = "<group>"; };
 		80D6FF6617219536008A3AFD /* PromotionView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PromotionView.m; sourceTree = "<group>"; };
 		80DC1DF91760CAC2000AA6DF /* FavouritesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FavouritesViewController.h; sourceTree = "<group>"; };
 		80DC1DFA1760CAC2000AA6DF /* FavouritesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FavouritesViewController.m; sourceTree = "<group>"; };
+		80F5980E17D9EC2400B25FE5 /* No_activity_background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = No_activity_background.png; sourceTree = "<group>"; };
 		92FD2BD9498A41EEBBD26F82 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		CD1D1D33179878A7004B634E /* CheckInListViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CheckInListViewController.h; sourceTree = "<group>"; };
 		CD1D1D34179878A7004B634E /* CheckInListViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CheckInListViewController.m; sourceTree = "<group>"; };
@@ -3069,6 +3073,8 @@
 		80B400BF17540CCA00A377D9 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				80CC355117DA12A5004D6101 /* No_Activity_Background@2x.png */,
+				80F5980E17D9EC2400B25FE5 /* No_activity_background.png */,
 				EEF07B9E17A1701D004E84C7 /* Authentication%20Process.png */,
 				80ABCC06176F68E5002718A1 /* background.png */,
 				CD2957EF17A26FAB00B72702 /* claimvenue.png */,
@@ -3333,6 +3339,7 @@
 				80376CFF17748F1500524F54 /* glyphicons_310_flower@2x.png in Resources */,
 				80376E151774A31200524F54 /* 13.png in Resources */,
 				80376D6B17748F1500524F54 /* glyphicons_364_cloud_download@2x.png in Resources */,
+				80CC355217DA12A6004D6101 /* No_Activity_Background@2x.png in Resources */,
 				80376D2617748F1500524F54 /* glyphicons_330_blog.png in Resources */,
 				80376CAC17748F1500524F54 /* glyphicons_269_keyboard_wired.png in Resources */,
 				80376BA117748F1500524F54 /* glyphicons_135_inbox_out@2x.png in Resources */,
@@ -3526,6 +3533,7 @@
 				80376ADC17748F1500524F54 /* glyphicons_037_coins.png in Resources */,
 				80376C2F17748F1500524F54 /* glyphicons_206_ok_2@2x.png in Resources */,
 				80376D8517748F1500524F54 /* glyphicons_377_riflescope@2x.png in Resources */,
+				80F5980F17D9EC2500B25FE5 /* No_activity_background.png in Resources */,
 				80B400EC17540CCA00A377D9 /* greybutton02.png in Resources */,
 				80376E1B1774A31200524F54 /* 10.png in Resources */,
 				CD71CF3317D5E6A10022C0A1 /* 24.png in Resources */,
