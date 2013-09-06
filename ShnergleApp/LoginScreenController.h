@@ -11,5 +11,7 @@
 @interface LoginScreenController : UIViewController <FBLoginViewDelegate> {
     BOOL newUser;
 }
+@property (weak, nonatomic) IBOutlet UILabel *whyFacebookLabel;
+@property (weak, nonatomic) IBOutlet UIButton *whyFacebookInfoButton;
 
 @end
