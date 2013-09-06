@@ -89,6 +89,31 @@
 
     if ([self.navBar respondsToSelector:@selector(setBarTintColor:)]) [self.navBar performSelector:@selector(setBarTintColor:) withObject:[UIColor colorWithRed:233.0 / 255 green:235.0 / 255 blue:240.0 / 255 alpha:1.0]];
     self.navBar.translucent = NO;
+    
+    /*
+    [[NSUserDefaults standardUserDefaults]synchronize];
+    NSUserDefaults *pref = [NSUserDefaults standardUserDefaults];
+    if([pref arrayForKey:@"radius"]){
+        int radius = [[pref objectForKey:@"radius"] intValue];
+        self.distanceScroller.value = radius;
+        [self sliderValueChanged:nil];
+        NSLog(@"radius was set: %d",radius);
+    }else{
+        NSLog(@"radius was not set");
+        NSNumber *radius = [NSNumber numberWithFloat:1.0];
+        [pref setObject:radius forKey:@"radius"];
+        [[NSUserDefaults standardUserDefaults]synchronize];
+    }*/
+    
+    id radius = [[NSUserDefaults standardUserDefaults] objectForKey:@"radius"];
+    
+    if (!radius) {
+        [[NSUserDefaults standardUserDefaults] setObject:[NSNumber numberWithFloat:1.0] forKey:@"radius"];
+    }else{
+        NSLog(@"There was a value stored");
+        self.distanceScroller.value = [radius floatValue];
+        [self sliderValueChanged:nil];
+    }
 }
 
 - (void)didFinishLoadingVenues:(NSArray *)response {
@@ -231,7 +256,7 @@
 
     /*
        =00ooo00oOOoOoOoo
-       =Adam's and Stian's magical coordinate substitution principle
+       =Adam and Stian's magical coordinate substitution principle
        =ooOoOO000OOo00oOoo
      */
     CGFloat screenDistance = [map.projection pointsForMeters:(self.distanceScroller.value * 1000) atCoordinate:coord];
@@ -252,6 +277,11 @@
     [Request post:@"venues/get" params:params delegate:self callback:@selector(didFinishLoadingVenues:)];
 
     mapCircle.map = map;
+    
+    //Prefs:
+    [[NSUserDefaults standardUserDefaults] setObject:[NSNumber numberWithFloat:self.distanceScroller.value] forKey:@"radius"];
+
+
 }
 
 - (void)mapView:(GMSMapView *)mapView didTapAtCoordinate:(CLLocationCoordinate2D)coordinate {
