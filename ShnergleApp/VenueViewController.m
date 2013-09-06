@@ -333,6 +333,14 @@
             NSDictionary *key = @{@"entity": @"post",
                                   @"entity_id": posts[0][@"id"]};
             [Request setImage:@{@"entity": @"image", @"entity_id": @"toShare"} image:[Request getImage:key]];
+        }else{
+            NSLog(@"Posts where none");
+            NSLog(@" INITIAL: %@",self.crowdCollectionV.backgroundView);
+            
+            UIImageView *noImagesImage = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"No_Activity.png"]];
+            self.crowdCollectionV.backgroundView = noImagesImage;
+            self.crowdCollectionV.backgroundView.center = self.view.center;
+            NSLog(@"FINAL: %@",self.crowdCollectionV.backgroundView);
         }
     }
 }
