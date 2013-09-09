@@ -15,6 +15,19 @@
     self.navigationItem.title = @"Promotion";
 }
 
+-(void)viewDidLoad{
+    man = [[CLLocationManager alloc] init];
+    man.delegate = self;
+    man.desiredAccuracy = kCLLocationAccuracyNearestTenMeters;
+    [man startUpdatingLocation];
+}
+
+- (void)locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray *)locations {
+    BOOL on = [((CLLocation *)locations.lastObject)distanceFromLocation :[[CLLocation alloc] initWithLatitude:[appDelegate.activeVenue[@"lat"] doubleValue] longitude:[appDelegate.activeVenue[@"lon"] doubleValue]]] <= 111;
+    self.redeemButton.enabled = on;
+    }
+
+
 - (IBAction)tapUseDeal:(id)sender {
     appDelegate.redeeming = [appDelegate.activePromotion[@"id"] stringValue];
     appDelegate.shnergleThis = YES;
