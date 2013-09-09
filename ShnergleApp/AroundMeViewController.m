@@ -90,27 +90,11 @@
     if ([self.navBar respondsToSelector:@selector(setBarTintColor:)]) [self.navBar performSelector:@selector(setBarTintColor:) withObject:[UIColor colorWithRed:233.0 / 255 green:235.0 / 255 blue:240.0 / 255 alpha:1.0]];
     self.navBar.translucent = NO;
     
-    /*
-    [[NSUserDefaults standardUserDefaults]synchronize];
-    NSUserDefaults *pref = [NSUserDefaults standardUserDefaults];
-    if([pref arrayForKey:@"radius"]){
-        int radius = [[pref objectForKey:@"radius"] intValue];
-        self.distanceScroller.value = radius;
-        [self sliderValueChanged:nil];
-        NSLog(@"radius was set: %d",radius);
-    }else{
-        NSLog(@"radius was not set");
-        NSNumber *radius = [NSNumber numberWithFloat:1.0];
-        [pref setObject:radius forKey:@"radius"];
-        [[NSUserDefaults standardUserDefaults]synchronize];
-    }*/
-    
     id radius = [[NSUserDefaults standardUserDefaults] objectForKey:@"radius"];
     
     if (!radius) {
         [[NSUserDefaults standardUserDefaults] setObject:[NSNumber numberWithFloat:1.0] forKey:@"radius"];
     }else{
-        NSLog(@"There was a value stored");
         self.distanceScroller.value = [radius floatValue];
         [self sliderValueChanged:nil];
     }

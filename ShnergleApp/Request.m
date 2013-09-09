@@ -33,6 +33,7 @@ static ConnectionErrorAlert *connectionErrorAlert;
 
 + (void)initialize {
     connectionErrorAlert = [[ConnectionErrorAlert alloc] init];
+    [[TMCache sharedCache] removeAllObjects];
 }
 
 + (UIImage *)getImage:(NSDictionary *)params {
