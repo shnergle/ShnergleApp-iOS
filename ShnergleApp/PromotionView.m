@@ -20,11 +20,19 @@
     man.delegate = self;
     man.desiredAccuracy = kCLLocationAccuracyNearestTenMeters;
     [man startUpdatingLocation];
+    //check if redeemed.
+    if(appDelegate.canRedeem){
+        
+    }else{
+        [self.redeemButton setTitle:@"Redeemed" forState:UIControlStateNormal];
+    }
+    
 }
 
 - (void)locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray *)locations {
     BOOL on = [((CLLocation *)locations.lastObject)distanceFromLocation :[[CLLocation alloc] initWithLatitude:[appDelegate.activeVenue[@"lat"] doubleValue] longitude:[appDelegate.activeVenue[@"lon"] doubleValue]]] <= 111;
-    self.redeemButton.enabled = on;
+    
+    if(appDelegate.canRedeem) self.redeemButton.enabled = on;
     }
 
 

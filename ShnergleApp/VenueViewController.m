@@ -14,6 +14,7 @@
 #import "Request.h"
 #import "PhotoLocationViewController.h"
 #import "NSDate+TimeAgo.h"
+#import <NSDate-Escort/NSDate+Escort.h>
 #import <Toast/Toast+UIView.h>
 
 @implementation VenueViewController
@@ -148,6 +149,7 @@
 - (void)didFinishGettingPromotion:(NSDictionary *)response {
     if ([response respondsToSelector:@selector(objectForKeyedSubscript:)]) {
         appDelegate.activePromotion = response;
+        appDelegate.canRedeem = response[@"own_redemptions"] > 0;
         promotionBody = response[@"description"];
         promotionTitle = response[@"title"];
         promotionExpiry = ([response[@"maximum"] intValue] == 0 || response[@"maximum"] == nil) ? [NSString stringWithFormat:@"%@ claimed", response[@"redemptions"]] : [NSString stringWithFormat:@"%@/%@ claimed", response[@"redemptions"], response[@"maximum"]];
@@ -279,7 +281,9 @@
     self.navigationController.navigationBarHidden = NO;
 
     NSDictionary *params = @{@"venue_id": appDelegate.activeVenue[@"id"],
-                             @"level": appDelegate.level};
+                             @"level": appDelegate.level,
+                             @"from_time":@([self fromTime]) ,
+                                 @"until_time:":@([self untilTime])};
     [Request post:@"promotions/get" params:params delegate:self callback:@selector(didFinishGettingPromotion:)];
 
     if ([appDelegate.activeVenue[@"manager"] intValue] == 1 && [appDelegate.activeVenue[@"verified"] intValue] == 0) {
@@ -292,6 +296,27 @@
         [self setStatus:Default];
     }
 }
+
+- (int)fromTime {
+    NSDate *date;
+    if ([[NSDate dateWithHoursBeforeNow:6] isYesterday]) {
+        date = [[[NSDate dateYesterday] dateAtStartOfDay] dateByAddingHours:6];
+    } else {
+        date = [[[NSDate date] dateAtStartOfDay] dateByAddingHours:6];
+    }
+    return (int)[date timeIntervalSince1970];
+}
+
+- (int)untilTime {
+    NSDate *date;
+    if ([[NSDate dateWithHoursBeforeNow:6] isYesterday]) {
+        date = [[[NSDate date] dateAtStartOfDay] dateByAddingHours:6];
+    } else {
+        date = [[[NSDate dateTomorrow] dateAtStartOfDay] dateByAddingHours:6];
+    }
+    return (int)[date timeIntervalSince1970];
+}
+
 
 - (void)setPromoContentTo:(NSString *)promoContent promoHeadline:(NSString *)promoHeadline promoExpiry:(NSString *)promoExpiry {
     overlayView.promotionContents.text = promoContent;

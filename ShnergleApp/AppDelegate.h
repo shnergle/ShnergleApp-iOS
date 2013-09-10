@@ -42,6 +42,7 @@
 @property (strong, nonatomic) NSDictionary *activeVenue;
 @property (strong, nonatomic) NSArray *ownVenues;
 @property (strong, nonatomic) NSDictionary *activePromotion;
+@property (nonatomic) BOOL canRedeem;
 
 @property (nonatomic) BOOL claiming;
 
