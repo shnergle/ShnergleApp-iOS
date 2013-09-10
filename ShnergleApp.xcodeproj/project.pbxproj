@@ -870,9 +870,6 @@
 		808F13D916FB6A5C00B66E6D /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 808F13D816FB6A5C00B66E6D /* AppDelegate.m */; };
 		808F13E216FB6A5C00B66E6D /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 808F13E016FB6A5C00B66E6D /* MainStoryboard.storyboard */; };
 		808F13E516FB6A5C00B66E6D /* AroundMeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 808F13E416FB6A5C00B66E6D /* AroundMeViewController.m */; };
-		808F13ED16FB6A5C00B66E6D /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 808F13EC16FB6A5C00B66E6D /* SenTestingKit.framework */; };
-		808F13F716FB6A5C00B66E6D /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 808F13F516FB6A5C00B66E6D /* InfoPlist.strings */; };
-		808F13FA16FB6A5C00B66E6D /* ShnergleAppTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 808F13F916FB6A5C00B66E6D /* ShnergleAppTests.m */; };
 		809F6AF8179FD52600C67D77 /* SelectPromotionsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 809F6AF7179FD52600C67D77 /* SelectPromotionsViewController.m */; };
 		80A8AADF175CA6870082AAB8 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 80A8AADE175CA6870082AAB8 /* Default-568h@2x.png */; };
 		80A8AAE1175CA6900082AAB8 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 80A8AAE0175CA6900082AAB8 /* Default@2x.png */; };
@@ -978,18 +975,7 @@
 		EEF07B9F17A1701D004E84C7 /* Authentication%20Process.png in Resources */ = {isa = PBXBuildFile; fileRef = EEF07B9E17A1701D004E84C7 /* Authentication%20Process.png */; };
 		EEF8C4B417943C7200DDE026 /* arrow_east.png in Resources */ = {isa = PBXBuildFile; fileRef = EEF8C4B317943C7200DDE026 /* arrow_east.png */; };
 		EEF8C4B71794453800DDE026 /* ScoreViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EEF8C4B61794453800DDE026 /* ScoreViewController.m */; };
-		EEF8C4B81794453800DDE026 /* ScoreViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EEF8C4B61794453800DDE026 /* ScoreViewController.m */; };
 /* End PBXBuildFile section */
-
-/* Begin PBXContainerItemProxy section */
-		808F13F016FB6A5C00B66E6D /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 808F13BD16FB6A5C00B66E6D /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 808F13C416FB6A5C00B66E6D;
-			remoteInfo = ShnergleApp;
-		};
-/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		6199414049D54724BA967C32 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = SOURCE_ROOT; };
@@ -1865,12 +1851,6 @@
 		808F13E116FB6A5C00B66E6D /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard.storyboard; sourceTree = "<group>"; };
 		808F13E316FB6A5C00B66E6D /* AroundMeViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AroundMeViewController.h; sourceTree = "<group>"; };
 		808F13E416FB6A5C00B66E6D /* AroundMeViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AroundMeViewController.m; sourceTree = "<group>"; };
-		808F13EB16FB6A5C00B66E6D /* ShnergleAppTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ShnergleAppTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
-		808F13EC16FB6A5C00B66E6D /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
-		808F13F416FB6A5C00B66E6D /* ShnergleAppTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "ShnergleAppTests-Info.plist"; sourceTree = "<group>"; };
-		808F13F616FB6A5C00B66E6D /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		808F13F816FB6A5C00B66E6D /* ShnergleAppTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ShnergleAppTests.h; sourceTree = "<group>"; };
-		808F13F916FB6A5C00B66E6D /* ShnergleAppTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ShnergleAppTests.m; sourceTree = "<group>"; };
 		809F6AF6179FD52600C67D77 /* SelectPromotionsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SelectPromotionsViewController.h; sourceTree = "<group>"; };
 		809F6AF7179FD52600C67D77 /* SelectPromotionsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SelectPromotionsViewController.m; sourceTree = "<group>"; };
 		80A8AADE175CA6870082AAB8 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
@@ -2023,14 +2003,6 @@
 				CDAD1D33175E2BF800581713 /* UIKit.framework in Frameworks */,
 				CD654EE8179DCA9800F380B5 /* Crashlytics.framework in Frameworks */,
 				1F95516217BB4B9FAB164196 /* libPods.a in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		808F13E716FB6A5C00B66E6D /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				808F13ED16FB6A5C00B66E6D /* SenTestingKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2909,7 +2881,6 @@
 				80AFB8A717A9455200935ED8 /* Icon 1024 New.png */,
 				80AFB8A817A9455200935ED8 /* Icon 114 New.png */,
 				808F13CE16FB6A5C00B66E6D /* ShnergleApp */,
-				808F13F216FB6A5C00B66E6D /* ShnergleAppTest */,
 				808F13C716FB6A5C00B66E6D /* Frameworks */,
 				808F13C616FB6A5C00B66E6D /* Products */,
 				CDAD1D34175E2FA600581713 /* Settings.bundle */,
@@ -2927,7 +2898,6 @@
 			isa = PBXGroup;
 			children = (
 				808F13C516FB6A5C00B66E6D /* ShnergleApp.app */,
-				808F13EB16FB6A5C00B66E6D /* ShnergleAppTests.octest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -2940,7 +2910,6 @@
 				CDBC6C7B17AC47D9001B667B /* Accounts.framework */,
 				CD654EE7179DCA9800F380B5 /* Crashlytics.framework */,
 				CDAD1D32175E2BF800581713 /* UIKit.framework */,
-				808F13EC16FB6A5C00B66E6D /* SenTestingKit.framework */,
 				92FD2BD9498A41EEBBD26F82 /* libPods.a */,
 			);
 			name = Frameworks;
@@ -3050,26 +3019,6 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		808F13F216FB6A5C00B66E6D /* ShnergleAppTest */ = {
-			isa = PBXGroup;
-			children = (
-				808F13F816FB6A5C00B66E6D /* ShnergleAppTests.h */,
-				808F13F916FB6A5C00B66E6D /* ShnergleAppTests.m */,
-				808F13F316FB6A5C00B66E6D /* Supporting Files */,
-			);
-			name = ShnergleAppTest;
-			path = ShnergleAppTests;
-			sourceTree = "<group>";
-		};
-		808F13F316FB6A5C00B66E6D /* Supporting Files */ = {
-			isa = PBXGroup;
-			children = (
-				808F13F516FB6A5C00B66E6D /* InfoPlist.strings */,
-				808F13F416FB6A5C00B66E6D /* ShnergleAppTests-Info.plist */,
-			);
-			name = "Supporting Files";
-			sourceTree = "<group>";
-		};
 		80B400BF17540CCA00A377D9 /* Images */ = {
 			isa = PBXGroup;
 			children = (
@@ -3166,25 +3115,6 @@
 			productReference = 808F13C516FB6A5C00B66E6D /* ShnergleApp.app */;
 			productType = "com.apple.product-type.application";
 		};
-		808F13EA16FB6A5C00B66E6D /* ShnergleAppTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 808F140016FB6A5C00B66E6D /* Build configuration list for PBXNativeTarget "ShnergleAppTests" */;
-			buildPhases = (
-				808F13E616FB6A5C00B66E6D /* Sources */,
-				808F13E716FB6A5C00B66E6D /* Frameworks */,
-				808F13E816FB6A5C00B66E6D /* Resources */,
-				808F13E916FB6A5C00B66E6D /* ShellScript */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				808F13F116FB6A5C00B66E6D /* PBXTargetDependency */,
-			);
-			name = ShnergleAppTests;
-			productName = ShnergleAppTests;
-			productReference = 808F13EB16FB6A5C00B66E6D /* ShnergleAppTests.octest */;
-			productType = "com.apple.product-type.bundle";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -3213,7 +3143,6 @@
 			projectRoot = "";
 			targets = (
 				808F13C416FB6A5C00B66E6D /* ShnergleApp */,
-				808F13EA16FB6A5C00B66E6D /* ShnergleAppTests */,
 			);
 		};
 /* End PBXProject section */
@@ -4147,14 +4076,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		808F13E816FB6A5C00B66E6D /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				808F13F716FB6A5C00B66E6D /* InfoPlist.strings in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
@@ -4185,19 +4106,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
-		};
-		808F13E916FB6A5C00B66E6D /* ShellScript */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "# Run the unit tests in this test bundle.\n\"${SYSTEM_DEVELOPER_DIR}/Tools/RunUnitTests\"\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -4250,24 +4158,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		808F13E616FB6A5C00B66E6D /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				808F13FA16FB6A5C00B66E6D /* ShnergleAppTests.m in Sources */,
-				EEF8C4B81794453800DDE026 /* ScoreViewController.m in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXTargetDependency section */
-		808F13F116FB6A5C00B66E6D /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 808F13C416FB6A5C00B66E6D /* ShnergleApp */;
-			targetProxy = 808F13F016FB6A5C00B66E6D /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		808F13D116FB6A5C00B66E6D /* InfoPlist.strings */ = {
@@ -4284,14 +4175,6 @@
 				808F13E116FB6A5C00B66E6D /* en */,
 			);
 			name = MainStoryboard.storyboard;
-			sourceTree = "<group>";
-		};
-		808F13F516FB6A5C00B66E6D /* InfoPlist.strings */ = {
-			isa = PBXVariantGroup;
-			children = (
-				808F13F616FB6A5C00B66E6D /* en */,
-			);
-			name = InfoPlist.strings;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -4420,42 +4303,6 @@
 			};
 			name = Release;
 		};
-		808F140116FB6A5C00B66E6D /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ARCHS = armv7;
-				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/ShnergleApp.app/ShnergleApp";
-				FRAMEWORK_SEARCH_PATHS = (
-					"\"$(SDKROOT)/Developer/Library/Frameworks\"",
-					"\"$(DEVELOPER_LIBRARY_DIR)/Frameworks\"",
-				);
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "ShnergleApp/ShnergleApp-Prefix.pch";
-				INFOPLIST_FILE = "ShnergleAppTests/ShnergleAppTests-Info.plist";
-				PRODUCT_NAME = ShnergleAppTests;
-				TEST_HOST = "$(BUNDLE_LOADER)";
-				WRAPPER_EXTENSION = octest;
-			};
-			name = Debug;
-		};
-		808F140216FB6A5C00B66E6D /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ARCHS = armv7;
-				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/ShnergleApp.app/ShnergleApp";
-				FRAMEWORK_SEARCH_PATHS = (
-					"\"$(SDKROOT)/Developer/Library/Frameworks\"",
-					"\"$(DEVELOPER_LIBRARY_DIR)/Frameworks\"",
-				);
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "ShnergleApp/ShnergleApp-Prefix.pch";
-				INFOPLIST_FILE = "ShnergleAppTests/ShnergleAppTests-Info.plist";
-				PRODUCT_NAME = ShnergleAppTests;
-				TEST_HOST = "$(BUNDLE_LOADER)";
-				WRAPPER_EXTENSION = octest;
-			};
-			name = Release;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -4473,15 +4320,6 @@
 			buildConfigurations = (
 				808F13FE16FB6A5C00B66E6D /* Debug */,
 				808F13FF16FB6A5C00B66E6D /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		808F140016FB6A5C00B66E6D /* Build configuration list for PBXNativeTarget "ShnergleAppTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				808F140116FB6A5C00B66E6D /* Debug */,
-				808F140216FB6A5C00B66E6D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
