@@ -283,7 +283,7 @@
     NSDictionary *params = @{@"venue_id": appDelegate.activeVenue[@"id"],
                              @"level": appDelegate.level,
                              @"from_time":@([self fromTime]) ,
-                                 @"until_time:":@([self untilTime])};
+                                 @"until_time":@([self untilTime])};
     [Request post:@"promotions/get" params:params delegate:self callback:@selector(didFinishGettingPromotion:)];
 
     if ([appDelegate.activeVenue[@"manager"] intValue] == 1 && [appDelegate.activeVenue[@"verified"] intValue] == 0) {
