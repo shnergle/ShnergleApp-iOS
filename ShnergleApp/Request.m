@@ -11,7 +11,7 @@
 #import <TMCache/TMCache.h>
 
 #define appSecret @"FCuf65iuOUDCjlbiyyer678Coutyc64v655478VGvgh76"
-#define serverURL @"http://shnergle-api.azurewebsites.net/v1/%@"
+#define serverURL @"http://shnergle-api2.azurewebsites.net/v2/%@"
 
 @interface ConnectionErrorAlert : NSObject <UIAlertViewDelegate>
 
@@ -113,13 +113,9 @@ static ConnectionErrorAlert *connectionErrorAlert;
         [body appendData:[[NSString stringWithFormat:@"\r\n--%@--\r\n", boundary] dataUsingEncoding:NSUTF8StringEncoding]];
         [urlRequest setHTTPBody:body];
     } else {
-        NSMutableString *paramsString = [NSMutableString stringWithFormat:@"app_secret=%@&facebook_id=%@", [appSecret stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet alphanumericCharacterSet]], [appDelegate.facebookId stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet alphanumericCharacterSet]]];
-        if (params) {
-            for (NSString *key in params) {
-                [paramsString appendFormat:@"&%@=%@", key, [[params[key] stringValue] stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet alphanumericCharacterSet]]];
-            }
-        }
-        [urlRequest setHTTPBody:[paramsString dataUsingEncoding:NSUTF8StringEncoding]];
+        NSMutableDictionary *paramsDict = [@{@"app_secret": appSecret, @"facebook_id": appDelegate.facebookId} mutableCopy];
+        [paramsDict addEntriesFromDictionary:params];
+        [urlRequest setHTTPBody:[NSJSONSerialization dataWithJSONObject:paramsDict options:0 error:nil]];
     }
     if (type == Image) [urlRequest setTimeoutInterval:4];
     [NSURLConnection sendAsynchronousRequest:urlRequest queue:[NSOperationQueue mainQueue] completionHandler:^(NSURLResponse *response, NSData *data, NSError *connectionError) {
