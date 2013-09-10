@@ -106,11 +106,11 @@
     [self.summaryHeadlineTextField resignFirstResponder];
     self.summaryHeadlineTextField.enabled = NO;
     self.summaryHeadlineTextField.backgroundColor = [UIColor clearColor];
-    self.phoneTextField.enabled= NO;
+    self.phoneTextField.editable= NO;
     self.phoneTextField.backgroundColor = [UIColor clearColor];
-    self.emailTextField.enabled = NO;
+    self.emailTextField.editable = NO;
     self.emailTextField.backgroundColor = [UIColor clearColor];
-    self.websiteTextField.enabled = NO;
+    self.websiteTextField.editable = NO;
     self.websiteTextField.backgroundColor = [UIColor clearColor];
 
 
@@ -150,17 +150,17 @@
     self.Change.hidden = YES;
     self.summaryContentTextField.editable = YES;
     self.summaryHeadlineTextField.enabled = YES;
-    self.phoneTextField.enabled = YES;
+    self.phoneTextField.editable = YES;
     self.phoneTextField.backgroundColor = [UIColor whiteColor];
     self.phoneTextField.layer.borderColor = [UIColor grayColor].CGColor;
     self.phoneTextField.layer.borderWidth = 1;
     self.phoneTextField.layer.cornerRadius = 5;
-    self.websiteTextField.enabled = YES;
+    self.websiteTextField.editable = YES;
     self.websiteTextField.backgroundColor = [UIColor whiteColor];
     self.websiteTextField.layer.borderColor = [UIColor grayColor].CGColor;
     self.websiteTextField.layer.borderWidth = 1;
     self.websiteTextField.layer.cornerRadius = 5;
-    self.emailTextField.enabled = YES;
+    self.emailTextField.editable = YES;
     self.emailTextField.backgroundColor = [UIColor whiteColor];
     self.emailTextField.layer.borderColor = [UIColor grayColor].CGColor;
     self.emailTextField.layer.borderWidth = 1;
