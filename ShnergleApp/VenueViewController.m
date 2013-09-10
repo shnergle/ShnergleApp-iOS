@@ -149,7 +149,9 @@
 - (void)didFinishGettingPromotion:(NSDictionary *)response {
     if ([response respondsToSelector:@selector(objectForKeyedSubscript:)]) {
         appDelegate.activePromotion = response;
-        appDelegate.canRedeem = response[@"own_redemptions"] > 0;
+        NSLog(@"OWN_REDEMPTIONS IS %@",response[@"own_redemptions"]);
+        
+        appDelegate.canRedeem = response[@"own_redemptions"] == 0;
         promotionBody = response[@"description"];
         promotionTitle = response[@"title"];
         promotionExpiry = ([response[@"maximum"] intValue] == 0 || response[@"maximum"] == nil) ? [NSString stringWithFormat:@"%@ claimed", response[@"redemptions"]] : [NSString stringWithFormat:@"%@/%@ claimed", response[@"redemptions"], response[@"maximum"]];
