@@ -2259,6 +2259,7 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                                     <constraint firstItem="GKX-LD-Xt5" firstAttribute="leading" secondItem="ho1-hg-V7U" secondAttribute="leading" constant="106" type="default" id="mTB-bk-zGy"/>
                                     <constraint firstItem="GKX-LD-Xt5" firstAttribute="top" secondItem="wHE-cF-94Z" secondAttribute="top" type="default" id="rJM-4I-Vfg"/>
                                     <constraint firstAttribute="trailing" secondItem="7GK-nU-Mra" secondAttribute="trailing" constant="4" id="zBy-Le-NqE"/>
+                                    <constraint firstAttribute="height" constant="100" type="user" id="zrS-uu-oSo"/>
                                 </constraints>
                             </view>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Your Shnergle score is:" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="149" translatesAutoresizingMaskIntoConstraints="NO" id="UL8-cw-UNK">
@@ -2302,13 +2303,12 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                         <color key="backgroundColor" red="0.9137254901960784" green="0.92156862745098034" blue="0.94117647058823528" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="dS4-9B-WSG" firstAttribute="trailing" secondItem="d7K-2j-bO2" secondAttribute="trailing" type="default" id="7iH-oo-6mJ"/>
-                            <constraint firstAttribute="bottom" secondItem="ho1-hg-V7U" secondAttribute="bottom" constant="102" id="7wc-pV-tfK"/>
                             <constraint firstItem="uZw-Cy-fCl" firstAttribute="top" secondItem="T3d-vY-Mf8" secondAttribute="top" type="default" id="BnI-3U-zHR"/>
                             <constraint firstItem="ho1-hg-V7U" firstAttribute="top" secondItem="d7K-2j-bO2" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="Ctg-pk-Ea5"/>
                             <constraint firstItem="ho1-hg-V7U" firstAttribute="leading" secondItem="d7K-2j-bO2" secondAttribute="leading" type="default" id="L4N-1D-RAZ"/>
                             <constraint firstItem="d7K-2j-bO2" firstAttribute="top" secondItem="T3d-vY-Mf8" secondAttribute="top" constant="77" id="LQ1-XU-Qgm"/>
                             <constraint firstItem="UL8-cw-UNK" firstAttribute="leading" secondItem="T3d-vY-Mf8" secondAttribute="leading" constant="10" id="MnX-R0-i6Z"/>
-                            <constraint firstItem="ho1-hg-V7U" firstAttribute="top" secondItem="T3d-vY-Mf8" secondAttribute="top" constant="346" id="TPv-ws-e8R"/>
+                            <constraint firstItem="ho1-hg-V7U" firstAttribute="top" secondItem="T3d-vY-Mf8" secondAttribute="top" constant="346" type="user" id="TPv-ws-e8R"/>
                             <constraint firstAttribute="trailing" secondItem="ZVT-CK-7XI" secondAttribute="trailing" constant="111" id="aOa-27-ZET"/>
                             <constraint firstItem="ho1-hg-V7U" firstAttribute="centerX" secondItem="d7K-2j-bO2" secondAttribute="centerX" type="default" id="cRF-j0-AH8"/>
                             <constraint firstItem="dS4-9B-WSG" firstAttribute="top" secondItem="T3d-vY-Mf8" secondAttribute="top" constant="49" id="cXP-xm-q7S"/>
