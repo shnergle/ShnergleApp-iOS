@@ -69,8 +69,9 @@
 }
 
 - (IBAction)backToMe:(id)sender {
+    hasPositionLocked = NO;
     pinDropped = NO;
-    [map animateToCameraPosition:[GMSCameraPosition cameraWithLatitude:map.myLocation.coordinate.latitude - 0.012 longitude:map.myLocation.coordinate.longitude zoom:13]];
+    map.userTrackingMode = MKUserTrackingModeFollow;
     [self sliderValueChanged:nil];
 }
 
@@ -226,32 +227,16 @@
 
 - (IBAction)sliderValueChanged:(id)sender {
     [self.overlay makeToastActivity];
-    [map clear];
+    [map removeOverlays:map.overlays];
     CLLocationCoordinate2D coord;
     if (pinDropped) {
         coord = pinDroppedLocation;
     } else {
-        coord = map.myLocation.coordinate;
+        coord = map.userLocation.coordinate;
     }
 
-    GMSCircle *mapCircle = [GMSCircle circleWithPosition:coord radius:self.distanceScroller.value * 1000];
-    mapCircle.strokeColor = [UIColor orangeColor];
-    mapCircle.strokeWidth = 5;
-
-    /*
-       =00ooo00oOOoOoOoo
-       =Adam and Stian's magical coordinate substitution principle
-       =ooOoOO000OOo00oOoo
-     */
-    CGFloat screenDistance = [map.projection pointsForMeters:(self.distanceScroller.value * 1000) atCoordinate:coord];
-    CGPoint screenCenter = [map.projection pointForCoordinate:coord];
-    CGPoint screenPoint = CGPointMake(screenCenter.x - screenDistance, screenCenter.y);
-    CLLocationCoordinate2D realPoint = [map.projection coordinateForPoint:screenPoint];
-    CGFloat distanceInDegrees = coord.longitude - realPoint.longitude;
-
-    /*
-       oo..
-     */
+    MKCoordinateRegion rgn = MKCoordinateRegionMakeWithDistance(coord, (self.distanceScroller.value * 1000), (self.distanceScroller.value * 1000));
+    double distanceInDegrees = sqrt(pow(rgn.span.latitudeDelta, 2) + pow(rgn.span.longitudeDelta, 2));
 
     NSDictionary *params = @{@"my_lat": @(coord.latitude),
                              @"my_lon": @(coord.longitude),
@@ -260,7 +245,8 @@
                              @"around_me": @"true"};
     [Request post:@"venues/get" params:params delegate:self callback:@selector(didFinishLoadingVenues:)];
 
-    mapCircle.map = map;
+    MKCircle *circle = [MKCircle circleWithCenterCoordinate:coord radius:self.distanceScroller.value * 1000];
+    [map addOverlay:circle];
     
     //Prefs:
     [[NSUserDefaults standardUserDefaults] setObject:[NSNumber numberWithFloat:self.distanceScroller.value] forKey:@"radius"];
@@ -268,11 +254,11 @@
 
 }
 
-- (void)mapView:(GMSMapView *)mapView didTapAtCoordinate:(CLLocationCoordinate2D)coordinate {
-    [map clear];
-    pinDropped = true;
-    pinDroppedLocation = coordinate;
-    [self sliderValueChanged:nil];
+- (MKAnnotationView *)mapView:(MKMapView *)mapView viewForOverlay:(id<MKOverlay>)overlay {
+    MKCircleView *circleView = [[MKCircleView alloc] initWithCircle:overlay];
+    circleView.strokeColor = [UIColor orangeColor];
+    circleView.lineWidth = 5;
+    return circleView;
 }
 
 - (void)tapMenu {
@@ -302,29 +288,39 @@
 
 - (void)initMap {
     hasPositionLocked = NO;
-    map = [[GMSMapView alloc] initWithFrame:CGRectMake(0, 44, self.view.bounds.size.width, 350)];
-    map.myLocationEnabled = YES;
+    map = [[MKMapView alloc] initWithFrame:CGRectMake(0, 44, self.view.bounds.size.width, 350)];
     map.delegate = self;
-    [map addObserver:self forKeyPath:@"myLocation" options:NSKeyValueObservingOptionNew context:nil];
+    map.userTrackingMode = MKUserTrackingModeFollow;
+    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(didTapAtMap:)];
+    [map addGestureRecognizer:tap];
     [self.view addSubview:map];
     [self.view sendSubviewToBack:map];
+    [NSTimer scheduledTimerWithTimeInterval:5 target:self selector:@selector(ermmm:) userInfo:nil repeats:NO];
 }
 
-- (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context {
+- (void)ermmm:(id)stuff {
+    [self backToMe:nil];
+}
+
+- (void)didTapAtMap:(id)sender {
+    [map removeOverlays:map.overlays];
+    pinDropped = YES;
+    CGPoint point = [sender locationInView:map];
+    pinDroppedLocation = [map convertPoint:point toCoordinateFromView:map];
+    [self sliderValueChanged:nil];
+}
+
+- (void)mapView:(MKMapView *)mapView didUpdateUserLocation:(MKUserLocation *)userLocation {
     if (!hasPositionLocked) {
-        if ([keyPath isEqualToString:@"myLocation"] && [object isKindOfClass:[GMSMapView class]]) {
-            [map animateToCameraPosition:[GMSCameraPosition cameraWithLatitude:map.myLocation.coordinate.latitude - 0.012 longitude:map.myLocation.coordinate.longitude zoom:13]];
-            hasPositionLocked = YES;
-            [self sliderValueChanged:nil];
-        }
+        map.userTrackingMode = MKUserTrackingModeNone;
+        hasPositionLocked = YES;
+        [self sliderValueChanged:nil];
     }
 }
 
 - (void)viewWillDisappear:(BOOL)animated {
     [super viewWillDisappear:animated];
-    [map removeObserver:self forKeyPath:@"myLocation" context:nil];
-    [map clear];
-    [map stopRendering];
+    [map removeOverlays:map.overlays];
     [map removeFromSuperview];
     map = nil;
 }
