@@ -13,16 +13,8 @@
 @implementation LoginScreenController
 
 - (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
     [self.navigationController setNavigationBarHidden:YES];
-}
-
-- (void)viewDidAppear:(BOOL)animated {
-    [super viewDidAppear:animated];
-    if (appDelegate.didShare != nil) {
-        UIViewController *vc = [self.storyboard instantiateViewControllerWithIdentifier:@"AroundMeSlidingViewController"];
-        [self.navigationController pushViewController:vc animated:YES];
-    }
-    appDelegate.didShare = nil;
 }
 
 - (void)viewDidLoad {

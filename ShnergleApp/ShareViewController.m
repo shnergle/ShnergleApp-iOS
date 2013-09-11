@@ -11,6 +11,7 @@
 #import <Toast/Toast+UIView.h>
 #import <Accounts/Accounts.h>
 #import <Social/Social.h>
+#import "CustomSlidingViewController.h"
 
 @implementation ShareViewController
 
@@ -45,7 +46,6 @@
 
 - (void)share {
     [self.view makeToastActivity];
-    appDelegate.didShare = @YES;
     [NSThread detachNewThreadSelector:@selector(uploadToServer) toTarget:self withObject:nil];
 }
 
@@ -198,7 +198,16 @@
     if (appDelegate.redeeming != nil) {
         [Request post:@"promotion_redemptions/set" params:@{@"promotion_id": appDelegate.redeeming} delegate:self callback:@selector(redeemed:)];
     } else {
-        [self.navigationController popToRootViewControllerAnimated:NO];
+        [self toFirstAroundMe];
+    }
+}
+
+- (void)toFirstAroundMe {
+    for (id viewController in self.navigationController.viewControllers) {
+        if ([viewController isKindOfClass:[CustomSlidingViewController class]]) {
+            [self.navigationController popToViewController:viewController animated:YES];
+            return;
+        }
     }
 }
 
@@ -216,7 +225,7 @@
 }
 
 - (void)alertView:(UIAlertView *)alertView didDismissWithButtonIndex:(NSInteger)buttonIndex {
-    [self.navigationController popToRootViewControllerAnimated:NO];
+    [self toFirstAroundMe];
 }
 
 - (IBAction)selectFriendsButtonAction:(id)sender {

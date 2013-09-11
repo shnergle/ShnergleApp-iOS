@@ -46,8 +46,6 @@
 
 @property (nonatomic) BOOL claiming;
 
-@property (strong, nonatomic) id didShare;
-
 @property (strong, nonatomic) NSString *level;
 @property (nonatomic) int audience;
 
