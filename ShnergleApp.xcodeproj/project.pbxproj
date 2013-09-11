@@ -939,6 +939,8 @@
 		CD71CF3217D5E6A10022C0A1 /* 23@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CD71CF2E17D5E6A10022C0A1 /* 23@2x.png */; };
 		CD71CF3317D5E6A10022C0A1 /* 24.png in Resources */ = {isa = PBXBuildFile; fileRef = CD71CF2F17D5E6A10022C0A1 /* 24.png */; };
 		CD71CF3417D5E6A10022C0A1 /* 24@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CD71CF3017D5E6A10022C0A1 /* 24@2x.png */; };
+		CD7A5BBA17E0CB0F002280D8 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CD7A5BB917E0CB0F002280D8 /* QuartzCore.framework */; };
+		CD7A5BBC17E0CC19002280D8 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CD7A5BBB17E0CC19002280D8 /* CoreGraphics.framework */; };
 		CD84ECEF175CC10000A09FA6 /* AppIcon_114.png in Resources */ = {isa = PBXBuildFile; fileRef = CD84ECEE175CC10000A09FA6 /* AppIcon_114.png */; };
 		CD84ECF1175CC10E00A09FA6 /* icon57.png in Resources */ = {isa = PBXBuildFile; fileRef = CD84ECF0175CC10D00A09FA6 /* icon57.png */; };
 		CDAD1D2F175E011100581713 /* ShareViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CDAD1D2E175E011100581713 /* ShareViewController.m */; };
@@ -1935,6 +1937,9 @@
 		CD71CF2E17D5E6A10022C0A1 /* 23@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "23@2x.png"; sourceTree = "<group>"; };
 		CD71CF2F17D5E6A10022C0A1 /* 24.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 24.png; sourceTree = "<group>"; };
 		CD71CF3017D5E6A10022C0A1 /* 24@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "24@2x.png"; sourceTree = "<group>"; };
+		CD7A5BB617E0CA50002280D8 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		CD7A5BB917E0CB0F002280D8 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS6.1.sdk/System/Library/Frameworks/QuartzCore.framework; sourceTree = DEVELOPER_DIR; };
+		CD7A5BBB17E0CC19002280D8 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS6.1.sdk/System/Library/Frameworks/CoreGraphics.framework; sourceTree = DEVELOPER_DIR; };
 		CD84ECEE175CC10000A09FA6 /* AppIcon_114.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = AppIcon_114.png; sourceTree = "<group>"; };
 		CD84ECF0175CC10D00A09FA6 /* icon57.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon57.png; sourceTree = "<group>"; };
 		CDAD1D2D175E011100581713 /* ShareViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShareViewController.h; sourceTree = "<group>"; };
@@ -1997,6 +2002,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CD7A5BBC17E0CC19002280D8 /* CoreGraphics.framework in Frameworks */,
+				CD7A5BBA17E0CB0F002280D8 /* QuartzCore.framework in Frameworks */,
 				CD4DF2A317CE048A005F3604 /* MapKit.framework in Frameworks */,
 				CDBC6C7E17AC4FBA001B667B /* Social.framework in Frameworks */,
 				CDBC6C7C17AC47D9001B667B /* Accounts.framework in Frameworks */,
@@ -2905,6 +2912,9 @@
 		808F13C716FB6A5C00B66E6D /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				CD7A5BBB17E0CC19002280D8 /* CoreGraphics.framework */,
+				CD7A5BB917E0CB0F002280D8 /* QuartzCore.framework */,
+				CD7A5BB617E0CA50002280D8 /* QuartzCore.framework */,
 				CD4DF2A217CE048A005F3604 /* MapKit.framework */,
 				CDBC6C7D17AC4FBA001B667B /* Social.framework */,
 				CDBC6C7B17AC47D9001B667B /* Accounts.framework */,
@@ -4258,6 +4268,7 @@
 					"$(inherited)",
 					"$(SRCROOT)",
 					"/Users/krzd/Documents/ShnergleApp-iOS",
+					"$(DEVELOPER_DIR)/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS6.1.sdk/System/Library/Frameworks",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "ShnergleApp/ShnergleApp-Prefix.pch";

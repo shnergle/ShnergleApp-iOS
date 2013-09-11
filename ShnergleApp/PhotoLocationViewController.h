@@ -7,10 +7,10 @@
 //
 
 #import "CustomBackViewController.h"
-#import <GoogleMaps/GoogleMaps.h>
+#import <MapKit/MapKit.h>
 
-@interface PhotoLocationViewController : CustomBackViewController <UISearchBarDelegate, GMSMapViewDelegate, UITableViewDelegate, UITableViewDataSource> {
-    GMSMapView *map;
+@interface PhotoLocationViewController : CustomBackViewController <UISearchBarDelegate, MKMapViewDelegate, UITableViewDelegate, UITableViewDataSource> {
+    MKMapView *map;
     BOOL hasPositionLocked;
     CLLocationCoordinate2D coord;
     NSArray *locationPickerVenuesImmutable;

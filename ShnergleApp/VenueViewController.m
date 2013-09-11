@@ -16,6 +16,7 @@
 #import "NSDate+TimeAgo.h"
 #import <NSDate-Escort/NSDate+Escort.h>
 #import <Toast/Toast+UIView.h>
+#import <QuartzCore/QuartzCore.h>
 
 @implementation VenueViewController
 
@@ -263,14 +264,10 @@
 }
 
 - (void)configureMapWithLat:(CLLocationDegrees)lat longitude:(CLLocationDegrees)lon {
-    GMSCameraPosition *camera = [GMSCameraPosition cameraWithLatitude:lat longitude:lon zoom:14];
-    overlayView.venueMap.camera = camera;
+#warning zoom level (14)
+    overlayView.venueMap.centerCoordinate = CLLocationCoordinate2DMake(lat, lon);
 
-    GMSMarker *marker = [[GMSMarker alloc] init];
-    marker.position = CLLocationCoordinate2DMake(lat, lon);
-    marker.title = @"";
-    marker.snippet = @"";
-    marker.map = overlayView.venueMap;
+#warning drop pin here
     overlayView.venueMap.userInteractionEnabled = NO;
 }
 

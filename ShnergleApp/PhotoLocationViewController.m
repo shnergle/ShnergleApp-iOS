@@ -11,6 +11,9 @@
 #import "Request.h"
 #import <Toast/Toast+UIView.h>
 
+#warning need to start getting location when rendering finished, not straight away
+#warning use LocationManager instead of map to determine location
+
 @implementation PhotoLocationViewController
 
 - (void)viewDidLoad {
@@ -87,43 +90,32 @@
 
 - (void)initMap {
     hasPositionLocked = NO;
-    map = [[GMSMapView alloc] initWithFrame:self.mapView.bounds];
-    map.myLocationEnabled = YES;
+    map = [[MKMapView alloc] initWithFrame:self.mapView.bounds];
+    map.userTrackingMode = MKUserTrackingModeFollow;
     map.delegate = self;
-    [map addObserver:self forKeyPath:@"myLocation" options:NSKeyValueObservingOptionNew context:nil];
     [self.mapView addSubview:map];
     [self.mapView sendSubviewToBack:map];
 }
 
 - (void)viewWillDisappear:(BOOL)animated {
     [super viewWillDisappear:animated];
-    [map removeObserver:self forKeyPath:@"myLocation" context:nil];
-    [map clear];
-    [map stopRendering];
     [map removeFromSuperview];
     map = nil;
 }
 
-- (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context {
+- (void)mapView:(MKMapView *)mapView didUpdateUserLocation:(MKUserLocation *)userLocation {
     if (!hasPositionLocked) {
-        if ([keyPath isEqualToString:@"myLocation"] && [object isKindOfClass:[GMSMapView class]]) {
-            coord = map.myLocation.coordinate;
-            CGFloat screenDistance = [map.projection pointsForMeters:111 atCoordinate:coord];
-            CGPoint screenCenter = [map.projection pointForCoordinate:coord];
-            CGPoint screenPoint = CGPointMake(screenCenter.x - screenDistance, screenCenter.y);
-            CLLocationCoordinate2D realPoint = [map.projection coordinateForPoint:screenPoint];
-            CGFloat distanceInDegrees = coord.longitude - realPoint.longitude;
+        coord = map.userLocation.coordinate;
+        MKCoordinateRegion rgn = MKCoordinateRegionMakeWithDistance(coord, 111, 11);
+        double distanceInDegrees = sqrt(pow(rgn.span.latitudeDelta, 2) + pow(rgn.span.longitudeDelta, 2));
 
-            NSDictionary *params = @{@"my_lat": @(coord.latitude),
-                                     @"my_lon": @(coord.longitude),
-                                     @"distance": @(distanceInDegrees),
-                                     @"level": appDelegate.level};
-            [Request post:@"venues/get" params:params delegate:self callback:@selector(didFinishLoadingVenues:)];
+        NSDictionary *params = @{@"my_lat": @(coord.latitude),
+                                 @"my_lon": @(coord.longitude),
+                                 @"distance": @(distanceInDegrees),
+                                 @"level": appDelegate.level};
+        [Request post:@"venues/get" params:params delegate:self callback:@selector(didFinishLoadingVenues:)];
 
-            [map animateToCameraPosition:[GMSCameraPosition cameraWithLatitude:map.myLocation.coordinate.latitude longitude:map.myLocation.coordinate.longitude zoom:13]];
-
-            hasPositionLocked = YES;
-        }
+        hasPositionLocked = YES;
     }
 }
 

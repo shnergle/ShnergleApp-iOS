@@ -7,16 +7,15 @@
 //
 
 #import "CustomBackViewController.h"
-#import <GoogleMaps/GoogleMaps.h>
+#import <MapKit/MapKit.h>
 
-@interface AddVenueViewController : CustomBackViewController<UITableViewDataSource, UITableViewDelegate, UITextFieldDelegate, GMSMapViewDelegate, UIAlertViewDelegate>
+@interface AddVenueViewController : CustomBackViewController<UITableViewDataSource, UITableViewDelegate, UITextFieldDelegate, MKMapViewDelegate, UIAlertViewDelegate>
 {
     UITableViewCell *secondCell;
     UILabel *secondCellField;
     bool hasPositionLocked;
     CLLocationCoordinate2D venueCoord;
-    GMSMapView *map;
-    GMSMarker *marker;
+    MKMapView *map;
     NSArray *tableData;
     UISwitch *workSwitch;
 }

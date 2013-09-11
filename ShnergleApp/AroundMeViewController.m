@@ -254,7 +254,7 @@
 
 }
 
-- (MKAnnotationView *)mapView:(MKMapView *)mapView viewForOverlay:(id<MKOverlay>)overlay {
+- (MKOverlayView *)mapView:(MKMapView *)mapView viewForOverlay:(id<MKOverlay>)overlay {
     MKCircleView *circleView = [[MKCircleView alloc] initWithCircle:overlay];
     circleView.strokeColor = [UIColor orangeColor];
     circleView.lineWidth = 5;

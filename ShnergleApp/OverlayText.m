@@ -14,6 +14,7 @@
 #import "ShareViewController.h"
 #import "VenueDetailsViewController.h"
 #import <NSDate-Escort/NSDate+Escort.h>
+#import <QuartzCore/QuartzCore.h>
 
 @implementation OverlayText
 
