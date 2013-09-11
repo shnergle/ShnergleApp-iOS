@@ -81,7 +81,7 @@
     }
     NSDictionary *params = @{@"venue_id": appDelegate.activeVenue[@"id"],
                              @"following": following ? @"true" : @"false"};
-    [Request post:@"venue_followers/set" params:params delegate:self callback:@selector(doNothing:) type:String];
+    [Request post:@"venue_followers/set" params:params delegate:self callback:@selector(doNothing:)];
 }
 
 - (void)doNothing:(id)whoCares {
@@ -138,7 +138,7 @@
     [overlayView.scrollView setScrollsToTop:NO];
     [self.crowdCollectionV setScrollsToTop:YES];
 
-    [Request post:@"venue_views/set" params:@{@"venue_id": appDelegate.activeVenue[@"id"]} delegate:self callback:@selector(doNothing:) type:String];
+    [Request post:@"venue_views/set" params:@{@"venue_id": appDelegate.activeVenue[@"id"]} delegate:self callback:@selector(doNothing:)];
 
     man = [[CLLocationManager alloc] init];
     man.delegate = self;
@@ -218,7 +218,7 @@
     item.index = indexPath.item;
     item.crowdImage.backgroundColor = [UIColor lightGrayColor];
     if (!(item.crowdImage.image = [Request getImage:key])) {
-        [Request post:@"images/get" params:key delegate:self callback:@selector(didFinishDownloadingImages:forIndex:) type:Image userData:indexPath];
+        [Request post:@"images/get" params:key delegate:self callback:@selector(didFinishDownloadingImages:forIndex:) userData:indexPath];
     }
 
     item.venueName.text = [self getDateFromUnixFormat:posts[indexPath.item][@"time"]];

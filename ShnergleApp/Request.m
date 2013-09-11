@@ -54,35 +54,19 @@ static ConnectionErrorAlert *connectionErrorAlert;
 }
 
 + (void)post:(NSString *)path params:(NSDictionary *)params delegate:(id)object callback:(SEL)cb {
-    return [self post:path params:params image:nil delegate:object callback:cb type:JSON userData:nil];
-}
-
-+ (void)post:(NSString *)path params:(NSDictionary *)params delegate:(id)object callback:(SEL)cb type:(TYPE)type {
-    return [self post:path params:params image:nil delegate:object callback:cb type:type userData:nil];
+    return [self post:path params:params image:nil delegate:object callback:cb userData:nil];
 }
 
 + (void)post:(NSString *)path params:(NSDictionary *)params image:(UIImage *)image delegate:(id)object callback:(SEL)cb {
-    return [self post:path params:params image:image delegate:object callback:cb type:JSON userData:nil];
-}
-
-+ (void)post:(NSString *)path params:(NSDictionary *)params image:(UIImage *)image delegate:(id)object callback:(SEL)cb type:(TYPE)type {
-    return [self post:path params:params image:image delegate:object callback:cb type:type userData:nil];
+    return [self post:path params:params image:image delegate:object callback:cb userData:nil];
 }
 
 + (void)post:(NSString *)path params:(NSDictionary *)params delegate:(id)object callback:(SEL)cb userData:(id)userData {
-    return [self post:path params:params image:nil delegate:object callback:cb type:JSON userData:userData];
-}
-
-+ (void)post:(NSString *)path params:(NSDictionary *)params delegate:(id)object callback:(SEL)cb type:(TYPE)type userData:(id)userData {
-    return [self post:path params:params image:nil delegate:object callback:cb type:type userData:userData];
+    return [self post:path params:params image:nil delegate:object callback:cb userData:userData];
 }
 
 + (void)post:(NSString *)path params:(NSDictionary *)params image:(UIImage *)image delegate:(id)object callback:(SEL)cb userData:(id)userData {
-    return [self post:path params:params image:image delegate:object callback:cb type:JSON userData:userData];
-}
-
-+ (void)post:(NSString *)path params:(NSDictionary *)params image:(UIImage *)image delegate:(id)object callback:(SEL)cb type:(TYPE)type userData:(id)userData {
-    if (type == Image && [self getImage:params]) {
+    if ([[path pathComponents][0] isEqualToString:@"images"] && [self getImage:params]) {
         return [self despatch:[self getImage:params] to:object callback:cb userData:userData];
     }
     NSString *urlString = [NSString stringWithFormat:serverURL, path];
@@ -122,7 +106,7 @@ static ConnectionErrorAlert *connectionErrorAlert;
         }
         [urlRequest setHTTPBody:[paramsString dataUsingEncoding:NSUTF8StringEncoding]];
     }
-    if (type == Image) [urlRequest setTimeoutInterval:4];
+    if ([[path pathComponents][0] isEqualToString:@"images"]) [urlRequest setTimeoutInterval:4];
     [NSURLConnection sendAsynchronousRequest:urlRequest queue:[NSOperationQueue mainQueue] completionHandler:^(NSURLResponse *response, NSData *data, NSError *connectionError) {
         if (connectionError) {
             [Crashlytics setObjectValue:connectionError forKey:@"lastConnectionError"];
@@ -136,47 +120,34 @@ static ConnectionErrorAlert *connectionErrorAlert;
             }
             return;
         }
-        switch (type) {
-            case String:
-            {
-                NSString *responseArg = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
+        if ([[path pathComponents][0] isEqualToString:@"images"]) {
+            dispatch_async(dispatch_get_main_queue(), ^{
+                UIImage *responseArg;
+                @try {
+                    NSString *firstChar = [[[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding] substringToIndex:1];
+                    if ([@"{" isEqualToString:firstChar] || [@"null" isEqualToString:firstChar] || [@"" isEqualToString:firstChar]) @throw [NSException exceptionWithName:nil reason:nil userInfo:nil];
+                    responseArg = [[UIImage alloc] initWithData:data];
+                    [self setImage:params image:responseArg];
+                } @catch (NSException *e) {
+                    responseArg = [UIImage imageNamed:@"No_activity.png"];
+                    [self setImage:params image:responseArg];
+                }
                 [self logData:data andResponse:responseArg];
                 [self despatch:responseArg to:object callback:cb userData:userData];
-                break;
-            }
-            case Image:
-            {
-                dispatch_async(dispatch_get_main_queue(), ^{
-                    UIImage *responseArg;
-                    @try {
-                        NSString *firstChar = [[[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding] substringToIndex:1];
-                        if ([@"{" isEqualToString:firstChar] || [@"null" isEqualToString:firstChar] || [@"" isEqualToString:firstChar]) @throw [NSException exceptionWithName:nil reason:nil userInfo:nil];
-                        responseArg = [[UIImage alloc] initWithData:data];
-                        [self setImage:params image:responseArg];
-                    } @catch (NSException *e) {
-                        responseArg = [UIImage imageNamed:@"No_activity.png"];
-                        [self setImage:params image:responseArg];
-                    }
-                    [self logData:data andResponse:responseArg];
-                    [self despatch:responseArg to:object callback:cb userData:userData];
-                });
-                break;
-            }
-            case JSON:
-            {
-                dispatch_async(dispatch_get_main_queue(), ^{
-                    id responseArg = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingAllowFragments error:nil];
-                    if ([responseArg isKindOfClass:[NSDictionary class]] && responseArg[@"traceback"]) {
-                        responseArg = nil;
-                        dispatch_async(dispatch_get_main_queue(), ^{
-                            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"An error occured while trying to load!" message:nil delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
-                            [alert show];
-                        });
-                    }
-                    [self logData:data andResponse:responseArg];
-                    [self despatch:responseArg to:object callback:cb userData:userData];
-                });
-            }
+            });
+        } else {
+            dispatch_async(dispatch_get_main_queue(), ^{
+                id responseArg = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingAllowFragments error:nil];
+                if ([responseArg isKindOfClass:[NSDictionary class]] && responseArg[@"traceback"]) {
+                    responseArg = nil;
+                    dispatch_async(dispatch_get_main_queue(), ^{
+                        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"An error occured while trying to load!" message:nil delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+                        [alert show];
+                    });
+                }
+                [self logData:data andResponse:responseArg];
+                [self despatch:responseArg to:object callback:cb userData:userData];
+            });
         }
     }];
 }

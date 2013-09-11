@@ -79,20 +79,20 @@
         NSDictionary *params = @{@"delete": @"true",
                                  @"venue_id": appDelegate.activeVenue[@"id"],
                                  @"staff_user_id": currentStaff[@"user_id"]};
-        [Request post:@"venue_staff/set" params:params delegate:self callback:@selector(didFinishSaving:) type:String];
+        [Request post:@"venue_staff/set" params:params delegate:self callback:@selector(didFinishSaving:)];
         deleteMe = NO;
     } else {
         NSDictionary *params = @{@"venue_id": appDelegate.activeVenue[@"id"],
                                  @"staff_user_id": currentStaff[@"user_id"],
                                  @"manager": [@"Manager" isEqualToString: appDelegate.staffType] ? @"true" : @"false",
                                  @"promo_perm": promoSwitch.on ? @"true" : @"false"};
-        [Request post:@"venue_staff/set" params:params delegate:self callback:@selector(didFinishSaving:) type:String];
+        [Request post:@"venue_staff/set" params:params delegate:self callback:@selector(didFinishSaving:)];
     }
     [super goBack];
 }
 
 - (void)didFinishSaving:(id)response {
-    if ([@"true" isEqualToString : response]) {
+    if (response) {
         [self.view hideToastActivity];
         [super goBack];
     }

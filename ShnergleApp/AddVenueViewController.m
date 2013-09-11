@@ -68,7 +68,7 @@ typedef enum {
                     }
                 }
 
-                [Request post:@"venues/set" params:params delegate:self callback:@selector(didFinishAddingVenue:) type:String];
+                [Request post:@"venues/set" params:params delegate:self callback:@selector(didFinishAddingVenue:)];
             } ];
         } else {
             UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"Fields Missing" message:@"Please fill in all required fields" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
@@ -83,7 +83,7 @@ typedef enum {
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
 }
 
-- (void)didFinishAddingVenue:(NSString *)response {
+- (void)didFinishAddingVenue:(NSNumber *)response {
     if (response == nil) {
         [self.view hideToastActivity];
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Uh-oh.. Something went wrong.." message:nil delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];

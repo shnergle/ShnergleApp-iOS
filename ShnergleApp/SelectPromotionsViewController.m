@@ -105,14 +105,14 @@
     if (editingStyle == UITableViewCellEditingStyleDelete) {
         selectedIndexPath = indexPath;
         [self.view makeToastActivity];
-        [Request post:@"promotions/set" params:@{@"promotion_id": promotions[indexPath.row][@"id"], @"delete": @"true"} delegate:self callback:@selector(didFinishDeletingPromotion:) type:String];
+        [Request post:@"promotions/set" params:@{@"promotion_id": promotions[indexPath.row][@"id"], @"delete": @"true"} delegate:self callback:@selector(didFinishDeletingPromotion:)];
     }
 }
 
-- (void)didFinishDeletingPromotion:(NSString *)response {
+- (void)didFinishDeletingPromotion:(BOOL)response {
     [self.view hideToastActivity];
 
-    if ([@"true" isEqualToString : response]) {
+    if (response) {
         [promotions removeObjectAtIndex:selectedIndexPath.row];
         [self.tableView deleteRowsAtIndexPaths:@[selectedIndexPath] withRowAnimation:UITableViewRowAnimationMiddle];
     } else {

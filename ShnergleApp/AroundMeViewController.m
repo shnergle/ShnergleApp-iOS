@@ -163,7 +163,7 @@
     NSDictionary *key = @{@"entity": @"venue",
                           @"entity_id": venues[indexPath.item][@"id"]};
     if (!(item.crowdImage.image = [Request getImage:key])) {
-        [Request post:@"images/get" params:key delegate:self callback:@selector(didFinishDownloadingImages:forIndex:) type:Image userData:indexPath];
+        [Request post:@"images/get" params:key delegate:self callback:@selector(didFinishDownloadingImages:forIndex:) userData:indexPath];
     }
 
     item.venueName.text = venues[indexPath.item][@"name"];

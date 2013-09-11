@@ -57,7 +57,7 @@
     self.navigationItem.rightBarButtonItem.enabled = NO;
     if (appDelegate.shnergleThis) {
         //Upload to Shnergle
-        [Request post:@"posts/set" params:@{@"venue_id": appDelegate.activeVenue[@"id"], @"caption": self.textFieldname.text} image:self.image.image delegate:self callback:@selector(didFinishPost:) type:String];
+        [Request post:@"posts/set" params:@{@"venue_id": appDelegate.activeVenue[@"id"], @"caption": self.textFieldname.text} image:self.image.image delegate:self callback:@selector(didFinishPost:)];
     } else {
         post_id = appDelegate.shareActivePostId;
         [self shareOnTwitter];
@@ -77,15 +77,15 @@
     if (self.twSwitch.on) {
         [self postImage:self.image.image withStatus:[NSString stringWithFormat:@"%@ @%@ #ShnergleIt", self.textFieldname.text, (![appDelegate.activeVenue[@"twitter"] isKindOfClass:[NSNull class]] && ![@"" isEqualToString : appDelegate.activeVenue[@"twitter"]]) ? appDelegate.activeVenue[@"twitter"] : [@" " stringByAppendingString:appDelegate.activeVenue[@"name"]]]];
         if (appDelegate.shareVenue) {
-            [Request post:@"venue_shares/set" params:@{@"venue_id": appDelegate.activeVenue[@"id"], @"media_id": @2} delegate:self callback:@selector(doNothing:) type:String];
+            [Request post:@"venue_shares/set" params:@{@"venue_id": appDelegate.activeVenue[@"id"], @"media_id": @2} delegate:self callback:@selector(doNothing:)];
         } else {
-            [Request post:@"post_shares/set" params:@{@"post_id": post_id, @"media_id": @2} delegate:self callback:@selector(doNothing:) type:String];
+            [Request post:@"post_shares/set" params:@{@"post_id": post_id, @"media_id": @2} delegate:self callback:@selector(doNothing:)];
         }
     }
 }
 
-- (void)didFinishPost:(NSString *)response {
-    post_id = response;
+- (void)didFinishPost:(NSNumber *)response {
+    post_id = [response stringValue];
     [self shareOnTwitter];
     //Share to Facebook
     if (self.fbSwitch.on && [[FBSession activeSession].permissions indexOfObject:@"publish_actions"] == NSNotFound)
@@ -141,9 +141,9 @@
         [self redeem];
     }];
     if (appDelegate.shareVenue) {
-        [Request post:@"venue_shares/set" params:@{@"venue_id": appDelegate.activeVenue[@"id"], @"media_id": @1} delegate:self callback:@selector(doNothing:) type:String];
+        [Request post:@"venue_shares/set" params:@{@"venue_id": appDelegate.activeVenue[@"id"], @"media_id": @1} delegate:self callback:@selector(doNothing:)];
     } else {
-        [Request post:@"post_shares/set" params:@{@"post_id": post_id, @"media_id": @1} delegate:self callback:@selector(doNothing:) type:String];
+        [Request post:@"post_shares/set" params:@{@"post_id": post_id, @"media_id": @1} delegate:self callback:@selector(doNothing:)];
     }
 }
 
@@ -194,9 +194,9 @@
 }
 
 - (void)redeem {
-    [Request post:@"users/set" params:@{@"last_facebook": appDelegate.lastFb ? @"true" : @"false", @"last_twitter": appDelegate.lastTwitter ? @"true" : @"false"} delegate:self callback:@selector(doNothing:) type:String];
+    [Request post:@"users/set" params:@{@"last_facebook": appDelegate.lastFb ? @"true" : @"false", @"last_twitter": appDelegate.lastTwitter ? @"true" : @"false"} delegate:self callback:@selector(doNothing:)];
     if (appDelegate.redeeming != nil) {
-        [Request post:@"promotion_redemptions/set" params:@{@"promotion_id": appDelegate.redeeming} delegate:self callback:@selector(redeemed:) type:String];
+        [Request post:@"promotion_redemptions/set" params:@{@"promotion_id": appDelegate.redeeming} delegate:self callback:@selector(redeemed:)];
     } else {
         [self.navigationController popToRootViewControllerAnimated:NO];
     }
@@ -204,9 +204,9 @@
 
 - (void)redeemed:(NSString *)response {
     NSString *msg;
-    if ([@"\"time\"" isEqualToString : response]) {
+    if ([@"time" isEqualToString : response]) {
         msg = @"Bad Luck, you ran out of time to redeem the promotion.";
-    } else if ([@"\"number\"" isEqualToString : response]) {
+    } else if ([@"number" isEqualToString : response]) {
         msg = @"Bad Luck, you just missed the last promotion; someone beat you to it!";
     } else {
         msg = [NSString stringWithFormat:@"The passcode for the promotion is: %@", response];

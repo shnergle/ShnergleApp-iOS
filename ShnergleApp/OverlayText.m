@@ -135,8 +135,7 @@
     [Request post:@"venues/set"
                               params:params
                             delegate:self
-                            callback:@selector(doNothing:)
-                                type:String];
+                            callback:@selector(doNothing:)];
 }
 
 - (void)doNothing:(id)sender {
