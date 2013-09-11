@@ -11,9 +11,6 @@
 #import "Request.h"
 #import <Toast/Toast+UIView.h>
 
-#warning need to start getting location when rendering finished, not straight away
-#warning use LocationManager instead of map to determine location
-
 @implementation PhotoLocationViewController
 
 - (void)viewDidLoad {
@@ -90,8 +87,11 @@
 
 - (void)initMap {
     hasPositionLocked = NO;
+    man = [[CLLocationManager alloc] init];
+    man.delegate = self;
+    man.desiredAccuracy = kCLLocationAccuracyNearestTenMeters;
+    [man startUpdatingLocation];
     map = [[MKMapView alloc] initWithFrame:self.mapView.bounds];
-    map.userTrackingMode = MKUserTrackingModeFollow;
     map.delegate = self;
     [self.mapView addSubview:map];
     [self.mapView sendSubviewToBack:map];
@@ -103,9 +103,13 @@
     map = nil;
 }
 
-- (void)mapView:(MKMapView *)mapView didUpdateUserLocation:(MKUserLocation *)userLocation {
+- (void)mapViewDidFinishRenderingMap:(MKMapView *)mapView fullyRendered:(BOOL)fullyRendered {
+    map.userTrackingMode = MKUserTrackingModeFollow;
+}
+
+- (void)locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray *)locations {
     if (!hasPositionLocked) {
-        coord = map.userLocation.coordinate;
+        coord = ((CLLocation *)locations.lastObject).coordinate;
         MKCoordinateRegion rgn = MKCoordinateRegionMakeWithDistance(coord, 111, 11);
         double distanceInDegrees = sqrt(pow(rgn.span.latitudeDelta, 2) + pow(rgn.span.longitudeDelta, 2));
 

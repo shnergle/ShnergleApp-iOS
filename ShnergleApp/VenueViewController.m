@@ -264,10 +264,13 @@
 }
 
 - (void)configureMapWithLat:(CLLocationDegrees)lat longitude:(CLLocationDegrees)lon {
-#warning zoom level (14)
+    MKMapPoint point = MKMapPointForCoordinate(CLLocationCoordinate2DMake(lat, lon));
+    MKCoordinateRegion region = MKCoordinateRegionForMapRect(MKMapRectMake(point.x, point.y, overlayView.venueMap.frame.size.width * 50, overlayView.venueMap.frame.size.height * 50));
+    overlayView.venueMap.region = region;
     overlayView.venueMap.centerCoordinate = CLLocationCoordinate2DMake(lat, lon);
-
-#warning drop pin here
+    MKPointAnnotation *pin = [[MKPointAnnotation alloc] init];
+    pin.coordinate = CLLocationCoordinate2DMake(lat, lon);
+    [overlayView.venueMap addAnnotation:pin];
     overlayView.venueMap.userInteractionEnabled = NO;
 }
 
