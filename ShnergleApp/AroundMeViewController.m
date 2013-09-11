@@ -295,13 +295,14 @@
     [map addGestureRecognizer:tap];
     [self.view addSubview:map];
     [self.view sendSubviewToBack:map];
-    [NSTimer scheduledTimerWithTimeInterval:5 target:self selector:@selector(ermmm:) userInfo:nil repeats:NO];
+    
 }
 
-- (void)ermmm:(id)stuff {
+
+-(void)mapViewDidFinishRenderingMap:(MKMapView *)mapView fullyRendered:(BOOL)fullyRendered
+{
     [self backToMe:nil];
 }
-
 - (void)didTapAtMap:(id)sender {
     [map removeOverlays:map.overlays];
     pinDropped = YES;
