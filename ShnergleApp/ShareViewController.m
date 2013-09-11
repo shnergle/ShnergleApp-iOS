@@ -253,7 +253,7 @@
             self.friendLabel.text = [NSString stringWithFormat:@"With %@, %@ and %@", [selectedFriends[0] name], [selectedFriends[1] name], [selectedFriends[2] name]];
             break;
         default:
-            self.friendLabel.text = [NSString stringWithFormat:@"With %@, %@ and %d other", [selectedFriends[0] name], [selectedFriends[1] name], [selectedFriends count] - 2];
+            self.friendLabel.text = [NSString stringWithFormat:@"With %@, %@ and %lu other", [selectedFriends[0] name], [selectedFriends[1] name], ((unsigned long)[selectedFriends count] - 2)];
             break;
     }
     [self dismissViewControllerAnimated:YES completion:nil];

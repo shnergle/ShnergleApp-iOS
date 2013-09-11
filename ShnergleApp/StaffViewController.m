@@ -40,7 +40,7 @@
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     UICollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"Cell" forIndexPath:indexPath];
-    int number;
+    NSInteger number;
     NSString *type;
     if (indexPath.item >= [appDelegate.staff[@"managers"] count]) {
         number = indexPath.item - [appDelegate.staff[@"managers"] count];
@@ -65,7 +65,7 @@
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    int number;
+    NSInteger number;
     NSString *type;
     if (selectedStaffMember >= [appDelegate.staff[@"managers"] count]) {
         number = selectedStaffMember - [appDelegate.staff[@"managers"] count];

@@ -63,7 +63,7 @@
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:[NSString stringWithFormat:@"CellToAddPromo%d", indexPath.section]];
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:[NSString stringWithFormat:@"CellToAddPromo%ld", (long)indexPath.section]];
     cell.textLabel.text = self.tableData[indexPath.section];
     if (indexPath.section == 0) {
         UITextField *textField = (UITextField *)[cell viewWithTag:indexPath.section + 1];
