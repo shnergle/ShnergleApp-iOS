@@ -222,6 +222,8 @@
     return indexPath.section == 1 ? 140 : cell.bounds.size.height;
 }
 
+
+
 - (IBAction)doneAction:(id)sender {
     CGRect pickerFrame = self.pickerView.frame;
     pickerFrame.origin.y = self.view.frame.size.height;
@@ -239,18 +241,26 @@
     [self.tableView reloadRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationNone];
 }
 
+
+
+
 - (BOOL)textFieldShouldReturn:(UITextField *)textField {
     [textField resignFirstResponder];
     return YES;
 }
 
+
+
 - (void)slideDownDidStop {
     [self.pickerView removeFromSuperview];
 }
 
+
+
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
     return self.tableData.count;
 }
+
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     return 1;
