@@ -28,6 +28,10 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
+    self.passcodeLabel.hidden = shouldHidePasscode;
+    self.passcodeInfoLabel.hidden = shouldHidePasscode;
+    self.passcodeLabel.text = passcodeString;
+    self.pointsLabel.text = pointsString;
 }
 
 - (void)didReceiveMemoryWarning
@@ -40,10 +44,9 @@
     self.pointsLabel.text = points;
     if([passcode length] > 0)
     {
-        self.passcodeLabel.text = passcode;
+        passcodeString = passcode;
     }else{
-        self.passcodeInfoLabel.hidden = YES;
-        self.passcodeLabel.hidden = YES;
+        shouldHidePasscode = YES;
     }
 }
 

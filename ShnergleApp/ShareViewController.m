@@ -204,7 +204,8 @@
         
         ThankYouViewController *vc = (ThankYouViewController *)[sb instantiateViewControllerWithIdentifier:@"thankyouverymuch"];
         [vc setupFields:@"You got <NIL> points" :@""];
-        [self presentViewController:vc animated:YES completion:nil];
+        [self.navigationController pushViewController:vc animated:YES];
+        //[self presentViewController:vc animated:YES completion:nil];
     }
 }
 

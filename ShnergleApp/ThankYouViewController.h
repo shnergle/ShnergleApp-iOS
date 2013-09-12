@@ -7,8 +7,14 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "CustomBackViewController.h"
 
-@interface ThankYouViewController : UIViewController
+@interface ThankYouViewController : CustomBackViewController
+{
+    NSString *pointsString;
+    NSString *passcodeString;
+    BOOL shouldHidePasscode;
+}
 @property (weak, nonatomic) IBOutlet UILabel *pointsLabel;
 @property (weak, nonatomic) IBOutlet UILabel *passcodeLabel;
 @property (weak, nonatomic) IBOutlet UILabel *passcodeInfoLabel;
