@@ -226,11 +226,20 @@ typedef enum {
     hasPositionLocked = NO;
     self.navigationItem.rightBarButtonItem.enabled = NO;
     map = [[MKMapView alloc] initWithFrame:self.mapView.frame];
-    map.userTrackingMode = MKUserTrackingModeFollow;
     map.delegate = self;
-    [map addObserver:self forKeyPath:@"myLocation" options:NSKeyValueObservingOptionNew context:nil];
     [self.mapView addSubview:map];
     [self.mapView sendSubviewToBack:map];
+}
+
+- (void)mapViewDidFinishRenderingMap:(MKMapView *)mapView fullyRendered:(BOOL)fullyRendered {
+    map.userTrackingMode = MKUserTrackingModeFollow;
+}
+
+- (void)mapView:(MKMapView *)mapView didUpdateUserLocation:(MKUserLocation *)userLocation {
+    if (!hasPositionLocked) {
+        hasPositionLocked = YES;
+        self.navigationItem.rightBarButtonItem.enabled = YES;
+    }
 }
 
 - (void)viewWillDisappear:(BOOL)animated {
