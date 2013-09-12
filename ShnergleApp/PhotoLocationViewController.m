@@ -107,6 +107,10 @@
     map.userTrackingMode = MKUserTrackingModeFollow;
 }
 
+- (void)mapViewDidFinishLoadingMap:(MKMapView *)mapView {
+    if ([[[UIDevice currentDevice] systemVersion] compare:@"7.0" options:NSNumericSearch] == NSOrderedAscending) [self mapViewDidFinishRenderingMap:mapView fullyRendered:NO];
+}
+
 - (void)locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray *)locations {
     if (!hasPositionLocked) {
         coord = ((CLLocation *)locations.lastObject).coordinate;

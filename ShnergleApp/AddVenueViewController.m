@@ -235,6 +235,10 @@ typedef enum {
     map.userTrackingMode = MKUserTrackingModeFollow;
 }
 
+- (void)mapViewDidFinishLoadingMap:(MKMapView *)mapView {
+    if ([[[UIDevice currentDevice] systemVersion] compare:@"7.0" options:NSNumericSearch] == NSOrderedAscending) [self mapViewDidFinishRenderingMap:mapView fullyRendered:NO];
+}
+
 - (void)mapView:(MKMapView *)mapView didUpdateUserLocation:(MKUserLocation *)userLocation {
     if (!hasPositionLocked) {
         hasPositionLocked = YES;
