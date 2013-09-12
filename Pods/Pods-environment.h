@@ -39,7 +39,7 @@
 // NSDate-Escort
 #define COCOAPODS_POD_AVAILABLE_NSDate_Escort
 #define COCOAPODS_VERSION_MAJOR_NSDate_Escort 1
-#define COCOAPODS_VERSION_MINOR_NSDate_Escort 1
+#define COCOAPODS_VERSION_MINOR_NSDate_Escort 2
 #define COCOAPODS_VERSION_PATCH_NSDate_Escort 0
 
 // TMCache
