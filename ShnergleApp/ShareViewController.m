@@ -19,9 +19,6 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
 
-    self.textFieldname.placeholder = @"Write something..";
-    self.textFieldname.placeholderColor = [UIColor lightGrayColor];
-
     self.image.image = [Request getImage:@{@"entity": @"image", @"entity_id": @"toShare"}];
 
     if (appDelegate.twitter != nil) {
@@ -58,7 +55,7 @@
     self.navigationItem.rightBarButtonItem.enabled = NO;
     if (appDelegate.shnergleThis) {
         //Upload to Shnergle
-        [Request post:@"posts/set" params:@{@"venue_id": appDelegate.activeVenue[@"id"], @"caption": self.textFieldname.text} image:self.image.image delegate:self callback:@selector(didFinishPost:)];
+        [Request post:@"posts/set" params:@{@"venue_id": appDelegate.activeVenue[@"id"], @"caption": self.textFieldname.text ? self.textFieldname.text : @""} image:self.image.image delegate:self callback:@selector(didFinishPost:)];
     } else {
         post_id = appDelegate.shareActivePostId;
         [self shareOnTwitter];
@@ -283,6 +280,20 @@
         return NO;
     }
     return YES;
+}
+
+- (void)textViewDidBeginEditing:(UITextView *)textView {
+    if ([textView.text isEqualToString:@"Write something..."]) {
+        textView.text = nil;
+        textView.textColor = [UIColor blackColor];
+    }
+}
+
+- (void)textViewDidEndEditing:(UITextView *)textView {
+    if (textView.text == nil || [textView.text isEqualToString:@""]) {
+        textView.text = @"Write something...";
+        textView.textColor = [UIColor lightGrayColor];
+    }
 }
 
 @end

@@ -6,7 +6,6 @@
 //  Copyright (c) 2013 Shnergle. All rights reserved.
 //
 
-#import "GCPlaceholderTextView.h"
 #import "CustomBackViewController.h"
 #import <FacebookSDK/FacebookSDK.h>
 
@@ -20,6 +19,6 @@
 @property (weak, nonatomic) IBOutlet UIImageView *image;
 @property (weak, nonatomic) IBOutlet UIButton *nameList;
 @property (weak, nonatomic) IBOutlet UILabel *friendLabel;
-@property (weak, nonatomic) IBOutlet GCPlaceholderTextView *textFieldname;
+@property (weak, nonatomic) IBOutlet UITextView *textFieldname;
 
 @end

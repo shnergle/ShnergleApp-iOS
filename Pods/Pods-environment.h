@@ -24,12 +24,6 @@
 #define COCOAPODS_VERSION_MINOR_Facebook_iOS_SDK 7
 #define COCOAPODS_VERSION_PATCH_Facebook_iOS_SDK 1
 
-// GCPlaceholderTextView
-#define COCOAPODS_POD_AVAILABLE_GCPlaceholderTextView
-#define COCOAPODS_VERSION_MAJOR_GCPlaceholderTextView 1
-#define COCOAPODS_VERSION_MINOR_GCPlaceholderTextView 0
-#define COCOAPODS_VERSION_PATCH_GCPlaceholderTextView 1
-
 // NSDate+TimeAgo
 #define COCOAPODS_POD_AVAILABLE_NSDate_TimeAgo
 #define COCOAPODS_VERSION_MAJOR_NSDate_TimeAgo 1
