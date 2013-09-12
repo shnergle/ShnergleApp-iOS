@@ -7,6 +7,7 @@
 //
 
 #import "ThankYouViewController.h"
+#import "CustomSlidingViewController.h"
 
 @interface ThankYouViewController ()
 
@@ -34,7 +35,29 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+- (void)setupFields:(NSString *)points :(NSString *)passcode
+{
+    self.pointsLabel.text = points;
+    if([passcode length] > 0)
+    {
+        self.passcodeLabel.text = passcode;
+    }else{
+        self.passcodeInfoLabel.hidden = YES;
+        self.passcodeLabel.hidden = YES;
+    }
+}
 
 - (IBAction)tappedDone:(id)sender {
+    [self toFirstAroundMe];
+
 }
+- (void)toFirstAroundMe {
+    for (id viewController in self.navigationController.viewControllers) {
+        if ([viewController isKindOfClass:[CustomSlidingViewController class]]) {
+            [self.navigationController popToViewController:viewController animated:YES];
+            return;
+        }
+    }
+}
+
 @end

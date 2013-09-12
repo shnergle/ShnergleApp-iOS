@@ -12,6 +12,7 @@
 #import <Accounts/Accounts.h>
 #import <Social/Social.h>
 #import "CustomSlidingViewController.h"
+#import "ThankYouViewController.h"
 
 @implementation ShareViewController
 
@@ -198,7 +199,12 @@
     if (appDelegate.redeeming != nil) {
         [Request post:@"promotion_redemptions/set" params:@{@"promotion_id": appDelegate.redeeming} delegate:self callback:@selector(redeemed:)];
     } else {
-        [self toFirstAroundMe];
+        
+        UIStoryboard *sb = [UIStoryboard storyboardWithName:@"MainStoryboard" bundle:nil];
+        
+        ThankYouViewController *vc = (ThankYouViewController *)[sb instantiateViewControllerWithIdentifier:@"thankyouverymuch"];
+        [vc setupFields:@"You got <NIL> points" :@""];
+        [self presentViewController:vc animated:YES completion:nil];
     }
 }
 
@@ -220,13 +226,15 @@
     } else {
         msg = [NSString stringWithFormat:@"The passcode for the promotion is: %@", response];
     }
-    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:msg message:nil delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
-    [alert show];
+    
+    UIStoryboard *sb = [UIStoryboard storyboardWithName:@"MainStoryboard" bundle:nil];
+    
+    ThankYouViewController *vc = (ThankYouViewController *)[sb instantiateViewControllerWithIdentifier:@"thankyouverymuch"];
+    [vc setupFields:@"You got <NIL> points" :msg];
+    [self presentViewController:vc animated:YES completion:nil];
+    
 }
 
-- (void)alertView:(UIAlertView *)alertView didDismissWithButtonIndex:(NSInteger)buttonIndex {
-    [self toFirstAroundMe];
-}
 
 - (IBAction)selectFriendsButtonAction:(id)sender {
     FBFriendPickerViewController *friendPickerController =
