@@ -6,7 +6,7 @@
 //  Copyright (c) 2013 Shnergle. All rights reserved.
 //
 
-#import <GoogleMaps/GoogleMaps.h>
+#import <MapKit/MapKit.h>
 
 @interface OverlayText : UIView {
     BOOL isUp;
@@ -26,7 +26,7 @@
 @property (weak, nonatomic) IBOutlet UIButton *claimVenueButton;
 - (IBAction)tappedClaimVenue:(id)sender;
 @property (weak, nonatomic) IBOutlet UILabel *promotionCount;
-@property (weak, nonatomic) IBOutlet GMSMapView *venueMap;
+@property (weak, nonatomic) IBOutlet MKMapView *venueMap;
 @property (weak, nonatomic) IBOutlet UIButton *shareButton;
 @property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *intentionConstraints;
@@ -46,9 +46,9 @@
 @property (weak, nonatomic) IBOutlet UIButton *thinkingView;
 @property (weak, nonatomic) IBOutlet UIButton *goingView;
 @property (weak, nonatomic) IBOutlet UIButton *checkedInView;
-@property (weak, nonatomic) IBOutlet UITextField *phoneTextField;
-@property (weak, nonatomic) IBOutlet UITextField *emailTextField;
-@property (weak, nonatomic) IBOutlet UITextField *websiteTextField;
+@property (weak, nonatomic) IBOutlet UITextView *phoneTextField;
+@property (weak, nonatomic) IBOutlet UITextView *emailTextField;
+@property (weak, nonatomic) IBOutlet UITextView *websiteTextField;
 
 @property (weak, nonatomic) IBOutlet UIButton *staffButton;
 @property (weak, nonatomic) IBOutlet UILabel *staffLabel;

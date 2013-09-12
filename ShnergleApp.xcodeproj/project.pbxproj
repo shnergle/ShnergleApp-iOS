@@ -863,6 +863,7 @@
 		805CE6D016FCBDC9002445C3 /* PhotoLocationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 805CE6CF16FCBDC9002445C3 /* PhotoLocationViewController.m */; };
 		806D27801765CE92001E349D /* AddVenueViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 806D277F1765CE92001E349D /* AddVenueViewController.m */; };
 		806D2783176627CC001E349D /* VenueCategoryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 806D2782176627CC001E349D /* VenueCategoryViewController.m */; };
+		8079212317E1DF230032B04D /* ThankYouViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8079212217E1DF230032B04D /* ThankYouViewController.m */; };
 		808330BD17565F9F00C183B9 /* SearchBar.xib in Resources */ = {isa = PBXBuildFile; fileRef = 808330BC17565F9F00C183B9 /* SearchBar.xib */; };
 		808CA3061733DCB400932A27 /* upArrow.png in Resources */ = {isa = PBXBuildFile; fileRef = 808CA3041733DCB400932A27 /* upArrow.png */; };
 		808F13D316FB6A5C00B66E6D /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 808F13D116FB6A5C00B66E6D /* InfoPlist.strings */; };
@@ -870,9 +871,6 @@
 		808F13D916FB6A5C00B66E6D /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 808F13D816FB6A5C00B66E6D /* AppDelegate.m */; };
 		808F13E216FB6A5C00B66E6D /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 808F13E016FB6A5C00B66E6D /* MainStoryboard.storyboard */; };
 		808F13E516FB6A5C00B66E6D /* AroundMeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 808F13E416FB6A5C00B66E6D /* AroundMeViewController.m */; };
-		808F13ED16FB6A5C00B66E6D /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 808F13EC16FB6A5C00B66E6D /* SenTestingKit.framework */; };
-		808F13F716FB6A5C00B66E6D /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 808F13F516FB6A5C00B66E6D /* InfoPlist.strings */; };
-		808F13FA16FB6A5C00B66E6D /* ShnergleAppTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 808F13F916FB6A5C00B66E6D /* ShnergleAppTests.m */; };
 		809F6AF8179FD52600C67D77 /* SelectPromotionsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 809F6AF7179FD52600C67D77 /* SelectPromotionsViewController.m */; };
 		80A8AADF175CA6870082AAB8 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 80A8AADE175CA6870082AAB8 /* Default-568h@2x.png */; };
 		80A8AAE1175CA6900082AAB8 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 80A8AAE0175CA6900082AAB8 /* Default@2x.png */; };
@@ -952,6 +950,8 @@
 		CDBC6C7C17AC47D9001B667B /* Accounts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CDBC6C7B17AC47D9001B667B /* Accounts.framework */; };
 		CDBC6C7E17AC4FBA001B667B /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CDBC6C7D17AC4FBA001B667B /* Social.framework */; };
 		CDBCDE7F1765245B0048478F /* CustomSlidingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CDBCDE7E1765245B0048478F /* CustomSlidingViewController.m */; };
+		CDCA60D217E0F0B800F1EFE6 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CD7A5BB617E0CA50002280D8 /* QuartzCore.framework */; };
+		CDCA60D417E0F0BD00F1EFE6 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CDCA60D317E0F0BD00F1EFE6 /* CoreGraphics.framework */; };
 		CDCCCE3C17AC03BC001B091B /* NSObject+MissingMethods.m in Sources */ = {isa = PBXBuildFile; fileRef = CDCCCE3B17AC03BC001B091B /* NSObject+MissingMethods.m */; };
 		CDCDF9CD17A19A960036EA74 /* PromotionAudienceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CDCDF9CC17A19A960036EA74 /* PromotionAudienceViewController.m */; };
 		CDD7F1701768DE3C00E8B23E /* promocorner.png in Resources */ = {isa = PBXBuildFile; fileRef = CDD7F16F1768DE3C00E8B23E /* promocorner.png */; };
@@ -979,18 +979,7 @@
 		EEF07B9F17A1701D004E84C7 /* Authentication%20Process.png in Resources */ = {isa = PBXBuildFile; fileRef = EEF07B9E17A1701D004E84C7 /* Authentication%20Process.png */; };
 		EEF8C4B417943C7200DDE026 /* arrow_east.png in Resources */ = {isa = PBXBuildFile; fileRef = EEF8C4B317943C7200DDE026 /* arrow_east.png */; };
 		EEF8C4B71794453800DDE026 /* ScoreViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EEF8C4B61794453800DDE026 /* ScoreViewController.m */; };
-		EEF8C4B81794453800DDE026 /* ScoreViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EEF8C4B61794453800DDE026 /* ScoreViewController.m */; };
 /* End PBXBuildFile section */
-
-/* Begin PBXContainerItemProxy section */
-		808F13F016FB6A5C00B66E6D /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 808F13BD16FB6A5C00B66E6D /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 808F13C416FB6A5C00B66E6D;
-			remoteInfo = ShnergleApp;
-		};
-/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		6199414049D54724BA967C32 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = SOURCE_ROOT; };
@@ -1854,6 +1843,8 @@
 		806D277F1765CE92001E349D /* AddVenueViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddVenueViewController.m; sourceTree = "<group>"; };
 		806D2781176627CC001E349D /* VenueCategoryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VenueCategoryViewController.h; sourceTree = "<group>"; };
 		806D2782176627CC001E349D /* VenueCategoryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VenueCategoryViewController.m; sourceTree = "<group>"; };
+		8079212117E1DF230032B04D /* ThankYouViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ThankYouViewController.h; sourceTree = "<group>"; };
+		8079212217E1DF230032B04D /* ThankYouViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ThankYouViewController.m; sourceTree = "<group>"; };
 		808330BC17565F9F00C183B9 /* SearchBar.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SearchBar.xib; sourceTree = "<group>"; };
 		808CA3041733DCB400932A27 /* upArrow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = upArrow.png; sourceTree = "<group>"; };
 		808F13C516FB6A5C00B66E6D /* ShnergleApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ShnergleApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -1866,12 +1857,6 @@
 		808F13E116FB6A5C00B66E6D /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard.storyboard; sourceTree = "<group>"; };
 		808F13E316FB6A5C00B66E6D /* AroundMeViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AroundMeViewController.h; sourceTree = "<group>"; };
 		808F13E416FB6A5C00B66E6D /* AroundMeViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AroundMeViewController.m; sourceTree = "<group>"; };
-		808F13EB16FB6A5C00B66E6D /* ShnergleAppTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ShnergleAppTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
-		808F13EC16FB6A5C00B66E6D /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
-		808F13F416FB6A5C00B66E6D /* ShnergleAppTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "ShnergleAppTests-Info.plist"; sourceTree = "<group>"; };
-		808F13F616FB6A5C00B66E6D /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		808F13F816FB6A5C00B66E6D /* ShnergleAppTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ShnergleAppTests.h; sourceTree = "<group>"; };
-		808F13F916FB6A5C00B66E6D /* ShnergleAppTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ShnergleAppTests.m; sourceTree = "<group>"; };
 		809F6AF6179FD52600C67D77 /* SelectPromotionsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SelectPromotionsViewController.h; sourceTree = "<group>"; };
 		809F6AF7179FD52600C67D77 /* SelectPromotionsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SelectPromotionsViewController.m; sourceTree = "<group>"; };
 		80A8AADE175CA6870082AAB8 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
@@ -1956,6 +1941,7 @@
 		CD71CF2E17D5E6A10022C0A1 /* 23@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "23@2x.png"; sourceTree = "<group>"; };
 		CD71CF2F17D5E6A10022C0A1 /* 24.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 24.png; sourceTree = "<group>"; };
 		CD71CF3017D5E6A10022C0A1 /* 24@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "24@2x.png"; sourceTree = "<group>"; };
+		CD7A5BB617E0CA50002280D8 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		CD84ECEE175CC10000A09FA6 /* AppIcon_114.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = AppIcon_114.png; sourceTree = "<group>"; };
 		CD84ECF0175CC10D00A09FA6 /* icon57.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon57.png; sourceTree = "<group>"; };
 		CDAD1D2D175E011100581713 /* ShareViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShareViewController.h; sourceTree = "<group>"; };
@@ -1970,6 +1956,7 @@
 		CDBC6C7D17AC4FBA001B667B /* Social.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Social.framework; path = System/Library/Frameworks/Social.framework; sourceTree = SDKROOT; };
 		CDBCDE7D1765245B0048478F /* CustomSlidingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomSlidingViewController.h; sourceTree = "<group>"; };
 		CDBCDE7E1765245B0048478F /* CustomSlidingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomSlidingViewController.m; sourceTree = "<group>"; };
+		CDCA60D317E0F0BD00F1EFE6 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		CDCCCE3A17AC03BC001B091B /* NSObject+MissingMethods.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+MissingMethods.h"; sourceTree = "<group>"; };
 		CDCCCE3B17AC03BC001B091B /* NSObject+MissingMethods.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+MissingMethods.m"; sourceTree = "<group>"; };
 		CDCDF9CB17A19A950036EA74 /* PromotionAudienceViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PromotionAudienceViewController.h; sourceTree = "<group>"; };
@@ -2020,20 +2007,14 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CDCA60D417E0F0BD00F1EFE6 /* CoreGraphics.framework in Frameworks */,
+				CDCA60D217E0F0B800F1EFE6 /* QuartzCore.framework in Frameworks */,
 				CD4DF2A317CE048A005F3604 /* MapKit.framework in Frameworks */,
 				CDBC6C7E17AC4FBA001B667B /* Social.framework in Frameworks */,
 				CDBC6C7C17AC47D9001B667B /* Accounts.framework in Frameworks */,
 				CDAD1D33175E2BF800581713 /* UIKit.framework in Frameworks */,
 				CD654EE8179DCA9800F380B5 /* Crashlytics.framework in Frameworks */,
 				1F95516217BB4B9FAB164196 /* libPods.a in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		808F13E716FB6A5C00B66E6D /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				808F13ED16FB6A5C00B66E6D /* SenTestingKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2912,7 +2893,6 @@
 				80AFB8A717A9455200935ED8 /* Icon 1024 New.png */,
 				80AFB8A817A9455200935ED8 /* Icon 114 New.png */,
 				808F13CE16FB6A5C00B66E6D /* ShnergleApp */,
-				808F13F216FB6A5C00B66E6D /* ShnergleAppTest */,
 				808F13C716FB6A5C00B66E6D /* Frameworks */,
 				808F13C616FB6A5C00B66E6D /* Products */,
 				CDAD1D34175E2FA600581713 /* Settings.bundle */,
@@ -2930,7 +2910,6 @@
 			isa = PBXGroup;
 			children = (
 				808F13C516FB6A5C00B66E6D /* ShnergleApp.app */,
-				808F13EB16FB6A5C00B66E6D /* ShnergleAppTests.octest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -2938,12 +2917,13 @@
 		808F13C716FB6A5C00B66E6D /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				CDCA60D317E0F0BD00F1EFE6 /* CoreGraphics.framework */,
+				CD7A5BB617E0CA50002280D8 /* QuartzCore.framework */,
 				CD4DF2A217CE048A005F3604 /* MapKit.framework */,
 				CDBC6C7D17AC4FBA001B667B /* Social.framework */,
 				CDBC6C7B17AC47D9001B667B /* Accounts.framework */,
 				CD654EE7179DCA9800F380B5 /* Crashlytics.framework */,
 				CDAD1D32175E2BF800581713 /* UIKit.framework */,
-				808F13EC16FB6A5C00B66E6D /* SenTestingKit.framework */,
 				92FD2BD9498A41EEBBD26F82 /* libPods.a */,
 			);
 			name = Frameworks;
@@ -3055,26 +3035,6 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		808F13F216FB6A5C00B66E6D /* ShnergleAppTest */ = {
-			isa = PBXGroup;
-			children = (
-				808F13F816FB6A5C00B66E6D /* ShnergleAppTests.h */,
-				808F13F916FB6A5C00B66E6D /* ShnergleAppTests.m */,
-				808F13F316FB6A5C00B66E6D /* Supporting Files */,
-			);
-			name = ShnergleAppTest;
-			path = ShnergleAppTests;
-			sourceTree = "<group>";
-		};
-		808F13F316FB6A5C00B66E6D /* Supporting Files */ = {
-			isa = PBXGroup;
-			children = (
-				808F13F516FB6A5C00B66E6D /* InfoPlist.strings */,
-				808F13F416FB6A5C00B66E6D /* ShnergleAppTests-Info.plist */,
-			);
-			name = "Supporting Files";
-			sourceTree = "<group>";
-		};
 		80B400BF17540CCA00A377D9 /* Images */ = {
 			isa = PBXGroup;
 			children = (
@@ -3171,25 +3131,6 @@
 			productReference = 808F13C516FB6A5C00B66E6D /* ShnergleApp.app */;
 			productType = "com.apple.product-type.application";
 		};
-		808F13EA16FB6A5C00B66E6D /* ShnergleAppTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 808F140016FB6A5C00B66E6D /* Build configuration list for PBXNativeTarget "ShnergleAppTests" */;
-			buildPhases = (
-				808F13E616FB6A5C00B66E6D /* Sources */,
-				808F13E716FB6A5C00B66E6D /* Frameworks */,
-				808F13E816FB6A5C00B66E6D /* Resources */,
-				808F13E916FB6A5C00B66E6D /* ShellScript */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				808F13F116FB6A5C00B66E6D /* PBXTargetDependency */,
-			);
-			name = ShnergleAppTests;
-			productName = ShnergleAppTests;
-			productReference = 808F13EB16FB6A5C00B66E6D /* ShnergleAppTests.octest */;
-			productType = "com.apple.product-type.bundle";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -3218,7 +3159,6 @@
 			projectRoot = "";
 			targets = (
 				808F13C416FB6A5C00B66E6D /* ShnergleApp */,
-				808F13EA16FB6A5C00B66E6D /* ShnergleAppTests */,
 			);
 		};
 /* End PBXProject section */
@@ -4152,14 +4092,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		808F13E816FB6A5C00B66E6D /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				808F13F716FB6A5C00B66E6D /* InfoPlist.strings in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
@@ -4191,19 +4123,6 @@
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
 		};
-		808F13E916FB6A5C00B66E6D /* ShellScript */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "# Run the unit tests in this test bundle.\n\"${SYSTEM_DEVELOPER_DIR}/Tools/RunUnitTests\"\n";
-		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -4219,6 +4138,7 @@
 				EE9D078A17A90BFD008FAD09 /* TermsOfUseViewController.m in Sources */,
 				EE6707BD17A957B80083E2C5 /* AcceptViewController.m in Sources */,
 				EEE9EAD11768ACF100B8530B /* VenueDetailsViewController.m in Sources */,
+				8079212317E1DF230032B04D /* ThankYouViewController.m in Sources */,
 				CD5024921768AED6003D3004 /* StaffTypeViewController.m in Sources */,
 				CDD8D95C1768A69C00BF3CAC /* StaffEditViewController.m in Sources */,
 				CD1BBBB217688F350008E4FD /* StaffViewController.m in Sources */,
@@ -4256,24 +4176,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		808F13E616FB6A5C00B66E6D /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				808F13FA16FB6A5C00B66E6D /* ShnergleAppTests.m in Sources */,
-				EEF8C4B81794453800DDE026 /* ScoreViewController.m in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXTargetDependency section */
-		808F13F116FB6A5C00B66E6D /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 808F13C416FB6A5C00B66E6D /* ShnergleApp */;
-			targetProxy = 808F13F016FB6A5C00B66E6D /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		808F13D116FB6A5C00B66E6D /* InfoPlist.strings */ = {
@@ -4290,14 +4193,6 @@
 				808F13E116FB6A5C00B66E6D /* en */,
 			);
 			name = MainStoryboard.storyboard;
-			sourceTree = "<group>";
-		};
-		808F13F516FB6A5C00B66E6D /* InfoPlist.strings */ = {
-			isa = PBXVariantGroup;
-			children = (
-				808F13F616FB6A5C00B66E6D /* en */,
-			);
-			name = InfoPlist.strings;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -4374,13 +4269,14 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 6199414049D54724BA967C32 /* Pods.xcconfig */;
 			buildSettings = {
-				ARCHS = armv7;
+				ARCHS = "$(ARCHS_STANDARD)";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(SRCROOT)",
 					"/Users/krzd/Documents/ShnergleApp-iOS",
+					"$(DEVELOPER_DIR)/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS6.1.sdk/System/Library/Frameworks",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "ShnergleApp/ShnergleApp-Prefix.pch";
@@ -4393,7 +4289,7 @@
 				SDKROOT = iphoneos;
 				SUPPORTED_PLATFORMS = "iphonesimulator iphoneos";
 				TARGETED_DEVICE_FAMILY = 1;
-				VALID_ARCHS = armv7;
+				VALID_ARCHS = "armv7 armv7s";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -4402,7 +4298,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 6199414049D54724BA967C32 /* Pods.xcconfig */;
 			buildSettings = {
-				ARCHS = armv7;
+				ARCHS = "$(ARCHS_STANDARD)";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
@@ -4421,44 +4317,8 @@
 				SDKROOT = iphoneos;
 				SUPPORTED_PLATFORMS = "iphonesimulator iphoneos";
 				TARGETED_DEVICE_FAMILY = 1;
-				VALID_ARCHS = armv7;
+				VALID_ARCHS = "armv7 armv7s";
 				WRAPPER_EXTENSION = app;
-			};
-			name = Release;
-		};
-		808F140116FB6A5C00B66E6D /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ARCHS = armv7;
-				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/ShnergleApp.app/ShnergleApp";
-				FRAMEWORK_SEARCH_PATHS = (
-					"\"$(SDKROOT)/Developer/Library/Frameworks\"",
-					"\"$(DEVELOPER_LIBRARY_DIR)/Frameworks\"",
-				);
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "ShnergleApp/ShnergleApp-Prefix.pch";
-				INFOPLIST_FILE = "ShnergleAppTests/ShnergleAppTests-Info.plist";
-				PRODUCT_NAME = ShnergleAppTests;
-				TEST_HOST = "$(BUNDLE_LOADER)";
-				WRAPPER_EXTENSION = octest;
-			};
-			name = Debug;
-		};
-		808F140216FB6A5C00B66E6D /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ARCHS = armv7;
-				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/ShnergleApp.app/ShnergleApp";
-				FRAMEWORK_SEARCH_PATHS = (
-					"\"$(SDKROOT)/Developer/Library/Frameworks\"",
-					"\"$(DEVELOPER_LIBRARY_DIR)/Frameworks\"",
-				);
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "ShnergleApp/ShnergleApp-Prefix.pch";
-				INFOPLIST_FILE = "ShnergleAppTests/ShnergleAppTests-Info.plist";
-				PRODUCT_NAME = ShnergleAppTests;
-				TEST_HOST = "$(BUNDLE_LOADER)";
-				WRAPPER_EXTENSION = octest;
 			};
 			name = Release;
 		};
@@ -4479,15 +4339,6 @@
 			buildConfigurations = (
 				808F13FE16FB6A5C00B66E6D /* Debug */,
 				808F13FF16FB6A5C00B66E6D /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		808F140016FB6A5C00B66E6D /* Build configuration list for PBXNativeTarget "ShnergleAppTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				808F140116FB6A5C00B66E6D /* Debug */,
-				808F140216FB6A5C00B66E6D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

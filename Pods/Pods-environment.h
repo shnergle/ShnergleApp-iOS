@@ -30,12 +30,6 @@
 #define COCOAPODS_VERSION_MINOR_GCPlaceholderTextView 0
 #define COCOAPODS_VERSION_PATCH_GCPlaceholderTextView 1
 
-// Google-Maps-iOS-SDK
-#define COCOAPODS_POD_AVAILABLE_Google_Maps_iOS_SDK
-#define COCOAPODS_VERSION_MAJOR_Google_Maps_iOS_SDK 1
-#define COCOAPODS_VERSION_MINOR_Google_Maps_iOS_SDK 4
-#define COCOAPODS_VERSION_PATCH_Google_Maps_iOS_SDK 3
-
 // NSDate+TimeAgo
 #define COCOAPODS_POD_AVAILABLE_NSDate_TimeAgo
 #define COCOAPODS_VERSION_MAJOR_NSDate_TimeAgo 1

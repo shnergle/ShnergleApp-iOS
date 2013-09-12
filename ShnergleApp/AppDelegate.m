@@ -7,7 +7,6 @@
 //
 
 #import "LoginScreenController.h"
-#import <GoogleMaps/GoogleMaps.h>
 #import <Crashlytics/Crashlytics.h>
 #import <FacebookSDK/FBAppCall.h>
 
@@ -50,7 +49,6 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     [self customiseNavBar];
 
-    [GMSServices provideAPIKey:@"AIzaSyBiJeQvT0FUQdGPMbOR8DFGdVbEtHMJe7c"];
     [Crashlytics startWithAPIKey:@"2baf430bbb573cfdb444a30b0058c3d474393497"];
 
     return YES;

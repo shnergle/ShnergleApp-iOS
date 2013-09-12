@@ -10,7 +10,7 @@
 
 @interface StaffViewController : CustomBackViewController <UICollectionViewDataSource, UICollectionViewDelegate>
 {
-    int selectedStaffMember;
+    NSInteger selectedStaffMember;
 }
 @property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
 

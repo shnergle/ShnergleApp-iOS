@@ -49,12 +49,12 @@
         params[@"promotion_id"] = appDelegate.activePromotion[@"id"];
     }
     [self.view makeToastActivity];
-    [Request post:@"promotions/set" params:params delegate:self callback:@selector(didFinishAddingPromotion:) type:String];
+    [Request post:@"promotions/set" params:params delegate:self callback:@selector(didFinishAddingPromotion:)];
 }
 
-- (void)didFinishAddingPromotion:(NSString *)response {
+- (void)didFinishAddingPromotion:(BOOL)response {
     [self.view hideToastActivity];
-    if ([@"true" isEqualToString : response]) {
+    if (response) {
         [self goBack];
     } else {
         UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"Error" message:nil delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
@@ -63,7 +63,7 @@
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:[NSString stringWithFormat:@"CellToAddPromo%d", indexPath.section]];
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:[NSString stringWithFormat:@"CellToAddPromo%ld", (long)indexPath.section]];
     cell.textLabel.text = self.tableData[indexPath.section];
     if (indexPath.section == 0) {
         UITextField *textField = (UITextField *)[cell viewWithTag:indexPath.section + 1];

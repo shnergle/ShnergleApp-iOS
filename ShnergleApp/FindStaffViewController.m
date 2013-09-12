@@ -57,7 +57,7 @@
                              @"staff_user_id": results[indexPath.row][@"id"],
                              @"manager": @"false",
                              @"promo_perm": @"false"};
-    [Request post:@"venue_staff/set" params:params delegate:self callback:@selector(didFinishAddingStaff:) type:String];
+    [Request post:@"venue_staff/set" params:params delegate:self callback:@selector(didFinishAddingStaff:)];
 }
 
 - (BOOL)isAlreadyInStaffList:(id)user_id {
@@ -74,8 +74,8 @@
     return NO;
 }
 
-- (void)didFinishAddingStaff:(NSString *)response {
-    if ([@"true" isEqualToString : response]) {
+- (void)didFinishAddingStaff:(BOOL)response {
+    if (response) {
         [self goBack];
     }
     [self.view hideToastActivity];

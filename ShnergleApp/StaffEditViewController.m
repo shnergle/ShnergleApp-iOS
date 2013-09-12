@@ -54,7 +54,7 @@
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:[NSString stringWithFormat:@"Cell%d", indexPath.row ]];
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:[NSString stringWithFormat:@"Cell%ld", (long)indexPath.row ]];
     if (indexPath.row == 0) {
         UISwitch *textField = [[UISwitch alloc] initWithFrame:CGRectMake(210, 8, 50, 30)];
         [textField addTarget:self action:@selector(canCreatePromo) forControlEvents:UIControlEventAllEvents];
@@ -79,20 +79,20 @@
         NSDictionary *params = @{@"delete": @"true",
                                  @"venue_id": appDelegate.activeVenue[@"id"],
                                  @"staff_user_id": currentStaff[@"user_id"]};
-        [Request post:@"venue_staff/set" params:params delegate:self callback:@selector(didFinishSaving:) type:String];
+        [Request post:@"venue_staff/set" params:params delegate:self callback:@selector(didFinishSaving:)];
         deleteMe = NO;
     } else {
         NSDictionary *params = @{@"venue_id": appDelegate.activeVenue[@"id"],
                                  @"staff_user_id": currentStaff[@"user_id"],
                                  @"manager": [@"Manager" isEqualToString: appDelegate.staffType] ? @"true" : @"false",
                                  @"promo_perm": promoSwitch.on ? @"true" : @"false"};
-        [Request post:@"venue_staff/set" params:params delegate:self callback:@selector(didFinishSaving:) type:String];
+        [Request post:@"venue_staff/set" params:params delegate:self callback:@selector(didFinishSaving:)];
     }
     [super goBack];
 }
 
 - (void)didFinishSaving:(id)response {
-    if ([@"true" isEqualToString : response]) {
+    if (response) {
         [self.view hideToastActivity];
         [super goBack];
     }

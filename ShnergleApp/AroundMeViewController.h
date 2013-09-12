@@ -6,10 +6,10 @@
 //  Copyright (c) 2013 Shnergle. All rights reserved.
 //
 
-#import <GoogleMaps/GoogleMaps.h>
+#import <MapKit/MapKit.h>
 #import "OverlayText.h"
 
-@interface AroundMeViewController : UIViewController<UICollectionViewDataSource, UICollectionViewDelegate, GMSMapViewDelegate> {
+@interface AroundMeViewController : UIViewController<UICollectionViewDataSource, UICollectionViewDelegate, MKMapViewDelegate> {
     NSInteger selectedVenue;
     BOOL crowdImagesHidden;
     BOOL dropDownHidden;
@@ -17,7 +17,7 @@
     BOOL pinDropped;
     CLLocationCoordinate2D pinDroppedLocation;
     BOOL loading;
-    GMSMapView *map;
+    MKMapView *map;
     NSArray *venues;
 }
 @property (weak, nonatomic) IBOutlet UIButton *drawerCloseButton;
@@ -27,8 +27,6 @@
 @property (weak, nonatomic) IBOutlet UINavigationBar *navBar;
 @property (weak, nonatomic) IBOutlet UINavigationItem *navBarMenuItem;
 - (IBAction)tapArrow:(id)sender;
-- (void)mapView:(GMSMapView *)mapView
-    didTapAtCoordinate:(CLLocationCoordinate2D)coordinate;
 @property (weak, nonatomic) IBOutlet OverlayText *overlay;
 - (BOOL)scrollViewShouldScrollToTop:(UIScrollView *)scrollView;
 - (IBAction)sliderValueChanged:(id)sender;

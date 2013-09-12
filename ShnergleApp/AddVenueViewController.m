@@ -9,6 +9,7 @@
 #import "AddVenueViewController.h"
 #import "Request.h"
 #import <Toast+UIView.h>
+#import <QuartzCore/QuartzCore.h>
 
 typedef enum {
     Name,
@@ -40,7 +41,7 @@ typedef enum {
                 [self.userData addEntriesFromDictionary:appDelegate.venueDetailsContent];
             }
 
-            [[[CLGeocoder alloc] init] reverseGeocodeLocation:[[CLLocation alloc] initWithLatitude:marker.position.latitude longitude:marker.position.longitude] completionHandler:^(NSArray *placemark, NSError *error)
+            [[[CLGeocoder alloc] init] reverseGeocodeLocation:map.userLocation.location completionHandler:^(NSArray *placemark, NSError *error)
             {
                 NSMutableArray *address = [NSMutableArray array];
                 if (self.userData[@3] != nil) [address addObject:self.userData[@3]];
@@ -53,8 +54,8 @@ typedef enum {
                                                   @"category_id": appDelegate.addVenueTypeId,
                                                   @"address": [address componentsJoinedByString:@", "],
                                                   @"country": !error ? [((CLPlacemark *)placemark[0]).ISOcountryCode lowercaseString] : @"--",
-                                                  @"lat": @(marker.position.latitude),
-                                                  @"lon": @(marker.position.longitude)} mutableCopy];
+                                                  @"lat": @(map.userLocation.coordinate.latitude),
+                                                  @"lon": @(map.userLocation.coordinate.longitude)} mutableCopy];
 
                 if (appDelegate.venueDetailsContent && workSwitch.on) {
                     if (appDelegate.venueDetailsContent[@(8)]) {
@@ -68,7 +69,7 @@ typedef enum {
                     }
                 }
 
-                [Request post:@"venues/set" params:params delegate:self callback:@selector(didFinishAddingVenue:) type:String];
+                [Request post:@"venues/set" params:params delegate:self callback:@selector(didFinishAddingVenue:)];
             } ];
         } else {
             UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"Fields Missing" message:@"Please fill in all required fields" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
@@ -83,7 +84,7 @@ typedef enum {
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
 }
 
-- (void)didFinishAddingVenue:(NSString *)response {
+- (void)didFinishAddingVenue:(NSNumber *)response {
     if (response == nil) {
         [self.view hideToastActivity];
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Uh-oh.. Something went wrong.." message:nil delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
@@ -104,7 +105,7 @@ typedef enum {
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:[NSString stringWithFormat:@"Cell%d", indexPath.row ]];
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:[NSString stringWithFormat:@"Cell%ld", (long)indexPath.row ]];
     if (cell == nil) cell = [[UITableViewCell alloc] init];
 
     cell.textLabel.text = tableData[indexPath.row];
@@ -224,47 +225,25 @@ typedef enum {
 - (void)initMap {
     hasPositionLocked = NO;
     self.navigationItem.rightBarButtonItem.enabled = NO;
-    map = [[GMSMapView alloc] initWithFrame:self.mapView.frame];
-    map.myLocationEnabled = YES;
+    map = [[MKMapView alloc] initWithFrame:self.mapView.frame];
     map.delegate = self;
-    [map addObserver:self forKeyPath:@"myLocation" options:NSKeyValueObservingOptionNew context:nil];
     [self.mapView addSubview:map];
     [self.mapView sendSubviewToBack:map];
 }
 
-- (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context {
-    if (!hasPositionLocked) {
-        if ([keyPath isEqualToString:@"myLocation"] && [object isKindOfClass:[GMSMapView class]]) {
-            [map animateToCameraPosition:[GMSCameraPosition cameraWithLatitude:map.myLocation.coordinate.latitude longitude:map.myLocation.coordinate.longitude zoom:13]];
-
-            [map clear];
-            marker = [GMSMarker markerWithPosition:map.myLocation.coordinate];
-            marker.title = @"Selected venue location";
-            marker.map = map;
-
-            venueCoord = map.myLocation.coordinate;
-
-            self.navigationItem.rightBarButtonItem.enabled = YES;
-
-            hasPositionLocked = YES;
-        }
-    }
+- (void)mapViewDidFinishRenderingMap:(MKMapView *)mapView fullyRendered:(BOOL)fullyRendered {
+    map.userTrackingMode = MKUserTrackingModeFollow;
 }
 
-- (void)mapView:(GMSMapView *)mapView didTapAtCoordinate:(CLLocationCoordinate2D)coordinate {
-    if (appDelegate.addVenueCheckIn) {
-        [mapView clear];
-        marker = [GMSMarker markerWithPosition:coordinate];
-        marker.title = @"Selected venue location";
-        marker.map = mapView;
+- (void)mapView:(MKMapView *)mapView didUpdateUserLocation:(MKUserLocation *)userLocation {
+    if (!hasPositionLocked) {
+        hasPositionLocked = YES;
+        self.navigationItem.rightBarButtonItem.enabled = YES;
     }
 }
 
 - (void)viewWillDisappear:(BOOL)animated {
     [super viewWillDisappear:animated];
-    [map removeObserver:self forKeyPath:@"myLocation" context:nil];
-    [map clear];
-    [map stopRendering];
     [map removeFromSuperview];
     map = nil;
 }

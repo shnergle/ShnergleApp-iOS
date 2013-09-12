@@ -72,7 +72,7 @@
             cell = [tableView dequeueReusableCellWithIdentifier:@"MyCellVenue"];
             cell.textLabel.text = appDelegate.ownVenues[indexPath.row - 1][@"name"];
         } else {
-            cell = [tableView dequeueReusableCellWithIdentifier:[NSString stringWithFormat:@"MyCell%d%d", indexPath.section, indexPath.item]];
+            cell = [tableView dequeueReusableCellWithIdentifier:[NSString stringWithFormat:@"MyCell%ld%ld", (long)indexPath.section, (long)indexPath.item]];
             cell.textLabel.text = tableData[indexPath.section][indexPath.row];
         }
         cell.textLabel.textColor = [UIColor whiteColor];

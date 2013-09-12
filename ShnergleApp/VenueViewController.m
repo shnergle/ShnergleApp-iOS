@@ -14,7 +14,9 @@
 #import "Request.h"
 #import "PhotoLocationViewController.h"
 #import "NSDate+TimeAgo.h"
+#import <NSDate-Escort/NSDate+Escort.h>
 #import <Toast/Toast+UIView.h>
+#import <QuartzCore/QuartzCore.h>
 
 @implementation VenueViewController
 
@@ -80,7 +82,7 @@
     }
     NSDictionary *params = @{@"venue_id": appDelegate.activeVenue[@"id"],
                              @"following": following ? @"true" : @"false"};
-    [Request post:@"venue_followers/set" params:params delegate:self callback:@selector(doNothing:) type:String];
+    [Request post:@"venue_followers/set" params:params delegate:self callback:@selector(doNothing:)];
 }
 
 - (void)doNothing:(id)whoCares {
@@ -137,7 +139,7 @@
     [overlayView.scrollView setScrollsToTop:NO];
     [self.crowdCollectionV setScrollsToTop:YES];
 
-    [Request post:@"venue_views/set" params:@{@"venue_id": appDelegate.activeVenue[@"id"]} delegate:self callback:@selector(doNothing:) type:String];
+    [Request post:@"venue_views/set" params:@{@"venue_id": appDelegate.activeVenue[@"id"]} delegate:self callback:@selector(doNothing:)];
 
     man = [[CLLocationManager alloc] init];
     man.delegate = self;
@@ -148,6 +150,9 @@
 - (void)didFinishGettingPromotion:(NSDictionary *)response {
     if ([response respondsToSelector:@selector(objectForKeyedSubscript:)]) {
         appDelegate.activePromotion = response;
+        NSLog(@"OWN_REDEMPTIONS IS %@",response[@"own_redemptions"]);
+        
+        appDelegate.canRedeem = response[@"own_redemptions"] == 0;
         promotionBody = response[@"description"];
         promotionTitle = response[@"title"];
         promotionExpiry = ([response[@"maximum"] intValue] == 0 || response[@"maximum"] == nil) ? [NSString stringWithFormat:@"%@ claimed", response[@"redemptions"]] : [NSString stringWithFormat:@"%@/%@ claimed", response[@"redemptions"], response[@"maximum"]];
@@ -214,7 +219,7 @@
     item.index = indexPath.item;
     item.crowdImage.backgroundColor = [UIColor lightGrayColor];
     if (!(item.crowdImage.image = [Request getImage:key])) {
-        [Request post:@"images/get" params:key delegate:self callback:@selector(didFinishDownloadingImages:forIndex:) type:Image userData:indexPath];
+        [Request post:@"images/get" params:key delegate:self callback:@selector(didFinishDownloadingImages:forIndex:) userData:indexPath];
     }
 
     item.venueName.text = [self getDateFromUnixFormat:posts[indexPath.item][@"time"]];
@@ -259,14 +264,13 @@
 }
 
 - (void)configureMapWithLat:(CLLocationDegrees)lat longitude:(CLLocationDegrees)lon {
-    GMSCameraPosition *camera = [GMSCameraPosition cameraWithLatitude:lat longitude:lon zoom:14];
-    overlayView.venueMap.camera = camera;
-
-    GMSMarker *marker = [[GMSMarker alloc] init];
-    marker.position = CLLocationCoordinate2DMake(lat, lon);
-    marker.title = @"";
-    marker.snippet = @"";
-    marker.map = overlayView.venueMap;
+    MKMapPoint point = MKMapPointForCoordinate(CLLocationCoordinate2DMake(lat, lon));
+    MKCoordinateRegion region = MKCoordinateRegionForMapRect(MKMapRectMake(point.x, point.y, overlayView.venueMap.frame.size.width * 50, overlayView.venueMap.frame.size.height * 50));
+    overlayView.venueMap.region = region;
+    overlayView.venueMap.centerCoordinate = CLLocationCoordinate2DMake(lat, lon);
+    MKPointAnnotation *pin = [[MKPointAnnotation alloc] init];
+    pin.coordinate = CLLocationCoordinate2DMake(lat, lon);
+    [overlayView.venueMap addAnnotation:pin];
     overlayView.venueMap.userInteractionEnabled = NO;
 }
 
@@ -279,7 +283,9 @@
     self.navigationController.navigationBarHidden = NO;
 
     NSDictionary *params = @{@"venue_id": appDelegate.activeVenue[@"id"],
-                             @"level": appDelegate.level};
+                             @"level": appDelegate.level,
+                             @"from_time":@([self fromTime]) ,
+                                 @"until_time":@([self untilTime])};
     [Request post:@"promotions/get" params:params delegate:self callback:@selector(didFinishGettingPromotion:)];
 
     if ([appDelegate.activeVenue[@"manager"] intValue] == 1 && [appDelegate.activeVenue[@"verified"] intValue] == 0) {
@@ -292,6 +298,27 @@
         [self setStatus:Default];
     }
 }
+
+- (int)fromTime {
+    NSDate *date;
+    if ([[NSDate dateWithHoursBeforeNow:6] isYesterday]) {
+        date = [[[NSDate dateYesterday] dateAtStartOfDay] dateByAddingHours:6];
+    } else {
+        date = [[[NSDate date] dateAtStartOfDay] dateByAddingHours:6];
+    }
+    return (int)[date timeIntervalSince1970];
+}
+
+- (int)untilTime {
+    NSDate *date;
+    if ([[NSDate dateWithHoursBeforeNow:6] isYesterday]) {
+        date = [[[NSDate date] dateAtStartOfDay] dateByAddingHours:6];
+    } else {
+        date = [[[NSDate dateTomorrow] dateAtStartOfDay] dateByAddingHours:6];
+    }
+    return (int)[date timeIntervalSince1970];
+}
+
 
 - (void)setPromoContentTo:(NSString *)promoContent promoHeadline:(NSString *)promoHeadline promoExpiry:(NSString *)promoExpiry {
     overlayView.promotionContents.text = promoContent;

@@ -15,7 +15,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self imageSetup];
-    [Request post:@"post_views/set" params:@{@"post_id": appDelegate.shareActivePostId} delegate:self callback:@selector(doNothing:) type:String];
+    [Request post:@"post_views/set" params:@{@"post_id": appDelegate.shareActivePostId} delegate:self callback:@selector(doNothing:)];
 }
 
 - (void)setImage:(UIImage *)img withAuthor:(NSString *)user withComment:(NSString *)msg withTimestamp:(NSString *)time withId:(NSString *)post_id {
@@ -64,9 +64,9 @@
     if (buttonIndex != alertView.cancelButtonIndex) {
         [self.view makeToastActivity];
         if (appDelegate.venueStatus == Manager) {
-            [Request post:@"posts/set" params:@{@"post_id": appDelegate.shareActivePostId, @"hide": @"true"} delegate:self callback:@selector(doNothing:) type:String];
+            [Request post:@"posts/set" params:@{@"post_id": appDelegate.shareActivePostId, @"hide": @"true"} delegate:self callback:@selector(doNothing:)];
         } else {
-            [Request post:@"post_reports/set" params:@{@"post_id": appDelegate.shareActivePostId} delegate:self callback:@selector(doNothing:) type:String];
+            [Request post:@"post_reports/set" params:@{@"post_id": appDelegate.shareActivePostId} delegate:self callback:@selector(doNothing:)];
         }
     }
 }
