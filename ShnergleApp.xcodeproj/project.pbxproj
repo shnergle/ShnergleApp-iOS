@@ -928,7 +928,6 @@
 		CD1BBBB217688F350008E4FD /* StaffViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CD61F0A417688C06005EB276 /* StaffViewController.m */; };
 		CD1D1D3517987932004B634E /* CheckInListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CD1D1D34179878A7004B634E /* CheckInListViewController.m */; };
 		CD26AADC17E2150200A00611 /* ThankYouViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CD26AADB17E2150200A00611 /* ThankYouViewController.m */; };
-		CD26AADD17E2152F00A00611 /* ThankYouViewController.h in Sources */ = {isa = PBXBuildFile; fileRef = CD26AADA17E2150200A00611 /* ThankYouViewController.h */; };
 		CD2957F017A271B200B72702 /* claimvenue.png in Resources */ = {isa = PBXBuildFile; fileRef = CD2957EF17A26FAB00B72702 /* claimvenue.png */; };
 		CD3703751760C8B600CFD249 /* CustomBackViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CD3703741760C8B600CFD249 /* CustomBackViewController.m */; };
 		CD3B655D175CBA72006A4151 /* CrowdItem.m in Sources */ = {isa = PBXBuildFile; fileRef = CD3B655C175CBA72006A4151 /* CrowdItem.m */; };
@@ -1951,6 +1950,7 @@
 		CDAD1D34175E2FA600581713 /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
 		CDB11BF317A056D300B8817A /* RedemptionListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RedemptionListViewController.h; sourceTree = "<group>"; };
 		CDB11BF417A056D400B8817A /* RedemptionListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RedemptionListViewController.m; sourceTree = "<group>"; };
+		CDB62C9617E361610030F63A /* ThankYouViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = ThankYouViewController.m; path = ShnergleApp/ThankYouViewController.m; sourceTree = "<group>"; };
 		CDB72C2C175A5F2B00018271 /* Request.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Request.h; sourceTree = "<group>"; };
 		CDB72C2D175A5F2B00018271 /* Request.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Request.m; sourceTree = "<group>"; };
 		CDBC6C7B17AC47D9001B667B /* Accounts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accounts.framework; path = System/Library/Frameworks/Accounts.framework; sourceTree = SDKROOT; };
@@ -2886,6 +2886,7 @@
 		808F13BC16FB6A5C00B66E6D = {
 			isa = PBXGroup;
 			children = (
+				CDB62C9617E361610030F63A /* ThankYouViewController.m */,
 				80AFB8B317A947E300935ED8 /* Default~iphone.png */,
 				80AFB8AD17A9472000935ED8 /* Icon 29 New.png */,
 				80AFB8AE17A9472000935ED8 /* Icon 58 New.png */,
@@ -4133,7 +4134,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CD26AADD17E2152F00A00611 /* ThankYouViewController.h in Sources */,
+				CD26AADC17E2150200A00611 /* ThankYouViewController.m in Sources */,
 				CD56F319179D30C80028B688 /* FindStaffViewController.m in Sources */,
 				EE23586517B13D8D00E3668E /* AnalyticsViewController.m in Sources */,
 				CD1D1D3517987932004B634E /* CheckInListViewController.m in Sources */,
@@ -4146,7 +4147,6 @@
 				CDD8D95C1768A69C00BF3CAC /* StaffEditViewController.m in Sources */,
 				CD1BBBB217688F350008E4FD /* StaffViewController.m in Sources */,
 				808F13D516FB6A5C00B66E6D /* main.m in Sources */,
-				CD26AADC17E2150200A00611 /* ThankYouViewController.m in Sources */,
 				808F13D916FB6A5C00B66E6D /* AppDelegate.m in Sources */,
 				808F13E516FB6A5C00B66E6D /* AroundMeViewController.m in Sources */,
 				EE23586817B1434E00E3668E /* GraphViewController.m in Sources */,
@@ -4280,7 +4280,6 @@
 					"$(inherited)",
 					"$(SRCROOT)",
 					"/Users/krzd/Documents/ShnergleApp-iOS",
-					"$(DEVELOPER_DIR)/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS6.1.sdk/System/Library/Frameworks",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "ShnergleApp/ShnergleApp-Prefix.pch";
