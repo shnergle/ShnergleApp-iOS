@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="4510" systemVersion="12E55" targetRuntime="iOS.CocoaTouch" variant="6xAndEarlier" propertyAccessControl="none" useAutolayout="YES" initialViewController="Yrf-wA-f9e">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="4510" systemVersion="12F37" targetRuntime="iOS.CocoaTouch" variant="6xAndEarlier" propertyAccessControl="none" useAutolayout="YES" initialViewController="Yrf-wA-f9e">
     <dependencies>
         <deployment defaultVersion="1536" identifier="iOS"/>
         <development version="4600" identifier="xcode"/>
@@ -38,6 +38,9 @@
                                     <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="top" bounces="NO" alwaysBounceVertical="YES" minimumZoomScale="0.0" maximumZoomScale="0.0" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="NoU-2f-HS3">
                                         <rect key="frame" x="0.0" y="43" width="320" height="379"/>
                                         <color key="backgroundColor" red="0.9137254901960784" green="0.92156862745098034" blue="0.94117647058823528" alpha="1" colorSpace="calibratedRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="379" id="jit-GN-jw2"/>
+                                        </constraints>
                                         <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="5" minimumInteritemSpacing="5" id="sQ4-wF-cWC">
                                             <size key="itemSize" width="152" height="112"/>
                                             <size key="headerReferenceSize" width="0.0" height="0.0"/>
@@ -102,13 +105,14 @@
                                             <outlet property="delegate" destination="2" id="yeX-T9-tiY"/>
                                         </connections>
                                     </collectionView>
-                                    <button opaque="NO" alpha="0.80000000000000004" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3ru-jW-uGF">
-                                        <rect key="frame" x="139" y="0.0" width="35" height="35"/>
+                                    <button opaque="NO" alpha="0.80000000000000004" contentMode="center" contentHorizontalAlignment="center" contentVerticalAlignment="center" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3ru-jW-uGF">
+                                        <rect key="frame" x="143" y="0.0" width="35" height="35"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="35" scoringType="23.5" id="M2P-kL-wDg"/>
-                                            <constraint firstAttribute="height" constant="35" scoringType="23.5" id="V69-bP-h5v"/>
+                                            <constraint firstAttribute="height" constant="35" id="gFJ-8p-TJe"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="boldSystem" size="button"/>
+                                        <inset key="contentEdgeInsets" minX="4" minY="5" maxX="4" maxY="3"/>
                                         <state key="normal" image="arrowDown.png">
                                             <color key="titleColor" red="0.19607843137254902" green="0.30980392156862746" blue="0.52156862745098043" alpha="1" colorSpace="calibratedRGB"/>
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -124,12 +128,12 @@
                                 </subviews>
                                 <color key="backgroundColor" red="0.0099566915760869179" green="0.0099566915760869179" blue="0.0099566915760869179" alpha="0.0" colorSpace="calibratedRGB"/>
                                 <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="NoU-2f-HS3" secondAttribute="trailing" type="default" id="7tf-5m-Eso"/>
+                                    <constraint firstItem="3ru-jW-uGF" firstAttribute="top" secondItem="LIP-CL-Z0j" secondAttribute="top" type="default" id="9FI-q2-klI"/>
                                     <constraint firstItem="NoU-2f-HS3" firstAttribute="leading" secondItem="LIP-CL-Z0j" secondAttribute="leading" type="default" id="DBV-E3-4bg"/>
-                                    <constraint firstItem="NoU-2f-HS3" firstAttribute="top" secondItem="LIP-CL-Z0j" secondAttribute="top" constant="43" type="default" id="LDZ-Lt-N45"/>
                                     <constraint firstItem="NoU-2f-HS3" firstAttribute="bottom" secondItem="LIP-CL-Z0j" secondAttribute="bottom" type="default" id="Tz4-Vv-4Ue"/>
-                                    <constraint firstItem="3ru-jW-uGF" firstAttribute="top" secondItem="LIP-CL-Z0j" secondAttribute="top" type="default" id="Xkd-o6-Keb"/>
-                                    <constraint firstItem="NoU-2f-HS3" firstAttribute="trailing" secondItem="LIP-CL-Z0j" secondAttribute="trailing" type="default" id="jpF-wx-umT"/>
-                                    <constraint firstItem="3ru-jW-uGF" firstAttribute="leading" secondItem="LIP-CL-Z0j" secondAttribute="leading" constant="139" type="default" id="kVB-6m-sHI"/>
+                                    <constraint firstItem="NoU-2f-HS3" firstAttribute="top" secondItem="3ru-jW-uGF" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="WeF-Iu-7rJ"/>
+                                    <constraint firstItem="3ru-jW-uGF" firstAttribute="centerX" secondItem="NoU-2f-HS3" secondAttribute="centerX" type="default" id="ju8-6r-YbZ"/>
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Yep-ys-8YG" customClass="OverlayText">
@@ -205,7 +209,6 @@
                             <constraint firstItem="LIP-CL-Z0j" firstAttribute="leading" secondItem="3" secondAttribute="leading" type="default" id="8aQ-rw-Za9"/>
                             <constraint firstItem="5nO-C1-XZo" firstAttribute="leading" secondItem="3" secondAttribute="leading" type="default" id="GNW-8o-GCv"/>
                             <constraint firstItem="Yep-ys-8YG" firstAttribute="leading" secondItem="3" secondAttribute="leading" type="default" id="GqB-D3-JGa"/>
-                            <constraint firstItem="LIP-CL-Z0j" firstAttribute="bottom" secondItem="3" secondAttribute="bottom" type="default" id="P3A-rn-1MW"/>
                             <constraint firstItem="5nO-C1-XZo" firstAttribute="trailing" secondItem="3" secondAttribute="trailing" type="default" id="V5j-Oi-H31"/>
                             <constraint firstItem="Yep-ys-8YG" firstAttribute="bottom" secondItem="5nO-C1-XZo" secondAttribute="top" type="default" id="Vzy-bW-Qkf"/>
                             <constraint firstItem="Yep-ys-8YG" firstAttribute="top" secondItem="3" secondAttribute="top" constant="-70" type="default" id="ccn-Id-tZQ"/>
@@ -4023,7 +4026,7 @@ This privacy policy was last updated on 29 July 2013.
 14. Contacting Us 
 If you have any questions, comments or requests regarding this Policy, please contact us directly by email at contact@shnergle.com or by post to Kemp House, City Road, London, United Kingdom, EC1V 2NX, </string>
                                         <attributes>
-                                            <font key="NSFont" metaFont="toolTip"/>
+                                            <font key="NSFont" metaFont="smallSystem"/>
                                             <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
                                         </attributes>
                                     </fragment>
@@ -4716,13 +4719,13 @@ Apple is a third party beneficiary of the Terms
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
+        <segue reference="fjC-0F-Or5"/>
+        <segue reference="Dyu-vl-dRT"/>
+        <segue reference="Zho-BK-kL6"/>
+        <segue reference="ohm-kx-4nt"/>
+        <segue reference="qNM-G7-JMr"/>
         <segue reference="WSb-QO-1iD"/>
         <segue reference="xUB-NL-HY4"/>
-        <segue reference="qNM-G7-JMr"/>
-        <segue reference="Dyu-vl-dRT"/>
-        <segue reference="fjC-0F-Or5"/>
         <segue reference="xzO-IX-Cmd"/>
-        <segue reference="mMx-sI-unJ"/>
-        <segue reference="msd-v0-Rw7"/>
     </inferredMetricsTieBreakers>
 </document>
