@@ -73,9 +73,9 @@
 - (void)shareOnTwitter {
     appDelegate.lastTwitter = self.twSwitch.on;
     if (self.twSwitch.on) {
-        [self postImage:self.image.image withStatus:[NSString stringWithFormat:@"%@ @%@ #ShnergleIt", self.textFieldname.text, (![appDelegate.activeVenue[@"twitter"] isKindOfClass:[NSNull class]] && ![@"" isEqualToString : appDelegate.activeVenue[@"twitter"]]) ? appDelegate.activeVenue[@"twitter"] : [@" " stringByAppendingString:appDelegate.activeVenue[@"name"]]]];
+        [self postImage:self.image.image withStatus:[NSString stringWithFormat:@"%@ @%@ #ShnergleIt", self.textFieldname.text, (![appDelegate.activeVenue[@"twitter"] isKindOfClass:[NSNull class]] && ![@"" isEqualToString : appDelegate.activeVenue[@"twitter"]]) ? appDelegate.activeVenue[@"twitter"]:[@" " stringByAppendingString : appDelegate.activeVenue[@"name"]]]];
         if (appDelegate.shareVenue) {
-            [Request post:@"venue_shares/set" params:@{@"venue_id": appDelegate.activeVenue[@"id"], @"media_id": @2} delegate:self callback:@selector(doNothing:)];
+            [Request post:@"venue_shares/set" params:@{@"venue_id" : appDelegate.activeVenue[@"id"], @"media_id": @2} delegate:self callback:@selector(doNothing:)];
         } else {
             [Request post:@"post_shares/set" params:@{@"post_id": post_id, @"media_id": @2} delegate:self callback:@selector(doNothing:)];
         }
@@ -196,11 +196,10 @@
     if (appDelegate.redeeming != nil) {
         [Request post:@"promotion_redemptions/set" params:@{@"promotion_id": appDelegate.redeeming} delegate:self callback:@selector(redeemed:)];
     } else {
-        
         UIStoryboard *sb = [UIStoryboard storyboardWithName:@"MainStoryboard" bundle:nil];
-        
+
         ThankYouViewController *vc = (ThankYouViewController *)[sb instantiateViewControllerWithIdentifier:@"thankyouverymuch"];
-        [vc setupFields:@"You got <NIL> points" :@""];
+        [vc setupFields:@"You got <NIL> points":@""];
         [self.navigationController pushViewController:vc animated:YES];
         //[self presentViewController:vc animated:YES completion:nil];
     }
@@ -224,15 +223,13 @@
     } else {
         msg = [NSString stringWithFormat:@"The passcode for the promotion is: %@", response];
     }
-    
-    UIStoryboard *sb = [UIStoryboard storyboardWithName:@"MainStoryboard" bundle:nil];
-    
-    ThankYouViewController *vc = (ThankYouViewController *)[sb instantiateViewControllerWithIdentifier:@"thankyouverymuch"];
-    [vc setupFields:@"You got <NIL> points" :msg];
-    [self presentViewController:vc animated:YES completion:nil];
-    
-}
 
+    UIStoryboard *sb = [UIStoryboard storyboardWithName:@"MainStoryboard" bundle:nil];
+
+    ThankYouViewController *vc = (ThankYouViewController *)[sb instantiateViewControllerWithIdentifier:@"thankyouverymuch"];
+    [vc setupFields:@"You got <NIL> points":msg];
+    [self presentViewController:vc animated:YES completion:nil];
+}
 
 - (IBAction)selectFriendsButtonAction:(id)sender {
     FBFriendPickerViewController *friendPickerController =

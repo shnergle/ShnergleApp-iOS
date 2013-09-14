@@ -54,16 +54,13 @@
     [self alert];
 }
 
--(void)loginViewShowingLoggedInUser:(FBLoginView *)loginView
-{
+- (void)loginViewShowingLoggedInUser:(FBLoginView *)loginView {
     loginView.hidden = YES;
     self.whyFacebookInfoButton.hidden = YES;
     self.whyFacebookLabel.hidden = YES;
-
 }
 
--(void)loginViewShowingLoggedOutUser:(FBLoginView *)loginView
-{
+- (void)loginViewShowingLoggedOutUser:(FBLoginView *)loginView {
     loginView.hidden = NO;
     self.whyFacebookInfoButton.hidden = NO;
     self.whyFacebookLabel.hidden = NO;

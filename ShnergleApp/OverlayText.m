@@ -106,7 +106,7 @@
     [self.summaryHeadlineTextField resignFirstResponder];
     self.summaryHeadlineTextField.enabled = NO;
     self.summaryHeadlineTextField.backgroundColor = [UIColor clearColor];
-    self.phoneTextField.editable= NO;
+    self.phoneTextField.editable = NO;
     self.phoneTextField.backgroundColor = [UIColor clearColor];
     self.emailTextField.editable = NO;
     self.emailTextField.backgroundColor = [UIColor clearColor];
@@ -133,9 +133,9 @@
                              @"website": self.websiteTextField.text,
                              @"email": self.emailTextField.text};
     [Request post:@"venues/set"
-                              params:params
-                            delegate:self
-                            callback:@selector(doNothing:)];
+           params:params
+         delegate:self
+         callback:@selector(doNothing:)];
 }
 
 - (void)doNothing:(id)sender {

@@ -42,7 +42,7 @@
 }
 
 - (void)postResponse:(id)response {
-    @synchronized (self) {
+    @synchronized(self) {
         if ([response isKindOfClass:[NSArray class]]) {
             for (id obj in response) {
                 if ([obj count] > 1) [searchResults addObject:obj];
@@ -54,7 +54,7 @@
 }
 
 - (void)postResponseLocation:(id)response {
-    @synchronized (self) {
+    @synchronized(self) {
         if ([response isKindOfClass:[NSArray class]]) {
             for (id obj in response) {
                 if ([obj count] > 1) [searchResultsLocation addObject:obj];
@@ -184,7 +184,7 @@
                                  @"level": appDelegate.level};
         [Request post:@"user_searches/set" params:params delegate:self callback:@selector(searchRegistered:)];
         [Request post:@"venues/get" params:params delegate:self callback:@selector(postResponse:)];
-        [[[CLGeocoder alloc] init] geocodeAddressString:self.bar.text completionHandler:^(NSArray* placemarks, NSError* error){
+        [[[CLGeocoder alloc] init] geocodeAddressString:self.bar.text completionHandler:^(NSArray *placemarks, NSError *error) {
             if (!error) {
                 MKCoordinateRegion rgn = MKCoordinateRegionMakeWithDistance(((CLPlacemark *)placemarks[0]).location.coordinate, 2000, 2000);
                 double distanceInDegrees = sqrt(pow(rgn.span.latitudeDelta, 2) + pow(rgn.span.longitudeDelta, 2));

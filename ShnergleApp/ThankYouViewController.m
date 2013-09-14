@@ -9,51 +9,29 @@
 #import "ThankYouViewController.h"
 #import "CustomSlidingViewController.h"
 
-@interface ThankYouViewController ()
-
-@end
-
 @implementation ThankYouViewController
 
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
-{
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-    if (self) {
-        // Custom initialization
-    }
-    return self;
-}
-
-- (void)viewDidLoad
-{
+- (void)viewDidLoad {
     [super viewDidLoad];
-	// Do any additional setup after loading the view.
     self.passcodeLabel.hidden = shouldHidePasscode;
     self.passcodeInfoLabel.hidden = shouldHidePasscode;
     self.passcodeLabel.text = passcodeString;
     self.pointsLabel.text = pointsString;
 }
 
-- (void)didReceiveMemoryWarning
-{
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
-- (void)setupFields:(NSString *)points :(NSString *)passcode
-{
+- (void)setupFields:(NSString *)points :(NSString *)passcode {
     self.pointsLabel.text = points;
-    if([passcode length] > 0)
-    {
+    if ([passcode length] > 0) {
         passcodeString = passcode;
-    }else{
+    } else {
         shouldHidePasscode = YES;
     }
 }
 
 - (IBAction)tappedDone:(id)sender {
     [self toFirstAroundMe];
-
 }
+
 - (void)toFirstAroundMe {
     for (id viewController in self.navigationController.viewControllers) {
         if ([viewController isKindOfClass:[CustomSlidingViewController class]]) {

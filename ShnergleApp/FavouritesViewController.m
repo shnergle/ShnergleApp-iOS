@@ -87,7 +87,7 @@
 }
 
 - (void)didFinishLoadingVenues:(NSArray *)response {
-    @synchronized (self) {
+    @synchronized(self) {
         venues = response;
         [self.crowdCollection reloadData];
         [self.view hideToastActivity];

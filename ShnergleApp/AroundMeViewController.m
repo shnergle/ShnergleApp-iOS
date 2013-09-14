@@ -90,19 +90,19 @@
 
     if ([self.navBar respondsToSelector:@selector(setBarTintColor:)]) [self.navBar performSelector:@selector(setBarTintColor:) withObject:[UIColor colorWithRed:233.0 / 255 green:235.0 / 255 blue:240.0 / 255 alpha:1.0]];
     self.navBar.translucent = NO;
-    
+
     id radius = [[NSUserDefaults standardUserDefaults] objectForKey:@"radius"];
-    
+
     if (!radius) {
         [[NSUserDefaults standardUserDefaults] setObject:[NSNumber numberWithFloat:1.0] forKey:@"radius"];
-    }else{
+    } else {
         self.distanceScroller.value = [radius floatValue];
         [self sliderValueChanged:nil];
     }
 }
 
 - (void)didFinishLoadingVenues:(NSArray *)response {
-    @synchronized (self) {
+    @synchronized(self) {
         venues = response;
         [self.crowdCollection reloadData];
         loading = NO;
@@ -247,11 +247,9 @@
 
     MKCircle *circle = [MKCircle circleWithCenterCoordinate:coord radius:self.distanceScroller.value * 1000];
     [map addOverlay:circle];
-    
+
     //Prefs:
     [[NSUserDefaults standardUserDefaults] setObject:[NSNumber numberWithFloat:self.distanceScroller.value] forKey:@"radius"];
-
-
 }
 
 - (MKOverlayView *)mapView:(MKMapView *)mapView viewForOverlay:(id<MKOverlay>)overlay {
@@ -295,12 +293,9 @@
     [map addGestureRecognizer:tap];
     [self.view addSubview:map];
     [self.view sendSubviewToBack:map];
-    
 }
 
-
--(void)mapViewDidFinishRenderingMap:(MKMapView *)mapView fullyRendered:(BOOL)fullyRendered
-{
+- (void)mapViewDidFinishRenderingMap:(MKMapView *)mapView fullyRendered:(BOOL)fullyRendered {
     [self backToMe:nil];
 }
 

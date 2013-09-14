@@ -149,8 +149,8 @@
 - (void)didFinishGettingPromotion:(NSDictionary *)response {
     if ([response respondsToSelector:@selector(objectForKeyedSubscript:)]) {
         appDelegate.activePromotion = response;
-        NSLog(@"OWN_REDEMPTIONS IS %@",response[@"own_redemptions"]);
-        
+        NSLog(@"OWN_REDEMPTIONS IS %@", response[@"own_redemptions"]);
+
         appDelegate.canRedeem = response[@"own_redemptions"] == 0;
         promotionBody = response[@"description"];
         promotionTitle = response[@"title"];
@@ -283,8 +283,8 @@
 
     NSDictionary *params = @{@"venue_id": appDelegate.activeVenue[@"id"],
                              @"level": appDelegate.level,
-                             @"from_time":@([Request fromTime]) ,
-                                 @"until_time":@([Request untilTime])};
+                             @"from_time": @([Request fromTime]),
+                             @"until_time": @([Request untilTime])};
     [Request post:@"promotions/get" params:params delegate:self callback:@selector(didFinishGettingPromotion:)];
 
     if ([appDelegate.activeVenue[@"manager"] intValue] == 1 && [appDelegate.activeVenue[@"verified"] intValue] == 0) {
@@ -330,7 +330,7 @@
 }
 
 - (void)didFinishDownloadingPosts:(id)response {
-    @synchronized (self) {
+    @synchronized(self) {
         posts = response;
         [self.crowdCollectionV reloadData];
         [refreshControl endRefreshing];
@@ -338,9 +338,8 @@
             NSDictionary *key = @{@"entity": @"post",
                                   @"entity_id": posts[0][@"id"]};
             [Request setImage:@{@"entity": @"image", @"entity_id": @"toShare"} image:[Request getImage:key]];
-        }else{
+        } else {
             self.crowdCollectionV.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"No_activity_background.png"]];
-
         }
     }
 }
@@ -369,15 +368,15 @@
 }
 
 - (BOOL)shouldPerformSegueWithIdentifier:(NSString *)identifier sender:(id)sender {
-    if ([@"ToGallery" isEqualToString:identifier] && !((CrowdItem *)sender).crowdImage.image) return NO;
+    if ([@"ToGallery" isEqualToString : identifier] && !((CrowdItem *)sender).crowdImage.image) return NO;
     return YES;
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    if ([@"ToGallery" isEqualToString:segue.identifier]) {
+    if ([@"ToGallery" isEqualToString : segue.identifier]) {
         [segue.destinationViewController setTitle:titleHeader];
         [(VenueGalleryViewController *)segue.destinationViewController setImage : ((CrowdItem *)sender).crowdImage.image withAuthor :[NSString stringWithFormat:@"%@ %@", posts[selectedPost][@"forename"], [posts[selectedPost][@"surname"] substringToIndex:1]] withComment : posts[selectedPost][@"caption"] withTimestamp :[self getDateFromUnixFormat:posts[selectedPost][@"time"]] withId :[posts[selectedPost][@"id"] stringValue]];
-    } else if ([@"CheckInFromVenue" isEqualToString:segue.identifier]) {
+    } else if ([@"CheckInFromVenue" isEqualToString : segue.identifier]) {
         appDelegate.shareVenue = NO;
         appDelegate.shnergleThis = YES;
     }

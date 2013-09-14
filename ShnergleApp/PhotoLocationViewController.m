@@ -27,7 +27,7 @@
 }
 
 - (void)didFinishLoadingVenues:(NSArray *)response {
-    @synchronized (self) {
+    @synchronized(self) {
         venues = [response mutableCopy];
         locationPickerVenuesImmutable = [NSArray arrayWithArray:response];
         rows = [venues count] + 1;

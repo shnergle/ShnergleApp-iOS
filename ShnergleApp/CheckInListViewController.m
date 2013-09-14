@@ -22,7 +22,7 @@
 }
 
 - (void)didFinishDownloadingPosts:(id)response {
-    @synchronized (self) {
+    @synchronized(self) {
         posts = response;
         [self.collectionView reloadData];
         [self.view hideToastActivity];

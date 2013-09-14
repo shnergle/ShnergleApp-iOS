@@ -15,26 +15,23 @@
     self.navigationItem.title = @"Promotion";
 }
 
--(void)viewDidLoad{
+- (void)viewDidLoad {
     man = [[CLLocationManager alloc] init];
     man.delegate = self;
     man.desiredAccuracy = kCLLocationAccuracyNearestTenMeters;
     [man startUpdatingLocation];
     //check if redeemed.
-    if(appDelegate.canRedeem){
-        
-    }else{
+    if (appDelegate.canRedeem) {
+    } else {
         [self.redeemButton setTitle:@"Redeemed" forState:UIControlStateNormal];
     }
-    
 }
 
 - (void)locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray *)locations {
     BOOL on = [((CLLocation *)locations.lastObject)distanceFromLocation :[[CLLocation alloc] initWithLatitude:[appDelegate.activeVenue[@"lat"] doubleValue] longitude:[appDelegate.activeVenue[@"lon"] doubleValue]]] <= 111;
-    
-    if(appDelegate.canRedeem) self.redeemButton.enabled = on;
-    }
 
+    if (appDelegate.canRedeem) self.redeemButton.enabled = on;
+}
 
 - (IBAction)tapUseDeal:(id)sender {
     appDelegate.redeeming = [appDelegate.activePromotion[@"id"] stringValue];
