@@ -13,7 +13,6 @@
 #import "Request.h"
 #import <ECSlidingViewController/ECSlidingViewController.h>
 #import <Toast/Toast+UIView.h>
-#import <NSDate-Escort/NSDate+Escort.h>
 #import <MapKit/MapKit.h>
 
 @implementation FavouritesViewController
@@ -85,26 +84,6 @@
         man.desiredAccuracy = kCLLocationAccuracyNearestTenMeters;
         [man startUpdatingLocation];
     }
-}
-
-- (int)fromTime {
-    NSDate *date;
-    if ([[NSDate dateWithHoursBeforeNow:6] isYesterday]) {
-        date = [[[NSDate dateYesterday] dateAtStartOfDay] dateByAddingHours:6];
-    } else {
-        date = [[[NSDate date] dateAtStartOfDay] dateByAddingHours:6];
-    }
-    return (int)[date timeIntervalSince1970];
-}
-
-- (int)untilTime {
-    NSDate *date;
-    if ([[NSDate dateWithHoursBeforeNow:6] isYesterday]) {
-        date = [[[NSDate date] dateAtStartOfDay] dateByAddingHours:6];
-    } else {
-        date = [[[NSDate dateTomorrow] dateAtStartOfDay] dateByAddingHours:6];
-    }
-    return (int)[date timeIntervalSince1970];
 }
 
 - (void)didFinishLoadingVenues:(NSArray *)response {
@@ -183,18 +162,18 @@
                                          @"level": appDelegate.level} mutableCopy];
         if ([@"Quiet" isEqualToString : appDelegate.topViewType]) {
             [params addEntriesFromDictionary:@{@"quiet" : @"true",
-                                               @"from_time" : @([self fromTime]),
-                                               @"until_time" : @([self untilTime])}];
+                                               @"from_time" : @([Request fromTime]),
+                                               @"until_time" : @([Request untilTime])}];
             [Request post:@"venues/get" params:params delegate:self callback:@selector(didFinishLoadingVenues:)];
         } else if ([@"Trending" isEqualToString : appDelegate.topViewType]) {
             [params addEntriesFromDictionary:@{@"trending" : @"true",
-                                               @"from_time" : @([self fromTime]),
-                                               @"until_time" : @([self untilTime])}];
+                                               @"from_time" : @([Request fromTime]),
+                                               @"until_time" : @([Request untilTime])}];
             [Request post:@"venues/get" params:params delegate:self callback:@selector(didFinishLoadingVenues:)];
         } else if ([@"Promotions" isEqualToString : appDelegate.topViewType]) {
             [params addEntriesFromDictionary:@{@"promotions" : @"true",
-                                               @"from_time" : @([self fromTime]),
-                                               @"until_time" : @([self untilTime])}];
+                                               @"from_time" : @([Request fromTime]),
+                                               @"until_time" : @([Request untilTime])}];
             [Request post:@"venues/get" params:params delegate:self callback:@selector(didFinishLoadingVenues:)];
         }
         hasPositionLocked = YES;

@@ -170,4 +170,22 @@ static ConnectionErrorAlert *connectionErrorAlert;
     [invocation invoke];
 }
 
++ (int)fromTime {
+    NSCalendar *calendar = [NSCalendar currentCalendar];
+    NSDateComponents *components = [calendar components:(NSYearCalendarUnit | NSMonthCalendarUnit | NSDayCalendarUnit | NSHourCalendarUnit | NSMinuteCalendarUnit | NSSecondCalendarUnit) fromDate:[NSDate date]];
+    if (components.hour < 6) components.day--;
+    components.hour = 6;
+    components.minute = components.second = 0;
+    return [[calendar dateFromComponents:components] timeIntervalSince1970];
+}
+
++ (int)untilTime {
+    NSCalendar *calendar = [NSCalendar currentCalendar];
+    NSDateComponents *components = [calendar components:(NSYearCalendarUnit | NSMonthCalendarUnit | NSDayCalendarUnit | NSHourCalendarUnit | NSMinuteCalendarUnit | NSSecondCalendarUnit) fromDate:[NSDate date]];
+    if (components.hour > 5) components.day++;
+    components.hour = 6;
+    components.minute = components.second = 0;
+    return [[calendar dateFromComponents:components] timeIntervalSince1970];
+}
+
 @end
