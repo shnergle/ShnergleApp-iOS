@@ -94,7 +94,7 @@
     id radius = [[NSUserDefaults standardUserDefaults] objectForKey:@"radius"];
 
     if (!radius) {
-        [[NSUserDefaults standardUserDefaults] setObject:[NSNumber numberWithFloat:1.0] forKey:@"radius"];
+        [[NSUserDefaults standardUserDefaults] setObject:@1.0f forKey:@"radius"];
     } else {
         self.distanceScroller.value = [radius floatValue];
         [self sliderValueChanged:nil];
@@ -249,7 +249,7 @@
     [map addOverlay:circle];
 
     //Prefs:
-    [[NSUserDefaults standardUserDefaults] setObject:[NSNumber numberWithFloat:self.distanceScroller.value] forKey:@"radius"];
+    [[NSUserDefaults standardUserDefaults] setObject:@(self.distanceScroller.value) forKey:@"radius"];
 }
 
 - (MKOverlayView *)mapView:(MKMapView *)mapView viewForOverlay:(id<MKOverlay>)overlay {
