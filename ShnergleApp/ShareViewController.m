@@ -199,7 +199,7 @@
         UIStoryboard *sb = [UIStoryboard storyboardWithName:@"MainStoryboard" bundle:nil];
 
         ThankYouViewController *vc = (ThankYouViewController *)[sb instantiateViewControllerWithIdentifier:@"thankyouverymuch"];
-        [vc setupFields:@"You got <NIL> points":@""];
+        [vc setupFields:@"You got <NIL> points" :@""];
         [self.navigationController pushViewController:vc animated:YES];
         //[self presentViewController:vc animated:YES completion:nil];
     }
@@ -227,7 +227,7 @@
     UIStoryboard *sb = [UIStoryboard storyboardWithName:@"MainStoryboard" bundle:nil];
 
     ThankYouViewController *vc = (ThankYouViewController *)[sb instantiateViewControllerWithIdentifier:@"thankyouverymuch"];
-    [vc setupFields:@"You got <NIL> points":msg];
+    [vc setupFields:@"You got <NIL> points" :msg];
     [self presentViewController:vc animated:YES completion:nil];
 }
 
