@@ -20,9 +20,7 @@
     man.delegate = self;
     man.desiredAccuracy = kCLLocationAccuracyNearestTenMeters;
     [man startUpdatingLocation];
-    //check if redeemed.
-    if (appDelegate.canRedeem) {
-    } else {
+    if (!appDelegate.canRedeem) {
         [self.redeemButton setTitle:@"Redeemed" forState:UIControlStateNormal];
     }
 }
