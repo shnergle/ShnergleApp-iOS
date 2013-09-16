@@ -296,7 +296,9 @@
 }
 
 - (void)mapViewDidFinishRenderingMap:(MKMapView *)mapView fullyRendered:(BOOL)fullyRendered {
-    [self backToMe:nil];
+    hasPositionLocked = NO;
+    map.userTrackingMode = MKUserTrackingModeFollow;
+    [self sliderValueChanged:nil];
 }
 
 - (void)mapViewDidFinishLoadingMap:(MKMapView *)mapView {
