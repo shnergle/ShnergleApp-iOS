@@ -278,4 +278,12 @@ typedef enum {
     return YES;
 }
 
+- (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string {
+    if (textField.tag == Name + 1) {
+        NSUInteger newLength = [textField.text length] + [string length] - range.length;
+        return (newLength > 40) ? NO : YES;
+    }
+    return YES;
+}
+
 @end
