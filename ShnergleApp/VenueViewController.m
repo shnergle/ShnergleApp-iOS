@@ -13,7 +13,7 @@
 #import "VenueGalleryViewController.h"
 #import "Request.h"
 #import "PhotoLocationViewController.h"
-#import "NSDate+TimeAgo.h"
+#import <NSDate+TimeAgo/NSDate+TimeAgo.h>
 #import <Toast/Toast+UIView.h>
 #import <QuartzCore/QuartzCore.h>
 

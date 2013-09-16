@@ -7,7 +7,7 @@
 //
 
 #import "StaffEditViewController.h"
-#import "NSDate+TimeAgo.h"
+#import <NSDate+TimeAgo/NSDate+TimeAgo.h>
 #import <Toast/Toast+UIView.h>
 #import "Request.h"
 

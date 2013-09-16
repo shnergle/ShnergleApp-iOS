@@ -8,7 +8,7 @@
 
 #import "RedemptionListViewController.h"
 #import <Toast/Toast+UIView.h>
-#import "NSDate+TimeAgo.h"
+#import <NSDate+TimeAgo/NSDate+TimeAgo.h>
 #import "Request.h"
 
 @implementation RedemptionListViewController
