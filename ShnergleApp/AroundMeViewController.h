@@ -19,6 +19,7 @@
     BOOL loading;
     MKMapView *map;
     NSArray *venues;
+    BOOL rendered;
 }
 @property (weak, nonatomic) IBOutlet UIButton *drawerCloseButton;
 @property (weak, nonatomic) IBOutlet OverlayText *distanceScrollerView;

@@ -70,8 +70,8 @@
 
 - (IBAction)backToMe:(id)sender {
     hasPositionLocked = NO;
+    [self mapView:map didUpdateUserLocation:map.userLocation];
     pinDropped = NO;
-    map.userTrackingMode = MKUserTrackingModeFollow;
     [self sliderValueChanged:nil];
 }
 
@@ -285,10 +285,10 @@
 }
 
 - (void)initMap {
+    rendered = NO;
     hasPositionLocked = NO;
     map = [[MKMapView alloc] initWithFrame:CGRectMake(0, -146, self.view.bounds.size.width, 540)];
     map.delegate = self;
-    map.userTrackingMode = MKUserTrackingModeFollow;
     UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(didTapAtMap:)];
     [map addGestureRecognizer:tap];
     [self.view addSubview:map];
@@ -296,9 +296,12 @@
 }
 
 - (void)mapViewDidFinishRenderingMap:(MKMapView *)mapView fullyRendered:(BOOL)fullyRendered {
-    hasPositionLocked = NO;
-    map.userTrackingMode = MKUserTrackingModeFollow;
-    [self sliderValueChanged:nil];
+    if (!rendered && fullyRendered) {
+        rendered = YES;
+        hasPositionLocked = NO;
+        map.showsUserLocation = YES;
+        [self sliderValueChanged:nil];
+    }
 }
 
 - (void)mapViewDidFinishLoadingMap:(MKMapView *)mapView {
@@ -315,8 +318,11 @@
 
 - (void)mapView:(MKMapView *)mapView didUpdateUserLocation:(MKUserLocation *)userLocation {
     if (!hasPositionLocked) {
-        map.userTrackingMode = MKUserTrackingModeNone;
         hasPositionLocked = YES;
+        MKMapPoint point = MKMapPointForCoordinate(userLocation.coordinate);
+        MKCoordinateRegion region = MKCoordinateRegionForMapRect(MKMapRectMake(point.x, point.y, map.frame.size.width * 50, map.frame.size.height * 50));
+        map.region = region;
+        map.centerCoordinate = userLocation.coordinate;
         [self sliderValueChanged:nil];
     }
 }
