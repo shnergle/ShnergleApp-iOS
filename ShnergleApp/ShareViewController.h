@@ -20,5 +20,6 @@
 @property (weak, nonatomic) IBOutlet UIButton *nameList;
 @property (weak, nonatomic) IBOutlet UILabel *friendLabel;
 @property (weak, nonatomic) IBOutlet UITextView *textFieldname;
+@property (weak, nonatomic) IBOutlet UILabel *counter;
 
 @end

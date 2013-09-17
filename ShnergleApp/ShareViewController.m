@@ -293,10 +293,6 @@
 }
 
 - (BOOL)textView:(UITextView *)textView shouldChangeTextInRange:(NSRange)range replacementText:(NSString *)text {
-    if ([text isEqualToString:@"\n"]) {
-        [textView resignFirstResponder];
-        return NO;
-    }
     NSUInteger newLength = [textView.text length] + [text length] - range.length;
     NSString *venueName;
     if (![appDelegate.activeVenue[@"twitter"] isKindOfClass:[NSNull class]] && ![@"" isEqualToString : appDelegate.activeVenue[@"twitter"]]) {
@@ -304,12 +300,17 @@
     } else {
         venueName = [(appDelegate.shnergleThis ? @"@ " : @"From ") stringByAppendingString:appDelegate.activeVenue[@"name"]];
     }
-#warning verify 36
-    NSInteger maxLength = 140 - 36 - [venueName length];
-#warning create uilabel counter
-#warning then recomment
-    //counter.text = [NSString stringWithFormat:@"%d", maxLength];
-    return (newLength > maxLength) ? NO : YES;
+    NSInteger maxLength = 140 - 50 - [venueName length];
+    if ([text isEqualToString:@"\n"]) {
+        [textView resignFirstResponder];
+        return NO;
+    }
+    if(newLength > maxLength){
+        return NO;
+    }else{
+        self.counter.text = [NSString stringWithFormat:@"%d characters left", maxLength - newLength];
+        return YES;
+    }
 }
 
 - (void)textViewDidBeginEditing:(UITextView *)textView {
