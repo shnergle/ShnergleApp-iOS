@@ -44,7 +44,7 @@
                 duration:0.5
                 position:@"center"
                    title:@""
-                   image:[UIImage imageNamed:@"glyphicons_343_thumbs_up.png"]];
+                   image:[UIImage imageNamed:@"glyphicons_343_thumbs_up"]];
 }
 
 - (void)imageSetup {

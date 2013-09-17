@@ -28,14 +28,14 @@
 
 - (void)toolbarDecorations {
     UIBarButtonItem *menuButton;
-    menuButton = [self createLeftBarButton:@"arrow_west.png" actionSelector:@selector(goBack)];
+    menuButton = [self createLeftBarButton:@"arrow_west" actionSelector:@selector(goBack)];
     self.navigationItem.leftBarButtonItem = menuButton;
 }
 
 - (void)decorateScroller {
-    UIImage *maxBarImage = [UIImage imageNamed:@"highlight_distance_02_transparent.png"];
-    UIImage *thumbImage = [UIImage imageNamed:@"highlight_distance.png"];
-    UIImage *minBarImage = [UIImage imageNamed:@"highlight_distance_02_long.png"];
+    UIImage *maxBarImage = [UIImage imageNamed:@"highlight_distance_02_transparent"];
+    UIImage *thumbImage = [UIImage imageNamed:@"highlight_distance"];
+    UIImage *minBarImage = [UIImage imageNamed:@"highlight_distance_02_long"];
 
     UIEdgeInsets insets = UIEdgeInsetsMake(0, 0, 0, 0);
     minBarImage = [minBarImage resizableImageWithCapInsets:insets];
@@ -62,7 +62,7 @@
 }
 
 - (void)menuButtonDecorations {
-    self.navBarMenuItem.leftBarButtonItem = [self createLeftBarButton:@"mainmenu_button.png" actionSelector:@selector(tapMenu)];
+    self.navBarMenuItem.leftBarButtonItem = [self createLeftBarButton:@"mainmenu_button" actionSelector:@selector(tapMenu)];
     UIImageView *locImage = [[UIImageView alloc] initWithFrame:CGRectMake(85, 30, 20, 20)];
     locImage.image = [UIImage imageNamed:@"glyphicons_233_direction"];
     [self.navBar addSubview:locImage];
@@ -265,7 +265,7 @@
     [self hideDistanceScroller];
     crowdImagesHidden = NO;
     dropDownHidden = YES;
-    [self drawerButtonImage:@"arrowDown.png"];
+    [self drawerButtonImage:@"arrowDown"];
 }
 
 - (void)drawerButtonImage:(NSString *)imagenamed {
@@ -276,11 +276,11 @@
     if (crowdImagesHidden) {
         [self showOverlay];
         [self hideDistanceScroller];
-        [self drawerButtonImage:@"arrowDown.png"];
+        [self drawerButtonImage:@"arrowDown"];
     } else {
         [self hideOverlay];
         [self showDistanceScroller];
-        [self drawerButtonImage:@"arrowUp.png"];
+        [self drawerButtonImage:@"arrowUp"];
     }
 }
 
