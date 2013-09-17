@@ -236,7 +236,7 @@ typedef enum {
 }
 
 - (void)mapViewDidFinishLoadingMap:(MKMapView *)mapView {
-    if ([[[UIDevice currentDevice] systemVersion] compare:@"7.0" options:NSNumericSearch] == NSOrderedAscending) [self mapViewDidFinishRenderingMap:mapView fullyRendered:NO];
+    if ([[[UIDevice currentDevice] systemVersion] compare:@"7.0" options:NSNumericSearch] == NSOrderedAscending) [self mapViewDidFinishRenderingMap:mapView fullyRendered:YES];
 }
 
 - (void)mapView:(MKMapView *)mapView didUpdateUserLocation:(MKUserLocation *)userLocation {
