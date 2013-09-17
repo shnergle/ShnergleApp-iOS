@@ -77,5 +77,6 @@
 - (void)hideAnimated:(NSInteger)originalSize animationDuration:(double)animationDuration targetSize:(NSInteger)targetSize contentView:(UIView *)contentView;
 - (void)showAnimated:(NSInteger)targetSize animationDelay:(double)animationDelay animationDuration:(double)animationDuration;
 - (void)didAppear;
+@property (weak, nonatomic) IBOutlet UIButton *tappedNavigation;
 
 @end
