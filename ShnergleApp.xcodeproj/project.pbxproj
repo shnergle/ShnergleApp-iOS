@@ -17,7 +17,7 @@
 		808F13D316FB6A5C00B66E6D /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 808F13D116FB6A5C00B66E6D /* InfoPlist.strings */; };
 		808F13D516FB6A5C00B66E6D /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 808F13D416FB6A5C00B66E6D /* main.m */; };
 		808F13D916FB6A5C00B66E6D /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 808F13D816FB6A5C00B66E6D /* AppDelegate.m */; };
-		808F13E216FB6A5C00B66E6D /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 808F13E016FB6A5C00B66E6D /* MainStoryboard.storyboard */; };
+		808F13E216FB6A5C00B66E6D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 808F13E016FB6A5C00B66E6D /* Main.storyboard */; };
 		808F13E516FB6A5C00B66E6D /* AroundMeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 808F13E416FB6A5C00B66E6D /* AroundMeViewController.m */; };
 		809F6AF8179FD52600C67D77 /* SelectPromotionsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 809F6AF7179FD52600C67D77 /* SelectPromotionsViewController.m */; };
 		80ABCC03176F2012002718A1 /* SearchResultsView.m in Sources */ = {isa = PBXBuildFile; fileRef = 80ABCC02176F2012002718A1 /* SearchResultsView.m */; };
@@ -88,7 +88,7 @@
 		808F13D616FB6A5C00B66E6D /* ShnergleApp-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ShnergleApp-Prefix.pch"; sourceTree = "<group>"; };
 		808F13D716FB6A5C00B66E6D /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		808F13D816FB6A5C00B66E6D /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		808F13E116FB6A5C00B66E6D /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard.storyboard; sourceTree = "<group>"; };
+		808F13E116FB6A5C00B66E6D /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/Main.storyboard; sourceTree = "<group>"; };
 		808F13E316FB6A5C00B66E6D /* AroundMeViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AroundMeViewController.h; sourceTree = "<group>"; };
 		808F13E416FB6A5C00B66E6D /* AroundMeViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AroundMeViewController.m; sourceTree = "<group>"; };
 		809F6AF6179FD52600C67D77 /* SelectPromotionsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SelectPromotionsViewController.h; sourceTree = "<group>"; };
@@ -272,7 +272,7 @@
 				EE4D8F9717BBD5190012A453 /* ImpViewController.m */,
 				EE8FF813172A9CFD0003A8E1 /* LoginScreenController.h */,
 				EE8FF814172A9CFD0003A8E1 /* LoginScreenController.m */,
-				808F13E016FB6A5C00B66E6D /* MainStoryboard.storyboard */,
+				808F13E016FB6A5C00B66E6D /* Main.storyboard */,
 				80B77D25173E938E00085A71 /* MenuViewController.h */,
 				80B77D26173E938E00085A71 /* MenuViewController.m */,
 				CDCCCE3A17AC03BC001B091B /* NSObject+MissingMethods.h */,
@@ -399,7 +399,7 @@
 			files = (
 				CD59C9BA17E8B460000CF510 /* Images.xcassets in Resources */,
 				808F13D316FB6A5C00B66E6D /* InfoPlist.strings in Resources */,
-				808F13E216FB6A5C00B66E6D /* MainStoryboard.storyboard in Resources */,
+				808F13E216FB6A5C00B66E6D /* Main.storyboard in Resources */,
 				80D6FF64172191A4008A3AFD /* PromotionView.xib in Resources */,
 				EE48E7261787300100C13F2A /* OverlayText.xib in Resources */,
 				808330BD17565F9F00C183B9 /* SearchBar.xib in Resources */,
@@ -503,12 +503,12 @@
 			name = InfoPlist.strings;
 			sourceTree = "<group>";
 		};
-		808F13E016FB6A5C00B66E6D /* MainStoryboard.storyboard */ = {
+		808F13E016FB6A5C00B66E6D /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
 				808F13E116FB6A5C00B66E6D /* en */,
 			);
-			name = MainStoryboard.storyboard;
+			name = Main.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */

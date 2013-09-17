@@ -146,8 +146,7 @@
 
 - (void)tableView:(UITableView *)tableView didHighlightRowAtIndexPath:(NSIndexPath *)indexPath {
     if (tableView == self.searchResultsView.resultsTableView) {
-        UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"MainStoryboard" bundle:nil];
-        VenueViewController *viewController = [storyboard instantiateViewControllerWithIdentifier:@"Venue"];
+        VenueViewController *viewController = [self.storyboard instantiateViewControllerWithIdentifier:@"Venue"];
         [viewController setVenueInfo];
         if (indexPath.section == 0) appDelegate.activeVenue = searchResults[indexPath.row];
         else appDelegate.activeVenue = searchResultsLocation[indexPath.row];
