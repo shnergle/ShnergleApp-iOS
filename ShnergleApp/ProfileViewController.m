@@ -146,7 +146,7 @@
 }
 
 - (void)menuButtonDecorations {
-    UIBarButtonItem *menuButton = [self createLeftBarButton:@"mainmenu_button." actionSelector:@selector(tapMenu)];
+    UIBarButtonItem *menuButton = [self createLeftBarButton:@"mainmenu_button.png" actionSelector:@selector(tapMenu)];
     self.navBarItem.leftBarButtonItem = menuButton;
     self.navigationItem.leftBarButtonItem = menuButton;
 }

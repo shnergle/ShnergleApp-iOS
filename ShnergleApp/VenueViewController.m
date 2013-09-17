@@ -337,7 +337,7 @@
                                   @"entity_id": posts[0][@"id"]};
             [Request setImage:@{@"entity": @"image", @"entity_id": @"toShare"} image:[Request getImage:key]];
         } else {
-            self.crowdCollectionV.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"No_activity_background."]];
+            self.crowdCollectionV.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"No_activity_background.png"]];
         }
     }
 }

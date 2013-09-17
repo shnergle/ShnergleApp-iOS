@@ -80,7 +80,7 @@
         cell.backgroundColor = [UIColor clearColor];
         cell.textLabel.font = [UIFont systemFontOfSize:20];
         if (indexPath.section == 0 && indexPath.row == 0) {
-            cell.accessoryView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"profileicon."]];
+            cell.accessoryView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"profileicon.png"]];
             cell.accessoryView.bounds = CGRectMake(0, 0, 27, 19);
             profileCell = cell;
         }

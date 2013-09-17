@@ -40,8 +40,8 @@
 
 - (void)menuButtonDecorations {
     UIBarButtonItem *menuButton;
-    if (self.slidingViewController != nil) menuButton = [self createLeftBarButton:@"mainmenu_button." actionSelector:@selector(tapMenu)];
-    else menuButton = [self createLeftBarButton:@"arrow_west." actionSelector:@selector(goBack)];
+    if (self.slidingViewController != nil) menuButton = [self createLeftBarButton:@"mainmenu_button.png" actionSelector:@selector(tapMenu)];
+    else menuButton = [self createLeftBarButton:@"arrow_west.png" actionSelector:@selector(goBack)];
 
     self.navBarItem.leftBarButtonItem = menuButton;
 }
