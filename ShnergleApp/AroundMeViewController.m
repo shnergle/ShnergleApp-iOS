@@ -302,10 +302,6 @@
     }
 }
 
-- (void)mapViewDidFinishLoadingMap:(MKMapView *)mapView {
-    if ([[[UIDevice currentDevice] systemVersion] compare:@"7.0" options:NSNumericSearch] == NSOrderedAscending) [self mapViewDidFinishRenderingMap:mapView fullyRendered:YES];
-}
-
 - (void)didTapAtMap:(id)sender {
     [map removeOverlays:map.overlays];
     pinDropped = YES;
