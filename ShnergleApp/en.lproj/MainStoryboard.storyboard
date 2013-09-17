@@ -911,14 +911,13 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                         <constraints>
                             <constraint firstItem="6Sb-zS-yhc" firstAttribute="top" secondItem="Z9F-p7-zUh" secondAttribute="top" constant="53" id="1Yp-XL-Hp0"/>
                             <constraint firstItem="RYO-NA-DX0" firstAttribute="top" secondItem="Z9F-p7-zUh" secondAttribute="top" constant="11" id="34S-rQ-YfP"/>
-                            <constraint firstItem="J5u-Xa-562" firstAttribute="top" secondItem="Z9F-p7-zUh" secondAttribute="top" constant="99" id="9VV-WX-hbd"/>
                             <constraint firstItem="J5u-Xa-562" firstAttribute="leading" secondItem="Z9F-p7-zUh" secondAttribute="leading" id="9aJ-4t-ldO"/>
                             <constraint firstItem="RYO-NA-DX0" firstAttribute="leading" secondItem="Z9F-p7-zUh" secondAttribute="leading" constant="11" id="Mhm-Pa-lZf"/>
                             <constraint firstItem="pEg-Ej-yr1" firstAttribute="leading" secondItem="Z9F-p7-zUh" secondAttribute="leading" constant="57" id="PSD-AR-cou"/>
                             <constraint firstItem="pEg-Ej-yr1" firstAttribute="baseline" secondItem="6Sb-zS-yhc" secondAttribute="baseline" id="Uka-P0-zrn"/>
                             <constraint firstItem="nja-vb-k2j" firstAttribute="top" secondItem="Z9F-p7-zUh" secondAttribute="top" constant="31" id="dkV-2J-EAS"/>
                             <constraint firstAttribute="trailing" secondItem="nja-vb-k2j" secondAttribute="trailing" constant="31" id="gry-IY-Zvx"/>
-                            <constraint firstAttribute="bottom" secondItem="J5u-Xa-562" secondAttribute="bottom" constant="20" symbolic="YES" id="oer-M7-0MP"/>
+                            <constraint firstAttribute="bottom" secondItem="J5u-Xa-562" secondAttribute="bottom" constant="40" id="oer-M7-0MP"/>
                             <constraint firstItem="J5u-Xa-562" firstAttribute="centerX" secondItem="6Sb-zS-yhc" secondAttribute="centerX" id="rj4-Cm-ovg"/>
                             <constraint firstAttribute="trailing" secondItem="J5u-Xa-562" secondAttribute="trailing" id="z87-GE-vGD"/>
                         </constraints>
@@ -3699,7 +3698,7 @@ THANKS FOR BEING PART OF THE SHNERGLE COMMUNITY - HAPPY SHNERGLING!
                                     <action selector="saveLocallyChange:" destination="sUR-Sr-h90" eventType="valueChanged" id="d49-tD-AHI"/>
                                 </connections>
                             </switch>
-                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="bpY-2S-RTg">
+                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="bpY-2S-RTg">
                                 <rect key="frame" x="261" y="328" width="51" height="27"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <connections>
@@ -3713,6 +3712,8 @@ THANKS FOR BEING PART OF THE SHNERGLE COMMUNITY - HAPPY SHNERGLING!
                             <constraint firstItem="5iZ-5z-Xzi" firstAttribute="top" secondItem="B3s-Cy-7dq" secondAttribute="top" constant="263" id="1nA-jA-Hwb"/>
                             <constraint firstItem="5iZ-5z-Xzi" firstAttribute="centerY" secondItem="DSx-KC-rEr" secondAttribute="centerY" id="3vz-b6-OTO"/>
                             <constraint firstItem="2dj-o8-kxA" firstAttribute="top" secondItem="B3s-Cy-7dq" secondAttribute="top" constant="331" id="4iV-In-Jia"/>
+                            <constraint firstItem="bpY-2S-RTg" firstAttribute="top" secondItem="5iZ-5z-Xzi" secondAttribute="bottom" constant="34" id="5x8-G6-Trz"/>
+                            <constraint firstItem="bpY-2S-RTg" firstAttribute="leading" secondItem="5iZ-5z-Xzi" secondAttribute="leading" id="7gr-tp-pdR"/>
                             <constraint firstItem="bUi-c0-bhh" firstAttribute="top" secondItem="B3s-Cy-7dq" secondAttribute="top" constant="322" id="CCG-3w-aRH"/>
                             <constraint firstItem="2dj-o8-kxA" firstAttribute="trailing" secondItem="DSx-KC-rEr" secondAttribute="trailing" id="F92-6s-UCF"/>
                             <constraint firstItem="tCz-d5-RFB" firstAttribute="top" secondItem="B3s-Cy-7dq" secondAttribute="top" constant="53" id="JSK-iG-8H0"/>
@@ -3720,10 +3721,8 @@ THANKS FOR BEING PART OF THE SHNERGLE COMMUNITY - HAPPY SHNERGLING!
                             <constraint firstItem="Nvy-L1-x8r" firstAttribute="leading" secondItem="B3s-Cy-7dq" secondAttribute="leading" constant="76" id="MEV-gb-NQc"/>
                             <constraint firstItem="dG7-3O-aDh" firstAttribute="leading" secondItem="3jw-t7-D7A" secondAttribute="leading" id="NZI-TU-Xf0"/>
                             <constraint firstItem="ktB-oy-ooE" firstAttribute="top" secondItem="B3s-Cy-7dq" secondAttribute="top" constant="59" id="QFJ-aL-408"/>
-                            <constraint firstItem="2dj-o8-kxA" firstAttribute="centerY" secondItem="bpY-2S-RTg" secondAttribute="centerY" id="QLY-5I-3uX"/>
                             <constraint firstItem="tCz-d5-RFB" firstAttribute="trailing" secondItem="dG7-3O-aDh" secondAttribute="trailing" id="QfO-yh-2LH"/>
                             <constraint firstItem="2dj-o8-kxA" firstAttribute="leading" secondItem="DSx-KC-rEr" secondAttribute="leading" id="Sul-lt-c8O"/>
-                            <constraint firstItem="bpY-2S-RTg" firstAttribute="leading" secondItem="5iZ-5z-Xzi" secondAttribute="leading" id="Tm5-IQ-l5x"/>
                             <constraint firstItem="bUi-c0-bhh" firstAttribute="leading" secondItem="3jw-t7-D7A" secondAttribute="leading" id="V9j-J8-Wb6"/>
                             <constraint firstAttribute="trailing" secondItem="ktB-oy-ooE" secondAttribute="trailing" constant="7" id="Vf9-98-BUR"/>
                             <constraint firstItem="8L5-nb-XIc" firstAttribute="leading" secondItem="Nvy-L1-x8r" secondAttribute="leading" id="YMf-1r-wKq"/>
@@ -3734,9 +3733,7 @@ THANKS FOR BEING PART OF THE SHNERGLE COMMUNITY - HAPPY SHNERGLING!
                             <constraint firstItem="cev-rT-ehm" firstAttribute="centerY" secondItem="8L5-nb-XIc" secondAttribute="centerY" id="e2U-iF-1dj"/>
                             <constraint firstItem="ktB-oy-ooE" firstAttribute="centerY" secondItem="Nvy-L1-x8r" secondAttribute="centerY" id="fgd-X2-5E3"/>
                             <constraint firstItem="dG7-3O-aDh" firstAttribute="top" secondItem="B3s-Cy-7dq" secondAttribute="top" constant="114" id="hCG-fQ-TA3"/>
-                            <constraint firstAttribute="bottom" secondItem="bpY-2S-RTg" secondAttribute="bottom" constant="193" id="oXK-xT-dHc"/>
                             <constraint firstItem="cev-rT-ehm" firstAttribute="top" secondItem="B3s-Cy-7dq" secondAttribute="top" constant="120" id="pDQ-Gg-fmM"/>
-                            <constraint firstItem="bpY-2S-RTg" firstAttribute="top" secondItem="B3s-Cy-7dq" secondAttribute="top" constant="328" id="tf8-cC-yzS"/>
                             <constraint firstItem="cev-rT-ehm" firstAttribute="leading" secondItem="ktB-oy-ooE" secondAttribute="leading" id="x6B-lF-h8U"/>
                         </constraints>
                     </view>
@@ -4712,7 +4709,6 @@ Apple is a third party beneficiary of the Terms
     <resources>
         <image name="Authentication%20Process" width="640" height="198"/>
         <image name="FB-f-Logo__blue_50" width="50" height="50"/>
-        <image name="FB-f-Logo__blue_50" width="50" height="50"/>
         <image name="add_friend" width="89" height="89"/>
         <image name="arrowDown" width="42" height="42"/>
         <image name="arrow_east" width="38" height="32"/>
@@ -4721,26 +4717,15 @@ Apple is a third party beneficiary of the Terms
         <image name="glyphicons_030_pencil" width="24" height="24"/>
         <image name="glyphicons_087_log_book" width="22" height="24"/>
         <image name="glyphicons_195_circle_info" width="26" height="26"/>
-        <image name="glyphicons_195_circle_info" width="26" height="26"/>
-        <image name="glyphicons_195_circle_info" width="26" height="26"/>
         <image name="glyphicons_410_facebook" width="24" height="24"/>
         <image name="glyphicons_411_twitter" width="24" height="24"/>
         <image name="glyphicons_419_e-mail" width="24" height="24"/>
         <image name="greenbutton" width="155" height="60"/>
-        <image name="greenbutton" width="155" height="60"/>
-        <image name="greybutton03" width="157" height="60"/>
-        <image name="greybutton03" width="157" height="60"/>
         <image name="greybutton03" width="157" height="60"/>
         <image name="greybutton04" width="195" height="60"/>
-        <image name="greybutton04" width="195" height="60"/>
-        <image name="greybutton04" width="195" height="60"/>
-        <image name="greybutton04" width="195" height="60"/>
-        <image name="greybutton04" width="195" height="60"/>
-        <image name="promocorner" width="60" height="60"/>
         <image name="promocorner" width="60" height="60"/>
         <image name="shnerglelogo_splash_screen" width="600" height="172"/>
         <image name="tick.png" width="255" height="205"/>
-        <image name="twitter-bird-white-on-blue" width="300" height="300"/>
         <image name="twitter-bird-white-on-blue" width="300" height="300"/>
     </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
