@@ -932,6 +932,7 @@
 		CD4DF2A317CE048A005F3604 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CD4DF2A217CE048A005F3604 /* MapKit.framework */; };
 		CD5024921768AED6003D3004 /* StaffTypeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CD5024911768AE99003D3004 /* StaffTypeViewController.m */; };
 		CD56F319179D30C80028B688 /* FindStaffViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CD56F318179D308C0028B688 /* FindStaffViewController.m */; };
+		CD59C9B817E892E4000CF510 /* CMMapLauncher.m in Sources */ = {isa = PBXBuildFile; fileRef = CD59C9B717E892E4000CF510 /* CMMapLauncher.m */; };
 		CD654EE8179DCA9800F380B5 /* Crashlytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CD654EE7179DCA9800F380B5 /* Crashlytics.framework */; };
 		CD71CF3117D5E6A10022C0A1 /* 23.png in Resources */ = {isa = PBXBuildFile; fileRef = CD71CF2D17D5E6A10022C0A1 /* 23.png */; };
 		CD71CF3217D5E6A10022C0A1 /* 23@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CD71CF2E17D5E6A10022C0A1 /* 23@2x.png */; };
@@ -1927,6 +1928,8 @@
 		CD5024911768AE99003D3004 /* StaffTypeViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = StaffTypeViewController.m; sourceTree = "<group>"; };
 		CD56F317179D308C0028B688 /* FindStaffViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FindStaffViewController.h; sourceTree = "<group>"; };
 		CD56F318179D308C0028B688 /* FindStaffViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FindStaffViewController.m; sourceTree = "<group>"; };
+		CD59C9B617E892E4000CF510 /* CMMapLauncher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CMMapLauncher.h; sourceTree = "<group>"; };
+		CD59C9B717E892E4000CF510 /* CMMapLauncher.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CMMapLauncher.m; sourceTree = "<group>"; };
 		CD61F0A317688C06005EB276 /* StaffViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = StaffViewController.h; sourceTree = "<group>"; };
 		CD61F0A417688C06005EB276 /* StaffViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = StaffViewController.m; sourceTree = "<group>"; };
 		CD654EE7179DCA9800F380B5 /* Crashlytics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Crashlytics.framework; sourceTree = "<group>"; };
@@ -2926,6 +2929,8 @@
 		808F13CE16FB6A5C00B66E6D /* ShnergleApp */ = {
 			isa = PBXGroup;
 			children = (
+				CD59C9B617E892E4000CF510 /* CMMapLauncher.h */,
+				CD59C9B717E892E4000CF510 /* CMMapLauncher.m */,
 				EE6707BB17A957B80083E2C5 /* AcceptViewController.h */,
 				EE6707BC17A957B80083E2C5 /* AcceptViewController.m */,
 				EE4C2E1D17B9168B007CD51A /* AccountViewController.h */,
@@ -4111,6 +4116,7 @@
 				EE6707BD17A957B80083E2C5 /* AcceptViewController.m in Sources */,
 				EEE9EAD11768ACF100B8530B /* VenueDetailsViewController.m in Sources */,
 				CD5024921768AED6003D3004 /* StaffTypeViewController.m in Sources */,
+				CD59C9B817E892E4000CF510 /* CMMapLauncher.m in Sources */,
 				CDD8D95C1768A69C00BF3CAC /* StaffEditViewController.m in Sources */,
 				CD1BBBB217688F350008E4FD /* StaffViewController.m in Sources */,
 				808F13D516FB6A5C00B66E6D /* main.m in Sources */,
