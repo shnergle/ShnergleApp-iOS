@@ -86,7 +86,7 @@
     appDelegate.shnergleThis = NO;
     [self menuButtonDecorations];
 
-    if ([self.navBar respondsToSelector:@selector(setBarTintColor:)]) [self.navBar performSelector:@selector(setBarTintColor:) withObject:[UIColor colorWithRed:233.0 / 255 green:235.0 / 255 blue:240.0 / 255 alpha:1.0]];
+    self.navBar.barTintColor = [UIColor colorWithRed:233.0 / 255 green:235.0 / 255 blue:240.0 / 255 alpha:1.0];
     self.navBar.translucent = NO;
 
     id radius = [[NSUserDefaults standardUserDefaults] objectForKey:@"radius"];
@@ -198,24 +198,24 @@
 }
 
 - (void)showOverlay {
-    [[self overlay] showAnimated:126 animationDelay:0.2 animationDuration:0.5];
+    [self.overlay showAnimated:126 animationDelay:0.2 animationDuration:0.5];
     crowdImagesHidden = NO;
 }
 
 - (void)hideOverlay {
-    [[self overlay] hideAnimated:126 animationDuration:0.5 targetSize:350 contentView:[self overlay]];
+    [self.overlay hideAnimated:126 animationDuration:0.5 targetSize:350 contentView:[self overlay]];
     crowdImagesHidden = YES;
 }
 
 - (void)showDistanceScroller {
-    if (self.distanceScrollerView.bounds.origin.y < 44) {
-        [[self distanceScrollerView] showAnimated:44 animationDelay:0.0 animationDuration:0.5];
+    if (self.distanceScrollerView.bounds.origin.y < 64) {
+        [[self distanceScrollerView] showAnimated:64 animationDelay:0.0 animationDuration:0.5];
     }
 }
 
 - (void)hideDistanceScroller {
     if (self.distanceScrollerView.frame.origin.y > -64) {
-        [[self distanceScrollerView] hideAnimated:44 animationDuration:0.8 targetSize:-64 contentView:[self distanceScrollerView]];
+        [[self distanceScrollerView] hideAnimated:64 animationDuration:0.8 targetSize:-64 contentView:[self distanceScrollerView]];
     }
 }
 
