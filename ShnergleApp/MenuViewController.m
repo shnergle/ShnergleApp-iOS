@@ -16,6 +16,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     UIView *searchBar = [[NSBundle mainBundle] loadNibNamed:@"SearchBar" owner:self options:nil][0];
+    searchBar.frame = CGRectOffset(searchBar.frame, 0, 20);
     [self.view addSubview:searchBar];
 
     tableSections = @[@"Profile", @"Explore", @" "];

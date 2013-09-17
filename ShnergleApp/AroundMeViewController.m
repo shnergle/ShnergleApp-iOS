@@ -63,7 +63,7 @@
 
 - (void)menuButtonDecorations {
     self.navBarMenuItem.leftBarButtonItem = [self createLeftBarButton:@"mainmenu_button.png" actionSelector:@selector(tapMenu)];
-    UIImageView *locImage = [[UIImageView alloc] initWithFrame:CGRectMake(85, 10, 20, 20)];
+    UIImageView *locImage = [[UIImageView alloc] initWithFrame:CGRectMake(85, 30, 20, 20)];
     locImage.image = [UIImage imageNamed:@"glyphicons_233_direction"];
     [self.navBar addSubview:locImage];
 }

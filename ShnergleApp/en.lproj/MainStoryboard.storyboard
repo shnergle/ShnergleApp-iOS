@@ -190,7 +190,7 @@
                                 </constraints>
                             </view>
                             <navigationBar contentMode="scaleToFill" barStyle="black" translatesAutoresizingMaskIntoConstraints="NO" id="5nO-C1-XZo">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="84"/>
                                 <gestureRecognizers/>
                                 <items>
                                     <navigationItem title="Around Me" id="nJg-Cb-NLe">
@@ -210,6 +210,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="LIP-CL-Z0j" firstAttribute="leading" secondItem="3" secondAttribute="leading" id="8aQ-rw-Za9"/>
+                            <constraint firstItem="blb-MC-Z5H" firstAttribute="top" secondItem="5nO-C1-XZo" secondAttribute="bottom" constant="-64" id="9ZT-6b-yoT"/>
                             <constraint firstItem="5nO-C1-XZo" firstAttribute="leading" secondItem="3" secondAttribute="leading" id="GNW-8o-GCv"/>
                             <constraint firstItem="Yep-ys-8YG" firstAttribute="leading" secondItem="3" secondAttribute="leading" id="GqB-D3-JGa"/>
                             <constraint firstItem="5nO-C1-XZo" firstAttribute="trailing" secondItem="3" secondAttribute="trailing" id="V5j-Oi-H31"/>
@@ -2227,7 +2228,7 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <navigationBar contentMode="scaleToFill" barStyle="black" translatesAutoresizingMaskIntoConstraints="NO" id="uZw-Cy-fCl">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="84"/>
                                 <items>
                                     <navigationItem title="Profile" id="zZz-2u-Qxt">
                                         <barButtonItem key="rightBarButtonItem" title="Sign out" id="wa2-7h-tR6">
@@ -2613,6 +2614,7 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                             <constraint firstItem="dS4-9B-WSG" firstAttribute="trailing" secondItem="d7K-2j-bO2" secondAttribute="trailing" id="7iH-oo-6mJ"/>
                             <constraint firstItem="uZw-Cy-fCl" firstAttribute="top" secondItem="T3d-vY-Mf8" secondAttribute="top" id="BnI-3U-zHR"/>
                             <constraint firstItem="ho1-hg-V7U" firstAttribute="top" secondItem="d7K-2j-bO2" secondAttribute="bottom" constant="8" symbolic="YES" id="Ctg-pk-Ea5"/>
+                            <constraint firstItem="fQv-xJ-nyj" firstAttribute="top" secondItem="uZw-Cy-fCl" secondAttribute="bottom" constant="-64" id="JaV-vS-Szu"/>
                             <constraint firstItem="ho1-hg-V7U" firstAttribute="leading" secondItem="d7K-2j-bO2" secondAttribute="leading" id="L4N-1D-RAZ"/>
                             <constraint firstItem="d7K-2j-bO2" firstAttribute="top" secondItem="T3d-vY-Mf8" secondAttribute="top" constant="77" id="LQ1-XU-Qgm"/>
                             <constraint firstItem="UL8-cw-UNK" firstAttribute="leading" secondItem="T3d-vY-Mf8" secondAttribute="leading" constant="10" id="MnX-R0-i6Z"/>
@@ -3312,7 +3314,7 @@ THANKS FOR BEING PART OF THE SHNERGLE COMMUNITY - HAPPY SHNERGLING!
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <collectionView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" minimumZoomScale="0.0" maximumZoomScale="0.0" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="KpA-8g-IKJ">
-                                <rect key="frame" x="0.0" y="44" width="320" height="524"/>
+                                <rect key="frame" x="0.0" y="84" width="320" height="484"/>
                                 <color key="backgroundColor" red="0.9137254901960784" green="0.92156862745098034" blue="0.94117647058823528" alpha="1" colorSpace="calibratedRGB"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="5" minimumInteritemSpacing="5" id="l42-y3-f0e">
                                     <size key="itemSize" width="152" height="112"/>
@@ -3380,7 +3382,7 @@ THANKS FOR BEING PART OF THE SHNERGLE COMMUNITY - HAPPY SHNERGLING!
                                 </connections>
                             </collectionView>
                             <navigationBar contentMode="scaleToFill" barStyle="black" translatesAutoresizingMaskIntoConstraints="NO" id="BRG-Y7-nAX">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="84"/>
                                 <items>
                                     <navigationItem title="Favourites" id="ijm-KI-t8F">
                                         <barButtonItem key="rightBarButtonItem" title="Check In" id="Kbi-8Y-RPI">
@@ -3399,6 +3401,7 @@ THANKS FOR BEING PART OF THE SHNERGLE COMMUNITY - HAPPY SHNERGLING!
                             <constraint firstItem="KpA-8g-IKJ" firstAttribute="leading" secondItem="6S5-MJ-Ufd" secondAttribute="leading" id="af3-xu-V6E"/>
                             <constraint firstItem="KpA-8g-IKJ" firstAttribute="trailing" secondItem="6S5-MJ-Ufd" secondAttribute="trailing" id="bzK-P3-HFI"/>
                             <constraint firstItem="KpA-8g-IKJ" firstAttribute="bottom" secondItem="6S5-MJ-Ufd" secondAttribute="bottom" id="cay-vP-AsQ"/>
+                            <constraint firstItem="n0D-Pf-KxP" firstAttribute="top" secondItem="BRG-Y7-nAX" secondAttribute="bottom" constant="-64" id="coh-MI-LRV"/>
                             <constraint firstItem="KpA-8g-IKJ" firstAttribute="top" secondItem="BRG-Y7-nAX" secondAttribute="bottom" id="fJS-5O-4gk"/>
                             <constraint firstItem="BRG-Y7-nAX" firstAttribute="top" secondItem="6S5-MJ-Ufd" secondAttribute="top" id="rKA-3m-fip"/>
                             <constraint firstItem="BRG-Y7-nAX" firstAttribute="leading" secondItem="6S5-MJ-Ufd" secondAttribute="leading" id="zZB-QW-2up"/>
@@ -4369,7 +4372,7 @@ Apple is a third party beneficiary of the Terms
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="OEo-Lu-Lqh">
-                                <rect key="frame" x="0.0" y="44" width="231" height="524"/>
+                                <rect key="frame" x="0.0" y="64" width="231" height="504"/>
                                 <color key="backgroundColor" white="1" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="231" id="qAg-de-od2"/>
@@ -4581,10 +4584,10 @@ Apple is a third party beneficiary of the Terms
                                 </connections>
                             </tableView>
                         </subviews>
-                        <color key="backgroundColor" red="0.34963060461956519" green="0.34963060461956519" blue="0.34963060461956519" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" red="0.23921568627450979" green="0.23921568627450979" blue="0.23921568627450979" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="OEo-Lu-Lqh" firstAttribute="bottom" secondItem="2oN-RZ-QoM" secondAttribute="bottom" id="3QD-HF-4CN"/>
-                            <constraint firstItem="OEo-Lu-Lqh" firstAttribute="top" secondItem="2oN-RZ-QoM" secondAttribute="top" constant="44" id="4NV-o4-ccK"/>
+                            <constraint firstItem="OEo-Lu-Lqh" firstAttribute="top" secondItem="2oN-RZ-QoM" secondAttribute="top" constant="64" id="4NV-o4-ccK"/>
                             <constraint firstItem="OEo-Lu-Lqh" firstAttribute="leading" secondItem="2oN-RZ-QoM" secondAttribute="leading" id="4in-Sa-Dge"/>
                         </constraints>
                     </view>
@@ -4709,6 +4712,7 @@ Apple is a third party beneficiary of the Terms
     <resources>
         <image name="Authentication%20Process" width="640" height="198"/>
         <image name="FB-f-Logo__blue_50" width="50" height="50"/>
+        <image name="FB-f-Logo__blue_50" width="50" height="50"/>
         <image name="add_friend" width="89" height="89"/>
         <image name="arrowDown" width="42" height="42"/>
         <image name="arrow_east" width="38" height="32"/>
@@ -4717,15 +4721,26 @@ Apple is a third party beneficiary of the Terms
         <image name="glyphicons_030_pencil" width="24" height="24"/>
         <image name="glyphicons_087_log_book" width="22" height="24"/>
         <image name="glyphicons_195_circle_info" width="26" height="26"/>
+        <image name="glyphicons_195_circle_info" width="26" height="26"/>
+        <image name="glyphicons_195_circle_info" width="26" height="26"/>
         <image name="glyphicons_410_facebook" width="24" height="24"/>
         <image name="glyphicons_411_twitter" width="24" height="24"/>
         <image name="glyphicons_419_e-mail" width="24" height="24"/>
         <image name="greenbutton" width="155" height="60"/>
+        <image name="greenbutton" width="155" height="60"/>
+        <image name="greybutton03" width="157" height="60"/>
+        <image name="greybutton03" width="157" height="60"/>
         <image name="greybutton03" width="157" height="60"/>
         <image name="greybutton04" width="195" height="60"/>
+        <image name="greybutton04" width="195" height="60"/>
+        <image name="greybutton04" width="195" height="60"/>
+        <image name="greybutton04" width="195" height="60"/>
+        <image name="greybutton04" width="195" height="60"/>
+        <image name="promocorner" width="60" height="60"/>
         <image name="promocorner" width="60" height="60"/>
         <image name="shnerglelogo_splash_screen" width="600" height="172"/>
         <image name="tick.png" width="255" height="205"/>
+        <image name="twitter-bird-white-on-blue" width="300" height="300"/>
         <image name="twitter-bird-white-on-blue" width="300" height="300"/>
     </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
@@ -4734,13 +4749,13 @@ Apple is a third party beneficiary of the Terms
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="wJZ-W6-KFM"/>
-        <segue reference="HHH-Gt-FIZ"/>
-        <segue reference="V1y-Vn-JKN"/>
+        <segue reference="mMx-sI-unJ"/>
         <segue reference="xzO-IX-Cmd"/>
-        <segue reference="Dyu-vl-dRT"/>
-        <segue reference="WSb-QO-1iD"/>
-        <segue reference="xUB-NL-HY4"/>
-        <segue reference="qNM-G7-JMr"/>
+        <segue reference="1nI-j0-QaW"/>
+        <segue reference="hoH-3k-0HF"/>
+        <segue reference="FIu-Ud-A3V"/>
+        <segue reference="cQy-dx-7sJ"/>
+        <segue reference="V1y-Vn-JKN"/>
+        <segue reference="HHH-Gt-FIZ"/>
     </inferredMetricsTieBreakers>
 </document>
