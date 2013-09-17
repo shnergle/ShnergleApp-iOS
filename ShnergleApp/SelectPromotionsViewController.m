@@ -42,7 +42,7 @@
     cell = [tableView dequeueReusableCellWithIdentifier:@"Cell"];
     if (!cell) cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"Cell"];
 
-    UIImage *img = [UIImage imageNamed:@"promotion.png"];
+    UIImage *img = [UIImage imageNamed:@"promotion."];
     UIImageView *promotionTicketView = [[UIImageView alloc] initWithFrame:CGRectMake(5, 0, 311.0, 67.5)];
     promotionTicketView.image = img;
     [cell addSubview:promotionTicketView];

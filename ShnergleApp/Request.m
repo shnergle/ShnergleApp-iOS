@@ -129,7 +129,7 @@ static ConnectionErrorAlert *connectionErrorAlert;
                     responseArg = [[UIImage alloc] initWithData:data];
                     [self setImage:params image:responseArg];
                 } @catch (NSException *e) {
-                    responseArg = [UIImage imageNamed:@"No_activity.png"];
+                    responseArg = [UIImage imageNamed:@"No_activity."];
                     [self setImage:params image:responseArg];
                 }
                 [self logData:data andResponse:responseArg];
