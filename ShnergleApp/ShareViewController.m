@@ -55,7 +55,7 @@
     self.navigationItem.rightBarButtonItem.enabled = NO;
     if (appDelegate.shnergleThis) {
         //Upload to Shnergle
-        [Request post:@"posts/set" params:@{@"venue_id": appDelegate.activeVenue[@"id"], @"caption": self.textFieldname.text ? self.textFieldname.text : @""} image:self.image.image delegate:self callback:@selector(didFinishPost:)];
+        [Request post:@"posts/set" params:@{@"venue_id": appDelegate.activeVenue[@"id"], @"caption": (self.textFieldname.text && [self.textFieldname.text isEqualToString:@"Write something..."]) ? @"" : self.textFieldname.text} image:self.image.image delegate:self callback:@selector(didFinishPost:)];
     } else {
         post_id = appDelegate.shareActivePostId;
         [self shareOnTwitter];
@@ -79,7 +79,7 @@
         } else {
             venueName = [(appDelegate.shnergleThis ? @"@ " : @"From ") stringByAppendingString:appDelegate.activeVenue[@"name"]];
         }
-        [self postImage:self.image.image withStatus:[NSString stringWithFormat:@"%@ %@ #ShnergleIt", self.textFieldname.text, venueName]];
+        [self postImage:self.image.image withStatus:[NSString stringWithFormat:@"%@ %@ #ShnergleIt", (self.textFieldname.text && [self.textFieldname.text isEqualToString:@"Write something..."]) ? @"" : self.textFieldname.text, venueName]];
         if (appDelegate.shareVenue) {
             [Request post:@"venue_shares/set" params:@{@"venue_id" : appDelegate.activeVenue[@"id"], @"media_id": @2} delegate:self callback:@selector(doNothing:)];
         } else {
@@ -123,7 +123,7 @@
         [friends appendString:@"."];
     }
     NSString *venueName = [(appDelegate.shnergleThis ? @"@ " : @"From ") stringByAppendingString:appDelegate.activeVenue[@"name"]];
-    action[@"message"] = [NSString stringWithFormat:@"%@ %@%@ #ShnergleIt", self.textFieldname.text, venueName, friends];
+    action[@"message"] = [NSString stringWithFormat:@"%@ %@%@ #ShnergleIt", (self.textFieldname.text && [self.textFieldname.text isEqualToString:@"Write something..."]) ? @"" : self.textFieldname.text, venueName, friends];
     action[@"fb:explicitly_shared"] = @"true";
     //action[@"tags"] = selectedFriends;
     //action[@"place"] = @"http://samples.ogp.me/259837270824167";
