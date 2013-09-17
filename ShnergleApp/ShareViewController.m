@@ -204,9 +204,16 @@
         [Request post:@"promotion_redemptions/set" params:@{@"promotion_id": appDelegate.redeeming} delegate:self callback:@selector(redeemed:)];
     } else {
         UIStoryboard *sb = [UIStoryboard storyboardWithName:@"MainStoryboard" bundle:nil];
-
+        int pointsAwarded = 0;
+        if(appDelegate.shnergleThis)
+        {
+            pointsAwarded = 4;
+        }else
+        {
+            pointsAwarded = 5;
+        }
         ThankYouViewController *vc = (ThankYouViewController *)[sb instantiateViewControllerWithIdentifier:@"thankyouverymuch"];
-        [vc setupFields:@"You got <NIL> points" :@""];
+        [vc setupFields:[NSString stringWithFormat:@"Congratulations, you earned %d points!",pointsAwarded] :@"" : @""];
         [self.navigationController pushViewController:vc animated:YES];
         //[self presentViewController:vc animated:YES completion:nil];
     }
@@ -223,18 +230,20 @@
 
 - (void)redeemed:(NSString *)response {
     NSString *msg;
+    NSString *passcode = @"";
     if ([@"time" isEqualToString : response]) {
         msg = @"Bad Luck, you ran out of time to redeem the promotion.";
     } else if ([@"number" isEqualToString : response]) {
         msg = @"Bad Luck, you just missed the last promotion; someone beat you to it!";
     } else {
-        msg = [NSString stringWithFormat:@"The passcode for the promotion is: %@", response];
+        msg = @"The passcode for the promotion is:";
+        passcode = response;
     }
 
     UIStoryboard *sb = [UIStoryboard storyboardWithName:@"MainStoryboard" bundle:nil];
 
     ThankYouViewController *vc = (ThankYouViewController *)[sb instantiateViewControllerWithIdentifier:@"thankyouverymuch"];
-    [vc setupFields:@"You got <NIL> points" :msg];
+    [vc setupFields:@"" :msg :passcode];
     [self presentViewController:vc animated:YES completion:nil];
 }
 

@@ -15,13 +15,16 @@
     [super viewDidLoad];
     self.passcodeLabel.hidden = shouldHidePasscode;
     self.passcodeInfoLabel.hidden = shouldHidePasscode;
+    self.passcodeInfoLabel.text = passcodeInfoString;
     self.passcodeLabel.text = passcodeString;
     self.pointsLabel.text = pointsString;
+    [self.navigationController setNavigationBarHidden:YES];
 }
 
-- (void)setupFields:(NSString *)points :(NSString *)passcode {
-    self.pointsLabel.text = points;
-    if ([passcode length] > 0) {
+- (void)setupFields:(NSString *)points :(NSString *)msg :(NSString *)passcode{
+    pointsString = points;
+    if ([msg length] > 0) {
+        passcodeInfoString = msg;
         passcodeString = passcode;
     } else {
         shouldHidePasscode = YES;

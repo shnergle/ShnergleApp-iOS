@@ -9,15 +9,17 @@
 #import <UIKit/UIKit.h>
 #import "CustomBackViewController.h"
 
-@interface ThankYouViewController : CustomBackViewController
+@interface ThankYouViewController : UIViewController
 {
     NSString *pointsString;
     NSString *passcodeString;
+    NSString *passcodeInfoString;
     BOOL shouldHidePasscode;
 }
 @property (weak, nonatomic) IBOutlet UILabel *pointsLabel;
 @property (weak, nonatomic) IBOutlet UILabel *passcodeLabel;
 @property (weak, nonatomic) IBOutlet UILabel *passcodeInfoLabel;
+
 - (IBAction)tappedDone:(id)sender;
-- (void)setupFields:(NSString *)points :(NSString *)passcode;
+- (void)setupFields:(NSString *)points :(NSString *)msg :(NSString *)passcode;
 @end
