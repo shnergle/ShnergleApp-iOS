@@ -1,5 +1,6 @@
 platform :ios, '7.0'
 xcodeproj 'ShnergleApp.xcodeproj'
+inhibit_all_warnings!
 pod 'ECSlidingViewController', '~> 0.10.0'
 pod 'Facebook-iOS-SDK', '~> 3.7.1'
 pod 'Toast', '~> 2.0'
