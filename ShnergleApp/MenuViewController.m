@@ -37,7 +37,7 @@
     NSArray *nibObjects = [[NSBundle mainBundle] loadNibNamed:@"SearchResultsView" owner:self options:nil];
     self.searchResultsView = nibObjects[0];
 
-    self.searchResultsView.frame = CGRectMake(320, 45, 320, self.view.frame.size.height - 45);
+    self.searchResultsView.frame = CGRectMake(320, 65, 320, self.view.frame.size.height - 65);
     [[self view] addSubview:self.searchResultsView];
     self.cancelButton.alpha = 0;
 }
