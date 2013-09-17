@@ -41,9 +41,6 @@
                                     <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="top" bounces="NO" alwaysBounceVertical="YES" minimumZoomScale="0.0" maximumZoomScale="0.0" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="NoU-2f-HS3">
                                         <rect key="frame" x="0.0" y="43" width="320" height="379"/>
                                         <color key="backgroundColor" red="0.9137254901960784" green="0.92156862745098034" blue="0.94117647058823528" alpha="1" colorSpace="calibratedRGB"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="379" id="jit-GN-jw2"/>
-                                        </constraints>
                                         <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="5" minimumInteritemSpacing="5" id="sQ4-wF-cWC">
                                             <size key="itemSize" width="152" height="112"/>
                                             <size key="headerReferenceSize" width="0.0" height="0.0"/>
@@ -220,6 +217,7 @@
                             <constraint firstItem="LIP-CL-Z0j" firstAttribute="top" secondItem="3" secondAttribute="top" constant="146" id="fqJ-MI-gdQ"/>
                             <constraint firstItem="Yep-ys-8YG" firstAttribute="trailing" secondItem="3" secondAttribute="trailing" id="jXD-JI-rAV"/>
                             <constraint firstItem="5nO-C1-XZo" firstAttribute="top" secondItem="3" secondAttribute="top" id="lBl-Yw-d1N"/>
+                            <constraint firstAttribute="bottom" secondItem="LIP-CL-Z0j" secondAttribute="bottom" id="sng-ZT-oWQ"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="7uE-nf-CCR"/>
