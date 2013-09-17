@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="4510" systemVersion="12F37" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="Yrf-wA-f9e">
     <dependencies>
-        <deployment defaultVersion="1536" identifier="iOS"/>
+        <deployment defaultVersion="1792" identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3742"/>
     </dependencies>
     <scenes>
@@ -74,7 +74,7 @@
                                                             <nil key="highlightedColor"/>
                                                             <size key="shadowOffset" width="0.0" height="0.0"/>
                                                         </label>
-                                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" image="promocorner.png" translatesAutoresizingMaskIntoConstraints="NO" id="R33-p2-naO">
+                                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" image="promocorner" translatesAutoresizingMaskIntoConstraints="NO" id="R33-p2-naO">
                                                             <rect key="frame" x="122" y="0.0" width="30" height="30"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="30" id="BLW-0J-ZPV"/>
@@ -116,7 +116,7 @@
                                         </constraints>
                                         <fontDescription key="fontDescription" type="boldSystem" size="button"/>
                                         <inset key="contentEdgeInsets" minX="4" minY="5" maxX="4" maxY="3"/>
-                                        <state key="normal" image="arrowDown.png">
+                                        <state key="normal" image="arrowDown">
                                             <color key="titleColor" red="0.19607843137254902" green="0.30980392156862746" blue="0.52156862745098043" alpha="1" colorSpace="calibratedRGB"/>
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
@@ -424,7 +424,7 @@
                                     <rect key="frame" x="0.0" y="241" width="320" height="294"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <subviews>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Authentication%20Process.png" translatesAutoresizingMaskIntoConstraints="NO" id="BDJ-zr-OlB">
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Authentication%20Process" translatesAutoresizingMaskIntoConstraints="NO" id="BDJ-zr-OlB">
                                             <rect key="frame" x="0.0" y="10" width="320" height="105"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="105" id="20K-IW-gVM"/>
@@ -898,7 +898,7 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                                     <constraint firstAttribute="height" constant="25" id="u5G-Zx-UJS"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                <state key="normal" backgroundImage="glyphicons_195_circle_info.png">
+                                <state key="normal" backgroundImage="glyphicons_195_circle_info">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
@@ -1336,7 +1336,7 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                                     <constraint firstAttribute="width" constant="102" id="Tnb-a3-Odd"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="13"/>
-                                <state key="normal" title="Like" backgroundImage="greybutton03.png">
+                                <state key="normal" title="Like" backgroundImage="greybutton03">
                                     <color key="titleColor" white="0.28740875912408759" alpha="1" colorSpace="calibratedWhite"/>
                                     <color key="titleShadowColor" white="0.69482778284671531" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -1350,7 +1350,7 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                                     <constraint firstAttribute="width" constant="102" id="7MZ-zc-0ZP"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="13"/>
-                                <state key="normal" title="Share" backgroundImage="greybutton03.png">
+                                <state key="normal" title="Share" backgroundImage="greybutton03">
                                     <color key="titleColor" white="0.28740875912408759" alpha="1" colorSpace="calibratedWhite"/>
                                     <color key="titleShadowColor" white="0.69482778284671531" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -1361,7 +1361,7 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zpk-oQ-Ics">
                                 <rect key="frame" x="212" y="524" width="102" height="35"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="13"/>
-                                <state key="normal" title="Flag for review" backgroundImage="greybutton03.png">
+                                <state key="normal" title="Flag for review" backgroundImage="greybutton03">
                                     <color key="titleColor" white="0.28740875912408759" alpha="1" colorSpace="calibratedWhite"/>
                                     <color key="titleShadowColor" white="0.69482778284671531" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -1915,14 +1915,14 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" image="FB-f-Logo__blue_50.png" translatesAutoresizingMaskIntoConstraints="NO" id="wNA-Lp-peS">
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" image="FB-f-Logo__blue_50" translatesAutoresizingMaskIntoConstraints="NO" id="wNA-Lp-peS">
                                                 <rect key="frame" x="3" y="171" width="43" height="40"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="43" id="cvd-7m-VVv"/>
                                                     <constraint firstAttribute="height" constant="40" id="yUx-Ia-d70"/>
                                                 </constraints>
                                             </imageView>
-                                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" image="twitter-bird-white-on-blue.png" translatesAutoresizingMaskIntoConstraints="NO" id="46y-qu-YuB">
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" image="twitter-bird-white-on-blue" translatesAutoresizingMaskIntoConstraints="NO" id="46y-qu-YuB">
                                                 <rect key="frame" x="3" y="225" width="43" height="40"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="43" id="7zp-8U-iLf"/>
@@ -1963,7 +1963,7 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                                                     <constraint firstAttribute="width" constant="44" id="OnM-cw-BCy"/>
                                                     <constraint firstAttribute="height" constant="44" id="Qf4-Ke-0KY"/>
                                                 </constraints>
-                                                <state key="normal" backgroundImage="add_friend.png">
+                                                <state key="normal" backgroundImage="add_friend">
                                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                                 </state>
                                                 <connections>
@@ -2284,7 +2284,7 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                                         <color key="textColor" red="0.091011031395208983" green="0.59169653428540614" blue="0.9561941964285714" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="arrow_east.png" translatesAutoresizingMaskIntoConstraints="NO" id="5AW-We-bsT">
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="arrow_east" translatesAutoresizingMaskIntoConstraints="NO" id="5AW-We-bsT">
                                         <rect key="frame" x="261" y="229" width="23" height="21"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="23" id="Nmn-Yh-ip0"/>
@@ -2600,7 +2600,7 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                                     <constraint firstAttribute="height" constant="25" id="jvB-SG-KAM"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                <state key="normal" backgroundImage="glyphicons_195_circle_info.png">
+                                <state key="normal" backgroundImage="glyphicons_195_circle_info">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
@@ -2727,14 +2727,14 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                             </label>
                             <button userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iQ9-O5-8cq">
                                 <rect key="frame" x="6" y="133" width="89" height="32"/>
-                                <state key="normal" title="Share" backgroundImage="greybutton04.png">
+                                <state key="normal" title="Share" backgroundImage="greybutton04">
                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                             </button>
                             <button userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="J2E-sR-YRQ">
                                 <rect key="frame" x="6" y="179" width="89" height="32"/>
-                                <state key="normal" title="Check In" backgroundImage="greenbutton.png">
+                                <state key="normal" title="Check In" backgroundImage="greenbutton">
                                     <color key="titleColor" red="0.96862745100000003" green="0.96862745100000003" blue="0.96862745100000003" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -2796,14 +2796,14 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                             </label>
                             <button opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MAL-HB-KHc">
                                 <rect key="frame" x="6" y="227" width="89" height="32"/>
-                                <state key="normal" title="RSVP" backgroundImage="greybutton04.png">
+                                <state key="normal" title="RSVP" backgroundImage="greybutton04">
                                     <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                             </button>
                             <button opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZGJ-gU-57h">
                                 <rect key="frame" x="6" y="275" width="89" height="32"/>
-                                <state key="normal" title="Like" backgroundImage="greybutton04.png">
+                                <state key="normal" title="Like" backgroundImage="greybutton04">
                                     <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -2971,7 +2971,7 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                                     <constraint firstAttribute="width" constant="135" id="7Xa-iD-l8p"/>
                                     <constraint firstAttribute="height" constant="39" id="biX-g0-By1"/>
                                 </constraints>
-                                <state key="normal" title="  I Accept" image="glyphicons_030_pencil.png" backgroundImage="greenbutton.png">
+                                <state key="normal" title="  I Accept" image="glyphicons_030_pencil" backgroundImage="greenbutton">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
@@ -2992,7 +2992,7 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                                 <constraints>
                                     <constraint firstAttribute="height" constant="25" id="Vxv-75-4df"/>
                                 </constraints>
-                                <state key="normal" title="Privacy and Cookie Policy" backgroundImage="greybutton04.png">
+                                <state key="normal" title="Privacy and Cookie Policy" backgroundImage="greybutton04">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
@@ -3005,7 +3005,7 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                                     <constraint firstAttribute="height" constant="25" id="8fM-iY-JYh"/>
                                     <constraint firstAttribute="width" constant="205" id="ehU-dY-Aa5"/>
                                 </constraints>
-                                <state key="normal" title="Terms of Use" backgroundImage="greybutton04.png">
+                                <state key="normal" title="Terms of Use" backgroundImage="greybutton04">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
@@ -3343,7 +3343,7 @@ THANKS FOR BEING PART OF THE SHNERGLE COMMUNITY - HAPPY SHNERGLING!
                                                     <nil key="highlightedColor"/>
                                                     <size key="shadowOffset" width="0.0" height="0.0"/>
                                                 </label>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" image="promocorner.png" translatesAutoresizingMaskIntoConstraints="NO" id="s5g-hH-jXZ">
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" image="promocorner" translatesAutoresizingMaskIntoConstraints="NO" id="s5g-hH-jXZ">
                                                     <rect key="frame" x="122" y="0.0" width="30" height="30"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="30" id="KwO-Zs-b7D"/>
@@ -3612,7 +3612,7 @@ THANKS FOR BEING PART OF THE SHNERGLE COMMUNITY - HAPPY SHNERGLING!
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="FB-f-Logo__blue_50.png" translatesAutoresizingMaskIntoConstraints="NO" id="tCz-d5-RFB">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="FB-f-Logo__blue_50" translatesAutoresizingMaskIntoConstraints="NO" id="tCz-d5-RFB">
                                 <rect key="frame" x="10" y="53" width="40" height="40"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <constraints>
@@ -3620,7 +3620,7 @@ THANKS FOR BEING PART OF THE SHNERGLE COMMUNITY - HAPPY SHNERGLING!
                                     <constraint firstAttribute="width" constant="40" id="qOS-u4-gvT"/>
                                 </constraints>
                             </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="twitter-bird-white-on-blue.png" translatesAutoresizingMaskIntoConstraints="NO" id="dG7-3O-aDh">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="twitter-bird-white-on-blue" translatesAutoresizingMaskIntoConstraints="NO" id="dG7-3O-aDh">
                                 <rect key="frame" x="10" y="114" width="40" height="40"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <constraints>
@@ -3657,7 +3657,7 @@ THANKS FOR BEING PART OF THE SHNERGLE COMMUNITY - HAPPY SHNERGLING!
                                     <action selector="twitterSwitchAction:" destination="sUR-Sr-h90" eventType="valueChanged" id="T2W-Cg-bEX"/>
                                 </connections>
                             </switch>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="glyphicons_087_log_book.png" translatesAutoresizingMaskIntoConstraints="NO" id="3jw-t7-D7A">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="glyphicons_087_log_book" translatesAutoresizingMaskIntoConstraints="NO" id="3jw-t7-D7A">
                                 <rect key="frame" x="10" y="260" width="35" height="40"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <constraints>
@@ -3665,7 +3665,7 @@ THANKS FOR BEING PART OF THE SHNERGLE COMMUNITY - HAPPY SHNERGLING!
                                     <constraint firstAttribute="height" constant="40" id="iqH-0B-oiN"/>
                                 </constraints>
                             </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="glyphicons_029_notes_2.png" translatesAutoresizingMaskIntoConstraints="NO" id="bUi-c0-bhh">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="glyphicons_029_notes_2" translatesAutoresizingMaskIntoConstraints="NO" id="bUi-c0-bhh">
                                 <rect key="frame" x="10" y="322" width="35" height="40"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <constraints>
@@ -3760,7 +3760,7 @@ THANKS FOR BEING PART OF THE SHNERGLE COMMUNITY - HAPPY SHNERGLING!
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="glyphicons_410_facebook.png" translatesAutoresizingMaskIntoConstraints="NO" id="rvr-C9-Dpd">
+                            <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="glyphicons_410_facebook" translatesAutoresizingMaskIntoConstraints="NO" id="rvr-C9-Dpd">
                                 <rect key="frame" x="12" y="37" width="40" height="40"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <gestureRecognizers/>
@@ -3772,7 +3772,7 @@ THANKS FOR BEING PART OF THE SHNERGLE COMMUNITY - HAPPY SHNERGLING!
                                     <outletCollection property="gestureRecognizers" destination="iPE-JD-Opi" appends="YES" id="H84-4E-Nl8"/>
                                 </connections>
                             </imageView>
-                            <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="glyphicons_411_twitter.png" translatesAutoresizingMaskIntoConstraints="NO" id="KLs-UF-a9r">
+                            <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="glyphicons_411_twitter" translatesAutoresizingMaskIntoConstraints="NO" id="KLs-UF-a9r">
                                 <rect key="frame" x="12" y="99" width="40" height="40"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <gestureRecognizers/>
@@ -3783,7 +3783,7 @@ THANKS FOR BEING PART OF THE SHNERGLE COMMUNITY - HAPPY SHNERGLING!
                                     <outletCollection property="gestureRecognizers" destination="vhK-SS-WQU" appends="YES" id="8rd-r2-h5n"/>
                                 </connections>
                             </imageView>
-                            <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="glyphicons_419_e-mail.png" translatesAutoresizingMaskIntoConstraints="NO" id="psb-7A-Gw1">
+                            <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="glyphicons_419_e-mail" translatesAutoresizingMaskIntoConstraints="NO" id="psb-7A-Gw1">
                                 <rect key="frame" x="12" y="160" width="40" height="40"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <gestureRecognizers/>
@@ -4642,13 +4642,13 @@ Apple is a third party beneficiary of the Terms
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="background.png" translatesAutoresizingMaskIntoConstraints="NO" id="6wr-nA-yH3">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="background" translatesAutoresizingMaskIntoConstraints="NO" id="6wr-nA-yH3">
                                 <rect key="frame" x="0.0" y="-2" width="320" height="570"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="570" id="0GW-ng-t96"/>
                                 </constraints>
                             </imageView>
-                            <imageView autoresizesSubviews="NO" userInteractionEnabled="NO" contentMode="scaleAspectFit" image="shnerglelogo_splash_screen.png" translatesAutoresizingMaskIntoConstraints="NO" id="rry-Gf-ZA7">
+                            <imageView autoresizesSubviews="NO" userInteractionEnabled="NO" contentMode="scaleAspectFit" image="shnerglelogo_splash_screen" translatesAutoresizingMaskIntoConstraints="NO" id="rry-Gf-ZA7">
                                 <rect key="frame" x="10" y="80" width="300" height="172"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="300" id="Lsb-U3-z53"/>
@@ -4662,7 +4662,7 @@ Apple is a third party beneficiary of the Terms
                                     <constraint firstAttribute="width" constant="26" id="goQ-4l-IUK"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <state key="normal" image="glyphicons_195_circle_info.png">
+                                <state key="normal" image="glyphicons_195_circle_info">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
@@ -4707,26 +4707,26 @@ Apple is a third party beneficiary of the Terms
         </scene>
     </scenes>
     <resources>
-        <image name="Authentication%20Process.png" width="640" height="198"/>
-        <image name="FB-f-Logo__blue_50.png" width="50" height="50"/>
-        <image name="add_friend.png" width="89" height="89"/>
-        <image name="arrowDown.png" width="42" height="42"/>
-        <image name="arrow_east.png" width="38" height="32"/>
-        <image name="background.png" width="640" height="1136"/>
-        <image name="glyphicons_029_notes_2.png" width="20" height="27"/>
-        <image name="glyphicons_030_pencil.png" width="24" height="24"/>
-        <image name="glyphicons_087_log_book.png" width="22" height="24"/>
-        <image name="glyphicons_195_circle_info.png" width="26" height="26"/>
-        <image name="glyphicons_410_facebook.png" width="24" height="24"/>
-        <image name="glyphicons_411_twitter.png" width="24" height="24"/>
-        <image name="glyphicons_419_e-mail.png" width="24" height="24"/>
-        <image name="greenbutton.png" width="155" height="60"/>
-        <image name="greybutton03.png" width="157" height="60"/>
-        <image name="greybutton04.png" width="195" height="60"/>
-        <image name="promocorner.png" width="60" height="60"/>
-        <image name="shnerglelogo_splash_screen.png" width="600" height="172"/>
+        <image name="Authentication%20Process" width="640" height="198"/>
+        <image name="FB-f-Logo__blue_50" width="50" height="50"/>
+        <image name="add_friend" width="89" height="89"/>
+        <image name="arrowDown" width="42" height="42"/>
+        <image name="arrow_east" width="38" height="32"/>
+        <image name="background" width="640" height="1136"/>
+        <image name="glyphicons_029_notes_2" width="20" height="27"/>
+        <image name="glyphicons_030_pencil" width="24" height="24"/>
+        <image name="glyphicons_087_log_book" width="22" height="24"/>
+        <image name="glyphicons_195_circle_info" width="26" height="26"/>
+        <image name="glyphicons_410_facebook" width="24" height="24"/>
+        <image name="glyphicons_411_twitter" width="24" height="24"/>
+        <image name="glyphicons_419_e-mail" width="24" height="24"/>
+        <image name="greenbutton" width="155" height="60"/>
+        <image name="greybutton03" width="157" height="60"/>
+        <image name="greybutton04" width="195" height="60"/>
+        <image name="promocorner" width="60" height="60"/>
+        <image name="shnerglelogo_splash_screen" width="600" height="172"/>
         <image name="tick.png" width="255" height="205"/>
-        <image name="twitter-bird-white-on-blue.png" width="300" height="300"/>
+        <image name="twitter-bird-white-on-blue" width="300" height="300"/>
     </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
@@ -4734,13 +4734,13 @@ Apple is a third party beneficiary of the Terms
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="fjC-0F-Or5"/>
+        <segue reference="wJZ-W6-KFM"/>
+        <segue reference="HHH-Gt-FIZ"/>
+        <segue reference="V1y-Vn-JKN"/>
+        <segue reference="xzO-IX-Cmd"/>
         <segue reference="Dyu-vl-dRT"/>
-        <segue reference="Zho-BK-kL6"/>
-        <segue reference="ohm-kx-4nt"/>
-        <segue reference="qNM-G7-JMr"/>
         <segue reference="WSb-QO-1iD"/>
         <segue reference="xUB-NL-HY4"/>
-        <segue reference="xzO-IX-Cmd"/>
+        <segue reference="qNM-G7-JMr"/>
     </inferredMetricsTieBreakers>
 </document>

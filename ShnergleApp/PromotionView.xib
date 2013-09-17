@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="4510" systemVersion="12F37" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none">
     <dependencies>
-        <deployment defaultVersion="1536" identifier="iOS"/>
+        <deployment defaultVersion="1792" identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3742"/>
     </dependencies>
     <objects>
@@ -15,7 +15,7 @@
                     <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <subviews>
-                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" image="ticket.png" id="57">
+                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" image="ticket" id="57">
                             <rect key="frame" x="0.0" y="50" width="320" height="368"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         </imageView>
@@ -23,7 +23,7 @@
                             <rect key="frame" x="92" y="368" width="133" height="36"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                            <state key="normal" title="Redeem Now !" backgroundImage="greenbutton.png">
+                            <state key="normal" title="Redeem Now !" backgroundImage="greenbutton">
                                 <attributedString key="attributedTitle">
                                     <fragment content="Redeem Now !">
                                         <attributes>
@@ -37,7 +37,7 @@
                                 <action selector="tapUseDeal:" destination="1" eventType="touchUpInside" id="51"/>
                             </connections>
                         </button>
-                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" image="299-ticket.png" id="93">
+                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" image="299-ticket" id="93">
                             <rect key="frame" x="128" y="268" width="60" height="32"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         </imageView>
@@ -101,8 +101,8 @@
         </view>
     </objects>
     <resources>
-        <image name="299-ticket.png" width="28" height="18"/>
-        <image name="greenbutton.png" width="155" height="60"/>
-        <image name="ticket.png" width="628" height="744"/>
+        <image name="299-ticket" width="28" height="18"/>
+        <image name="greenbutton" width="155" height="60"/>
+        <image name="ticket" width="628" height="744"/>
     </resources>
 </document>
