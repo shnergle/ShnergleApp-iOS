@@ -9,7 +9,7 @@
 #import "CustomBackViewController.h"
 #import <FacebookSDK/FacebookSDK.h>
 
-@interface ShareViewController : CustomBackViewController <FBViewControllerDelegate, UITextViewDelegate, UIAlertViewDelegate> {
+@interface ShareViewController : CustomBackViewController <FBViewControllerDelegate, UITextViewDelegate, UIAlertViewDelegate, UITextFieldDelegate> {
     id selectedFriends;
     NSString *post_id;
 }

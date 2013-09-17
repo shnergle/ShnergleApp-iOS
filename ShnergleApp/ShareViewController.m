@@ -297,7 +297,19 @@
         [textView resignFirstResponder];
         return NO;
     }
-    return YES;
+    NSUInteger newLength = [textView.text length] + [text length] - range.length;
+    NSString *venueName;
+    if (![appDelegate.activeVenue[@"twitter"] isKindOfClass:[NSNull class]] && ![@"" isEqualToString : appDelegate.activeVenue[@"twitter"]]) {
+        venueName = [(appDelegate.shnergleThis ? @"@" : @"From @") stringByAppendingString:appDelegate.activeVenue[@"twitter"]];
+    } else {
+        venueName = [(appDelegate.shnergleThis ? @"@ " : @"From ") stringByAppendingString:appDelegate.activeVenue[@"name"]];
+    }
+#warning verify 36
+    NSInteger maxLength = 140 - 36 - [venueName length];
+#warning create uilabel counter
+#warning then recomment
+    //counter.text = [NSString stringWithFormat:@"%d", maxLength];
+    return (newLength > maxLength) ? NO : YES;
 }
 
 - (void)textViewDidBeginEditing:(UITextView *)textView {
@@ -313,5 +325,6 @@
         textView.textColor = [UIColor lightGrayColor];
     }
 }
+
 
 @end
