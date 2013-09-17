@@ -198,12 +198,12 @@
 }
 
 - (void)showOverlay {
-    [self.overlay showAnimated:126 animationDelay:0.2 animationDuration:0.5];
+    [self.overlay showAnimated:146 animationDelay:0.2 animationDuration:0.5];
     crowdImagesHidden = NO;
 }
 
 - (void)hideOverlay {
-    [self.overlay hideAnimated:126 animationDuration:0.5 targetSize:350 contentView:[self overlay]];
+    [self.overlay hideAnimated:146 animationDuration:0.5 targetSize:350 contentView:[self overlay]];
     crowdImagesHidden = YES;
 }
 
@@ -285,7 +285,7 @@
 - (void)initMap {
     rendered = NO;
     hasPositionLocked = NO;
-    map = [[MKMapView alloc] initWithFrame:CGRectMake(0, -146, self.view.bounds.size.width, 540)];
+    map = [[MKMapView alloc] initWithFrame:CGRectMake(0, 64, self.view.bounds.size.width, 328)];
     map.delegate = self;
     UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(didTapAtMap:)];
     [map addGestureRecognizer:tap];
@@ -316,7 +316,9 @@
         MKMapPoint point = MKMapPointForCoordinate(userLocation.coordinate);
         MKCoordinateRegion region = MKCoordinateRegionForMapRect(MKMapRectMake(point.x, point.y, map.frame.size.width * 50, map.frame.size.height * 50));
         map.region = region;
-        map.centerCoordinate = userLocation.coordinate;
+        CGPoint loc = [map convertCoordinate:userLocation.coordinate toPointToView:map];
+        loc.y += 90;
+        map.centerCoordinate = [map convertPoint:loc toCoordinateFromView:map];
         [self sliderValueChanged:nil];
     }
 }
