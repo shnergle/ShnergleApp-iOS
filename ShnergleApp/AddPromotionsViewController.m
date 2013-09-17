@@ -22,10 +22,8 @@
     pickerValues = [NSMutableDictionary dictionary];
 
     [self.doneButton setTitleTextAttributes:
-     @{UITextAttributeTextColor: [UIColor blackColor],
-       UITextAttributeTextShadowColor: [UIColor clearColor],
-       UITextAttributeTextShadowOffset: [NSValue valueWithUIOffset:UIOffsetMake(0, 0)],
-       UITextAttributeFont: [UIFont systemFontOfSize:14.0]}
+     @{NSForegroundColorAttributeName: [UIColor blackColor],
+       NSFontAttributeName: [UIFont systemFontOfSize:14.0]}
                                    forState:UIControlStateNormal];
 
     appDelegate.audience = appDelegate.activePromotion == nil ? 0 : [appDelegate.activePromotion[@"level"] intValue];

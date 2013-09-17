@@ -26,21 +26,15 @@
 
 - (void)customiseNavBar {
     [[UINavigationBar appearance] setTitleTextAttributes:
-     @{UITextAttributeTextColor: [UIColor colorWithRed:0 green:0 blue:0 alpha:1.0],
-       UITextAttributeTextShadowColor: [UIColor clearColor],
-       UITextAttributeTextShadowOffset: [NSValue valueWithUIOffset:UIOffsetMake(0, 0)],
-       UITextAttributeFont: [UIFont systemFontOfSize:20.0]}];
+     @{NSForegroundColorAttributeName: [UIColor colorWithRed:0 green:0 blue:0 alpha:1.0],
+       NSFontAttributeName: [UIFont systemFontOfSize:20.0]}];
 
-    @try {
-        [[UINavigationBar appearance] setTintColor:[UIColor colorWithRed:233.0 / 255 green:235.0 / 255 blue:240.0 / 255 alpha:1.0]];
-    } @catch (NSException *exception) {
-    }
+    [[UINavigationBar appearance] setTintColor:[UIColor colorWithRed:233.0 / 255 green:235.0 / 255 blue:240.0 / 255 alpha:1.0]];
     [[UINavigationBar appearance] setBackgroundColor:[UIColor colorWithRed:233.0 / 255 green:235.0 / 255 blue:240.0 / 255 alpha:1.0]];
 
-    [[UIBarButtonItem appearanceWhenContainedIn:[UINavigationBar class], nil] setTitleTextAttributes:@{UITextAttributeTextColor: [UIColor blackColor]} forState:UIControlStateNormal];
+    [[UIBarButtonItem appearanceWhenContainedIn:[UINavigationBar class], nil] setTitleTextAttributes:@{NSForegroundColorAttributeName: [UIColor blackColor]} forState:UIControlStateNormal];
 
-    NSDictionary *attributes = @{UITextAttributeTextColor: [UIColor whiteColor],
-                                 UITextAttributeTextShadowColor: [UIColor clearColor]};
+    NSDictionary *attributes = @{NSForegroundColorAttributeName: [UIColor whiteColor]};
 
     [[UIBarButtonItem appearance] setTitleTextAttributes:attributes
                                                 forState:UIControlStateNormal];

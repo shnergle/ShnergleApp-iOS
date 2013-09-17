@@ -108,10 +108,8 @@
     }
 
     [self.checkInButton setTitleTextAttributes:
-     @{UITextAttributeTextColor: [[[UIDevice currentDevice] systemVersion] compare:@"7.0" options:NSNumericSearch] != NSOrderedAscending ? [UIColor blackColor] : [UIColor whiteColor],
-       UITextAttributeTextShadowColor: [UIColor clearColor],
-       UITextAttributeTextShadowOffset: [NSValue valueWithUIOffset:UIOffsetMake(0, 0)],
-       UITextAttributeFont: [UIFont systemFontOfSize:14.0]}
+     @{NSForegroundColorAttributeName: [UIColor blackColor],
+       NSFontAttributeName: [UIFont systemFontOfSize:14.0]}
                                       forState:UIControlStateNormal];
 
     textViewOpen = false;
@@ -425,10 +423,8 @@
     self.checkInButton.enabled = on;
 
     [self.checkInButton setTitleTextAttributes:
-     @{UITextAttributeTextColor: ([[[UIDevice currentDevice] systemVersion] compare:@"7.0" options:NSNumericSearch] != NSOrderedAscending) ? (on ? [UIColor colorWithRed:51.0 / 250 green:140.0 / 250 blue:16.0 / 250 alpha:1.0] : [UIColor blackColor]) : [UIColor whiteColor],
-       UITextAttributeTextShadowColor: [UIColor clearColor],
-       UITextAttributeTextShadowOffset: [NSValue valueWithUIOffset:UIOffsetMake(0, 0)],
-       UITextAttributeFont: [UIFont systemFontOfSize:14.0]}
+     @{NSForegroundColorAttributeName: (on ? [UIColor colorWithRed:51.0 / 250 green:140.0 / 250 blue:16.0 / 250 alpha:1.0] : [UIColor blackColor]),
+       NSFontAttributeName: [UIFont systemFontOfSize:14.0]}
                                       forState:UIControlStateNormal];
 }
 
