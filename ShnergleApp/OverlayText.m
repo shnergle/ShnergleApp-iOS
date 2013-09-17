@@ -14,8 +14,51 @@
 #import "ShareViewController.h"
 #import "VenueDetailsViewController.h"
 #import <QuartzCore/QuartzCore.h>
+#import "CMMapLauncher.h"
 
 @implementation OverlayText
+
+- (IBAction)tappedNavigation:(id)sender {
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"How do you want to navigate?" message:nil delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:nil];
+    for (int i = CMMapAppAppleMaps; i <= CMMapAppWaze; i++) {
+        if ([CMMapLauncher isMapAppInstalled:i]) [alert addButtonWithTitle:[self mapAppToString:i]];
+    }
+    [alert show];
+}
+
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
+    if (buttonIndex != alertView.cancelButtonIndex) [CMMapLauncher launchMapApp:[self stringtToMapApp:[alertView buttonTitleAtIndex:buttonIndex]] forDirectionsTo:[CMMapPoint mapPointWithName:appDelegate.activeVenue[@"name"] coordinate:CLLocationCoordinate2DMake([appDelegate.activeVenue[@"lat"] doubleValue], [appDelegate.activeVenue[@"lon"] doubleValue])]];
+}
+
+- (NSString *)mapAppToString:(CMMapApp)mapApp {
+    switch (mapApp) {
+        case CMMapAppAppleMaps:
+            return @"Apple Maps";
+        case CMMapAppCitymapper:
+            return @"Citymapper";
+        case CMMapAppGoogleMaps:
+            return @"Google Maps";
+        case CMMapAppNavigon:
+            return @"Navigon";
+        case CMMapAppTheTransitApp:
+            return @"The Transit App";
+        case CMMapAppWaze:
+            return @"Waze";
+        default:
+            return @"";
+    }
+}
+
+- (CMMapApp)stringtToMapApp:(NSString *)string {
+    if (!string) return 0;
+    if ([string isEqualToString:@"Apple Maps"]) return CMMapAppAppleMaps;
+    if ([string isEqualToString:@"Citymapper"]) return CMMapAppCitymapper;
+    if ([string isEqualToString:@"Google Maps"]) return CMMapAppGoogleMaps;
+    if ([string isEqualToString:@"Navigon"]) return CMMapAppNavigon;
+    if ([string isEqualToString:@"The Transit App"]) return CMMapAppTheTransitApp;
+    if ([string isEqualToString:@"Waze"]) return CMMapAppWaze;
+    return 0;
+}
 
 - (IBAction)share:(id)sender {
     if (![Request getImage:@{@"entity": @"image", @"entity_id": @"toShare"}]) return;

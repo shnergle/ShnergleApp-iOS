@@ -8,7 +8,7 @@
 
 #import <MapKit/MapKit.h>
 
-@interface OverlayText : UIView {
+@interface OverlayText : UIView <UIAlertViewDelegate> {
     BOOL isUp;
     NSArray *tableData;
 }
