@@ -21,7 +21,7 @@
     [self.navigationController setNavigationBarHidden:YES];
 }
 
-- (void)setupFields:(NSString *)points:(NSString *)msg:(NSString *)passcode {
+- (void)setupFields:(NSString *)points :(NSString *)msg :(NSString *)passcode{
     pointsString = points;
     if ([msg length] > 0) {
         passcodeInfoString = msg;

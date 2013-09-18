@@ -20,6 +20,7 @@
 }
 
 - (void)useImage:(UIImage *)img {
+    
     NSDictionary *info;
     if (appDelegate.saveLocally) {
         UIImageWriteToSavedPhotosAlbum(img, nil, nil, nil);
@@ -38,6 +39,7 @@
             taken = NO;
         }];
     });
+    
 }
 
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info {
