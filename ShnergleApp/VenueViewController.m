@@ -371,7 +371,7 @@
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     if ([@"ToGallery" isEqualToString : segue.identifier]) {
         [segue.destinationViewController setTitle:titleHeader];
-        [(VenueGalleryViewController *)segue.destinationViewController setImage : ((CrowdItem *)sender).crowdImage.image withAuthor :[NSString stringWithFormat:@"%@ %@", posts[selectedPost][@"forename"], [posts[selectedPost][@"surname"] substringToIndex:1]] withComment : posts[selectedPost][@"caption"] withTimestamp :[self getDateFromUnixFormat:posts[selectedPost][@"time"]] withId :[posts[selectedPost][@"id"] stringValue]];
+        [(VenueGalleryViewController *)segue.destinationViewController setImage:selectedPost of:posts];
     } else if ([@"CheckInFromVenue" isEqualToString : segue.identifier]) {
         appDelegate.shareVenue = NO;
         appDelegate.shnergleThis = YES;

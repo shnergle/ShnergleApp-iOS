@@ -1386,18 +1386,18 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Mmh-q9-BfF">
-                                <rect key="frame" x="0.0" y="-3" width="320" height="283"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="283" id="3zr-mF-rs7"/>
-                                </constraints>
-                            </imageView>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="iIu-E2-qEG" customClass="GVPhotoBrowser">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="280"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="PQb-UE-tQ8" id="vMG-CK-9v0"/>
+                                    <outlet property="delegate" destination="PQb-UE-tQ8" id="rVu-aS-qq6"/>
+                                </connections>
+                            </scrollView>
                         </subviews>
                         <color key="backgroundColor" red="0.91372555489999996" green="0.9215686917" blue="0.94117653369999998" alpha="1" colorSpace="deviceRGB"/>
                         <constraints>
                             <constraint firstAttribute="bottom" secondItem="diO-ua-hnK" secondAttribute="bottom" constant="72" id="0M4-U8-Srn"/>
-                            <constraint firstItem="Mmh-q9-BfF" firstAttribute="leading" secondItem="0ht-SK-gFa" secondAttribute="leading" id="106-OJ-wBP"/>
-                            <constraint firstItem="Mmh-q9-BfF" firstAttribute="top" secondItem="0ht-SK-gFa" secondAttribute="top" constant="-3" id="48W-oM-OFQ"/>
                             <constraint firstAttribute="bottom" secondItem="4Bj-Xy-ePL" secondAttribute="bottom" constant="9" id="7AB-hp-pE4"/>
                             <constraint firstAttribute="bottom" secondItem="9Po-tE-tg7" secondAttribute="bottom" constant="66" id="BXn-3Y-BVd"/>
                             <constraint firstItem="9Po-tE-tg7" firstAttribute="leading" secondItem="0ht-SK-gFa" secondAttribute="leading" constant="7" id="EP7-JA-HcY"/>
@@ -1411,15 +1411,14 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                             <constraint firstItem="diO-ua-hnK" firstAttribute="leading" secondItem="9Po-tE-tg7" secondAttribute="trailing" id="bsq-Qa-uxw"/>
                             <constraint firstAttribute="trailing" secondItem="diO-ua-hnK" secondAttribute="trailing" constant="27" id="ji5-Zm-pDF"/>
                             <constraint firstAttribute="trailing" secondItem="zpk-oQ-Ics" secondAttribute="trailing" constant="6" id="rb6-qf-PBs"/>
-                            <constraint firstItem="Mmh-q9-BfF" firstAttribute="trailing" secondItem="0ht-SK-gFa" secondAttribute="trailing" id="sGG-4Z-LxA"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="be1-hQ-8nR"/>
                     <connections>
                         <outlet property="authorLabel" destination="9Po-tE-tg7" id="qbC-TV-6mG"/>
                         <outlet property="commentLabel" destination="diO-ua-hnK" id="fkb-nJ-qgI"/>
-                        <outlet property="imageView" destination="Mmh-q9-BfF" id="As4-d5-9YW"/>
                         <outlet property="likeButton" destination="4Bj-Xy-ePL" id="wNQ-cn-6kS"/>
+                        <outlet property="photoScroller" destination="iIu-E2-qEG" id="g6B-WI-ppd"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8vH-m4-YOc" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -4711,7 +4710,6 @@ Apple is a third party beneficiary of the Terms
     <resources>
         <image name="Authentication%20Process" width="640" height="198"/>
         <image name="FB-f-Logo__blue_50" width="50" height="50"/>
-        <image name="FB-f-Logo__blue_50" width="50" height="50"/>
         <image name="add_friend" width="89" height="89"/>
         <image name="arrowDown" width="42" height="42"/>
         <image name="arrow_east" width="38" height="32"/>
@@ -4720,26 +4718,15 @@ Apple is a third party beneficiary of the Terms
         <image name="glyphicons_030_pencil" width="24" height="24"/>
         <image name="glyphicons_087_log_book" width="22" height="24"/>
         <image name="glyphicons_195_circle_info" width="26" height="26"/>
-        <image name="glyphicons_195_circle_info" width="26" height="26"/>
-        <image name="glyphicons_195_circle_info" width="26" height="26"/>
         <image name="glyphicons_410_facebook" width="24" height="24"/>
         <image name="glyphicons_411_twitter" width="24" height="24"/>
         <image name="glyphicons_419_e-mail" width="24" height="24"/>
         <image name="greenbutton" width="155" height="60"/>
-        <image name="greenbutton" width="155" height="60"/>
-        <image name="greybutton03" width="157" height="60"/>
-        <image name="greybutton03" width="157" height="60"/>
         <image name="greybutton03" width="157" height="60"/>
         <image name="greybutton04" width="195" height="60"/>
-        <image name="greybutton04" width="195" height="60"/>
-        <image name="greybutton04" width="195" height="60"/>
-        <image name="greybutton04" width="195" height="60"/>
-        <image name="greybutton04" width="195" height="60"/>
-        <image name="promocorner" width="60" height="60"/>
         <image name="promocorner" width="60" height="60"/>
         <image name="shnerglelogo_splash_screen" width="600" height="172"/>
         <image name="tick" width="255" height="205"/>
-        <image name="twitter-bird-white-on-blue" width="300" height="300"/>
         <image name="twitter-bird-white-on-blue" width="300" height="300"/>
     </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">

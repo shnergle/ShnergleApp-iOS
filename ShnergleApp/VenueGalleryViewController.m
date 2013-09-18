@@ -9,21 +9,18 @@
 #import "VenueGalleryViewController.h"
 #import "Request.h"
 #import <Toast/Toast+UIView.h>
+#import <NSDate+TimeAgo/NSDate+TimeAgo.h>
 
 @implementation VenueGalleryViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self imageSetup];
-    [Request post:@"post_views/set" params:@{@"post_id": appDelegate.shareActivePostId} delegate:self callback:@selector(doNothing:)];
 }
 
-- (void)setImage:(UIImage *)img withAuthor:(NSString *)user withComment:(NSString *)msg withTimestamp:(NSString *)time withId:(NSString *)post_id {
+- (void)setImage:(NSUInteger)img of:(NSArray *)imgs {
     image = img;
-    comment = msg;
-    timestamp = time;
-    author = user;
-    postId = post_id;
+    images = imgs;
 }
 
 - (void)setTitle:(NSString *)title {
@@ -36,7 +33,7 @@
 }
 
 - (IBAction)likeButtonPressed:(id)sender {
-    [Request post:@"post_likes/set" params:@{@"post_id": appDelegate.shareActivePostId} delegate:self callback:@selector(likedPostFinished:)];
+    [Request post:@"post_likes/set" params:@{@"post_id": images[self.photoScroller.currentIndex][@"id"]} delegate:self callback:@selector(likedPostFinished:)];
 }
 
 - (void)likedPostFinished:(id)response {
@@ -48,25 +45,58 @@
 }
 
 - (void)imageSetup {
-    self.imageView.image = image;
-    self.imageView.contentMode = UIViewContentModeScaleAspectFill;
     self.commentLabel.font = [UIFont systemFontOfSize:12];
     self.commentLabel.lineBreakMode = NSLineBreakByWordWrapping;
-    self.commentLabel.text = [NSString stringWithFormat:@"%@ (%@)", comment, timestamp];
     self.authorLabel.font = [UIFont boldSystemFontOfSize:12];
     self.authorLabel.lineBreakMode = NSLineBreakByCharWrapping;
-    self.authorLabel.text = author;
+    self.photoScroller.currentIndex = image;
+}
 
-    [Request setImage:@{@"entity": @"image", @"entity_id": @"toShare"} image:image];
+- (NSUInteger)numberOfPhotosInPhotoBrowser:(GVPhotoBrowser *)photoBrowser {
+    return [images count];
+}
+
+- (UIImageView *)photoBrowser:(GVPhotoBrowser *)photoBrowser customizeImageView:(UIImageView *)imageView forIndex:(NSUInteger)index {
+    NSDictionary *key = @{@"entity": @"post",
+                          @"entity_id": images[index][@"id"]};
+    imageView.backgroundColor = [UIColor lightGrayColor];
+    imageView.contentMode = UIViewContentModeScaleAspectFill;
+    if (!(imageView.image = [Request getImage:key])) {
+        [Request post:@"images/get" params:key delegate:self callback:@selector(didFinishDownloadingImages:forImageView:) userData:imageView];
+    }
+    return imageView;
+}
+
+- (void)didFinishDownloadingImages:(UIImage *)img forImageView:(UIImageView *)imageView {
+    imageView.image = img;
+}
+
+- (NSString *)getDateFromUnixFormat:(id)unixFormat {
+    NSDate *date = [NSDate dateWithTimeIntervalSince1970:[unixFormat intValue]];
+    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+    dateFormatter.dateFormat = @"ccc H:mm";
+    return [date timeAgoWithLimit:86400 dateFormatter:dateFormatter];
+}
+
+- (void)photoBrowser:(GVPhotoBrowser *)photoBrowser didSwitchToIndex:(NSUInteger)index {
+    self.authorLabel.text = [NSString stringWithFormat:@"%@ %@", images[index][@"forename"], [images[index][@"surname"] substringToIndex:1]];
+    self.commentLabel.text = [NSString stringWithFormat:@"%@ (%@)", images[index][@"caption"], [self getDateFromUnixFormat:images[index][@"time"]]];
+
+    [Request post:@"post_views/set" params:@{@"post_id": images[index][@"id"]} delegate:self callback:@selector(doNothing:)];
+    appDelegate.shareActivePostId = images[index][@"id"];
+
+    NSDictionary *key = @{@"entity": @"post",
+                          @"entity_id": images[index][@"id"]};
+    [Request setImage:@{@"entity": @"image", @"entity_id": @"toShare"} image:[Request getImage:key]];
 }
 
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
     if (buttonIndex != alertView.cancelButtonIndex) {
         [self.view makeToastActivity];
         if (appDelegate.venueStatus == Manager) {
-            [Request post:@"posts/set" params:@{@"post_id": appDelegate.shareActivePostId, @"hide": @"true"} delegate:self callback:@selector(doNothing:)];
+            [Request post:@"posts/set" params:@{@"post_id": images[self.photoScroller.currentIndex][@"id"], @"hide": @"true"} delegate:self callback:@selector(doNothing:)];
         } else {
-            [Request post:@"post_reports/set" params:@{@"post_id": appDelegate.shareActivePostId} delegate:self callback:@selector(doNothing:)];
+            [Request post:@"post_reports/set" params:@{@"post_id": images[self.photoScroller.currentIndex][@"id"]} delegate:self callback:@selector(doNothing:)];
         }
     }
 }
