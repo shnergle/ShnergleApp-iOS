@@ -66,7 +66,7 @@
     if (indexPath.section == 0) {
         UITextField *textField = (UITextField *)[cell viewWithTag:indexPath.section + 1];
         if (!textField) {
-            UITextField *textField = [[UITextField alloc] initWithFrame:CGRectMake(110, 10, 185, 30)];
+            UITextField *textField = [[UITextField alloc] initWithFrame:CGRectMake(110, 8, 185, 30)];
             textField.delegate = self;
             textField.backgroundColor = [UIColor clearColor];
             textField.text = appDelegate.activePromotion != nil ? appDelegate.activePromotion[@"title"] : @"";
@@ -82,9 +82,10 @@
             textField.backgroundColor = [UIColor clearColor];
             textField.text = appDelegate.activePromotion != nil ? appDelegate.activePromotion[@"description"] : @"";
             textField.tag = indexPath.section + 1;
+            textField.font = [UIFont systemFontOfSize:16];
             textFields[@1] = textField;
             [cell.contentView addSubview:textField];
-            UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(10, 5, 280, 25)];
+            UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(10, 6, 280, 25)];
             label.backgroundColor = [UIColor clearColor];
             label.font = [UIFont fontWithName:cell.textLabel.font.fontName size:label.font.pointSize];
             label.text = @"Promotion Details";
@@ -93,7 +94,7 @@
     } else if (indexPath.section == 2) {
         UITextField *textField = (UITextField *)[cell viewWithTag:indexPath.section + 1];
         if (!textField) {
-            UITextField *textField = [[UITextField alloc] initWithFrame:CGRectMake(110, 10, 185, 30)];
+            UITextField *textField = [[UITextField alloc] initWithFrame:CGRectMake(110, 8, 185, 30)];
             textField.delegate = self;
             textField.backgroundColor = [UIColor clearColor];
             textField.text = appDelegate.activePromotion != nil ? appDelegate.activePromotion[@"passcode"] : @"";
@@ -104,7 +105,7 @@
     } else if (indexPath.section == 3) {
         UITextField *textField = (UITextField *)[cell viewWithTag:indexPath.section + 1];
         if (!textField) {
-            UILabel *textField = [[UILabel alloc] initWithFrame:CGRectMake(110, 10, 185, 30)];
+            UILabel *textField = [[UILabel alloc] initWithFrame:CGRectMake(110, 6, 185, 30)];
             textField.backgroundColor = [UIColor clearColor];
             if (pickerValues[@(indexPath.section)] == nil) {
                 if ([@"0" isEqualToString :[appDelegate.activePromotion[@"start"] stringValue]]) {
@@ -123,7 +124,7 @@
     } else if (indexPath.section == 4) {
         UITextField *textField = (UITextField *)[cell viewWithTag:indexPath.section + 1];
         if (!textField) {
-            UILabel *textField = [[UILabel alloc] initWithFrame:CGRectMake(110, 10, 185, 30)];
+            UILabel *textField = [[UILabel alloc] initWithFrame:CGRectMake(110, 6, 185, 30)];
             textField.backgroundColor = [UIColor clearColor];
             if (pickerValues[@(indexPath.section)] == nil) {
                 if ([@"0" isEqualToString :[appDelegate.activePromotion[@"end"] stringValue]]) {
@@ -141,7 +142,7 @@
     } else if (indexPath.section == 5) {
         UITextField *textField = (UITextField *)[cell viewWithTag:indexPath.section + 1];
         if (!textField) {
-            UITextField *textField = [[UITextField alloc] initWithFrame:CGRectMake(110, 10, 185, 30)];
+            UITextField *textField = [[UITextField alloc] initWithFrame:CGRectMake(110, 8, 185, 30)];
             textField.backgroundColor = [UIColor clearColor];
             textField.keyboardType = UIKeyboardTypeNumberPad;
             textField.text = appDelegate.activePromotion != nil ? [appDelegate.activePromotion[@"maximum"] stringValue] : @"";
@@ -152,7 +153,7 @@
     } else if (indexPath.section == 6) {
         UILabel *textField = (UILabel *)[cell viewWithTag:indexPath.section + 1];
         if (!textField) {
-            UILabel *textField = [[UILabel alloc] initWithFrame:CGRectMake(110, 8, 185, 30)];
+            UILabel *textField = [[UILabel alloc] initWithFrame:CGRectMake(110, 6, 185, 30)];
             textField.backgroundColor = [UIColor clearColor];
             textField.text = [self levelName:appDelegate.audience];
             textField.tag = indexPath.section + 1;

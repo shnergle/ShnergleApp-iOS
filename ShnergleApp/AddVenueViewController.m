@@ -114,7 +114,7 @@ typedef enum {
 
     if (indexPath.row == Name) {
         if (!textField) {
-            textField = [[UITextField alloc] initWithFrame:CGRectMake(110, 10, 185, 30)];
+            textField = [[UITextField alloc] initWithFrame:CGRectMake(110, 8, 185, 30)];
             textField.tag = indexPath.row + 1;
             textField.delegate = self;
             textField.autocorrectionType = UITextAutocorrectionTypeNo;
@@ -128,7 +128,7 @@ typedef enum {
             label = [[UILabel alloc] initWithFrame:CGRectMake(110, 6, 185, 30)];
             label.text = @"(Required)";
             label.tag = indexPath.row + 1;
-            label.textColor = [UIColor colorWithWhite:0.7 alpha:1];
+            label.textColor = [UIColor colorWithWhite:0.7 alpha:0.7];
             label.backgroundColor = [UIColor clearColor];
             [cell.contentView addSubview:label];
             secondCellField = label;
@@ -136,7 +136,7 @@ typedef enum {
         }
     } else if (indexPath.row == Address1) {
         if (!textField) {
-            textField = [[UITextField alloc] initWithFrame:CGRectMake(110, 10, 185, 30)];
+            textField = [[UITextField alloc] initWithFrame:CGRectMake(110, 8, 185, 30)];
             textField.tag = indexPath.row + 1;
             textField.delegate = self;
             textField.autocorrectionType = UITextAutocorrectionTypeNo;
@@ -146,7 +146,7 @@ typedef enum {
         [cell.contentView addSubview:textField];
     } else if (indexPath.row == Address2) {
         if (!textField) {
-            textField = [[UITextField alloc] initWithFrame:CGRectMake(110, 10, 185, 30)];
+            textField = [[UITextField alloc] initWithFrame:CGRectMake(110, 8, 185, 30)];
             textField.tag = indexPath.row + 1;
             textField.delegate = self;
             textField.autocorrectionType = UITextAutocorrectionTypeNo;
@@ -156,7 +156,7 @@ typedef enum {
         [cell.contentView addSubview:textField];
     } else if (indexPath.row == City) {
         if (!textField) {
-            textField = [[UITextField alloc] initWithFrame:CGRectMake(110, 10, 185, 30)];
+            textField = [[UITextField alloc] initWithFrame:CGRectMake(110, 8, 185, 30)];
             textField.tag = indexPath.row + 1;
             textField.delegate = self;
             textField.autocorrectionType = UITextAutocorrectionTypeNo;
@@ -166,7 +166,7 @@ typedef enum {
         [cell.contentView addSubview:textField];
     } else if (indexPath.row == Postcode) {
         if (!textField) {
-            textField = [[UITextField alloc] initWithFrame:CGRectMake(110, 10, 185, 30)];
+            textField = [[UITextField alloc] initWithFrame:CGRectMake(110, 8, 185, 30)];
             textField.tag = indexPath.row + 1;
             textField.delegate = self;
             textField.autocorrectionType = UITextAutocorrectionTypeNo;
@@ -176,12 +176,12 @@ typedef enum {
         [cell.contentView addSubview:textField];
     } else if (indexPath.row == WorkHere) {
         if (!textField) {
-            textField = [[UITextField alloc] initWithFrame:CGRectMake(110, 10, 185, 30)];
+            textField = [[UITextField alloc] initWithFrame:CGRectMake(110, 6, 185, 30)];
             textField.tag = indexPath.row + 1;
             textField.delegate = self;
         }
 
-        workSwitch = [[UISwitch alloc] initWithFrame:CGRectMake(210, 8, 50, 30)];
+        workSwitch = [[UISwitch alloc] initWithFrame:CGRectMake(110, 6, 50, 30)];
         [workSwitch addTarget:self action:@selector(segwayToWork) forControlEvents:UIControlEventValueChanged];
         [cell.contentView addSubview:workSwitch];
     }
