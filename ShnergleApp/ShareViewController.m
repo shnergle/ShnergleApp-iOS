@@ -75,11 +75,11 @@
     if (self.twSwitch.on) {
         NSString *venueName;
         if (![appDelegate.activeVenue[@"twitter"] isKindOfClass:[NSNull class]] && ![@"" isEqualToString : appDelegate.activeVenue[@"twitter"]]) {
-            venueName = [(appDelegate.shnergleThis ? @"@" : @"From @") stringByAppendingString:appDelegate.activeVenue[@"twitter"]];
+            venueName = [(appDelegate.shnergleThis ? @"@" : @"From @")stringByAppendingString : appDelegate.activeVenue[@"twitter"]];
         } else {
-            venueName = [(appDelegate.shnergleThis ? @"@ " : @"From ") stringByAppendingString:appDelegate.activeVenue[@"name"]];
+            venueName = [(appDelegate.shnergleThis ? @"@ " : @"From ")stringByAppendingString : appDelegate.activeVenue[@"name"]];
         }
-        [self postImage:self.image.image withStatus:[NSString stringWithFormat:@"%@ %@ #ShnergleIt", (self.textFieldname.text && [self.textFieldname.text isEqualToString:@"Write something..."]) ? @"" : self.textFieldname.text, venueName]];
+        [self postImage:self.image.image withStatus:[NSString stringWithFormat:@"%@ %@ #ShnergleIt", (self.textFieldname.text && [self.textFieldname.text isEqualToString:@"Write something..."]) ? @"":self.textFieldname.text, venueName]];
         if (appDelegate.shareVenue) {
             [Request post:@"venue_shares/set" params:@{@"venue_id" : appDelegate.activeVenue[@"id"], @"media_id": @2} delegate:self callback:@selector(doNothing:)];
         } else {
@@ -122,8 +122,8 @@
         }
         [friends appendString:@"."];
     }
-    NSString *venueName = [(appDelegate.shnergleThis ? @"@ " : @"From ") stringByAppendingString:appDelegate.activeVenue[@"name"]];
-    action[@"message"] = [NSString stringWithFormat:@"%@ %@%@ #ShnergleIt", (self.textFieldname.text && [self.textFieldname.text isEqualToString:@"Write something..."]) ? @"" : self.textFieldname.text, venueName, friends];
+    NSString *venueName = [(appDelegate.shnergleThis ? @"@ " : @"From ")stringByAppendingString : appDelegate.activeVenue[@"name"]];
+    action[@"message"] = [NSString stringWithFormat:@"%@ %@%@ #ShnergleIt", (self.textFieldname.text && [self.textFieldname.text isEqualToString:@"Write something..."]) ? @"":self.textFieldname.text, venueName, friends];
     action[@"fb:explicitly_shared"] = @"true";
     //action[@"tags"] = selectedFriends;
     //action[@"place"] = @"http://samples.ogp.me/259837270824167";
@@ -146,7 +146,7 @@
         [self redeem];
     }];
     if (appDelegate.shareVenue) {
-        [Request post:@"venue_shares/set" params:@{@"venue_id": appDelegate.activeVenue[@"id"], @"media_id": @1} delegate:self callback:@selector(doNothing:)];
+        [Request post:@"venue_shares/set" params:@{@"venue_id" : appDelegate.activeVenue[@"id"], @"media_id": @1} delegate:self callback:@selector(doNothing:)];
     } else {
         [Request post:@"post_shares/set" params:@{@"post_id": post_id, @"media_id": @1} delegate:self callback:@selector(doNothing:)];
     }
@@ -204,19 +204,16 @@
         [Request post:@"promotion_redemptions/set" params:@{@"promotion_id": appDelegate.redeeming} delegate:self callback:@selector(redeemed:)];
     } else {
         int pointsAwarded = 0;
-        if(appDelegate.shnergleThis)
-        {
+        if (appDelegate.shnergleThis) {
             pointsAwarded = 4;
-        }else
-        {
+        } else {
             pointsAwarded = 5;
         }
         ThankYouViewController *vc = (ThankYouViewController *)[self.storyboard instantiateViewControllerWithIdentifier:@"thankyouverymuch"];
-        if((self.fbSwitch.on || self.twSwitch.on) && !appDelegate.shnergleThis){
-        [vc setupFields:[NSString stringWithFormat:@"Congratulations, you earned %d points!",pointsAwarded] :@"" : @""];
-        }else{
-            [vc setupFields:[NSString stringWithFormat:@"Tip: You can switch Facebook or Twitter on to share to other social sites!"] :@"" : @""];
-
+        if ((self.fbSwitch.on || self.twSwitch.on) && !appDelegate.shnergleThis) {
+            [vc setupFields:[NSString stringWithFormat:@"Congratulations, you earned %d points!", pointsAwarded]:@"":@""];
+        } else {
+            [vc setupFields:[NSString stringWithFormat:@"Tip: You can switch Facebook or Twitter on to share to other social sites!"]:@"":@""];
         }
         [self.navigationController pushViewController:vc animated:YES];
         //[self presentViewController:vc animated:YES completion:nil];
@@ -245,7 +242,7 @@
     }
 
     ThankYouViewController *vc = (ThankYouViewController *)[self.storyboard instantiateViewControllerWithIdentifier:@"thankyouverymuch"];
-    [vc setupFields:@"" :msg :passcode];
+    [vc setupFields:@"":msg:passcode];
     [self presentViewController:vc animated:YES completion:nil];
 }
 
@@ -293,18 +290,18 @@
     NSUInteger newLength = [textView.text length] + [text length] - range.length;
     NSString *venueName;
     if (![appDelegate.activeVenue[@"twitter"] isKindOfClass:[NSNull class]] && ![@"" isEqualToString : appDelegate.activeVenue[@"twitter"]]) {
-        venueName = [(appDelegate.shnergleThis ? @"@" : @"From @") stringByAppendingString:appDelegate.activeVenue[@"twitter"]];
+        venueName = [(appDelegate.shnergleThis ? @"@" : @"From @")stringByAppendingString : appDelegate.activeVenue[@"twitter"]];
     } else {
-        venueName = [(appDelegate.shnergleThis ? @"@ " : @"From ") stringByAppendingString:appDelegate.activeVenue[@"name"]];
+        venueName = [(appDelegate.shnergleThis ? @"@ " : @"From ")stringByAppendingString : appDelegate.activeVenue[@"name"]];
     }
     NSInteger maxLength = 140 - 50 - [venueName length];
     if ([text isEqualToString:@"\n"]) {
         [textView resignFirstResponder];
         return NO;
     }
-    if(newLength > maxLength){
+    if (newLength > maxLength) {
         return NO;
-    }else{
+    } else {
         self.counter.text = [NSString stringWithFormat:@"%d characters left", maxLength - newLength];
         return YES;
     }
@@ -323,6 +320,5 @@
         textView.textColor = [UIColor lightGrayColor];
     }
 }
-
 
 @end

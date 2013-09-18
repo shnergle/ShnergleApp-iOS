@@ -21,5 +21,5 @@
 @property (weak, nonatomic) IBOutlet UILabel *passcodeInfoLabel;
 
 - (IBAction)tappedDone:(id)sender;
-- (void)setupFields:(NSString *)points :(NSString *)msg :(NSString *)passcode;
+- (void)setupFields:(NSString *)points:(NSString *)msg:(NSString *)passcode;
 @end
