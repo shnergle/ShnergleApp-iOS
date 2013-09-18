@@ -15,9 +15,8 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    UIView *searchBar = [[NSBundle mainBundle] loadNibNamed:@"SearchBar" owner:self options:nil][0];
-    searchBar.frame = CGRectOffset(searchBar.frame, 0, 20);
-    [self.view addSubview:searchBar];
+    searchB = [[NSBundle mainBundle] loadNibNamed:@"SearchBar" owner:self options:nil][0];
+    [self.view addSubview:searchB];
 
     tableSections = @[@"Profile", @"Explore", @" "];
     tableData = @[@[appDelegate.fullName], @[@"Around Me", @"Following", @"Promotions", @"Quiet", @"Trending", @"+ Add Place"], @[@"Account Settings", @"FAQ", @"Help", @"Privacy Policy", @"Terms of Use"]];
@@ -27,6 +26,11 @@
     self.searchResultsView.resultsTableView.dataSource = self;
 
     [self initsearchResultsView];
+}
+
+- (void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
+    searchB.frame = CGRectMake(0, 20, 231, 44);
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {

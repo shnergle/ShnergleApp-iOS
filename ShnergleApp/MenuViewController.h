@@ -15,6 +15,7 @@
     NSMutableArray *searchResults;
     NSMutableArray *searchResultsLocation;
     UITableViewCell *profileCell;
+    UIView *searchB;
 }
 
 @property (weak, nonatomic) IBOutlet UIView *searchBar;
