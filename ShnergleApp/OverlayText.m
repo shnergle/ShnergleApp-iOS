@@ -14,7 +14,7 @@
 #import "ShareViewController.h"
 #import "VenueDetailsViewController.h"
 #import <QuartzCore/QuartzCore.h>
-#import "CMMapLauncher.h"
+#import <CMMapLauncher/CMMapLauncher.h>
 
 @implementation OverlayText
 
