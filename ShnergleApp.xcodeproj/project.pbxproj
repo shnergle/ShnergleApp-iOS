@@ -345,6 +345,7 @@
 				808F13C216FB6A5C00B66E6D /* Frameworks */,
 				808F13C316FB6A5C00B66E6D /* Resources */,
 				0BE573802CEB4DFB8E8BA496 /* Copy Pods Resources */,
+				CDBFED4717EB2BB000BE85DD /* Crashlytics */,
 			);
 			buildRules = (
 			);
@@ -418,7 +419,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Pods-resources.sh\"\n./Crashlytics.framework/run 2baf430bbb573cfdb444a30b0058c3d474393497";
+			shellScript = "\"${SRCROOT}/Pods/Pods-resources.sh\"";
 		};
 		3150000C4222446DAA58374A /* Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -433,6 +434,20 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+		};
+		CDBFED4717EB2BB000BE85DD /* Crashlytics */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = Crashlytics;
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "./Crashlytics.framework/run 2baf430bbb573cfdb444a30b0058c3d474393497";
 		};
 /* End PBXShellScriptBuildPhase section */
 
