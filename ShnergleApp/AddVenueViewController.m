@@ -32,6 +32,7 @@ typedef enum {
 }
 
 - (void)addVenue {
+    self.navigationItem.rightBarButtonItem.enabled = NO;
     if ([self.userData[@(Name + 1)] length] > 0 && appDelegate.addVenueTypeId) {
         if ((workSwitch.on == YES && [appDelegate.venueDetailsContent[@(8)] length] > 0 && [appDelegate.venueDetailsContent[@(9)] length] > 0  && [appDelegate.venueDetailsContent[@(10)] length] > 0) || workSwitch.on == NO) {
             [self.view makeToastActivity];
@@ -82,6 +83,7 @@ typedef enum {
 }
 
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
+    self.navigationItem.rightBarButtonItem.enabled = YES;
 }
 
 - (void)didFinishAddingVenue:(NSNumber *)response {
@@ -94,6 +96,7 @@ typedef enum {
             [Request post:@"venue_managers/set" params:@{@"venue_id": response} delegate:self callback:@selector(didAddAsManager:)];
         } else {
             [self.view hideToastActivity];
+            self.navigationItem.rightBarButtonItem.enabled = YES;
             [self.navigationController popViewControllerAnimated:YES];
         }
     }
@@ -101,6 +104,7 @@ typedef enum {
 
 - (void)didAddAsManager:(id)response {
     [self.view hideToastActivity];
+    self.navigationItem.rightBarButtonItem.enabled = YES;
     [self.navigationController popViewControllerAnimated:YES];
 }
 
