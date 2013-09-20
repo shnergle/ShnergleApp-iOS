@@ -204,13 +204,9 @@
         [Request post:@"promotion_redemptions/set" params:@{@"promotion_id": appDelegate.redeeming} delegate:self callback:@selector(redeemed:)];
     } else {
         int pointsAwarded = 0;
-        if(appDelegate.shnergleThis)
-        {
-            pointsAwarded = 4;
-        }else
-        {
-            pointsAwarded = 5;
-        }
+        if (appDelegate.shnergleThis) pointsAwarded += 4;
+        if (self.twSwitch.on) pointsAwarded += 5;
+        if (self.fbSwitch.on) pointsAwarded += 5;
         ThankYouViewController *vc = (ThankYouViewController *)[self.storyboard instantiateViewControllerWithIdentifier:@"thankyouverymuch"];
         if(self.fbSwitch.on || self.twSwitch.on){
         [vc setupFields:[NSString stringWithFormat:@"Congratulations, you earned %d points!",pointsAwarded] :@"" : @""];
