@@ -203,18 +203,7 @@
     if (appDelegate.redeeming != nil) {
         [Request post:@"promotion_redemptions/set" params:@{@"promotion_id": appDelegate.redeeming} delegate:self callback:@selector(redeemed:)];
     } else {
-<<<<<<< HEAD
-        int pointsAwarded = 0;
-        if (appDelegate.shnergleThis) pointsAwarded += 4;
-        if (self.twSwitch.on) pointsAwarded += 5;
-        if (self.fbSwitch.on) pointsAwarded += 5;
-        ThankYouViewController *vc = (ThankYouViewController *)[self.storyboard instantiateViewControllerWithIdentifier:@"thankyouverymuch"];
-        [vc setupFields:[NSString stringWithFormat:@"Congratulations, you earned %d points!",pointsAwarded] :@"" : @""];
-        [self.navigationController pushViewController:vc animated:YES];
-        //[self presentViewController:vc animated:YES completion:nil];
-=======
         [self thankYou:@"" :@""];
->>>>>>> b9f73b0... fix some issues with the thank you screen
     }
 }
 
