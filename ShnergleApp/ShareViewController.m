@@ -79,7 +79,7 @@
         } else {
             venueName = [(appDelegate.shnergleThis ? @"@ " : @"From ") stringByAppendingString:appDelegate.activeVenue[@"name"]];
         }
-        [self postImage:self.image.image withStatus:[NSString stringWithFormat:@"%@ %@ #ShnergleIt", (self.textFieldname.text && [self.textFieldname.text isEqualToString:@"Write something..."]) ? @"" : self.textFieldname.text, venueName]];
+        [self postImage:self.image.image withStatus:[NSString stringWithFormat:@"%@ %@ #ShnergleIt", (self.textFieldname.text && [self.textFieldname.text isEqualToString:@"Write something..."]) ? ((![appDelegate.activeVenue[@"twitter"] isKindOfClass:[NSNull class]] && ![@"" isEqualToString : appDelegate.activeVenue[@"twitter"]]) ? @"." : @"") : self.textFieldname.text, venueName]];
         if (appDelegate.shareVenue) {
             [Request post:@"venue_shares/set" params:@{@"venue_id" : appDelegate.activeVenue[@"id"], @"media_id": @2} delegate:self callback:@selector(doNothing:)];
         } else {
