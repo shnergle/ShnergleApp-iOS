@@ -125,24 +125,7 @@
     NSString *venueName = [(appDelegate.shnergleThis ? @"@ " : @"From ") stringByAppendingString:appDelegate.activeVenue[@"name"]];
     action[@"message"] = [NSString stringWithFormat:@"%@ %@%@ #ShnergleIt", (self.textFieldname.text && [self.textFieldname.text isEqualToString:@"Write something..."]) ? @"" : self.textFieldname.text, venueName, friends];
     action[@"fb:explicitly_shared"] = @"true";
-    //action[@"tags"] = selectedFriends;
-    //action[@"place"] = @"http://samples.ogp.me/259837270824167";
-    //action[@"tags"] = @[@"549445495",@"701732"];
     [[[FBRequest alloc] initWithSession:[FBSession activeSession] graphPath:@"me/photos" parameters:action HTTPMethod:@"POST"] startWithCompletionHandler:^(FBRequestConnection *connection, id result, NSError *error) {
-        /*NSMutableDictionary<FBGraphObject> *action = [FBGraphObject graphObject];
-           action[@"venue"] = @"http://samples.ogp.me/259837270824167";
-           if (action[@"tags"] != nil) action[@"tags"] = selectedFriends;
-           if (action[@"message"] != nil) action[@"message"] = self.textFieldname.text;
-           action[@"image"] = [NSString stringWithFormat:@"https://www.facebook.com/photo.php?fbid=%@", result[@"id"]];
-           action[@"fb:explicitly_shared"] = @"true";
-           [[[FBRequest alloc] initForPostWithSession:appDelegate.session graphPath:@"me/shnergle:share" graphObject:action] startWithCompletionHandler:^(FBRequestConnection *connection,
-                                                                                                                                                       id result,
-                                                                                                                                                       NSError *error) {
-
-                [self.navigationController setNavigationBarHidden:YES animated:YES];
-            }];
-         */
-
         [self redeem];
     }];
     if (appDelegate.shareVenue) {

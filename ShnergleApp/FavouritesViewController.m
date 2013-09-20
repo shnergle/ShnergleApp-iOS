@@ -141,7 +141,11 @@
 
 - (void)collectionView:(UICollectionView *)collectionView
     didHighlightItemAtIndexPath:(NSIndexPath *)indexPath {
-    appDelegate.activeVenue = venues[indexPath.row];
+    appDelegate.activeVenue = venues[indexPath.item];
+}
+
+- (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
+    appDelegate.activeVenue = venues[indexPath.item];
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {

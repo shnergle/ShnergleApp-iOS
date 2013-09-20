@@ -290,7 +290,6 @@
 }
 
 - (void)setContactDetails {
-    NSLog(@" Halleluja: %@", appDelegate.activeVenue);
     self.phoneTextField.text = appDelegate.activeVenue[@"phone"];
     self.emailTextField.text = appDelegate.activeVenue[@"email"];
     self.websiteTextField.text = appDelegate.activeVenue[@"website"];

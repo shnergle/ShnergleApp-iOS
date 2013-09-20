@@ -64,6 +64,10 @@
     selectedStaffMember = indexPath.row;
 }
 
+- (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
+    selectedStaffMember = indexPath.row;
+}
+
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     NSInteger number;
     NSString *type;

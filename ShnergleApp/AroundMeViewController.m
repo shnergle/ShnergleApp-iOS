@@ -197,6 +197,10 @@
     selectedVenue = indexPath.item;
 }
 
+- (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
+    selectedVenue = indexPath.item;
+}
+
 - (void)showOverlay {
     [self.overlay showAnimated:146 animationDelay:0.2 animationDuration:0.5];
     crowdImagesHidden = NO;
@@ -246,7 +250,6 @@
     MKCircle *circle = [MKCircle circleWithCenterCoordinate:coord radius:self.distanceScroller.value * 1000];
     [map addOverlay:circle];
 
-    //Prefs:
     [[NSUserDefaults standardUserDefaults] setObject:@(self.distanceScroller.value) forKey:@"radius"];
 }
 

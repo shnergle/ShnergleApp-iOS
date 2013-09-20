@@ -390,6 +390,11 @@
     appDelegate.shareActivePostId = posts[selectedPost][@"id"];
 }
 
+- (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
+    selectedPost = indexPath.item;
+    appDelegate.shareActivePostId = posts[selectedPost][@"id"];
+}
+
 - (void)setStatus:(VENUE_STATUS)status {
     appDelegate.venueStatus = status;
     switch (status) {
