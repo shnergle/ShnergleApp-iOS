@@ -78,7 +78,7 @@
 }
 
 - (void)postResponse:(NSDictionary *)result {
-    int res = [result[@"level"] integerValue];
+    NSInteger res = [result[@"level"] integerValue];
     switch (res) {
         case 1:
             self.userProfileImage1.hidden = NO;

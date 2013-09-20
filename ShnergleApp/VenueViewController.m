@@ -165,7 +165,7 @@
     [self setPromoContentTo:promotionBody promoHeadline:promotionTitle promoExpiry:promotionExpiry];
 }
 
-- (NSString *)levelName:(int)level {
+- (NSString *)levelName:(NSInteger)level {
     switch (level) {
         case 1:
             return @"Explorers";

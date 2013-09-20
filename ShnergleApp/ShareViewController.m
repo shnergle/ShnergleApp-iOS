@@ -297,7 +297,7 @@
     if(newLength > maxLength){
         return NO;
     }else{
-        self.counter.text = [NSString stringWithFormat:@"%d characters left", maxLength - newLength];
+        self.counter.text = [NSString stringWithFormat:@"%lu characters left", (unsigned long)(maxLength - newLength)];
         return YES;
     }
 }
