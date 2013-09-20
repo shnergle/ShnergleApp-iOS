@@ -78,6 +78,9 @@
                                                                 <constraint firstAttribute="width" constant="30" id="o49-TH-pTd"/>
                                                             </constraints>
                                                         </imageView>
+                                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" image="glyphicons_072_bookmark" translatesAutoresizingMaskIntoConstraints="NO" id="wag-Vy-NkX">
+                                                            <rect key="frame" x="0.0" y="0.0" width="24" height="24"/>
+                                                        </imageView>
                                                     </subviews>
                                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                 </view>
@@ -85,8 +88,11 @@
                                                     <constraint firstItem="qu8-4s-JU3" firstAttribute="bottom" secondItem="UwI-q0-33t" secondAttribute="bottom" id="1Os-eP-IOP"/>
                                                     <constraint firstItem="R33-p2-naO" firstAttribute="top" secondItem="UwI-q0-33t" secondAttribute="top" id="5ot-kA-PuU"/>
                                                     <constraint firstItem="qu8-4s-JU3" firstAttribute="trailing" secondItem="UwI-q0-33t" secondAttribute="trailing" id="6DU-AS-zIU"/>
+                                                    <constraint firstItem="wag-Vy-NkX" firstAttribute="top" secondItem="qu8-4s-JU3" secondAttribute="top" id="8Dp-9P-keH"/>
+                                                    <constraint firstItem="wag-Vy-NkX" firstAttribute="leading" secondItem="4Wx-Ws-wdn" secondAttribute="leading" id="CSF-Do-A5Y"/>
                                                     <constraint firstItem="4Wx-Ws-wdn" firstAttribute="leading" secondItem="UwI-q0-33t" secondAttribute="leading" id="IpL-yT-yJf"/>
                                                     <constraint firstItem="qu8-4s-JU3" firstAttribute="leading" secondItem="UwI-q0-33t" secondAttribute="leading" id="Rfm-QG-lay"/>
+                                                    <constraint firstItem="R33-p2-naO" firstAttribute="leading" secondItem="wag-Vy-NkX" secondAttribute="trailing" constant="98" id="jVx-AC-42P"/>
                                                     <constraint firstItem="4Wx-Ws-wdn" firstAttribute="bottom" secondItem="UwI-q0-33t" secondAttribute="bottom" id="o57-xv-IOD"/>
                                                     <constraint firstItem="qu8-4s-JU3" firstAttribute="top" secondItem="UwI-q0-33t" secondAttribute="top" id="p0T-wZ-Elx"/>
                                                     <constraint firstItem="R33-p2-naO" firstAttribute="trailing" secondItem="UwI-q0-33t" secondAttribute="trailing" id="q2O-N3-bEF"/>
@@ -94,6 +100,7 @@
                                                 <size key="customSize" width="152" height="112"/>
                                                 <connections>
                                                     <outlet property="crowdImage" destination="qu8-4s-JU3" id="VDk-Bh-mfX"/>
+                                                    <outlet property="followingIndicator" destination="wag-Vy-NkX" id="OPT-ur-ZCV"/>
                                                     <outlet property="promotionIndicator" destination="R33-p2-naO" id="Nuc-MF-JN5"/>
                                                     <outlet property="venueName" destination="4Wx-Ws-wdn" id="VWS-IG-eV7"/>
                                                     <segue destination="rpF-0H-Qzy" kind="push" identifier="ToVenueSite" id="Zho-BK-kL6"/>
@@ -3352,6 +3359,9 @@ THANKS FOR BEING PART OF THE SHNERGLE COMMUNITY - HAPPY SHNERGLING!
                                                         <constraint firstAttribute="width" constant="30" id="xvn-z2-H7l"/>
                                                     </constraints>
                                                 </imageView>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" image="glyphicons_072_bookmark" translatesAutoresizingMaskIntoConstraints="NO" id="8VI-dM-WUq">
+                                                    <rect key="frame" x="0.0" y="0.0" width="24" height="24"/>
+                                                </imageView>
                                             </subviews>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         </view>
@@ -3365,11 +3375,15 @@ THANKS FOR BEING PART OF THE SHNERGLE COMMUNITY - HAPPY SHNERGLING!
                                             <constraint firstItem="Adc-aB-2GZ" firstAttribute="leading" secondItem="Bwr-Fv-ZJI" secondAttribute="leading" id="Hnh-Dp-EUg"/>
                                             <constraint firstItem="22b-cz-pYx" firstAttribute="top" secondItem="Bwr-Fv-ZJI" secondAttribute="top" id="NZE-Mp-na7"/>
                                             <constraint firstItem="Adc-aB-2GZ" firstAttribute="trailing" secondItem="Bwr-Fv-ZJI" secondAttribute="trailing" id="YXy-gF-rj0"/>
+                                            <constraint firstItem="8VI-dM-WUq" firstAttribute="leading" secondItem="22b-cz-pYx" secondAttribute="leading" id="eGp-cu-vbt"/>
+                                            <constraint firstItem="s5g-hH-jXZ" firstAttribute="leading" secondItem="8VI-dM-WUq" secondAttribute="trailing" constant="98" id="geV-8B-FFv"/>
                                             <constraint firstAttribute="bottom" secondItem="Adc-aB-2GZ" secondAttribute="bottom" id="rds-ii-ngB"/>
+                                            <constraint firstItem="8VI-dM-WUq" firstAttribute="top" secondItem="s5g-hH-jXZ" secondAttribute="top" id="wks-Gp-52o"/>
                                         </constraints>
                                         <size key="customSize" width="152" height="112"/>
                                         <connections>
                                             <outlet property="crowdImage" destination="22b-cz-pYx" id="4be-FD-nKY"/>
+                                            <outlet property="followingIndicator" destination="8VI-dM-WUq" id="Rc4-j2-mDO"/>
                                             <outlet property="promotionIndicator" destination="s5g-hH-jXZ" id="wcm-2u-uZa"/>
                                             <outlet property="venueName" destination="Adc-aB-2GZ" id="w2i-o3-OT3"/>
                                             <segue destination="rpF-0H-Qzy" kind="push" identifier="ToVenueSite" id="wJZ-W6-KFM"/>
@@ -4710,35 +4724,24 @@ Apple is a third party beneficiary of the Terms
     <resources>
         <image name="Authentication%20Process" width="640" height="198"/>
         <image name="FB-f-Logo__blue_50" width="50" height="50"/>
-        <image name="FB-f-Logo__blue_50" width="50" height="50"/>
         <image name="add_friend" width="89" height="89"/>
         <image name="arrowDown" width="42" height="42"/>
         <image name="arrow_east" width="38" height="32"/>
         <image name="background" width="640" height="1136"/>
         <image name="glyphicons_029_notes_2" width="20" height="27"/>
         <image name="glyphicons_030_pencil" width="25" height="25"/>
+        <image name="glyphicons_072_bookmark" width="15" height="24"/>
         <image name="glyphicons_087_log_book" width="22" height="24"/>
-        <image name="glyphicons_195_circle_info" width="25" height="25"/>
-        <image name="glyphicons_195_circle_info" width="25" height="25"/>
         <image name="glyphicons_195_circle_info" width="25" height="25"/>
         <image name="glyphicons_social_30_facebook" width="24" height="24"/>
         <image name="glyphicons_social_31_twitter" width="24" height="24"/>
         <image name="glyphicons_social_39_e-mail" width="24" height="24"/>
         <image name="greenbutton" width="155" height="60"/>
-        <image name="greenbutton" width="155" height="60"/>
-        <image name="greybutton03" width="157" height="60"/>
-        <image name="greybutton03" width="157" height="60"/>
         <image name="greybutton03" width="157" height="60"/>
         <image name="greybutton04" width="195" height="60"/>
-        <image name="greybutton04" width="195" height="60"/>
-        <image name="greybutton04" width="195" height="60"/>
-        <image name="greybutton04" width="195" height="60"/>
-        <image name="greybutton04" width="195" height="60"/>
-        <image name="promocorner" width="60" height="60"/>
         <image name="promocorner" width="60" height="60"/>
         <image name="shnerglelogo_splash_screen" width="600" height="172"/>
         <image name="tick" width="255" height="205"/>
-        <image name="twitter-bird-white-on-blue" width="300" height="300"/>
         <image name="twitter-bird-white-on-blue" width="300" height="300"/>
     </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
@@ -4749,11 +4752,11 @@ Apple is a third party beneficiary of the Terms
     <inferredMetricsTieBreakers>
         <segue reference="xzO-IX-Cmd"/>
         <segue reference="1nI-j0-QaW"/>
-        <segue reference="Zho-BK-kL6"/>
-        <segue reference="ohm-kx-4nt"/>
-        <segue reference="V1y-Vn-JKN"/>
         <segue reference="xUB-NL-HY4"/>
         <segue reference="WSb-QO-1iD"/>
         <segue reference="qNM-G7-JMr"/>
+        <segue reference="wJZ-W6-KFM"/>
+        <segue reference="HHH-Gt-FIZ"/>
+        <segue reference="V1y-Vn-JKN"/>
     </inferredMetricsTieBreakers>
 </document>

@@ -175,6 +175,12 @@
         item.promotionIndicator.hidden = YES;
     }
 
+    if ([venues[indexPath.item][@"following"] integerValue] > 0) {
+        item.followingIndicator.hidden = NO;
+    } else {
+        item.followingIndicator.hidden = YES;
+    }
+
     return item;
 }
 
