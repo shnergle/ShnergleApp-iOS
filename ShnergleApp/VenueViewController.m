@@ -44,7 +44,7 @@
     titleView2.adjustsFontSizeToFitWidth = YES;
     [headerTitleSubtitleView addSubview:titleView2];
 
-    CGRect subtitleFrame = CGRectMake(0, 24, 200, 20);
+    CGRect subtitleFrame = CGRectMake(25, 0, 150, 68);
     UILabel *subtitleView2 = [[UILabel alloc] initWithFrame:subtitleFrame];
     subtitleView2.backgroundColor = [UIColor clearColor];
     subtitleView2.font = [UIFont systemFontOfSize:12.0];
@@ -54,6 +54,7 @@
     subtitleView2.shadowOffset = CGSizeMake(0, 0);
     subtitleView2.text = headerSubtitle;
     subtitleView2.adjustsFontSizeToFitWidth = YES;
+    subtitleView2.userInteractionEnabled = YES;
     [headerTitleSubtitleView addSubview:subtitleView2];
 
     headerTitleSubtitleView.autoresizingMask = (UIViewAutoresizingFlexibleLeftMargin |
@@ -62,7 +63,7 @@
                                                 UIViewAutoresizingFlexibleBottomMargin);
 
     UITapGestureRecognizer *tapGestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapToFollow)];
-    [headerTitleSubtitleView addGestureRecognizer:tapGestureRecognizer];
+    [subtitleView2 addGestureRecognizer:tapGestureRecognizer];
 
     self.navigationItem.titleView = headerTitleSubtitleView;
     self.navigationItem.titleView.userInteractionEnabled = YES;
