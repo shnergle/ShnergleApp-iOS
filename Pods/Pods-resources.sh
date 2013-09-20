@@ -44,5 +44,8 @@ install_resource "ICETutorial/ICETutorial/en.lproj/ICETutorialController_iPad.xi
 install_resource "ICETutorial/ICETutorial/en.lproj/ICETutorialController_iPhone.xib"
 install_resource "NSDate+TimeAgo/NSDateTimeAgo.bundle"
 
-rsync -avr --no-relative --exclude '*/.svn/*' --files-from="$RESOURCES_TO_COPY" / "${CONFIGURATION_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}"
+rsync -avr --copy-links --no-relative --exclude '*/.svn/*' --files-from="$RESOURCES_TO_COPY" / "${CONFIGURATION_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}"
+if [[ "${ACTION}" == "install" ]]; then
+  rsync -avr --copy-links --no-relative --exclude '*/.svn/*' --files-from="$RESOURCES_TO_COPY" / "${INSTALL_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}"
+fi
 rm -f "$RESOURCES_TO_COPY"
