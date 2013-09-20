@@ -294,7 +294,7 @@
 - (void)initMap {
     rendered = NO;
     hasPositionLocked = NO;
-    map = [[MKMapView alloc] initWithFrame:CGRectMake(0, 64, self.view.bounds.size.width, 328)];
+    map = [[MKMapView alloc] initWithFrame:CGRectMake(0, 64, self.view.bounds.size.width, 330)];
     map.delegate = self;
     UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(didTapAtMap:)];
     [map addGestureRecognizer:tap];
