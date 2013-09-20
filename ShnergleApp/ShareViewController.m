@@ -205,15 +205,11 @@
     } else {
         UIStoryboard *sb = [UIStoryboard storyboardWithName:@"MainStoryboard" bundle:nil];
         int pointsAwarded = 0;
-        if(appDelegate.shnergleThis)
-        {
-            pointsAwarded = 4;
-        }else
-        {
-            pointsAwarded = 5;
-        }
-        ThankYouViewController *vc = (ThankYouViewController *)[sb instantiateViewControllerWithIdentifier:@"thankyouverymuch"];
-        if((self.fbSwitch.on || self.twSwitch.on)){
+        if (appDelegate.shnergleThis) pointsAwarded += 4;
+        if (self.twSwitch.on) pointsAwarded += 5;
+        if (self.fbSwitch.on) pointsAwarded += 5;
+        ThankYouViewController *vc = (ThankYouViewController *)[self.storyboard instantiateViewControllerWithIdentifier:@"thankyouverymuch"];
+        if(self.fbSwitch.on || self.twSwitch.on){
         [vc setupFields:[NSString stringWithFormat:@"Congratulations, you earned %d points!",pointsAwarded] :@"" : @""];
         }else{
             [vc setupFields:[NSString stringWithFormat:@"Tip: You can switch Facebook or Twitter on to share to other social sites!"] :@"" : @""];
