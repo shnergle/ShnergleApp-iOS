@@ -30,7 +30,7 @@
 - (void)addEvent:(NSDictionary *)eventDictionary
       isImplicit:(BOOL)isImplicit;
 - (NSString *)jsonEncodeInFlightEvents:(BOOL)includeImplicitEvents;
-- (NSUInteger)getAccumulatedEventCount;
+- (int)getAccumulatedEventCount;
 - (void)clearInFlightAndStats;
 
 @end

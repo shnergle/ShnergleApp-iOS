@@ -21,7 +21,6 @@
 #import "FBError.h"
 #import "FBSessionManualTokenCachingStrategy.h"
 #import "FBSession+Internal.h"
-#import "FBSessionUtility.h"
 #import "FBUtility.h"
 
 static NSString* kRedirectURL = @"fbconnect://success";
@@ -160,7 +159,7 @@ static NSString *const FBexpirationDatePropertyName = @"expirationDate";
     [self.session close];
     [self.tokenCaching clearToken];
     
-    [FBUtility deleteFacebookCookies];
+    [FBSession deleteFacebookCookies];
     
     // setting to nil also terminates any active request for whitelist
     [_frictionlessRequestSettings updateRecipientCacheWithRecipients:nil]; 
@@ -658,7 +657,7 @@ static NSString *const FBexpirationDatePropertyName = @"expirationDate";
     
     [_fbDialog release];
     
-    NSString *dialogURL = [[FBUtility dialogBaseURL] stringByAppendingString:action];
+    NSString *dialogURL = [[FBUtility buildFacebookUrlWithPre:@"https://m." withPost:@"/dialog/"] stringByAppendingString:action];
     [params setObject:@"touch" forKey:@"display"];
     [params setObject:kSDKVersion forKey:@"sdk"];
     [params setObject:kRedirectURL forKey:@"redirect_uri"];
@@ -694,7 +693,7 @@ static NSString *const FBexpirationDatePropertyName = @"expirationDate";
                 // if value parses as a json array expression get the list that way
                 id fbids = [FBUtility simpleJSONDecode:fbid];
                 if (![fbids isKindOfClass:[NSArray class]]) {
-                    // otherwise separate by commas (handles the singleton case too)
+                    // otherwise seperate by commas (handles the singleton case too)
                     fbids = [fbid componentsSeparatedByString:@","];
                 }                
                 invisible = [self isFrictionlessEnabledForRecipients:fbids];             

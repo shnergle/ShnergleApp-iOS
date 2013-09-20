@@ -272,11 +272,7 @@ static CGSize g_buttonSize;
     // add a label that will appear over the button
     self.label = [[[FBShadowLabel alloc] init] autorelease];
     self.label.autoresizingMask = UIViewAutoresizingFlexibleWidth;
-#ifdef __IPHONE_6_0
-    self.label.textAlignment = NSTextAlignmentCenter;
-#else
     self.label.textAlignment = UITextAlignmentCenter;
-#endif
     self.label.backgroundColor = [UIColor clearColor];
     self.label.font = font;
     self.label.textColor = [UIColor whiteColor];
@@ -303,10 +299,6 @@ static CGSize g_buttonSize;
     } else {
         [self configureViewForStateLoggedIn:NO];
     }
-}
-
-- (CGSize)intrinsicContentSize {
-    return self.bounds.size;
 }
 
 - (CGSize)sizeThatFits:(CGSize)size {
@@ -525,7 +517,7 @@ static CGSize g_buttonSize;
 
 - (void) drawTextInRect:(CGRect)rect {
     CGSize myShadowOffset = CGSizeMake(0, -1);
-    CGFloat myColorValues[] = {0, 0, 0, .3};
+    float myColorValues[] = {0, 0, 0, .3};
     
     CGContextRef myContext = UIGraphicsGetCurrentContext();
     CGContextSaveGState(myContext);

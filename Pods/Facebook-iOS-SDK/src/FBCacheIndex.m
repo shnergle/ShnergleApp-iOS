@@ -359,31 +359,31 @@ static void releaseStatement(sqlite3_stmt* statement, sqlite3* database)
 - (void)_updateEntryInDatabaseForKey:(NSString*)key
     entry:(FBCacheEntityInfo*)entry 
 {
+    NSAssert(dispatch_get_current_queue() == _databaseQueue, @"");    
     initializeStatement(_database, &_updateStatement, updateQuery);
 
     CHECK_SQLITE_SUCCESS(fbdfl_sqlite3_bind_text(
         _updateStatement, 
         1, 
         entry.uuid.UTF8String, 
-        (int)entry.uuid.length,
+        entry.uuid.length, 
         nil), _database);
         
     CHECK_SQLITE_SUCCESS(fbdfl_sqlite3_bind_double(
         _updateStatement, 
         2, 
         entry.accessTime), _database);  
-
-    NSAssert(entry.fileSize <= INT_MAX, @"");
+        
     CHECK_SQLITE_SUCCESS(fbdfl_sqlite3_bind_int(
         _updateStatement, 
         3, 
-        (int)entry.fileSize), _database);
+        entry.fileSize), _database);
         
     CHECK_SQLITE_SUCCESS(fbdfl_sqlite3_bind_text(
         _updateStatement, 
         4, 
         entry.key.UTF8String, 
-        (int)entry.key.length,
+        entry.key.length, 
         nil), _database);
     
     CHECK_SQLITE_DONE(fbdfl_sqlite3_step(_updateStatement), _database);
@@ -393,6 +393,8 @@ static void releaseStatement(sqlite3_stmt* statement, sqlite3* database)
 
 - (void)_writeEntryInDatabase:(FBCacheEntityInfo*)entry 
 {
+    NSAssert(dispatch_get_current_queue() == _databaseQueue, @"");
+    
     FBCacheEntityInfo* existing = [self _readEntryFromDatabase:entry.key];
     if (existing) {
         
@@ -412,14 +414,14 @@ static void releaseStatement(sqlite3_stmt* statement, sqlite3* database)
         _insertStatement, 
         1, 
         entry.uuid.UTF8String, 
-        (int)entry.uuid.length,
+        entry.uuid.length, 
         nil), _database);
 
     CHECK_SQLITE_SUCCESS(fbdfl_sqlite3_bind_text(
         _insertStatement, 
         2, 
         entry.key.UTF8String, 
-        (int)entry.key.length,
+        entry.key.length, 
         nil), _database);
         
     CHECK_SQLITE_SUCCESS(fbdfl_sqlite3_bind_double(
@@ -427,11 +429,10 @@ static void releaseStatement(sqlite3_stmt* statement, sqlite3* database)
         3, 
         entry.accessTime), _database);
         
-    NSAssert(entry.fileSize <= INT_MAX, @"");
     CHECK_SQLITE_SUCCESS(fbdfl_sqlite3_bind_int(
         _insertStatement, 
         4, 
-        (int)entry.fileSize), _database);
+        entry.fileSize), _database);
     
     CHECK_SQLITE_DONE(fbdfl_sqlite3_step(_insertStatement), _database);
 
@@ -440,13 +441,14 @@ static void releaseStatement(sqlite3_stmt* statement, sqlite3* database)
 
 - (FBCacheEntityInfo*)_readEntryFromDatabase:(NSString*)key
 {
+    NSAssert(dispatch_get_current_queue() == _databaseQueue, @"");
     initializeStatement(_database, &_selectByKeyStatement, selectByKeyQuery);
   
     CHECK_SQLITE_SUCCESS(fbdfl_sqlite3_bind_text(
         _selectByKeyStatement, 
         1, 
         key.UTF8String, 
-        (int)key.length,
+        key.length,
         nil), _database);
   
     return [self _createCacheEntityInfo:_selectByKeyStatement];
@@ -455,6 +457,8 @@ static void releaseStatement(sqlite3_stmt* statement, sqlite3* database)
 - (NSMutableArray*) _readEntriesFromDatabase:(NSString*)keyFragment
                            excludingFragment:(BOOL)exclude
 {
+    NSAssert(dispatch_get_current_queue() == _databaseQueue, @"");
+    
     sqlite3_stmt* selectStatement;
     const char* query;
     if (exclude) {
@@ -472,7 +476,7 @@ static void releaseStatement(sqlite3_stmt* statement, sqlite3* database)
         selectStatement, 
         1, 
         wildcardKeyFragment.UTF8String, 
-        (int)wildcardKeyFragment.length,
+        wildcardKeyFragment.length,
         nil), _database);
 
     NSMutableArray *entries = [[[NSMutableArray alloc] init] autorelease];
@@ -514,6 +518,8 @@ static void releaseStatement(sqlite3_stmt* statement, sqlite3* database)
 
 - (void)_fetchCurrentDiskUsage
 {
+    NSAssert(dispatch_get_current_queue() == _databaseQueue, @"");
+    
     sqlite3_stmt* sizeStatement = nil;
     initializeStatement(_database, &sizeStatement, selectStorageSizeQuery);
     
@@ -524,6 +530,8 @@ static void releaseStatement(sqlite3_stmt* statement, sqlite3* database)
 
 - (FBCacheEntityInfo*)_entryForKey:(NSString*)key
 {
+    NSAssert(dispatch_get_current_queue() != _databaseQueue, @"");
+
     __block FBCacheEntityInfo *entryInfo = [_cachedEntries objectForKey:key];
     if (entryInfo == nil) {
         // TODO: This is really bad if higher layers are going to be
@@ -542,12 +550,14 @@ static void releaseStatement(sqlite3_stmt* statement, sqlite3* database)
                                        
 - (void)_removeEntryFromDatabaseForKey:(NSString*)key
 {
+    NSAssert(dispatch_get_current_queue() == _databaseQueue, @"");
+
     initializeStatement(_database, &_removeByKeyStatement, deleteEntryQuery);
     CHECK_SQLITE_SUCCESS(fbdfl_sqlite3_bind_text(
         _removeByKeyStatement, 
         1, 
         key.UTF8String, 
-        (int)key.length,
+        key.length, 
         nil), _database);
 
     CHECK_SQLITE_DONE(fbdfl_sqlite3_step(_removeByKeyStatement), _database);
@@ -579,6 +589,7 @@ static void releaseStatement(sqlite3_stmt* statement, sqlite3* database)
 // - drop the temporary 'trimmed' table.
 - (void)_trimDatabase
 {
+    NSAssert(dispatch_get_current_queue() == _databaseQueue, @"");  
     NSAssert(_currentDiskUsage > _diskCapacity, @"");
     if (_currentDiskUsage <= _diskCapacity) {
         return;

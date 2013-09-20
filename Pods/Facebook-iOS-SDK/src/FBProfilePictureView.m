@@ -232,8 +232,5 @@
     [super layoutSubviews];   
 }
 
-- (CGSize)intrinsicContentSize {
-    return self.bounds.size;
-}
 
 @end

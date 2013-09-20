@@ -98,10 +98,6 @@
  @discussion
  This essentially wraps a call to `fetchTokenInformation` so you should
  override this when providing a custom token caching strategy.
- 
- In order for an `FBSession` instance to be able to use a cached token,
- the token must be not be expired (see `+isValidTokenInformation:`) and
- must also contain all permissions in the initialized session instance.
  */
 - (FBAccessTokenData *)fetchFBAccessTokenData;
 
@@ -154,6 +150,3 @@ extern NSString *const FBTokenInformationLoginTypeLoginKey;
 
 // The key to use with token information dictionaries to get the latest known permissions
 extern NSString *const FBTokenInformationPermissionsKey;
-
-// The key to use with token information dictionaries to get the date the permissions were last refreshed.
-extern NSString *const FBTokenInformationPermissionsRefreshDateKey;

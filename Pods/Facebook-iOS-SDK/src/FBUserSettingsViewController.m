@@ -140,7 +140,7 @@
     [super viewDidLoad];
     
     // If we are not being presented modally, we don't need a Done button.
-    if (self.presentingViewController == nil) {
+    if (self.compatiblePresentingViewController == nil) {
         self.doneButton = nil;
     }
     
@@ -191,11 +191,7 @@
                                                 containerView.frame.size.width,
                                                 20);
     self.connectedStateLabel.backgroundColor = [UIColor clearColor];
-#ifdef __IPHONE_6_0
-    self.connectedStateLabel.textAlignment = NSTextAlignmentCenter;
-#else
     self.connectedStateLabel.textAlignment = UITextAlignmentCenter;
-#endif
     self.connectedStateLabel.numberOfLines = 0;
     self.connectedStateLabel.font = [UIFont boldSystemFontOfSize:16.0];
     self.connectedStateLabel.shadowColor = [UIColor blackColor];
@@ -263,16 +259,14 @@
     [self updateBackgroundImage];
 }
 
-- (NSUInteger)supportedInterfaceOrientations {
-    if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad) {
-        return UIInterfaceOrientationMaskAll;
-    } else {
-        return UIInterfaceOrientationMaskPortrait;
-    }
+- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation {
+    return (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad) || UIInterfaceOrientationIsPortrait(interfaceOrientation);
 }
 
 - (BOOL)shouldAutorotate {
-    return YES;
+    UIInterfaceOrientation orientation = [[UIDevice currentDevice] orientation];
+    
+    return [self shouldAutorotateToInterfaceOrientation:orientation];
 }
 
 - (void)viewWillAppear:(BOOL)animated {

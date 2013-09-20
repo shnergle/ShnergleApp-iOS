@@ -122,10 +122,10 @@
     // a little request bookkeeping
     self.activeRequest = nil;
 
-    NSUInteger items = [[result objectForKey: @"data"] count];
+    int items = [[result objectForKey: @"data"] count];
     NSMutableArray* recipients = [[[NSMutableArray alloc] initWithCapacity: items] autorelease];
         
-    for (NSUInteger i = 0; i < items; i++) {
+    for (int i = 0; i < items; i++) {
         [recipients addObject: [[[result objectForKey: @"data"] 
                                  objectAtIndex: i] 
                                 objectForKey: @"recipient_id"]] ;

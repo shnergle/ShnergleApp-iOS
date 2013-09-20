@@ -226,23 +226,22 @@ tokenCachingStrategy:(FBSessionTokenCachingStrategy*)tokenCachingStrategy
              // state transition, and call the handler if there is one
              [self transitionAndCallHandlerWithState:FBSessionStateClosedLoginFailed
                                                error:error
-                                           tokenData:nil
-                                         shouldCache:NO];
+                                               token:nil
+                                      expirationDate:nil
+                                         shouldCache:NO
+                                           loginType:FBSessionLoginTypeNone];
          }
      }];
 }
 
 - (void)transitionToOpenWithToken:(NSString*)token 
 {
-    FBAccessTokenData *tokenData = [FBAccessTokenData createTokenFromString:token
-                                                                permissions:nil
-                                                             expirationDate:[NSDate distantFuture]
-                                                                  loginType:FBSessionLoginTypeTestUser
-                                                                refreshDate:[NSDate date]];
     [self transitionAndCallHandlerWithState:FBSessionStateOpen
                                       error:nil
-                                  tokenData:tokenData
-                                shouldCache:NO];
+                                      token:token
+                             expirationDate:[NSDate distantFuture]
+                                shouldCache:NO
+                                  loginType:FBSessionLoginTypeTestUser];
 }
 
 // We raise exceptions when things go wrong here, because this is intended for use only
@@ -345,7 +344,7 @@ tokenCachingStrategy:(FBSessionTokenCachingStrategy*)tokenCachingStrategy
 // we can use as part of a Facebook test user name (i.e., no digits).
 - (NSString*)validNameStringFromInteger:(NSUInteger)input 
 {
-    NSString *hashAsString = [NSString stringWithFormat:@"%lu", (unsigned long)input];
+    NSString *hashAsString = [NSString stringWithFormat:@"%u", input];
     NSMutableString *result = [NSMutableString stringWithString:@"Perm"];
     
     // We know each character is a digit. Convert it into a letter starting with 'a'.
@@ -409,14 +408,18 @@ tokenCachingStrategy:(FBSessionTokenCachingStrategy*)tokenCachingStrategy
 #pragma mark Overrides
 
 - (BOOL)transitionToState:(FBSessionState)state
-      withAccessTokenData:(FBAccessTokenData *)tokenData
-              shouldCache:(BOOL)shouldCache {
+           andUpdateToken:(NSString*)token
+        andExpirationDate:(NSDate*)date
+              shouldCache:(BOOL)shouldCache
+                loginType:(FBSessionLoginType)loginType {
     // in case we need these after the transition
     NSString *userID = self.testUserID;
 
     BOOL didTransition = [super transitionToState:state
-                              withAccessTokenData:tokenData
-                                      shouldCache:shouldCache];
+                                   andUpdateToken:token
+                                andExpirationDate:date
+                                      shouldCache:shouldCache
+                                        loginType:loginType];
 
     if (didTransition && FB_ISSESSIONSTATETERMINAL(self.state)) {
         if (self.mode == FBTestSessionModePrivate) {

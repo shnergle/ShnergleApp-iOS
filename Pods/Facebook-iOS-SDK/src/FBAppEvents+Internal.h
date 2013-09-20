@@ -50,10 +50,10 @@ extern NSString *const FBAppEventNameUserSettingsUsage;
 extern NSString *const FBAppEventParameterDialogOutcome;
 
 /*! Use to log the result of a call to FBDialogs canPresentShareDialogWithParams: */
-extern NSString *const FBAppEventNameFBDialogsPresentShareDialog;
+extern NSString *const FBAppEventNameFBDialogsCanPresentShareDialog;
 
 /*! Use to log the result of a call to FBDialogs canPresentShareDialogWithOpenGraphActionParams: */
-extern NSString *const FBAppEventNameFBDialogsPresentShareDialogOG;
+extern NSString *const FBAppEventNameFBDialogsCanPresentShareDialogOG;
 
 /*! Use to log the start of an auth request that cannot be fulfilled by the token cache */
 extern NSString *const FBAppEventNameFBSessionAuthStart;

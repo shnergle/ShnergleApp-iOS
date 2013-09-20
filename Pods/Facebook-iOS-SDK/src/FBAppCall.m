@@ -19,7 +19,6 @@
 #import "FBUtility.h"
 #import "FBError.h"
 #import "FBSession+Internal.h"
-#import "FBSessionUtility.h"
 #import "FBAccessTokenData+Internal.h"
 #import "FBDialogsData+Internal.h"
 #import "FBAppLinkData+Internal.h"
@@ -294,7 +293,7 @@ NSString *const FBDeferredAppLinkEvent = @"DEFERRED_APP_LINK";
                                                                              appID:[FBSettings defaultAppID]
                                                                    urlSchemeSuffix:[FBSettings defaultUrlSchemeSuffix]];
     
-    if ([FBSessionUtility isOpenSessionResponseURL:url]) {
+    if ([FBSession isOpenSessionResponseURL:url]) {
         // If we're here, it's because the session was not specified or was not expecting a token. In some cases,
         // it might be fine to go ahead and open the session anyways.
         if ([FBAppCall tryOpenSession:workingSession withAccessToken:accessToken]) {
@@ -413,7 +412,7 @@ NSString *const FBDeferredAppLinkEvent = @"DEFERRED_APP_LINK";
         [deferredAppLinkParameters setObject:advertiserID forKey:@"advertiser_id"];
     }
   
-    [FBUtility updateParametersWithEventUsageLimitsAndBundleInfo:deferredAppLinkParameters];
+    [FBUtility updateParametersWithEventUsageLimits:deferredAppLinkParameters];
   
     FBRequest *deferredAppLinkRequest = [[[FBRequest alloc] initForPostWithSession:nil
                                                                          graphPath:[NSString stringWithFormat:@"%@/activities", appID, nil]

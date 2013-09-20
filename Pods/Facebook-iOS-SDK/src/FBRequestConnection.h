@@ -203,7 +203,8 @@ typedef void (^FBRequestHandler)(FBRequestConnection *connection,
  @method
  
  @abstract
- This method adds an <FBRequest> object to this connection.
+ This method adds an <FBRequest> object to this connection and then calls 
+ <start> on the connection.
  
  @discussion
  The completion handler is retained until the block is called upon the 
@@ -211,7 +212,6 @@ typedef void (^FBRequestHandler)(FBRequestConnection *connection,
  
  @param request       A request to be included in the round-trip when start is called.
  @param handler       A handler to call back when the round-trip completes or times out.
-                      The handler will be invoked on the main thread.
 */
 - (void)addRequest:(FBRequest*)request
  completionHandler:(FBRequestHandler)handler;
@@ -220,7 +220,8 @@ typedef void (^FBRequestHandler)(FBRequestConnection *connection,
  @method
 
  @abstract
- This method adds an <FBRequest> object to this connection.
+ This method adds an <FBRequest> object to this connection and then calls 
+ <start> on the connection.
 
  @discussion
  The completion handler is retained until the block is called upon the
@@ -230,7 +231,6 @@ typedef void (^FBRequestHandler)(FBRequestConnection *connection,
  @param request         A request to be included in the round-trip when start is called.
 
  @param handler         A handler to call back when the round-trip completes or times out.
-                        The handler will be invoked on the main thread.
  
  @param name            An optional name for this request.  This can be used to feed
  the results of one request to the input of another <FBRequest> in the same 
@@ -240,29 +240,6 @@ typedef void (^FBRequestHandler)(FBRequestConnection *connection,
 - (void)addRequest:(FBRequest*)request
  completionHandler:(FBRequestHandler)handler
     batchEntryName:(NSString*)name;
-
-/*!
- @method
- 
- @abstract
- This method adds an <FBRequest> object to this connection.
- 
- @discussion
- The completion handler is retained until the block is called upon the
- completion or cancellation of the connection. This request can be named
- to allow for using the request's response in a subsequent request.
- 
- @param request         A request to be included in the round-trip when start is called.
- 
- @param handler         A handler to call back when the round-trip completes or times out.
- 
- @param batchParameters The optional dictionary of parameters to include for this request
- as described in [Graph API Batch Requests]( https://developers.facebook.com/docs/reference/api/batch/ ).
- Examples include "depends_on", "name", or "omit_response_on_success".
- */
-- (void)addRequest:(FBRequest*)request
- completionHandler:(FBRequestHandler)handler
-   batchParameters:(NSDictionary*)batchParameters;
 
 /*!
  @methodgroup Instance methods
@@ -438,8 +415,8 @@ typedef void (^FBRequestHandler)(FBRequestConnection *connection,
  native Facebook app on the device.  If there is no native Facebook app, no one is logged into it, or the user has opted out
  at the iOS level from ad tracking, then a `nil` ID will be returned.
  
- This method returns `nil` if either the user has opted-out (via iOS) from Ad Tracking, the app itself has limited event usage
- via the `[FBAppEvents setLimitEventUsage]` flag, or a specific Facebook user cannot be identified.
+ This method itself returning `nil` indicates that either the user has opted-out (via iOS) from Ad Tracking, or a specific Facebook user cannot
+ be identified.
  
  @param handler The handler block to call when the request completes with a success, error, or cancel action.
  */

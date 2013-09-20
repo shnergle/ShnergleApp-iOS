@@ -63,7 +63,7 @@ const int MAX_ACCUMULATED_LOG_EVENTS                 = 1000;
     }
 }
 
-- (NSUInteger)getAccumulatedEventCount {
+- (int)getAccumulatedEventCount {
     @synchronized (self) {
         return self.accumulatedEvents.count;
     }

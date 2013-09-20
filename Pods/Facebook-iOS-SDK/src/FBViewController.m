@@ -4,9 +4,9 @@
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
- *
+ * 
  *    http://www.apache.org/licenses/LICENSE-2.0
-
+ 
  * Unless required by applicable law or agreed to in writing, software
  * distributed under the License is distributed on an "AS IS" BASIS,
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
@@ -21,8 +21,9 @@
 
 @interface FBViewController ()
 
-@property (nonatomic, retain) UINavigationBar *navigationBar;
+@property (nonatomic, retain) UIToolbar *toolbar;
 @property (nonatomic, retain) UIView *canvasView;
+@property (nonatomic, retain) UIBarButtonItem *titleLabel;
 @property (nonatomic, copy) FBModalCompletionHandler handler;
 @property (nonatomic) BOOL autoDismiss;
 @property (nonatomic) BOOL dismissAnimated;
@@ -40,15 +41,16 @@
 @synthesize cancelButton = _cancelButton;
 @synthesize doneButton = _doneButton;
 @synthesize delegate = _delegate;
-@synthesize navigationBar = _navigationBar;
+@synthesize toolbar = _toolbar;
 @synthesize canvasView = _canvasView;
+@synthesize titleLabel = _titleLabel;
 @synthesize handler = _handler;
 @synthesize autoDismiss = _autoDismiss;
 @synthesize dismissAnimated = _dismissAnimated;
 
 #pragma mark View controller lifecycle
 
-- (void)commonInit {
+- (void) commonInit {
     // We do this at init-time rather than in viewDidLoad so the caller can change the buttons if
     // they want prior to the view loading.
     self.cancelButton = [[[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemCancel
@@ -59,20 +61,7 @@
                                                                      target:self
                                                                      action:@selector(doneButtonPressed:)]
                        autorelease];
-#ifdef __IPHONE_7_0
-#ifdef __IPHONE_OS_VERSION_MAX_ALLOWED
-#if __IPHONE_OS_VERSION_MAX_ALLOWED >= __IPHONE_7_0
-    if (self.parentViewController == nil) {
-        UIApplication *application = [UIApplication sharedApplication];
-        if (!application.statusBarHidden) {
-            if ([self respondsToSelector:@selector(setEdgesForExtendedLayout:)]) {
-                self.edgesForExtendedLayout = UIRectEdgeNone;
-            }
-        }
-    }
-#endif
-#endif
-#endif
+
 }
 
 - (id)init {
@@ -99,11 +88,12 @@
 
 - (void)dealloc {
     [super dealloc];
-
+    
     [_cancelButton release];
     [_doneButton release];
-    [_navigationBar release];
+    [_toolbar release];
     [_canvasView release];
+    [_titleLabel release];
     [_handler release];
 }
 
@@ -111,23 +101,23 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-
+    
     self.view.autoresizesSubviews = YES;
-
+    
     self.canvasView = [[[UIView alloc] init] autorelease];
     [self.canvasView setAutoresizingMask:UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight];
 
-    self.canvasView.frame = [self contentBounds];
+    self.canvasView.frame = self.view.bounds;
     [self.view addSubview:self.canvasView];
     [self.view sendSubviewToBack:self.canvasView];
-
+    
     self.autoDismiss = NO;
 
     self.doneButton.target = self;
     self.doneButton.action = @selector(doneButtonPressed:);
     self.cancelButton.target = self;
     self.cancelButton.action = @selector(cancelButtonPressed:);
-
+    
     [self updateBar];
 }
 
@@ -151,41 +141,21 @@
     self.handler = handler;
     // Assumption: we want to dismiss with the same animated-ness as we present.
     self.dismissAnimated = animated;
-
-    [viewController presentViewController:self animated:animated completion:nil];
-
+    
+    if ([viewController respondsToSelector:@selector(presentViewController:animated:completion:)]) {
+        [viewController presentViewController:self animated:animated completion:nil];
+    } else {
+        [viewController presentModalViewController:self animated:animated];
+    }
+    
     // Set this here because we always revert to NO in viewDidLoad.
     self.autoDismiss = YES;
 }
 
 #pragma mark Implementation
 
-- (CGRect)contentBounds
-{
-    CGRect bounds = self.view.bounds;
-#ifdef __IPHONE_7_0
-#ifdef __IPHONE_OS_VERSION_MAX_ALLOWED
-#if __IPHONE_OS_VERSION_MAX_ALLOWED >= __IPHONE_7_0
-    if (self.parentViewController == nil) {
-        UIApplication *application = [UIApplication sharedApplication];
-        if (!application.statusBarHidden) {
-            if ([self respondsToSelector:@selector(edgesForExtendedLayout)]) {
-                if ((self.edgesForExtendedLayout & UIRectEdgeTop) == 0) {
-                    CGFloat offset = CGRectGetMaxY(application.statusBarFrame);
-                    bounds.origin.y += offset;
-                    bounds.size.height -= offset;
-                }
-            }
-        }
-    }
-#endif
-#endif
-#endif
-    return bounds;
-}
-
 - (void)updateBar {
-    if (self.presentingViewController != nil) {
+    if (self.compatiblePresentingViewController != nil) {
         [self updateBarForPresentedMode];
     } else if (self.navigationController != nil) {
         [self updateBarForNavigationMode];
@@ -196,51 +166,102 @@
     BOOL needBar = (self.doneButton != nil) || (self.cancelButton != nil);
     if (needBar) {
         // If we need a bar but don't have one, create it.
-        if (self.navigationBar == nil) {
-            self.navigationBar = [[[UINavigationBar alloc] init] autorelease];
-            self.navigationBar.barStyle = UIBarStyleDefault;
-
-            [self.navigationBar setAutoresizingMask:UIViewAutoresizingFlexibleWidth];
-
-            [self.view addSubview:self.navigationBar];
+        if (self.toolbar == nil) {
+            self.toolbar = [[[UIToolbar alloc] init] autorelease];
+            self.toolbar.barStyle = UIBarStyleDefault;
+            
+            [self.toolbar setAutoresizingMask:UIViewAutoresizingFlexibleWidth];
+            
+            [self.view addSubview:self.toolbar];
         }
     } else {
         // If we have a bar but don't need one, get rid of it.
-        if (self.navigationBar != nil) {
-            [self.navigationBar removeFromSuperview];
-            self.navigationBar = nil;
-
-            self.canvasView.frame = [self contentBounds];
+        if (self.toolbar != nil) {
+            [self.toolbar removeFromSuperview];
+            self.toolbar = nil;
+            
+            self.canvasView.frame = self.view.bounds;
         }
         return;
     }
-
-    UINavigationItem *navigationItem = [[[UINavigationItem alloc] initWithTitle:nil] autorelease];
-
+    
+    NSMutableArray *buttons = [NSMutableArray array];
     if (self.cancelButton != nil) {
-        navigationItem.leftBarButtonItem = self.cancelButton;
+        [buttons addObject:self.cancelButton];
+    } else {
+        // No cancel button, but if we have a done and a title, add some space at the beginning to help center the title.
+        if (self.doneButton != nil && self.title.length > 0) {
+            UIBarButtonItem *space = [[[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace 
+                                                                                    target:nil
+                                                                                    action:nil] 
+                                      autorelease];
+            [buttons addObject:space];
+        }
     }
     if (self.title.length > 0) {
-        navigationItem.title = self.title;
+        UIBarButtonItem *space = [[[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace 
+                                                                                target:nil
+                                                                                action:nil] 
+                                  autorelease];
+        [buttons addObject:space];
+        
+        if (self.titleLabel == nil) {
+            UILabel *label = [[[UILabel alloc] init] autorelease];
+            label.font = [UIFont fontWithName:@"Helvetica-Bold" size:20];
+            label.backgroundColor = [UIColor clearColor];
+            label.textColor = [UIColor colorWithRed:255.0/255.0 green:255.0/255.0 blue:255.0/255.0 alpha:1.0];
+            label.textAlignment = UITextAlignmentCenter;
+            label.shadowColor = [UIColor colorWithWhite:0.0 alpha:0.5];
+
+            self.titleLabel = [[[UIBarButtonItem alloc] initWithCustomView:label] autorelease];
+        }
+        [(UILabel*)self.titleLabel.customView setText:self.title];
+        [self.titleLabel.customView sizeToFit];
+        
+        [buttons addObject:self.titleLabel];
+        
+        space = [[[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace 
+                                                               target:nil
+                                                               action:nil] 
+                                  autorelease];
+        [buttons addObject:space];
+        
     }
 
     if (self.doneButton != nil) {
-        navigationItem.rightBarButtonItem = self.doneButton;
+        // If no title, we need a space to right-align
+        if (self.title.length == 0) {
+            UIBarButtonItem *space = [[[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace 
+                                                                                    target:nil
+                                                                                    action:nil] 
+                                      autorelease];
+            [buttons addObject:space];
+        }
+        [buttons addObject:self.doneButton];
+    } else {
+        // No done button, but if we have a cancel and a title, add some space at the end to help center the title.
+        if (self.cancelButton != nil && self.title.length > 0) {
+            UIBarButtonItem *space = [[[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace 
+                                                                                    target:nil
+                                                                                    action:nil] 
+                                      autorelease];
+            [buttons addObject:space];
+        }
     }
 
-    [self.navigationBar sizeToFit];
-    CGRect contentBounds = [self contentBounds];
-    CGRect frame = CGRectMake(0, 0, CGRectGetWidth(contentBounds), CGRectGetMinY(contentBounds) + CGRectGetHeight(self.navigationBar.bounds));
-    self.navigationBar.frame = frame;
+    [self.toolbar sizeToFit];
+    CGRect bounds = self.toolbar.bounds;
+    bounds = CGRectMake(0, 0, self.view.bounds.size.width, bounds.size.height);
+    self.toolbar.bounds = bounds;
 
-    // Make the canvas shorter to account for the navigationBar.
-    frame = contentBounds;
-    CGFloat navigationBarHeight = self.navigationBar.bounds.size.height;
-    frame.origin.y = navigationBarHeight;
-    frame.size.height -= navigationBarHeight;
-    self.canvasView.frame = frame;
+    // Make the canvas shorter to account for the toolbar.
+    bounds = self.view.bounds;
+    CGFloat toolbarHeight = self.toolbar.bounds.size.height;
+    bounds.origin.y += toolbarHeight;
+    bounds.size.height -= toolbarHeight;
+    self.canvasView.frame = bounds;
 
-    self.navigationBar.items = @[navigationItem];
+    self.toolbar.items = buttons;
 }
 
 - (void)updateBarForNavigationMode {
@@ -268,17 +289,33 @@
     [self updateBar];
 }
 
+- (UIViewController *)compatiblePresentingViewController {
+    if ([self respondsToSelector:@selector(presentingViewController)]) {
+        return [self presentingViewController];
+    } else {
+        UIViewController *parentViewController = [self parentViewController];
+        if (self == [parentViewController modalViewController]) {
+            return parentViewController;
+        }
+    }
+    return nil;
+}
+
 #pragma mark Handlers
 
 - (void)cancelButtonPressed:(id)sender {
     if ([self.delegate respondsToSelector:@selector(facebookViewControllerCancelWasPressed:)]) {
         [self.delegate facebookViewControllerCancelWasPressed:self];
     }
-
-    UIViewController *presentingViewController = [self presentingViewController];
+    
+    UIViewController *presentingViewController = [self compatiblePresentingViewController];
     if (self.autoDismiss && presentingViewController) {
-        [presentingViewController dismissViewControllerAnimated:self.dismissAnimated completion:nil];
-
+        if ([presentingViewController respondsToSelector:@selector(dismissViewControllerAnimated:completion:)]) {
+            [presentingViewController dismissViewControllerAnimated:self.dismissAnimated completion:nil];
+        } else {
+            [presentingViewController dismissModalViewControllerAnimated:self.dismissAnimated];
+        }
+        
         [self logAppEvents:YES];
         if (self.handler) {
             self.handler(self, NO);
@@ -290,11 +327,15 @@
     if ([self.delegate respondsToSelector:@selector(facebookViewControllerDoneWasPressed:)]) {
         [self.delegate facebookViewControllerDoneWasPressed:self];
     }
-
-    UIViewController *presentingViewController = [self presentingViewController];
+    
+    UIViewController *presentingViewController = [self compatiblePresentingViewController];
     if (self.autoDismiss && presentingViewController) {
-        [presentingViewController dismissViewControllerAnimated:self.dismissAnimated completion:nil];
-
+        if ([presentingViewController respondsToSelector:@selector(dismissViewControllerAnimated:completion:)]) {
+            [presentingViewController dismissViewControllerAnimated:self.dismissAnimated completion:nil];
+        } else {
+            [presentingViewController dismissModalViewControllerAnimated:self.dismissAnimated];
+        }
+        
         [self logAppEvents:NO];
         if (self.handler) {
             self.handler(self, YES);

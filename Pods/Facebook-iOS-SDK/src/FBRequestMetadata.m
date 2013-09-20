@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-#import "FBRequest+Internal.h"
+#import "FBRequest.h"
 #import "FBRequestMetadata.h"
 #import "FBRequestHandlerFactory.h"
 
@@ -24,30 +24,25 @@ const int FBREQUEST_DEFAULT_MAX_RETRY_LIMIT = 1;
 
 - (id) initWithRequest:(FBRequest *)request
      completionHandler:(FBRequestHandler)handler
-       batchParameters:(NSDictionary *)batchParameters
+        batchEntryName:(NSString *)name
               behavior:(FBRequestConnectionErrorBehavior) behavior {
     
-    if ((self = [super init])) {
-        _request = [request retain];
-        _originalCompletionHandler = [handler copy];
-        _batchParameters = [batchParameters copy];
-        _behavior = behavior;
+    if (self = [super init]) {
+        self.request = request;
+        self.originalCompletionHandler = handler;
+        self.batchEntryName = name;
+        self.behavior = behavior;
         
-        // Only consider retry handlers if the request has enabled canCloseSessionOnError.
-        // We are essentially reusing that flag to identify implicit requests, and we
-        // don't want implicit requests to trigger retries.
-        if (request.canCloseSessionOnError) {
-            // Note the order of composing these retry handlers is significant and
-            // is like a stack (last wrapping handler is invoked first).
-            if (behavior & FBRequestConnectionErrorBehaviorReconnectSession) {
-                handler = [FBRequestHandlerFactory handlerThatReconnects:handler forRequest:request];
-            }
-            if (behavior & FBRequestConnectionErrorBehaviorAlertUser) {
-                handler = [FBRequestHandlerFactory handlerThatAlertsUser:handler forRequest:request];
-            }
-            if (behavior & FBRequestConnectionErrorBehaviorRetry) {
-                handler = [FBRequestHandlerFactory handlerThatRetries:handler forRequest:request];
-            }
+        // Note the order of composing these retry handlers is significant and
+        // is like a stack (last wrapping handler is invoked first).
+        if (behavior & FBRequestConnectionErrorBehaviorReconnectSession) {
+            handler = [FBRequestHandlerFactory handlerThatReconnects:handler forRequest:request];
+        }
+        if (behavior & FBRequestConnectionErrorBehaviorAlertUser) {
+            handler = [FBRequestHandlerFactory handlerThatAlertsUser:handler forRequest:request];
+        }      
+        if (behavior & FBRequestConnectionErrorBehaviorRetry) {
+            handler = [FBRequestHandlerFactory handlerThatRetries:handler forRequest:request];
         }
 
         
@@ -59,7 +54,7 @@ const int FBREQUEST_DEFAULT_MAX_RETRY_LIMIT = 1;
 - (void) dealloc {
     [_request release];
     [_completionHandler release];
-    [_batchParameters release];
+    [_batchEntryName release];
     [_originalCompletionHandler release];
     [_originalResult release];
     [_originalError release];
@@ -76,10 +71,10 @@ const int FBREQUEST_DEFAULT_MAX_RETRY_LIMIT = 1;
 }
 
 - (NSString*)description {
-    return [NSString stringWithFormat:@"<%@: %p, batchParameters: %@, completionHandler: %p, request: %@>",
+    return [NSString stringWithFormat:@"<%@: %p, batchEntryName: %@, completionHandler: %p, request: %@>",
             NSStringFromClass([self class]),
             self,
-            self.batchParameters,
+            self.batchEntryName,
             self.completionHandler,
             self.request.description];
 }
