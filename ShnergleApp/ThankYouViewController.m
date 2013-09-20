@@ -24,8 +24,8 @@
 - (void)setupFields:(NSString *)points :(NSString *)msg :(NSString *)passcode{
     pointsString = points;
     if ([msg length] > 0) {
-        passcodeInfoString = msg;
-        passcodeString = passcode;
+        passcodeString = msg;
+        passcodeInfoString = passcode;
     } else {
         shouldHidePasscode = YES;
     }

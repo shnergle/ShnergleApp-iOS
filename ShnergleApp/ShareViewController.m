@@ -203,14 +203,7 @@
     if (appDelegate.redeeming != nil) {
         [Request post:@"promotion_redemptions/set" params:@{@"promotion_id": appDelegate.redeeming} delegate:self callback:@selector(redeemed:)];
     } else {
-        int pointsAwarded = 0;
-        if (appDelegate.shnergleThis) pointsAwarded += 4;
-        if (self.twSwitch.on) pointsAwarded += 5;
-        if (self.fbSwitch.on) pointsAwarded += 5;
-        ThankYouViewController *vc = (ThankYouViewController *)[self.storyboard instantiateViewControllerWithIdentifier:@"thankyouverymuch"];
-        [vc setupFields:[NSString stringWithFormat:@"Congratulations, you earned %d points!",pointsAwarded] : @"" : @""];
-        [self.navigationController pushViewController:vc animated:YES];
-        //[self presentViewController:vc animated:YES completion:nil];
+        [self thankYou:@"" :@""];
     }
 }
 
@@ -235,11 +228,17 @@
         passcode = response;
     }
 
-    UIStoryboard *sb = [UIStoryboard storyboardWithName:@"MainStoryboard" bundle:nil];
+    [self thankYou:msg :passcode];
+}
 
-    ThankYouViewController *vc = (ThankYouViewController *)[sb instantiateViewControllerWithIdentifier:@"thankyouverymuch"];
-    [vc setupFields:@"" :msg :passcode];
-    [self presentViewController:vc animated:YES completion:nil];
+- (void)thankYou:(NSString *)msg :(NSString *)passcode {
+    int pointsAwarded = 0;
+    if (appDelegate.shnergleThis) pointsAwarded += 4;
+    if (self.twSwitch.on) pointsAwarded += 5;
+    if (self.fbSwitch.on) pointsAwarded += 5;
+    ThankYouViewController *vc = (ThankYouViewController *)[self.storyboard instantiateViewControllerWithIdentifier:@"thankyouverymuch"];
+    [vc setupFields:[NSString stringWithFormat:@"Congratulations, you earned %d points!",pointsAwarded] : msg :passcode];
+    [self.navigationController pushViewController:vc animated:YES];
 }
 
 - (IBAction)selectFriendsButtonAction:(id)sender {
