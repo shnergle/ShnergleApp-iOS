@@ -78,7 +78,7 @@
 }
 
 - (void)postResponse:(NSDictionary *)result {
-    int res = [result[@"level"] intValue];
+    int res = [result[@"level"] integerValue];
     switch (res) {
         case 1:
             self.userProfileImage1.hidden = NO;
@@ -91,9 +91,9 @@
         default:
             break;
     }
-    self.followingLabel.text = [self suffix:[result[@"following_total"] intValue]];
-    self.redeemedLabel.text = [self suffix:[result[@"redemptions_total"]  intValue]];
-    self.checkInLabel.text = [self suffix:[result[@"posts_total"]  intValue]];
+    self.followingLabel.text = [self suffix:[result[@"following_total"] integerValue]];
+    self.redeemedLabel.text = [self suffix:[result[@"redemptions_total"]  integerValue]];
+    self.checkInLabel.text = [self suffix:[result[@"posts_total"]  integerValue]];
     self.shnerglerLabel.text = [NSString stringWithFormat:@"Shnergle score above %@", [result[@"thresholds"][2] stringValue]];
     self.explorerLabel.text = [NSString stringWithFormat:@"Shnergle score above %@", [result[@"thresholds"][0] stringValue]];
     self.scoutLabel.text = [NSString stringWithFormat:@"Shnergle score above %@", [result[@"thresholds"][1] stringValue]];

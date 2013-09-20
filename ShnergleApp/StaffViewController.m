@@ -45,7 +45,7 @@
     if (indexPath.item >= [appDelegate.staff[@"managers"] count]) {
         number = indexPath.item - [appDelegate.staff[@"managers"] count];
         type = @"staff";
-        ((UILabel *)[cell viewWithTag:2]).text = [NSString stringWithFormat:@"Staff - Promotions %@", ([appDelegate.staff[type][number][@"promo_perm"] intValue] == 1 ? @"enabled" : @"disabled")];
+        ((UILabel *)[cell viewWithTag:2]).text = [NSString stringWithFormat:@"Staff - Promotions %@", ([appDelegate.staff[type][number][@"promo_perm"] integerValue] == 1 ? @"enabled" : @"disabled")];
     } else {
         number = indexPath.item;
         type = @"managers";

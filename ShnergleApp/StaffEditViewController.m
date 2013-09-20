@@ -44,7 +44,7 @@
         promoSwitch.on = YES;
         promoSwitch.enabled = NO;
     } else {
-        promoSwitch.on = [currentStaff[@"promo_perm"] intValue] == 1;
+        promoSwitch.on = [currentStaff[@"promo_perm"] integerValue] == 1;
         promoSwitch.enabled = YES;
     }
 }
@@ -114,7 +114,7 @@
 }
 
 - (NSString *)getDateFromUnixFormat:(id)unixFormat {
-    NSDate *date = [NSDate dateWithTimeIntervalSince1970:[unixFormat intValue]];
+    NSDate *date = [NSDate dateWithTimeIntervalSince1970:[unixFormat integerValue]];
     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
     dateFormatter.dateFormat = @"ccc H:mm";
     return [date timeAgoWithLimit:86400 dateFormatter:dateFormatter];

@@ -15,7 +15,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.navigationItem.title = @"Promotion";
-    if (!(appDelegate.venueStatus == Staff && [appDelegate.activeVenue[@"promo_perm"] intValue] == 0)) [self setRightBarButton:@"Publish" actionSelector:@selector(addPromotion)];
+    if (!(appDelegate.venueStatus == Staff && [appDelegate.activeVenue[@"promo_perm"] integerValue] == 0)) [self setRightBarButton:@"Publish" actionSelector:@selector(addPromotion)];
 
     self.tableData = @[@"Title", @"", @"Passcode", @"Starts", @"Ends", @"Limit", @"Audience"];
     textFields = [NSMutableDictionary dictionary];
@@ -26,7 +26,7 @@
        NSFontAttributeName: [UIFont systemFontOfSize:14.0]}
                                    forState:UIControlStateNormal];
 
-    appDelegate.audience = appDelegate.activePromotion == nil ? 0 : [appDelegate.activePromotion[@"level"] intValue];
+    appDelegate.audience = appDelegate.activePromotion == nil ? 0 : [appDelegate.activePromotion[@"level"] integerValue];
 }
 
 - (void)viewDidAppear:(BOOL)animated {
@@ -111,7 +111,7 @@
                 if ([@"0" isEqualToString :[appDelegate.activePromotion[@"start"] stringValue]]) {
                     textField.text = @"";
                 } else {
-                    textField.text = appDelegate.activePromotion != nil ? [NSDateFormatter localizedStringFromDate:[NSDate dateWithTimeIntervalSince1970:[appDelegate.activePromotion[@"start"] intValue]] dateStyle:NSDateFormatterShortStyle timeStyle:NSDateFormatterShortStyle] : @"";
+                    textField.text = appDelegate.activePromotion != nil ? [NSDateFormatter localizedStringFromDate:[NSDate dateWithTimeIntervalSince1970:[appDelegate.activePromotion[@"start"] integerValue]] dateStyle:NSDateFormatterShortStyle timeStyle:NSDateFormatterShortStyle] : @"";
                 }
             } else {
                 textField.text = [NSDateFormatter localizedStringFromDate:pickerValues[@(indexPath.section)] dateStyle:NSDateFormatterShortStyle timeStyle:NSDateFormatterShortStyle];
@@ -130,7 +130,7 @@
                 if ([@"0" isEqualToString :[appDelegate.activePromotion[@"end"] stringValue]]) {
                     textField.text = @"";
                 } else {
-                    textField.text = appDelegate.activePromotion != nil ? [NSDateFormatter localizedStringFromDate:[NSDate dateWithTimeIntervalSince1970:[appDelegate.activePromotion[@"end"] intValue]] dateStyle:NSDateFormatterShortStyle timeStyle:NSDateFormatterShortStyle] : @"";
+                    textField.text = appDelegate.activePromotion != nil ? [NSDateFormatter localizedStringFromDate:[NSDate dateWithTimeIntervalSince1970:[appDelegate.activePromotion[@"end"] integerValue]] dateStyle:NSDateFormatterShortStyle timeStyle:NSDateFormatterShortStyle] : @"";
                 }
             } else {
                 textField.text = [NSDateFormatter localizedStringFromDate:pickerValues[@(indexPath.section)] dateStyle:NSDateFormatterShortStyle timeStyle:NSDateFormatterShortStyle];

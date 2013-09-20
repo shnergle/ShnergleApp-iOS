@@ -41,7 +41,7 @@
 }
 
 - (NSString *)getDateFromUnixFormat:(id)unixFormat {
-    NSDate *date = [NSDate dateWithTimeIntervalSince1970:[unixFormat intValue]];
+    NSDate *date = [NSDate dateWithTimeIntervalSince1970:[unixFormat integerValue]];
     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
     dateFormatter.dateFormat = @"ccc H:mm";
     return [date timeAgoWithLimit:86400 dateFormatter:dateFormatter];

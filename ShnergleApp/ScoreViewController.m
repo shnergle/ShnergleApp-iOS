@@ -59,21 +59,21 @@
     [super viewWillAppear:animated];
     [self.navigationController setNavigationBarHidden:NO animated:YES];
     self.youShare.text = appDelegate.youShare;
-    NSNumber *score = @([self.youShare.text intValue] *[self.valueShare.text intValue]);
+    NSNumber *score = @([self.youShare.text integerValue] *[self.valueShare.text integerValue]);
     self.scoreShare.text = [score stringValue];
     self.youCheckIn.text = appDelegate.checkIn;
-    NSNumber *scorecheck = @([self.youCheckIn.text intValue] *[self.valueCheckIn.text intValue]);
+    NSNumber *scorecheck = @([self.youCheckIn.text integerValue] *[self.valueCheckIn.text integerValue]);
     self.scoreCheckIn.text = [scorecheck stringValue];
     self.youRSVP.text = appDelegate.rsvp;
-    NSNumber *scoreRSVP = @([self.youRSVP.text intValue] *[self.valueRSVP.text intValue]);
+    NSNumber *scoreRSVP = @([self.youRSVP.text integerValue] *[self.valueRSVP.text integerValue]);
     self.scoreRSVP.text = [scoreRSVP stringValue];
 
     self.youComment.text = appDelegate.comment;
-    NSNumber *scoreComment = @([self.youComment.text intValue] *[self.valueComment.text intValue]);
+    NSNumber *scoreComment = @([self.youComment.text integerValue] *[self.valueComment.text integerValue]);
     self.scoreComment.text = [scoreComment stringValue];
 
     self.youLike.text = appDelegate.like;
-    NSNumber *scoreLike = @([self.youLike.text intValue] *[self.valueLike.text intValue]);
+    NSNumber *scoreLike = @([self.youLike.text integerValue] *[self.valueLike.text integerValue]);
     self.scoreLike.text = [scoreLike stringValue];
     self.totalShnergleScore.text = appDelegate.totalScore;
 }

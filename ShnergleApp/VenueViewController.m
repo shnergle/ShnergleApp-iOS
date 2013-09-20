@@ -90,7 +90,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    following = [appDelegate.activeVenue[@"following"] intValue] == 0 ? NO : YES;
+    following = [appDelegate.activeVenue[@"following"] integerValue] == 0 ? NO : YES;
     [Request removeImage:@{@"entity": @"image", @"entity_id": @"toShare"}];
 
     if (!appDelegate.activeVenue[@"tonight"]) {
@@ -147,12 +147,12 @@
 - (void)didFinishGettingPromotion:(NSDictionary *)response {
     if ([response respondsToSelector:@selector(objectForKeyedSubscript:)]) {
         appDelegate.activePromotion = response;
-        appDelegate.canRedeem = [response[@"own_redemptions"] intValue] == 0;
+        appDelegate.canRedeem = [response[@"own_redemptions"] integerValue] == 0;
         promotionBody = response[@"description"];
         promotionTitle = response[@"title"];
-        promotionExpiry = ([response[@"maximum"] intValue] == 0 || response[@"maximum"] == nil) ? [NSString stringWithFormat:@"%@ claimed", response[@"redemptions"]] : [NSString stringWithFormat:@"%@/%@ claimed", response[@"redemptions"], response[@"maximum"]];
-        promotionUntil = [response[@"end"] intValue] > 0 ? [NSString stringWithFormat:@"Expires %@", [NSDateFormatter localizedStringFromDate:[NSDate dateWithTimeIntervalSince1970:[response[@"end"] intValue]] dateStyle:NSDateFormatterShortStyle timeStyle:NSDateFormatterShortStyle]] : @"";
-        promotionLevel = ([response[@"level"] intValue] == 0 || response[@"level"] == nil) ? @"" : [NSString stringWithFormat:@"%@ only", [self levelName:[response[@"level"] intValue]]];
+        promotionExpiry = ([response[@"maximum"] integerValue] == 0 || response[@"maximum"] == nil) ? [NSString stringWithFormat:@"%@ claimed", response[@"redemptions"]] : [NSString stringWithFormat:@"%@/%@ claimed", response[@"redemptions"], response[@"maximum"]];
+        promotionUntil = [response[@"end"] integerValue] > 0 ? [NSString stringWithFormat:@"Expires %@", [NSDateFormatter localizedStringFromDate:[NSDate dateWithTimeIntervalSince1970:[response[@"end"] integerValue]] dateStyle:NSDateFormatterShortStyle timeStyle:NSDateFormatterShortStyle]] : @"";
+        promotionLevel = ([response[@"level"] integerValue] == 0 || response[@"level"] == nil) ? @"" : [NSString stringWithFormat:@"%@ only", [self levelName:[response[@"level"] integerValue]]];
     } else {
         promotionBody = @"No Promotion Active";
         promotionTitle = @"";
@@ -179,7 +179,7 @@
 }
 
 - (NSString *)getDateFromUnixFormatNotTimeAgo:(id)unixFormat {
-    NSDate *date = [NSDate dateWithTimeIntervalSince1970:[unixFormat intValue]];
+    NSDate *date = [NSDate dateWithTimeIntervalSince1970:[unixFormat integerValue]];
     return [NSDateFormatter localizedStringFromDate:date dateStyle:NSDateFormatterShortStyle timeStyle:NSDateFormatterShortStyle];
 }
 
@@ -283,11 +283,11 @@
                              @"until_time": @([Request untilTime])};
     [Request post:@"promotions/get" params:params delegate:self callback:@selector(didFinishGettingPromotion:)];
 
-    if ([appDelegate.activeVenue[@"manager"] intValue] == 1 && [appDelegate.activeVenue[@"verified"] intValue] == 0) {
+    if ([appDelegate.activeVenue[@"manager"] integerValue] == 1 && [appDelegate.activeVenue[@"verified"] integerValue] == 0) {
         [self setStatus:UnverifiedManager];
-    } else if ([appDelegate.activeVenue[@"staff"] intValue] == 1) {
+    } else if ([appDelegate.activeVenue[@"staff"] integerValue] == 1) {
         [self setStatus:Staff];
-    } else if ([appDelegate.activeVenue[@"manager"] intValue] == 1 && [appDelegate.activeVenue[@"verified"] intValue] == 1) {
+    } else if ([appDelegate.activeVenue[@"manager"] integerValue] == 1 && [appDelegate.activeVenue[@"verified"] integerValue] == 1) {
         [self setStatus:Manager];
     } else {
         [self setStatus:Default];
@@ -349,7 +349,7 @@
 }
 
 - (void)goToPromotionView {
-    if ([appDelegate.activeVenue[@"verified"] intValue] == 1 && appDelegate.venueStatus != Manager && appDelegate.venueStatus != Staff) {
+    if ([appDelegate.activeVenue[@"verified"] integerValue] == 1 && appDelegate.venueStatus != Manager && appDelegate.venueStatus != Staff) {
         PromotionView *promotionView = [[NSBundle mainBundle] loadNibNamed:@"PromotionView" owner:self options:nil][0];
         [promotionView setpromotionTitle:promotionTitle];
         [promotionView setpromotionBody:promotionBody];
@@ -412,7 +412,7 @@
 }
 
 - (NSString *)getDateFromUnixFormat:(id)unixFormat {
-    NSDate *date = [NSDate dateWithTimeIntervalSince1970:[unixFormat intValue]];
+    NSDate *date = [NSDate dateWithTimeIntervalSince1970:[unixFormat integerValue]];
     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
     dateFormatter.dateFormat = @"ccc H:mm";
     return [date timeAgoWithLimit:86400 dateFormatter:dateFormatter];

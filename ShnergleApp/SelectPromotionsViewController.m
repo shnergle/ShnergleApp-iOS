@@ -14,7 +14,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    if (!(appDelegate.venueStatus == Staff && [appDelegate.activeVenue[@"promo_perm"] intValue] == 0)) [self setRightBarButton:@"New" actionSelector:@selector(addPromotion)];
+    if (!(appDelegate.venueStatus == Staff && [appDelegate.activeVenue[@"promo_perm"] integerValue] == 0)) [self setRightBarButton:@"New" actionSelector:@selector(addPromotion)];
 
     promotions = [NSMutableArray arrayWithArray:@[]];
     [self.view makeToastActivity];
@@ -53,7 +53,7 @@
     [cell addSubview:promoContentLabel];
     [cell addSubview:promoCountLabel];
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
-    [self setPromoContentTo:promotions[indexPath.row][@"description"] promoHeadline:promotions[indexPath.row][@"title"] promoExpiry:(([promotions[indexPath.row][@"maximum"] intValue] == 0 || promotions[indexPath.row][@"maximum"] == nil) ? [NSString stringWithFormat:@"%@ claimed", promotions[indexPath.row][@"redemptions"]] : [NSString stringWithFormat:@"%@/%@ claimed", promotions[indexPath.row][@"redemptions"], promotions[indexPath.row][@"maximum"]]) promoTitleLabel:promoTitleLabel promoContentLabel:promoContentLabel promoCountLabel:promoCountLabel];
+    [self setPromoContentTo:promotions[indexPath.row][@"description"] promoHeadline:promotions[indexPath.row][@"title"] promoExpiry:(([promotions[indexPath.row][@"maximum"] integerValue] == 0 || promotions[indexPath.row][@"maximum"] == nil) ? [NSString stringWithFormat:@"%@ claimed", promotions[indexPath.row][@"redemptions"]] : [NSString stringWithFormat:@"%@/%@ claimed", promotions[indexPath.row][@"redemptions"], promotions[indexPath.row][@"maximum"]]) promoTitleLabel:promoTitleLabel promoContentLabel:promoContentLabel promoCountLabel:promoCountLabel];
     return cell;
 }
 

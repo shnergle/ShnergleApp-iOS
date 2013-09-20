@@ -311,7 +311,7 @@
     self.phoneTextField.hidden = YES;
     self.websiteTextField.hidden = YES;
 
-    if ([appDelegate.activeVenue[@"verified"] intValue] == 1) {
+    if ([appDelegate.activeVenue[@"verified"] integerValue] == 1) {
         self.promotionImage.hidden = NO;
         self.promotionHeadline.hidden = NO;
         self.promotionContents.hidden = NO;
@@ -330,15 +330,15 @@
         self.intentionHeightConstraints.constant = 0;
 
         self.intentionHeightConstraints.constant = 64;
-    } else if ([appDelegate.activeVenue[@"official"] intValue] == 0) {
+    } else if ([appDelegate.activeVenue[@"official"] integerValue] == 0) {
         self.claimVenueButton.hidden = NO;
         self.intentionHeightConstraints.constant = 64;
-    } else if ([appDelegate.activeVenue[@"official"] intValue] == 1) {
+    } else if ([appDelegate.activeVenue[@"official"] integerValue] == 1) {
         self.intentionHeightConstraints.constant = 0;
     }
 
 
-    if (appDelegate.venueStatus == Manager && [appDelegate.activeVenue[@"verified"] intValue] == 1) {
+    if (appDelegate.venueStatus == Manager && [appDelegate.activeVenue[@"verified"] integerValue] == 1) {
         self.postUpdateButton.hidden = NO;
         self.analyticsButton.hidden = NO;
         self.Change.hidden = NO;
@@ -353,7 +353,7 @@
         self.rsvpQuestionLabel.hidden = YES;
         self.staffImage.hidden = NO;
         self.staffLabel.hidden = NO;
-    } else if (appDelegate.venueStatus == Staff && [appDelegate.activeVenue[@"verified"] intValue] == 1) {
+    } else if (appDelegate.venueStatus == Staff && [appDelegate.activeVenue[@"verified"] integerValue] == 1) {
         self.analyticsButton.hidden = NO;
         self.analyticsImage.hidden = NO;
         self.analyticsLabel.hidden = NO;

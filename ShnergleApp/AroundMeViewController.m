@@ -169,7 +169,7 @@
     item.venueName.font = [UIFont systemFontOfSize:11.0f];
     item.venueName.textColor = [UIColor whiteColor];
 
-    if ([venues[indexPath.item][@"promotions"] intValue] > 0) {
+    if ([venues[indexPath.item][@"promotions"] integerValue] > 0) {
         item.promotionIndicator.hidden = NO;
     } else {
         item.promotionIndicator.hidden = YES;
