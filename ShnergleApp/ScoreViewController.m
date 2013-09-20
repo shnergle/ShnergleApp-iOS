@@ -46,9 +46,6 @@
                                                 UIViewAutoresizingFlexibleTopMargin |
                                                 UIViewAutoresizingFlexibleBottomMargin);
 
-    UITapGestureRecognizer *tapGestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapToFollow)];
-    [headerTitleSubtitleView addGestureRecognizer:tapGestureRecognizer];
-
     self.navigationItem.titleView = headerTitleSubtitleView;
     self.navigationItem.titleView.userInteractionEnabled = YES;
 }
