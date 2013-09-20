@@ -43,6 +43,7 @@
 }
 
 - (void)share {
+    if (!appDelegate.shnergleThis && !self.fbSwitch.on && !self.twSwitch.on) return;
     [self.view makeToastActivity];
     [NSThread detachNewThreadSelector:@selector(uploadToServer) toTarget:self withObject:nil];
 }
