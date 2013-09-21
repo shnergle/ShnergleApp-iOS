@@ -2578,17 +2578,17 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                                     <constraint firstAttribute="height" constant="100" id="zrS-uu-oSo"/>
                                 </constraints>
                             </view>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Your Shnergle score is:" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="149" translatesAutoresizingMaskIntoConstraints="NO" id="UL8-cw-UNK">
-                                <rect key="frame" x="10" y="74" width="149" height="20"/>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Your Shnergle score (last 30 days):" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="225" translatesAutoresizingMaskIntoConstraints="NO" id="UL8-cw-UNK">
+                                <rect key="frame" x="10" y="74" width="225" height="20"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="20" id="f5J-Ay-k1M"/>
-                                    <constraint firstAttribute="width" constant="149" id="uYn-XX-2k1"/>
+                                    <constraint firstAttribute="width" constant="225" id="uYn-XX-2k1"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZVT-CK-7XI">
-                                <rect key="frame" x="160" y="73" width="49" height="21"/>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="ZVT-CK-7XI">
+                                <rect key="frame" x="235" y="73" width="49" height="21"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="49" id="MKr-Zx-ST5"/>
                                     <constraint firstAttribute="height" constant="21" id="pKJ-wu-RtA"/>
@@ -2622,7 +2622,7 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                             <constraint firstItem="d7K-2j-bO2" firstAttribute="top" secondItem="T3d-vY-Mf8" secondAttribute="top" constant="97" id="LQ1-XU-Qgm"/>
                             <constraint firstItem="UL8-cw-UNK" firstAttribute="leading" secondItem="T3d-vY-Mf8" secondAttribute="leading" constant="10" id="MnX-R0-i6Z"/>
                             <constraint firstItem="ho1-hg-V7U" firstAttribute="top" secondItem="T3d-vY-Mf8" secondAttribute="top" constant="366" id="TPv-ws-e8R"/>
-                            <constraint firstAttribute="trailing" secondItem="ZVT-CK-7XI" secondAttribute="trailing" constant="111" id="aOa-27-ZET"/>
+                            <constraint firstAttribute="trailing" secondItem="ZVT-CK-7XI" secondAttribute="trailing" constant="36" id="aOa-27-ZET"/>
                             <constraint firstItem="ho1-hg-V7U" firstAttribute="centerX" secondItem="d7K-2j-bO2" secondAttribute="centerX" id="cRF-j0-AH8"/>
                             <constraint firstItem="dS4-9B-WSG" firstAttribute="top" secondItem="T3d-vY-Mf8" secondAttribute="top" constant="69" id="cXP-xm-q7S"/>
                             <constraint firstItem="d7K-2j-bO2" firstAttribute="centerX" secondItem="uZw-Cy-fCl" secondAttribute="centerX" id="dPs-ca-GwY"/>
