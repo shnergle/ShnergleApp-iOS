@@ -71,14 +71,14 @@
                                                             <nil key="highlightedColor"/>
                                                             <size key="shadowOffset" width="0.0" height="0.0"/>
                                                         </label>
-                                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" image="promocorner" translatesAutoresizingMaskIntoConstraints="NO" id="R33-p2-naO">
+                                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" image="Promotion Element 2" translatesAutoresizingMaskIntoConstraints="NO" id="R33-p2-naO">
                                                             <rect key="frame" x="122" y="0.0" width="30" height="30"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="30" id="BLW-0J-ZPV"/>
                                                                 <constraint firstAttribute="width" constant="30" id="o49-TH-pTd"/>
                                                             </constraints>
                                                         </imageView>
-                                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" image="glyphicons_072_bookmark" translatesAutoresizingMaskIntoConstraints="NO" id="wag-Vy-NkX">
+                                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" image="glyphicons_072_bookmark_green" translatesAutoresizingMaskIntoConstraints="NO" id="wag-Vy-NkX">
                                                             <rect key="frame" x="0.0" y="0.0" width="24" height="24"/>
                                                         </imageView>
                                                     </subviews>
@@ -3352,14 +3352,14 @@ THANKS FOR BEING PART OF THE SHNERGLE COMMUNITY - HAPPY SHNERGLING!
                                                     <nil key="highlightedColor"/>
                                                     <size key="shadowOffset" width="0.0" height="0.0"/>
                                                 </label>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" image="promocorner" translatesAutoresizingMaskIntoConstraints="NO" id="s5g-hH-jXZ">
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" image="Promotion Element 2" translatesAutoresizingMaskIntoConstraints="NO" id="s5g-hH-jXZ">
                                                     <rect key="frame" x="122" y="0.0" width="30" height="30"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="30" id="KwO-Zs-b7D"/>
                                                         <constraint firstAttribute="width" constant="30" id="xvn-z2-H7l"/>
                                                     </constraints>
                                                 </imageView>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" image="glyphicons_072_bookmark" translatesAutoresizingMaskIntoConstraints="NO" id="8VI-dM-WUq">
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" image="glyphicons_072_bookmark_green" translatesAutoresizingMaskIntoConstraints="NO" id="8VI-dM-WUq">
                                                     <rect key="frame" x="0.0" y="0.0" width="24" height="24"/>
                                                 </imageView>
                                             </subviews>
@@ -4724,24 +4724,37 @@ Apple is a third party beneficiary of the Terms
     <resources>
         <image name="Authentication%20Process" width="640" height="198"/>
         <image name="FB-f-Logo__blue_50" width="50" height="50"/>
+        <image name="FB-f-Logo__blue_50" width="50" height="50"/>
+        <image name="Promotion Element 2" width="60" height="60"/>
+        <image name="Promotion Element 2" width="60" height="60"/>
         <image name="add_friend" width="89" height="89"/>
         <image name="arrowDown" width="42" height="42"/>
         <image name="arrow_east" width="38" height="32"/>
         <image name="background" width="640" height="1136"/>
         <image name="glyphicons_029_notes_2" width="20" height="27"/>
         <image name="glyphicons_030_pencil" width="25" height="25"/>
-        <image name="glyphicons_072_bookmark" width="15" height="24"/>
+        <image name="glyphicons_072_bookmark_green" width="15" height="24"/>
+        <image name="glyphicons_072_bookmark_green" width="15" height="24"/>
         <image name="glyphicons_087_log_book" width="22" height="24"/>
+        <image name="glyphicons_195_circle_info" width="25" height="25"/>
+        <image name="glyphicons_195_circle_info" width="25" height="25"/>
         <image name="glyphicons_195_circle_info" width="25" height="25"/>
         <image name="glyphicons_social_30_facebook" width="24" height="24"/>
         <image name="glyphicons_social_31_twitter" width="24" height="24"/>
         <image name="glyphicons_social_39_e-mail" width="24" height="24"/>
         <image name="greenbutton" width="155" height="60"/>
+        <image name="greenbutton" width="155" height="60"/>
+        <image name="greybutton03" width="157" height="60"/>
+        <image name="greybutton03" width="157" height="60"/>
         <image name="greybutton03" width="157" height="60"/>
         <image name="greybutton04" width="195" height="60"/>
-        <image name="promocorner" width="60" height="60"/>
+        <image name="greybutton04" width="195" height="60"/>
+        <image name="greybutton04" width="195" height="60"/>
+        <image name="greybutton04" width="195" height="60"/>
+        <image name="greybutton04" width="195" height="60"/>
         <image name="shnerglelogo_splash_screen" width="600" height="172"/>
         <image name="tick" width="255" height="205"/>
+        <image name="twitter-bird-white-on-blue" width="300" height="300"/>
         <image name="twitter-bird-white-on-blue" width="300" height="300"/>
     </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
@@ -4750,13 +4763,13 @@ Apple is a third party beneficiary of the Terms
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="xzO-IX-Cmd"/>
         <segue reference="1nI-j0-QaW"/>
-        <segue reference="xUB-NL-HY4"/>
-        <segue reference="WSb-QO-1iD"/>
-        <segue reference="qNM-G7-JMr"/>
+        <segue reference="xzO-IX-Cmd"/>
         <segue reference="wJZ-W6-KFM"/>
         <segue reference="HHH-Gt-FIZ"/>
         <segue reference="V1y-Vn-JKN"/>
+        <segue reference="WSb-QO-1iD"/>
+        <segue reference="qNM-G7-JMr"/>
+        <segue reference="xUB-NL-HY4"/>
     </inferredMetricsTieBreakers>
 </document>
