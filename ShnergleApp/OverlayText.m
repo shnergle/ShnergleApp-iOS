@@ -109,7 +109,7 @@
 }
 
 - (IBAction)swipeUp:(id)sender {
-    [self showAnimated:50 animationDelay:0.2 animationDuration:0.5];
+    [self showAnimated:75 animationDelay:0.2 animationDuration:0.5];
     isUp = YES;
 }
 
