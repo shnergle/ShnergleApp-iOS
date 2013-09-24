@@ -221,7 +221,7 @@
     if (self.twSwitch.on) pointsAwarded += 5;
     if (self.fbSwitch.on) pointsAwarded += 5;
     ThankYouViewController *vc = (ThankYouViewController *)[self.storyboard instantiateViewControllerWithIdentifier:@"thankyouverymuch"];
-    [vc setupFields:[NSString stringWithFormat:@"Congratulations, you earned %d points!",pointsAwarded] : msg :passcode];
+    [vc setupFields:[NSString stringWithFormat:@"%d",pointsAwarded] : msg :passcode];
     [self.navigationController pushViewController:vc animated:YES];
 }
 

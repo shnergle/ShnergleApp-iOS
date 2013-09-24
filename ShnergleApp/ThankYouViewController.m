@@ -18,6 +18,9 @@
     self.passcodeInfoLabel.text = passcodeInfoString;
     self.passcodeLabel.text = passcodeString;
     self.pointsLabel.text = pointsString;
+    self.pointsLabel.hidden = shouldHidePoints;
+    self.pointsInfoLabel.hidden = shouldHidePoints;
+    self.beforeInfoLabel.hidden = shouldHidePoints;
     [self.navigationController setNavigationBarHidden:YES];
 }
 
@@ -26,8 +29,11 @@
     if ([msg length] > 0) {
         passcodeString = msg;
         passcodeInfoString = passcode;
+        shouldHidePoints = YES;
+        shouldHidePasscode = NO;
     } else {
         shouldHidePasscode = YES;
+        shouldHidePoints = NO;
     }
 }
 
