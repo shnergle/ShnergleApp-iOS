@@ -34,7 +34,7 @@
 - (IBAction)tapUseDeal:(id)sender {
     appDelegate.redeeming = [appDelegate.activePromotion[@"id"] stringValue];
     appDelegate.shnergleThis = YES;
-    UIViewController *promotionDetailView = [self.storyboard instantiateViewControllerWithIdentifier:@"CheckInViewController"];
+    UIViewController *promotionDetailView = [[UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle mainBundle]] instantiateViewControllerWithIdentifier:@"CheckInViewController"];
     [self.navigationController pushViewController:promotionDetailView animated:YES];
 }
 
