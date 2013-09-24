@@ -9,6 +9,5 @@
 @interface CustomBackViewController : UIViewController
 
 - (void)setRightBarButton:(NSString *)title actionSelector:(SEL)actionSelector;
-- (void)goBack;
 
 @end

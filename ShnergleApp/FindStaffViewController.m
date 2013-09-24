@@ -48,7 +48,7 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     if ([self isAlreadyInStaffList:results[indexPath.row][@"id"]]) {
-        [self goBack];
+        [self.navigationController popViewControllerAnimated:YES];
         return;
     }
     [self.view makeToastActivity];
@@ -76,7 +76,7 @@
 
 - (void)didFinishAddingStaff:(BOOL)response {
     if (response) {
-        [self goBack];
+        [self.navigationController popViewControllerAnimated:YES];
     }
     [self.view hideToastActivity];
 }

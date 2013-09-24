@@ -30,7 +30,7 @@
         for (UITextField *textField in textFields) {
             [self textFieldDidEndEditing:textField];
         }
-        [super goBack];
+        [self.navigationController popViewControllerAnimated:YES];
     } else {
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Please fill in all fields." message:nil delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
         [alert show];
@@ -55,7 +55,7 @@
             [self textFieldDidEndEditing:textField];
         }
     appDelegate.claiming = NO;
-    [super goBack];
+    [self.navigationController popViewControllerAnimated:YES];
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {

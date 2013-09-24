@@ -53,7 +53,7 @@
 - (void)didFinishAddingPromotion:(BOOL)response {
     [self.view hideToastActivity];
     if (response) {
-        [self goBack];
+        [self.navigationController popViewControllerAnimated:YES];
     } else {
         UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"Error" message:nil delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
         [alert show];

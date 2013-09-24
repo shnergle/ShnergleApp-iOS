@@ -69,9 +69,9 @@
     self.promotionLevel.textAlignment = NSTextAlignmentCenter;
 }
 
-- (void)goBack {
+- (void)viewDidDisappear:(BOOL)animated {
+    [super viewDidDisappear:animated];
     appDelegate.redeeming = nil;
-    [super goBack];
 }
 
 @end

@@ -61,7 +61,7 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     appDelegate.addVenueType = categories[indexPath.row][@"type"];
     appDelegate.addVenueTypeId = [categories[indexPath.row][@"id"] stringValue];
-    [self goBack];
+    [self.navigationController popViewControllerAnimated:YES];
 }
 
 @end

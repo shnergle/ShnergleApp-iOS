@@ -221,9 +221,9 @@ typedef enum {
     secondCell.selected = NO;
 }
 
-- (void)goBack {
+- (void)viewDidDisappear:(BOOL)animated {
+    [super viewDidDisappear:animated];
     appDelegate.addVenueType = nil;
-    [super goBack];
 }
 
 - (void)initMap {

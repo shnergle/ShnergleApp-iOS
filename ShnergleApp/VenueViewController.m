@@ -347,6 +347,7 @@
     self.navigationController.navigationBarHidden = NO;
     posts = nil;
     [self.crowdCollectionV reloadData];
+    self.crowdCollectionV = nil;
 }
 
 - (void)goToPromotionView {
@@ -432,11 +433,6 @@
      @{NSForegroundColorAttributeName: (on ? [UIColor colorWithRed:51.0 / 250 green:140.0 / 250 blue:16.0 / 250 alpha:1.0] : [UIColor blackColor]),
        NSFontAttributeName: [UIFont systemFontOfSize:14.0]}
                                       forState:UIControlStateNormal];
-}
-
-- (void)goBack {
-    self.crowdCollectionV = nil;
-    [super goBack];
 }
 
 @end

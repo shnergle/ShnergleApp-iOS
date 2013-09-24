@@ -88,13 +88,13 @@
                                  @"promo_perm": promoSwitch.on ? @"true" : @"false"};
         [Request post:@"venue_staff/set" params:params delegate:self callback:@selector(didFinishSaving:)];
     }
-    [super goBack];
+    [self.navigationController popViewControllerAnimated:YES];
 }
 
 - (void)didFinishSaving:(id)response {
     if (response) {
         [self.view hideToastActivity];
-        [super goBack];
+        [self.navigationController popViewControllerAnimated:YES];
     }
 }
 

@@ -140,9 +140,6 @@
 
     [self addShadowLineRect:CGRectMake(0.0f, self.overlay.bounds.origin.y + (35 + 8), self.overlay.frame.size.width, 1.0f) ToView:self.overlay];
 
-    appDelegate.activeVenue = nil;
-    appDelegate.venueDetailsContent = nil;
-
     [self initMap];
 }
 
@@ -309,6 +306,11 @@
         map.showsUserLocation = YES;
         [self sliderValueChanged:nil];
     }
+}
+
+- (void)viewDidAppear:(BOOL)animated {
+    appDelegate.activeVenue = nil;
+    appDelegate.venueDetailsContent = nil;
 }
 
 - (void)didTapAtMap:(id)sender {

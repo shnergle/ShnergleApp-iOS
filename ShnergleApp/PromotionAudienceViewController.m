@@ -28,7 +28,7 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     appDelegate.audience = 3 - indexPath.row;
-    [self goBack];
+    [self.navigationController popViewControllerAnimated:YES];
 }
 
 @end
