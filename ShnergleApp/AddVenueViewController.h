@@ -9,7 +9,7 @@
 #import "CustomBackViewController.h"
 #import <MapKit/MapKit.h>
 
-@interface AddVenueViewController : CustomBackViewController<UITableViewDataSource, UITableViewDelegate, UITextFieldDelegate, MKMapViewDelegate, UIAlertViewDelegate>
+@interface AddVenueViewController : CustomBackViewController<UITableViewDataSource, UITableViewDelegate, UITextFieldDelegate, MKMapViewDelegate, UIAlertViewDelegate, CLLocationManagerDelegate>
 {
     UITableViewCell *secondCell;
     UILabel *secondCellField;
@@ -18,6 +18,7 @@
     MKMapView *map;
     NSArray *tableData;
     UISwitch *workSwitch;
+    CLLocationManager *man;
 }
 @property (weak, nonatomic) IBOutlet UIView *mapView;
 @property (weak, nonatomic) IBOutlet UITableView *tableView;

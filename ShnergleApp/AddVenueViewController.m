@@ -225,6 +225,10 @@ typedef enum {
     self.navigationItem.rightBarButtonItem.enabled = NO;
     map = [[MKMapView alloc] initWithFrame:self.mapView.frame];
     map.delegate = self;
+    man = [[CLLocationManager alloc] init];
+    man.delegate = self;
+    man.desiredAccuracy = kCLLocationAccuracyNearestTenMeters;
+    [man startUpdatingLocation];
     [self.mapView addSubview:map];
     [self.mapView sendSubviewToBack:map];
 }
@@ -233,7 +237,7 @@ typedef enum {
     map.userTrackingMode = MKUserTrackingModeFollow;
 }
 
-- (void)mapView:(MKMapView *)mapView didUpdateUserLocation:(MKUserLocation *)userLocation {
+- (void)locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray *)locations {
     if (!hasPositionLocked) {
         hasPositionLocked = YES;
         self.navigationItem.rightBarButtonItem.enabled = YES;
@@ -256,9 +260,7 @@ typedef enum {
     [self addBorder];
 
     CALayer *topBorder = [CALayer layer];
-
     topBorder.frame = CGRectMake(0.0f, self.mapView.bounds.size.height - 1, self.mapView.frame.size.width, 1.0f);
-
     topBorder.backgroundColor = [UIColor lightGrayColor].CGColor;
 
     [self.mapView.layer addSublayer:topBorder];
