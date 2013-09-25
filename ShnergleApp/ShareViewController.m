@@ -56,7 +56,7 @@
     self.navigationItem.rightBarButtonItem.enabled = NO;
     if (appDelegate.shnergleThis) {
         //Upload to Shnergle
-        [Request post:@"posts/set" params:@{@"venue_id": appDelegate.activeVenue[@"id"], @"caption": (self.textFieldname.text && [self.textFieldname.text isEqualToString:@"Write something..."]) ? @"" : self.textFieldname.text} image:self.image.image delegate:self callback:@selector(didFinishPost:)];
+        [Request post:@"posts/set" params:@{@"venue_id": appDelegate.activeVenue[@"id"], @"caption": (self.textFieldname.text && [self.textFieldname.text isEqualToString:@"Write something..."]) ? @"" : self.textFieldname.text, @"image":self.image.image} delegate:self callback:@selector(didFinishPost:)];
     } else {
         post_id = appDelegate.shareActivePostId;
         [self shareOnTwitter];

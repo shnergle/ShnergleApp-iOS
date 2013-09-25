@@ -13,9 +13,7 @@
 + (void)removeImage:(NSDictionary *)params;
 
 + (void)post:(NSString *)path params:(NSDictionary *)params delegate:(id)object callback:(SEL)cb;
-+ (void)post:(NSString *)path params:(NSDictionary *)params image:(UIImage *)image delegate:(id)object callback:(SEL)cb;
 + (void)post:(NSString *)path params:(NSDictionary *)params delegate:(id)object callback:(SEL)cb userData:(id)userData;
-+ (void)post:(NSString *)path params:(NSDictionary *)params image:(UIImage *)image delegate:(id)object callback:(SEL)cb userData:(id)userData;
 
 + (int)fromTime;
 + (int)untilTime;

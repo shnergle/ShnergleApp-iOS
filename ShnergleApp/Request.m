@@ -54,18 +54,10 @@ static ConnectionErrorAlert *connectionErrorAlert;
 }
 
 + (void)post:(NSString *)path params:(NSDictionary *)params delegate:(id)object callback:(SEL)cb {
-    return [self post:path params:params image:nil delegate:object callback:cb userData:nil];
-}
-
-+ (void)post:(NSString *)path params:(NSDictionary *)params image:(UIImage *)image delegate:(id)object callback:(SEL)cb {
-    return [self post:path params:params image:image delegate:object callback:cb userData:nil];
+    return [self post:path params:params delegate:object callback:cb userData:nil];
 }
 
 + (void)post:(NSString *)path params:(NSDictionary *)params delegate:(id)object callback:(SEL)cb userData:(id)userData {
-    return [self post:path params:params image:nil delegate:object callback:cb userData:userData];
-}
-
-+ (void)post:(NSString *)path params:(NSDictionary *)params image:(UIImage *)image delegate:(id)object callback:(SEL)cb userData:(id)userData {
     if ([[path pathComponents][0] isEqualToString:@"images"] && [self getImage:params]) {
         return [self despatch:[self getImage:params] to:object callback:cb userData:userData];
     }
@@ -73,7 +65,7 @@ static ConnectionErrorAlert *connectionErrorAlert;
     NSURL *url = [[NSURL alloc] initWithString:urlString];
     NSMutableURLRequest *urlRequest = [NSMutableURLRequest requestWithURL:url];
     [urlRequest setHTTPMethod:@"POST"];
-    if (image) {
+    if (params[@"image"] != nil) {
         static NSString *boundary = @"This-string-cannot-be-part-of-the-content";
         NSString *contentType = [NSString stringWithFormat:@"multipart/form-data; boundary=%@", boundary];
         [urlRequest addValue:contentType forHTTPHeaderField:@"Content-Type"];
@@ -94,7 +86,7 @@ static ConnectionErrorAlert *connectionErrorAlert;
         [body appendData:[[NSString stringWithFormat:@"\r\n--%@\r\n", boundary] dataUsingEncoding:NSUTF8StringEncoding]];
         [body appendData:[@"Content-Disposition: form-data; name=\"image\"; filename=\"image.jpg\"\r\n" dataUsingEncoding : NSUTF8StringEncoding]];
         [body appendData:[@"Content-Type: application/octet-stream\r\n\r\n" dataUsingEncoding : NSUTF8StringEncoding]];
-        [body appendData:[NSData dataWithData:UIImageJPEGRepresentation(image, 0.5)]];
+        [body appendData:[NSData dataWithData:UIImageJPEGRepresentation(params[@"image"], 0.5)]];
         [body appendData:[[NSString stringWithFormat:@"\r\n--%@--\r\n", boundary] dataUsingEncoding:NSUTF8StringEncoding]];
         [urlRequest setHTTPBody:body];
     } else {
