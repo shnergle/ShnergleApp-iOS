@@ -6,7 +6,7 @@
 //  Copyright (c) 2013 Shnergle. All rights reserved.
 //
 
-@interface CustomBackViewController : UIViewController
+@interface CustomBackViewController : UIViewController <UIGestureRecognizerDelegate>
 
 - (void)setRightBarButton:(NSString *)title actionSelector:(SEL)actionSelector;
 

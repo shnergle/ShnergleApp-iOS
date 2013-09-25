@@ -12,10 +12,8 @@
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
-    UIBarButtonItem *menuButton;
-    menuButton = [self createLeftBarButton:@"arrow_west" actionSelector:@selector(goBack)];
-    self.navigationItem.leftBarButtonItem = menuButton;
-    self.navigationController.interactivePopGestureRecognizer.delegate = (id<UIGestureRecognizerDelegate>)self;
+    self.navigationItem.leftBarButtonItem = [self createLeftBarButton:@"arrow_west" actionSelector:@selector(goBack)];
+    self.navigationController.interactivePopGestureRecognizer.delegate = self;
 }
 
 - (UIBarButtonItem *)createLeftBarButton:(NSString *)imageName actionSelector:(SEL)actionSelector {
@@ -41,8 +39,7 @@
     self.navigationItem.rightBarButtonItem.action = actionSelector;
     [self.navigationItem.rightBarButtonItem setTitleTextAttributes:
      @{NSForegroundColorAttributeName: [UIColor blackColor],
-       NSFontAttributeName: [UIFont systemFontOfSize:14.0]}
-                                                          forState:UIControlStateNormal];
+       NSFontAttributeName: [UIFont systemFontOfSize:14.0]} forState:UIControlStateNormal];
 }
 
 - (void)viewDidLoad {
