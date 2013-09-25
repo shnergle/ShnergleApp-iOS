@@ -145,9 +145,6 @@
     [man startUpdatingLocation];
 }
 
-- (void)didFinishGettingPromotion:(NSDictionary *)response {
-}
-
 - (NSString *)levelName:(NSInteger)level {
     switch (level) {
         case 1:
@@ -344,7 +341,6 @@
     self.navigationController.navigationBarHidden = NO;
     posts = nil;
     [self.crowdCollectionV reloadData];
-    self.crowdCollectionV = nil;
 }
 
 - (void)goToPromotionView {
