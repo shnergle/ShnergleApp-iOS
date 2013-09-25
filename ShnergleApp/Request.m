@@ -77,7 +77,7 @@ static ConnectionErrorAlert *connectionErrorAlert;
                 [body appendData:[NSData dataWithData:UIImageJPEGRepresentation(dParams[@"image"], 0.5)]];
             } else {
                 [body appendData:[[NSString stringWithFormat:@"Content-Disposition: form-data; name=\"%@\"\r\n\r\n", key] dataUsingEncoding:NSUTF8StringEncoding]];
-                [body appendData:[[dParams[key] stringValue] dataUsingEncoding:NSUTF8StringEncoding]];
+                [body appendData:[dParams[key] dataUsingEncoding:NSUTF8StringEncoding]];
             }
         }
         [body appendData:[[NSString stringWithFormat:@"\r\n--%@--\r\n", boundary] dataUsingEncoding:NSUTF8StringEncoding]];
@@ -85,7 +85,9 @@ static ConnectionErrorAlert *connectionErrorAlert;
     } else {
         NSMutableArray *paramsArray = [NSMutableArray array];
         for (NSString *key in dParams) {
-            [paramsArray addObject:[NSString stringWithFormat:@"%@=%@", key, [[dParams[key] stringValue] stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet alphanumericCharacterSet]]]];
+            id value = dParams[key];
+            if ([value respondsToSelector:@selector(stringByAddingPercentEncodingWithAllowedCharacters:)]) [value stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet alphanumericCharacterSet]];
+            [paramsArray addObject:[NSString stringWithFormat:@"%@=%@", key, value]];
         }
         [urlRequest setHTTPBody:[[paramsArray componentsJoinedByString:@"&"] dataUsingEncoding:NSUTF8StringEncoding]];
     }
