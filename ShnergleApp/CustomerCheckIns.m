@@ -10,11 +10,6 @@
 
 @implementation CustomerCheckIns
 
-- (void)viewWillAppear:(BOOL)animated {
-    [super viewWillAppear:animated];
-    self.navigationItem.title = @"Customers Checking In";
-}
-
 - (IBAction)date:(id)sender {
     NSLog(@"start");
     if (self.pickerView.superview == nil) {

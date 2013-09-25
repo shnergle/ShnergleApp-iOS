@@ -12,7 +12,6 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.navigationItem.title = @"+ Add Place";
     categories = @[@{@"id": @18, @"type": @"Airport", @"image": @"glyphicons_038_airplane"},
                    @{@"id": @6, @"type": @"Arts & Entertainment", @"image": @"glyphicons_049_star"},
                    @{@"id": @1, @"type": @"Bar", @"image": @"glyphicons_291_celebration"},

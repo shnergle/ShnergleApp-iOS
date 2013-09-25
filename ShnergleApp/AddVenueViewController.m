@@ -25,7 +25,6 @@ typedef enum {
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.navigationItem.title = @"+ Add Place";
     [self setRightBarButton:@"Add" actionSelector:@selector(addVenue)];
     self.userData = [NSMutableDictionary dictionary];
     tableData = @[@"Name", @"Category", @"Address 1", @"Address 2", @"City", @"Postcode", @"Work here?"];

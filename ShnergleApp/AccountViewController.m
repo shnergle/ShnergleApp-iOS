@@ -13,11 +13,6 @@
 
 @implementation AccountViewController
 
-- (void)viewWillAppear:(BOOL)animated {
-    [super viewWillAppear:animated];
-    self.navigationItem.title = @"Account Settings";
-}
-
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.saveLocallySwitch.on = appDelegate.saveLocally;

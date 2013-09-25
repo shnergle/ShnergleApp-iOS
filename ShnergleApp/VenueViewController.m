@@ -356,7 +356,7 @@
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     if ([@"ToGallery" isEqualToString : segue.identifier]) {
-        [segue.destinationViewController setTitle:titleHeader];
+        ((VenueGalleryViewController *)segue.destinationViewController).navigationItem.title = titleHeader;
         [(VenueGalleryViewController *)segue.destinationViewController setImage:selectedPost of:posts];
     } else if ([@"CheckInFromVenue" isEqualToString : segue.identifier]) {
         appDelegate.shareVenue = NO;

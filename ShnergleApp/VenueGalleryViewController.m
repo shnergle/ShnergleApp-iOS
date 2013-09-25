@@ -15,16 +15,16 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [self imageSetup];
+    self.commentLabel.font = [UIFont systemFontOfSize:12];
+    self.commentLabel.lineBreakMode = NSLineBreakByWordWrapping;
+    self.authorLabel.font = [UIFont boldSystemFontOfSize:12];
+    self.authorLabel.lineBreakMode = NSLineBreakByCharWrapping;
+    self.photoScroller.currentIndex = image;
 }
 
 - (void)setImage:(NSUInteger)img of:(NSArray *)imgs {
     image = img;
     images = imgs;
-}
-
-- (void)setTitle:(NSString *)title {
-    self.navigationItem.title = title;
 }
 
 - (IBAction)flagButtonPressed:(id)sender {
@@ -39,14 +39,6 @@
                        title:@""
                        image:[UIImage imageNamed:@"glyphicons_343_thumbs_up"]];
     }];
-}
-
-- (void)imageSetup {
-    self.commentLabel.font = [UIFont systemFontOfSize:12];
-    self.commentLabel.lineBreakMode = NSLineBreakByWordWrapping;
-    self.authorLabel.font = [UIFont boldSystemFontOfSize:12];
-    self.authorLabel.lineBreakMode = NSLineBreakByCharWrapping;
-    self.photoScroller.currentIndex = image;
 }
 
 - (NSUInteger)numberOfPhotosInPhotoBrowser:(GVPhotoBrowser *)photoBrowser {

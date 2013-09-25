@@ -12,17 +12,12 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.navigationItem.title = @"Place Details";
 
     appDelegate.venueDetailsContent = [NSMutableDictionary dictionary];
     tableData = @[@"Phone", @"Email", @"Website"];
     textFields = [NSMutableArray arrayWithCapacity:3];
 
     if (appDelegate.claiming) [self setRightBarButton:@"Done" actionSelector:@selector(checkAndSave:)];
-}
-
-- (void)viewDidAppear:(BOOL)animated {
-    [super viewDidAppear:animated];
 }
 
 - (void)checkAndSave:(id)sender {

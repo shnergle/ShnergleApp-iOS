@@ -248,7 +248,7 @@
             </objects>
             <point key="canvasLocation" x="-1403" y="39"/>
         </scene>
-        <!--Venue Category View Controller-->
+        <!--Venue Category View Controller - + Add Place-->
         <scene sceneID="HZL-7s-62t">
             <objects>
                 <viewController id="EYE-5f-vkw" customClass="VenueCategoryViewController" sceneMemberID="viewController">
@@ -287,7 +287,7 @@
                             <constraint firstItem="F91-6j-iuL" firstAttribute="top" secondItem="zAL-LD-lgL" secondAttribute="top" id="kzC-Ml-McW"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="5lL-j8-ENA"/>
+                    <navigationItem key="navigationItem" title="+ Add Place" id="5lL-j8-ENA"/>
                     <connections>
                         <outlet property="categoryTableView" destination="F91-6j-iuL" id="hGp-Df-vGg"/>
                     </connections>
@@ -314,7 +314,7 @@
             </objects>
             <point key="canvasLocation" x="-2410" y="1487"/>
         </scene>
-        <!--Add Venue View Controller-->
+        <!--Add Venue View Controller - + Add Place-->
         <scene sceneID="FeI-Fr-9M4">
             <objects>
                 <viewController storyboardIdentifier="AddVenueViewController" id="0PX-8N-tNM" customClass="AddVenueViewController" sceneMemberID="viewController">
@@ -415,7 +415,7 @@
                             <constraint firstItem="YEy-1w-LuT" firstAttribute="trailing" secondItem="i1y-ck-Dxh" secondAttribute="trailing" id="tzn-0b-Wqq"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="2pY-Wu-a5J"/>
+                    <navigationItem key="navigationItem" title="+ Add Place" id="2pY-Wu-a5J"/>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                     <connections>
                         <outlet property="mapView" destination="JFV-gw-isO" id="NuE-TO-UmI"/>
@@ -426,7 +426,7 @@
             </objects>
             <point key="canvasLocation" x="-1758" y="1568"/>
         </scene>
-        <!--Venue Details View Controller-->
+        <!--Venue Details View Controller - Place Details-->
         <scene sceneID="RFJ-M9-wVd">
             <objects>
                 <viewController storyboardIdentifier="VenueDetailsViewIdentifier" id="Zbe-LX-fgV" customClass="VenueDetailsViewController" sceneMemberID="viewController">
@@ -556,7 +556,7 @@
                             <constraint firstItem="vq6-OI-ZZV" firstAttribute="leading" secondItem="c6u-mz-3nl" secondAttribute="leading" id="mkK-fz-R51"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="TLm-Qo-Cvv"/>
+                    <navigationItem key="navigationItem" title="Place Details" id="TLm-Qo-Cvv"/>
                     <simulatedStatusBarMetrics key="simulatedStatusBarMetrics"/>
                     <connections>
                         <outlet property="tableView2" destination="vq6-OI-ZZV" id="Dge-m6-6ZU"/>
@@ -599,7 +599,7 @@
             </objects>
             <point key="canvasLocation" x="-1450" y="1535"/>
         </scene>
-        <!--Add Promotions View Controller-->
+        <!--Add Promotions View Controller - Promotion-->
         <scene sceneID="n2J-EF-KCr">
             <objects>
                 <viewController storyboardIdentifier="AddPromotionsViewController" id="PGA-7S-bvP" customClass="AddPromotionsViewController" sceneMemberID="viewController">
@@ -686,7 +686,7 @@
                             <constraint firstItem="oEV-7y-XaK" firstAttribute="bottom" secondItem="EEQ-e6-zJj" secondAttribute="bottom" id="s9v-HN-heM"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="wu1-2W-ExY"/>
+                    <navigationItem key="navigationItem" title="Promotion" id="wu1-2W-ExY"/>
                     <simulatedStatusBarMetrics key="simulatedStatusBarMetrics"/>
                     <connections>
                         <outlet property="doneButton" destination="T5Q-2b-u9b" id="aai-uq-Abf"/>
@@ -798,7 +798,7 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
             </objects>
             <point key="canvasLocation" x="-963" y="2338"/>
         </scene>
-        <!--Imp View Controller-->
+        <!--Imp View Controller - Important Stuff-->
         <scene sceneID="gvp-Me-h7w">
             <objects>
                 <viewController id="wU5-xy-dr8" customClass="ImpViewController" sceneMemberID="viewController">
@@ -945,13 +945,13 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                             <constraint firstAttribute="trailing" secondItem="J5u-Xa-562" secondAttribute="trailing" id="z87-GE-vGD"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="fwS-xx-Dd5"/>
+                    <navigationItem key="navigationItem" title="Important Stuff" id="fwS-xx-Dd5"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="XuH-qq-aOA" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-963" y="3043"/>
         </scene>
-        <!--Customer Check Ins-->
+        <!--Customer Check Ins - Customers Checking In-->
         <scene sceneID="rw7-jW-iIP">
             <objects>
                 <viewController id="p0n-jT-xH0" customClass="CustomerCheckIns" sceneMemberID="viewController">
@@ -1102,7 +1102,7 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                             <constraint firstAttribute="trailing" secondItem="yHT-Z8-2o3" secondAttribute="trailing" id="ign-id-J1d"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="rxv-uK-wF2"/>
+                    <navigationItem key="navigationItem" title="Customers Checking In" id="rxv-uK-wF2"/>
                     <connections>
                         <outlet property="pickerView" destination="OaQ-oK-akT" id="Wyf-bo-S6r"/>
                     </connections>
@@ -1610,7 +1610,7 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
             </objects>
             <point key="canvasLocation" x="-89" y="1329"/>
         </scene>
-        <!--Staff Edit View Controller-->
+        <!--Staff Edit View Controller - Staff-->
         <scene sceneID="bz2-MF-RBL">
             <objects>
                 <viewController id="pR2-rf-Aa8" customClass="StaffEditViewController" sceneMemberID="viewController">
@@ -1714,7 +1714,7 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                             <constraint firstItem="ZI6-1e-3vl" firstAttribute="top" secondItem="Q1f-i3-KyB" secondAttribute="bottom" constant="8" symbolic="YES" id="yBL-mf-yK5"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="mVN-L3-gsI"/>
+                    <navigationItem key="navigationItem" title="Staff" id="mVN-L3-gsI"/>
                     <simulatedStatusBarMetrics key="simulatedStatusBarMetrics"/>
                     <connections>
                         <outlet property="dateLabel" destination="XC0-hV-EZe" id="QUN-dq-Nvw"/>
@@ -1786,7 +1786,7 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
             </objects>
             <point key="canvasLocation" x="169" y="2142"/>
         </scene>
-        <!--Staff Type View Controller-->
+        <!--Staff Type View Controller - Staff-->
         <scene sceneID="cGV-5d-AsI">
             <objects>
                 <viewController id="hXY-Mt-hiA" customClass="StaffTypeViewController" sceneMemberID="viewController">
@@ -1826,7 +1826,7 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                             <constraint firstItem="nfi-JV-gQf" firstAttribute="leading" secondItem="nyM-Cd-UKL" secondAttribute="leading" id="uTd-71-ofP"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="CcW-mJ-tfm"/>
+                    <navigationItem key="navigationItem" title="Staff" id="CcW-mJ-tfm"/>
                     <simulatedStatusBarMetrics key="simulatedStatusBarMetrics"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="23U-os-RSY" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1920,7 +1920,7 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                             <constraint firstItem="Bpv-zI-nMC" firstAttribute="bottom" secondItem="nbL-bv-q2j" secondAttribute="top" id="mwT-br-A47"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="RoZ-NC-2LD"/>
+                    <navigationItem key="navigationItem" title="Location" id="RoZ-NC-2LD"/>
                     <connections>
                         <outlet property="headline" destination="6O5-PF-pDJ" id="9cu-oZ-2Dz"/>
                         <outlet property="mapView" destination="5Kv-3Y-egL" id="s33-nC-zMl"/>
@@ -3130,10 +3130,10 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
             </objects>
             <point key="canvasLocation" x="-309" y="-713"/>
         </scene>
-        <!--Terms Of Use View Controller-->
+        <!--Custom Back View Controller - FAQ-->
         <scene sceneID="w4s-h5-ykB">
             <objects>
-                <viewController id="m3L-Cu-7Qf" customClass="TermsOfUseViewController" sceneMemberID="viewController">
+                <viewController title="FAQ" id="m3L-Cu-7Qf" customClass="CustomBackViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="u6V-Uj-gAB"/>
                         <viewControllerLayoutGuide type="bottom" id="NGK-rJ-NAn"/>
@@ -3327,10 +3327,7 @@ THANKS FOR BEING PART OF THE SHNERGLE COMMUNITY - HAPPY SHNERGLING!
                             <constraint firstItem="Cjv-oL-HZ0" firstAttribute="top" secondItem="Y1G-9J-auZ" secondAttribute="top" id="oRZ-q0-gFN"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="J05-8Z-Grw"/>
-                    <userDefinedRuntimeAttributes>
-                        <userDefinedRuntimeAttribute type="string" keyPath="title" value="FAQ"/>
-                    </userDefinedRuntimeAttributes>
+                    <navigationItem key="navigationItem" title="FAQ" id="J05-8Z-Grw"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="z3x-uH-Dwx" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -3522,7 +3519,7 @@ THANKS FOR BEING PART OF THE SHNERGLE COMMUNITY - HAPPY SHNERGLING!
             </objects>
             <point key="canvasLocation" x="-1540" y="-1656"/>
         </scene>
-        <!--Check In List View Controller-->
+        <!--Check In List View Controller - Check Ins-->
         <scene sceneID="9zd-nI-3Qy">
             <objects>
                 <viewController id="bjE-Pa-OuT" customClass="CheckInListViewController" sceneMemberID="viewController">
@@ -3594,7 +3591,7 @@ THANKS FOR BEING PART OF THE SHNERGLE COMMUNITY - HAPPY SHNERGLING!
                             <constraint firstItem="yd5-SI-dou" firstAttribute="bottom" secondItem="iBq-yA-d4H" secondAttribute="bottom" id="jcK-GY-wC9"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="R3J-Cp-idF"/>
+                    <navigationItem key="navigationItem" title="Check Ins" id="R3J-Cp-idF"/>
                     <simulatedStatusBarMetrics key="simulatedStatusBarMetrics"/>
                     <connections>
                         <outlet property="collectionView" destination="yd5-SI-dou" id="9Ek-AL-dSX"/>
@@ -3604,7 +3601,7 @@ THANKS FOR BEING PART OF THE SHNERGLE COMMUNITY - HAPPY SHNERGLING!
             </objects>
             <point key="canvasLocation" x="-827" y="-1686"/>
         </scene>
-        <!--Redemption List View Controller-->
+        <!--Redemption List View Controller - Redeemed-->
         <scene sceneID="BI2-B5-zDP">
             <objects>
                 <viewController id="8r0-Bc-HnL" customClass="RedemptionListViewController" sceneMemberID="viewController">
@@ -3696,7 +3693,7 @@ THANKS FOR BEING PART OF THE SHNERGLE COMMUNITY - HAPPY SHNERGLING!
                             <constraint firstItem="Bea-aq-nXp" firstAttribute="top" secondItem="Kkt-Ef-uif" secondAttribute="top" id="c2n-sh-xiQ"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="cZm-OW-0qk"/>
+                    <navigationItem key="navigationItem" title="Redeemed" id="cZm-OW-0qk"/>
                     <simulatedStatusBarMetrics key="simulatedStatusBarMetrics"/>
                     <connections>
                         <outlet property="collectionView" destination="Bea-aq-nXp" id="kjr-h1-OqB"/>
@@ -3706,10 +3703,10 @@ THANKS FOR BEING PART OF THE SHNERGLE COMMUNITY - HAPPY SHNERGLING!
             </objects>
             <point key="canvasLocation" x="-480" y="-1656"/>
         </scene>
-        <!--Account View Controller-->
+        <!--Account View Controller - Account Settings-->
         <scene sceneID="Ca7-iB-UXP">
             <objects>
-                <viewController id="sUR-Sr-h90" customClass="AccountViewController" sceneMemberID="viewController">
+                <viewController title="Account Settings" id="sUR-Sr-h90" customClass="AccountViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="sw0-LW-NDy"/>
                         <viewControllerLayoutGuide type="bottom" id="fcZ-tD-QnA"/>
@@ -3841,7 +3838,7 @@ THANKS FOR BEING PART OF THE SHNERGLE COMMUNITY - HAPPY SHNERGLING!
                             <constraint firstItem="cev-rT-ehm" firstAttribute="leading" secondItem="ktB-oy-ooE" secondAttribute="leading" id="x6B-lF-h8U"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="YRG-ys-BII"/>
+                    <navigationItem key="navigationItem" title="Account Settings" id="YRG-ys-BII"/>
                     <connections>
                         <outlet property="optInSwitch" destination="bpY-2S-RTg" id="Htg-aa-hjC"/>
                         <outlet property="saveLocallySwitch" destination="5iZ-5z-Xzi" id="O7m-ie-ngI"/>
@@ -3852,7 +3849,7 @@ THANKS FOR BEING PART OF THE SHNERGLE COMMUNITY - HAPPY SHNERGLING!
             </objects>
             <point key="canvasLocation" x="-89" y="-2404"/>
         </scene>
-        <!--Help View Controller-->
+        <!--Help View Controller - Help-->
         <scene sceneID="iPm-3u-jTe">
             <objects>
                 <viewController id="jTa-SF-rUG" customClass="HelpViewController" sceneMemberID="viewController">
@@ -3953,7 +3950,7 @@ THANKS FOR BEING PART OF THE SHNERGLE COMMUNITY - HAPPY SHNERGLING!
                             <constraint firstItem="KLs-UF-a9r" firstAttribute="leading" secondItem="rvr-C9-Dpd" secondAttribute="leading" id="vKM-42-WTx"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="ajR-Xj-U72"/>
+                    <navigationItem key="navigationItem" title="Help" id="ajR-Xj-U72"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="C0y-0h-3XB" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <tapGestureRecognizer id="iPE-JD-Opi">
@@ -3974,10 +3971,10 @@ THANKS FOR BEING PART OF THE SHNERGLE COMMUNITY - HAPPY SHNERGLING!
             </objects>
             <point key="canvasLocation" x="341" y="-2404"/>
         </scene>
-        <!--Terms Of Use View Controller - Privacy Policy-->
+        <!--Custom Back View Controller - Privacy Policy-->
         <scene sceneID="klW-Hx-hjJ">
             <objects>
-                <viewController title="Privacy Policy" id="hEm-jV-zWS" customClass="TermsOfUseViewController" sceneMemberID="viewController">
+                <viewController title="Privacy Policy" id="hEm-jV-zWS" customClass="CustomBackViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="F8D-74-bNU"/>
                         <viewControllerLayoutGuide type="bottom" id="NH6-Rp-VvA"/>
@@ -4159,19 +4156,16 @@ If you have any questions, comments or requests regarding this Policy, please co
                             <constraint firstAttribute="bottom" secondItem="l35-1v-63j" secondAttribute="bottom" id="tft-ul-P5P"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="hJS-Q9-54n"/>
-                    <userDefinedRuntimeAttributes>
-                        <userDefinedRuntimeAttribute type="string" keyPath="title" value="Privacy Policy"/>
-                    </userDefinedRuntimeAttributes>
+                    <navigationItem key="navigationItem" title="Privacy Policy" id="hJS-Q9-54n"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ga3-EJ-E3E" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="92" y="-1239"/>
         </scene>
-        <!--Terms Of Use View Controller - Terms & Conditions-->
+        <!--Custom Back View Controller - Terms & Conditions-->
         <scene sceneID="XBh-Uq-0X8">
             <objects>
-                <viewController storyboardIdentifier="TermsOfUse" title="Terms &amp; Conditions" id="dSf-nl-gV6" customClass="TermsOfUseViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="TermsOfUse" title="Terms &amp; Conditions" id="dSf-nl-gV6" customClass="CustomBackViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="2X0-Vi-ixC"/>
                         <viewControllerLayoutGuide type="bottom" id="kZN-cy-4vF"/>
@@ -4451,10 +4445,7 @@ Apple is a third party beneficiary of the Terms
                             <constraint firstItem="ZkD-aC-df9" firstAttribute="top" secondItem="TQr-Rt-KYN" secondAttribute="top" id="zaj-6e-zOx"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="lRh-Ql-efE"/>
-                    <userDefinedRuntimeAttributes>
-                        <userDefinedRuntimeAttribute type="string" keyPath="title" value="Terms &amp; Conditions"/>
-                    </userDefinedRuntimeAttributes>
+                    <navigationItem key="navigationItem" title="Terms &amp; Conditions" id="lRh-Ql-efE"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Q94-zz-R59" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

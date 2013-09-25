@@ -16,7 +16,6 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     rows = 0;
-    self.navigationItem.title = @"Location";
     venues = nil;
     [self.searchResultTable makeToastActivity];
 }

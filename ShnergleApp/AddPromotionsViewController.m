@@ -14,7 +14,6 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.navigationItem.title = @"Promotion";
     if (!(appDelegate.venueStatus == Staff && [appDelegate.activeVenue[@"promo_perm"] integerValue] == 0)) [self setRightBarButton:@"Publish" actionSelector:@selector(addPromotion)];
 
     self.tableData = @[@"Title", @"", @"Passcode", @"Starts", @"Ends", @"Limit", @"Audience"];
@@ -246,7 +245,7 @@
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    return self.tableData.count;
+    return [self.tableData count];
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {

@@ -31,9 +31,4 @@
     [[UIApplication sharedApplication] openURL:url];
 }
 
-- (void)viewWillAppear:(BOOL)animated {
-    [super viewWillAppear:animated];
-    self.navigationItem.title = @"Help";
-}
-
 @end

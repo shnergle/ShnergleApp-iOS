@@ -20,11 +20,6 @@
     return cell;
 }
 
-- (void)viewWillAppear:(BOOL)animated {
-    [super viewWillAppear:animated];
-    self.navigationItem.title = @"Staff";
-}
-
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     appDelegate.staffType = indexPath.row == 0 ? @"Manager" : @"Staff";
     [self.navigationController popViewControllerAnimated:YES];

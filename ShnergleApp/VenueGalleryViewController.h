@@ -17,9 +17,7 @@
 @property (weak, nonatomic) IBOutlet GVPhotoBrowser *photoScroller;
 @property (weak, nonatomic) IBOutlet UILabel *commentLabel;
 @property (weak, nonatomic) IBOutlet UILabel *authorLabel;
-
 @property (weak, nonatomic) IBOutlet UIButton *likeButton;
 
-- (void)setTitle:(NSString *)title;
 - (void)setImage:(NSUInteger)img of:(NSArray *)imgs;
 @end

@@ -26,13 +26,7 @@
 }
 
 - (IBAction)showInfo:(id)sender {
-    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"We use this figure to calculate the estimated financial value of the Shnergle users checking-in to your venue so that you don’t have to. This information will be kept confidential and will not be shared with anyone." message:nil delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
-    [alert show];
-}
-
-- (void)viewWillAppear:(BOOL)animated {
-    [super viewWillAppear:animated];
-    self.navigationItem.title = @"Important Stuff";
+    [[[UIAlertView alloc] initWithTitle:@"We use this figure to calculate the estimated financial value of the Shnergle users checking-in to your venue so that you don’t have to. This information will be kept confidential and will not be shared with anyone." message:nil delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil] show];
 }
 
 @end
