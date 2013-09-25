@@ -7,14 +7,20 @@
 //
 
 #import "CustomSlidingViewController.h"
+#import "MenuViewController.h"
 
 @implementation CustomSlidingViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.shouldAllowPanningPastAnchor = NO;
+    self.anchorRightRevealAmount = 230;
     self.anchorLeftRevealAmount = NSIntegerMax;
     self.topViewController = [self.storyboard instantiateViewControllerWithIdentifier:self.mainController];
+    if (![self.underLeftViewController isKindOfClass:[MenuViewController class]]) {
+        self.underLeftViewController  = [self.storyboard instantiateViewControllerWithIdentifier:@"AroundMeMenu"];
+    }
+    [self.topViewController.view addGestureRecognizer:self.panGesture];
 }
 
 - (void)viewWillAppear:(BOOL)animated {

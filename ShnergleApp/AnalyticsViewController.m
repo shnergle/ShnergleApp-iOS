@@ -12,7 +12,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.tableData = @[@"Important Stuff", @"Optimisation", @"Of Interest"];
+    tableData = @[@"Important Stuff", @"Optimisation", @"Of Interest"];
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -22,7 +22,7 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return [self.tableData count];
+    return [tableData count];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -34,7 +34,7 @@
     } else if (indexPath.row == 2) {
         cell.imageView.image = [UIImage imageNamed:@"glyphicons_194_circle_question_mark"];
     }
-    cell.textLabel.text = self.tableData[indexPath.row];
+    cell.textLabel.text = tableData[indexPath.row];
     return cell;
 }
 

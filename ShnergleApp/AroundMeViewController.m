@@ -9,7 +9,6 @@
 #import "AroundMeViewController.h"
 #import "CrowdItem.h"
 #import <CoreLocation/CoreLocation.h>
-#import "MenuViewController.h"
 #import <Toast+UIView.h>
 #import "Request.h"
 #import "VenueViewController.h"
@@ -24,12 +23,6 @@
                                       forState:UIControlStateNormal];
 }
 
-- (void)toolbarDecorations {
-    UIBarButtonItem *menuButton;
-    menuButton = [self createLeftBarButton:@"arrow_west" actionSelector:@selector(goBack)];
-    self.navigationItem.leftBarButtonItem = menuButton;
-}
-
 - (void)decorateScroller {
     UIImage *maxBarImage = [UIImage imageNamed:@"highlight_distance_02_transparent"];
     UIImage *thumbImage = [UIImage imageNamed:@"highlight_distance"];
@@ -41,10 +34,6 @@
     [self.distanceScroller setMaximumTrackImage:maxBarImage forState:UIControlStateNormal];
     [self.distanceScroller setMinimumTrackImage:minBarImage forState:UIControlStateNormal];
     [self.distanceScroller setThumbImage:thumbImage forState:UIControlStateNormal];
-}
-
-- (void)goBack {
-    [self.navigationController popViewControllerAnimated:YES];
 }
 
 - (UIBarButtonItem *)createLeftBarButton:(NSString *)imageName actionSelector:(SEL)actionSelector {
@@ -77,9 +66,6 @@
     [super viewDidLoad];
     [self decorateCheckInButton];
     [self decorateScroller];
-    [self toolbarDecorations];
-
-    loading = YES;
 
     crowdImagesHidden = NO;
     dropDownHidden = YES;
@@ -114,11 +100,6 @@
     self.navigationItem.hidesBackButton = YES;
     dropDownHidden = YES;
     crowdImagesHidden = NO;
-    if (![self.slidingViewController.underLeftViewController isKindOfClass:[MenuViewController class]]) {
-        self.slidingViewController.underLeftViewController  = [self.storyboard instantiateViewControllerWithIdentifier:@"AroundMeMenu"];
-    }
-    [self.view addGestureRecognizer:self.slidingViewController.panGesture];
-    [self.slidingViewController setAnchorRightRevealAmount:230.0f];
     self.view.layer.shadowOpacity = 0.75f;
     self.view.layer.shadowRadius = 10.0f;
     self.view.layer.shadowColor = [UIColor blackColor].CGColor;
@@ -178,7 +159,6 @@
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     if ([segue.identifier isEqualToString:@"ToVenueSite"]) {
-        appDelegate.activeVenue = venues[selectedVenue];
         [((VenueViewController *)[segue destinationViewController])setVenueInfo];
     } else if ([segue.identifier isEqualToString:@"CheckInFromAroundMe"]) {
         appDelegate.shareVenue = NO;
@@ -186,11 +166,11 @@
 }
 
 - (void)collectionView:(UICollectionView *)collectionView didHighlightItemAtIndexPath:(NSIndexPath *)indexPath {
-    selectedVenue = indexPath.item;
+    appDelegate.activeVenue = venues[indexPath.item];
 }
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
-    selectedVenue = indexPath.item;
+    appDelegate.activeVenue = venues[indexPath.item];
 }
 
 - (void)showOverlay {
@@ -241,7 +221,6 @@
         @synchronized(self) {
             venues = response;
             [self.crowdCollection reloadData];
-            loading = NO;
             [self.overlay hideToastActivity];
         }
     }];

@@ -22,8 +22,6 @@
 @property (weak, nonatomic) IBOutlet UITextField *bar;
 @property (weak, nonatomic) IBOutlet SearchResultsView *searchResultsView;
 @property (weak, nonatomic) IBOutlet UITableView *menuItemsTableView;
-
 @property (weak, nonatomic) IBOutlet UIButton *cancelButton;
-- (IBAction)cancelButtonTapped:(id)sender;
 
 @end

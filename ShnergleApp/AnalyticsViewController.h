@@ -8,9 +8,8 @@
 
 #import "CustomBackViewController.h"
 
-@interface AnalyticsViewController : CustomBackViewController <UITableViewDelegate, UITableViewDataSource>
-
-@property (weak, nonatomic) IBOutlet UITableView *tableView;
-@property (strong, nonatomic) NSArray *tableData;
+@interface AnalyticsViewController : CustomBackViewController <UITableViewDelegate, UITableViewDataSource> {
+    NSArray *tableData;
+}
 
 @end

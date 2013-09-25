@@ -196,13 +196,13 @@
         }];
         [textField resignFirstResponder];
         [self.searchResultsView show];
-        [self toggleCancelButton:true];
+        [self toggleCancelButton:YES];
     }
     return YES;
 }
 
 - (BOOL)textFieldShouldBeginEditing:(UITextField *)textField {
-    [self toggleCancelButton:true];
+    [self toggleCancelButton:YES];
     return YES;
 }
 
@@ -210,10 +210,10 @@
     self.bar.text = @"";
     [self.bar resignFirstResponder];
     [self.searchResultsView hide];
-    [self toggleCancelButton:false];
+    [self toggleCancelButton:NO];
 }
 
-- (void)toggleCancelButton:(bool)show {
+- (void)toggleCancelButton:(BOOL)show {
     int newAlpha = 0;
     if (show) newAlpha = 1;
     [[UIApplication sharedApplication] beginIgnoringInteractionEvents];

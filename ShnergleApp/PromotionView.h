@@ -27,5 +27,4 @@
 
 @property (weak, nonatomic) IBOutlet UIButton *redeemButton;
 
-- (IBAction)tapUseDeal:(id)sender;
 @end

@@ -37,7 +37,6 @@
 }
 
 - (void)goToPromotionView;
-- (void)setHeaderTitle:(NSString *)headerTitle andSubtitle:(NSString *)headerSubtitle;
 - (void)setVenueInfo;
 @property (weak, nonatomic) IBOutlet UICollectionView *crowdCollectionV;
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *checkInButton;

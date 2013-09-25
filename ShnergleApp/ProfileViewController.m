@@ -8,7 +8,6 @@
 
 #import "ProfileViewController.h"
 #import "Request.h"
-#import "MenuViewController.h"
 #import <Toast/Toast+UIView.h>
 #import <ECSlidingViewController/ECSlidingViewController.h>
 
@@ -48,10 +47,6 @@
     }
 }
 
-- (void)doNothing:(id)whoCares {
-    [self.view hideToastActivity];
-}
-
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
 
@@ -60,12 +55,6 @@
     [self menuButtonDecorations];
     [self decorateSignOutButton];
     self.navigationItem.hidesBackButton = YES;
-
-    if (![self.slidingViewController.underLeftViewController isKindOfClass:[MenuViewController class]]) {
-        self.slidingViewController.underLeftViewController  = [self.storyboard instantiateViewControllerWithIdentifier:@"AroundMeMenu"];
-    }
-    [self.view addGestureRecognizer:self.slidingViewController.panGesture];
-    [self.slidingViewController setAnchorRightRevealAmount:230.0f];
 
     self.view.layer.shadowOpacity = 0.75f;
     self.view.layer.shadowRadius = 10.0f;

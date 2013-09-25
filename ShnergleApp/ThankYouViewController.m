@@ -38,10 +38,6 @@
 }
 
 - (IBAction)tappedDone:(id)sender {
-    [self toFirstAroundMe];
-}
-
-- (void)toFirstAroundMe {
     for (id viewController in self.navigationController.viewControllers) {
         if ([viewController isKindOfClass:[CustomSlidingViewController class]]) {
             [self.navigationController popToViewController:viewController animated:YES];

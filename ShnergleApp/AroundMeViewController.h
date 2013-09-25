@@ -10,13 +10,11 @@
 #import "OverlayText.h"
 
 @interface AroundMeViewController : UIViewController<UICollectionViewDataSource, UICollectionViewDelegate, MKMapViewDelegate> {
-    NSInteger selectedVenue;
     BOOL crowdImagesHidden;
     BOOL dropDownHidden;
     BOOL hasPositionLocked;
     BOOL pinDropped;
     CLLocationCoordinate2D pinDroppedLocation;
-    BOOL loading;
     MKMapView *map;
     NSArray *venues;
     BOOL rendered;
@@ -27,16 +25,6 @@
 @property (weak, nonatomic) IBOutlet UICollectionView *crowdCollection;
 @property (weak, nonatomic) IBOutlet UINavigationBar *navBar;
 @property (weak, nonatomic) IBOutlet UINavigationItem *navBarMenuItem;
-- (IBAction)tapArrow:(id)sender;
 @property (weak, nonatomic) IBOutlet OverlayText *overlay;
-- (BOOL)scrollViewShouldScrollToTop:(UIScrollView *)scrollView;
-- (IBAction)sliderValueChanged:(id)sender;
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *checkInButton;
-
-- (void)initMap;
-- (void)tapMenu;
-- (void)hideOverlay;
-- (void)showOverlay;
-- (void)showDistanceScroller;
-- (void)hideDistanceScroller;
 @end

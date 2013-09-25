@@ -7,9 +7,7 @@
 //
 
 #import "FavouritesViewController.h"
-#import "MenuViewController.h"
 #import "CrowdItem.h"
-#import "VenueViewController.h"
 #import "Request.h"
 #import <ECSlidingViewController/ECSlidingViewController.h>
 #import <Toast/Toast+UIView.h>
@@ -52,14 +50,6 @@
     [self menuButtonDecorations];
     [self decorateCheckInButton];
 
-    if (self.slidingViewController != nil) {
-        if (![self.slidingViewController.underLeftViewController isKindOfClass:[MenuViewController class]]) {
-            self.slidingViewController.underLeftViewController  = [self.storyboard instantiateViewControllerWithIdentifier:@"AroundMeMenu"];
-        }
-        [self.view addGestureRecognizer:self.slidingViewController.panGesture];
-        [self.slidingViewController setAnchorRightRevealAmount:230.0f];
-    }
-
     self.view.layer.shadowOpacity = 0.75f;
     self.view.layer.shadowRadius = 10.0f;
     self.view.layer.shadowColor = [UIColor blackColor].CGColor;
@@ -69,21 +59,6 @@
 
     self.navBar.barTintColor = [UIColor colorWithRed:233.0 / 255 green:235.0 / 255 blue:240.0 / 255 alpha:1.0];
     self.navBar.translucent = NO;
-}
-
-- (void)makeRequest {
-    [self.view makeToastActivity];
-    if ([@"Following" isEqualToString : appDelegate.topViewType]) {
-        [Request post:@"venues/get" params:@{@"following_only" : @"true", @"level" : appDelegate.level} callback:^(id response) {
-            [self didFinishLoadingVenues:response];
-        }];
-    } else {
-        hasPositionLocked = NO;
-        man = [[CLLocationManager alloc] init];
-        man.delegate = self;
-        man.desiredAccuracy = kCLLocationAccuracyNearestTenMeters;
-        [man startUpdatingLocation];
-    }
 }
 
 - (void)didFinishLoadingVenues:(NSArray *)response {
@@ -108,7 +83,18 @@
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
-    [self makeRequest];
+    [self.view makeToastActivity];
+     if ([@"Following" isEqualToString : appDelegate.topViewType]) {
+         [Request post:@"venues/get" params:@{@"following_only" : @"true", @"level" : appDelegate.level} callback:^(id response) {
+             [self didFinishLoadingVenues:response];
+         }];
+     } else {
+         hasPositionLocked = NO;
+         man = [[CLLocationManager alloc] init];
+         man.delegate = self;
+         man.desiredAccuracy = kCLLocationAccuracyNearestTenMeters;
+         [man startUpdatingLocation];
+     }
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
@@ -145,8 +131,7 @@
     return item;
 }
 
-- (void)collectionView:(UICollectionView *)collectionView
-    didHighlightItemAtIndexPath:(NSIndexPath *)indexPath {
+- (void)collectionView:(UICollectionView *)collectionView didHighlightItemAtIndexPath:(NSIndexPath *)indexPath {
     appDelegate.activeVenue = venues[indexPath.item];
 }
 
@@ -162,35 +147,19 @@
 
 - (void)locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray *)locations {
     if (!hasPositionLocked) {
+        hasPositionLocked = YES;
         MKCoordinateRegion rgn = MKCoordinateRegionMakeWithDistance(((CLLocation *)locations.lastObject).coordinate, 5000, 5000);
         double distanceInDegrees = sqrt(pow(rgn.span.latitudeDelta, 2) + pow(rgn.span.longitudeDelta, 2));
-        NSMutableDictionary *params = [@{@"my_lat": @(((CLLocation *)locations.lastObject).coordinate.latitude),
-                                         @"my_lon": @(((CLLocation *)locations.lastObject).coordinate.longitude),
-                                         @"distance": @(distanceInDegrees),
-                                         @"level": appDelegate.level} mutableCopy];
-        if ([@"Quiet" isEqualToString : appDelegate.topViewType]) {
-            [params addEntriesFromDictionary:@{@"quiet" : @"true",
-                                               @"from_time" : @([Request fromTime]),
-                                               @"until_time" : @([Request untilTime])}];
-            [Request post:@"venues/get" params:params callback:^(id response) {
-                [self didFinishLoadingVenues:response];
-            }];
-        } else if ([@"Trending" isEqualToString : appDelegate.topViewType]) {
-            [params addEntriesFromDictionary:@{@"trending" : @"true",
-                                               @"from_time" : @([Request fromTime]),
-                                               @"until_time" : @([Request untilTime])}];
-            [Request post:@"venues/get" params:params callback:^(id response) {
-                [self didFinishLoadingVenues:response];
-            }];
-        } else if ([@"Promotions" isEqualToString : appDelegate.topViewType]) {
-            [params addEntriesFromDictionary:@{@"promotions" : @"true",
-                                               @"from_time" : @([Request fromTime]),
-                                               @"until_time" : @([Request untilTime])}];
-            [Request post:@"venues/get" params:params callback:^(id response) {
-                [self didFinishLoadingVenues:response];
-            }];
-        }
-        hasPositionLocked = YES;
+        NSDictionary *params = @{@"my_lat": @(((CLLocation *)locations.lastObject).coordinate.latitude),
+                                 @"my_lon": @(((CLLocation *)locations.lastObject).coordinate.longitude),
+                                 @"distance": @(distanceInDegrees),
+                                 @"level": appDelegate.level,
+                                 [appDelegate.topViewType lowercaseString] : @"true",
+                                 @"from_time" : @([Request fromTime]),
+                                 @"until_time" : @([Request untilTime])};
+        [Request post:@"venues/get" params:params callback:^(id response) {
+            [self didFinishLoadingVenues:response];
+        }];
     }
 }
 

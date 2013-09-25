@@ -18,8 +18,6 @@
 @property (weak, nonatomic) IBOutlet UILabel *commentLabel;
 @property (weak, nonatomic) IBOutlet UILabel *authorLabel;
 
-- (IBAction)flagButtonPressed:(id)sender;
-- (IBAction)likeButtonPressed:(id)sender;
 @property (weak, nonatomic) IBOutlet UIButton *likeButton;
 
 - (void)setTitle:(NSString *)title;

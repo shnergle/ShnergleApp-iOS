@@ -7,12 +7,9 @@
 //
 
 #import "OverlayText.h"
-#import "VenueViewController.h"
-#import "CheckInViewController.h"
 #import "Request.h"
+#import "VenueViewController.h"
 #import <Toast+UIView.h>
-#import "ShareViewController.h"
-#import "VenueDetailsViewController.h"
 #import <QuartzCore/QuartzCore.h>
 #import <CMMapLauncher/CMMapLauncher.h>
 
@@ -92,11 +89,6 @@
 
     frame = CGRectMake(0, screenHeight - 80, self.frame.size.width, self.frame.size.height);
     self = [super initWithFrame:frame];
-
-
-    if (self) {
-        isUp = NO;
-    }
     return self;
 }
 
@@ -105,20 +97,13 @@
     CGFloat screenHeight = screenRect.size.height;
 
     [self hideAnimated:self.frame.origin.y animationDuration:0.5 targetSize:screenHeight - 160 contentView:self];
-    isUp = NO;
 }
 
 - (IBAction)swipeUp:(id)sender {
     [self showAnimated:75 animationDelay:0.2 animationDuration:0.5];
-    isUp = YES;
-}
-
-- (IBAction)tappedContact:(id)sender {
-    NSLog(@"%@", [sender class]);
 }
 
 - (IBAction)tappedGoing:(id)sender {
-    self.tapGoing.enabled = NO;
     self.thinkingView.enabled = NO;
     self.goingView.enabled = NO;
 
@@ -282,11 +267,6 @@
     [parentVC goToPromotionView];
 }
 
-- (IBAction)tapPullerMenu:(id)sender {
-    if (isUp) [self swipeDown:sender];
-    else [self swipeUp:sender];
-}
-
 - (void)setContactDetails {
     self.phoneTextField.text = appDelegate.activeVenue[@"phone"];
     self.emailTextField.text = appDelegate.activeVenue[@"email"];
@@ -407,8 +387,8 @@
 
 - (IBAction)tappedClaimVenue:(id)sender {
     appDelegate.claiming = YES;
-    VenueDetailsViewController *vc = [((VenueViewController *)self.nextResponder.nextResponder).storyboard instantiateViewControllerWithIdentifier : @"VenueDetailsViewIdentifier"];
-    [((VenueViewController *)self.nextResponder.nextResponder).navigationController pushViewController : vc animated : YES];
+    UIViewController *vc = [((VenueViewController *)self.nextResponder.nextResponder).storyboard instantiateViewControllerWithIdentifier : @"VenueDetailsViewIdentifier"];
+    [((UIViewController *)self.nextResponder.nextResponder).navigationController pushViewController : vc animated : YES];
 }
 
 - (void)registerVenue {

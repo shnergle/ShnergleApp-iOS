@@ -11,22 +11,14 @@
 @implementation SearchResultsView
 
 - (void)hide {
-    [UIView animateWithDuration:0.5
-                     animations:^{
-        self.frame = CGRectMake(320,
-                                self.frame.origin.y,
-                                self.frame.size.width,
-                                self.frame.size.height);
+    [UIView animateWithDuration:0.5 animations:^{
+        self.frame = CGRectMake(320, self.frame.origin.y, self.frame.size.width, self.frame.size.height);
     }];
 }
 
 - (void)show {
-    [UIView animateWithDuration:0.5
-                     animations:^{
-        self.frame = CGRectMake(0,
-                                self.frame.origin.y,
-                                self.frame.size.width,
-                                self.frame.size.height);
+    [UIView animateWithDuration:0.5 animations:^{
+        self.frame = CGRectMake(0, self.frame.origin.y, self.frame.size.width, self.frame.size.height);
     }];
 }
 

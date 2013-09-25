@@ -68,10 +68,6 @@
     NSNumber *scoreRSVP = @([self.youRSVP.text integerValue] *[self.valueRSVP.text integerValue]);
     self.scoreRSVP.text = [scoreRSVP stringValue];
 
-    self.youComment.text = appDelegate.comment;
-    NSNumber *scoreComment = @([self.youComment.text integerValue] *[self.valueComment.text integerValue]);
-    self.scoreComment.text = [scoreComment stringValue];
-
     self.youLike.text = appDelegate.like;
     NSNumber *scoreLike = @([self.youLike.text integerValue] *[self.valueLike.text integerValue]);
     self.scoreLike.text = [scoreLike stringValue];
