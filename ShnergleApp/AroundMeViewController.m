@@ -99,15 +99,6 @@
     }
 }
 
-- (void)didFinishLoadingVenues:(NSArray *)response {
-    @synchronized(self) {
-        venues = response;
-        [self.crowdCollection reloadData];
-        loading = NO;
-        [self.overlay hideToastActivity];
-    }
-}
-
 - (void)addShadowLineRect:(CGRect)shadeRect ToView:(UIView *)view {
     CALayer *topBorder = [CALayer layer];
 
@@ -159,7 +150,11 @@
     NSDictionary *key = @{@"entity": @"venue",
                           @"entity_id": venues[indexPath.item][@"id"]};
     if (!(item.crowdImage.image = [Request getImage:key])) {
-        [Request post:@"images/get" params:key delegate:self callback:@selector(didFinishDownloadingImages:forIndex:) userData:indexPath];
+        [Request post:@"images/get" params:key callback:^(id response) {
+            if (response != nil && self.crowdCollection != nil && [self.crowdCollection numberOfItemsInSection:indexPath.section] > indexPath.item) {
+                [self.crowdCollection reloadItemsAtIndexPaths:@[indexPath]];
+            }
+        }];
     }
 
     item.venueName.text = venues[indexPath.item][@"name"];
@@ -179,12 +174,6 @@
     }
 
     return item;
-}
-
-- (void)didFinishDownloadingImages:(UIImage *)response forIndex:(NSIndexPath *)index {
-    if (response != nil && self.crowdCollection != nil && [self.crowdCollection numberOfItemsInSection:index.section] > index.item) {
-        [self.crowdCollection reloadItemsAtIndexPaths:@[index]];
-    }
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
@@ -248,7 +237,14 @@
                              @"distance": @(distanceInDegrees),
                              @"level": appDelegate.level,
                              @"around_me": @"true"};
-    [Request post:@"venues/get" params:params delegate:self callback:@selector(didFinishLoadingVenues:)];
+    [Request post:@"venues/get" params:params callback:^(id response) {
+        @synchronized(self) {
+            venues = response;
+            [self.crowdCollection reloadData];
+            loading = NO;
+            [self.overlay hideToastActivity];
+        }
+    }];
 
     MKCircle *circle = [MKCircle circleWithCenterCoordinate:coord radius:self.distanceScroller.value * 1000];
     [map addOverlay:circle];

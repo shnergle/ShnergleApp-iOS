@@ -70,7 +70,25 @@ typedef enum {
                     }
                 }
 
-                [Request post:@"venues/set" params:params delegate:self callback:@selector(didFinishAddingVenue:)];
+                [Request post:@"venues/set" params:params callback:^(id response) {
+                    if (response == nil) {
+                        [self.view hideToastActivity];
+                        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Uh-oh.. Something went wrong.." message:nil delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
+                        [alert show];
+                    } else {
+                        if (workSwitch.on) {
+                            [Request post:@"venue_managers/set" params:@{@"venue_id": response} callback:^(id response) {
+                                [self.view hideToastActivity];
+                                self.navigationItem.rightBarButtonItem.enabled = YES;
+                                [self.navigationController popViewControllerAnimated:YES];
+                            }];
+                        } else {
+                            [self.view hideToastActivity];
+                            self.navigationItem.rightBarButtonItem.enabled = YES;
+                            [self.navigationController popViewControllerAnimated:YES];
+                        }
+                    }
+                }];
             } ];
         } else {
             UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"Fields Missing" message:@"Please fill in all required fields" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
@@ -84,28 +102,6 @@ typedef enum {
 
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
     self.navigationItem.rightBarButtonItem.enabled = YES;
-}
-
-- (void)didFinishAddingVenue:(NSNumber *)response {
-    if (response == nil) {
-        [self.view hideToastActivity];
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Uh-oh.. Something went wrong.." message:nil delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
-        [alert show];
-    } else {
-        if (workSwitch.on) {
-            [Request post:@"venue_managers/set" params:@{@"venue_id": response} delegate:self callback:@selector(didAddAsManager:)];
-        } else {
-            [self.view hideToastActivity];
-            self.navigationItem.rightBarButtonItem.enabled = YES;
-            [self.navigationController popViewControllerAnimated:YES];
-        }
-    }
-}
-
-- (void)didAddAsManager:(id)response {
-    [self.view hideToastActivity];
-    self.navigationItem.rightBarButtonItem.enabled = YES;
-    [self.navigationController popViewControllerAnimated:YES];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {

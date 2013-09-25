@@ -82,11 +82,9 @@
     }
     NSDictionary *params = @{@"venue_id": appDelegate.activeVenue[@"id"],
                              @"following": following ? @"true" : @"false"};
-    [Request post:@"venue_followers/set" params:params delegate:self callback:@selector(doNothing:)];
-}
-
-- (void)doNothing:(id)whoCares {
-    [self.view hideToastActivity];
+    [Request post:@"venue_followers/set" params:params callback:^(id response) {
+        [self.view hideToastActivity];
+    }];
 }
 
 - (void)viewDidLoad {
@@ -137,7 +135,9 @@
     [overlayView.scrollView setScrollsToTop:NO];
     [self.crowdCollectionV setScrollsToTop:YES];
 
-    [Request post:@"venue_views/set" params:@{@"venue_id": appDelegate.activeVenue[@"id"]} delegate:self callback:@selector(doNothing:)];
+    [Request post:@"venue_views/set" params:@{@"venue_id": appDelegate.activeVenue[@"id"]} callback:^(id response) {
+        [self.view hideToastActivity];
+    }];
 
     man = [[CLLocationManager alloc] init];
     man.delegate = self;
@@ -146,24 +146,6 @@
 }
 
 - (void)didFinishGettingPromotion:(NSDictionary *)response {
-    if ([response respondsToSelector:@selector(objectForKeyedSubscript:)]) {
-        appDelegate.activePromotion = response;
-        appDelegate.canRedeem = [response[@"own_redemptions"] integerValue] == 0;
-        promotionBody = response[@"description"];
-        promotionTitle = response[@"title"];
-        promotionExpiry = ([response[@"maximum"] integerValue] == 0 || response[@"maximum"] == nil) ? [NSString stringWithFormat:@"%@ claimed", response[@"redemptions"]] : [NSString stringWithFormat:@"%@/%@ claimed", response[@"redemptions"], response[@"maximum"]];
-        promotionUntil = [response[@"end"] integerValue] > 0 ? [NSString stringWithFormat:@"Expires %@", [NSDateFormatter localizedStringFromDate:[NSDate dateWithTimeIntervalSince1970:[response[@"end"] integerValue]] dateStyle:NSDateFormatterShortStyle timeStyle:NSDateFormatterShortStyle]] : @"";
-        promotionLevel = ([response[@"level"] integerValue] == 0 || response[@"level"] == nil) ? @"" : [NSString stringWithFormat:@"%@ only", [self levelName:[response[@"level"] integerValue]]];
-    } else {
-        promotionBody = @"No Promotion Active";
-        promotionTitle = @"";
-        promotionExpiry = @"";
-        promotionUntil = @"";
-        promotionLevel = @"";
-        overlayView.tapPromotion.delegate = nil;
-    }
-
-    [self setPromoContentTo:promotionBody promoHeadline:promotionTitle promoExpiry:promotionExpiry];
 }
 
 - (NSString *)levelName:(NSInteger)level {
@@ -215,7 +197,23 @@
     item.index = indexPath.item;
     item.crowdImage.backgroundColor = [UIColor lightGrayColor];
     if (!(item.crowdImage.image = [Request getImage:key])) {
-        [Request post:@"images/get" params:key delegate:self callback:@selector(didFinishDownloadingImages:forIndex:) userData:indexPath];
+        [Request post:@"images/get" params:key callback:^(id response) {
+            if (posts != nil) {
+                if (indexPath.item == 0) {
+                    NSDictionary *key = @{@"entity": @"post",
+                                          @"entity_id": posts[0][@"id"]};
+                    [Request setImage:@{@"entity": @"image", @"entity_id": @"toShare"} image:[Request getImage:key]];
+                    [Request setImage:@{@"entity": @"venue", @"entity_id": appDelegate.activeVenue[@"id"]} image:[Request getImage:key]];
+                }
+
+                if (response != nil && self.crowdCollectionV != nil && [self.crowdCollectionV numberOfItemsInSection:indexPath.section] > indexPath.item) {
+                    @try {
+                        [self.crowdCollectionV reloadItemsAtIndexPaths:@[indexPath]];
+                    } @catch (NSException *exception) {
+                    }
+                }
+            }
+        }];
     }
 
     item.venueName.text = [self getDateFromUnixFormat:posts[indexPath.item][@"time"]];
@@ -223,24 +221,6 @@
     item.venueName.font = [UIFont systemFontOfSize:11];
 
     return item;
-}
-
-- (void)didFinishDownloadingImages:(UIImage *)response forIndex:(NSIndexPath *)index {
-    if (posts != nil) {
-        if (index.item == 0) {
-            NSDictionary *key = @{@"entity": @"post",
-                                  @"entity_id": posts[0][@"id"]};
-            [Request setImage:@{@"entity": @"image", @"entity_id": @"toShare"} image:[Request getImage:key]];
-            [Request setImage:@{@"entity": @"venue", @"entity_id": appDelegate.activeVenue[@"id"]} image:[Request getImage:key]];
-        }
-
-        if (response != nil && self.crowdCollectionV != nil && [self.crowdCollectionV numberOfItemsInSection:index.section] > index.item) {
-            @try {
-                [self.crowdCollectionV reloadItemsAtIndexPaths:@[index]];
-            } @catch (NSException *exception) {
-            }
-        }
-    }
 }
 
 - (void)displayTextView {
@@ -282,7 +262,26 @@
                              @"level": appDelegate.level,
                              @"from_time": @([Request fromTime]),
                              @"until_time": @([Request untilTime])};
-    [Request post:@"promotions/get" params:params delegate:self callback:@selector(didFinishGettingPromotion:)];
+    [Request post:@"promotions/get" params:params callback:^(id response) {
+        if ([response respondsToSelector:@selector(objectForKeyedSubscript:)]) {
+            appDelegate.activePromotion = response;
+            appDelegate.canRedeem = [response[@"own_redemptions"] integerValue] == 0;
+            promotionBody = response[@"description"];
+            promotionTitle = response[@"title"];
+            promotionExpiry = ([response[@"maximum"] integerValue] == 0 || response[@"maximum"] == nil) ? [NSString stringWithFormat:@"%@ claimed", response[@"redemptions"]] : [NSString stringWithFormat:@"%@/%@ claimed", response[@"redemptions"], response[@"maximum"]];
+            promotionUntil = [response[@"end"] integerValue] > 0 ? [NSString stringWithFormat:@"Expires %@", [NSDateFormatter localizedStringFromDate:[NSDate dateWithTimeIntervalSince1970:[response[@"end"] integerValue]] dateStyle:NSDateFormatterShortStyle timeStyle:NSDateFormatterShortStyle]] : @"";
+            promotionLevel = ([response[@"level"] integerValue] == 0 || response[@"level"] == nil) ? @"" : [NSString stringWithFormat:@"%@ only", [self levelName:[response[@"level"] integerValue]]];
+        } else {
+            promotionBody = @"No Promotion Active";
+            promotionTitle = @"";
+            promotionExpiry = @"";
+            promotionUntil = @"";
+            promotionLevel = @"";
+            overlayView.tapPromotion.delegate = nil;
+        }
+
+        [self setPromoContentTo:promotionBody promoHeadline:promotionTitle promoExpiry:promotionExpiry];
+    }];
 
     if ([appDelegate.activeVenue[@"manager"] integerValue] == 1 && [appDelegate.activeVenue[@"verified"] integerValue] == 0) {
         [self setStatus:UnverifiedManager];
@@ -311,7 +310,20 @@
 }
 
 - (void)getPosts {
-    [Request post:@"posts/get" params:@{@"venue_id": appDelegate.activeVenue[@"id"]} delegate:self callback:@selector(didFinishDownloadingPosts:)];
+    [Request post:@"posts/get" params:@{@"venue_id": appDelegate.activeVenue[@"id"]} callback:^(id response) {
+        @synchronized(self) {
+            posts = response;
+            [self.crowdCollectionV reloadData];
+            [refreshControl endRefreshing];
+            if ([posts count] > 0 && posts[0] != nil) {
+                NSDictionary *key = @{@"entity": @"post",
+                                      @"entity_id": posts[0][@"id"]};
+                [Request setImage:@{@"entity": @"image", @"entity_id": @"toShare"} image:[Request getImage:key]];
+            } else {
+                self.crowdCollectionV.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"No_Activity_Background"]];
+            }
+        }
+    }];
 }
 
 - (void)viewDidAppear:(BOOL)animated {
@@ -324,21 +336,6 @@
 
     [self getPosts];
     [overlayView didAppear];
-}
-
-- (void)didFinishDownloadingPosts:(id)response {
-    @synchronized(self) {
-        posts = response;
-        [self.crowdCollectionV reloadData];
-        [refreshControl endRefreshing];
-        if ([posts count] > 0 && posts[0] != nil) {
-            NSDictionary *key = @{@"entity": @"post",
-                                  @"entity_id": posts[0][@"id"]};
-            [Request setImage:@{@"entity": @"image", @"entity_id": @"toShare"} image:[Request getImage:key]];
-        } else {
-            self.crowdCollectionV.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"No_Activity_Background"]];
-        }
-    }
 }
 
 - (void)viewDidDisappear:(BOOL)animated {

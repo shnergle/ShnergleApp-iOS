@@ -18,15 +18,13 @@
     [self.navigationController setNavigationBarHidden:NO animated:YES];
     self.navigationItem.title = @"Check Ins";
     [self.view makeToastActivity];
-    [Request post:@"posts/get" params:nil delegate:self callback:@selector(didFinishDownloadingPosts:)];
-}
-
-- (void)didFinishDownloadingPosts:(id)response {
-    @synchronized(self) {
-        posts = response;
-        [self.collectionView reloadData];
-        [self.view hideToastActivity];
-    }
+    [Request post:@"posts/get" params:nil callback:^(id response) {
+        @synchronized(self) {
+            posts = response;
+            [self.collectionView reloadData];
+            [self.view hideToastActivity];
+        }
+    }];
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {

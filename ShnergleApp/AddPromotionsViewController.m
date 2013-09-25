@@ -47,17 +47,15 @@
         params[@"promotion_id"] = appDelegate.activePromotion[@"id"];
     }
     [self.view makeToastActivity];
-    [Request post:@"promotions/set" params:params delegate:self callback:@selector(didFinishAddingPromotion:)];
-}
-
-- (void)didFinishAddingPromotion:(BOOL)response {
-    [self.view hideToastActivity];
-    if (response) {
-        [self.navigationController popViewControllerAnimated:YES];
-    } else {
-        UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"Error" message:nil delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
-        [alert show];
-    }
+    [Request post:@"promotions/set" params:params callback:^(id response) {
+        [self.view hideToastActivity];
+        if (response) {
+            [self.navigationController popViewControllerAnimated:YES];
+        } else {
+            UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"Error" message:nil delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+            [alert show];
+        }
+    }];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {

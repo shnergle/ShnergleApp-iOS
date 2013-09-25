@@ -37,13 +37,11 @@
 
 - (void)searchBarSearchButtonClicked:(UISearchBar *)searchBar {
     [self.view makeToastActivity];
-    [Request post:@"users/get" params:@{@"term": searchBar.text} delegate:self callback:@selector(didFinishSearching:)];
-}
-
-- (void)didFinishSearching:(NSArray *)response {
-    results = response;
-    [self.resultsView reloadData];
-    [self.view hideToastActivity];
+    [Request post:@"users/get" params:@{@"term": searchBar.text} callback:^(id response) {
+        results = response;
+        [self.resultsView reloadData];
+        [self.view hideToastActivity];
+    }];
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -57,7 +55,12 @@
                              @"staff_user_id": results[indexPath.row][@"id"],
                              @"manager": @"false",
                              @"promo_perm": @"false"};
-    [Request post:@"venue_staff/set" params:params delegate:self callback:@selector(didFinishAddingStaff:)];
+    [Request post:@"venue_staff/set" params:params callback:^(id response) {
+        if (response) {
+            [self.navigationController popViewControllerAnimated:YES];
+        }
+        [self.view hideToastActivity];
+    }];
 }
 
 - (BOOL)isAlreadyInStaffList:(id)user_id {
@@ -72,13 +75,6 @@
         }
     }
     return NO;
-}
-
-- (void)didFinishAddingStaff:(BOOL)response {
-    if (response) {
-        [self.navigationController popViewControllerAnimated:YES];
-    }
-    [self.view hideToastActivity];
 }
 
 @end

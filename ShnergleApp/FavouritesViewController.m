@@ -74,7 +74,9 @@
 - (void)makeRequest {
     [self.view makeToastActivity];
     if ([@"Following" isEqualToString : appDelegate.topViewType]) {
-        [Request post:@"venues/get" params:@{@"following_only" : @"true", @"level" : appDelegate.level} delegate:self callback:@selector(didFinishLoadingVenues:)];
+        [Request post:@"venues/get" params:@{@"following_only" : @"true", @"level" : appDelegate.level} callback:^(id response) {
+            [self didFinishLoadingVenues:response];
+        }];
     } else {
         hasPositionLocked = NO;
         man = [[CLLocationManager alloc] init];
@@ -117,7 +119,11 @@
                           @"entity_id": venues[indexPath.item][@"id"]};
     item.crowdImage.backgroundColor = [UIColor lightGrayColor];
     if (!(item.crowdImage.image = [Request getImage:key])) {
-        [Request post:@"images/get" params:key delegate:self callback:@selector(didFinishDownloadingImages:forIndex:) userData:indexPath];
+        [Request post:@"images/get" params:key callback:^(id response) {
+            if (response != nil && self.crowdCollection != nil && [self.crowdCollection numberOfItemsInSection:indexPath.section] > indexPath.item) {
+                [self.crowdCollection reloadItemsAtIndexPaths:@[indexPath]];
+            }
+        }];
     }
 
     item.venueName.text = venues[indexPath.item][@"name"];
@@ -137,12 +143,6 @@
     }
 
     return item;
-}
-
-- (void)didFinishDownloadingImages:(UIImage *)response forIndex:(NSIndexPath *)index {
-    if (response != nil && self.crowdCollection != nil && [self.crowdCollection numberOfItemsInSection:index.section] > index.item) {
-        [self.crowdCollection reloadItemsAtIndexPaths:@[index]];
-    }
 }
 
 - (void)collectionView:(UICollectionView *)collectionView
@@ -172,17 +172,23 @@
             [params addEntriesFromDictionary:@{@"quiet" : @"true",
                                                @"from_time" : @([Request fromTime]),
                                                @"until_time" : @([Request untilTime])}];
-            [Request post:@"venues/get" params:params delegate:self callback:@selector(didFinishLoadingVenues:)];
+            [Request post:@"venues/get" params:params callback:^(id response) {
+                [self didFinishLoadingVenues:response];
+            }];
         } else if ([@"Trending" isEqualToString : appDelegate.topViewType]) {
             [params addEntriesFromDictionary:@{@"trending" : @"true",
                                                @"from_time" : @([Request fromTime]),
                                                @"until_time" : @([Request untilTime])}];
-            [Request post:@"venues/get" params:params delegate:self callback:@selector(didFinishLoadingVenues:)];
+            [Request post:@"venues/get" params:params callback:^(id response) {
+                [self didFinishLoadingVenues:response];
+            }];
         } else if ([@"Promotions" isEqualToString : appDelegate.topViewType]) {
             [params addEntriesFromDictionary:@{@"promotions" : @"true",
                                                @"from_time" : @([Request fromTime]),
                                                @"until_time" : @([Request untilTime])}];
-            [Request post:@"venues/get" params:params delegate:self callback:@selector(didFinishLoadingVenues:)];
+            [Request post:@"venues/get" params:params callback:^(id response) {
+                [self didFinishLoadingVenues:response];
+            }];
         }
         hasPositionLocked = YES;
     }

@@ -11,10 +11,7 @@
 + (UIImage *)getImage:(NSDictionary *)params;
 + (void)setImage:(NSDictionary *)params image:(UIImage *)image;
 + (void)removeImage:(NSDictionary *)params;
-
-+ (void)post:(NSString *)path params:(NSDictionary *)params delegate:(id)object callback:(SEL)cb;
-+ (void)post:(NSString *)path params:(NSDictionary *)params delegate:(id)object callback:(SEL)cb userData:(id)userData;
-
++ (void)post:(NSString *)path params:(NSDictionary *)params callback:(void(^)(id))callback;
 + (int)fromTime;
 + (int)untilTime;
 

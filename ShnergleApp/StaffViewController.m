@@ -24,18 +24,16 @@
     [super viewDidAppear:animated];
     [self.view makeToastActivity];
     NSDictionary *params = @{@"venue_id": appDelegate.activeVenue[@"id"]};
-    [Request post:@"venue_staff/get" params:params delegate:self callback:@selector(didFinishDownloadingStaff:)];
+    [Request post:@"venue_staff/get" params:params callback:^(id response) {
+        appDelegate.staff = response;
+        [self.collectionView reloadData];
+        [self.view hideToastActivity];
+    }];
 }
 
 - (void)addStaff:(id)sender {
     UIViewController *vc = [self.storyboard instantiateViewControllerWithIdentifier:@"FindStaffViewController"];
     [self.navigationController pushViewController:vc animated:YES];
-}
-
-- (void)didFinishDownloadingStaff:(id)response {
-    appDelegate.staff = response;
-    [self.collectionView reloadData];
-    [self.view hideToastActivity];
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {

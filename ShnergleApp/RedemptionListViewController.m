@@ -18,13 +18,11 @@
     [self.navigationController setNavigationBarHidden:NO animated:YES];
     self.navigationItem.title = @"Redeemed";
     [self.view makeToastActivity];
-    [Request post:@"promotion_redemptions/get" params:nil delegate:self callback:@selector(didFinishDownloadingPosts:)];
-}
-
-- (void)didFinishDownloadingPosts:(id)response {
-    promos = response;
-    [self.collectionView reloadData];
-    [self.view hideToastActivity];
+    [Request post:@"promotion_redemptions/get" params:nil callback:^(id response) {
+        promos = response;
+        [self.collectionView reloadData];
+        [self.view hideToastActivity];
+    }];
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {

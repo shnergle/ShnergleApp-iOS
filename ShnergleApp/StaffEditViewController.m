@@ -79,14 +79,18 @@
         NSDictionary *params = @{@"delete": @"true",
                                  @"venue_id": appDelegate.activeVenue[@"id"],
                                  @"staff_user_id": currentStaff[@"user_id"]};
-        [Request post:@"venue_staff/set" params:params delegate:self callback:@selector(didFinishSaving:)];
+        [Request post:@"venue_staff/set" params:params callback:^(id response) {
+            [self didFinishSaving:response];
+        }];
         deleteMe = NO;
     } else {
         NSDictionary *params = @{@"venue_id": appDelegate.activeVenue[@"id"],
                                  @"staff_user_id": currentStaff[@"user_id"],
                                  @"manager": [@"Manager" isEqualToString: appDelegate.staffType] ? @"true" : @"false",
                                  @"promo_perm": promoSwitch.on ? @"true" : @"false"};
-        [Request post:@"venue_staff/set" params:params delegate:self callback:@selector(didFinishSaving:)];
+        [Request post:@"venue_staff/set" params:params callback:^(id response) {
+            [self didFinishSaving:response];
+        }];
     }
     [self.navigationController popViewControllerAnimated:YES];
 }

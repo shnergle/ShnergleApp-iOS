@@ -27,14 +27,11 @@
 
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
-
-    [Request post:@"promotions/get" params:@{@"venue_id": appDelegate.activeVenue[@"id"], @"getall": @"true"} delegate:self callback:@selector(didFinishGettingPromotions:)];
-}
-
-- (void)didFinishGettingPromotions:(NSArray *)response {
-    promotions = [NSMutableArray arrayWithArray:response];
-    [self.tableView reloadData];
-    [self.view hideToastActivity];
+    [Request post:@"promotions/get" params:@{@"venue_id": appDelegate.activeVenue[@"id"], @"getall": @"true"} callback:^(id response) {
+        promotions = [NSMutableArray arrayWithArray:response];
+        [self.tableView reloadData];
+        [self.view hideToastActivity];
+    }];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -103,19 +100,16 @@
     if (editingStyle == UITableViewCellEditingStyleDelete) {
         selectedIndexPath = indexPath;
         [self.view makeToastActivity];
-        [Request post:@"promotions/set" params:@{@"promotion_id": promotions[indexPath.row][@"id"], @"delete": @"true"} delegate:self callback:@selector(didFinishDeletingPromotion:)];
-    }
-}
-
-- (void)didFinishDeletingPromotion:(BOOL)response {
-    [self.view hideToastActivity];
-
-    if (response) {
-        [promotions removeObjectAtIndex:selectedIndexPath.row];
-        [self.tableView deleteRowsAtIndexPaths:@[selectedIndexPath] withRowAnimation:UITableViewRowAnimationMiddle];
-    } else {
-        UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"Error Deleting promotion" message:nil delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
-        [alert show];
+        [Request post:@"promotions/set" params:@{@"promotion_id": promotions[indexPath.row][@"id"], @"delete": @"true"} callback:^(id response) {
+            [self.view hideToastActivity];
+            if (response) {
+                [promotions removeObjectAtIndex:selectedIndexPath.row];
+                [self.tableView deleteRowsAtIndexPaths:@[selectedIndexPath] withRowAnimation:UITableViewRowAnimationMiddle];
+            } else {
+                UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"Error Deleting promotion" message:nil delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+                [alert show];
+            }
+        }];
     }
 }
 

@@ -42,32 +42,7 @@
     self.searchResultsView = nibObjects[0];
 
     self.searchResultsView.frame = CGRectMake(320, 65, 320, self.view.frame.size.height - 65);
-    [[self view] addSubview:self.searchResultsView];
-    self.cancelButton.alpha = 0;
-}
-
-- (void)postResponse:(id)response {
-    @synchronized(self) {
-        if ([response isKindOfClass:[NSArray class]]) {
-            for (id obj in response) {
-                if ([obj count] > 1) [searchResults addObject:obj];
-            }
-        }
-
-        [self.searchResultsView.resultsTableView reloadData];
-    }
-}
-
-- (void)postResponseLocation:(id)response {
-    @synchronized(self) {
-        if ([response isKindOfClass:[NSArray class]]) {
-            for (id obj in response) {
-                if ([obj count] > 1) [searchResultsLocation addObject:obj];
-            }
-        }
-
-        [self.searchResultsView.resultsTableView reloadData];
-    }
+    [self.view addSubview:self.searchResultsView];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -186,8 +161,18 @@
     if (textField.text.length > 0) {
         NSDictionary *params = @{@"term": self.bar.text,
                                  @"level": appDelegate.level};
-        [Request post:@"user_searches/set" params:params delegate:self callback:@selector(searchRegistered:)];
-        [Request post:@"venues/get" params:params delegate:self callback:@selector(postResponse:)];
+        [Request post:@"user_searches/set" params:params callback:nil];
+        [Request post:@"venues/get" params:params callback:^(id response) {
+            @synchronized(self) {
+                if ([response isKindOfClass:[NSArray class]]) {
+                    for (id obj in response) {
+                        if ([obj count] > 1) [searchResults addObject:obj];
+                    }
+                }
+
+                [self.searchResultsView.resultsTableView reloadData];
+            }
+        }];
         [[[CLGeocoder alloc] init] geocodeAddressString:self.bar.text completionHandler:^(NSArray *placemarks, NSError *error) {
             if (!error) {
                 MKCoordinateRegion rgn = MKCoordinateRegionMakeWithDistance(((CLPlacemark *)placemarks[0]).location.coordinate, 2000, 2000);
@@ -196,7 +181,17 @@
                                          @"my_lon": @(((CLPlacemark *)placemarks[0]).location.coordinate.longitude),
                                          @"distance": @(distanceInDegrees),
                                          @"level": appDelegate.level};
-                [Request post:@"venues/get" params:params delegate:self callback:@selector(postResponseLocation:)];
+                [Request post:@"venues/get" params:params callback:^(id response) {
+                    @synchronized(self) {
+                        if ([response isKindOfClass:[NSArray class]]) {
+                            for (id obj in response) {
+                                if ([obj count] > 1) [searchResultsLocation addObject:obj];
+                            }
+                        }
+                        
+                        [self.searchResultsView.resultsTableView reloadData];
+                    }
+                }];
             }
         }];
         [textField resignFirstResponder];
@@ -204,9 +199,6 @@
         [self toggleCancelButton:true];
     }
     return YES;
-}
-
-- (void)searchRegistered:(id)response {
 }
 
 - (BOOL)textFieldShouldBeginEditing:(UITextField *)textField {

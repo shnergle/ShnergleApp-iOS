@@ -53,19 +53,16 @@ static ConnectionErrorAlert *connectionErrorAlert;
     return [NSString stringWithFormat:@"%@/%@", params[@"entity"], params[@"entity_id"]];
 }
 
-+ (void)post:(NSString *)path params:(NSDictionary *)params delegate:(id)object callback:(SEL)cb {
-    return [self post:path params:params delegate:object callback:cb userData:nil];
-}
-
-+ (void)post:(NSString *)path params:(NSDictionary *)params delegate:(id)object callback:(SEL)cb userData:(id)userData {
++ (void)post:(NSString *)path params:(NSDictionary *)params callback:(void(^)(id))callback {
     if ([[path pathComponents][0] isEqualToString:@"images"] && [self getImage:params]) {
-        return [self despatch:[self getImage:params] to:object callback:cb userData:userData];
+        if (!callback) return;
+        return callback([self getImage:params]);
     }
     NSString *urlString = [NSString stringWithFormat:serverURL, path];
     NSURL *url = [[NSURL alloc] initWithString:urlString];
     NSMutableURLRequest *urlRequest = [NSMutableURLRequest requestWithURL:url];
     [urlRequest setHTTPMethod:@"POST"];
-    if (params[@"image"] != nil) {
+    if (params && params[@"image"] != nil) {
         static NSString *boundary = @"This-string-cannot-be-part-of-the-content";
         NSString *contentType = [NSString stringWithFormat:@"multipart/form-data; boundary=%@", boundary];
         [urlRequest addValue:contentType forHTTPHeaderField:@"Content-Type"];
@@ -112,6 +109,7 @@ static ConnectionErrorAlert *connectionErrorAlert;
             }
             return;
         }
+        if (!callback) return;
         if ([[path pathComponents][0] isEqualToString:@"images"]) {
             dispatch_async(dispatch_get_main_queue(), ^{
                 UIImage *responseArg;
@@ -125,7 +123,7 @@ static ConnectionErrorAlert *connectionErrorAlert;
                     [self setImage:params image:responseArg];
                 }
                 [self logData:data andResponse:responseArg];
-                [self despatch:responseArg to:object callback:cb userData:userData];
+                callback(responseArg);
             });
         } else {
             dispatch_async(dispatch_get_main_queue(), ^{
@@ -138,7 +136,7 @@ static ConnectionErrorAlert *connectionErrorAlert;
                     });
                 }
                 [self logData:data andResponse:responseArg];
-                [self despatch:responseArg to:object callback:cb userData:userData];
+                callback(responseArg);
             });
         }
     }];
@@ -149,17 +147,6 @@ static ConnectionErrorAlert *connectionErrorAlert;
     [Crashlytics setObjectValue:response forKey:@"lastResponseParsed"];
     NSLog(@"ResponseString: %@", [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding]);
     NSLog(@"ResponseParsed: %@", response);
-}
-
-+ (void)despatch:(id)argument to:(id)object callback:(SEL)cb userData:(id)userData {
-    NSMethodSignature *methodSig = [[object class] instanceMethodSignatureForSelector:cb];
-    NSInvocation *invocation = [NSInvocation invocationWithMethodSignature:methodSig];
-    [invocation setSelector:cb];
-    [invocation setArgument:&argument atIndex:2];
-    if (userData) [invocation setArgument:&userData atIndex:3];
-    [invocation setTarget:object];
-    [invocation retainArguments];
-    [invocation invoke];
 }
 
 + (int)fromTime {

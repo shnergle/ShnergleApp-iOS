@@ -29,13 +29,17 @@
 - (IBAction)optInChange:(id)sender {
     [self.view makeToastActivity];
     appDelegate.optInTop5 = self.optInSwitch.on;
-    [Request post:@"users/set" params:@{@"top5": self.optInSwitch.on ? @"true" : @"false"} delegate:self callback:@selector(doNothing:)];
+    [Request post:@"users/set" params:@{@"top5": self.optInSwitch.on ? @"true" : @"false"} callback:^(id response) {
+        [self.view hideToastActivity];
+    }];
 }
 
 - (IBAction)saveLocallyChange:(id)sender {
     [self.view makeToastActivity];
     appDelegate.saveLocally = self.saveLocallySwitch.on;
-    [Request post:@"users/set" params:@{@"save_locally": self.saveLocallySwitch.on ? @"true" : @"false"} delegate:self callback:@selector(doNothing:)];
+    [Request post:@"users/set" params:@{@"save_locally": self.saveLocallySwitch.on ? @"true" : @"false"} callback:^(id response) {
+        [self.view hideToastActivity];
+    }];
 }
 
 - (IBAction)twitterSwitchAction:(id)sender {
@@ -64,7 +68,9 @@
                                            completion:accountStoreHandler];
     } else {
         appDelegate.twitter = nil;
-        [Request post:@"users/set" params:@{@"twitter": @""} delegate:self callback:@selector(doNothing:)];
+        [Request post:@"users/set" params:@{@"twitter": @""} callback:^(id response) {
+            [self.view hideToastActivity];
+        }];
     }
 }
 
@@ -74,12 +80,10 @@
         self.twitterSwitch.on = NO;
     } else {
         appDelegate.twitter = [[alertView buttonTitleAtIndex:buttonIndex] stringByReplacingCharactersInRange:NSMakeRange(0, 1) withString:@""];
-        [Request post:@"users/set" params:@{@"twitter": appDelegate.twitter} delegate:self callback:@selector(doNothing:)];
+        [Request post:@"users/set" params:@{@"twitter": appDelegate.twitter} callback:^(id response) {
+            [self.view hideToastActivity];
+        }];
     }
-}
-
-- (void)doNothing:(id)whoCares {
-    [self.view hideToastActivity];
 }
 
 @end

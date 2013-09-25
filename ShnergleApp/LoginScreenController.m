@@ -47,7 +47,32 @@
                              @"birth_year": [self orEmpty:[user[@"birthday"] substringFromIndex:6]],
                              @"age": @([self age:user[@"birthday"]])};
 
-    [Request post:@"users/set" params:params delegate:self callback:@selector(postResponse:)];
+    [Request post:@"users/set" params:params callback:^(id response) {
+        if (response != nil) {
+            if (![response[@"twitter"] isKindOfClass:[NSNull class]] && ![@"" isEqualToString : response[@"twitter"]]) appDelegate.twitter = response[@"twitter"];
+            appDelegate.employee = [response[@"employee"] integerValue] == 1;
+            appDelegate.saveLocally = [response[@"save_locally"] integerValue] == 1;
+            appDelegate.optInTop5 = [response[@"top5"] integerValue] == 1;
+            appDelegate.lastFb = [response[@"last_facebook"] integerValue] == 1;
+            appDelegate.lastTwitter = [response[@"last_twitter"] integerValue] == 1;
+            newUser = [response[@"joined"] integerValue] + 10 > [[NSDate date] timeIntervalSince1970];
+            [Request post:@"rankings/get" params:nil callback:^(id response) {
+                appDelegate.level = [response[@"level"] stringValue];
+                [Request post:@"venues/get" params:@{@"own": @"true", @"level": appDelegate.level} callback:^(id response) {
+                    appDelegate.ownVenues = response;
+                    UIViewController *vc;
+                    if (newUser) {
+                        vc = [self.storyboard instantiateViewControllerWithIdentifier:@"PrivacyView"];
+                    } else {
+                        vc = [self.storyboard instantiateViewControllerWithIdentifier:@"AroundMeSlidingViewController"];
+                    }
+                    [self.navigationController pushViewController:vc animated:YES];
+                }];
+            }];
+        } else {
+            [self alert];
+        }
+    }];
 }
 
 - (void)loginView:(FBLoginView *)loginView handleError:(NSError *)error {
@@ -87,37 +112,6 @@
     struct utsname systemInfo;
     uname(&systemInfo);
     return @(systemInfo.machine);
-}
-
-- (void)postResponse:(NSDictionary *)response {
-    if (response != nil) {
-        if (![response[@"twitter"] isKindOfClass:[NSNull class]] && ![@"" isEqualToString : response[@"twitter"]]) appDelegate.twitter = response[@"twitter"];
-        appDelegate.employee = [response[@"employee"] integerValue] == 1;
-        appDelegate.saveLocally = [response[@"save_locally"] integerValue] == 1;
-        appDelegate.optInTop5 = [response[@"top5"] integerValue] == 1;
-        appDelegate.lastFb = [response[@"last_facebook"] integerValue] == 1;
-        appDelegate.lastTwitter = [response[@"last_twitter"] integerValue] == 1;
-        newUser = [response[@"joined"] integerValue] + 10 > [[NSDate date] timeIntervalSince1970];
-        [Request post:@"rankings/get" params:nil delegate:self callback:@selector(gotRank:)];
-    } else {
-        [self alert];
-    }
-}
-
-- (void)gotOwnVenues:(NSArray *)response {
-    appDelegate.ownVenues = response;
-    UIViewController *vc;
-    if (newUser) {
-        vc = [self.storyboard instantiateViewControllerWithIdentifier:@"PrivacyView"];
-    } else {
-        vc = [self.storyboard instantiateViewControllerWithIdentifier:@"AroundMeSlidingViewController"];
-    }
-    [self.navigationController pushViewController:vc animated:YES];
-}
-
-- (void)gotRank:(NSDictionary *)response {
-    appDelegate.level = [response[@"level"] stringValue];
-    [Request post:@"venues/get" params:@{@"own": @"true", @"level": appDelegate.level} delegate:self callback:@selector(gotOwnVenues:)];
 }
 
 - (void)alert {

@@ -33,15 +33,13 @@
 }
 
 - (IBAction)likeButtonPressed:(id)sender {
-    [Request post:@"post_likes/set" params:@{@"post_id": images[self.photoScroller.currentIndex][@"id"]} delegate:self callback:@selector(likedPostFinished:)];
-}
-
-- (void)likedPostFinished:(id)response {
-    [self.view makeToast:@"Liked it!"
-                duration:0.5
-                position:@"center"
-                   title:@""
-                   image:[UIImage imageNamed:@"glyphicons_343_thumbs_up"]];
+    [Request post:@"post_likes/set" params:@{@"post_id": images[self.photoScroller.currentIndex][@"id"]} callback:^(id response) {
+        [self.view makeToast:@"Liked it!"
+                    duration:0.5
+                    position:@"center"
+                       title:@""
+                       image:[UIImage imageNamed:@"glyphicons_343_thumbs_up"]];
+    }];
 }
 
 - (void)imageSetup {
@@ -62,13 +60,11 @@
     imageView.backgroundColor = [UIColor lightGrayColor];
     imageView.contentMode = UIViewContentModeScaleAspectFill;
     if (!(imageView.image = [Request getImage:key])) {
-        [Request post:@"images/get" params:key delegate:self callback:@selector(didFinishDownloadingImages:forImageView:) userData:imageView];
+        [Request post:@"images/get" params:key callback:^(id img) {
+            imageView.image = img;
+        }];
     }
     return imageView;
-}
-
-- (void)didFinishDownloadingImages:(UIImage *)img forImageView:(UIImageView *)imageView {
-    imageView.image = img;
 }
 
 - (NSString *)getDateFromUnixFormat:(id)unixFormat {
@@ -82,7 +78,9 @@
     self.authorLabel.text = [NSString stringWithFormat:@"%@ %@", images[index][@"forename"], [images[index][@"surname"] substringToIndex:1]];
     self.commentLabel.text = [NSString stringWithFormat:@"%@ (%@)", images[index][@"caption"], [self getDateFromUnixFormat:images[index][@"time"]]];
 
-    [Request post:@"post_views/set" params:@{@"post_id": images[index][@"id"]} delegate:self callback:@selector(doNothing:)];
+    [Request post:@"post_views/set" params:@{@"post_id": images[index][@"id"]} callback:^(id response) {
+        [self.view hideToastActivity];
+    }];
     appDelegate.shareActivePostId = images[index][@"id"];
 
     NSDictionary *key = @{@"entity": @"post",
@@ -94,9 +92,13 @@
     if (buttonIndex != alertView.cancelButtonIndex) {
         [self.view makeToastActivity];
         if (appDelegate.venueStatus == Manager) {
-            [Request post:@"posts/set" params:@{@"post_id": images[self.photoScroller.currentIndex][@"id"], @"hide": @"true"} delegate:self callback:@selector(doNothing:)];
+            [Request post:@"posts/set" params:@{@"post_id": images[self.photoScroller.currentIndex][@"id"], @"hide": @"true"} callback:^(id response) {
+                [self.view hideToastActivity];
+            }];
         } else {
-            [Request post:@"post_reports/set" params:@{@"post_id": images[self.photoScroller.currentIndex][@"id"]} delegate:self callback:@selector(doNothing:)];
+            [Request post:@"post_reports/set" params:@{@"post_id": images[self.photoScroller.currentIndex][@"id"]} callback:^(id response) {
+                [self.view hideToastActivity];
+            }];
         }
     }
 }
@@ -105,10 +107,6 @@
     if ([@"sharePostSegue" isEqualToString : segue.identifier]) {
         appDelegate.shareVenue = NO;
     }
-}
-
-- (void)doNothing:(id)whoCares {
-    [self.view hideToastActivity];
 }
 
 @end

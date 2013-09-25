@@ -26,16 +26,6 @@
     [self initMap];
 }
 
-- (void)didFinishLoadingVenues:(NSArray *)response {
-    @synchronized(self) {
-        venues = [response mutableCopy];
-        locationPickerVenuesImmutable = [NSArray arrayWithArray:response];
-        rows = [venues count] + 1;
-        [self.searchResultTable reloadData];
-        [self.searchResultTable hideToastActivity];
-    }
-}
-
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     self.navigationController.navigationBarHidden = NO;
@@ -117,7 +107,15 @@
                                  @"my_lon": @(coord.longitude),
                                  @"distance": @(distanceInDegrees),
                                  @"level": appDelegate.level};
-        [Request post:@"venues/get" params:params delegate:self callback:@selector(didFinishLoadingVenues:)];
+        [Request post:@"venues/get" params:params callback:^(id response) {
+            @synchronized(self) {
+                venues = [response mutableCopy];
+                locationPickerVenuesImmutable = [NSArray arrayWithArray:response];
+                rows = [venues count] + 1;
+                [self.searchResultTable reloadData];
+                [self.searchResultTable hideToastActivity];
+            }
+        }];
 
         hasPositionLocked = YES;
     }

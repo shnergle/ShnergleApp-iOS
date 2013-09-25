@@ -126,7 +126,9 @@
                              @"going": @"true",
                              @"from_time": @([Request fromTime]),
                              @"until_time": @([Request untilTime])};
-    [Request post:@"venue_rsvps/set" params:params delegate:self callback:@selector(didIntent:)];
+    [Request post:@"venue_rsvps/set" params:params callback:^(id response) {
+        [self didIntent:response];
+    }];
 }
 
 - (IBAction)tappedThinking:(id)sender {
@@ -135,7 +137,9 @@
                              @"maybe": @"true",
                              @"from_time": @([Request fromTime]),
                              @"until_time": @([Request untilTime])};
-    [Request post:@"venue_rsvps/set" params:params delegate:self callback:@selector(didIntent:)];
+    [Request post:@"venue_rsvps/set" params:params callback:^(id response) {
+        [self didIntent:response];
+    }];
 }
 
 - (void)didIntent:(id)response {
@@ -175,13 +179,7 @@
                              @"phone": self.phoneTextField.text,
                              @"website": self.websiteTextField.text,
                              @"email": self.emailTextField.text};
-    [Request post:@"venues/set"
-           params:params
-         delegate:self
-         callback:@selector(doNothing:)];
-}
-
-- (void)doNothing:(id)sender {
+    [Request post:@"venues/set" params:params callback:nil];
 }
 
 - (IBAction)postUpdateTapped:(id)sender {
@@ -376,7 +374,14 @@
     NSDictionary *params = @{@"venue_id": appDelegate.activeVenue[@"id"],
                              @"from_time": @([Request fromTime]),
                              @"until_time": @([Request untilTime])};
-    [Request post:@"venue_rsvps/get" params:params delegate:self callback:@selector(didFinishGettingRsvps:)];
+    [Request post:@"venue_rsvps/get" params:params callback:^(id response) {
+        [self hideToastActivity];
+        self.rsvpQuestionLabel.hidden = YES;
+        self.thinkingLabel.hidden = NO;
+        self.goingLabel.hidden = NO;
+        self.thinkingLabel.text = [response[@"maybe"] stringValue];
+        self.goingLabel.text = [response[@"going"] stringValue];
+    }];
 }
 
 - (void)hasAlreadyRSVPd {
@@ -384,11 +389,9 @@
                              @"own": @"true",
                              @"from_time": @([Request fromTime]),
                              @"until_time": @([Request untilTime])};
-    [Request post:@"venue_rsvps/get" params:params delegate:self callback:@selector(didFinishGettingAlreadyRSVPd:)];
-}
-
-- (void)didFinishGettingAlreadyRSVPd:(id)response {
-    if ([response[@"going"] integerValue] > 0 || [response[@"maybe"] integerValue] > 0) [self loadVenueIntentions];
+    [Request post:@"venue_rsvps/get" params:params callback:^(id response) {
+        if ([response[@"going"] integerValue] > 0 || [response[@"maybe"] integerValue] > 0) [self loadVenueIntentions];
+    }];
 }
 
 - (void)didAppear {
@@ -402,27 +405,10 @@
     }
 }
 
-- (void)didFinishGettingRsvps:(id)response {
-    [self hideToastActivity];
-    self.rsvpQuestionLabel.hidden = YES;
-    self.thinkingLabel.hidden = NO;
-    self.goingLabel.hidden = NO;
-    self.thinkingLabel.text = [response[@"maybe"] stringValue];
-    self.goingLabel.text = [response[@"going"] stringValue];
-}
-
 - (IBAction)tappedClaimVenue:(id)sender {
     appDelegate.claiming = YES;
     VenueDetailsViewController *vc = [((VenueViewController *)self.nextResponder.nextResponder).storyboard instantiateViewControllerWithIdentifier : @"VenueDetailsViewIdentifier"];
     [((VenueViewController *)self.nextResponder.nextResponder).navigationController pushViewController : vc animated : YES];
-}
-
-- (void)didFinishUpdateVenueDetails:(id)response {
-    [Request post:@"venue_managers/set" params:@{@"venue_id": appDelegate.activeVenue[@"id"]} delegate:self callback:@selector(didFinishClaiming:)];
-}
-
-- (void)didFinishClaiming:(id)response {
-    [((VenueViewController *)self.nextResponder.nextResponder)reloadOverlay];
 }
 
 - (void)registerVenue {
@@ -438,7 +424,11 @@
         params[@"website"] = appDelegate.venueDetailsContent[@(10)];
     }
 
-    [Request post:@"venues/set" params:params delegate:self callback:@selector(didFinishUpdateVenueDetails:)];
+    [Request post:@"venues/set" params:params callback:^(id response) {
+        [Request post:@"venue_managers/set" params:@{@"venue_id": appDelegate.activeVenue[@"id"]} callback:^(id response) {
+            [((VenueViewController *)self.nextResponder.nextResponder)reloadOverlay];
+        }];
+    }];
 }
 
 @end

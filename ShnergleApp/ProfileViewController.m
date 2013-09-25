@@ -74,39 +74,37 @@
     self.navigationController.navigationBar.clipsToBounds = YES;
     self.navBar.clipsToBounds = YES;
 
-    [Request post:@"rankings/get" params:nil delegate:self callback:@selector(postResponse:)];
-}
+    [Request post:@"rankings/get" params:nil callback:^(id result) {
+        NSInteger res = [result[@"level"] integerValue];
+        switch (res) {
+            case 1:
+                self.userProfileImage1.hidden = NO;
+                break;
+            case 2:
+                self.userProfileImage2.hidden = NO;
+                break;
+            case 3:
+                self.userProfileImage3.hidden = NO;
+            default:
+                break;
+        }
+        self.followingLabel.text = [self suffix:[result[@"following_total"] integerValue]];
+        self.redeemedLabel.text = [self suffix:[result[@"redemptions_total"]  integerValue]];
+        self.checkInLabel.text = [self suffix:[result[@"posts_total"]  integerValue]];
+        self.shnerglerLabel.text = [NSString stringWithFormat:@"Shnergle score above %@", [result[@"thresholds"][2] stringValue]];
+        self.explorerLabel.text = [NSString stringWithFormat:@"Shnergle score above %@", [result[@"thresholds"][0] stringValue]];
+        self.scoutLabel.text = [NSString stringWithFormat:@"Shnergle score above %@", [result[@"thresholds"][1] stringValue]];
 
-- (void)postResponse:(NSDictionary *)result {
-    NSInteger res = [result[@"level"] integerValue];
-    switch (res) {
-        case 1:
-            self.userProfileImage1.hidden = NO;
-            break;
-        case 2:
-            self.userProfileImage2.hidden = NO;
-            break;
-        case 3:
-            self.userProfileImage3.hidden = NO;
-        default:
-            break;
-    }
-    self.followingLabel.text = [self suffix:[result[@"following_total"] integerValue]];
-    self.redeemedLabel.text = [self suffix:[result[@"redemptions_total"]  integerValue]];
-    self.checkInLabel.text = [self suffix:[result[@"posts_total"]  integerValue]];
-    self.shnerglerLabel.text = [NSString stringWithFormat:@"Shnergle score above %@", [result[@"thresholds"][2] stringValue]];
-    self.explorerLabel.text = [NSString stringWithFormat:@"Shnergle score above %@", [result[@"thresholds"][0] stringValue]];
-    self.scoutLabel.text = [NSString stringWithFormat:@"Shnergle score above %@", [result[@"thresholds"][1] stringValue]];
+        self.totalScore.text = [result[@"score"] stringValue];
 
-    self.totalScore.text = [result[@"score"] stringValue];
-
-    appDelegate.checkIn = [result[@"posts"] stringValue];
-    appDelegate.youShare = [result[@"share"] stringValue];
-    appDelegate.totalScore = [result[@"score"] stringValue];
-    appDelegate.rsvp = [result[@"rsvps"] stringValue];
-    appDelegate.comment = [result[@"comments"] stringValue];
-    appDelegate.like = [result[@"likes"] stringValue];
-    [self.view hideToastActivity];
+        appDelegate.checkIn = [result[@"posts"] stringValue];
+        appDelegate.youShare = [result[@"share"] stringValue];
+        appDelegate.totalScore = [result[@"score"] stringValue];
+        appDelegate.rsvp = [result[@"rsvps"] stringValue];
+        appDelegate.comment = [result[@"comments"] stringValue];
+        appDelegate.like = [result[@"likes"] stringValue];
+        [self.view hideToastActivity];
+    }];
 }
 
 - (NSString *)suffix:(int)number {
