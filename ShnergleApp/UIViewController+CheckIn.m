@@ -1,19 +1,18 @@
 //
-//  CheckInViewController.m
+//  UIViewController+CheckIn.m
 //  ShnergleApp
 //
 //  Created by Stian Johansen on 3/21/13.
 //  Copyright (c) 2013 Shnergle. All rights reserved.
 //
 
-#import "CheckInViewController.h"
+#import "UIViewController+CheckIn.h"
 #import <UIImage-Resize/UIImage+Resize.h>
 #import "Request.h"
 
-@implementation CheckInViewController
+@implementation UIViewController (CheckIn)
 
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info {
-    taken = YES;
     UIImage *img = info[@"UIImagePickerControllerOriginalImage"];
     if (appDelegate.saveLocally) {
         UIImageWriteToSavedPhotosAlbum(img, nil, nil, nil);
@@ -27,39 +26,23 @@
         vc = [self.storyboard instantiateViewControllerWithIdentifier:@"ShareViewController"];
     }
     dispatch_async(dispatch_get_main_queue(), ^{
-        [imgPickerCam dismissViewControllerAnimated:YES completion:^{
+        [picker dismissViewControllerAnimated:NO completion:^{
             [self.navigationController pushViewController:vc animated:YES];
-            taken = NO;
         }];
     });
 }
 
 - (void)imagePickerControllerDidCancel:(UIImagePickerController *)picker {
-    taken = YES;
-    [imgPickerCam dismissViewControllerAnimated:YES completion:^{
-        [self.navigationController popViewControllerAnimated:YES];
-        taken = NO;
-    }];
+    [picker dismissViewControllerAnimated:YES completion:nil];
 }
 
-- (void)viewDidLoad {
-    [super viewDidLoad];
-    taken = NO;
-    imgPickerCam = [[UIImagePickerController alloc] init];
-    imgPickerCam.delegate = self;
-    imgPickerCam.sourceType = UIImagePickerControllerSourceTypeCamera;
-}
-
-- (void)viewWillAppear:(BOOL)animated {
-    [super viewWillAppear:animated];
-    self.navigationController.navigationBarHidden = YES;
-}
-
-- (void)viewDidAppear:(BOOL)animated {
-    [super viewDidAppear:animated];
-    if (!taken) {
-        [self presentViewController:imgPickerCam animated:NO completion:nil];
-    }
+- (IBAction)presentCheckInFlow:(id)sender {
+    appDelegate.shareVenue = NO;
+    appDelegate.shnergleThis = YES;
+    UIImagePickerController *picker = [[UIImagePickerController alloc] init];
+    picker.delegate = self;
+    picker.sourceType = UIImagePickerControllerSourceTypeCamera;
+    [self presentViewController:picker animated:YES completion:nil];
 }
 
 @end

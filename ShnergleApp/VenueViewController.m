@@ -16,6 +16,7 @@
 #import <NSDate+TimeAgo/NSDate+TimeAgo.h>
 #import <Toast/Toast+UIView.h>
 #import <QuartzCore/QuartzCore.h>
+#import "UIViewController+CheckIn.h"
 
 @implementation VenueViewController
 
@@ -358,9 +359,6 @@
     if ([@"ToGallery" isEqualToString : segue.identifier]) {
         ((VenueGalleryViewController *)segue.destinationViewController).navigationItem.title = titleHeader;
         [(VenueGalleryViewController *)segue.destinationViewController setImage:selectedPost of:posts];
-    } else if ([@"CheckInFromVenue" isEqualToString : segue.identifier]) {
-        appDelegate.shareVenue = NO;
-        appDelegate.shnergleThis = YES;
     }
 }
 

@@ -248,9 +248,7 @@ typedef enum {
 
 - (void)addBorder {
     CALayer *bottomBorder = [CALayer layer];
-
     bottomBorder.frame = CGRectMake(0.0f, 70.0f, self.mapView.frame.size.width, 1.0f);
-
     bottomBorder.backgroundColor = [UIColor lightGrayColor].CGColor;
 }
 

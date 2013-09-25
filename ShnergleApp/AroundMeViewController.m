@@ -13,6 +13,7 @@
 #import "Request.h"
 #import "VenueViewController.h"
 #import <ECSlidingViewController/ECSlidingViewController.h>
+#import "UIViewController+CheckIn.h"
 
 @implementation AroundMeViewController
 
@@ -156,8 +157,6 @@
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     if ([segue.identifier isEqualToString:@"ToVenueSite"]) {
         [((VenueViewController *)[segue destinationViewController])setVenueInfo];
-    } else if ([segue.identifier isEqualToString:@"CheckInFromAroundMe"]) {
-        appDelegate.shareVenue = NO;
     }
 }
 

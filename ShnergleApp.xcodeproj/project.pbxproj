@@ -23,7 +23,7 @@
 		80ABCC03176F2012002718A1 /* SearchResultsView.m in Sources */ = {isa = PBXBuildFile; fileRef = 80ABCC02176F2012002718A1 /* SearchResultsView.m */; };
 		80ABCC05176F2037002718A1 /* SearchResultsView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 80ABCC04176F2037002718A1 /* SearchResultsView.xib */; };
 		80B77D28173E938E00085A71 /* MenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 80B77D26173E938E00085A71 /* MenuViewController.m */; };
-		80B957D116FBB74F0044A505 /* CheckInViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 80B957D016FBB74F0044A505 /* CheckInViewController.m */; };
+		80B957D116FBB74F0044A505 /* UIViewController+CheckIn.m in Sources */ = {isa = PBXBuildFile; fileRef = 80B957D016FBB74F0044A505 /* UIViewController+CheckIn.m */; };
 		80B957D616FC65F90044A505 /* VenueViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 80B957D516FC65F90044A505 /* VenueViewController.m */; };
 		80D6FF64172191A4008A3AFD /* PromotionView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 80D6FF63172191A4008A3AFD /* PromotionView.xib */; };
 		80D6FF6717219537008A3AFD /* PromotionView.m in Sources */ = {isa = PBXBuildFile; fileRef = 80D6FF6617219536008A3AFD /* PromotionView.m */; };
@@ -95,8 +95,8 @@
 		80B77D25173E938E00085A71 /* MenuViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MenuViewController.h; sourceTree = "<group>"; };
 		80B77D26173E938E00085A71 /* MenuViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MenuViewController.m; sourceTree = "<group>"; };
 		80B957B816FB7A910044A505 /* CrowdItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CrowdItem.h; sourceTree = "<group>"; };
-		80B957CF16FBB74F0044A505 /* CheckInViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CheckInViewController.h; sourceTree = "<group>"; };
-		80B957D016FBB74F0044A505 /* CheckInViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CheckInViewController.m; sourceTree = "<group>"; };
+		80B957CF16FBB74F0044A505 /* UIViewController+CheckIn.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+CheckIn.h"; sourceTree = "<group>"; };
+		80B957D016FBB74F0044A505 /* UIViewController+CheckIn.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+CheckIn.m"; sourceTree = "<group>"; };
 		80B957D416FC65F90044A505 /* VenueViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VenueViewController.h; sourceTree = "<group>"; };
 		80B957D516FC65F90044A505 /* VenueViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VenueViewController.m; sourceTree = "<group>"; };
 		80D6FF63172191A4008A3AFD /* PromotionView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PromotionView.xib; sourceTree = "<group>"; };
@@ -234,8 +234,6 @@
 				808F13E416FB6A5C00B66E6D /* AroundMeViewController.m */,
 				CD1D1D33179878A7004B634E /* CheckInListViewController.h */,
 				CD1D1D34179878A7004B634E /* CheckInListViewController.m */,
-				80B957CF16FBB74F0044A505 /* CheckInViewController.h */,
-				80B957D016FBB74F0044A505 /* CheckInViewController.m */,
 				80B957B816FB7A910044A505 /* CrowdItem.h */,
 				CD3B655C175CBA72006A4151 /* CrowdItem.m */,
 				CD3703731760C8B600CFD249 /* CustomBackViewController.h */,
@@ -293,6 +291,8 @@
 				CD61F0A417688C06005EB276 /* StaffViewController.m */,
 				CD26AADA17E2150200A00611 /* ThankYouViewController.h */,
 				CD26AADB17E2150200A00611 /* ThankYouViewController.m */,
+				80B957CF16FBB74F0044A505 /* UIViewController+CheckIn.h */,
+				80B957D016FBB74F0044A505 /* UIViewController+CheckIn.m */,
 				806D2781176627CC001E349D /* VenueCategoryViewController.h */,
 				806D2782176627CC001E349D /* VenueCategoryViewController.m */,
 				EEAFF0FE17677CBC00980DC1 /* VenueDetailsViewController.h */,
@@ -455,7 +455,7 @@
 				808F13D916FB6A5C00B66E6D /* AppDelegate.m in Sources */,
 				808F13E516FB6A5C00B66E6D /* AroundMeViewController.m in Sources */,
 				EE23586817B1434E00E3668E /* GraphViewController.m in Sources */,
-				80B957D116FBB74F0044A505 /* CheckInViewController.m in Sources */,
+				80B957D116FBB74F0044A505 /* UIViewController+CheckIn.m in Sources */,
 				EE4C2E2217B91E20007CD51A /* HelpViewController.m in Sources */,
 				80ABCC03176F2012002718A1 /* SearchResultsView.m in Sources */,
 				80B957D616FC65F90044A505 /* VenueViewController.m in Sources */,

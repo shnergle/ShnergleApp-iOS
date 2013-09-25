@@ -201,7 +201,7 @@
                                         <barButtonItem key="rightBarButtonItem" title="Check In" id="lQP-pY-6Jo">
                                             <color key="tintColor" red="0.40000000000000002" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <connections>
-                                                <segue destination="CuC-E9-ArH" kind="push" identifier="CheckInFromAroundMe" id="ohm-kx-4nt"/>
+                                                <action selector="presentCheckInFlow:" destination="2" id="zCm-4F-Oi0"/>
                                             </connections>
                                         </barButtonItem>
                                     </navigationItem>
@@ -1391,7 +1391,7 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                         <barButtonItem key="rightBarButtonItem" enabled="NO" title="Check In" id="j8H-eV-cm2">
                             <color key="tintColor" red="0.40000000000000002" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                             <connections>
-                                <segue destination="CuC-E9-ArH" kind="push" identifier="CheckInFromVenue" id="msd-v0-Rw7"/>
+                                <action selector="presentCheckInFlow:" destination="rpF-0H-Qzy" id="ErY-zo-DQW"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -2273,16 +2273,6 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iSd-Gl-4VT" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="692" y="286"/>
-        </scene>
-        <!--Check In-->
-        <scene sceneID="MvE-mu-x5f">
-            <objects>
-                <viewController storyboardIdentifier="CheckInViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="CuC-E9-ArH" userLabel="Check In" customClass="CheckInViewController" sceneMemberID="viewController">
-                    <navigationItem key="navigationItem" title="Check in" id="Oqo-OR-Jkq"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Dpl-bY-Po8" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-644" y="163"/>
         </scene>
         <!--Custom Sliding View Controller-->
         <scene sceneID="50B-VW-15y">
@@ -3488,7 +3478,7 @@ THANKS FOR BEING PART OF THE SHNERGLE COMMUNITY - HAPPY SHNERGLING!
                                         <barButtonItem key="rightBarButtonItem" title="Check In" id="Kbi-8Y-RPI">
                                             <color key="tintColor" red="0.40000000000000002" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <connections>
-                                                <segue destination="CuC-E9-ArH" kind="push" identifier="CheckInFromFollowing" id="HHH-Gt-FIZ"/>
+                                                <action selector="presentCheckInFlow:" destination="Hxi-4h-Khl" id="qY8-hX-H9b"/>
                                             </connections>
                                         </barButtonItem>
                                     </navigationItem>
@@ -4830,7 +4820,6 @@ Apple is a third party beneficiary of the Terms
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
         <segue reference="wJZ-W6-KFM"/>
-        <segue reference="msd-v0-Rw7"/>
         <segue reference="V1y-Vn-JKN"/>
         <segue reference="1nI-j0-QaW"/>
         <segue reference="xzO-IX-Cmd"/>

@@ -12,6 +12,7 @@
 #import <ECSlidingViewController/ECSlidingViewController.h>
 #import <Toast/Toast+UIView.h>
 #import <MapKit/MapKit.h>
+#import "UIViewController+CheckIn.h"
 
 @implementation FavouritesViewController
 
@@ -133,12 +134,6 @@
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
     appDelegate.activeVenue = venues[indexPath.item];
-}
-
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    if ([segue.identifier isEqualToString:@"CheckInFromFollowing"]) {
-        appDelegate.shareVenue = NO;
-    }
 }
 
 - (void)locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray *)locations {
