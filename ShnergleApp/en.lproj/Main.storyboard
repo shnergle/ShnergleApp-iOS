@@ -296,6 +296,24 @@
             </objects>
             <point key="canvasLocation" x="-2425" y="830"/>
         </scene>
+        <!--View Controller-->
+        <scene sceneID="cse-41-mMb">
+            <objects>
+                <viewController id="yiu-nX-jOV" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="11X-fn-oVR"/>
+                        <viewControllerLayoutGuide type="bottom" id="eC8-Bg-G9X"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="fQU-9I-q6f">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="jMr-lo-aFE" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-2410" y="1487"/>
+        </scene>
         <!--Add Venue View Controller-->
         <scene sceneID="FeI-Fr-9M4">
             <objects>
@@ -406,7 +424,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Omm-dV-3wh" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1947" y="1436"/>
+            <point key="canvasLocation" x="-1758" y="1568"/>
         </scene>
         <!--Venue Details View Controller-->
         <scene sceneID="RFJ-M9-wVd">
@@ -546,7 +564,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ra9-RO-y2R" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-2296" y="1656"/>
+            <point key="canvasLocation" x="-1956" y="2338"/>
         </scene>
         <!--Select Promotions View Controller-->
         <scene sceneID="JQh-kw-nN5">
@@ -1264,6 +1282,20 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                                 <fontDescription key="fontDescription" type="system" pointSize="24"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Hqf-mt-Jcq">
+                                <rect key="frame" x="228" y="282" width="43" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Log in">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rsL-VO-ako">
+                                <rect key="frame" x="57" y="282" width="57" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Register">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
@@ -4781,8 +4813,6 @@ Apple is a third party beneficiary of the Terms
     <resources>
         <image name="Authentication%20Process" width="640" height="198"/>
         <image name="FB-f-Logo__blue_50" width="50" height="50"/>
-        <image name="FB-f-Logo__blue_50" width="50" height="50"/>
-        <image name="Promotion Element 2" width="60" height="60"/>
         <image name="Promotion Element 2" width="60" height="60"/>
         <image name="add_friend" width="89" height="89"/>
         <image name="arrowDown" width="42" height="42"/>
@@ -4791,26 +4821,15 @@ Apple is a third party beneficiary of the Terms
         <image name="glyphicons_029_notes_2" width="20" height="27"/>
         <image name="glyphicons_030_pencil" width="25" height="25"/>
         <image name="glyphicons_072_bookmark_green" width="15" height="24"/>
-        <image name="glyphicons_072_bookmark_green" width="15" height="24"/>
         <image name="glyphicons_087_log_book" width="22" height="24"/>
-        <image name="glyphicons_195_circle_info" width="25" height="25"/>
-        <image name="glyphicons_195_circle_info" width="25" height="25"/>
         <image name="glyphicons_195_circle_info" width="25" height="25"/>
         <image name="glyphicons_social_30_facebook" width="24" height="24"/>
         <image name="glyphicons_social_31_twitter" width="24" height="24"/>
         <image name="glyphicons_social_39_e-mail" width="24" height="24"/>
         <image name="greenbutton" width="155" height="60"/>
-        <image name="greenbutton" width="155" height="60"/>
         <image name="greybutton03" width="157" height="60"/>
-        <image name="greybutton03" width="157" height="60"/>
-        <image name="greybutton03" width="157" height="60"/>
-        <image name="greybutton04" width="195" height="60"/>
-        <image name="greybutton04" width="195" height="60"/>
-        <image name="greybutton04" width="195" height="60"/>
-        <image name="greybutton04" width="195" height="60"/>
         <image name="greybutton04" width="195" height="60"/>
         <image name="shnerglelogo_splash_screen" width="600" height="172"/>
-        <image name="twitter-bird-white-on-blue" width="300" height="300"/>
         <image name="twitter-bird-white-on-blue" width="300" height="300"/>
     </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
