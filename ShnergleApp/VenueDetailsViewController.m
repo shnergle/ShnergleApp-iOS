@@ -48,14 +48,14 @@
     return YES;
 }
 
-- (void)goBack {
+- (void)viewDidDisappear:(BOOL)animated {
+    [super viewDidDisappear:animated];
     if (appDelegate.claiming) appDelegate.venueDetailsContent = nil;
     else
         for (UITextField *textField in textFields) {
             [self textFieldDidEndEditing:textField];
         }
     appDelegate.claiming = NO;
-    [self.navigationController popViewControllerAnimated:YES];
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
