@@ -15,7 +15,6 @@
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
-    [self.navigationController setNavigationBarHidden:NO animated:YES];
     self.navigationItem.title = @"Check Ins";
     [self.view makeToastActivity];
     [Request post:@"posts/get" params:nil callback:^(id response) {

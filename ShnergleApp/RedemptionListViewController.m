@@ -15,7 +15,6 @@
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
-    [self.navigationController setNavigationBarHidden:NO animated:YES];
     self.navigationItem.title = @"Redeemed";
     [self.view makeToastActivity];
     [Request post:@"promotion_redemptions/get" params:nil callback:^(id response) {

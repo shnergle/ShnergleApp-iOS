@@ -21,7 +21,7 @@
     self.pointsLabel.hidden = shouldHidePoints;
     self.pointsInfoLabel.hidden = shouldHidePoints;
     self.beforeInfoLabel.hidden = shouldHidePoints;
-    [self.navigationController setNavigationBarHidden:YES];
+    self.navigationController.navigationBarHidden = YES;
 }
 
 - (void)setupFields:(NSString *)points :(NSString *)msg :(NSString *)passcode{

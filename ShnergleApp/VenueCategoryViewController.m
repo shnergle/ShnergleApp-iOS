@@ -38,11 +38,6 @@
                    @{@"id": @22, @"type": @"Underground", @"image": @"glyphicons_014_train"}];
 }
 
-- (void)viewWillAppear:(BOOL)animated {
-    [super viewWillAppear:animated];
-    [self.navigationController setNavigationBarHidden:NO animated:YES];
-}
-
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     return [categories count];
 }

@@ -246,7 +246,6 @@
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
-    self.navigationController.navigationBarHidden = NO;
 
     NSDictionary *params = @{@"venue_id": appDelegate.activeVenue[@"id"],
                              @"level": appDelegate.level,
@@ -331,7 +330,6 @@
 - (void)viewDidDisappear:(BOOL)animated {
     [super viewDidDisappear:animated];
     [overlayView.scrollView setContentOffset:CGPointZero animated:YES];
-    self.navigationController.navigationBarHidden = NO;
     posts = nil;
     [self.crowdCollectionV reloadData];
 }

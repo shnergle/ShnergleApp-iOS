@@ -195,7 +195,6 @@ typedef enum {
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
-    [self.navigationController setNavigationBarHidden:NO animated:YES];
     if (appDelegate.addVenueType != nil) {
         secondCellField.text = appDelegate.addVenueType;
         secondCellField.textColor = [UIColor blackColor];

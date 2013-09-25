@@ -14,6 +14,7 @@
     [super viewWillAppear:animated];
     self.navigationItem.leftBarButtonItem = [self createLeftBarButton:@"arrow_west" actionSelector:@selector(goBack)];
     self.navigationController.interactivePopGestureRecognizer.delegate = self;
+    self.navigationController.navigationBarHidden = NO;
 }
 
 - (UIBarButtonItem *)createLeftBarButton:(NSString *)imageName actionSelector:(SEL)actionSelector {

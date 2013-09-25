@@ -57,7 +57,6 @@
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
-    [self.navigationController setNavigationBarHidden:NO animated:YES];
     self.youShare.text = appDelegate.youShare;
     NSNumber *score = @([self.youShare.text integerValue] *[self.valueShare.text integerValue]);
     self.scoreShare.text = [score stringValue];
