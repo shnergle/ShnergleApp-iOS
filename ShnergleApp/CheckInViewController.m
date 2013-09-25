@@ -12,16 +12,9 @@
 
 @implementation CheckInViewController
 
-- (void)takePhoto {
-    imgPickerCam = [[UIImagePickerController alloc] init];
-    imgPickerCam.delegate = self;
-    imgPickerCam.sourceType = UIImagePickerControllerSourceTypeCamera;
-    [self presentViewController:imgPickerCam animated:NO completion:nil];
-}
-
-- (void)useImage:(UIImage *)img {
-    
-    NSDictionary *info;
+- (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info {
+    taken = YES;
+    UIImage *img = info[@"UIImagePickerControllerOriginalImage"];
     if (appDelegate.saveLocally) {
         UIImageWriteToSavedPhotosAlbum(img, nil, nil, nil);
     }
@@ -39,14 +32,6 @@
             taken = NO;
         }];
     });
-    
-}
-
-- (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info {
-    taken = YES;
-
-    UIImage *img = info[@"UIImagePickerControllerOriginalImage"];
-    [NSThread detachNewThreadSelector:@selector(useImage:) toTarget:self withObject:img];
 }
 
 - (void)imagePickerControllerDidCancel:(UIImagePickerController *)picker {
@@ -60,18 +45,20 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     taken = NO;
+    imgPickerCam = [[UIImagePickerController alloc] init];
+    imgPickerCam.delegate = self;
+    imgPickerCam.sourceType = UIImagePickerControllerSourceTypeCamera;
 }
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
-    self.navigationController.navigationBar.hidden = YES;
     self.navigationController.navigationBarHidden = YES;
 }
 
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
     if (!taken) {
-        [self takePhoto];
+        [self presentViewController:imgPickerCam animated:NO completion:nil];
     }
 }
 
