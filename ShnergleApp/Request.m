@@ -143,10 +143,8 @@ static ConnectionErrorAlert *connectionErrorAlert;
 }
 
 + (void)logData:(NSData *)data andResponse:(id)response {
-    [Crashlytics setObjectValue:[[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding] forKey:@"lastResponseString"];
-    [Crashlytics setObjectValue:response forKey:@"lastResponseParsed"];
-    NSLog(@"ResponseString: %@", [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding]);
-    NSLog(@"ResponseParsed: %@", response);
+    [Crashlytics setObjectValue:response forKey:@"lastResponse"];
+    NSLog(@"Response: %@", response);
 }
 
 + (int)fromTime {
