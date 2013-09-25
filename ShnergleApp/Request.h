@@ -1,5 +1,5 @@
 //
-//  PostRequest.h
+//  Request.h
 //  ShnergleApp
 //
 //  Created by Adam Hani Schakaki on 01/06/2013.
@@ -12,7 +12,6 @@
 + (void)setImage:(NSDictionary *)params image:(UIImage *)image;
 + (void)removeImage:(NSDictionary *)params;
 + (void)post:(NSString *)path params:(NSDictionary *)params callback:(void(^)(id))callback;
-+ (int)fromTime;
-+ (int)untilTime;
++ (int)time:(BOOL)nextSix;
 
 @end

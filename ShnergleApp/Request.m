@@ -1,5 +1,5 @@
 //
-//  PostRequest.m
+//  Request.m
 //  ShnergleApp
 //
 //  Created by Adam Hani Schakaki on 01/06/2013.
@@ -58,44 +58,37 @@ static ConnectionErrorAlert *connectionErrorAlert;
         if (!callback) return;
         return callback([self getImage:params]);
     }
+    NSMutableDictionary *dParams = [@{@"app_secret": appSecret, @"facebook_id": appDelegate.facebookId} mutableCopy];
+    [dParams addEntriesFromDictionary:params];
     NSString *urlString = [NSString stringWithFormat:serverURL, path];
-    NSURL *url = [[NSURL alloc] initWithString:urlString];
+    NSURL *url = [NSURL URLWithString:urlString];
     NSMutableURLRequest *urlRequest = [NSMutableURLRequest requestWithURL:url];
     [urlRequest setHTTPMethod:@"POST"];
-    if (params && params[@"image"] != nil) {
+    if (dParams[@"image"] != nil) {
         static NSString *boundary = @"This-string-cannot-be-part-of-the-content";
         NSString *contentType = [NSString stringWithFormat:@"multipart/form-data; boundary=%@", boundary];
         [urlRequest addValue:contentType forHTTPHeaderField:@"Content-Type"];
         NSMutableData *body = [NSMutableData data];
-        [body appendData:[[NSString stringWithFormat:@"\r\n--%@\r\n", boundary] dataUsingEncoding:NSUTF8StringEncoding]];
-        [body appendData:[[NSString stringWithFormat:@"Content-Disposition: form-data; name=\"%@\"\r\n\r\n", @"app_secret"] dataUsingEncoding:NSUTF8StringEncoding]];
-        [body appendData:[[appSecret stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet alphanumericCharacterSet]] dataUsingEncoding:NSUTF8StringEncoding]];
-        [body appendData:[[NSString stringWithFormat:@"\r\n--%@\r\n", boundary] dataUsingEncoding:NSUTF8StringEncoding]];
-        [body appendData:[[NSString stringWithFormat:@"Content-Disposition: form-data; name=\"%@\"\r\n\r\n", @"facebook_id"] dataUsingEncoding:NSUTF8StringEncoding]];
-        [body appendData:[[appDelegate.facebookId stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet alphanumericCharacterSet]] dataUsingEncoding:NSUTF8StringEncoding]];
-        if (params) {
-            for (NSString *key in params) {
-                [body appendData:[[NSString stringWithFormat:@"\r\n--%@\r\n", boundary] dataUsingEncoding:NSUTF8StringEncoding]];
+        for (NSString *key in dParams) {
+            [body appendData:[[NSString stringWithFormat:@"\r\n--%@\r\n", boundary] dataUsingEncoding:NSUTF8StringEncoding]];
+            if ([@"key" isEqualToString:@"image"]) {
+                [body appendData:[@"Content-Disposition: form-data; name=\"image\"; filename=\"image.jpg\"\r\n" dataUsingEncoding : NSUTF8StringEncoding]];
+                [body appendData:[@"Content-Type: application/octet-stream\r\n\r\n" dataUsingEncoding : NSUTF8StringEncoding]];
+                [body appendData:[NSData dataWithData:UIImageJPEGRepresentation(dParams[@"image"], 0.5)]];
+            } else {
                 [body appendData:[[NSString stringWithFormat:@"Content-Disposition: form-data; name=\"%@\"\r\n\r\n", key] dataUsingEncoding:NSUTF8StringEncoding]];
-                [body appendData:[[params[key] stringValue] dataUsingEncoding:NSUTF8StringEncoding]];
+                [body appendData:[[dParams[key] stringValue] dataUsingEncoding:NSUTF8StringEncoding]];
             }
         }
-        [body appendData:[[NSString stringWithFormat:@"\r\n--%@\r\n", boundary] dataUsingEncoding:NSUTF8StringEncoding]];
-        [body appendData:[@"Content-Disposition: form-data; name=\"image\"; filename=\"image.jpg\"\r\n" dataUsingEncoding : NSUTF8StringEncoding]];
-        [body appendData:[@"Content-Type: application/octet-stream\r\n\r\n" dataUsingEncoding : NSUTF8StringEncoding]];
-        [body appendData:[NSData dataWithData:UIImageJPEGRepresentation(params[@"image"], 0.5)]];
         [body appendData:[[NSString stringWithFormat:@"\r\n--%@--\r\n", boundary] dataUsingEncoding:NSUTF8StringEncoding]];
         [urlRequest setHTTPBody:body];
     } else {
-        NSMutableString *paramsString = [NSMutableString stringWithFormat:@"app_secret=%@&facebook_id=%@", [appSecret stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet alphanumericCharacterSet]], [appDelegate.facebookId stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet alphanumericCharacterSet]]];
-        if (params) {
-            for (NSString *key in params) {
-                [paramsString appendFormat:@"&%@=%@", key, [[params[key] stringValue] stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet alphanumericCharacterSet]]];
-            }
+        NSMutableArray *paramsArray = [NSMutableArray array];
+        for (NSString *key in dParams) {
+            [paramsArray addObject:[NSString stringWithFormat:@"%@=%@", key, [[dParams[key] stringValue] stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet alphanumericCharacterSet]]]];
         }
-        [urlRequest setHTTPBody:[paramsString dataUsingEncoding:NSUTF8StringEncoding]];
+        [urlRequest setHTTPBody:[[paramsArray componentsJoinedByString:@"&"] dataUsingEncoding:NSUTF8StringEncoding]];
     }
-    if ([[path pathComponents][0] isEqualToString:@"images"]) [urlRequest setTimeoutInterval:4];
     [NSURLConnection sendAsynchronousRequest:urlRequest queue:[NSOperationQueue mainQueue] completionHandler:^(NSURLResponse *response, NSData *data, NSError *connectionError) {
         if (connectionError) {
             [Crashlytics setObjectValue:connectionError forKey:@"lastConnectionError"];
@@ -110,24 +103,18 @@ static ConnectionErrorAlert *connectionErrorAlert;
             return;
         }
         if (!callback) return;
-        if ([[path pathComponents][0] isEqualToString:@"images"]) {
-            dispatch_async(dispatch_get_main_queue(), ^{
-                UIImage *responseArg;
+        dispatch_async(dispatch_get_main_queue(), ^{
+            id responseArg;
+            if ([[path pathComponents][0] isEqualToString:@"images"]) {
                 @try {
-                    NSString *firstChar = [[[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding] substringToIndex:1];
-                    if ([@"{" isEqualToString: firstChar] || [@"null" isEqualToString: firstChar] || [@"" isEqualToString: firstChar]) @throw [NSException exceptionWithName:nil reason:nil userInfo:nil];
                     responseArg = [[UIImage alloc] initWithData:data];
-                    [self setImage:params image:responseArg];
+                    if (!responseArg) [NSException raise:nil format:nil];
                 } @catch (NSException *e) {
                     responseArg = [UIImage imageNamed:@"No_activity"];
-                    [self setImage:params image:responseArg];
                 }
-                [self logData:data andResponse:responseArg];
-                callback(responseArg);
-            });
-        } else {
-            dispatch_async(dispatch_get_main_queue(), ^{
-                id responseArg = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingAllowFragments error:nil];
+                [self setImage:params image:responseArg];
+            } else {
+                responseArg = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingAllowFragments error:nil];
                 if ([responseArg isKindOfClass:[NSDictionary class]] && responseArg[@"traceback"]) {
                     responseArg = nil;
                     dispatch_async(dispatch_get_main_queue(), ^{
@@ -135,31 +122,19 @@ static ConnectionErrorAlert *connectionErrorAlert;
                         [alert show];
                     });
                 }
-                [self logData:data andResponse:responseArg];
-                callback(responseArg);
-            });
-        }
+            }
+            [Crashlytics setObjectValue:responseArg forKey:@"lastResponse"];
+            NSLog(@"Response: %@", responseArg);
+            callback(responseArg);
+        });
     }];
 }
 
-+ (void)logData:(NSData *)data andResponse:(id)response {
-    [Crashlytics setObjectValue:response forKey:@"lastResponse"];
-    NSLog(@"Response: %@", response);
-}
-
-+ (int)fromTime {
++ (int)time:(BOOL)nextSix {
     NSCalendar *calendar = [NSCalendar currentCalendar];
     NSDateComponents *components = [calendar components:(NSYearCalendarUnit | NSMonthCalendarUnit | NSDayCalendarUnit | NSHourCalendarUnit | NSMinuteCalendarUnit | NSSecondCalendarUnit) fromDate:[NSDate date]];
-    if (components.hour < 6) components.day--;
-    components.hour = 6;
-    components.minute = components.second = 0;
-    return [[calendar dateFromComponents:components] timeIntervalSince1970];
-}
-
-+ (int)untilTime {
-    NSCalendar *calendar = [NSCalendar currentCalendar];
-    NSDateComponents *components = [calendar components:(NSYearCalendarUnit | NSMonthCalendarUnit | NSDayCalendarUnit | NSHourCalendarUnit | NSMinuteCalendarUnit | NSSecondCalendarUnit) fromDate:[NSDate date]];
-    if (components.hour > 5) components.day++;
+    if (!nextSix && components.hour < 6) components.day--;
+    else if (nextSix && components.hour > 5) components.day++;
     components.hour = 6;
     components.minute = components.second = 0;
     return [[calendar dateFromComponents:components] timeIntervalSince1970];

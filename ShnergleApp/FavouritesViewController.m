@@ -73,10 +73,6 @@
     [self.slidingViewController anchorTopViewTo:ECRight];
 }
 
-- (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView {
-    return 1;
-}
-
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
     return [venues count];
 }
@@ -155,8 +151,8 @@
                                  @"distance": @(distanceInDegrees),
                                  @"level": appDelegate.level,
                                  [appDelegate.topViewType lowercaseString] : @"true",
-                                 @"from_time" : @([Request fromTime]),
-                                 @"until_time" : @([Request untilTime])};
+                                 @"from_time" : @([Request time:NO]),
+                                 @"until_time" : @([Request time:YES])};
         [Request post:@"venues/get" params:params callback:^(id response) {
             [self didFinishLoadingVenues:response];
         }];

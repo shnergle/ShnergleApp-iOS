@@ -169,16 +169,9 @@
 
 - (void)addShadowLineRect:(CGRect)shadeRect ToView:(UIView *)view {
     CALayer *topBorder = [CALayer layer];
-
     topBorder.frame = shadeRect;
-
     topBorder.backgroundColor = [UIColor lightGrayColor].CGColor;
-
     [view.layer addSublayer:topBorder];
-}
-
-- (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView {
-    return 1;
 }
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
@@ -257,8 +250,8 @@
 
     NSDictionary *params = @{@"venue_id": appDelegate.activeVenue[@"id"],
                              @"level": appDelegate.level,
-                             @"from_time": @([Request fromTime]),
-                             @"until_time": @([Request untilTime])};
+                             @"from_time": @([Request time:NO]),
+                             @"until_time": @([Request time:YES])};
     [Request post:@"promotions/get" params:params callback:^(id response) {
         if ([response respondsToSelector:@selector(objectForKeyedSubscript:)]) {
             appDelegate.activePromotion = response;

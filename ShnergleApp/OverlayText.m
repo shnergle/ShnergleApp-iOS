@@ -109,8 +109,8 @@
 
     NSDictionary *params = @{@"venue_id": appDelegate.activeVenue[@"id"],
                              @"going": @"true",
-                             @"from_time": @([Request fromTime]),
-                             @"until_time": @([Request untilTime])};
+                             @"from_time": @([Request time:NO]),
+                             @"until_time": @([Request time:YES])};
     [Request post:@"venue_rsvps/set" params:params callback:^(id response) {
         [self didIntent:response];
     }];
@@ -120,8 +120,8 @@
     self.thinkingView.enabled = NO;
     NSDictionary *params = @{@"venue_id": appDelegate.activeVenue[@"id"],
                              @"maybe": @"true",
-                             @"from_time": @([Request fromTime]),
-                             @"until_time": @([Request untilTime])};
+                             @"from_time": @([Request time:NO]),
+                             @"until_time": @([Request time:YES])};
     [Request post:@"venue_rsvps/set" params:params callback:^(id response) {
         [self didIntent:response];
     }];
@@ -352,8 +352,8 @@
 - (void)loadVenueIntentions {
     [self makeToastActivity];
     NSDictionary *params = @{@"venue_id": appDelegate.activeVenue[@"id"],
-                             @"from_time": @([Request fromTime]),
-                             @"until_time": @([Request untilTime])};
+                             @"from_time": @([Request time:NO]),
+                             @"until_time": @([Request time:YES])};
     [Request post:@"venue_rsvps/get" params:params callback:^(id response) {
         [self hideToastActivity];
         self.rsvpQuestionLabel.hidden = YES;
@@ -367,8 +367,8 @@
 - (void)hasAlreadyRSVPd {
     NSDictionary *params = @{@"venue_id": appDelegate.activeVenue[@"id"],
                              @"own": @"true",
-                             @"from_time": @([Request fromTime]),
-                             @"until_time": @([Request untilTime])};
+                             @"from_time": @([Request time:NO]),
+                             @"until_time": @([Request time:YES])};
     [Request post:@"venue_rsvps/get" params:params callback:^(id response) {
         if ([response[@"going"] integerValue] > 0 || [response[@"maybe"] integerValue] > 0) [self loadVenueIntentions];
     }];
