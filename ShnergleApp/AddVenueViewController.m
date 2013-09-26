@@ -55,7 +55,8 @@ typedef enum {
                                                   @"address": [address componentsJoinedByString:@", "],
                                                   @"country": !error ? [((CLPlacemark *)placemark[0]).ISOcountryCode lowercaseString] : @"--",
                                                   @"lat": @(map.userLocation.coordinate.latitude),
-                                                  @"lon": @(map.userLocation.coordinate.longitude)} mutableCopy];
+                                                  @"lon": @(map.userLocation.coordinate.longitude),
+                                                  @"creator_version": [[NSBundle mainBundle] infoDictionary][@"CFBundleVersion"]} mutableCopy];
 
                 if (appDelegate.venueDetailsContent && workSwitch.on) {
                     if (appDelegate.venueDetailsContent[@(8)]) {
