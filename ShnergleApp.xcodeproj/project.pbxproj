@@ -37,7 +37,6 @@
 		CD5024921768AED6003D3004 /* StaffTypeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CD5024911768AE99003D3004 /* StaffTypeViewController.m */; };
 		CD56F319179D30C80028B688 /* FindStaffViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CD56F318179D308C0028B688 /* FindStaffViewController.m */; };
 		CD59C9BA17E8B460000CF510 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CD59C9B917E8B460000CF510 /* Images.xcassets */; };
-		CD654EE8179DCA9800F380B5 /* Crashlytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CD654EE7179DCA9800F380B5 /* Crashlytics.framework */; };
 		CDAD1D2F175E011100581713 /* ShareViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CDAD1D2E175E011100581713 /* ShareViewController.m */; };
 		CDAD1D33175E2BF800581713 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CDAD1D32175E2BF800581713 /* UIKit.framework */; };
 		CDAD1D35175E2FA600581713 /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = CDAD1D34175E2FA600581713 /* Settings.bundle */; };
@@ -120,7 +119,6 @@
 		CD59C9B917E8B460000CF510 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		CD61F0A317688C06005EB276 /* StaffViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = StaffViewController.h; sourceTree = "<group>"; };
 		CD61F0A417688C06005EB276 /* StaffViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = StaffViewController.m; sourceTree = "<group>"; };
-		CD654EE7179DCA9800F380B5 /* Crashlytics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Crashlytics.framework; sourceTree = "<group>"; };
 		CD7A5BB617E0CA50002280D8 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		CDAD1D2D175E011100581713 /* ShareViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShareViewController.h; sourceTree = "<group>"; };
 		CDAD1D2E175E011100581713 /* ShareViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShareViewController.m; sourceTree = "<group>"; };
@@ -175,7 +173,6 @@
 				CDBC6C7E17AC4FBA001B667B /* Social.framework in Frameworks */,
 				CDBC6C7C17AC47D9001B667B /* Accounts.framework in Frameworks */,
 				CDAD1D33175E2BF800581713 /* UIKit.framework in Frameworks */,
-				CD654EE8179DCA9800F380B5 /* Crashlytics.framework in Frameworks */,
 				1F95516217BB4B9FAB164196 /* libPods.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -210,7 +207,6 @@
 				CD4DF2A217CE048A005F3604 /* MapKit.framework */,
 				CDBC6C7D17AC4FBA001B667B /* Social.framework */,
 				CDBC6C7B17AC47D9001B667B /* Accounts.framework */,
-				CD654EE7179DCA9800F380B5 /* Crashlytics.framework */,
 				CDAD1D32175E2BF800581713 /* UIKit.framework */,
 				92FD2BD9498A41EEBBD26F82 /* libPods.a */,
 			);
@@ -330,7 +326,6 @@
 				808F13C216FB6A5C00B66E6D /* Frameworks */,
 				808F13C316FB6A5C00B66E6D /* Resources */,
 				0BE573802CEB4DFB8E8BA496 /* Copy Pods Resources */,
-				CDBFED4717EB2BB000BE85DD /* Crashlytics */,
 			);
 			buildRules = (
 			);
@@ -419,20 +414,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
-		};
-		CDBFED4717EB2BB000BE85DD /* Crashlytics */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = Crashlytics;
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "./Crashlytics.framework/run 2baf430bbb573cfdb444a30b0058c3d474393497";
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -576,7 +557,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 6199414049D54724BA967C32 /* Pods.xcconfig */;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
+				ARCHS = "$(ARCHS_STANDARD)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
@@ -597,7 +578,7 @@
 				SDKROOT = iphoneos;
 				SUPPORTED_PLATFORMS = "iphonesimulator iphoneos";
 				TARGETED_DEVICE_FAMILY = 1;
-				VALID_ARCHS = "armv7 armv7s arm64";
+				VALID_ARCHS = "armv7 armv7s";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -606,7 +587,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 6199414049D54724BA967C32 /* Pods.xcconfig */;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
+				ARCHS = "$(ARCHS_STANDARD)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
@@ -627,7 +608,7 @@
 				SDKROOT = iphoneos;
 				SUPPORTED_PLATFORMS = "iphonesimulator iphoneos";
 				TARGETED_DEVICE_FAMILY = 1;
-				VALID_ARCHS = "armv7 armv7s arm64";
+				VALID_ARCHS = "armv7 armv7s";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;

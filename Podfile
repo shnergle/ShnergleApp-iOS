@@ -12,3 +12,4 @@ pod 'TMCache', '~> 1.2.0'
 pod 'ICETutorial', '~> 1.0.2'
 pod 'GVPhotoBrowser', '~> 0.6.0'
 pod 'CMMapLauncher', :head
+pod 'FlurrySDK', '4.2.3'

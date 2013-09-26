@@ -7,7 +7,6 @@
 //
 
 #import "Request.h"
-#import <Crashlytics/Crashlytics.h>
 #import <TMCache/TMCache.h>
 
 #define appSecret @"FCuf65iuOUDCjlbiyyer678Coutyc64v655478VGvgh76"
@@ -93,7 +92,6 @@ static ConnectionErrorAlert *connectionErrorAlert;
     }
     [NSURLConnection sendAsynchronousRequest:urlRequest queue:[NSOperationQueue mainQueue] completionHandler:^(NSURLResponse *response, NSData *data, NSError *connectionError) {
         if (connectionError) {
-            [Crashlytics setObjectValue:connectionError forKey:@"lastConnectionError"];
             NSLog(@"ConnectionError: %@", connectionError);
             if (connectionError.code != -1001 && !connectionErrorAlert.alertIssued) {
                 connectionErrorAlert.alertIssued = YES;
@@ -125,7 +123,6 @@ static ConnectionErrorAlert *connectionErrorAlert;
                     });
                 }
             }
-            [Crashlytics setObjectValue:responseArg forKey:@"lastResponse"];
             NSLog(@"Response: %@", responseArg);
             callback(responseArg);
         });
