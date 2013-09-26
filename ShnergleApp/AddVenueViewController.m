@@ -73,8 +73,7 @@ typedef enum {
                 [Request post:@"venues/set" params:params callback:^(id response) {
                     if (response == nil) {
                         [self.view hideToastActivity];
-                        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Uh-oh.. Something went wrong.." message:nil delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
-                        [alert show];
+                        [[[UIAlertView alloc] initWithTitle:@"Uh-oh.. Something went wrong.." message:nil delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil] show];
                     } else {
                         if (workSwitch.on) {
                             [Request post:@"venue_managers/set" params:@{@"venue_id": response} callback:^(id response) {
