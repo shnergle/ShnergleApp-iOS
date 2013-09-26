@@ -80,6 +80,7 @@
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
+    self.navigationController.navigationBarHidden = YES;
     [self.view makeToastActivity];
      if ([@"Following" isEqualToString : appDelegate.topViewType]) {
          [Request post:@"venues/get" params:@{@"following_only" : @"true", @"level" : appDelegate.level} callback:^(id response) {
@@ -152,6 +153,16 @@
             [self didFinishLoadingVenues:response];
         }];
     }
+}
+
+- (void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
+    [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleDefault animated:YES];
+}
+
+- (void)viewDidDisappear:(BOOL)animated {
+    [super viewDidDisappear:animated];
+    [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent animated:YES];
 }
 
 @end

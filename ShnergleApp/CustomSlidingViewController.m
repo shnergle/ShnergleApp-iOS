@@ -7,6 +7,7 @@
 //
 
 #import "CustomSlidingViewController.h"
+#import "CustomBackViewController.h"
 #import "MenuViewController.h"
 
 @implementation CustomSlidingViewController
@@ -26,7 +27,7 @@
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     self.navigationItem.hidesBackButton = YES;
-    [self.navigationController setNavigationBarHidden:YES animated:YES];
+    self.navigationController.navigationBarHidden = YES;
 }
 
 - (void)viewDidAppear:(BOOL)animated {
