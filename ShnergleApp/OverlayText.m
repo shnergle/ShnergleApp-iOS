@@ -406,7 +406,7 @@
 
     [Request post:@"venues/set" params:params callback:^(id response) {
         [Request post:@"venue_managers/set" params:@{@"venue_id": appDelegate.activeVenue[@"id"]} callback:^(id response) {
-            [((VenueViewController *)self.nextResponder.nextResponder)reloadOverlay];
+            [((VenueViewController *)self.nextResponder.nextResponder) reloadOverlay];
         }];
     }];
 }
