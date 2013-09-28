@@ -7,6 +7,7 @@
 //
 
 #import "CustomBackViewController.h"
+#import <FlurrySDK/Flurry.h>
 
 @implementation CustomBackViewController
 
@@ -48,6 +49,11 @@
     self.navigationController.navigationBar.barTintColor = [UIColor colorWithRed:233.0 / 255 green:235.0 / 255 blue:240.0 / 255 alpha:1.0];
     self.navigationController.navigationBar.translucent = NO;
     self.edgesForExtendedLayout = UIRectEdgeNone;
+}
+
+- (void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
+    [Flurry logPageView];
 }
 
 @end

@@ -9,6 +9,7 @@
 #import "CustomSlidingViewController.h"
 #import "CustomBackViewController.h"
 #import "MenuViewController.h"
+#import <FlurrySDK/Flurry.h>
 
 @implementation CustomSlidingViewController
 
@@ -32,6 +33,7 @@
 
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
+    [Flurry logPageView];
     [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleDefault animated:YES];
 }
 
