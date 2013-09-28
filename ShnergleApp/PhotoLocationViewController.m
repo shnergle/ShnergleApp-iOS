@@ -73,7 +73,6 @@
 }
 
 - (void)initMap {
-    hasPositionLocked = NO;
     man = [[CLLocationManager alloc] init];
     man.delegate = self;
     man.desiredAccuracy = kCLLocationAccuracyNearestTenMeters;
@@ -87,6 +86,8 @@
 - (void)viewWillDisappear:(BOOL)animated {
     [super viewWillDisappear:animated];
     [map removeFromSuperview];
+    [man stopUpdatingLocation];
+    man = nil;
     map = nil;
 }
 
@@ -95,27 +96,23 @@
 }
 
 - (void)locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray *)locations {
-    if (!hasPositionLocked) {
-        coord = ((CLLocation *)locations.lastObject).coordinate;
-        MKCoordinateRegion rgn = MKCoordinateRegionMakeWithDistance(coord, 111, 11);
-        double distanceInDegrees = sqrt(pow(rgn.span.latitudeDelta, 2) + pow(rgn.span.longitudeDelta, 2));
+    coord = ((CLLocation *)locations.lastObject).coordinate;
+    MKCoordinateRegion rgn = MKCoordinateRegionMakeWithDistance(coord, 111, 11);
+    double distanceInDegrees = sqrt(pow(rgn.span.latitudeDelta, 2) + pow(rgn.span.longitudeDelta, 2));
 
-        NSDictionary *params = @{@"my_lat": @(coord.latitude),
-                                 @"my_lon": @(coord.longitude),
-                                 @"distance": @(distanceInDegrees),
-                                 @"level": appDelegate.level};
-        [Request post:@"venues/get" params:params callback:^(id response) {
-            @synchronized(self) {
-                venues = [response mutableCopy];
-                locationPickerVenuesImmutable = [NSArray arrayWithArray:response];
-                rows = [venues count] + 1;
-                [self.searchResultTable reloadData];
-                [self.searchResultTable hideToastActivity];
-            }
-        }];
-
-        hasPositionLocked = YES;
-    }
+    NSDictionary *params = @{@"my_lat": @(coord.latitude),
+                             @"my_lon": @(coord.longitude),
+                             @"distance": @(distanceInDegrees),
+                             @"level": appDelegate.level};
+    [Request post:@"venues/get" params:params callback:^(id response) {
+        @synchronized(self) {
+            venues = [response mutableCopy];
+            locationPickerVenuesImmutable = [NSArray arrayWithArray:response];
+            rows = [venues count] + 1;
+            [self.searchResultTable reloadData];
+            [self.searchResultTable hideToastActivity];
+        }
+    }];
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {

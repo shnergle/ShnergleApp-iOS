@@ -13,7 +13,6 @@
 {
     UITableViewCell *secondCell;
     UILabel *secondCellField;
-    bool hasPositionLocked;
     CLLocationCoordinate2D venueCoord;
     MKMapView *map;
     NSArray *tableData;

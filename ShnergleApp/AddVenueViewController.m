@@ -221,7 +221,6 @@ typedef enum {
 }
 
 - (void)initMap {
-    hasPositionLocked = NO;
     self.navigationItem.rightBarButtonItem.enabled = NO;
     map = [[MKMapView alloc] initWithFrame:self.mapView.frame];
     map.delegate = self;
@@ -238,15 +237,16 @@ typedef enum {
 }
 
 - (void)locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray *)locations {
-    if (!hasPositionLocked) {
-        hasPositionLocked = YES;
-        self.navigationItem.rightBarButtonItem.enabled = YES;
-    }
+    self.navigationItem.rightBarButtonItem.enabled = YES;
+    [manager stopUpdatingLocation];
+    manager = nil;
 }
 
 - (void)viewWillDisappear:(BOOL)animated {
     [super viewWillDisappear:animated];
     [map removeFromSuperview];
+    [man stopUpdatingLocation];
+    man = nil;
     map = nil;
 }
 

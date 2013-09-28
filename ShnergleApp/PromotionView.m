@@ -15,13 +15,14 @@
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     self.navigationItem.title = @"Promotion";
-}
-
-- (void)viewDidLoad {
     man = [[CLLocationManager alloc] init];
     man.delegate = self;
     man.desiredAccuracy = kCLLocationAccuracyNearestTenMeters;
     [man startUpdatingLocation];
+}
+
+- (void)viewDidLoad {
+    [super viewDidLoad];
     if (!appDelegate.canRedeem) {
         [self.redeemButton setTitle:@"Redeemed" forState:UIControlStateNormal];
     }
@@ -73,6 +74,12 @@
     [super viewDidDisappear:animated];
 #warning pseudo code
     if (false /*notRedeeming*/) appDelegate.redeeming = nil;
+}
+
+- (void)viewWillDisappear:(BOOL)animated {
+    [super viewWillDisappear:animated];
+    [man stopUpdatingLocation];
+    man = nil;
 }
 
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info {

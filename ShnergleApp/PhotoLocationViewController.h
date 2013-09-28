@@ -11,7 +11,6 @@
 
 @interface PhotoLocationViewController : CustomBackViewController <UISearchBarDelegate, UITableViewDelegate, UITableViewDataSource, CLLocationManagerDelegate, MKMapViewDelegate> {
     MKMapView *map;
-    BOOL hasPositionLocked;
     CLLocationCoordinate2D coord;
     NSArray *locationPickerVenuesImmutable;
     NSUInteger rows;

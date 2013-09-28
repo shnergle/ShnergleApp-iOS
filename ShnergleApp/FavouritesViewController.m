@@ -87,12 +87,17 @@
              [self didFinishLoadingVenues:response];
          }];
      } else {
-         hasPositionLocked = NO;
          man = [[CLLocationManager alloc] init];
          man.delegate = self;
          man.desiredAccuracy = kCLLocationAccuracyNearestTenMeters;
          [man startUpdatingLocation];
      }
+}
+
+- (void)viewWillDisappear:(BOOL)animated {
+    [super viewWillDisappear:animated];
+    [man stopUpdatingLocation];
+    man = nil;
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
@@ -138,21 +143,20 @@
 }
 
 - (void)locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray *)locations {
-    if (!hasPositionLocked) {
-        hasPositionLocked = YES;
-        MKCoordinateRegion rgn = MKCoordinateRegionMakeWithDistance(((CLLocation *)locations.lastObject).coordinate, 5000, 5000);
-        double distanceInDegrees = sqrt(pow(rgn.span.latitudeDelta, 2) + pow(rgn.span.longitudeDelta, 2));
-        NSDictionary *params = @{@"my_lat": @(((CLLocation *)locations.lastObject).coordinate.latitude),
-                                 @"my_lon": @(((CLLocation *)locations.lastObject).coordinate.longitude),
-                                 @"distance": @(distanceInDegrees),
-                                 @"level": appDelegate.level,
-                                 [appDelegate.topViewType lowercaseString] : @"true",
-                                 @"from_time" : @([Request time:NO]),
-                                 @"until_time" : @([Request time:YES])};
-        [Request post:@"venues/get" params:params callback:^(id response) {
-            [self didFinishLoadingVenues:response];
-        }];
-    }
+    MKCoordinateRegion rgn = MKCoordinateRegionMakeWithDistance(((CLLocation *)locations.lastObject).coordinate, 5000, 5000);
+    double distanceInDegrees = sqrt(pow(rgn.span.latitudeDelta, 2) + pow(rgn.span.longitudeDelta, 2));
+    NSDictionary *params = @{@"my_lat": @(((CLLocation *)locations.lastObject).coordinate.latitude),
+                             @"my_lon": @(((CLLocation *)locations.lastObject).coordinate.longitude),
+                             @"distance": @(distanceInDegrees),
+                             @"level": appDelegate.level,
+                             [appDelegate.topViewType lowercaseString] : @"true",
+                             @"from_time" : @([Request time:NO]),
+                             @"until_time" : @([Request time:YES])};
+    [Request post:@"venues/get" params:params callback:^(id response) {
+        [self didFinishLoadingVenues:response];
+    }];
+    [man stopUpdatingLocation];
+    man = nil;
 }
 
 - (void)viewDidAppear:(BOOL)animated {

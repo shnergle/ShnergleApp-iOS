@@ -139,11 +139,6 @@
     [Request post:@"venue_views/set" params:@{@"venue_id": appDelegate.activeVenue[@"id"]} callback:^(id response) {
         [self.view hideToastActivity];
     }];
-
-    man = [[CLLocationManager alloc] init];
-    man.delegate = self;
-    man.desiredAccuracy = kCLLocationAccuracyNearestTenMeters;
-    [man startUpdatingLocation];
 }
 
 - (NSString *)levelName:(NSInteger)level {
@@ -283,6 +278,17 @@
     } else {
         [self setStatus:Default];
     }
+
+    man = [[CLLocationManager alloc] init];
+    man.delegate = self;
+    man.desiredAccuracy = kCLLocationAccuracyNearestTenMeters;
+    [man startUpdatingLocation];
+}
+
+- (void)viewWillDisappear:(BOOL)animated {
+    [super viewWillDisappear:animated];
+    [man stopUpdatingLocation];
+    man = nil;
 }
 
 - (void)setPromoContentTo:(NSString *)promoContent promoHeadline:(NSString *)promoHeadline promoExpiry:(NSString *)promoExpiry {
