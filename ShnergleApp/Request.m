@@ -70,13 +70,13 @@ static ConnectionErrorAlert *connectionErrorAlert;
         NSMutableData *body = [NSMutableData data];
         for (NSString *key in dParams) {
             [body appendData:[[NSString stringWithFormat:@"\r\n--%@\r\n", boundary] dataUsingEncoding:NSUTF8StringEncoding]];
-            if ([@"key" isEqualToString:@"image"]) {
+            if ([key isEqualToString:@"image"]) {
                 [body appendData:[@"Content-Disposition: form-data; name=\"image\"; filename=\"image.jpg\"\r\n" dataUsingEncoding : NSUTF8StringEncoding]];
                 [body appendData:[@"Content-Type: application/octet-stream\r\n\r\n" dataUsingEncoding : NSUTF8StringEncoding]];
                 [body appendData:[NSData dataWithData:UIImageJPEGRepresentation(dParams[@"image"], 0.5)]];
             } else {
                 [body appendData:[[NSString stringWithFormat:@"Content-Disposition: form-data; name=\"%@\"\r\n\r\n", key] dataUsingEncoding:NSUTF8StringEncoding]];
-                [body appendData:[dParams[key] dataUsingEncoding:NSUTF8StringEncoding]];
+                [body appendData:[[NSString stringWithFormat:@"%@", dParams[key]] dataUsingEncoding:NSUTF8StringEncoding]];
             }
         }
         [body appendData:[[NSString stringWithFormat:@"\r\n--%@--\r\n", boundary] dataUsingEncoding:NSUTF8StringEncoding]];

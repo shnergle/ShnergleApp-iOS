@@ -29,7 +29,7 @@
     if ([msg length] > 0) {
         passcodeString = msg;
         passcodeInfoString = passcode;
-        shouldHidePoints = YES;
+        shouldHidePoints = NO;
         shouldHidePasscode = NO;
     } else {
         shouldHidePasscode = YES;
