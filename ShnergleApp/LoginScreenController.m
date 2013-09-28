@@ -74,7 +74,7 @@
 }
 
 - (void)loginView:(FBLoginView *)loginView handleError:(NSError *)error {
-    [self alertFB];
+    [[[UIAlertView alloc] initWithTitle:@"Could not log in with Facebook. Ensure access is enabled in Privacy/Facebook settings and your Facebook account is properly set up." message:nil delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil] show];
 }
 
 - (void)loginViewShowingLoggedInUser:(FBLoginView *)loginView {
@@ -114,10 +114,6 @@
 
 - (void)alert {
     [[[UIAlertView alloc] initWithTitle:@"Connection failed!" message:nil delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil] show];
-}
-
-- (void)alertFB {
-    [[[UIAlertView alloc] initWithTitle:@"Could not log in with Facebook. Ensure access is enabled in Privacy/Facebook settings and your Facebook account is properly set up." message:nil delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil] show];
 }
 
 - (IBAction)showInfo:(id)sender {

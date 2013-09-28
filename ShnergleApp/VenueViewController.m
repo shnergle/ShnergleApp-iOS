@@ -261,13 +261,14 @@
             promotionExpiry = ([response[@"maximum"] integerValue] == 0 || response[@"maximum"] == nil) ? [NSString stringWithFormat:@"%@ claimed", response[@"redemptions"]] : [NSString stringWithFormat:@"%@/%@ claimed", response[@"redemptions"], response[@"maximum"]];
             promotionUntil = [response[@"end"] integerValue] > 0 ? [NSString stringWithFormat:@"Expires %@", [NSDateFormatter localizedStringFromDate:[NSDate dateWithTimeIntervalSince1970:[response[@"end"] integerValue]] dateStyle:NSDateFormatterShortStyle timeStyle:NSDateFormatterShortStyle]] : @"";
             promotionLevel = ([response[@"level"] integerValue] == 0 || response[@"level"] == nil) ? @"" : [NSString stringWithFormat:@"%@ only", [self levelName:[response[@"level"] integerValue]]];
+            overlayView.tapPromotion.enabled = YES;
         } else {
             promotionBody = @"No Promotion Active";
             promotionTitle = @"";
             promotionExpiry = @"";
             promotionUntil = @"";
             promotionLevel = @"";
-            overlayView.tapPromotion.delegate = nil;
+            overlayView.tapPromotion.enabled = NO;
         }
 
         [self setPromoContentTo:promotionBody promoHeadline:promotionTitle promoExpiry:promotionExpiry];
