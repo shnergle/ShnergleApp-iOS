@@ -69,6 +69,7 @@ typedef enum {
                         params[@"website"] = appDelegate.venueDetailsContent[@(10)];
                     }
                 }
+                appDelegate.venueDetailsContent = nil;
 
                 [Request post:@"venues/set" params:params callback:^(id response) {
                     if (response == nil) {
@@ -208,6 +209,8 @@ typedef enum {
     if (workSwitch.on == YES) {
         UIViewController *vc = [self.storyboard instantiateViewControllerWithIdentifier:@"VenueDetailsViewIdentifier"];
         [self.navigationController pushViewController:vc animated:YES];
+    } else {
+        appDelegate.venueDetailsContent = nil;
     }
 }
 

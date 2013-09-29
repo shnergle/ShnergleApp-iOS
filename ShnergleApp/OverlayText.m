@@ -409,6 +409,8 @@
             [((VenueViewController *)self.nextResponder.nextResponder) reloadOverlay];
         }];
     }];
+    
+    appDelegate.venueDetailsContent = nil;
 }
 
 @end

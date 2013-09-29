@@ -12,11 +12,12 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-
-    appDelegate.venueDetailsContent = [NSMutableDictionary dictionary];
     tableData = @[@"Phone", @"Email", @"Website"];
     textFields = [NSMutableArray arrayWithCapacity:3];
+}
 
+- (void)viewWillAppear:(BOOL)animated {
+    appDelegate.venueDetailsContent = [NSMutableDictionary dictionary];
     if (appDelegate.claiming) [self setRightBarButton:@"Done" actionSelector:@selector(checkAndSave:)];
 }
 
@@ -25,6 +26,7 @@
         for (UITextField *textField in textFields) {
             [self textFieldDidEndEditing:textField];
         }
+        appDelegate.claiming = NO;
         [self.navigationController popViewControllerAnimated:YES];
     } else {
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Please fill in all fields." message:nil delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
@@ -43,7 +45,7 @@
     return YES;
 }
 
-- (void)viewDidDisappear:(BOOL)animated {
+- (void)viewWillDisappear:(BOOL)animated {
     [super viewDidDisappear:animated];
     if (appDelegate.claiming) appDelegate.venueDetailsContent = nil;
     else
