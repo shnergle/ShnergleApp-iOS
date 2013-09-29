@@ -41,8 +41,7 @@ typedef enum {
                 [self.userData addEntriesFromDictionary:appDelegate.venueDetailsContent];
             }
 
-            [[[CLGeocoder alloc] init] reverseGeocodeLocation:map.userLocation.location completionHandler:^(NSArray *placemark, NSError *error)
-            {
+            [[[CLGeocoder alloc] init] reverseGeocodeLocation:man.location completionHandler:^(NSArray *placemark, NSError *error) {
                 NSMutableArray *address = [NSMutableArray array];
                 if (self.userData[@3] != nil) [address addObject:self.userData[@3]];
                 if (self.userData[@4] != nil) [address addObject:self.userData[@4]];
@@ -91,12 +90,10 @@ typedef enum {
                 }];
             } ];
         } else {
-            UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"Fields Missing" message:@"Please fill in all required fields" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
-            [alert show];
+            [[[UIAlertView alloc] initWithTitle:@"Fields Missing" message:@"Please fill in all required fields" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil] show];
         }
     } else {
-        UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"Fields Missing" message:@"Please fill in all required fields" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
-        [alert show];
+        [[[UIAlertView alloc] initWithTitle:@"Fields Missing" message:@"Please fill in all required fields" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil] show];
     }
 }
 
@@ -242,7 +239,6 @@ typedef enum {
 - (void)locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray *)locations {
     self.navigationItem.rightBarButtonItem.enabled = YES;
     [manager stopUpdatingLocation];
-    manager = nil;
 }
 
 - (void)viewWillDisappear:(BOOL)animated {
