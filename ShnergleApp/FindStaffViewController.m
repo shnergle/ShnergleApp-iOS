@@ -25,10 +25,10 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"ASRCell"];
-    FBProfilePictureView *img = [[FBProfilePictureView alloc]initWithFrame:CGRectMake(5, 0, 44, 44)];
+    FBProfilePictureView *img = [[FBProfilePictureView alloc] initWithFrame:CGRectMake(5, 0, 44, 44)];
     img.profileID = results[indexPath.row][@"facebook_id"];
     [cell addSubview:img];
-    UILabel *label = [[UILabel alloc]initWithFrame:CGRectMake(54, 0, cell.bounds.size.width - 54, cell.bounds.size.height)];
+    UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(54, 0, cell.bounds.size.width - 54, cell.bounds.size.height)];
     label.text = [NSString stringWithFormat:@"%@ %@", results[indexPath.row][@"forename"], results[indexPath.row][@"surname"]];
 
     [cell addSubview:label];
@@ -64,13 +64,13 @@
 }
 
 - (BOOL)isAlreadyInStaffList:(id)user_id {
-    for (int i = 0; i < [appDelegate.staff[@"managers"] count]; i++) {
-        if ([appDelegate.staff[@"managers"][i][@"user_id"] isEqual:user_id]) {
+    for (NSDictionary *staff in appDelegate.staff[@"managers"]) {
+        if ([staff[@"user_id"] isEqual:user_id]) {
             return YES;
         }
     }
-    for (int i = 0; i < [appDelegate.staff[@"staff"] count]; i++) {
-        if ([appDelegate.staff[@"staff"][i][@"user_id"] isEqual:user_id]) {
+    for (NSDictionary *staff in appDelegate.staff[@"staff"]) {
+        if ([staff[@"user_id"] isEqual:user_id]) {
             return YES;
         }
     }
