@@ -20,7 +20,6 @@
     [self.view makeToastActivity];
     self.navigationItem.title = @"Manage Promotions";
     self.tableView.backgroundColor = [UIColor colorWithRed:233 / 255. green:235 / 255. blue:240 / 255. alpha:1];
-    self.automaticallyAdjustsScrollViewInsets = NO;
 }
 
 - (void)viewDidAppear:(BOOL)animated {
@@ -34,13 +33,11 @@
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell;
-    cell = [tableView dequeueReusableCellWithIdentifier:@"Cell"];
-    if (!cell) cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"Cell"];
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell"];
+    cell.backgroundColor = [UIColor colorWithRed:233/255. green:235/255. blue:240/255. alpha:1];
 
-    UIImage *img = [UIImage imageNamed:@"promotion"];
     UIImageView *promotionTicketView = [[UIImageView alloc] initWithFrame:CGRectMake(5, 0, 311.0, 67.5)];
-    promotionTicketView.image = img;
+    promotionTicketView.image = [UIImage imageNamed:@"promotion"];
     [cell addSubview:promotionTicketView];
     UILabel *promoTitleLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 8, 311.0, 10)];
     UILabel *promoContentLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 20, 311.0, 20)];
@@ -60,6 +57,10 @@
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     return 67.5;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
+    return 20;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
@@ -104,8 +105,7 @@
                 [promotions removeObjectAtIndex:indexPath.row];
                 [self.tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationMiddle];
             } else {
-                UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"Error Deleting promotion" message:nil delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
-                [alert show];
+                [[[UIAlertView alloc] initWithTitle:@"Error Deleting promotion" message:nil delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil] show];
             }
         }];
     }

@@ -8,11 +8,11 @@
 
 #import "CustomBackViewController.h"
 
-@interface SelectPromotionsViewController : CustomBackViewController <UITableViewDataSource, UITableViewDelegate>
-{
+@interface SelectPromotionsViewController : CustomBackViewController <UITableViewDataSource, UITableViewDelegate> {
     NSMutableArray *promotions;
     NSIndexPath *selectedIndexPath;
 }
+
 @property (strong, nonatomic) IBOutlet UITableView *tableView;
 
 @end
