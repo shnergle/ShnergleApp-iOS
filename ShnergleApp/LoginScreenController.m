@@ -9,6 +9,7 @@
 #import "LoginScreenController.h"
 #import "Request.h"
 #import <sys/utsname.h>
+#import <FlurrySDK/Flurry.h>
 
 @implementation LoginScreenController
 
@@ -44,6 +45,9 @@
                              @"birth_month": [self orEmpty:[user[@"birthday"] substringToIndex:2]],
                              @"birth_year": [self orEmpty:[user[@"birthday"] substringFromIndex:6]],
                              @"age": @([self age:user[@"birthday"]])};
+
+    [Flurry setAge:[params[@"age"] intValue]];
+    if ([@"m" isEqualToString:params[@"gender"]] || [@"f" isEqualToString:params[@"gender"]]) [Flurry setGender:params[@"gender"]];
 
     [Request post:@"users/set" params:params callback:^(id response) {
         if (response != nil) {

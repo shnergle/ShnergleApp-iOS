@@ -14,6 +14,7 @@
 #import "VenueViewController.h"
 #import <ECSlidingViewController/ECSlidingViewController.h>
 #import "UIViewController+CheckIn.h"
+#import <FlurrySDK/Flurry.h>
 
 @implementation AroundMeViewController
 
@@ -294,6 +295,7 @@
 - (void)mapView:(MKMapView *)mapView didUpdateUserLocation:(MKUserLocation *)userLocation {
     if (!hasPositionLocked) {
         hasPositionLocked = YES;
+        [Flurry setLatitude:userLocation.coordinate.latitude longitude:userLocation.coordinate.longitude horizontalAccuracy:userLocation.location.horizontalAccuracy verticalAccuracy:userLocation.location.verticalAccuracy];
         MKMapPoint point = MKMapPointForCoordinate(userLocation.coordinate);
         MKCoordinateRegion region = MKCoordinateRegionForMapRect(MKMapRectMake(point.x, point.y, map.frame.size.width * 50, map.frame.size.height * 50));
         map.region = region;
