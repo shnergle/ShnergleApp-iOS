@@ -85,7 +85,7 @@ static ConnectionErrorAlert *connectionErrorAlert;
         NSMutableArray *paramsArray = [NSMutableArray array];
         for (NSString *key in dParams) {
             id value = dParams[key];
-            if ([value respondsToSelector:@selector(stringByAddingPercentEncodingWithAllowedCharacters:)]) [value stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet alphanumericCharacterSet]];
+            if ([value respondsToSelector:@selector(stringByAddingPercentEncodingWithAllowedCharacters:)]) value = [value stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet alphanumericCharacterSet]];
             [paramsArray addObject:[NSString stringWithFormat:@"%@=%@", key, value]];
         }
         [urlRequest setHTTPBody:[[paramsArray componentsJoinedByString:@"&"] dataUsingEncoding:NSUTF8StringEncoding]];
@@ -96,8 +96,7 @@ static ConnectionErrorAlert *connectionErrorAlert;
             if (connectionError.code != -1001 && !connectionErrorAlert.alertIssued) {
                 connectionErrorAlert.alertIssued = YES;
                 dispatch_async(dispatch_get_main_queue(), ^{
-                    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Connection failed!" message:nil delegate:connectionErrorAlert cancelButtonTitle:@"OK" otherButtonTitles:nil];
-                    [alert show];
+                    [[[UIAlertView alloc] initWithTitle:@"Connection failed!" message:nil delegate:connectionErrorAlert cancelButtonTitle:@"OK" otherButtonTitles:nil] show];
                 });
             }
             return;
