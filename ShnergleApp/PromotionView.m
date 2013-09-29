@@ -9,6 +9,7 @@
 #import "PromotionView.h"
 #import "Request.h"
 #import <UIImage-Resize/UIImage+Resize.h>
+#import "UIViewController+CheckIn.h"
 
 @implementation PromotionView
 
@@ -32,11 +33,6 @@
     BOOL on = [((CLLocation *)locations.lastObject)distanceFromLocation :[[CLLocation alloc] initWithLatitude:[appDelegate.activeVenue[@"lat"] doubleValue] longitude:[appDelegate.activeVenue[@"lon"] doubleValue]]] <= 111;
 
     if (appDelegate.canRedeem) self.redeemButton.enabled = on;
-}
-
-- (IBAction)tapUseDeal:(id)sender {
-    appDelegate.redeeming = [appDelegate.activePromotion[@"id"] stringValue];
-    [self presentCheckInFlow:nil];
 }
 
 - (void)setpromotionTitle:(NSString *)contents {
@@ -70,49 +66,11 @@
     self.promotionLevel.textAlignment = NSTextAlignmentCenter;
 }
 
-- (void)viewDidDisappear:(BOOL)animated {
-    [super viewDidDisappear:animated];
-#warning pseudo code
-    if (false /*notRedeeming*/) appDelegate.redeeming = nil;
-}
-
 - (void)viewWillDisappear:(BOOL)animated {
     [super viewWillDisappear:animated];
     [man stopUpdatingLocation];
     man = nil;
-}
-
-- (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info {
-    UIImage *img = info[@"UIImagePickerControllerOriginalImage"];
-    if (appDelegate.saveLocally) {
-        UIImageWriteToSavedPhotosAlbum(img, nil, nil, nil);
-    }
-    [Request setImage:@{@"entity": @"image", @"entity_id": @"toShare"} image:[img resizedImageToFitInSize:CGSizeMake(612, 612) scaleIfSmaller:YES]];
-    info = nil;
-    UIViewController *vc;
-    if (!appDelegate.activeVenue) {
-        vc = [[UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle mainBundle]] instantiateViewControllerWithIdentifier:@"PhotoLocationViewController"];
-    } else {
-        vc = [[UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle mainBundle]] instantiateViewControllerWithIdentifier:@"ShareViewController"];
-    }
-    dispatch_async(dispatch_get_main_queue(), ^{
-        [picker dismissViewControllerAnimated:NO completion:^{
-            [self.navigationController pushViewController:vc animated:YES];
-        }];
-    });
-}
-
-- (void)imagePickerControllerDidCancel:(UIImagePickerController *)picker {
-    [picker dismissViewControllerAnimated:YES completion:nil];
-}
-
-- (IBAction)presentCheckInFlow:(id)sender {
-    appDelegate.shareVenue = NO;
-    appDelegate.shnergleThis = YES;
-    UIImagePickerController *picker = [[UIImagePickerController alloc] init];
-    picker.delegate = self;
-    picker.sourceType = UIImagePickerControllerSourceTypeCamera;
-    [self presentViewController:picker animated:YES completion:nil];
+    appDelegate.redeeming = [appDelegate.activePromotion[@"id"] stringValue];
 }
 
 @end

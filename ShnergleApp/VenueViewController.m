@@ -325,6 +325,7 @@
 
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
+    appDelegate.redeeming = nil;
 
     [overlayView setTabBarHidden:YES animated:NO];
     [self setPromoContentTo:promotionBody promoHeadline:promotionTitle promoExpiry:promotionExpiry];

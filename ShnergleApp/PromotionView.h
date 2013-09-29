@@ -9,7 +9,7 @@
 #import "CustomBackViewController.h"
 #import <CoreLocation/CoreLocation.h>
 
-@interface PromotionView : CustomBackViewController <CLLocationManagerDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate>
+@interface PromotionView : CustomBackViewController <CLLocationManagerDelegate>
 {
     CLLocationManager *man;
 }

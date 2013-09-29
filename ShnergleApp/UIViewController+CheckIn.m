@@ -20,10 +20,11 @@
     [Request setImage:@{@"entity": @"image", @"entity_id": @"toShare"} image:[img resizedImageToFitInSize:CGSizeMake(612, 612) scaleIfSmaller:YES]];
     info = nil;
     UIViewController *vc;
+    UIStoryboard *storyboard = self.storyboard ? self.storyboard : [UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle mainBundle]];
     if (!appDelegate.activeVenue) {
-        vc = [self.storyboard instantiateViewControllerWithIdentifier:@"PhotoLocationViewController"];
+        vc = [storyboard instantiateViewControllerWithIdentifier:@"PhotoLocationViewController"];
     } else {
-        vc = [self.storyboard instantiateViewControllerWithIdentifier:@"ShareViewController"];
+        vc = [storyboard instantiateViewControllerWithIdentifier:@"ShareViewController"];
     }
     dispatch_async(dispatch_get_main_queue(), ^{
         [picker dismissViewControllerAnimated:NO completion:^{
