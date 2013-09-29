@@ -34,6 +34,7 @@
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
     [Flurry logPageView];
+    [Flurry logEvent:[NSString stringWithFormat:@"Viewed %@", NSStringFromClass([self.topViewController class])]];
 }
 
 @end
