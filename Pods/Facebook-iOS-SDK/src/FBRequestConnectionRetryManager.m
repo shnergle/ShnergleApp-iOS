@@ -67,6 +67,7 @@
 
 @property (nonatomic, retain) NSMutableArray *requestMetadatas;
 @property (nonatomic, retain) FBRequestConnectionRetryManagerAlertViewHelper *alertViewHelper;
+@property (atomic, assign) int expectedPerformRetryCount;
 
 @end
 
@@ -87,6 +88,23 @@
 }
 
 -(void) performRetries {
+    if (self.expectedPerformRetryCount > 0) {
+        // As noted in `expectedPerformRetryCount` declaration, this condition
+        // is to help deal with the async callbacks in FBRequestConnection. Specifically,
+        // the async ios 6 calls need to be processed before any attempt at performRetries.
+        // So before issuing the async calls, we increment the counter so that at the end
+        // of the callback, we can call performRetries. The performRetries will no-op
+        // if the counter is still positive; otherwise it decrements the counter. This
+        // allows the "last" performRetries invocation to actually do its work (since
+        // there a performRetries call at the end of FBRequestConnection completeWithResults
+        // that is _not_ paired with a counter increment).
+        // Note this is still not 100% thread-safe but since all the counter increments
+        // happen beforehand and on the same thread (the completeWithResults loop), it
+        // should be fine albeit fragile until we refactor the async callbacks.
+        self.expectedPerformRetryCount--;
+        return;
+    }
+    
     if (self.alertMessage.length > 0) {
         [_requestConnection retain];
         NSString *buttonText = [FBUtility localizedStringForKey:@"FBE:AlertMessageButton" withDefault:@"OK"];
@@ -145,7 +163,7 @@
             metadata.request.canCloseSessionOnError = YES;
             [connectionToRetry addRequest:metadata.request
                         completionHandler:metadata.originalCompletionHandler
-                          batchParameters:metadata.batchParameters];
+                           batchEntryName:metadata.batchEntryName];
         }
         [connectionToRetry start];
     }
@@ -164,11 +182,15 @@
     }
 }
 
+-(void) incrementExpectedPerformRetryCount {
+    self.expectedPerformRetryCount++;
+}
+
 -(void) dealloc {
-    [_sessionToReconnect release];
-    [_alertMessage release];
-    [_requestMetadatas release];
-    [_alertViewHelper release];
+    self.sessionToReconnect = nil;
+    self.alertMessage = nil;
+    self.requestMetadatas = nil;
+    self.alertViewHelper = nil;
     
     [super dealloc];
 }

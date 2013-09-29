@@ -26,7 +26,7 @@ extern const int FBREQUEST_DEFAULT_MAX_RETRY_LIMIT;
 
 @property (nonatomic, retain) FBRequest *request;
 @property (nonatomic, copy) FBRequestHandler completionHandler;
-@property (nonatomic, copy) NSDictionary *batchParameters;
+@property (nonatomic, copy) NSString *batchEntryName;
 @property (nonatomic, assign) FBRequestConnectionErrorBehavior behavior;
 @property (nonatomic, copy) FBRequestHandler originalCompletionHandler;
 
@@ -36,7 +36,7 @@ extern const int FBREQUEST_DEFAULT_MAX_RETRY_LIMIT;
 
 - (id) initWithRequest:(FBRequest *)request
      completionHandler:(FBRequestHandler)handler
-       batchParameters:(NSDictionary *)batchParameters
+        batchEntryName:(NSString *)name
               behavior:(FBRequestConnectionErrorBehavior) behavior;
 
 - (void)invokeCompletionHandlerForConnection:(FBRequestConnection *)connection

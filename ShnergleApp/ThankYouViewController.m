@@ -18,22 +18,17 @@
     self.passcodeInfoLabel.text = passcodeInfoString;
     self.passcodeLabel.text = passcodeString;
     self.pointsLabel.text = pointsString;
-    self.pointsLabel.hidden = shouldHidePoints;
-    self.pointsInfoLabel.hidden = shouldHidePoints;
-    self.beforeInfoLabel.hidden = shouldHidePoints;
     self.navigationController.navigationBarHidden = YES;
 }
 
-- (void)setupFields:(NSString *)points :(NSString *)msg :(NSString *)passcode{
+- (void)setupFields:(NSString *)points :(NSString *)msg :(NSString *)passcode {
     pointsString = points;
     if ([msg length] > 0) {
         passcodeString = msg;
         passcodeInfoString = passcode;
-        shouldHidePoints = NO;
         shouldHidePasscode = NO;
     } else {
         shouldHidePasscode = YES;
-        shouldHidePoints = NO;
     }
 }
 
@@ -44,6 +39,16 @@
             return;
         }
     }
+}
+
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    self.navigationController.interactivePopGestureRecognizer.enabled = NO;
+}
+
+- (void)viewWillDisappear:(BOOL)animated {
+    [super viewWillDisappear:animated];
+    self.navigationController.interactivePopGestureRecognizer.enabled = YES;
 }
 
 @end

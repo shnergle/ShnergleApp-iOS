@@ -86,9 +86,8 @@ NSString *const FBAppEventNameShareSheetLaunch                 = @"fb_share_shee
 NSString *const FBAppEventNameShareSheetDismiss                = @"fb_share_sheet_dismiss";
 NSString *const FBAppEventNamePermissionsUILaunch              = @"fb_permissions_ui_launch";
 NSString *const FBAppEventNamePermissionsUIDismiss             = @"fb_permissions_ui_dismiss";
-NSString *const FBAppEventNameFBDialogsPresentShareDialog   = @"fb_dialogs_present_share";
-NSString *const FBAppEventNameFBDialogsPresentShareDialogOG = @"fb_dialogs_present_share_og";
-
+NSString *const FBAppEventNameFBDialogsCanPresentShareDialog   = @"fb_dialogs_can_present_share";
+NSString *const FBAppEventNameFBDialogsCanPresentShareDialogOG = @"fb_dialogs_can_present_share_og";
 
 NSString *const FBAppEventNameFBDialogsNativeLoginDialogStart  = @"fb_dialogs_native_login_dialog_start";
 NSString *const FBAppEventsNativeLoginDialogStartTime          = @"fb_native_login_dialog_start_time";
@@ -535,10 +534,6 @@ const int MAX_IDENTIFIER_LENGTH                      = 40;
         [eventDictionary setObject:valueToSum forKey:@"_valueToSum"];
     }
     
-    if (isImplicitlyLogged) {
-        [eventDictionary setObject:@"1" forKey:@"_implicitlyLogged"];
-    }
-    
     @synchronized (self) {
         if ([FBSettings appVersion]) {
             [eventDictionary setObject:[FBSettings appVersion] forKey:@"_appVersion"];
@@ -561,12 +556,10 @@ const int MAX_IDENTIFIER_LENGTH                      = 40;
         
         [appEventsState addEvent:eventDictionary isImplicit:isImplicitlyLogged];
         
-        if (!isImplicitlyLogged) {
-            [FBLogger singleShotLogEntry:FBLoggingBehaviorAppEvents
-                            formatString:@"FBAppEvents: Recording event @ %ld: %@",
-                [FBAppEvents unixTimeNow],
-                eventDictionary];
-        }
+        [FBLogger singleShotLogEntry:FBLoggingBehaviorAppEvents
+                        formatString:@"FBAppEvents: Recording event @ %ld: %@",
+            [FBAppEvents unixTimeNow],
+            eventDictionary];
         
         BOOL eventsRetrievedFromPersistedData = NO;
         if (self.haveOutstandingPersistedData) {
@@ -669,7 +662,7 @@ const int MAX_IDENTIFIER_LENGTH                      = 40;
     } 
     
     NSString *jsonEncodedEvents;
-    NSUInteger eventCount, numSkipped;
+    int eventCount, numSkipped;
     @synchronized (appEventsState) {
         
         [appEventsState.inFlightEvents addObjectsFromArray:appEventsState.accumulatedEvents];
@@ -702,7 +695,7 @@ const int MAX_IDENTIFIER_LENGTH                      = 40;
          ];
     
     if (numSkipped > 0) {
-        postParameters[@"num_skipped_events"] = [NSString stringWithFormat:@"%lu", (unsigned long)numSkipped];
+        postParameters[@"num_skipped_events"] = [NSString stringWithFormat:@"%d", numSkipped];
     }
     
     [self appendAttributionAndAdvertiserIDs:postParameters
@@ -720,9 +713,9 @@ const int MAX_IDENTIFIER_LENGTH                      = 40;
         NSMutableDictionary *paramsForPrinting = [NSMutableDictionary dictionaryWithDictionary:postParameters];
         [paramsForPrinting removeObjectForKey:@"custom_events_file"];
     
-        loggingEntry = [NSString stringWithFormat:@"FBAppEvents: Flushed @ %ld, %lu events due to '%@' - %@\nEvents: %@",
+        loggingEntry = [NSString stringWithFormat:@"FBAppEvents: Flushed @ %ld, %d events due to '%@' - %@\nEvents: %@",
                          [FBAppEvents unixTimeNow],
-                         (unsigned long)eventCount,
+                         eventCount,
                          [FBAppEvents flushReasonToString:flushReason],
                          paramsForPrinting,
                          prettyPrintedJsonEvents];
@@ -760,8 +753,8 @@ const int MAX_IDENTIFIER_LENGTH                      = 40;
     if (advertiserID) {
         [postParameters setObject:advertiserID forKey:@"advertiser_id"];
     }
-
-    [FBUtility updateParametersWithEventUsageLimitsAndBundleInfo:postParameters];
+  
+    [FBUtility updateParametersWithEventUsageLimits:postParameters];
 }
 
 - (BOOL)doesSessionHaveUserToken:(FBSession *)session {
@@ -873,7 +866,7 @@ const int MAX_IDENTIFIER_LENGTH                      = 40;
     FlushResult flushResult = FlushResultSuccess;
     if (error) {
         
-        NSInteger errorCode = [[[error userInfo] objectForKey:FBErrorHTTPStatusCodeKey] integerValue];
+        int errorCode = [[[error userInfo] objectForKey:FBErrorHTTPStatusCodeKey] integerValue];
         
         // We interpret a 400 coming back from FBRequestConnection as a server error due to improper data being
         // sent down.  Otherwise we assume no connectivity, or another condition where we could treat it as no connectivity.
@@ -1046,7 +1039,7 @@ const int MAX_IDENTIFIER_LENGTH                      = 40;
         [appEventsState.accumulatedEvents removeAllObjects];
         
         [FBLogger singleShotLogEntry:FBLoggingBehaviorAppEvents
-                        formatString:@"FBAppEvents Persist: Writing %lu events", (unsigned long)appEventsState.inFlightEvents.count];
+                        formatString:@"FBAppEvents Persist: Writing %d events", appEventsState.inFlightEvents.count];
         
         if (!appEventsState.inFlightEvents.count) {
             return;
@@ -1079,8 +1072,7 @@ const int MAX_IDENTIFIER_LENGTH                      = 40;
     [content release];
     
     [FBLogger singleShotLogEntry:FBLoggingBehaviorAppEvents
-                    formatString:@"FBAppEvents Persist: Read %lu events",
-                    (unsigned long)(results ? [[results objectForKey:FBAppEventsPersistKeyEvents] count] : 0)];
+                    formatString:@"FBAppEvents Persist: Read %d events", results ? [[results objectForKey:FBAppEventsPersistKeyEvents] count] : 0];
     return results;
 }
 
@@ -1115,12 +1107,10 @@ const int MAX_IDENTIFIER_LENGTH                      = 40;
     
     // Rules for how we use the attribution ID / advertiser ID for an 'custom_audience_third_party_id' Graph API request
     // 1) if the OS tells us that the user has Limited Ad Tracking, then just don't send, and return a nil in the token.
-    // 2) if the app has set 'limitEventUsage', this effectively implies that app-initiated ad targeting shouldn't happen,
-    //    so use that data here to return nil as well.
-    // 3) if we have a user session token, then no need to send attribution ID / advertiser ID back as the udid parameter
-    // 4) otherwise, send back the udid parameter.
+    // 2) if we have a user session token, then no need to send attribution ID / advertiser ID back as the udid parameter
+    // 3) otherwise, send back the udid parameter.
     
-    if ([FBUtility advertisingTrackingStatus] == AdvertisingTrackingDisallowed || [FBAppEvents limitEventUsage]) {
+    if ([FBUtility advertisingTrackingStatus] == AdvertisingTrackingDisallowed) {
         return nil;
     }
     

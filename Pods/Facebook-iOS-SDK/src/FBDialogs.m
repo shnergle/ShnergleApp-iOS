@@ -118,7 +118,7 @@
                       valueToSum:nil
                       parameters:@{ @"render_type" : @"Native" }
                          session:session];
-    [viewController presentViewController:composeViewController animated:YES completion:nil];
+    [viewController presentModalViewController:composeViewController animated:YES];
     
     return YES;
 }
@@ -171,7 +171,15 @@
 }
 
 + (BOOL)canPresentShareDialogWithParams:(FBShareDialogParams *)params {
-    return [params appBridgeVersion] != nil;
+    BOOL canPresent = [params appBridgeVersion] != nil;
+    [FBAppEvents logImplicitEvent:FBAppEventNameFBDialogsCanPresentShareDialog
+                      valueToSum:nil
+                      parameters:@{ FBAppEventParameterDialogOutcome :
+                                         canPresent ?
+                                            FBAppEventsDialogOutcomeValue_Completed :
+                                            FBAppEventsDialogOutcomeValue_Failed }
+                         session:nil];
+    return canPresent;
 }
 
 + (FBAppCall *)presentShareDialogWithParams:(FBShareDialogParams *)params
@@ -197,12 +205,6 @@
                                               }
                                           }];
     }
-    [FBAppEvents logImplicitEvent:FBAppEventNameFBDialogsPresentShareDialog
-                       valueToSum:nil
-                       parameters:@{ FBAppEventParameterDialogOutcome : call ?
-                                                                        FBAppEventsDialogOutcomeValue_Completed :
-                                                                        FBAppEventsDialogOutcomeValue_Failed }
-                          session:nil];
     
     return call;
 }
@@ -251,7 +253,15 @@
 }
 
 + (BOOL)canPresentShareDialogWithOpenGraphActionParams:(FBOpenGraphActionShareDialogParams *)params {
-    return [params appBridgeVersion] != nil;
+    BOOL canPresent = [params appBridgeVersion] != nil;
+    [FBAppEvents logImplicitEvent:FBAppEventNameFBDialogsCanPresentShareDialogOG
+                      valueToSum:nil
+                      parameters:@{ FBAppEventParameterDialogOutcome :
+                                         canPresent ?
+                                            FBAppEventsDialogOutcomeValue_Completed :
+                                            FBAppEventsDialogOutcomeValue_Failed }
+                         session:nil];
+    return canPresent;
 }
 
 + (FBAppCall *)presentShareDialogWithOpenGraphActionParams:(FBOpenGraphActionShareDialogParams *)params
@@ -285,13 +295,7 @@
                                               }];
         }
     }
-    [FBAppEvents logImplicitEvent:FBAppEventNameFBDialogsPresentShareDialogOG
-                       valueToSum:nil
-                       parameters:@{ FBAppEventParameterDialogOutcome : call ?
-                                                                        FBAppEventsDialogOutcomeValue_Completed :
-                                                                        FBAppEventsDialogOutcomeValue_Failed }
-                          session:nil];
-
+    
     return call;
 }
 

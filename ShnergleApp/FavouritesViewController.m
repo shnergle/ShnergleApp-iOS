@@ -92,6 +92,7 @@
          man.desiredAccuracy = kCLLocationAccuracyNearestTenMeters;
          [man startUpdatingLocation];
      }
+    self.automaticallyAdjustsScrollViewInsets = !!self.slidingViewController;
 }
 
 - (void)viewWillDisappear:(BOOL)animated {

@@ -328,7 +328,7 @@ typedef enum _SelectorInferredImplType {
     // processing, indexed by selector
     
     NSString *selectorName = NSStringFromSelector(sel);
-    NSUInteger	parameterCount = [[selectorName componentsSeparatedByString:@":"] count]-1;
+    int	parameterCount = [[selectorName componentsSeparatedByString:@":"] count]-1;
     // we will process a selector as a getter if paramCount == 0
     if (parameterCount == 0) {
         return SelectorInferredImplTypeGet;
@@ -458,8 +458,8 @@ typedef enum _SelectorInferredImplType {
 }
 
 - (void)graphObjectifyAll {
-    NSUInteger count = [_jsonArray count];
-    for (NSUInteger i = 0; i < count; ++i) {
+    int count = [_jsonArray count];
+    for (int i = 0; i < count; ++i) {
         [self graphObjectifyAtIndex:i];
     }
 }

@@ -104,19 +104,6 @@ static FBSystemAccountStoreAdapter* _singletonInstance = nil;
 
 #pragma  mark - Public properties and methods
 
-- (FBTask *)requestAccessToFacebookAccountStoreAsTask:(FBSession *)session {
-    FBTaskCompletionSource* tcs = [FBTaskCompletionSource taskCompletionSource];
-    [self requestAccessToFacebookAccountStore:session handler:^(NSString *oauthToken, NSError *accountStoreError) {
-        if (accountStoreError) {
-            [tcs setError:accountStoreError];
-        } else {
-            [tcs setResult:oauthToken];
-        }
-    }];
-    return tcs.task;
-}
-
-
 - (void)requestAccessToFacebookAccountStore:(FBSession *)session
                                     handler:(FBRequestAccessToAccountsHandler)handler {
     return [self requestAccessToFacebookAccountStore:session.accessTokenData.permissions
@@ -268,8 +255,8 @@ static FBSystemAccountStoreAdapter* _singletonInstance = nil;
             [self.accountStore renewCredentialsForAccount:account completion:^(ACAccountCredentialRenewResult renewResult, NSError *error) {
                 if (error){
                     [FBLogger singleShotLogEntry:FBLoggingBehaviorAccessTokens
-                                        logEntry:[NSString stringWithFormat:@"renewCredentialsForAccount result:%ld, error: %@",
-                                                  (long)renewResult,
+                                        logEntry:[NSString stringWithFormat:@"renewCredentialsForAccount result:%d, error: %@",
+                                                  renewResult,
                                                   error]];
                 }
                 if (handler) {
@@ -305,15 +292,4 @@ static FBSystemAccountStoreAdapter* _singletonInstance = nil;
     }
 }
 
-- (FBTask *)renewSystemAuthorizationAsTask {
-    FBTaskCompletionSource* tcs = [FBTaskCompletionSource taskCompletionSource];
-    [self renewSystemAuthorization:^(ACAccountCredentialRenewResult result, NSError *error) {
-        if (error) {
-            [tcs setError:error];
-        } else {
-            [tcs setResult:result];
-        }
-    }];
-    return tcs.task;
-}
 @end

@@ -16,13 +16,11 @@
     [super viewDidLoad];
     if (!(appDelegate.venueStatus == Staff && [appDelegate.activeVenue[@"promo_perm"] integerValue] == 0)) [self setRightBarButton:@"New" actionSelector:@selector(addPromotion)];
 
-    promotions = [NSMutableArray arrayWithArray:@[]];
+    promotions = [NSMutableArray array];
     [self.view makeToastActivity];
     self.navigationItem.title = @"Manage Promotions";
-    //reusing activepromotion from venue page.
-    appDelegate.activePromotion = nil;
-
     self.tableView.backgroundColor = [UIColor colorWithRed:233 / 255. green:235 / 255. blue:240 / 255. alpha:1];
+    self.automaticallyAdjustsScrollViewInsets = NO;
 }
 
 - (void)viewDidAppear:(BOOL)animated {
@@ -32,6 +30,7 @@
         [self.tableView reloadData];
         [self.view hideToastActivity];
     }];
+    appDelegate.activePromotion = nil;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -43,9 +42,9 @@
     UIImageView *promotionTicketView = [[UIImageView alloc] initWithFrame:CGRectMake(5, 0, 311.0, 67.5)];
     promotionTicketView.image = img;
     [cell addSubview:promotionTicketView];
-    UILabel *promoTitleLabel = [[UILabel alloc]initWithFrame:CGRectMake(0, 8, 311.0, 10)];
-    UILabel *promoContentLabel = [[UILabel alloc]initWithFrame:CGRectMake(0, 20, 311.0, 20)];
-    UILabel *promoCountLabel = [[UILabel alloc]initWithFrame:CGRectMake(0, 50, 311.0, 10)];
+    UILabel *promoTitleLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 8, 311.0, 10)];
+    UILabel *promoContentLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 20, 311.0, 20)];
+    UILabel *promoCountLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 50, 311.0, 10)];
     [cell addSubview:promoTitleLabel];
     [cell addSubview:promoContentLabel];
     [cell addSubview:promoCountLabel];

@@ -28,25 +28,33 @@
 @property (nonatomic, readwrite, copy) NSDate *refreshDate;
 @property (nonatomic, readwrite, copy) NSArray *permissions;
 
-@property (nonatomic, readwrite, copy) NSDate *permissionsRefreshDate;
+- (id) initWithToken:(NSString *)accessToken
+         permissions:(NSArray *)permissions
+      expirationDate:(NSDate *)expirationDate
+           loginType:(FBSessionLoginType)loginType
+         refreshDate:(NSDate *)refreshDate;
 
 @end
 
 @implementation FBAccessTokenData
 
-- (id)       initWithToken:(NSString *)accessToken
-               permissions:(NSArray *)permissions
-            expirationDate:(NSDate *)expirationDate
-                 loginType:(FBSessionLoginType)loginType
-               refreshDate:(NSDate *)refreshDate
-    permissionsRefreshDate:(NSDate *)permissionsRefreshDate {
-    if ((self = [super init])){
+@synthesize accessToken = _accessToken,
+            permissions = _permissions,
+            expirationDate = _expirationDate,
+            loginType = _loginType,
+            refreshDate = _refreshDate;
+
+- (id) initWithToken:(NSString *)accessToken
+         permissions:(NSArray *)permissions
+      expirationDate:(NSDate *)expirationDate
+           loginType:(FBSessionLoginType)loginType
+         refreshDate:(NSDate *)refreshDate {
+    if (self = [super init]){
         _accessToken = [accessToken copy];
         _permissions = [permissions copy];
         _expirationDate = [expirationDate copy];
         _refreshDate = [refreshDate copy];
         _loginType = loginType;
-        _permissionsRefreshDate = [permissionsRefreshDate copy];
     }
     return self;
 }
@@ -56,7 +64,6 @@
     [_permissions release];
     [_expirationDate release];
     [_refreshDate release];
-    [_permissionsRefreshDate release];
     [super dealloc];
 }
 
@@ -85,7 +92,6 @@
     FBSessionLoginType dictionaryLoginType = [dictionary[FBTokenInformationLoginTypeLoginKey] intValue];
     BOOL dictionaryIsFacebookLoginType = [dictionary[FBTokenInformationIsFacebookLoginKey] boolValue];
     NSDate *dictionaryRefreshDate = dictionary[FBTokenInformationRefreshDateKey];
-    NSDate *dictionaryPermissionsRefreshDate = dictionary[FBTokenInformationPermissionsRefreshDateKey];
     
     if (dictionaryIsFacebookLoginType && dictionaryLoginType == FBSessionLoginTypeNone) {
         // The internal isFacebookLogin has been removed but to support backwards compatibility,
@@ -97,8 +103,7 @@
                                                    permissions:dictionaryPermissions
                                                 expirationDate:dictionaryExpirationDate
                                                      loginType:dictionaryLoginType
-                                                   refreshDate:dictionaryRefreshDate
-                                        permissionsRefreshDate:dictionaryPermissionsRefreshDate];
+                                                   refreshDate:dictionaryRefreshDate];
     return tokenData;
 }
 
@@ -106,21 +111,7 @@
                                   permissions:(NSArray *)permissions
                                expirationDate:(NSDate *)expirationDate
                                     loginType:(FBSessionLoginType)loginType
-                                  refreshDate:(NSDate *)refreshDate {
-    return [self createTokenFromString:accessToken
-                           permissions:permissions
-                        expirationDate:expirationDate
-                             loginType:loginType
-                           refreshDate:refreshDate
-                permissionsRefreshDate:nil];
-}
-
-+ (FBAccessTokenData *) createTokenFromString:(NSString *)accessToken
-                                  permissions:(NSArray *)permissions
-                               expirationDate:(NSDate *)expirationDate
-                                    loginType:(FBSessionLoginType)loginType
                                   refreshDate:(NSDate *)refreshDate
-                       permissionsRefreshDate:(NSDate *)permissionsRefreshDate
 {
     if (accessToken == nil || [accessToken stringByTrimmingCharactersInSet:
                                [NSCharacterSet whitespaceCharacterSet]].length == 0) {
@@ -132,16 +123,11 @@
     if (refreshDate == nil) {
         refreshDate = [NSDate date];
     }
-    if (permissionsRefreshDate == nil) {
-        permissionsRefreshDate = [NSDate distantPast];
-    }
-    
     FBAccessTokenData* fbAccessToken = [[FBAccessTokenData alloc] initWithToken:accessToken
                                                                     permissions:permissions
                                                                  expirationDate:expirationDate
                                                                       loginType:loginType
-                                                                    refreshDate:refreshDate
-                                                         permissionsRefreshDate:permissionsRefreshDate];
+                                                                    refreshDate:refreshDate];
     return [fbAccessToken autorelease];
 }
 
@@ -165,7 +151,6 @@
     result = prime * result + [self.expirationDate hash];
     result = prime * result + [self.refreshDate hash];
     result = prime * result + self.loginType;
-    result = prime * result + [self.permissionsRefreshDate hash];
     
     return result;
 }
@@ -176,8 +161,7 @@
                                            permissions:self.permissions
                                         expirationDate:self.expirationDate
                                              loginType:self.loginType
-                                           refreshDate:self.refreshDate
-                                permissionsRefreshDate:self.permissionsRefreshDate];
+                                           refreshDate:self.refreshDate];
     return copy;
 }
 
@@ -190,8 +174,7 @@
         && [[NSSet setWithArray:self.permissions] isEqualToSet:[NSSet setWithArray:accessTokenData.permissions]]
         && [self.expirationDate isEqualToDate:accessTokenData.expirationDate]
         && self.loginType == accessTokenData.loginType
-        && [self.refreshDate isEqualToDate:accessTokenData.refreshDate]
-        && [self.permissionsRefreshDate isEqualToDate:accessTokenData.permissionsRefreshDate]) {
+        && [self.refreshDate isEqualToDate:accessTokenData.refreshDate]) {
         return YES;
     }
     
@@ -205,13 +188,10 @@
                                  [NSNumber numberWithInt:self.loginType], FBTokenInformationLoginTypeLoginKey,
                                  nil];
     if (self.refreshDate) {
-        dict[FBTokenInformationRefreshDateKey] = self.refreshDate;
+        [dict setObject:self.refreshDate forKey:FBTokenInformationRefreshDateKey];
     }
     if (self.permissions) {
-        dict[FBTokenInformationPermissionsKey] = self.permissions;
-    }
-    if (self.permissionsRefreshDate) {
-        dict[FBTokenInformationPermissionsRefreshDateKey] = self.permissionsRefreshDate;
+        [dict setObject:self.permissions forKey:FBTokenInformationPermissionsKey];
     }
     return [dict autorelease];
 }

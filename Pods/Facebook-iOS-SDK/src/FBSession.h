@@ -167,12 +167,6 @@ typedef enum {
  @abstract Block type used to define blocks called by <FBSession> for state updates
  @discussion See https://developers.facebook.com/docs/technical-guides/iossdk/errors/
   for error handling best practices.
- 
-  Requesting additional permissions inside this handler (such as by calling
-  `requestNewPublishPermissions`) should be avoided because it is a poor user
-  experience and its behavior may vary depending on the login type. You should
-  request the permissions closer to the operation that requires it (e.g., when
-  the user performs some action).
  */
 typedef void (^FBSessionStateHandler)(FBSession *session, 
                                        FBSessionState status, 
@@ -186,12 +180,6 @@ typedef void (^FBSessionStateHandler)(FBSession *session,
  
  @discussion See https://developers.facebook.com/docs/technical-guides/iossdk/errors/
  for error handling best practices.
- 
- Requesting additional permissions inside this handler (such as by calling
- `requestNewPublishPermissions`) should be avoided because it is a poor user
- experience and its behavior may vary depending on the login type. You should
- request the permissions closer to the operation that requires it (e.g., when
- the user performs some action).
  */
 typedef void (^FBSessionRequestPermissionResultHandler)(FBSession *session,
                                                         NSError *error);
@@ -566,7 +554,7 @@ __attribute__((deprecated));
  when there is a cached token available from a previous run of the application. If NO is returned, this indicates 
  that the session was not immediately opened, via cache. However, if YES was passed as allowLoginUI, then it is 
  possible that the user will login, and the session will become open asynchronously. The primary use for
- this return value is to switch-on facebook capabilities in your UX upon startup, in the case where the session
+ this return value is to switch-on facebook capabilities in your UX upon startup, in the case were the session
  is opened via cache.
  */
 + (BOOL)openActiveSessionWithAllowLoginUI:(BOOL)allowLoginUI;
@@ -596,13 +584,13 @@ __attribute__((deprecated));
  when there is a cached token available from a previous run of the application. If NO is returned, this indicates 
  that the session was not immediately opened, via cache. However, if YES was passed as allowLoginUI, then it is 
  possible that the user will login, and the session will become open asynchronously. The primary use for
- this return value is to switch-on facebook capabilities in your UX upon startup, in the case where the session
+ this return value is to switch-on facebook capabilities in your UX upon startup, in the case were the session
  is opened via cache.
  
  It is required that initial permissions requests represent read-only permissions only. If publish
  permissions are needed, you may use reauthorizeWithPermissions to specify additional permissions as
  well as an audience. Use of this method will result in a legacy fast-app-switch Facebook Login due to
- the requirement to separate read and publish permissions for newer applications. Methods and properties
+ the requirement to seperate read and publish permissions for newer applications. Methods and properties
  that specify permissions without a read or publish qualification are deprecated; use of a read-qualified 
  or publish-qualified alternative is preferred.
  */
@@ -636,7 +624,7 @@ __attribute__((deprecated));
  when there is a cached token available from a previous run of the application. If NO is returned, this indicates
  that the session was not immediately opened, via cache. However, if YES was passed as allowLoginUI, then it is
  possible that the user will login, and the session will become open asynchronously. The primary use for
- this return value is to switch-on facebook capabilities in your UX upon startup, in the case where the session
+ this return value is to switch-on facebook capabilities in your UX upon startup, in the case were the session
  is opened via cache.
  
  */
@@ -671,7 +659,7 @@ __attribute__((deprecated));
  when there is a cached token available from a previous run of the application. If NO is returned, this indicates
  that the session was not immediately opened, via cache. However, if YES was passed as allowLoginUI, then it is
  possible that the user will login, and the session will become open asynchronously. The primary use for
- this return value is to switch-on facebook capabilities in your UX upon startup, in the case where the session
+ this return value is to switch-on facebook capabilities in your UX upon startup, in the case were the session
  is opened via cache.
  
  */
