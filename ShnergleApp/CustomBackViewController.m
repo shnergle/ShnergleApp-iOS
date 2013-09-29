@@ -48,7 +48,12 @@
     [super viewDidLoad];
     self.navigationController.navigationBar.barTintColor = [UIColor colorWithRed:233.0 / 255 green:235.0 / 255 blue:240.0 / 255 alpha:1.0];
     self.navigationController.navigationBar.translucent = NO;
-    self.edgesForExtendedLayout = UIRectEdgeNone;
+    self.extendedLayoutIncludesOpaqueBars = YES;
+    self.edgesForExtendedLayout = UIRectEdgeAll;
+    UIView *bar = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 320, 20)];
+    bar.backgroundColor = [UIColor colorWithRed:233/255. green:235/255. blue:240/255. alpha:1];
+    [self.view addSubview:bar];
+    [self.view bringSubviewToFront:bar];
 }
 
 - (void)viewDidAppear:(BOOL)animated {

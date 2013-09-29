@@ -72,8 +72,7 @@
         UIViewController *vc = [caller.storyboard instantiateViewControllerWithIdentifier:@"Analytics"];
         [caller.navigationController pushViewController:vc animated:YES];
     } else {
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Visitor analytics for venue managers and staff will be implemented soon; please check the app store regularly for updates" message:nil delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
-        [alert show];
+        [[[UIAlertView alloc] initWithTitle:@"Visitor analytics for venue managers and staff will be implemented soon; please check the app store regularly for updates" message:nil delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil] show];
     }
 }
 
@@ -96,11 +95,11 @@
     CGRect screenRect = [[UIScreen mainScreen] bounds];
     CGFloat screenHeight = screenRect.size.height;
 
-    [self hideAnimated:self.frame.origin.y animationDuration:0.5 targetSize:screenHeight - 160 contentView:self];
+    [self hideAnimated:self.frame.origin.y animationDuration:0.5 targetSize:screenHeight - 180 contentView:self];
 }
 
 - (IBAction)swipeUp:(id)sender {
-    [self showAnimated:75 animationDelay:0.2 animationDuration:0.5];
+    [self showAnimated:95 animationDelay:0.2 animationDuration:0.5];
 }
 
 - (IBAction)tappedGoing:(id)sender {
