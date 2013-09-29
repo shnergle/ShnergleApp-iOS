@@ -92,14 +92,13 @@
 }
 
 - (IBAction)swipeDown:(id)sender {
-    CGRect screenRect = [[UIScreen mainScreen] bounds];
-    CGFloat screenHeight = screenRect.size.height;
+    CGFloat screenHeight = [UIScreen mainScreen].bounds.size.height;
 
-    [self hideAnimated:self.frame.origin.y animationDuration:0.5 targetSize:screenHeight - 180 contentView:self];
+    [self hideAnimated:self.frame.origin.y animationDuration:0.5 targetSize:screenHeight - 96 contentView:self];
 }
 
 - (IBAction)swipeUp:(id)sender {
-    [self showAnimated:95 animationDelay:0.2 animationDuration:0.5];
+    [self showAnimated:139 animationDelay:0.2 animationDuration:0.5];
 }
 
 - (IBAction)tappedGoing:(id)sender {
@@ -235,30 +234,6 @@
                                 self.bounds.size.width,
                                 self.bounds.size.height);
     }];
-}
-
-- (void)setTabBarHidden:(BOOL)hide animated:(BOOL)animated {
-    if ([self.subviews count] < 2) return;
-
-    UIView *contentView;
-
-    contentView = self;
-
-    CGRect screenRect = [[UIScreen mainScreen] bounds];
-    CGFloat screenHeight = screenRect.size.height;
-
-    if (hide) {
-        NSInteger targetSize = screenHeight - 160;
-        double animationDuration = 0.5;
-        double animationDelay = 0.2;
-
-        [self showAnimated:targetSize animationDelay:animationDelay animationDuration:animationDuration];
-    } else {
-        NSInteger targetSize = screenHeight - 160;
-        NSInteger originalSize = screenHeight - 70;
-
-        [self hideAnimated:originalSize animationDuration:0.5 targetSize:targetSize contentView:contentView];
-    }
 }
 
 - (IBAction)tapPromotion:(id)sender {

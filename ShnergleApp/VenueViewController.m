@@ -327,7 +327,7 @@
     [super viewDidAppear:animated];
     appDelegate.redeeming = nil;
 
-    [overlayView setTabBarHidden:YES animated:NO];
+    [overlayView swipeDown:nil];
     [self setPromoContentTo:promotionBody promoHeadline:promotionTitle promoExpiry:promotionExpiry];
     overlayView.summaryContentTextField.text = [NSString stringWithFormat:@"%@", appDelegate.activeVenue[@"tonight"]];
     overlayView.summaryHeadlineTextField.text = [NSString stringWithFormat:@"%@", appDelegate.activeVenue[@"headline"]];

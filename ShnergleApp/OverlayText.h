@@ -54,9 +54,9 @@
 @property (weak, nonatomic) IBOutlet UIImageView *Done;
 @property (weak, nonatomic) IBOutlet UIImageView *Change;
 
-- (void)setTabBarHidden:(BOOL)hide animated:(BOOL)animated;
 - (void)hideAnimated:(NSInteger)originalSize animationDuration:(double)animationDuration targetSize:(NSInteger)targetSize contentView:(UIView *)contentView;
 - (void)showAnimated:(NSInteger)targetSize animationDelay:(double)animationDelay animationDuration:(double)animationDuration;
 - (void)didAppear;
+- (IBAction)swipeDown:(id)sender;
 
 @end
