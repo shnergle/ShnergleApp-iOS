@@ -25,13 +25,21 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"ASRCell"];
+    if ([cell viewWithTag:10]) {
+        [(FBProfilePictureView *)[cell viewWithTag:10] removeFromSuperview];
+    }
     FBProfilePictureView *img = [[FBProfilePictureView alloc] initWithFrame:CGRectMake(5, 0, 44, 44)];
     img.profileID = results[indexPath.row][@"facebook_id"];
+    img.tag = 10;
     [cell addSubview:img];
-    UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(54, 0, cell.bounds.size.width - 54, cell.bounds.size.height)];
-    label.text = [NSString stringWithFormat:@"%@ %@", results[indexPath.row][@"forename"], results[indexPath.row][@"surname"]];
-
-    [cell addSubview:label];
+    if ([cell viewWithTag:11]) {
+        ((UILabel *)[cell viewWithTag:11]).text = [NSString stringWithFormat:@"%@ %@", results[indexPath.row][@"forename"], results[indexPath.row][@"surname"]];
+    } else {
+        UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(54, 0, cell.bounds.size.width - 54, cell.bounds.size.height)];
+        label.text = [NSString stringWithFormat:@"%@ %@", results[indexPath.row][@"forename"], results[indexPath.row][@"surname"]];
+        label.tag = 11;
+        [cell addSubview:label];
+    }
     return cell;
 }
 
