@@ -263,7 +263,7 @@
             promotionExpiry = @"";
             promotionUntil = @"";
             promotionLevel = @"";
-            overlayView.tapPromotion.enabled = NO;
+            overlayView.tapPromotion.enabled = appDelegate.venueStatus == Manager || appDelegate.venueStatus == Staff;
         }
 
         [self setPromoContentTo:promotionBody promoHeadline:promotionTitle promoExpiry:promotionExpiry];
