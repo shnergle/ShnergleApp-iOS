@@ -577,7 +577,7 @@
                         <color key="sectionIndexTrackingBackgroundColor" red="0.9137254901960784" green="0.92156862745098034" blue="0.94117647058823528" alpha="1" colorSpace="calibratedRGB"/>
                         <prototypes>
                             <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Cell" id="eMn-nE-7Ed">
-                                <rect key="frame" x="0.0" y="22" width="320" height="67.5"/>
+                                <rect key="frame" x="0.0" y="22" width="320" height="68"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="eMn-nE-7Ed" id="1ZC-Ix-5YK">
                                     <rect key="frame" x="0.0" y="0.0" width="320" height="67"/>
@@ -2179,8 +2179,8 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                                 <color key="textColor" red="0.26274511220000002" green="0.26274511220000002" blue="0.26666668059999998" alpha="1" colorSpace="deviceRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="5" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="3" baselineAdjustment="alignBaselines" minimumScaleFactor="0.30000000000000004" preferredMaxLayoutWidth="204" translatesAutoresizingMaskIntoConstraints="NO" id="xlF-Ru-peM">
-                                <rect key="frame" x="58" y="141" width="204" height="70"/>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="5" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="3" baselineAdjustment="alignBaselines" minimumScaleFactor="0.30000000000000004" preferredMaxLayoutWidth="202" translatesAutoresizingMaskIntoConstraints="NO" id="xlF-Ru-peM">
+                                <rect key="frame" x="59" y="141" width="202" height="70"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="70" id="5kC-Ku-KXS"/>
@@ -2189,15 +2189,19 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                                 <color key="textColor" red="0.26274511220000002" green="0.26274511220000002" blue="0.26666668059999998" alpha="1" colorSpace="deviceRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Points to say thank you for helping other Shnerglers to #ShnergleIt" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="204" translatesAutoresizingMaskIntoConstraints="NO" id="CuG-6y-eIh">
-                                <rect key="frame" x="58" y="231" width="204" height="97"/>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Points to say thank you for helping other Shnerglers to #ShnergleIt" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="187" translatesAutoresizingMaskIntoConstraints="NO" id="CuG-6y-eIh">
+                                <rect key="frame" x="67" y="231" width="187" height="97"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="187" id="M86-jb-dya"/>
+                                    <constraint firstAttribute="height" constant="97" id="lFN-zi-uam"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <color key="textColor" red="0.26274511220000002" green="0.26274511220000002" blue="0.26666668059999998" alpha="1" colorSpace="deviceRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Your passcode for this promotion:" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="204" translatesAutoresizingMaskIntoConstraints="NO" id="JRf-kH-BiJ">
-                                <rect key="frame" x="58" y="336" width="204" height="62"/>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Your passcode for this promotion:" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="202" translatesAutoresizingMaskIntoConstraints="NO" id="JRf-kH-BiJ">
+                                <rect key="frame" x="59" y="336" width="202" height="62"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="62" id="C1u-W5-YlY"/>
@@ -2234,26 +2238,23 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                         <color key="backgroundColor" red="0.89411764709999997" green="0.90196078430000004" blue="0.92941176469999998" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="JRf-kH-BiJ" firstAttribute="leading" secondItem="xlF-Ru-peM" secondAttribute="leading" id="0bX-f7-JYy"/>
-                            <constraint firstItem="CuG-6y-eIh" firstAttribute="trailing" secondItem="JRf-kH-BiJ" secondAttribute="trailing" id="3T8-ku-nEg"/>
+                            <constraint firstItem="CuG-6y-eIh" firstAttribute="top" secondItem="xlF-Ru-peM" secondAttribute="bottom" constant="20" id="7wX-Lh-aq6"/>
                             <constraint firstItem="mhC-9J-rve" firstAttribute="top" secondItem="NEp-Kb-GPc" secondAttribute="top" constant="69" id="9Sb-qi-zdB"/>
                             <constraint firstItem="xlF-Ru-peM" firstAttribute="top" secondItem="oTa-i2-nl5" secondAttribute="bottom" constant="8" symbolic="YES" id="EGi-nm-Uto"/>
                             <constraint firstItem="oHW-ON-adq" firstAttribute="centerX" secondItem="NEp-Kb-GPc" secondAttribute="centerX" id="GaU-YD-fhR"/>
                             <constraint firstItem="oTa-i2-nl5" firstAttribute="centerX" secondItem="mhC-9J-rve" secondAttribute="centerX" id="KjU-K1-ka1"/>
-                            <constraint firstItem="CuG-6y-eIh" firstAttribute="leading" secondItem="mhC-9J-rve" secondAttribute="leading" id="Ojm-Ni-8E5"/>
+                            <constraint firstItem="xlF-Ru-peM" firstAttribute="centerX" secondItem="CuG-6y-eIh" secondAttribute="centerX" id="MlI-0E-5wg"/>
                             <constraint firstItem="oTa-i2-nl5" firstAttribute="centerX" secondItem="xlF-Ru-peM" secondAttribute="centerX" id="PoI-Kg-cuM"/>
                             <constraint firstItem="oHW-ON-adq" firstAttribute="centerX" secondItem="PU3-Pf-mid" secondAttribute="centerX" id="SmN-Lp-ajv"/>
-                            <constraint firstItem="JRf-kH-BiJ" firstAttribute="top" secondItem="CuG-6y-eIh" secondAttribute="bottom" constant="8" symbolic="YES" id="TOk-81-Spk"/>
                             <constraint firstItem="oTa-i2-nl5" firstAttribute="centerX" secondItem="mhC-9J-rve" secondAttribute="centerX" id="VqP-lH-lrd"/>
                             <constraint firstItem="oTa-i2-nl5" firstAttribute="centerX" secondItem="JRf-kH-BiJ" secondAttribute="centerX" id="XYW-pQ-y4B"/>
                             <constraint firstItem="oTa-i2-nl5" firstAttribute="centerX" secondItem="oHW-ON-adq" secondAttribute="centerX" id="YPc-ct-AK4"/>
                             <constraint firstItem="oHW-ON-adq" firstAttribute="centerX" secondItem="JRf-kH-BiJ" secondAttribute="centerX" id="brL-uG-Cj2"/>
                             <constraint firstAttribute="bottom" secondItem="JRf-kH-BiJ" secondAttribute="bottom" constant="170" id="cPH-Fp-xdy"/>
-                            <constraint firstItem="CuG-6y-eIh" firstAttribute="top" secondItem="xlF-Ru-peM" secondAttribute="bottom" constant="20" id="daS-lL-AXj"/>
                             <constraint firstItem="oTa-i2-nl5" firstAttribute="centerX" secondItem="JRf-kH-BiJ" secondAttribute="centerX" id="heK-vm-8ue"/>
                             <constraint firstItem="xlF-Ru-peM" firstAttribute="top" secondItem="NEp-Kb-GPc" secondAttribute="top" constant="141" id="jJB-ft-x8k"/>
                             <constraint firstItem="JRf-kH-BiJ" firstAttribute="trailing" secondItem="xlF-Ru-peM" secondAttribute="trailing" id="kmi-io-rab"/>
                             <constraint firstAttribute="bottom" secondItem="PU3-Pf-mid" secondAttribute="bottom" constant="20" symbolic="YES" id="o3x-ga-dir"/>
-                            <constraint firstItem="CuG-6y-eIh" firstAttribute="leading" secondItem="JRf-kH-BiJ" secondAttribute="leading" id="rKz-tk-C8U"/>
                             <constraint firstItem="oTa-i2-nl5" firstAttribute="centerX" secondItem="oHW-ON-adq" secondAttribute="centerX" id="vM5-vh-KZy"/>
                             <constraint firstItem="oTa-i2-nl5" firstAttribute="centerX" secondItem="xlF-Ru-peM" secondAttribute="centerX" id="vS1-X1-z9F"/>
                             <constraint firstAttribute="bottom" secondItem="oHW-ON-adq" secondAttribute="bottom" constant="81" id="xe4-Wx-t2x"/>
