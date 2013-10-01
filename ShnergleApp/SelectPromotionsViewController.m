@@ -19,7 +19,6 @@
     promotions = [NSMutableArray array];
     [self.view makeToastActivity];
     self.navigationItem.title = @"Manage Promotions";
-    self.tableView.backgroundColor = [UIColor colorWithRed:233 / 255. green:235 / 255. blue:240 / 255. alpha:1];
 }
 
 - (void)viewDidAppear:(BOOL)animated {
@@ -53,14 +52,11 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     appDelegate.activePromotion = promotions[indexPath.row];
     [self addPromotion];
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     return 67.5;
-}
-
-- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
-    return 20;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {

@@ -567,38 +567,53 @@
             <point key="canvasLocation" x="-1956" y="2338"/>
         </scene>
         <!--Select Promotions View Controller-->
-        <scene sceneID="JQh-kw-nN5">
+        <scene sceneID="ZJV-Q7-FzS">
             <objects>
-                <tableViewController storyboardIdentifier="SelectPromotionsViewController" id="WsY-f3-ToK" customClass="SelectPromotionsViewController" sceneMemberID="viewController">
-                    <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="67.5" sectionHeaderHeight="22" sectionFooterHeight="22" id="Frw-Ni-jdk">
+                <viewController storyboardIdentifier="SelectPromotionsViewController" id="JW2-WV-Mff" customClass="SelectPromotionsViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="VEw-Ss-0Gs"/>
+                        <viewControllerLayoutGuide type="bottom" id="eIc-0i-Nm4"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="spK-Ef-HUg">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <inset key="scrollIndicatorInsets" minX="0.0" minY="10" maxX="0.0" maxY="0.0"/>
-                        <color key="sectionIndexTrackingBackgroundColor" red="0.9137254901960784" green="0.92156862745098034" blue="0.94117647058823528" alpha="1" colorSpace="calibratedRGB"/>
-                        <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Cell" id="eMn-nE-7Ed">
-                                <rect key="frame" x="0.0" y="22" width="320" height="68"/>
-                                <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="eMn-nE-7Ed" id="1ZC-Ix-5YK">
-                                    <rect key="frame" x="0.0" y="0.0" width="320" height="67"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                </tableViewCellContentView>
-                                <color key="backgroundColor" red="0.9137254901960784" green="0.92156862745098034" blue="0.94117647058823528" alpha="1" colorSpace="calibratedRGB"/>
-                            </tableViewCell>
-                        </prototypes>
-                        <connections>
-                            <outlet property="dataSource" destination="WsY-f3-ToK" id="UMv-DF-dgl"/>
-                            <outlet property="delegate" destination="WsY-f3-ToK" id="fm4-Zr-wgx"/>
-                        </connections>
-                    </tableView>
-                    <simulatedStatusBarMetrics key="simulatedStatusBarMetrics"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="uao-bS-vdv">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <color key="sectionIndexTrackingBackgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Cell" id="gVD-n5-ieI">
+                                        <rect key="frame" x="0.0" y="22" width="320" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="gVD-n5-ieI">
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="JW2-WV-Mff" id="KLv-L8-luq"/>
+                                    <outlet property="delegate" destination="JW2-WV-Mff" id="XHk-yp-FYb"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" red="0.91372549020000005" green="0.92156862750000001" blue="0.94117647059999998" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="bottom" secondItem="uao-bS-vdv" secondAttribute="bottom" id="1Ij-3J-sjN"/>
+                            <constraint firstItem="uao-bS-vdv" firstAttribute="top" secondItem="spK-Ef-HUg" secondAttribute="top" id="L5I-Ko-5uz"/>
+                            <constraint firstAttribute="trailing" secondItem="uao-bS-vdv" secondAttribute="trailing" id="Tmq-Em-YX8"/>
+                            <constraint firstItem="uao-bS-vdv" firstAttribute="leading" secondItem="spK-Ef-HUg" secondAttribute="leading" id="mQi-Nc-K3R"/>
+                        </constraints>
+                    </view>
                     <connections>
-                        <outlet property="tableView" destination="Frw-Ni-jdk" id="J2B-mf-3bU"/>
+                        <outlet property="tableView" destination="uao-bS-vdv" id="5MZ-kc-mlW"/>
                     </connections>
-                </tableViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="RJg-YN-GTm" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="qmC-N5-4KB" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1450" y="1535"/>
+            <point key="canvasLocation" x="-1380" y="1564"/>
         </scene>
         <!--Add Promotions View Controller - Promotion-->
         <scene sceneID="n2J-EF-KCr">

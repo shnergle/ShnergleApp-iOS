@@ -10,7 +10,6 @@
 
 @interface SelectPromotionsViewController : CustomBackViewController <UITableViewDataSource, UITableViewDelegate> {
     NSMutableArray *promotions;
-    NSIndexPath *selectedIndexPath;
 }
 
 @property (strong, nonatomic) IBOutlet UITableView *tableView;
