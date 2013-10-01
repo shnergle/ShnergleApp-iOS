@@ -13,6 +13,7 @@
 #import <Social/Social.h>
 #import "CustomSlidingViewController.h"
 #import "ThankYouViewController.h"
+#import <FlurrySDK/Flurry.h>
 
 @implementation ShareViewController
 
@@ -52,6 +53,7 @@
 }
 
 - (void)uploadToServer {
+    [Flurry logEvent:@"Created post/share" withParameters:@{@"newPost": appDelegate.shnergleThis ? @"true" : @"false", @"facebook": self.fbSwitch.on ? @"true" : @"false", @"twitter": self.twSwitch.on ? @"true" : @"false", @"taggedPeople": [selectedFriends count] > 0  ? @"true" : @"false", @"text": (self.textFieldname.text && [self.textFieldname.text isEqualToString:@"Write something..."]) ? @"false" : @"true"}];
     self.navigationItem.rightBarButtonItem.enabled = NO;
     if (appDelegate.shnergleThis) {
         [Request post:@"posts/set" params:@{@"venue_id": appDelegate.activeVenue[@"id"], @"caption": (self.textFieldname.text && [self.textFieldname.text isEqualToString:@"Write something..."]) ? @"" : self.textFieldname.text, @"image":self.image.image} callback:^(id response) {
@@ -217,6 +219,7 @@
 
 - (void)facebookViewControllerCancelWasPressed:(id)sender {
     [self dismissViewControllerAnimated:YES completion:nil];
+    [Flurry logEvent:@"Cancelled friend selection"];
 }
 
 - (void)facebookViewControllerDoneWasPressed:(id)sender {

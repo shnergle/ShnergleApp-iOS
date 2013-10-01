@@ -20,7 +20,7 @@
     self.anchorLeftRevealAmount = NSIntegerMax;
     self.topViewController = [self.storyboard instantiateViewControllerWithIdentifier:self.mainController];
     if (![self.underLeftViewController isKindOfClass:[MenuViewController class]]) {
-        self.underLeftViewController  = [self.storyboard instantiateViewControllerWithIdentifier:@"AroundMeMenu"];
+        self.underLeftViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"AroundMeMenu"];
     }
     [self.topViewController.view addGestureRecognizer:self.panGesture];
 }

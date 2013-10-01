@@ -12,6 +12,7 @@
 #import <Toast+UIView.h>
 #import <QuartzCore/QuartzCore.h>
 #import <CMMapLauncher/CMMapLauncher.h>
+#import <FlurrySDK/Flurry.h>
 
 @implementation OverlayText
 
@@ -21,10 +22,11 @@
         if ([CMMapLauncher isMapAppInstalled:i]) [alert addButtonWithTitle:[self mapAppToString:i]];
     }
     [alert show];
+    [Flurry logEvent:@"Tapped navigation icon on overlay"];
 }
 
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
-    if (buttonIndex != alertView.cancelButtonIndex) [CMMapLauncher launchMapApp:[self stringtToMapApp:[alertView buttonTitleAtIndex:buttonIndex]] forDirectionsTo:[CMMapPoint mapPointWithName:appDelegate.activeVenue[@"name"] coordinate:CLLocationCoordinate2DMake([appDelegate.activeVenue[@"lat"] doubleValue], [appDelegate.activeVenue[@"lon"] doubleValue])]];
+    if (buttonIndex != alertView.cancelButtonIndex) [CMMapLauncher launchMapApp:[self stringToMapApp:[alertView buttonTitleAtIndex:buttonIndex]] forDirectionsTo:[CMMapPoint mapPointWithName:appDelegate.activeVenue[@"name"] coordinate:CLLocationCoordinate2DMake([appDelegate.activeVenue[@"lat"] doubleValue], [appDelegate.activeVenue[@"lon"] doubleValue])]];
 }
 
 - (NSString *)mapAppToString:(CMMapApp)mapApp {
@@ -46,7 +48,7 @@
     }
 }
 
-- (CMMapApp)stringtToMapApp:(NSString *)string {
+- (CMMapApp)stringToMapApp:(NSString *)string {
     if (!string) return 0;
     if ([string isEqualToString:@"Apple Maps"]) return CMMapAppAppleMaps;
     if ([string isEqualToString:@"Citymapper"]) return CMMapAppCitymapper;
@@ -74,6 +76,7 @@
     } else {
         [[[UIAlertView alloc] initWithTitle:@"Visitor analytics for venue managers and staff will be implemented soon; please check the app store regularly for updates" message:nil delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil] show];
     }
+    [Flurry logEvent:@"Tapped analytics"];
 }
 
 - (IBAction)staff:(id)sender {
@@ -99,6 +102,7 @@
 
 - (IBAction)swipeUp:(id)sender {
     [self showAnimated:139 animationDelay:0.2 animationDuration:0.5];
+    [Flurry logEvent:@"Venue slider up"];
 }
 
 - (IBAction)tappedGoing:(id)sender {
@@ -112,6 +116,7 @@
     [Request post:@"venue_rsvps/set" params:params callback:^(id response) {
         [self didIntent:response];
     }];
+    [Flurry logEvent:@"RSVP'd" withParameters:@{@"type": @"going"}];
 }
 
 - (IBAction)tappedThinking:(id)sender {
@@ -123,6 +128,7 @@
     [Request post:@"venue_rsvps/set" params:params callback:^(id response) {
         [self didIntent:response];
     }];
+    [Flurry logEvent:@"RSVP'd" withParameters:@{@"type": @"maybe"}];
 }
 
 - (void)didIntent:(id)response {

@@ -9,6 +9,7 @@
 #import "UIViewController+CheckIn.h"
 #import <UIImage-Resize/UIImage+Resize.h>
 #import "Request.h"
+#import <FlurrySDK/Flurry.h>
 
 @implementation UIViewController (CheckIn)
 
@@ -38,6 +39,7 @@
 }
 
 - (IBAction)presentCheckInFlow:(id)sender {
+    [Flurry logEvent:@"Started checking in" withParameters:@{@"view": NSStringFromClass([self class])}];
     appDelegate.shareVenue = NO;
     appDelegate.shnergleThis = YES;
     UIImagePickerController *picker = [[UIImagePickerController alloc] init];

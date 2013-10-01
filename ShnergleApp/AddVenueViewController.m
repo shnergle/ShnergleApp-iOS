@@ -49,7 +49,7 @@ typedef enum {
                 if (self.userData[@6] != nil) [address addObject:self.userData[@6]];
                 if ([address count] == 0) [address addObject:@""];
 
-                NSMutableDictionary * params = [@{@"name": self.userData[@1],
+                NSMutableDictionary *params = [@{@"name": self.userData[@1],
                                                   @"category_id": appDelegate.addVenueTypeId,
                                                   @"address": [address componentsJoinedByString:@", "],
                                                   @"country": !error ? [((CLPlacemark *)placemark[0]).ISOcountryCode lowercaseString] : @"--",

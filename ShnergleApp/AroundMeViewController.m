@@ -62,6 +62,7 @@
     [self mapView:map didUpdateUserLocation:map.userLocation];
     pinDropped = NO;
     [self sliderValueChanged:nil];
+    [Flurry logEvent:@"Tapped Around Me"];
 }
 
 - (void)viewDidLoad {
@@ -175,19 +176,20 @@
 }
 
 - (void)hideOverlay {
-    [self.overlay hideAnimated:146 animationDuration:0.5 targetSize:350 contentView:[self overlay]];
+    [self.overlay hideAnimated:146 animationDuration:0.5 targetSize:350 contentView:self.overlay];
     crowdImagesHidden = YES;
+    [Flurry logEvent:@"Enlarge map"];
 }
 
 - (void)showDistanceScroller {
     if (self.distanceScrollerView.bounds.origin.y < 64) {
-        [[self distanceScrollerView] showAnimated:64 animationDelay:0.0 animationDuration:0.5];
+        [self.distanceScrollerView showAnimated:64 animationDelay:0.0 animationDuration:0.5];
     }
 }
 
 - (void)hideDistanceScroller {
     if (self.distanceScrollerView.frame.origin.y > -64) {
-        [[self distanceScrollerView] hideAnimated:64 animationDuration:0.8 targetSize:-64 contentView:[self distanceScrollerView]];
+        [self.distanceScrollerView hideAnimated:64 animationDuration:0.8 targetSize:-64 contentView:self.distanceScrollerView];
     }
 }
 
@@ -225,6 +227,8 @@
     [map addOverlay:circle];
 
     [[NSUserDefaults standardUserDefaults] setObject:@(self.distanceScroller.value) forKey:@"radius"];
+
+    if (sender) [Flurry logEvent:@"Changed distance for map" withParameters:@{@"distance": @(self.distanceScroller.value)}];
 }
 
 - (MKOverlayView *)mapView:(MKMapView *)mapView viewForOverlay:(id<MKOverlay>)overlay {
@@ -290,6 +294,7 @@
     CGPoint point = [sender locationInView:map];
     pinDroppedLocation = [map convertPoint:point toCoordinateFromView:map];
     [self sliderValueChanged:nil];
+    [Flurry logEvent:@"Moved circle on map"];
 }
 
 - (void)mapView:(MKMapView *)mapView didUpdateUserLocation:(MKUserLocation *)userLocation {

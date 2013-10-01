@@ -13,6 +13,7 @@
 #import <Toast/Toast+UIView.h>
 #import <MapKit/MapKit.h>
 #import "UIViewController+CheckIn.h"
+#import <FlurrySDK/Flurry.h>
 
 @implementation FavouritesViewController
 
@@ -99,6 +100,11 @@
     [super viewWillDisappear:animated];
     [man stopUpdatingLocation];
     man = nil;
+}
+
+- (void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
+    [Flurry logEvent:[NSString stringWithFormat:@"Viewed %@", appDelegate.topViewType]];
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
