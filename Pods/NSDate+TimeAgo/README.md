@@ -24,6 +24,7 @@ This functionality has variously been referred to as a "time ago", "time since",
 - da (Danish)
 - cs (Czech)
 - nb (Norwegian)
+- lv (Latvian)
 
 If you know a language not listed here, please consider submitting a translation.
 
@@ -97,6 +98,8 @@ SorinAntohi added `ro` Romanian strings. https://github.com/SorinAntohi
 
 spookd added `da` Danish strings. https://github.com/spookd
 
-barrettj added `cs` Czech strings.  https://github.com/barrettj
+Barrett Jacobsen added `cs` Czech strings.  https://github.com/barrettj
 
-shmidt added `nb` Norwegian strings. https://github.com/shmidt
+Dmitry Shmidt added `nb` Norwegian strings. https://github.com/shmidt
+
+Martins Rudens added `lv` Latvian strings. https://github.com/rudensm

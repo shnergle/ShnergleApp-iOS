@@ -851,7 +851,7 @@ static const CGFloat colorLookupTable[10][3] =
                                              plotAreaBounds.origin.y + plotAreaBounds.size.height * anchor.y);
 
         NSDecimal plotPoint[2];
-        [self.plotSpace plotPoint:plotPoint forPlotAreaViewPoint:centerPoint];
+        [self.plotSpace plotPoint:plotPoint numberOfCoordinates:2 forPlotAreaViewPoint:centerPoint];
         NSDecimalNumber *xValue = [[NSDecimalNumber alloc] initWithDecimal:plotPoint[CPTCoordinateX]];
         NSDecimalNumber *yValue = [[NSDecimalNumber alloc] initWithDecimal:plotPoint[CPTCoordinateY]];
         label.anchorPlotPoint = [NSArray arrayWithObjects:xValue, yValue, nil];
@@ -1020,11 +1020,17 @@ static const CGFloat colorLookupTable[10][3] =
  **/
 -(BOOL)pointingDeviceDownEvent:(CPTNativeEvent *)event atPoint:(CGPoint)interactionPoint
 {
+    CPTGraph *theGraph       = self.graph;
+    CPTPlotArea *thePlotArea = self.plotArea;
+
+    if ( !theGraph || !thePlotArea || self.hidden ) {
+        return NO;
+    }
+
     id<CPTPieChartDelegate> theDelegate = self.delegate;
-    if ( self.graph && self.plotArea && !self.hidden &&
-         ([theDelegate respondsToSelector:@selector(pieChart:sliceWasSelectedAtRecordIndex:)] ||
-          [theDelegate respondsToSelector:@selector(pieChart:sliceWasSelectedAtRecordIndex:withEvent:)]) ) {
-        CGPoint plotAreaPoint = [self.graph convertPoint:interactionPoint toLayer:self.plotArea];
+    if ( [theDelegate respondsToSelector:@selector(pieChart:sliceWasSelectedAtRecordIndex:)] ||
+         [theDelegate respondsToSelector:@selector(pieChart:sliceWasSelectedAtRecordIndex:withEvent:)] ) {
+        CGPoint plotAreaPoint = [theGraph convertPoint:interactionPoint toLayer:thePlotArea];
 
         NSUInteger idx = [self dataIndexFromInteractionPoint:plotAreaPoint];
         if ( idx != NSNotFound ) {
@@ -1037,11 +1043,8 @@ static const CGFloat colorLookupTable[10][3] =
             return YES;
         }
     }
-    else {
-        return [super pointingDeviceDownEvent:event atPoint:interactionPoint];
-    }
 
-    return NO;
+    return [super pointingDeviceDownEvent:event atPoint:interactionPoint];
 }
 
 /// @}
@@ -1214,12 +1217,12 @@ static const CGFloat colorLookupTable[10][3] =
 
 -(NSArray *)sliceWidths
 {
-    return [[self cachedNumbersForField:CPTPieChartFieldSliceWidthNormalized] sampleArray];
+    return [[self cachedNumbersForField:CPTPieChartFieldSliceWidth] sampleArray];
 }
 
 -(void)setSliceWidths:(NSArray *)newSliceWidths
 {
-    [self cacheNumbers:newSliceWidths forField:CPTPieChartFieldSliceWidthNormalized];
+    [self cacheNumbers:newSliceWidths forField:CPTPieChartFieldSliceWidth];
     [self updateNormalizedData];
 }
 

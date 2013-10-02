@@ -15,13 +15,13 @@
 // CorePlot
 #define COCOAPODS_POD_AVAILABLE_CorePlot
 #define COCOAPODS_VERSION_MAJOR_CorePlot 1
-#define COCOAPODS_VERSION_MINOR_CorePlot 3
+#define COCOAPODS_VERSION_MINOR_CorePlot 4
 #define COCOAPODS_VERSION_PATCH_CorePlot 0
 
 // ECSlidingViewController
 #define COCOAPODS_POD_AVAILABLE_ECSlidingViewController
-#define COCOAPODS_VERSION_MAJOR_ECSlidingViewController 0
-#define COCOAPODS_VERSION_MINOR_ECSlidingViewController 10
+#define COCOAPODS_VERSION_MAJOR_ECSlidingViewController 1
+#define COCOAPODS_VERSION_MINOR_ECSlidingViewController 0
 #define COCOAPODS_VERSION_PATCH_ECSlidingViewController 0
 
 // Facebook-iOS-SDK
@@ -63,8 +63,8 @@
 // TPKeyboardAvoiding
 #define COCOAPODS_POD_AVAILABLE_TPKeyboardAvoiding
 #define COCOAPODS_VERSION_MAJOR_TPKeyboardAvoiding 1
-#define COCOAPODS_VERSION_MINOR_TPKeyboardAvoiding 1
-#define COCOAPODS_VERSION_PATCH_TPKeyboardAvoiding 0
+#define COCOAPODS_VERSION_MINOR_TPKeyboardAvoiding 2
+#define COCOAPODS_VERSION_PATCH_TPKeyboardAvoiding 1
 
 // Toast
 #define COCOAPODS_POD_AVAILABLE_Toast
