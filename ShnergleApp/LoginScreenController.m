@@ -29,7 +29,7 @@
 
 - (void)loginViewFetchedUserInfo:(FBLoginView *)loginView user:(id<FBGraphUser>)user {
     appDelegate.fullName = [NSString stringWithFormat:@"%@ %@", [self orEmpty:user.first_name], [self orEmpty:user.last_name]];
-    appDelegate.facebookId = user.id;
+    appDelegate.facebookId = user[@"id"];
 
     NSDictionary *params = @{@"facebook": [self orEmpty:user.username],
                              @"forename": [self orEmpty:user.first_name],
