@@ -19,7 +19,7 @@
     [self.view addSubview:searchB];
 
     tableSections = @[@"Profile", @"Explore", @" "];
-    tableData = @[@[appDelegate.fullName], @[@"Around Me", @"Following", @"Promotions", @"Quiet", @"Trending", @"+ Add Place"], @[@"Account Settings", @"FAQ", @"Help", @"Privacy Policy", @"Terms of Use"]];
+    tableData = @[@[appDelegate.fullName], @[@"Around Me", @"Following", @"Promotions", @"+ Add Place"], @[@"Account Settings", @"FAQ", @"Help", @"Privacy Policy", @"Terms of Use"]];
     searchResults = [NSMutableArray array];
     searchResultsLocation = [NSMutableArray array];
     self.searchResultsView.resultsTableView.delegate = self;

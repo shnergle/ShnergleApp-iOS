@@ -63,10 +63,6 @@
     self.youCheckIn.text = appDelegate.checkIn;
     NSNumber *scorecheck = @([self.youCheckIn.text integerValue] *[self.valueCheckIn.text integerValue]);
     self.scoreCheckIn.text = [scorecheck stringValue];
-    self.youRSVP.text = appDelegate.rsvp;
-    NSNumber *scoreRSVP = @([self.youRSVP.text integerValue] *[self.valueRSVP.text integerValue]);
-    self.scoreRSVP.text = [scoreRSVP stringValue];
-
     self.youLike.text = appDelegate.like;
     NSNumber *scoreLike = @([self.youLike.text integerValue] *[self.valueLike.text integerValue]);
     self.scoreLike.text = [scoreLike stringValue];

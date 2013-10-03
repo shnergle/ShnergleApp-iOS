@@ -90,7 +90,6 @@
         appDelegate.checkIn = [result[@"posts"] stringValue];
         appDelegate.youShare = [result[@"share"] stringValue];
         appDelegate.totalScore = [result[@"score"] stringValue];
-        appDelegate.rsvp = [result[@"rsvps"] stringValue];
         appDelegate.comment = [result[@"comments"] stringValue];
         appDelegate.like = [result[@"likes"] stringValue];
         [self.view hideToastActivity];

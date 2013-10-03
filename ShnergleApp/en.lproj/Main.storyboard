@@ -587,7 +587,7 @@
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Cell" id="gVD-n5-ieI">
                                         <rect key="frame" x="0.0" y="22" width="320" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="gVD-n5-ieI">
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="gVD-n5-ieI" id="UTQ-5o-2oa">
                                             <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
@@ -2878,7 +2878,7 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Your Shnergle Score =" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qas-cT-JxB">
-                                <rect key="frame" x="78" y="378" width="173" height="21"/>
+                                <rect key="frame" x="78" y="327" width="173" height="21"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="21" id="ekU-Vb-reO"/>
                                 </constraints>
@@ -2886,45 +2886,19 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9r6-Hj-0Gh">
-                                <rect key="frame" x="253" y="378" width="42" height="21"/>
+                                <rect key="frame" x="253" y="327" width="42" height="21"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MAL-HB-KHc">
-                                <rect key="frame" x="6" y="285" width="89" height="32"/>
-                                <state key="normal" title="RSVP" backgroundImage="greybutton04">
-                                    <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                            </button>
                             <button opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZGJ-gU-57h">
-                                <rect key="frame" x="6" y="333" width="89" height="32"/>
+                                <rect key="frame" x="6" y="282" width="89" height="32"/>
                                 <state key="normal" title="Like" backgroundImage="greybutton04">
                                     <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                             </button>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BzH-i5-TtI">
-                                <rect key="frame" x="119" y="290" width="42" height="21"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="21" id="bcc-UB-ckl"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="3" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="osL-TY-FOS">
-                                <rect key="frame" x="178" y="290" width="42" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eJb-p5-9OC">
-                                <rect key="frame" x="253" y="290" width="42" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JSa-f6-mVu">
-                                <rect key="frame" x="119" y="338" width="42" height="21"/>
+                                <rect key="frame" x="119" y="287" width="42" height="21"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="21" id="oRS-S5-bP6"/>
                                 </constraints>
@@ -2932,12 +2906,12 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dyR-zb-6by">
-                                <rect key="frame" x="178" y="338" width="42" height="21"/>
+                                <rect key="frame" x="178" y="287" width="42" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IPU-Td-BY6">
-                                <rect key="frame" x="253" y="338" width="42" height="21"/>
+                                <rect key="frame" x="253" y="287" width="42" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -2945,86 +2919,71 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                         <color key="backgroundColor" red="0.91372549020000005" green="0.92156862750000001" blue="0.94117647059999998" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="xHS-FT-F3i" firstAttribute="baseline" secondItem="VHD-hF-5KG" secondAttribute="baseline" id="0Tb-NP-PYI"/>
-                            <constraint firstItem="BzH-i5-TtI" firstAttribute="leading" secondItem="MAL-HB-KHc" secondAttribute="trailing" constant="24" id="2J5-p8-WYB"/>
                             <constraint firstItem="eb5-aN-Fxg" firstAttribute="baseline" secondItem="vbr-01-gek" secondAttribute="baseline" id="2QL-yf-BDG"/>
-                            <constraint firstItem="dyR-zb-6by" firstAttribute="leading" secondItem="osL-TY-FOS" secondAttribute="leading" id="3Ad-8M-ZcL"/>
-                            <constraint firstItem="JSa-f6-mVu" firstAttribute="trailing" secondItem="BzH-i5-TtI" secondAttribute="trailing" id="3UM-05-Xyo"/>
                             <constraint firstItem="GRD-bu-siq" firstAttribute="trailing" secondItem="xHS-FT-F3i" secondAttribute="trailing" id="3aP-ND-hcK"/>
                             <constraint firstItem="eb5-aN-Fxg" firstAttribute="top" secondItem="vbr-01-gek" secondAttribute="top" id="7sW-Et-MDa"/>
                             <constraint firstItem="k1F-un-DCd" firstAttribute="leading" secondItem="GRD-bu-siq" secondAttribute="trailing" constant="33" id="8Qw-X5-M27"/>
                             <constraint firstItem="iQ9-O5-8cq" firstAttribute="top" secondItem="lbw-56-RM0" secondAttribute="bottom" constant="19" id="8va-ZI-o4N"/>
-                            <constraint firstItem="vbr-01-gek" firstAttribute="leading" secondItem="osL-TY-FOS" secondAttribute="leading" id="918-am-b0h"/>
                             <constraint firstItem="qas-cT-JxB" firstAttribute="baseline" secondItem="9r6-Hj-0Gh" secondAttribute="baseline" id="9G3-0f-QQ5"/>
                             <constraint firstItem="GRD-bu-siq" firstAttribute="top" secondItem="k1F-un-DCd" secondAttribute="top" id="9c2-he-w5t"/>
+                            <constraint firstItem="JSa-f6-mVu" firstAttribute="top" secondItem="eM6-yN-Diz" secondAttribute="bottom" constant="24" id="A7f-8C-yjp"/>
                             <constraint firstItem="qas-cT-JxB" firstAttribute="leading" secondItem="XPi-yp-SqA" secondAttribute="leading" constant="78" id="AhB-V5-T7p"/>
-                            <constraint firstItem="ZGJ-gU-57h" firstAttribute="top" secondItem="MAL-HB-KHc" secondAttribute="bottom" constant="16" id="Apg-6g-fpc"/>
                             <constraint firstItem="CCt-IX-LtW" firstAttribute="top" secondItem="XPi-yp-SqA" secondAttribute="top" constant="64" id="DKD-Io-5Ke"/>
-                            <constraint firstItem="osL-TY-FOS" firstAttribute="top" secondItem="vbr-01-gek" secondAttribute="bottom" constant="27" id="DT4-CN-UXL"/>
-                            <constraint firstItem="BzH-i5-TtI" firstAttribute="top" secondItem="eM6-yN-Diz" secondAttribute="bottom" constant="27" id="EGW-Mj-FSJ"/>
                             <constraint firstItem="ZIf-BR-al9" firstAttribute="leading" secondItem="k1F-un-DCd" secondAttribute="trailing" constant="34" id="F9J-rU-17g"/>
                             <constraint firstItem="eb5-aN-Fxg" firstAttribute="trailing" secondItem="ZIf-BR-al9" secondAttribute="trailing" id="FBi-vn-OqJ"/>
                             <constraint firstAttribute="trailing" secondItem="ZIf-BR-al9" secondAttribute="trailing" constant="24" id="Hph-Ox-xIc"/>
-                            <constraint firstItem="ZGJ-gU-57h" firstAttribute="trailing" secondItem="MAL-HB-KHc" secondAttribute="trailing" id="Hxw-RU-wkX"/>
                             <constraint firstItem="GRD-bu-siq" firstAttribute="trailing" secondItem="eM6-yN-Diz" secondAttribute="trailing" id="IBX-57-Usk"/>
+                            <constraint firstItem="ZGJ-gU-57h" firstAttribute="top" secondItem="J2E-sR-YRQ" secondAttribute="bottom" constant="13" id="IUp-eI-Nl6"/>
                             <constraint firstAttribute="trailing" secondItem="v9B-L4-vTR" secondAttribute="trailing" constant="20" symbolic="YES" id="Ieh-g6-t55"/>
                             <constraint firstItem="v9B-L4-vTR" firstAttribute="centerX" secondItem="ZIf-BR-al9" secondAttribute="centerX" id="Iz7-P8-ACF"/>
                             <constraint firstItem="IPU-Td-BY6" firstAttribute="top" secondItem="dyR-zb-6by" secondAttribute="top" id="KBV-qt-8WL"/>
-                            <constraint firstItem="eJb-p5-9OC" firstAttribute="top" secondItem="osL-TY-FOS" secondAttribute="top" id="Mvg-G3-QCg"/>
+                            <constraint firstItem="ZGJ-gU-57h" firstAttribute="leading" secondItem="J2E-sR-YRQ" secondAttribute="leading" id="MzQ-oD-5SS"/>
                             <constraint firstItem="xHS-FT-F3i" firstAttribute="leading" secondItem="lbw-56-RM0" secondAttribute="trailing" constant="27" id="NmA-DI-gKo"/>
                             <constraint firstItem="k1F-un-DCd" firstAttribute="trailing" secondItem="vbr-01-gek" secondAttribute="trailing" id="NyS-l6-HMB"/>
                             <constraint firstItem="VHD-hF-5KG" firstAttribute="top" secondItem="xHS-FT-F3i" secondAttribute="top" id="QjN-EK-Dm3"/>
                             <constraint firstItem="GRD-bu-siq" firstAttribute="leading" secondItem="eM6-yN-Diz" secondAttribute="leading" id="SC2-ZB-vA5"/>
                             <constraint firstItem="9r6-Hj-0Gh" firstAttribute="top" secondItem="qas-cT-JxB" secondAttribute="top" id="TOH-lv-aPU"/>
-                            <constraint firstAttribute="trailing" secondItem="eJb-p5-9OC" secondAttribute="trailing" constant="25" id="Tnq-qu-Zt8"/>
                             <constraint firstItem="qas-cT-JxB" firstAttribute="top" secondItem="JSa-f6-mVu" secondAttribute="bottom" constant="19" id="TuP-BZ-D9C"/>
                             <constraint firstItem="eM6-yN-Diz" firstAttribute="leading" secondItem="J2E-sR-YRQ" secondAttribute="trailing" constant="8" symbolic="YES" id="UIY-Ms-PSq"/>
                             <constraint firstItem="v9B-L4-vTR" firstAttribute="leading" secondItem="VHD-hF-5KG" secondAttribute="trailing" constant="19" id="UNM-RT-hWz"/>
                             <constraint firstItem="IPU-Td-BY6" firstAttribute="baseline" secondItem="dyR-zb-6by" secondAttribute="baseline" id="Ums-eT-X8l"/>
-                            <constraint firstItem="osL-TY-FOS" firstAttribute="leading" secondItem="BzH-i5-TtI" secondAttribute="trailing" constant="17" id="V3a-Lg-O8G"/>
                             <constraint firstItem="lbw-56-RM0" firstAttribute="leading" secondItem="XPi-yp-SqA" secondAttribute="leading" constant="18" id="Vz6-Ca-Sqn"/>
+                            <constraint firstItem="dyR-zb-6by" firstAttribute="leading" secondItem="vbr-01-gek" secondAttribute="leading" id="WOa-lL-xKm"/>
                             <constraint firstItem="xHS-FT-F3i" firstAttribute="leading" secondItem="GRD-bu-siq" secondAttribute="leading" id="WjR-xs-MAO"/>
                             <constraint firstItem="vbr-01-gek" firstAttribute="top" secondItem="eM6-yN-Diz" secondAttribute="top" id="Xnb-Fh-uNW"/>
                             <constraint firstItem="eb5-aN-Fxg" firstAttribute="top" secondItem="ZIf-BR-al9" secondAttribute="bottom" constant="25" id="YTN-4u-fPH"/>
-                            <constraint firstItem="dyR-zb-6by" firstAttribute="trailing" secondItem="osL-TY-FOS" secondAttribute="trailing" id="Yxk-nW-Gwk"/>
                             <constraint firstItem="eM6-yN-Diz" firstAttribute="baseline" secondItem="vbr-01-gek" secondAttribute="baseline" id="ZGZ-iB-OTc"/>
                             <constraint firstItem="eb5-aN-Fxg" firstAttribute="trailing" secondItem="9r6-Hj-0Gh" secondAttribute="trailing" constant="1" id="ZWm-Va-hDJ"/>
+                            <constraint firstItem="dyR-zb-6by" firstAttribute="leading" secondItem="JSa-f6-mVu" secondAttribute="trailing" constant="17" id="ZcS-7n-xyx"/>
                             <constraint firstItem="CCt-IX-LtW" firstAttribute="leading" secondItem="XPi-yp-SqA" secondAttribute="leading" constant="6" id="aHF-HP-d3A"/>
                             <constraint firstItem="GRD-bu-siq" firstAttribute="top" secondItem="xHS-FT-F3i" secondAttribute="bottom" constant="23" id="aNb-y5-43a"/>
-                            <constraint firstItem="MAL-HB-KHc" firstAttribute="leading" secondItem="J2E-sR-YRQ" secondAttribute="leading" id="ajI-O2-hdT"/>
-                            <constraint firstItem="JSa-f6-mVu" firstAttribute="top" secondItem="BzH-i5-TtI" secondAttribute="bottom" constant="27" id="b0c-Wx-6aS"/>
                             <constraint firstItem="iQ9-O5-8cq" firstAttribute="leading" secondItem="CCt-IX-LtW" secondAttribute="leading" id="bRj-S0-ebg"/>
-                            <constraint firstItem="osL-TY-FOS" firstAttribute="baseline" secondItem="MAL-HB-KHc" secondAttribute="baseline" id="bax-Ir-H6w"/>
                             <constraint firstItem="eM6-yN-Diz" firstAttribute="top" secondItem="GRD-bu-siq" secondAttribute="bottom" constant="26" id="bsh-Z6-Rrn"/>
-                            <constraint firstItem="vbr-01-gek" firstAttribute="trailing" secondItem="osL-TY-FOS" secondAttribute="trailing" id="dpJ-C8-8xc"/>
                             <constraint firstItem="JSa-f6-mVu" firstAttribute="top" secondItem="dyR-zb-6by" secondAttribute="top" id="e8Q-re-hXZ"/>
-                            <constraint firstItem="MAL-HB-KHc" firstAttribute="trailing" secondItem="J2E-sR-YRQ" secondAttribute="trailing" id="eS7-Ze-K59"/>
                             <constraint firstItem="lbw-56-RM0" firstAttribute="top" secondItem="xHS-FT-F3i" secondAttribute="top" id="eif-z3-FPs"/>
                             <constraint firstItem="ZGJ-gU-57h" firstAttribute="baseline" secondItem="JSa-f6-mVu" secondAttribute="baseline" id="f1Y-yK-NVf"/>
-                            <constraint firstItem="eJb-p5-9OC" firstAttribute="leading" secondItem="osL-TY-FOS" secondAttribute="trailing" constant="33" id="f8O-dE-Ubd"/>
                             <constraint firstItem="VHD-hF-5KG" firstAttribute="top" secondItem="v9B-L4-vTR" secondAttribute="top" id="fx8-s0-UjJ"/>
                             <constraint firstItem="eb5-aN-Fxg" firstAttribute="leading" secondItem="ZIf-BR-al9" secondAttribute="leading" id="gA5-Xt-HQg"/>
+                            <constraint firstItem="JSa-f6-mVu" firstAttribute="leading" secondItem="ZGJ-gU-57h" secondAttribute="trailing" constant="24" id="hM9-MG-FKG"/>
+                            <constraint firstItem="ZGJ-gU-57h" firstAttribute="trailing" secondItem="J2E-sR-YRQ" secondAttribute="trailing" id="jBL-Um-1dw"/>
                             <constraint firstItem="VHD-hF-5KG" firstAttribute="leading" secondItem="xHS-FT-F3i" secondAttribute="trailing" constant="28" id="lI3-NJ-GRP"/>
                             <constraint firstItem="eb5-aN-Fxg" firstAttribute="leading" secondItem="9r6-Hj-0Gh" secondAttribute="leading" constant="1" id="lWW-L2-Xfd"/>
                             <constraint firstItem="lbw-56-RM0" firstAttribute="baseline" secondItem="xHS-FT-F3i" secondAttribute="baseline" id="mEt-ii-ykO"/>
                             <constraint firstItem="lbw-56-RM0" firstAttribute="top" secondItem="CCt-IX-LtW" secondAttribute="bottom" constant="7" id="naO-qt-8tu"/>
-                            <constraint firstItem="dyR-zb-6by" firstAttribute="top" secondItem="osL-TY-FOS" secondAttribute="bottom" constant="27" id="rOz-HW-822"/>
+                            <constraint firstItem="dyR-zb-6by" firstAttribute="trailing" secondItem="vbr-01-gek" secondAttribute="trailing" id="pp1-S1-04P"/>
                             <constraint firstItem="J2E-sR-YRQ" firstAttribute="top" secondItem="iQ9-O5-8cq" secondAttribute="bottom" constant="14" id="rc9-ip-sFd"/>
                             <constraint firstItem="dyR-zb-6by" firstAttribute="baseline" secondItem="JSa-f6-mVu" secondAttribute="baseline" id="s29-uR-vXM"/>
-                            <constraint firstItem="ZGJ-gU-57h" firstAttribute="leading" secondItem="MAL-HB-KHc" secondAttribute="leading" id="s6V-IF-O1H"/>
                             <constraint firstItem="IPU-Td-BY6" firstAttribute="leading" secondItem="9r6-Hj-0Gh" secondAttribute="leading" id="sRg-Qr-mgE"/>
                             <constraint firstItem="9r6-Hj-0Gh" firstAttribute="leading" secondItem="qas-cT-JxB" secondAttribute="trailing" constant="2" id="sWj-ZG-XKp"/>
                             <constraint firstItem="ZIf-BR-al9" firstAttribute="top" secondItem="v9B-L4-vTR" secondAttribute="bottom" constant="24" id="sZt-KF-MCm"/>
                             <constraint firstItem="eM6-yN-Diz" firstAttribute="baseline" secondItem="J2E-sR-YRQ" secondAttribute="baseline" id="sem-qo-JI7"/>
                             <constraint firstItem="qas-cT-JxB" firstAttribute="top" secondItem="ZGJ-gU-57h" secondAttribute="bottom" constant="13" id="uK0-SF-2wt"/>
                             <constraint firstItem="v9B-L4-vTR" firstAttribute="baseline" secondItem="VHD-hF-5KG" secondAttribute="baseline" id="uVe-Xh-FjW"/>
-                            <constraint firstItem="MAL-HB-KHc" firstAttribute="top" secondItem="J2E-sR-YRQ" secondAttribute="bottom" constant="16" id="v1s-lN-QJp"/>
                             <constraint firstItem="IPU-Td-BY6" firstAttribute="trailing" secondItem="9r6-Hj-0Gh" secondAttribute="trailing" id="v95-ds-tm1"/>
                             <constraint firstItem="GRD-bu-siq" firstAttribute="leading" secondItem="iQ9-O5-8cq" secondAttribute="trailing" constant="8" symbolic="YES" id="vJR-Vi-cfE"/>
                             <constraint firstItem="k1F-un-DCd" firstAttribute="leading" secondItem="vbr-01-gek" secondAttribute="leading" id="vPL-pV-xbS"/>
                             <constraint firstItem="iQ9-O5-8cq" firstAttribute="leading" secondItem="J2E-sR-YRQ" secondAttribute="leading" id="xIs-bi-1ZF"/>
-                            <constraint firstItem="JSa-f6-mVu" firstAttribute="leading" secondItem="BzH-i5-TtI" secondAttribute="leading" id="xNW-Yt-zra"/>
                             <constraint firstItem="GRD-bu-siq" firstAttribute="baseline" secondItem="k1F-un-DCd" secondAttribute="baseline" id="xsk-KF-XaW"/>
-                            <constraint firstItem="osL-TY-FOS" firstAttribute="baseline" secondItem="eJb-p5-9OC" secondAttribute="baseline" id="xtt-FW-mOJ"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="EHo-Qt-pI4"/>
@@ -3032,16 +2991,13 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                     <connections>
                         <outlet property="scoreCheckIn" destination="eb5-aN-Fxg" id="9t5-zl-UDU"/>
                         <outlet property="scoreLike" destination="IPU-Td-BY6" id="Ajz-UZ-h03"/>
-                        <outlet property="scoreRSVP" destination="eJb-p5-9OC" id="SGC-oR-7zA"/>
                         <outlet property="scoreShare" destination="ZIf-BR-al9" id="shO-BS-2tK"/>
                         <outlet property="totalShnergleScore" destination="9r6-Hj-0Gh" id="DKM-Lu-V0J"/>
                         <outlet property="valueCheckIn" destination="vbr-01-gek" id="VZm-ST-Fmc"/>
                         <outlet property="valueLike" destination="dyR-zb-6by" id="Gww-CG-68f"/>
-                        <outlet property="valueRSVP" destination="osL-TY-FOS" id="dCi-Uf-6Ve"/>
                         <outlet property="valueShare" destination="k1F-un-DCd" id="t7i-rQ-eKv"/>
                         <outlet property="youCheckIn" destination="eM6-yN-Diz" id="GQa-oS-3oi"/>
                         <outlet property="youLike" destination="JSa-f6-mVu" id="Bat-wF-ynd"/>
-                        <outlet property="youRSVP" destination="BzH-i5-TtI" id="3ru-lp-DVc"/>
                         <outlet property="youShare" destination="GRD-bu-siq" id="Znm-o9-p5Z"/>
                     </connections>
                 </viewController>
@@ -3180,7 +3136,7 @@ Don't waste time wandering around looking for the right place, now you can #Shne
                                     </fragment>
                                     <fragment>
                                         <string key="content">
-Shnergle lets you see photos and comments  about specific places posted by Merchants and the Shnergle community, along with when the photos were taken. We only show activity from the last 8 days, and we only show how many people have RSVP'd to go to a place today - there is too much out of date information out there and we think you deserve the latest info!
+Shnergle lets you see photos and comments  about specific places posted by Merchants and the Shnergle community, along with when the photos were taken. We only show the last 50 images - there is too much out of date information out there and we think you deserve the most recent info!
 
 
 </string>
@@ -4179,7 +4135,7 @@ If you have any questions, comments or requests regarding this Policy, please co
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZkD-aC-df9">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                                 <color key="backgroundColor" red="0.9137254901960784" green="0.92156862745098034" blue="0.94117647058823528" alpha="1" colorSpace="calibratedRGB"/>
-                                <string key="text">Shnergle Terms of Use 
+                                <mutableString key="text">Shnergle Terms of Use 
 Last Update: 26 July 2013
 
 1.	INTRODUCTION
@@ -4262,7 +4218,7 @@ Last Update: 26 July 2013
 
 
 10.	PUBLIC USE 
-10.1	By using the App you understand and agree that we are providing you with a platform for you to post your User Content and to share User Content publically. This means that other Users may search for, see, use or share any of your User Content. User Content will be publically available to other Users for only eight (8) days from the date on which it is posted. Be sure that any information or material that you include in your User Content that you choose to share through the App is therefore information that you are comfortable with sharing with others. If you are not comfortably with sharing any portion of the information or material that is included in your User Content, do not submit your User Content through the App or Service. 
+10.1	By using the App you understand and agree that we are providing you with a platform for you to post your User Content and to share User Content publically. This means that other Users may search for, see, use or share any of your User Content. Be sure that any information or material that you include in your User Content that you choose to share through the App is therefore information that you are comfortable with sharing with others. If you are not comfortably with sharing any portion of the information or material that is included in your User Content, do not submit your User Content through the App or Service. 
 
 
 11.	RULES AND CONDUCT  
@@ -4434,7 +4390,7 @@ Apple is a third party beneficiary of the Terms
 23.	CHANGES TO THE TERMS
 23.1	We may vary the Terms as and when we consider it appropriate or necessary for legal reasons or to reflect changes in the App.  If so, then we will make the revised Terms available at (http://www.shnergle.com) and in some cases, where appropriate, we may provide you with additional notice (such as sending you an email notification or posting on a social media site). Any changes will be effective upon posting the revised version of these Terms on the Service (or such later effective date as may be indicated at the top of the revised Terms). If we do update these Terms and you do not agree to the updated Terms, you shall be free to decide whether to accept the terms or stop using the App. You can close your Account with us at any time by emailing us at contact@shnergle.com.  
 
-</string>
+</mutableString>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
@@ -4553,48 +4509,8 @@ Apple is a third party beneficiary of the Terms
                                             <segue destination="O8X-O7-5VA" kind="push" identifier="PromotionSegue" id="a2Y-9k-vg8"/>
                                         </connections>
                                     </tableViewCell>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="MyCell13" textLabel="hR5-fa-Cbc" style="IBUITableViewCellStyleDefault" id="xH9-FP-E3k">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" indentationWidth="10" reuseIdentifier="MyCell13" id="F5d-uz-Yje">
                                         <rect key="frame" x="0.0" y="198" width="231" height="44"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="xH9-FP-E3k" id="JD1-Nu-1Q1">
-                                            <rect key="frame" x="0.0" y="0.0" width="231" height="43"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="hR5-fa-Cbc">
-                                                    <rect key="frame" x="15" y="0.0" width="201" height="43"/>
-                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
-                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                                    <color key="highlightedColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                                </label>
-                                            </subviews>
-                                        </tableViewCellContentView>
-                                        <color key="backgroundColor" red="0.27843138575553894" green="0.27843138575553894" blue="0.27843138575553894" alpha="1" colorSpace="deviceRGB"/>
-                                        <connections>
-                                            <segue destination="O8X-O7-5VA" kind="push" identifier="QuietSegue" id="qi3-4u-rGV"/>
-                                        </connections>
-                                    </tableViewCell>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="MyCell14" textLabel="Yg3-mM-ame" style="IBUITableViewCellStyleDefault" id="MH8-dn-GSk">
-                                        <rect key="frame" x="0.0" y="242" width="231" height="44"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="MH8-dn-GSk" id="4vC-gB-sqg">
-                                            <rect key="frame" x="0.0" y="0.0" width="231" height="43"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Yg3-mM-ame">
-                                                    <rect key="frame" x="15" y="0.0" width="201" height="43"/>
-                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
-                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                                    <color key="highlightedColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                                </label>
-                                            </subviews>
-                                        </tableViewCellContentView>
-                                        <color key="backgroundColor" red="0.27843138575553894" green="0.27843138575553894" blue="0.27843138575553894" alpha="1" colorSpace="deviceRGB"/>
-                                        <connections>
-                                            <segue destination="O8X-O7-5VA" kind="push" identifier="TrendingSegue" id="GBJ-CV-e6H"/>
-                                        </connections>
-                                    </tableViewCell>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" indentationWidth="10" reuseIdentifier="MyCell15" id="F5d-uz-Yje">
-                                        <rect key="frame" x="0.0" y="286" width="231" height="44"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="F5d-uz-Yje" id="phC-f4-x7z">
                                             <rect key="frame" x="0.0" y="0.0" width="231" height="43"/>
@@ -4605,7 +4521,7 @@ Apple is a third party beneficiary of the Terms
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="blue" indentationWidth="10" reuseIdentifier="MyCellVenue" id="pY0-TW-hUf">
-                                        <rect key="frame" x="0.0" y="330" width="231" height="44"/>
+                                        <rect key="frame" x="0.0" y="242" width="231" height="44"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="pY0-TW-hUf" id="82J-5y-Jdz">
                                             <rect key="frame" x="0.0" y="0.0" width="231" height="43"/>
@@ -4616,7 +4532,7 @@ Apple is a third party beneficiary of the Terms
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="blue" indentationWidth="10" reuseIdentifier="MyCell20" id="kI5-DE-94P">
-                                        <rect key="frame" x="0.0" y="374" width="231" height="44"/>
+                                        <rect key="frame" x="0.0" y="286" width="231" height="44"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="kI5-DE-94P" id="PIo-l2-uLT">
                                             <rect key="frame" x="0.0" y="0.0" width="231" height="43"/>
@@ -4627,7 +4543,7 @@ Apple is a third party beneficiary of the Terms
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="blue" indentationWidth="10" reuseIdentifier="MyCell21" id="eA1-bc-QFs">
-                                        <rect key="frame" x="0.0" y="418" width="231" height="44"/>
+                                        <rect key="frame" x="0.0" y="330" width="231" height="44"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="eA1-bc-QFs" id="wBc-aq-Rbq">
                                             <rect key="frame" x="0.0" y="0.0" width="231" height="43"/>
@@ -4638,7 +4554,7 @@ Apple is a third party beneficiary of the Terms
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="blue" indentationWidth="10" reuseIdentifier="MyCell22" id="otB-E8-dn7">
-                                        <rect key="frame" x="0.0" y="462" width="231" height="44"/>
+                                        <rect key="frame" x="0.0" y="374" width="231" height="44"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="otB-E8-dn7" id="cuE-Nw-XxS">
                                             <rect key="frame" x="0.0" y="0.0" width="231" height="43"/>
@@ -4649,7 +4565,7 @@ Apple is a third party beneficiary of the Terms
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="blue" indentationWidth="10" reuseIdentifier="MyCell23" id="3V3-r7-WgZ">
-                                        <rect key="frame" x="0.0" y="506" width="231" height="44"/>
+                                        <rect key="frame" x="0.0" y="418" width="231" height="44"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="3V3-r7-WgZ" id="bl5-pq-daA">
                                             <rect key="frame" x="0.0" y="0.0" width="231" height="43"/>
@@ -4660,7 +4576,7 @@ Apple is a third party beneficiary of the Terms
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="blue" indentationWidth="10" reuseIdentifier="MyCell24" id="pmO-w6-8Ro">
-                                        <rect key="frame" x="0.0" y="550" width="231" height="44"/>
+                                        <rect key="frame" x="0.0" y="462" width="231" height="44"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="pmO-w6-8Ro" id="eip-Bf-4Tu">
                                             <rect key="frame" x="0.0" y="0.0" width="231" height="43"/>
@@ -4831,12 +4747,12 @@ Apple is a third party beneficiary of the Terms
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="xzO-IX-Cmd"/>
+        <segue reference="hoH-3k-0HF"/>
+        <segue reference="mMx-sI-unJ"/>
         <segue reference="FIu-Ud-A3V"/>
-        <segue reference="Dyu-vl-dRT"/>
-        <segue reference="wJZ-W6-KFM"/>
+        <segue reference="a2Y-9k-vg8"/>
+        <segue reference="1nI-j0-QaW"/>
+        <segue reference="cQy-dx-7sJ"/>
         <segue reference="V1y-Vn-JKN"/>
-        <segue reference="WSb-QO-1iD"/>
-        <segue reference="qNM-G7-JMr"/>
     </inferredMetricsTieBreakers>
 </document>

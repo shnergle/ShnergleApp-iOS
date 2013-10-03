@@ -18,10 +18,6 @@
 @property (weak, nonatomic) IBOutlet UILabel *valueCheckIn;
 @property (weak, nonatomic) IBOutlet UILabel *scoreCheckIn;
 
-@property (weak, nonatomic) IBOutlet UILabel *youRSVP;
-@property (weak, nonatomic) IBOutlet UILabel *valueRSVP;
-@property (weak, nonatomic) IBOutlet UILabel *scoreRSVP;
-
 @property (weak, nonatomic) IBOutlet UILabel *youLike;
 @property (weak, nonatomic) IBOutlet UILabel *valueLike;
 @property (weak, nonatomic) IBOutlet UILabel *scoreLike;

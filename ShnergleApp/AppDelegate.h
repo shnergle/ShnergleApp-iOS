@@ -21,7 +21,6 @@
 
 @property (strong, nonatomic) NSString *youShare;
 @property (strong, nonatomic) NSString *checkIn;
-@property (strong, nonatomic) NSString *rsvp;
 @property (strong, nonatomic) NSString *comment;
 @property (strong, nonatomic) NSString *like;
 @property (strong, nonatomic) NSString *totalScore;
