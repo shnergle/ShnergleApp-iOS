@@ -105,36 +105,6 @@
     [Flurry logEvent:@"Venue slider up"];
 }
 
-- (IBAction)tappedGoing:(id)sender {
-    self.thinkingView.enabled = NO;
-    self.goingView.enabled = NO;
-
-    NSDictionary *params = @{@"venue_id": appDelegate.activeVenue[@"id"],
-                             @"going": @"true",
-                             @"from_time": @([Request time:NO]),
-                             @"until_time": @([Request time:YES])};
-    [Request post:@"venue_rsvps/set" params:params callback:^(id response) {
-        [self didIntent:response];
-    }];
-    [Flurry logEvent:@"RSVP'd" withParameters:@{@"type": @"going"}];
-}
-
-- (IBAction)tappedThinking:(id)sender {
-    self.thinkingView.enabled = NO;
-    NSDictionary *params = @{@"venue_id": appDelegate.activeVenue[@"id"],
-                             @"maybe": @"true",
-                             @"from_time": @([Request time:NO]),
-                             @"until_time": @([Request time:YES])};
-    [Request post:@"venue_rsvps/set" params:params callback:^(id response) {
-        [self didIntent:response];
-    }];
-    [Flurry logEvent:@"RSVP'd" withParameters:@{@"type": @"maybe"}];
-}
-
-- (void)didIntent:(id)response {
-    [self loadVenueIntentions];
-}
-
 - (IBAction)publishTapped:(id)sender {
     [self.summaryContentTextField resignFirstResponder];
     self.summaryContentTextField.editable = NO;
@@ -254,7 +224,6 @@
 }
 
 - (void)venueLayoutConfig {
-    [self hasAlreadyRSVPd];
     self.promotionImage.hidden = YES;
     self.promotionHeadline.hidden = YES;
     self.promotionContents.hidden = YES;
@@ -284,16 +253,9 @@
         [self setContactDetails];
 
         self.publishButton.hidden = YES;
-        self.intentionHeightConstraints.constant = 0;
-
-        self.intentionHeightConstraints.constant = 64;
     } else if ([appDelegate.activeVenue[@"official"] integerValue] == 0) {
         self.claimVenueButton.hidden = NO;
-        self.intentionHeightConstraints.constant = 64;
-    } else if ([appDelegate.activeVenue[@"official"] integerValue] == 1) {
-        self.intentionHeightConstraints.constant = 0;
     }
-
 
     if (appDelegate.venueStatus == Manager && [appDelegate.activeVenue[@"verified"] integerValue] == 1) {
         self.postUpdateButton.hidden = NO;
@@ -302,12 +264,6 @@
         self.staffButton.hidden = NO;
         self.analyticsImage.hidden = NO;
         self.analyticsLabel.hidden = NO;
-        self.thinkingView.hidden = YES;
-        [self loadVenueIntentions];
-        self.goingView.hidden = YES;
-        self.goingLabel.hidden = NO;
-        self.thinkingLabel.hidden = NO;
-        self.rsvpQuestionLabel.hidden = YES;
         self.staffImage.hidden = NO;
         self.staffLabel.hidden = NO;
     } else if (appDelegate.venueStatus == Staff && [appDelegate.activeVenue[@"verified"] integerValue] == 1) {
@@ -329,35 +285,8 @@
     }
 }
 
-- (void)loadVenueIntentions {
-    [self makeToastActivity];
-    NSDictionary *params = @{@"venue_id": appDelegate.activeVenue[@"id"],
-                             @"from_time": @([Request time:NO]),
-                             @"until_time": @([Request time:YES])};
-    [Request post:@"venue_rsvps/get" params:params callback:^(id response) {
-        [self hideToastActivity];
-        self.rsvpQuestionLabel.hidden = YES;
-        self.thinkingLabel.hidden = NO;
-        self.goingLabel.hidden = NO;
-        self.thinkingLabel.text = [response[@"maybe"] stringValue];
-        self.goingLabel.text = [response[@"going"] stringValue];
-    }];
-}
-
-- (void)hasAlreadyRSVPd {
-    NSDictionary *params = @{@"venue_id": appDelegate.activeVenue[@"id"],
-                             @"own": @"true",
-                             @"from_time": @([Request time:NO]),
-                             @"until_time": @([Request time:YES])};
-    [Request post:@"venue_rsvps/get" params:params callback:^(id response) {
-        if ([response[@"going"] integerValue] > 0 || [response[@"maybe"] integerValue] > 0) [self loadVenueIntentions];
-    }];
-}
-
 - (void)didAppear {
     [self venueLayoutConfig];
-    self.thinkingLabel.hidden = YES;
-    self.goingLabel.hidden = YES;
     if (appDelegate.venueDetailsContent) [self registerVenue];
     if ([[self.summaryContentTextField.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet] ] isEqual:@""] && [[self.summaryHeadlineTextField.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]] isEqual:@""] && appDelegate.venueStatus == Manager) {
         self.summaryContentTextField.text = @"";
