@@ -60,6 +60,12 @@
 
 - (NSString *)getDateFromUnixFormat:(id)unixFormat {
     NSDate *date = [NSDate dateWithTimeIntervalSince1970:[unixFormat integerValue]];
+    if ([unixFormat integerValue] < [[NSDate date] timeIntervalSince1970] - 86400 * 8) {
+        NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+        dateFormatter.dateStyle = NSDateFormatterShortStyle;
+        dateFormatter.timeStyle = NSDateFormatterShortStyle;
+        return [dateFormatter stringFromDate:date];
+    }
     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
     dateFormatter.dateFormat = @"ccc H:mm";
     return [date timeAgoWithLimit:86400 dateFormatter:dateFormatter];
